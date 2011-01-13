@@ -89,6 +89,9 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [Credentials](./docs/credentials/README.md)
   * [Service users](./docs/credentials/service-users.md)
 
+### User flows
+* [User Management > Reset password (external)](./docs/flows/user-management/external-password-reset.md)
+
 ## Getting started
 
 **Requirements**
