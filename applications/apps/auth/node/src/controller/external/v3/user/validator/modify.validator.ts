@@ -1,8 +1,8 @@
-import { ExternalUserPatchRequest } from "@wraithlight/core.user-management.types";
-import { ValidationRule, Validator } from "@wraithlight/core.validator";
 import {
   PASSWORD_REGEX
 } from "@wraithlight/common.regex";
+import { ExternalUserPatchRequest } from "@wraithlight/core.user-management.types";
+import { ValidationRule, Validator } from "@wraithlight/core.validator";
 
 import {
   PASSWORD_MAX_LENGTH,
