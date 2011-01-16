@@ -1,10 +1,10 @@
-import { ExternalUserPostRequest } from "@wraithlight/core.user-management.types";
-import { ValidationRule, Validator } from "@wraithlight/core.validator";
 import {
   EMAIL_REGEX,
-  USERNAME_REGEX,
-  PASSWORD_REGEX
+  PASSWORD_REGEX,
+  USERNAME_REGEX
 } from "@wraithlight/common.regex";
+import { ExternalUserPostRequest } from "@wraithlight/core.user-management.types";
+import { ValidationRule, Validator } from "@wraithlight/core.validator";
 
 import {
   EMAIL_MAX_LENGTH,
