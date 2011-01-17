@@ -254,7 +254,8 @@
               "required": [
                 "summary",
                 "parameters",
-                "tags"
+                "tags",
+                "operationId"
               ],
               "additionalProperties": false
             },
