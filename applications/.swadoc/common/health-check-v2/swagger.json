@@ -37,6 +37,7 @@
   "paths": {
     "/api/v1/health-check/metrics": {
       "get": {
+        "operationId": "getHealthCheckMetrics",
         "summary": "Endpoint that return the current metrics.",
         "tags": [
           "common/healthcheck"
@@ -132,6 +133,7 @@
     },
     "/api/v1/health-check/health": {
       "get": {
+        "operationId": "getHealthCheckHealt",
         "summary": "Endpoint that returns the current status of the API.",
         "tags": [
           "common/healthcheck"
