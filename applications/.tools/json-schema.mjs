@@ -13,7 +13,8 @@ const libFolders = [
 ];
 const ignoreFolders = [
   "node_modules",
-  "tools"
+  "tools",
+  "dist"
 ]
 
 const filesSwitch = "--files=";
