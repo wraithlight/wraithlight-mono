@@ -1,0 +1,6 @@
+FROM mysql:8.0.32
+WORKDIR /usr/src/app
+
+ADD dist/* /docker-entrypoint-initdb.d/
+
+EXPOSE 3306
