@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@wraithlight/*": [
+                "packages/*/src/index.ts"
+            ]
+        }
+    }
+}
