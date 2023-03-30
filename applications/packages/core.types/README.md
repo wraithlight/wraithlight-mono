@@ -5,3 +5,4 @@ Utility types.
 * [guid](./src/guid/README.md)
 * [number](./src/number/README.md)
 * [string](./src/string/README.md)
+* [boolean](./src/boolean/README.md)
