@@ -11,7 +11,7 @@ INSERT INTO `Scope` (
     0
 );
 
--- GAME
+-- GAME Website
 INSERT INTO `Scope` (
     `Id`,
     `Label`,
@@ -19,8 +19,21 @@ INSERT INTO `Scope` (
     `IsDeleted`
 ) VALUES (
     "d97a2422-ed75-46cb-90c6-6172a3e5949e",
-    "Game",
-    "Game application login scope",
+    "GameWebsite",
+    "GameWebsite application login scope",
+    0
+);
+
+-- GAME Application
+INSERT INTO `Scope` (
+    `Id`,
+    `Label`,
+    `Description`,
+    `IsDeleted`
+) VALUES (
+    "8cf5631d-8bb4-4697-8c43-85b3a94da8dc",
+    "GameApplication",
+    "GameApplication application login scope",
     0
 );
 
