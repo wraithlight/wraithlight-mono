@@ -1,4 +1,5 @@
 import { Connection, createConnection } from "mysql2";
+
 import { DbSet } from "./dbset";
 
 export abstract class DbContext {

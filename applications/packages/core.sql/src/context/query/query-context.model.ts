@@ -1,4 +1,4 @@
-import { Nullable } from "@zf/core.types";
+import { Nullable } from "@wraithlight/core.types";
 
 export interface SelectQueryContext<T> {
 

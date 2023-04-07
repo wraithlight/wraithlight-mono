@@ -1,4 +1,5 @@
-import { Nullable, Primitive } from "@zf/core.types";
+import { Nullable, Primitive } from "@wraithlight/core.types";
+
 import { DbContext } from "../dbcontext";
 
 import { QueryContext } from "./query-context";

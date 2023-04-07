@@ -1,4 +1,4 @@
-import { Primitive } from "@zf/core.types";
+import { Primitive } from "@wraithlight/core.types";
 import { EOL } from "os";
 
 import { DbContext } from "../dbcontext";
