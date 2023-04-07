@@ -15,7 +15,7 @@ export function concatFiles(
     }
     const files = readdirSync(filesPath);
     for (const file of files) {
-        console.log(` + ${file}`);
+        console.log(`┠-- ${file}`);
         const filePath = join(filesPath, file);
         const buffer = readFileSync(filePath);
         const content = [
