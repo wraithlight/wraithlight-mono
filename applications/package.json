@@ -1,6 +1,9 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "lerna": "lerna"
+  },
   "workspaces": [
     "apps/**/*",
     "packages/*"
