@@ -1,5 +1,5 @@
 {
-    "name": "@zf/core.http",
+    "name": "@wraithlight/core.http",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "version": "1.0.0",
