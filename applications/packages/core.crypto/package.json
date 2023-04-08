@@ -1,0 +1,19 @@
+{
+    "name": "@wraithlight/core.crypto",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "webpack",
+        "build:prod": "webpack --env production"
+    },
+    "dependencies": {
+        "crypto-js": "~4.1.1"
+    },
+    "devDependencies": {
+        "webpack": "~5.75.0",
+        "webpack-cli": "~5.0.1",
+        "ts-loader": "~9.4.2",
+        "@types/crypto-js": "~4.1.1"
+    }
+}
