@@ -20,5 +20,11 @@ export const SERVER_STATIC: ServerModel = Object.freeze({
 });
 
 export const COMMON_STATIC: CommonModel = Object.freeze({
-    isProduction: false
+    isProduction: false,
+    auth: {
+        address: {
+            host: "",
+            port: 0
+        }
+    }
 });
