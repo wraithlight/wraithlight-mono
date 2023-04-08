@@ -6,4 +6,8 @@ export * from "./add-hours";
 export * from "./add-days";
 export * from "./add-weeks";
 
+export * from "./utc";
+export * from "./serialize";
+export * from "./deserialize";
+
 export * from "./operations";
