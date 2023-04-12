@@ -1,4 +1,4 @@
-CONTAINER_NAME=wraithlight-auth
+CONTAINER_NAME=wraithlight-db-auth
 SQL_ROOT_PASSWORD=wraithlight-auth-pw
 SQL_USERNAME=wraithlight-auth-user-1
 SQL_PASSWORD=wraithlight-auth-user-1-pw

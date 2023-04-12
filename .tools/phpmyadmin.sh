@@ -1,7 +1,7 @@
 #!/bin/bash
 
-TARGET_CONTAINER=wraithlight-logs
-CONTAINER_NAME=wraithlight-phpmyadmin
+TARGET_CONTAINER=wraithlight-db-logs
+CONTAINER_NAME=wraithlight-db-phpmyadmin
 NETWORK_NAME=WL_Internal
 
 docker stop $CONTAINER_NAME >/dev/null 2>&1 || true
