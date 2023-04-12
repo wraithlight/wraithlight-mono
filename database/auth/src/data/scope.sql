@@ -75,3 +75,16 @@ INSERT INTO `Scope` (
     "Forum application login scope",
     0
 );
+
+-- LOGS
+INSERT INTO `Scope` (
+    `Id`,
+    `Label`,
+    `Description`,
+    `IsDeleted`
+) VALUES (
+    "7ac64569-5a99-4afb-9180-ca8c1bec3822",
+    "Logs",
+    "Logs application login scope",
+    0
+);
