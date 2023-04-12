@@ -4,5 +4,6 @@ export const enum LoginScope {
     GameApplication = "GameApplication",
     Content = "Content",
     UserManagement = "UserManagement",
-    Forum = "Forum"
+    Forum = "Forum",
+    Logs = "Logs"
 }
