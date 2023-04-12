@@ -35,12 +35,12 @@ export abstract class BaseController {
         this.json(HttpCodes.Ok, data);
     }
 
-    protected created(): void {
-        this.json(HttpCodes.Created);
+    protected created<TData>(data?: TData): void {
+        this.json(HttpCodes.Created, data);
     }
 
     protected badRequest<TData>(data?: TData): void {
-        this.json(HttpCodes.BadRequest);
+        this.json(HttpCodes.BadRequest, data);
     }
 
     protected unauthorized<TData>(data?: TData): void {
