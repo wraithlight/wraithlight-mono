@@ -16,6 +16,19 @@ export const SERVER_STATIC: ServerModel = Object.freeze({
             password: "",
             database: ""
         }
+    },
+    logs: {
+        database: {
+            host: "",
+            port: 0,
+            username: "",
+            password: "",
+            database: ""
+        },
+        address: {
+            host: "",
+            port: 0
+        }
     }
 });
 
