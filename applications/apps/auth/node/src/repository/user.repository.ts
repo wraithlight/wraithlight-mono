@@ -14,7 +14,14 @@ export class UserRepository {
         ;
     }
 
-    public findUserByName(username: string): Promise<Nullable<UserDbo>> {
+    public async update(userId: string, model: Partial<UserDbo>): Promise<void> {
+        this._dbContext.Users
+            .update("id", userId, model)
+            .run()
+        ;
+    }
+
+    public async findUserByName(username: string): Promise<Nullable<UserDbo>> {
         return this._dbContext.Users
             .select()
             .where("username", username)

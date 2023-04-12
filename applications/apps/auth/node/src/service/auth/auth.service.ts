@@ -41,6 +41,8 @@ export class AuthService {
         const hashedPassword = this._passwordService.hashPassword(saltedPassword);
         const isPasswordMatch = this._passwordService.verifyPassword(hashedPassword, user.passwordHash);
         if (!isPasswordMatch) {
+            user.failedLoginAttempts += 1;
+            this._userRepository.update(user.id, { failedLoginAttempts: user.failedLoginAttempts });
             return {
                 success: false,
                 errors: [AUTH_ERRORS.invalidPassword]
@@ -68,6 +70,8 @@ export class AuthService {
                 errors: [AUTH_ERRORS.needsEmailVerify]
             };
         }
+
+        await this._userRepository.update(user.id, { failedLoginAttempts: 0 });
 
         return {
             success: true
