@@ -1,0 +1,12 @@
+{
+    "name": "@wraithlight/logs.node",
+    "version": "1.0.0",
+    "dependencies": {
+        "@wraithlight/core.node": "*",
+        "@wraithlight/core.logs-common": "*",
+        "@wraithlight/core.types": "*"
+    },
+    "devDependencies": {
+        "typescript": "~5.0.3"
+    }
+}
