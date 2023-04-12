@@ -5,8 +5,8 @@ INSERT INTO `Logs` (
     `Message`,
     `LogDate`
 ) VALUES (
-    "INFO",
-    "LogsDatabase",
+    "INF",
+    "LOGS",
     "Database is up!",
     UTC_TIMESTAMP()
 );
