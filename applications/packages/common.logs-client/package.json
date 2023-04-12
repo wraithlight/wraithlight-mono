@@ -1,0 +1,23 @@
+{
+    "name": "@wraithlight/common.logs-client",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "version": "1.1.0",
+    "scripts": {
+        "build": "webpack",
+        "build:prod": "webpack --env production"
+    },
+    "dependencies": {
+        "@wraithlight/core.logs-common": "*",
+        "@wraithlight/core.http": "*",
+        "@wraithlight/core.node": "*",
+        "@wraithlight/core.env-static": "*",
+        "@wraithlight/core.types": "*"
+    },
+    "devDependencies": {
+        "webpack": "~5.75.0",
+        "webpack-cli": "~5.0.1",
+        "ts-loader": "~9.4.2",
+        "@types/express": "~4.17.17"
+    }
+}
