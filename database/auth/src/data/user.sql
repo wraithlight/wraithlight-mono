@@ -3,11 +3,11 @@ INSERT INTO `User` (
     `Id`,
     `Username`,
     `EmailAddress`,
-    `PasswordHash`,
     `PasswordSalt`,
+    `PasswordHash`,
     `FailedLoginAttempts`,
     `Status`,
-    `IsDeleted`,
+    `IsDeleted`
 ) VALUES (
     "7777ba27-da56-4ddd-ae97-f38a1e48effa",
     "root",
