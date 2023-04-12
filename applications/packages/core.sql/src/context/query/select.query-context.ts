@@ -1,13 +1,16 @@
-import { Nullable, Primitive } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.types";
 
 import { DbContext } from "../dbcontext";
 
-import { QueryContext } from "./query-context";
+import { WhereableQueryContext } from "./_internal";
+
 import {
-    SelectQueryContext as ISelectQueryContext
+    SelectQueryContext as ISelectQueryContext,
 } from "./query-context.model";
 
-export class SelectQueryContext<T> extends QueryContext<T> implements ISelectQueryContext<T> {
+export class SelectQueryContext<T>
+    extends WhereableQueryContext<T>
+    implements ISelectQueryContext<T> {
 
     constructor(
         tableName: string,
@@ -15,22 +18,6 @@ export class SelectQueryContext<T> extends QueryContext<T> implements ISelectQue
     ) {
         super(tableName);
         this.addQuery(`SELECT * FROM ${tableName}`);
-    }
-
-    public where<TKey extends keyof T>(key: TKey, value: T[TKey]): ISelectQueryContext<T> {
-        const queryValue = this.getValueString(value as Primitive);
-        this.addQuery(`WHERE ${this._tableName}.${this.capitalize(key.toString())} = ${queryValue}`);
-        return this;
-    }
-
-    public orderByAsc<TKey extends keyof T>(key: TKey): ISelectQueryContext<T> {
-        this.orderBy(key.toString(), "ASC");
-        return this;
-    }
-
-    public orderByDesc<TKey extends keyof T>(key: TKey): ISelectQueryContext<T> {
-        this.orderBy(key.toString(), "DESC");
-        return this;
     }
 
     public toList(): Promise<Array<T>> {
@@ -46,6 +33,18 @@ export class SelectQueryContext<T> extends QueryContext<T> implements ISelectQue
                 : undefined
             ;
         });
+    }
+
+    public where<TKey extends keyof T>(key: TKey, value: T[TKey]): SelectQueryContext<T> {
+        return <SelectQueryContext<T>>super.where(key, value);
+    }
+
+    public orderByAsc<TKey extends keyof T>(key: TKey): SelectQueryContext<T> {
+        return <SelectQueryContext<T>>super.orderByAsc(key);
+    }
+
+    public orderByDesc<TKey extends keyof T>(key: TKey): SelectQueryContext<T> {
+        return <SelectQueryContext<T>>super.orderByDesc(key);
     }
 
     private async exec(command: string): Promise<Array<T>> {
@@ -67,10 +66,6 @@ export class SelectQueryContext<T> extends QueryContext<T> implements ISelectQue
                 resolve(result);
             });
         });
-    }
-
-    private orderBy(key: string, direction: "ASC" | "DESC"): void {
-        this.addQuery(`ORDER BY ${this._tableName}.${this.capitalize(key.toString())} ${direction}`);
     }
 
 }

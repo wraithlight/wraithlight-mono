@@ -33,4 +33,32 @@ export abstract class QueryContext<T> {
         }
     }
 
+    protected getColumnValuePairs(data: T): string {
+        const keys = Object.keys(data);
+        return keys.map(key => 
+            `${this._tableName}.${this.capitalize(key)} = ${this.getValueString(data[key])}`
+        ).join(`,${EOL}`);
+    }
+
+    protected getColumns(data: T): string {
+        const keys = Object.keys(data);
+        return [
+            "(",
+            keys.map(m => this.capitalize(m)).join(", "),
+            ")"
+        ].join("");
+    }
+
+    protected getColumnValues(data: T): string {
+        const values = Object
+            .values(data)
+            .map(m => this.getValueString(m as Primitive))
+        ;
+        return [
+            "(",
+            values.join(", "),
+            ")"
+        ].join("");
+    }
+
 }
