@@ -1,2 +1,1 @@
-export interface ClientModel {
-}
+export interface ClientModel { }

@@ -39,5 +39,11 @@ export const COMMON_STATIC: CommonModel = Object.freeze({
             host: "",
             port: 0
         }
+    },
+    gameWebsite: {
+        gameApiAddress: {
+            host: "",
+            port: 0
+        }
     }
 });
