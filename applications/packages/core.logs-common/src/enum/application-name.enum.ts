@@ -5,5 +5,6 @@ export const enum ApplicationName {
     Content = "CONTENT",
     UserManagement = "USER_MANAGEMENT",
     Forum = "FORUM",
-    Logs = "LOGS"
+    Logs = "LOGS",
+    Editor = "EDITOR"
 }
