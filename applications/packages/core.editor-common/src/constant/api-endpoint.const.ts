@@ -9,6 +9,7 @@ export const EDITOR_API_ENDPOINTS = Object.freeze({
         root: V1_EDITOR_AUTH_ROOT,
         login: "/login",
         logout: "/logout",
-        renew: "/renew"
+        renew: "/renew",
+        validate: "/validate"
     }
 });

@@ -4,7 +4,6 @@ export interface BaseValidateResponse {
 
 export interface SuccessValidateResponse extends BaseValidateResponse {
     token: string;
-    validUntil: Date;
 }
 
 export interface FailValidateResponse extends BaseValidateResponse {
