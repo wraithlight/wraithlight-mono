@@ -8,5 +8,6 @@ export const SCOPE_NAME_MAP: {[key: string]: Guid } = Object.freeze({
     [LoginScope.Content]: "bb2dbe19-705d-4ddf-98a7-14c19a9c0c60",
     [LoginScope.UserManagement]: "a3d0db9e-3fb5-414a-9f6c-1bf034339322",
     [LoginScope.Forum]: "8e61724d-ff95-4f8e-89d8-f644d8cb6c8c",
-    [LoginScope.Logs]: "7ac64569-5a99-4afb-9180-ca8c1bec3822"
+    [LoginScope.Logs]: "7ac64569-5a99-4afb-9180-ca8c1bec3822",
+    [LoginScope.Editor]: "61723a11-1deb-43fe-92c8-834420051706"
 });
