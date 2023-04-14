@@ -5,5 +5,6 @@ export const enum LoginScope {
     Content = "Content",
     UserManagement = "UserManagement",
     Forum = "Forum",
-    Logs = "Logs"
+    Logs = "Logs",
+    Editor = "Editor"
 }
