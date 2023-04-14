@@ -88,3 +88,16 @@ INSERT INTO `Scope` (
     "Logs application login scope",
     0
 );
+
+-- EDITOR
+INSERT INTO `Scope` (
+    `Id`,
+    `Label`,
+    `Description`,
+    `IsDeleted`
+) VALUES (
+    "61723a11-1deb-43fe-92c8-834420051706",
+    "Editor",
+    "Editor application login scope",
+    0
+);
