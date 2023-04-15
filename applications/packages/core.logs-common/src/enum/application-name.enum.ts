@@ -1,3 +1,6 @@
+/**
+ * @deprecated Use `ApplicationName` from `core.common-constant` instead.
+ */
 export const enum ApplicationName {
     Website = "WEBSITE",
     GameWebsite = "GAME_WEBSITE",
