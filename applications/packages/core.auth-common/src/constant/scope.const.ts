@@ -1,3 +1,4 @@
+// TODO: Use `ApplicationName` here.
 export const enum LoginScope {
     Website = "Website",
     GameWebsite = "GameWebsite",
