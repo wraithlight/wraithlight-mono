@@ -1,6 +1,7 @@
 import { Guid } from "@wraithlight/core.types";
 import { LoginScope } from "@wraithlight/core.auth-common";
 
+// TODO: Use `ApplicationId` from `core.common-contant`.
 export const SCOPE_NAME_MAP: {[key: string]: Guid } = Object.freeze({
     [LoginScope.Website]: "7777ba27-da56-4ddd-ae97-f38a1e48effa",
     [LoginScope.GameWebsite]: "d97a2422-ed75-46cb-90c6-6172a3e5949e",
