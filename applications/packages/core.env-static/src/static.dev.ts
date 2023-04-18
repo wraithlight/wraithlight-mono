@@ -29,6 +29,15 @@ export const SERVER_STATIC: ServerModel = Object.freeze({
             host: "",
             port: 0
         }
+    },
+    content: {
+        database: {
+            host: "",
+            port: 0,
+            username: "",
+            password: "",
+            database: ""
+        }
     }
 });
 
@@ -50,6 +59,15 @@ export const COMMON_STATIC: CommonModel = Object.freeze({
         address: {
             host: "",
             port: 0
+        }
+    },
+    content: {
+        database: {
+            host: "",
+            port: 0,
+            username: "",
+            password: "",
+            database: ""
         }
     }
 });
