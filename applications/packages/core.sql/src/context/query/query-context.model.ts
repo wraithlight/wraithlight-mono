@@ -30,3 +30,12 @@ export interface InsertQueryContext<T> {
     run(): Promise<void>;
 
 }
+
+export interface DeleteQueryContext<T> extends WhereableQueryContext<T> {
+
+    where<TKey extends keyof T>(key: TKey, value: T[TKey]): DeleteQueryContext<T>;
+    orderByAsc<TKey extends keyof T>(key: TKey): DeleteQueryContext<T>;
+    orderByDesc<TKey extends keyof T>(key: TKey): DeleteQueryContext<T>;
+    run(): Promise<void>;
+
+}
