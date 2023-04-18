@@ -51,6 +51,10 @@ export abstract class BaseController {
         this.json(HttpCodes.NotFound);
     }
 
+    protected noContent(): void {
+        this.json(HttpCodes.NoContent);
+    }
+
     protected conflict(): void {
         this.json(HttpCodes.Conflict);
     }
