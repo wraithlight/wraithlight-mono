@@ -4,7 +4,8 @@
         "baseUrl": ".",
         "paths": {
             "@wraithlight/*": [
-                "packages/*/src/index.ts"
+                "packages/*/src/index.ts",
+                "packages/auth/*/src/index.ts"
             ]
         }
     }
