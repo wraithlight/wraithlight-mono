@@ -6,12 +6,14 @@ import {
 
 import {
     AcoountController,
-    SessionController
+    SessionController,
+    SessionControllerV2
 } from "./controller";
 
 const CONTROLLERS = [
     new AcoountController(),
-    new SessionController()
+    new SessionController(),
+    new SessionControllerV2()
 ];
 
 const server = createServer(true);

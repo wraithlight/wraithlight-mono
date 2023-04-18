@@ -4,7 +4,9 @@
     "dependencies": {
         "@wraithlight/core.node": "*",
         "@wraithlight/core.auth-common": "*",
-        "@wraithlight/core.types": "*"
+        "@wraithlight/core.types": "*",
+        "@wraithlight/core.auth.constant": "*",
+        "@wraithlight/core.auth.types": "*"
     },
     "devDependencies": {
         "typescript": "~5.0.3"
