@@ -64,14 +64,5 @@ export const COMMON_STATIC: CommonModel = Object.freeze({
             host: "",
             port: 0
         }
-    },
-    content: {
-        database: {
-            host: "",
-            port: 0,
-            username: "",
-            password: "",
-            database: ""
-        }
     }
 });
