@@ -31,10 +31,10 @@ export class ControllerBinder {
             const handler = this.getAppMethod(app, methodMetadata);
             const path = this.getMethodPath(metadata, methodMetadata);
             const method = this.getMethod(controller, methodMetadata);
-            handler(path, (req: Request, res: Response) => {
+            handler(path, async (req: Request, res: Response) => {
                 const filters = this.getFilters(controller, methodMetadata.name);
                 for (const invoker of filters) {
-                    const result = invoker(req);
+                    const result = await invoker(req);
                     if (!result.success) {
                         res.status(result.errorHttpCode);
                         res.send();

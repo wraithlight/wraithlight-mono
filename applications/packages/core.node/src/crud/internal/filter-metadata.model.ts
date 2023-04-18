@@ -5,7 +5,7 @@ export interface FilterResult {
     errorHttpCode?: number;
 }
 
-export type Invoker = (req: Request) => FilterResult;
+export type Invoker = (req: Request) => Promise<FilterResult>;
 
 export interface FilterMetadata {
     [methodName: string]: Array<Invoker>
