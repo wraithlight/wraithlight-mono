@@ -1,0 +1,21 @@
+{
+    "name": "@wraithlight/common.auth-sdk.client",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "webpack",
+        "build:prod": "webpack --env production"
+    },
+    "dependencies": {
+        "@wraithlight/core.auth.constant": "*",
+        "@wraithlight/core.auth.types": "*",
+        "@wraithlight/core.types": "*",
+        "@wraithlight/core.http": "*"
+    },
+    "devDependencies": {
+        "webpack": "~5.75.0",
+        "webpack-cli": "~5.0.1",
+        "ts-loader": "~9.4.2"
+    }
+}
