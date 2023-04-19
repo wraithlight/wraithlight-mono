@@ -7,7 +7,8 @@
   "workspaces": [
     "apps/**/*",
     "packages/*",
-    "packages/auth/*"
+    "packages/auth/*",
+    "packages/i10n/*"
   ],
   "devDependencies": {
     "lerna": "^6.5.1",
