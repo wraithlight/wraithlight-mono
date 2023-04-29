@@ -1,0 +1,29 @@
+{
+    "name": "@wraithlight/content.ui",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "webpack",
+        "build:prod": "webpack --env production",
+        "serve": "webpack serve --env development"
+    },
+    "dependencies": {
+        "@wraithlight/core.common-content": "*",
+        "@wraithlight/core.types": "*",
+        "@wraithlight/common.auth-sdk.client": "*",
+        "mithril": "~2.2.2"
+    },
+    "devDependencies": {
+        "typescript": "~5.0.3",
+        "@types/mithril": "~2.0.12",
+        "webpack": "~5.75.0",
+        "webpack-cli": "~5.0.1",
+        "ts-loader": "~9.4.2",
+        "css-loader": "~6.7.1",
+        "html-webpack-plugin": "~5.5.0",
+        "mini-css-extract-plugin": "~2.6.0",
+        "sass-loader": "~13.0.0",
+        "sass": "~1.61.0",
+        "webpack-dev-server": "~4.9.0",
+        "html-loader": "~4.2.0"
+    }
+}
