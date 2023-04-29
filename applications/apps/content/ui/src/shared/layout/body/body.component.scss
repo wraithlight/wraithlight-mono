@@ -1,0 +1,14 @@
+div.body {
+    background-color: var(--body);
+    height: calc(100% - var(--header-height));
+
+    &-content {
+        width: calc(100%);
+        height: calc(100%);
+        padding: 24px 24px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
