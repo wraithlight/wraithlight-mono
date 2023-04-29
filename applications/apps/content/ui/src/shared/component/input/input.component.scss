@@ -1,0 +1,23 @@
+div.input-container {
+    width: 100%;
+    display: flex;
+    padding: 8px;
+    flex-direction: column;
+
+    label.input-label {
+        font-size: 1.2rem;
+        padding-bottom: 8px;
+        color: var(--input-text);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    input.input-element {
+        border-radius: 4px;
+        border: 1px solid var(--input-border);
+        flex-grow: 1;
+        height: 2.1rem;
+        padding: 4px;
+        font-size: 1.2rem;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
