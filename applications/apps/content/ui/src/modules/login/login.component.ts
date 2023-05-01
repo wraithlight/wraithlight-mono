@@ -36,7 +36,7 @@ export class LoginComponent implements Component {
                 label: "Password",
                 elementId: "login-password",
                 type: "password",
-                onChange: this.onNameChange.bind(this)
+                onChange: this.onPasswordChange.bind(this)
             })),
             m("div.login-options", m(ButtonComponent, {
                 label: "Log in",
