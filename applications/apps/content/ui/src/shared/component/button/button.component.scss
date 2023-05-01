@@ -1,0 +1,44 @@
+$types: "primary", "secondary", "danger";
+
+.button-component {
+    padding: 8px;
+    font-size: 1.2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid var(--not-found);
+    border-radius: 4px;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        text-decoration: underline;
+    }
+
+    @each $type in $types {
+        &-#{$type} {
+            color: var(--on-#{$type}-m);
+            background-color: var(--#{$type}-m);
+            border-color: var(--#{$type}-l);
+
+            &:hover,
+            &:active {
+                color: var(--on-#{$type}-l);
+                background-color: var(--#{$type}-l);
+            }
+        }
+
+        &-#{$type}-outline {
+            color: var(--#{$type}-m);
+            background-color: var(--on-#{$type}-m);
+            border-color: var(--#{$type}-l);
+
+            &:hover,
+            &:active {
+                color: var(--#{$type}-l);
+                background-color: var(--on-#{$type}-l);
+            }
+        }
+    }
+
+}
