@@ -1,4 +1,4 @@
-import { InputComponent } from "../../shared/component";
+import { ButtonComponent, InputComponent } from "../../shared/component";
 import "./login.component.scss";
 
 import m, { Children, Component } from "mithril";
@@ -19,6 +19,10 @@ export class LoginComponent implements Component {
         this.state.password = val;
     }
 
+    private onSubmit(): void {
+        console.log(this.state);
+    }
+
     public view(): Children {
         return m(
             "div.login",
@@ -33,6 +37,13 @@ export class LoginComponent implements Component {
                 elementId: "login-password",
                 type: "password",
                 onChange: this.onNameChange.bind(this)
+            })),
+            m("div.login-options", m(ButtonComponent, {
+                label: "Log in",
+                elementId: "login-submit",
+                type: "primary",
+                isDisabled: false,
+                onClick: () => this.onSubmit.bind(this)
             })),
         );
     }
