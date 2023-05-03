@@ -1,3 +1,11 @@
+$primary: #FED884;
+$secondary: #D0DEFF;
+$danger: #F72314;
+
+$on-primary: #243178;
+$on-secondary: #001278;
+$on-danger: #F0F0F0;
+
 :root {
     --header-height: 80px;
     --header: #FED884;
@@ -5,10 +13,43 @@
     --on-header-active: yellow;
     --header-border: #000000;
 
+    // TODO: Remove.
     --body: #FCEFCC;
     --body-border: #000000;
     --body-content: #FFFFFF;
 
     --input-text: #333333;
     --input-border: #EBDEBB;
+    // END TODO: Remove.
+
+    --padding-s: 4px;
+    --padding-m: 8px;
+    --padding-l: 12px;
+
+    --border: 2px;
+    --border-radius: 4px;
+
+    --primary-l: #{darken($primary, 10)};
+    --primary-m: #{$primary};
+    --primary-h: #{lighten($primary, 10)};
+
+    --on-primary-l: #{darken($on-primary, 10)};
+    --on-primary-m: #{$on-primary};
+    --on-primiary-h: #{lighten($on-primary, 10)};
+
+    --secondary-l: #{darken($secondary, 10)};
+    --secondary-m: #{$secondary};
+    --secondary-h: #{lighten($secondary, 10)};
+
+    --on-secondary-l: #{darken($on-secondary, 10)};
+    --on-secondary-m: #{$on-secondary};
+    --on-secondary-h: #{lighten($on-secondary, 10)};
+
+    --danger-l: #{darken($danger, 10)};
+    --danger-m: #{$danger};
+    --danger-h: #{lighten($danger, 10)};
+
+    --on-danger-l: #{darken($on-danger, 10)};
+    --on-danger-m: #{$on-danger};
+    --on-danger-h: #{lighten($on-danger, 10)};
 }
