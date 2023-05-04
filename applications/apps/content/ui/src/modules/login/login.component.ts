@@ -30,20 +30,20 @@ export class LoginComponent implements Component {
                 label: "Username",
                 elementId: "login-username",
                 type: "input",
-                onChange: this.onNameChange.bind(this)
+                onChange: (val: string) => this.onNameChange(val)
             })),
             m("div.login-row", m(InputComponent, {
                 label: "Password",
                 elementId: "login-password",
                 type: "password",
-                onChange: this.onPasswordChange.bind(this)
+                onChange: (val: string) => this.onPasswordChange(val)
             })),
             m("div.login-options", m(ButtonComponent, {
                 label: "Log in",
                 elementId: "login-submit",
                 type: "primary",
                 isDisabled: false,
-                onClick: () => this.onSubmit.bind(this)
+                onClick: () => this.onSubmit()
             })),
         );
     }
