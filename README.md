@@ -4,7 +4,7 @@ An open-source fanatasy pirate based ORPG game.
 ## Status
 | Database       | Applications    |
 |:-:                |:-:            |
-| [![Database GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml) ||
+| [![Database GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml) | [![Applications GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml) |
 
 
 ## Tecnologies we use
