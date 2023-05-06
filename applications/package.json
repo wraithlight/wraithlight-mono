@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "lerna": "lerna",
+    "lint": "eslint .",
     "build": "lerna run build",
     "build:prod": "lerna run build:prod",
     "bootstrap": "lerna bootstrap"
