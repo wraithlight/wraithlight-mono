@@ -7,6 +7,11 @@ export namespace  AuthAction {
         payload: { username, password}
     });
 
+    export const loginSuccess = (token: string, validUntil: Date): ActionWithPayload<{ token: string, validUntil: Date }> => ({
+        type: "[AUTH] Login Success Sync",
+        payload: { token, validUntil }
+    });
+
     export const loginFail = (errors: Array<string>): ActionWithPayload<Array<string>> => ({
         type: "[AUTH] Login Fail Sync",
         payload: errors
