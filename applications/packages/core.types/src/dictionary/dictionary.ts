@@ -1,4 +1,4 @@
-import { Nullable } from "../nullable";
+import { Nullable, isNil } from "../nullable";
 
 export class Dictionary<TValue> {
 
@@ -18,10 +18,10 @@ export class Dictionary<TValue> {
 
     public get(key: string): TValue {
         const result = this.findInternal(key);
-        if (result === undefined) {
+        if (isNil(result)) {
             throw `Key '${key}' was not found!`;
         }
-        return result;
+        return result!;
     }
 
     public has(key: string): boolean {
