@@ -73,16 +73,22 @@ export class ControllerBinder {
     private static getParams(
         req: Request
     ): Array<unknown> {
-        return [
-            ...this.getRequestParams(req),
-            ...this.getBodyParams(req)
-        ];
+        const result = [];
+        const body = this.getBodyParams(req);
+        if (body && Object.keys(body).length > 0) {
+            result.push(body);
+        }
+        const request = this.getRequestParams(req);
+        if (request && Object.keys(request).length > 0) {
+            result.push(request);
+        }
+        return result;
     }
 
     private static getBodyParams(
         req: Request
     ): Array<unknown> {
-        return Object.values(this.getParamsFromRequest(req, "body"));
+        return this.getParamsFromRequest(req, "body");
     }
 
     private static getRequestParams(
@@ -95,7 +101,7 @@ export class ControllerBinder {
         req: Request,
         container: "body" | "query"
     ): Array<unknown> {
-        return Object.values(req[container]);
+        return req[container];
     }
 
     private static getMethodPath(
