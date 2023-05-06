@@ -5,7 +5,7 @@ import { Request } from "express";
 
 import { AuthClient } from "../client";
 
-export const Authorize = (scope: LoginScope) => FilterDecorator((request: Request) => {
+export const Authorize = (scope: LoginScope) => FilterDecorator(async (request: Request) => {
     const token = request.headers[SESSION_TOKEN_HEADER_NAME] as string;
     if (!token) {
         return {
@@ -14,7 +14,7 @@ export const Authorize = (scope: LoginScope) => FilterDecorator((request: Reques
         };
     }
     const service = new AuthClient();
-    const result = service.validate(token, scope);
+    const result = await service.validate(token, scope);
     if (!result) {
         return {
             success: false,
