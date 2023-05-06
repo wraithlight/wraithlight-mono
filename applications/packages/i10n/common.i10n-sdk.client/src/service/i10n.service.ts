@@ -2,7 +2,6 @@ import { Dictionary } from "@wraithlight/core.types";
 
 export class I10NService {
 
-    
     constructor(
         private readonly _dictionary: Dictionary<string>
     ) { }
