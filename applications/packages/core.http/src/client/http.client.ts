@@ -1,6 +1,5 @@
-import fetch from "node-fetch";
-
 import { HttpVerb } from "../constant/http-verb.const";
+
 import { HttpResponse } from "./http.model";
 
 export class HttpClient {
@@ -34,12 +33,17 @@ export class HttpClient {
                     body: data
                 }
             );
-            return result.json().then(m => resolve(
-                {
-                    statusCode: result.status,
-                    payload: m as TResult
-                }
-            ));
+            return result.json()
+                .then(m => resolve(
+                    {
+                        statusCode: result.status,
+                        payload: m as TResult
+                    }
+                ))
+                .catch(() => reject({
+                    statusCode: result.status
+                }))
+            ;
         });
     }
 

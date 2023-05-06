@@ -14,11 +14,6 @@ const config = (env) => {
       clean: true,
       libraryTarget: "commonjs2"
     },
-    target: "node",
-    node: {
-      __dirname: false,
-      __filename: false,
-    },
     module: {
       rules: [
         {
