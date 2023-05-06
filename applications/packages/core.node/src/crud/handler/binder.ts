@@ -36,7 +36,7 @@ export class ControllerBinder {
                 for (const invoker of filters) {
                     const result = await invoker(req);
                     if (!result.success) {
-                        res.status(result.errorHttpCode);
+                        res.status(result.errorHttpCode!);
                         res.send();
                         return;
                     }
