@@ -10,15 +10,11 @@ export const CLIENT_STATIC: ClientModel = Object.freeze({
 export const SERVER_STATIC: ServerModel = Object.freeze({
     auth: {
         database: {
-            host: "",
-            port: 0,
-            username: "",
-            password: "",
-            database: ""
-        },
-        address: {
-            host: "",
-            port: 0
+            host: "localhost",
+            port: 9000,
+            username: "wraithlight-auth-user-1",
+            password: "wraithlight-auth-user-1-pw",
+            database: "WL_AUTH"
         }
     },
     logs: {
@@ -50,7 +46,7 @@ export const COMMON_STATIC: CommonModel = Object.freeze({
     auth: {
         address: {
             host: "",
-            port: 0
+            port: 3000
         }
     },
     gameWebsite: {
