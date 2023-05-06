@@ -7,9 +7,9 @@ export namespace  AuthAction {
         payload: { username, password}
     });
 
-    export const loginFail = (errors: Array<string>): ActionWithPayload<{ errors: Array<string> }> => ({
+    export const loginFail = (errors: Array<string>): ActionWithPayload<Array<string>> => ({
         type: "[AUTH] Login Fail Sync",
-        payload: { errors }
+        payload: errors
     });
 
 }
