@@ -44,14 +44,14 @@ export class ClientAuthService {
             username: username,
             password: password
         };
-        const url = this._config.getLoginUrl();
+        const url = this._config!.getLoginUrl();
         return this._httpService
             .post<CoreLoginResponse, LoginRequest>(url, payload)
             .then(m => {
                 const result: LoginResponse = {
-                    success: m.payload.success,
-                    errors: m.payload.success ? undefined : (m.payload as LoginErrorResponse).errors,
-                    payload: m.payload.success ? (m.payload as LoginSuccessResponse).payload : undefined
+                    success: m.payload?.success || false,
+                    errors: m.payload?.success ? undefined : (m.payload as LoginErrorResponse).errors,
+                    payload: m.payload?.success ? (m.payload as LoginSuccessResponse).payload : undefined
                 };
                 return result;
             })
@@ -62,14 +62,14 @@ export class ClientAuthService {
         const payload: LogoutRequest = {
             sessionToken: sessionToken
         };
-        const url = this._config.getLogoutUrl();
+        const url = this._config!.getLogoutUrl();
         return this._httpService
             .post<CoreLogoutResponse, LogoutRequest>(url, payload)
             .then(m => {
                 const result: LogoutResponse = {
-                    success: m.payload.success,
-                    errors: m.payload.success ? undefined : (m.payload as LogoutErrorResponse).errors,
-                    payload: m.payload.success ? (m.payload as LogoutSuccessResponse).payload : undefined
+                    success: m.payload?.success || false,
+                    errors: m.payload?.success ? undefined : (m.payload as LogoutErrorResponse).errors,
+                    payload: m.payload?.success ? (m.payload as LogoutSuccessResponse).payload : undefined
                 }
                 return result;
             })
@@ -80,14 +80,14 @@ export class ClientAuthService {
         const payload: ValidateSessionRequest = {
             sessionToken: sessionToken
         };
-        const url = this._config.getValidateSessionUrl();
+        const url = this._config!.getValidateSessionUrl();
         return this._httpService
             .post<CoreValidateSessionResponse, ValidateSessionRequest>(url, payload)
             .then(m => {
                 const result: ValidateSessionResponse = {
-                    success: m.payload.success,
-                    errors: m.payload.success ? undefined : (m.payload as ValidateSessionErrorResponse).errors,
-                    payload: m.payload.success ? (m.payload as ValidateSessionSuccessResponse).payload : undefined
+                    success: m.payload?.success || false,
+                    errors: m.payload?.success ? undefined : (m.payload as ValidateSessionErrorResponse).errors,
+                    payload: m.payload?.success ? (m.payload as ValidateSessionSuccessResponse).payload : undefined
                 }
                 return result;
             })
@@ -98,14 +98,14 @@ export class ClientAuthService {
         const payload: KeepAliveSessionRequest = {
             sessionToken: sessionToken
         };
-        const url = this._config.getKeepAliveSessionUrl();
+        const url = this._config!.getKeepAliveSessionUrl();
         return this._httpService
             .post<CoreKeepAliveSessionResponse, KeepAliveSessionRequest>(url, payload)
             .then(m => {
                 const result: KeepAliveSessionResponse = {
-                    success: m.payload.success,
-                    errors: m.payload.success ? undefined : (m.payload as KeepAliveSessionErrorResponse).errors,
-                    payload: m.payload.success ? (m.payload as KeepAliveSessionSuccessResponse).payload : undefined
+                    success: m.payload?.success || false,
+                    errors: m.payload?.success ? undefined : (m.payload as KeepAliveSessionErrorResponse).errors,
+                    payload: m.payload?.success ? (m.payload as KeepAliveSessionSuccessResponse).payload : undefined
                 }
                 return result;
             })
