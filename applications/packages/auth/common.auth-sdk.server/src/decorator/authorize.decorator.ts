@@ -9,7 +9,7 @@ import { ServerAuthService } from "../service";
 export const Authorize = (scope: LoginScope) => FilterDecorator(async (
     request: Request
 ) => {
-    const token = request.header[WRAITHLIGHT_AUTH_SESSION_TOKEN];
+    const token = request.headers[WRAITHLIGHT_AUTH_SESSION_TOKEN] as string;
     if (!token) {
         const data: FilterResult = {
             success: false,

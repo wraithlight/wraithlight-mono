@@ -30,7 +30,7 @@ export class ServerAuthService {
         };
         return this._httpService
             .post<ApiLoginResponse, ApiLoginRequest>(url, payload)
-            .then(m => m.payload)
+            .then(m => m.payload!)
         ;
     }
 
@@ -45,14 +45,14 @@ export class ServerAuthService {
         };
         return this._httpService
             .post<ApiLogoutResponse, ApiLogoutRequest>(url, payload)
-            .then(m => m.payload)
+            .then(m => m.payload!)
         ;
     }
 
     public async validateSession(
         sessionToken: string,
         scope: LoginScope
-    ) {
+    ): Promise<ApiValidateSessionResponse> {
         const url = this._config.getValidateSessionUrl();
         const payload: ApiValidateSessionRequest = {
             sessionToken: sessionToken,
@@ -60,14 +60,14 @@ export class ServerAuthService {
         };
         return this._httpService
             .post<ApiValidateSessionResponse, ApiValidateSessionRequest>(url, payload)
-            .then(m => m.payload)
+            .then(m => m.payload!)
         ;
     }
 
     public async keepAliveSession(
         sessionToken: string,
         scope: LoginScope
-    ) {
+    ): Promise<ApiValidateSessionResponse> {
         const url = this._config.getKeepAliveSessionUrl();
         const payload: ApiKeepAliveSessionRequest = {
             sessionToken: sessionToken,
@@ -75,7 +75,7 @@ export class ServerAuthService {
         };
         return this._httpService
             .post<ApiValidateSessionResponse, ApiValidateSessionRequest>(url, payload)
-            .then(m => m.payload)
+            .then(m => m.payload!)
         ;
     }
 
