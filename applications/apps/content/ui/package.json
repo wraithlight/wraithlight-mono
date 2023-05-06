@@ -10,7 +10,9 @@
         "@wraithlight/core.common-content": "*",
         "@wraithlight/core.types": "*",
         "@wraithlight/common.auth-sdk.client": "*",
-        "mithril": "~2.2.2"
+        "@wraithlight/core.redux": "*",
+        "mithril": "~2.2.2",
+        "rxjs": "~7.8.1"
     },
     "devDependencies": {
         "typescript": "~5.0.3",

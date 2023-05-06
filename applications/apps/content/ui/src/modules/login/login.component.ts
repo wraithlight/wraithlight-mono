@@ -1,10 +1,15 @@
-import { ButtonComponent, InputComponent } from "../../shared/component";
 import "./login.component.scss";
 
 import m, { Children, Component } from "mithril";
+
+import { ButtonComponent, InputComponent } from "../../shared/component";
+import { AuthAction, GLOBAL_STORE } from "../../sdk";
+
 import { LoginState } from "./login.model";
 
 export class LoginComponent implements Component {
+
+    private readonly _store = GLOBAL_STORE();
 
     private state: LoginState = {
         username: "",
@@ -20,7 +25,7 @@ export class LoginComponent implements Component {
     }
 
     private onSubmit(): void {
-        console.log(this.state);
+        this._store.dispatch(AuthAction.login(this.state.username, this.state.password));
     }
 
     public view(): Children {
