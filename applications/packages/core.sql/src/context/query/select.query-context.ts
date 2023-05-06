@@ -8,7 +8,7 @@ import {
     SelectQueryContext as ISelectQueryContext,
 } from "./query-context.model";
 
-export class SelectQueryContext<T>
+export class SelectQueryContext<T extends Object>
     extends WhereableQueryContext<T>
     implements ISelectQueryContext<T> {
 
@@ -59,7 +59,7 @@ export class SelectQueryContext<T>
                 ;
                 const result = rawResult.map(m => {
                     const keys = Object.keys(m);
-                    const item = {};
+                    const item: { [index: string]: any } = {};
                     keys.forEach(o => item[this.decapitalize(o)] = m[o]);
                     return item as T;
                 });

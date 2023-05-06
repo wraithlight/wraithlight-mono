@@ -8,7 +8,7 @@ import {
     InsertQueryContext as IInsertQueryContext
 } from "./query-context.model";
 
-export class InsertQueryContext<T>
+export class InsertQueryContext<T extends Object>
     extends QueryContext<T>
     implements IInsertQueryContext<T> {
 

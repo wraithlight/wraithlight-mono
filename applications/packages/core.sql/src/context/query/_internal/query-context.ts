@@ -1,7 +1,7 @@
 import { Primitive } from "@wraithlight/core.types";
 import { EOL } from "os";
 
-export abstract class QueryContext<T> {
+export abstract class QueryContext<T extends Object> {
 
     private readonly _queries: Array<string> = [];
 
@@ -34,9 +34,9 @@ export abstract class QueryContext<T> {
     }
 
     protected getColumnValuePairs(data: T): string {
-        const keys = Object.keys(data);
+        const keys = Object.keys(data) as Array<keyof T>;
         return keys.map(key => 
-            `${this._tableName}.${this.capitalize(key)} = ${this.getValueString(data[key])}`
+            `${this._tableName}.${this.capitalize(key.toString())} = ${this.getValueString(data[key] as Primitive)}`
         ).join(`,${EOL}`);
     }
 

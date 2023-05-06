@@ -2,7 +2,7 @@
     "name": "@wraithlight/core.sql",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "3.1.0",
+    "version": "3.1.1",
     "scripts": {
         "build": "webpack",
         "build:prod": "webpack --env production"
