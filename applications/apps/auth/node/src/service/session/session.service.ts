@@ -115,7 +115,7 @@ export class SessionService {
     }
 
     private getSession(token: string): SessionModel {
-        return this._sessions.find(m => m.token === token);
+        return this._sessions.find(m => m.token === token)!;
     }
 
     private hasSession(token: string): boolean {

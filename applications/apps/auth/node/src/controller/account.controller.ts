@@ -25,7 +25,7 @@ export class AcoountController extends BaseController {
         if (!result.success) {
             return this.badRequest<ErrorRegisterResponse>({
                 success: false,
-                errors: [...result.errors]
+                errors: [...(result.errors || [])]
             });
         }
 

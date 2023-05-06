@@ -63,12 +63,19 @@ export class AccountService {
         this._userRepository.add(model);
 
         await this.addScopes(model);
+
+        return {
+            success: true
+        };
     }
 
     private async addScopes(user: UserDbo): Promise<void> {
         const promises = DEFAULT_LOGIN_SCOPES.map(async m => {
             const scopeId = SCOPE_NAME_MAP[m];
             const scope = await this._scopeRepository.findById(scopeId);
+            if (!scope) {
+                return;
+            }
             const userScope: UserScopeDbo = {
                 userId: user.id,
                 scopeId: scope.id

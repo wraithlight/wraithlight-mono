@@ -58,7 +58,7 @@ export class SessionControllerV2 extends BaseController {
 
         const data: ApiLoginErrorResponse = {
             success: false,
-            errors: result.errors
+            errors: result.errors ?? []
         };
 
         return super.unauthorized(data);
@@ -94,9 +94,9 @@ export class SessionControllerV2 extends BaseController {
         const data: ApiKeepAliveSessionSuccessResponse = {
             success: true,
             payload: {
-                sessionToken: result.session.token,
-                validFrom: toUtc(result.session.startAt),
-                validTo: toUtc(result.session.validUntil)
+                sessionToken: result.session!.token,
+                validFrom: toUtc(result.session!.startAt),
+                validTo: toUtc(result.session!.validUntil)
             }
         };
         super.ok(data);
@@ -115,9 +115,9 @@ export class SessionControllerV2 extends BaseController {
         const validateResult: ApiValidateSessionSuccessResponse = {
             success: true,
             payload: {
-                sessionToken: result.session.token,
-                validFrom: toUtc(result.session.startAt),
-                validTo: toUtc(result.session.validUntil)
+                sessionToken: result.session!.token,
+                validFrom: toUtc(result.session!.startAt),
+                validTo: toUtc(result.session!.validUntil)
             }
         };
         return super.ok(validateResult);

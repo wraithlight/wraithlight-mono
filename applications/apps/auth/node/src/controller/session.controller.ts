@@ -77,10 +77,10 @@ export class SessionController extends BaseController {
         const keepAliveResult: KeepAliveSuccessResponse = {
             success: true,
             session: {
-                validFromUtc: toUtc(result.session.startAt),
-                validToUtc: toUtc(result.session.validUntil),
-                token: result.session.token,
-                scope: result.session.scope
+                validFromUtc: toUtc(result.session!.startAt),
+                validToUtc: toUtc(result.session!.validUntil),
+                token: result.session!.token,
+                scope: result.session!.scope
             }
         };
         super.ok(keepAliveResult);
@@ -98,10 +98,10 @@ export class SessionController extends BaseController {
         const validateResult: ValidateSuccessResponse = {
             success: true,
             session: {
-                validFromUtc: toUtc(result.session.startAt),
-                validToUtc: toUtc(result.session.validUntil),
-                token: result.session.token,
-                scope: result.session.scope
+                validFromUtc: toUtc(result.session!.startAt),
+                validToUtc: toUtc(result.session!.validUntil),
+                token: result.session!.token,
+                scope: result.session!.scope
             }
         };
         super.ok(validateResult);

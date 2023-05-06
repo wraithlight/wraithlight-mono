@@ -1,4 +1,4 @@
-import { Guid } from "@wraithlight/core.types";
+import { Guid, Nullable } from "@wraithlight/core.types";
 
 import { AuthDbContextFactory } from "./context";
 import { UserScopeDbo } from "./dbo";
@@ -14,7 +14,7 @@ export class UserScopeRepository {
         ;
     }
 
-    public async find(userId: Guid, scopeId: Guid): Promise<UserScopeDbo> {
+    public async find(userId: Guid, scopeId: Guid): Promise<Nullable<UserScopeDbo>> {
         return this._dbContext.UserScope
             .select()
             .where("userId", userId)
