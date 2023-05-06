@@ -1,5 +1,5 @@
 {
-    "name": "@wraithlight/game-web.ui",
+    "name": "@wraithlight/game-website.ui",
     "version": "1.0.0",
     "scripts": {
         "build": "webpack --env development",
@@ -7,7 +7,8 @@
         "serve": "webpack serve --env development"
     },
     "dependencies": {
-        "knockout": "~3.5.1"
+        "knockout": "~3.5.1",
+        "@wraithlight/game.context": "*"
     },
     "devDependencies": {
         "typescript": "~5.0.3",
