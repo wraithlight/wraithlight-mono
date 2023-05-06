@@ -43,7 +43,7 @@ export class AuthClient {
             scope: scope
         };
         const result = this._httpClient.post<BaseLoginResponse, LoginRequest>(url, data);
-        return result.then(m => m.payload);
+        return result.then(m => m.payload!);
     }
 
     public async logout(
@@ -56,7 +56,7 @@ export class AuthClient {
             scope: scope
         };
         const result = this._httpClient.post<LogoutResponse, LogoutRequest>(url, data);
-        return result.then(m => m.payload);
+        return result.then(m => m.payload!);
     }
 
     public async keepAlive(
@@ -69,7 +69,7 @@ export class AuthClient {
             scope: scope
         };
         const result = this._httpClient.post<BaseKeepAliveResponse, KeepAliveRequest>(url, data);
-        return result.then(m => m.payload);
+        return result.then(m => m.payload!);
     }
 
 }

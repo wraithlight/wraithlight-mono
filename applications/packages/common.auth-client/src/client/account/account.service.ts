@@ -22,7 +22,7 @@ export class AccountService {
             emailAddress: emailAddress
         };
         const result = this._httpClient.post<BaseRegisterResponse, RegisterModel>(url, data);
-        return result.then(m => m.payload);
+        return result.then(m => m.payload!);
     }
 
 }
