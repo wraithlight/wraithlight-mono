@@ -1,16 +1,16 @@
-import { Action, MixedAction } from "./action";
+import { Action } from "./action";
 
-export type EffectCallback = (action: MixedAction<unknown>) => void;
+export type EffectCallback<TAction> = (action: TAction) => void;
 
-export interface Effect {
+export interface Effect<TAction> {
     on: Array<string>,
-    callback: EffectCallback;
+    callback: EffectCallback<TAction>;
 }
 
-export function createEffect(
-    actions: Array<(...args: Array<any>) => Action>,
-    effectCallback: EffectCallback
-): Effect {
+export function createEffect<TAction extends Action>(
+    actions: Array<(...args: Array<any>) => TAction>,
+    effectCallback: EffectCallback<TAction>
+): Effect<TAction> {
     return {
         on: actions.map(m => m().type),
         callback: effectCallback

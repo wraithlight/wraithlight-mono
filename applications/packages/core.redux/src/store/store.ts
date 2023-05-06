@@ -16,11 +16,11 @@ import { COUNTER_NAME } from "./store.const";
 
 export class Store<TState> {
 
-    private _selectors: Array<SelectorResultWrapper<TState, unknown>> = [];
+    private _selectors: Array<SelectorResultWrapper<TState, any>> = [];
 
     private readonly _selectorCounter = Counter.getInstance(COUNTER_NAME);
-    private readonly _effects: Array<Effect> = [];
-    private readonly _reducers: Array<Reducer<TState>> = [];
+    private readonly _effects: Array<Effect<any>> = [];
+    private readonly _reducers: Array<Reducer<TState, any>> = [];
 
     private static _instance: Nullable<Store<any>>;
 
@@ -58,18 +58,18 @@ export class Store<TState> {
         return wrapper;
     }
 
-    public addReducer(
-        actions: Array<(...args: Array<any>) => Action>,
-        reducerCallback: ReducerCallback<TState>
+    public addReducer<TAction extends Action>(
+        actions: Array<(...args: Array<any>) => TAction>,
+        reducerCallback: ReducerCallback<TState, TAction>
     ): Store<TState> {
         const reducer = createReducer(actions, reducerCallback);
         this._reducers.push(reducer);
         return this;
     }
 
-    public addEffect(
-        actions: Array<(...args: Array<any>) => Action>,
-        effectCallback: EffectCallback
+    public addEffect<TAction extends Action>(
+        actions: Array<(...args: Array<any>) => TAction>,
+        effectCallback: EffectCallback<TAction>
     ) {
         const effect = createEffect(actions, effectCallback);
         this._effects.push(effect);

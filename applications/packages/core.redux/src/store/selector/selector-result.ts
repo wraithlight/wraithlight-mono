@@ -28,6 +28,9 @@ export class SelectorResultWrapper<TState, TValue> extends SelectorResult<TValue
     public invoke(
         state: TState
     ): void {
+        if (!this.params) {
+            return;
+        }
         this.params(this._selector(state), this._stopFn);
     }
 

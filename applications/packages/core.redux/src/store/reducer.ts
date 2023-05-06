@@ -1,16 +1,16 @@
-import { MixedAction } from "./action";
+import { Action } from "./action";
 
-export type ReducerCallback<TState> = (state: TState, action: MixedAction<unknown>) => TState;
+export type ReducerCallback<TState, TAction> = (state: TState, action: TAction) => TState;
 
-export interface Reducer<TState> {
+export interface Reducer<TState, TAction> {
     on: Array<string>,
-    callback: ReducerCallback<TState>;
+    callback: ReducerCallback<TState, TAction>;
 }
 
-export function createReducer<TState>(
-    actions: Array<() => MixedAction<unknown>>,
-    reducerCallback: ReducerCallback<TState>
-): Reducer<TState> {
+export function createReducer<TState, TAction extends Action>(
+    actions: Array<() => TAction>,
+    reducerCallback: ReducerCallback<TState, TAction>
+): Reducer<TState, TAction> {
     return {
         on: actions.map(m => m().type),
         callback: reducerCallback
