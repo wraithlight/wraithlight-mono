@@ -13,3 +13,4 @@ jobs:
         node-version: 18.x
     - name: Run build
       run: bash ${GITHUB_WORKSPACE}/database/build.sh
+      working-directory: ./database
