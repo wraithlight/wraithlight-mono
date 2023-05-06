@@ -2,6 +2,7 @@
     "compilerOptions": {
         "lib": ["ES2015"],
         "baseUrl": ".",
+        "strict": true,
         "paths": {
             "@wraithlight/*": [
                 "packages/*/src/index.ts",
