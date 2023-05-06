@@ -10,9 +10,17 @@ export abstract class WhereableQueryContext<T extends Object>
     extends QueryContext<T>
     implements IWhereableQueryContext<T> {
 
+    private lastWasWhere = false;
+    
     public where<TKey extends keyof T>(key: TKey, value: T[TKey]): IWhereableQueryContext<T> {
         const queryValue = this.getValueString(value as Primitive);
-        this.addQuery(`WHERE ${this._tableName}.${this.capitalize(key.toString())} = ${queryValue}`);
+        if (this.lastWasWhere) {
+            this.addQuery("AND");
+        } else {
+            this.addQuery("WHERE");
+        }
+        this.addQuery(`${this._tableName}.${this.capitalize(key.toString())} = ${queryValue}`);
+        this.lastWasWhere = true;
         return this;
     }
 
