@@ -1,10 +1,11 @@
+import { Nullable } from "@wraithlight/core.types";
 import { Color, Position, Sprite } from "@wraithlight/game.contract";
 
 import { CanvasService } from "./service";
 
 export class Renderer {
 
-    private _canvasService: CanvasService;
+    private _canvasService: Nullable<CanvasService>;
 
     public useCanvas(
         canvas: HTMLCanvasElement
@@ -15,6 +16,9 @@ export class Renderer {
     }
 
     public dispose(): void {
+        if (!this._canvasService) {
+            throw "The renderer needs to be initialized!";
+        }
         this._canvasService.dispose();
     }
 
@@ -30,6 +34,9 @@ export class Renderer {
         to: Position,
         color: Color
     ): void {
+        if (!this._canvasService) {
+            throw "The renderer needs to be initialized!";
+        }
         this._canvasService.drawRectangle(
             from.x, from.y,
             to.x, to.y,

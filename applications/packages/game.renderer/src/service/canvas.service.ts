@@ -27,8 +27,8 @@ export class CanvasService {
         if (this.isLocked) {
             return;
         }
-        this._context.fillStyle = color;
-        this._context.fillRect(
+        this._context!.fillStyle = color;
+        this._context!.fillRect(
             startX, startY,
             endX - startX,
             endY - startY
