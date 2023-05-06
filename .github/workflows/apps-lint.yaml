@@ -2,7 +2,7 @@ name: "Applications GHA - Lint"
 run-name: "APPS LINT"
 on: [push, workflow_dispatch]
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
