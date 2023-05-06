@@ -30,7 +30,11 @@ export class HttpClient {
                 url,
                 {
                     method,
-                    body: data
+                    body: data,
+                    headers: {
+                        // TODO: variable
+                        "Content-Type": "application/json"
+                    }
                 }
             );
             return result.json()
