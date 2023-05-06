@@ -45,7 +45,7 @@ export const COMMON_STATIC: CommonModel = Object.freeze({
     isProduction: false,
     auth: {
         address: {
-            host: "",
+            host: "http://localhost",
             port: 3000
         }
     },
@@ -63,8 +63,8 @@ export const COMMON_STATIC: CommonModel = Object.freeze({
     },
     content: {
         address: {
-            host: "",
-            port: 0
+            host: "http://localhost",
+            port: 3001
         }
     }
 });
