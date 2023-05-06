@@ -1,0 +1,13 @@
+{
+    "name": "@wraithlight/game.context",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "webpack",
+        "build:prod": "webpack --env production"
+    },
+    "dependencies": {
+        "@wraithlight/game.scene": "*"
+    }
+}
