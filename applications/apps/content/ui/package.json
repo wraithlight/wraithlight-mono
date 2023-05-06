@@ -7,7 +7,6 @@
         "serve": "webpack serve --env development"
     },
     "dependencies": {
-        "@wraithlight/core.common-content": "*",
         "@wraithlight/core.types": "*",
         "@wraithlight/common.auth-sdk.client": "*",
         "@wraithlight/core.redux": "*",
