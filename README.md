@@ -1,6 +1,12 @@
 # wraithlight
 An open-source fanatasy pirate based ORPG game.
 
+## Status
+| Database       | Applications    |
+|:-:                |:-:            |
+| [![Database GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml) ||
+
+
 ## Tecnologies we use
 This section lists all the technologies that are included in this repository.
 
