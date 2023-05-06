@@ -1,10 +1,10 @@
 import { API_ENDPOINTS } from "@wraithlight/core.auth.constant";
-import { SERVER_STATIC } from "@wraithlight/core.env-static";
+import { COMMON_STATIC } from "@wraithlight/core.env-static";
 
 export class ServerAuthServiceConfig {
 
     public getLoginUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.login);
+        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.root, API_ENDPOINTS.v2.login);
     }
 
     public getLogoutUrl(): string {
@@ -20,8 +20,8 @@ export class ServerAuthServiceConfig {
     }
 
     private getApiUrl(): string {
-        const host = SERVER_STATIC.auth.address.host;
-        const port = SERVER_STATIC.auth.address.port;
+        const host = COMMON_STATIC.auth.address.host;
+        const port = COMMON_STATIC.auth.address.port;
         return `${host}:${port}`;
     }
 
