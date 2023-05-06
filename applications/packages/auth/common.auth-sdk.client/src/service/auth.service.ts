@@ -55,6 +55,10 @@ export class ClientAuthService {
                 };
                 return result;
             })
+            .catch(() => ({
+                success: false,
+                errors: ["E_UNKNOWN"]
+            }))
         ;
     }
 
