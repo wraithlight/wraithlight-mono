@@ -10,7 +10,7 @@ import { InsertQueryContext } from "./query/insert.query-context";
 import { UpdateQueryContext } from "./query/update.query-context";
 import { DeleteQueryContext } from "./query/delete.query-context";
 
-export class DbSet<T> {
+export class DbSet<T extends Object> {
 
     constructor(
         private readonly _context: DbContext,

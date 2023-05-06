@@ -22,6 +22,6 @@ export abstract class DbContext {
         });
     }
 
-    [key: string]: DbSet<unknown> | Connection;
+    [key: string]: DbSet<Object> | Connection;
 
 }
