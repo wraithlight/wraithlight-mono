@@ -17,7 +17,7 @@ export class LayerService {
 
     public addLayer(): Layer {
         const index = this._layers.push(new Layer(this._canvas));
-        return this.getLayerInternal(index - 1);
+        return this.getLayerInternal(index - 1)!;
     }
 
     public getLayer(index: number): Nullable<Layer> {
