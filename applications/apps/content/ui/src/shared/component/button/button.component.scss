@@ -1,7 +1,7 @@
 $types: "primary", "secondary", "danger";
 
 .button-component {
-    padding: var(--padding-m);
+    padding: var(--padding-m) var(--padding-l);
     font-size: 1.2rem;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: var(--border-radius);
