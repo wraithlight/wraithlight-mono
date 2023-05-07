@@ -14,6 +14,7 @@ export const API_ENDPOINTS = Object.freeze({
          * @deprecated Use `keepAliveSession` instead.
          */
         keepAlive: "/keep-alive",
-        keepAliveSession: "/keep-alive"
+        keepAliveSession: "/keep-alive",
+        register: "/register"
     }
 });
