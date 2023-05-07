@@ -2,7 +2,10 @@
 module.exports = {
     extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
     parser: '@typescript-eslint/parser',
-    plugins: ['@typescript-eslint'],
+    plugins: [
+        "deprecation",
+        '@typescript-eslint'
+    ],
     overrides: [
         {
             files: ['*.ts', '*.tsx'],
@@ -27,6 +30,13 @@ module.exports = {
         "@typescript-eslint/no-empty-interface": "warn",
         "no-async-promise-executor": "warn",
         // END TODO
+        // Native
+        "sort-imports": "warn",
+        "no-multiple-empty-lines": "warn",
+        // Typescript
+        "lines-between-class-members": "off",
+        "@typescript-eslint/lines-between-class-members": "warn",
+        "@typescript-eslint/parameter-properties": "warn",
         "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/explicit-function-return-type": "warn",
         "@typescript-eslint/prefer-enum-initializers": "warn",
@@ -54,6 +64,8 @@ module.exports = {
                     "constructors": "no-public"
                 }
             }
-        ]
+        ],
+        // Typescript Plugins
+        "deprecation/deprecation": "warn",
     }
 };
