@@ -27,13 +27,13 @@ import {
     SessionService
 } from "../../service";
 
-@HttpController(API_ENDPOINTS.v2.root)
+@HttpController(API_ENDPOINTS.v2.auth.root)
 export class SessionControllerV2 extends BaseController {
 
     private readonly _authService = new AuthService();
     private readonly _sessionService = SessionService.getInstance();
 
-    @HttpPost(API_ENDPOINTS.v2.login)
+    @HttpPost(API_ENDPOINTS.v2.auth.login)
     public async login(model: ApiLoginRequest): Promise<void> {
         const result = await this._authService
             .login(
@@ -64,7 +64,7 @@ export class SessionControllerV2 extends BaseController {
         return super.unauthorized(data);
     }
 
-    @HttpPost(API_ENDPOINTS.v2.logout)
+    @HttpPost(API_ENDPOINTS.v2.auth.logout)
     public async logout(model: ApiLogoutRequest) {
         const result = this._sessionService.stopSession(model.sessionToken, this.translateScope(model.loginScope));
         if (result) {
@@ -81,7 +81,7 @@ export class SessionControllerV2 extends BaseController {
         return super.ok(data);
     }
 
-    @HttpPost(API_ENDPOINTS.v2.keepAlive)
+    @HttpPost(API_ENDPOINTS.v2.auth.keepAlive)
     public async keepAliveSession(model: ApiKeepAliveSessionRequest) {
         const result = this._sessionService.renew(model.sessionToken, this.translateScope(model.loginScope));
         if (!result.success) {
@@ -102,7 +102,7 @@ export class SessionControllerV2 extends BaseController {
         super.ok(data);
     }
 
-    @HttpPost(API_ENDPOINTS.v2.validateSession)
+    @HttpPost(API_ENDPOINTS.v2.auth.validateSession)
     public async validateSession(model: ApiValidateSessionRequest) {
         const result = this._sessionService.checkSession(model.sessionToken, this.translateScope(model.loginScope));
         if (!result.isValid) {

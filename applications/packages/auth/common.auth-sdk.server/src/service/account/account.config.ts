@@ -4,7 +4,7 @@ import { COMMON_STATIC } from "@wraithlight/core.env-static";
 export class ServerAccountServiceConfig {
 
     public getLoginUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.root, API_ENDPOINTS.v2.register);
+        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.account.root, API_ENDPOINTS.v2.account.register);
     }
 
     private getApiUrl(): string {

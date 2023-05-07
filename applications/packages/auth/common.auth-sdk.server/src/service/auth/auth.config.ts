@@ -4,19 +4,19 @@ import { COMMON_STATIC } from "@wraithlight/core.env-static";
 export class ServerAuthServiceConfig {
 
     public getLoginUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.root, API_ENDPOINTS.v2.login);
+        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.auth.root, API_ENDPOINTS.v2.auth.login);
     }
 
     public getLogoutUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.logout);
+        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.auth.logout);
     }
 
     public getValidateSessionUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.validateSession);
+        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.auth.validateSession);
     }
 
     public getKeepAliveSessionUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.keepAlive);
+        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.v2.auth.keepAlive);
     }
 
     private getApiUrl(): string {

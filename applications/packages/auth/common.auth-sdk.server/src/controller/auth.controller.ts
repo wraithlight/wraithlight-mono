@@ -30,7 +30,7 @@ import {
 
 import { ServerAuthService } from "../service";
 
-@HttpController(API_ROUTES.v1.root)
+@HttpController(API_ROUTES.v1.auth.root)
 export class ServerAuthControllerV1 extends BaseController {
 
     private readonly _authService = new ServerAuthService();
@@ -41,7 +41,7 @@ export class ServerAuthControllerV1 extends BaseController {
         super();
     }
 
-    @HttpPost(API_ROUTES.v1.login)
+    @HttpPost(API_ROUTES.v1.auth.login)
     public async login(model: LoginRequest): Promise<void> {
         const result = await this._authService.login(model.username, model.password, this._scope);
         if (!result.success) {
@@ -59,7 +59,7 @@ export class ServerAuthControllerV1 extends BaseController {
         return super.ok(data);
     }
 
-    @HttpPost(API_ROUTES.v1.logout)
+    @HttpPost(API_ROUTES.v1.auth.logout)
     public async logout(model: LogoutRequest): Promise<void> {
         const result = await this._authService.logout(model.sessionToken, this._scope);
         if (!result.success) {
@@ -77,7 +77,7 @@ export class ServerAuthControllerV1 extends BaseController {
         return super.ok(data);
     }
 
-    @HttpPost(API_ROUTES.v1.keepAlive)
+    @HttpPost(API_ROUTES.v1.auth.keepAlive)
     public async keepAliveSession(model: KeepAliveSessionRequest): Promise<void> {
         const result = await this._authService.keepAliveSession(model.sessionToken, this._scope);
         if (!result.success) {
@@ -95,7 +95,7 @@ export class ServerAuthControllerV1 extends BaseController {
         return super.ok(data);
     }
 
-    @HttpPost(API_ROUTES.v1.validateSession)
+    @HttpPost(API_ROUTES.v1.auth.validateSession)
     public async validateSession(model: ValidateSessionRequest): Promise<void> {
         const result = await this._authService.validateSession(model.sessionToken, this._scope);
         if (!result.success) {
