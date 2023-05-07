@@ -1,3 +1,4 @@
+import { HttpHeader, HttpHeaderName } from "../constant/http-header.const";
 import { HttpVerb } from "../constant/http-verb.const";
 
 import { HttpResponse } from "./http.model";
@@ -32,8 +33,7 @@ export class HttpClient {
                     method,
                     body: data,
                     headers: {
-                        // TODO: variable
-                        "Content-Type": "application/json"
+                        [HttpHeaderName.ContentType]: HttpHeader.ApplicationJson
                     }
                 }
             );
