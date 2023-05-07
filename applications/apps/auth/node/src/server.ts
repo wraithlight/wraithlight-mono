@@ -26,5 +26,5 @@ ControllerBinder.bindControllers(
 
 const logger = LoggerService.getInstance();
 server.start(COMMON_STATIC.auth.address.port, () => {
-    logger.info(`AUTH server is running on http://${COMMON_STATIC.auth.address.port}`);
+    logger.info(`AUTH server is running on http://localhost:${COMMON_STATIC.auth.address.port}`);
 });
