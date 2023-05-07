@@ -3,12 +3,16 @@ import {
     ControllerBinder,
     createServer
 } from "@wraithlight/core.node";
-import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
+import {
+    ServerAccountControllerV1,
+    ServerAuthControllerV1
+} from "@wraithlight/common.auth-sdk.server";
 import { LoginScope } from "@wraithlight/auth/core.auth.types";
 import { LoggerService } from "@wraithlight/core.logger";
 
 const CONTROLLERS = [
-    new ServerAuthControllerV1(LoginScope.Website)
+    new ServerAuthControllerV1(LoginScope.Website),
+    new ServerAccountControllerV1()
 ];
 
 const server = createServer(true);
