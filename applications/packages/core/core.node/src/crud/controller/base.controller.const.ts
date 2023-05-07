@@ -1,5 +1,6 @@
-// TODO: Move these to core.http/const.
-
+/**
+ * @deprecated Use `HttpCode` from "core.htpp"
+ */
 export enum HttpCodes {
     Ok = 200,
     Created = 201,
@@ -11,6 +12,9 @@ export enum HttpCodes {
     InternalError = 500
 };
 
+/**
+ * @deprecated Use `HttpHeader` from "core.http"
+ */
 export enum HttpHeaders {
     ApplicationJson = "application/json"
 }
