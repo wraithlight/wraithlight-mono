@@ -1,0 +1,25 @@
+<div class="login-container">
+    <div class="login-container-row">
+        <input
+            [disabled]="isBusy"
+            type="text"
+            (ngModel)="username"
+        />
+    </div>
+    <div class="login-container-row">
+        <input
+            [disabled]="isBusy"
+            type="password"
+            (ngModel)="password"
+        />
+    </div>
+    <div class="login-container-options">
+        <button
+            [disabled]="isBusy"
+            type="button"
+            (click)="onSubmit()"
+        >
+                Submit
+        </button>
+    </div>
+</div>
