@@ -2,6 +2,7 @@ import { ApiModel } from "./_shared/common-api.model";
 import { CommonContentModel } from "./content/common-content.model";
 import { CommonEditorModel } from "./editor/editor.model";
 import { GameWebsiteModel } from "./game-website/game-website.model";
+import { CommonWebsiteModel } from "./website/common-website.model";
 
 export interface CommonModel {
     isProduction: boolean;
@@ -11,4 +12,5 @@ export interface CommonModel {
     gameWebsite: GameWebsiteModel;
     editor: CommonEditorModel;
     content: CommonContentModel;
+    website: CommonWebsiteModel;
 }
