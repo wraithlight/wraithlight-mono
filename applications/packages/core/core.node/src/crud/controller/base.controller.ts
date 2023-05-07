@@ -1,4 +1,5 @@
 import { Response } from "express";
+import { HttpCode, HttpHeader } from "@wraithlight/core.http";
 
 import { CONTROLLER_METADATA_KEY } from "../internal/controller-metadata.const";
 import { ControllerMetadata } from "../internal/controller-metadata.model";
@@ -6,11 +7,6 @@ import { FILTER_METADATA_KEY } from "../internal/filter-metadata.const";
 import { FilterMetadata } from "../internal/filter-metadata.model";
 import { METHOD_METADATA_KEY } from "../internal/method-metadata.const";
 import { MethodMetadata } from "../internal/method-metadata.model";
-
-import {
-    HttpCodes,
-    HttpHeaders
-} from "./base.controller.const";
 
 export abstract class BaseController {
 
@@ -32,40 +28,40 @@ export abstract class BaseController {
     }
 
     protected ok<TData>(data?: TData): void {
-        this.json(HttpCodes.Ok, data);
+        this.json(HttpCode.Ok, data);
     }
 
     protected created<TData>(data?: TData): void {
-        this.json(HttpCodes.Created, data);
+        this.json(HttpCode.Created, data);
     }
 
     protected badRequest<TData>(data?: TData): void {
-        this.json(HttpCodes.BadRequest, data);
+        this.json(HttpCode.BadRequest, data);
     }
 
     protected unauthorized<TData>(data?: TData): void {
-        this.json(HttpCodes.Unauthorized, data);
+        this.json(HttpCode.Unauthorized, data);
     }
 
     protected notFound(): void {
-        this.json(HttpCodes.NotFound);
+        this.json(HttpCode.NotFound);
     }
 
     protected noContent(): void {
-        this.json(HttpCodes.NoContent);
+        this.json(HttpCode.NoContent);
     }
 
     protected conflict(): void {
-        this.json(HttpCodes.Conflict);
+        this.json(HttpCode.Conflict);
     }
 
     protected internalError(): void {
-        this.json(HttpCodes.InternalError);
+        this.json(HttpCode.InternalError);
     }
 
-    private json<TData>(code: HttpCodes, body?: TData): void {
+    private json<TData>(code: HttpCode, body?: TData): void {
         this.response?.status(code);
-        this.response?.contentType(HttpHeaders.ApplicationJson);
+        this.response?.contentType(HttpHeader.ApplicationJson);
         this.response?.send(body);
     }
 
