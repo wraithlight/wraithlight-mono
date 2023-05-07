@@ -1,9 +1,9 @@
-import { BaseResponse } from "./internal";
+import { ApiBaseResponse } from "./internal";
 
-export interface RegisterResponse extends BaseResponse { }
+export interface ApiRegisterResponse extends ApiBaseResponse { }
 
-export interface RegisterErrorResponse extends RegisterResponse {
+export interface ApiRegisterErrorResponse extends ApiRegisterResponse {
     errors: Array<string>;
 }
 
-export interface RegisterSuccessResponse extends RegisterResponse { }
+export interface ApiRegisterSuccessResponse extends ApiRegisterResponse { }
