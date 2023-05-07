@@ -3,6 +3,7 @@ import {
     ControllerBinder,
     createServer
 } from "@wraithlight/core.node";
+import { LoggerService } from "@wraithlight/core.logger";
 
 import {
     AcoountController,
@@ -23,6 +24,7 @@ ControllerBinder.bindControllers(
     CONTROLLERS
 )
 
+const logger = LoggerService.getInstance();
 server.start(COMMON_STATIC.auth.address.port, () => {
-    console.log(`AUTH server is running at port ${COMMON_STATIC.auth.address.port}`)
+    logger.info(`AUTH server is running on http://${COMMON_STATIC.auth.address.port}`);
 });

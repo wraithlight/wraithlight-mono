@@ -12,7 +12,8 @@
         "@wraithlight/core.types": "*",
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",
-        "@wraithlight/core.common-constant": "*"
+        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.logger": "*"
     },
     "devDependencies": {
         "nodemon": "~2.0.20",
