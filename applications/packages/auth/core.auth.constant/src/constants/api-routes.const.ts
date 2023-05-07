@@ -10,6 +10,7 @@ export const API_ROUTES = Object.freeze({
         login: "/login",
         logout: "/logout",
         validateSession: "/validate-session",
-        keepAlive: "/keep-alive"
+        keepAlive: "/keep-alive",
+        register: "/register"
     }
 });
