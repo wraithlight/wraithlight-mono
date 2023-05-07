@@ -1,6 +1,6 @@
 {
-  "name": "ui",
-  "version": "0.0.0",
+  "name": "@wraithlight/website.ui",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "serve": "ng serve",
