@@ -12,6 +12,7 @@
     "apps/**/*",
     "packages/*",
     "packages/auth/*",
+    "packages/core/*",
     "packages/i10n/*"
   ],
   "engines" : { 
