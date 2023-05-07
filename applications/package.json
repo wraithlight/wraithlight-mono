@@ -13,6 +13,7 @@
     "packages/*",
     "packages/auth/*",
     "packages/core/*",
+    "packages/game/*",
     "packages/i10n/*"
   ],
   "engines" : { 
