@@ -24,7 +24,7 @@ import {
     LoginResponse,
     LogoutResponse,
     ValidateSessionResponse
-} from "../model";
+} from "../../model";
 
 import { ClientAuthServiceConfig } from "./auth.config";
 
