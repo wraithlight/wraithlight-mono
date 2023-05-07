@@ -1,11 +1,12 @@
-// TODO: Use `ApplicationName` here.
+import { ApplicationName } from "@wraithlight/core.common-constant";
+
 export const enum LoginScope {
-    Website = "Website",
-    GameWebsite = "GameWebsite",
-    GameApplication = "GameApplication",
-    Content = "Content",
-    UserManagement = "UserManagement",
-    Forum = "Forum",
-    Logs = "Logs",
-    Editor = "Editor"
+    Website = ApplicationName.Website,
+    GameWebsite = ApplicationName.GameWebsite,
+    GameApplication = ApplicationName.GameApplication,
+    Content = ApplicationName.Content,
+    UserManagement = ApplicationName.UserManagement,
+    Forum = ApplicationName.Forum,
+    Logs = ApplicationName.Logs,
+    Editor = ApplicationName.Editor
 }

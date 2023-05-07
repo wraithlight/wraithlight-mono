@@ -6,7 +6,7 @@ INSERT INTO `Scope` (
     `IsDeleted`
 ) VALUES (
     "7777ba27-da56-4ddd-ae97-f38a1e48effa",
-    "Website",
+    "WEBSITE",
     "Website application login scope",
     0
 );
@@ -19,7 +19,7 @@ INSERT INTO `Scope` (
     `IsDeleted`
 ) VALUES (
     "d97a2422-ed75-46cb-90c6-6172a3e5949e",
-    "GameWebsite",
+    "GAME_WEBSITE",
     "GameWebsite application login scope",
     0
 );
@@ -32,7 +32,7 @@ INSERT INTO `Scope` (
     `IsDeleted`
 ) VALUES (
     "8cf5631d-8bb4-4697-8c43-85b3a94da8dc",
-    "GameApplication",
+    "GAME_APPLICATION",
     "GameApplication application login scope",
     0
 );
@@ -45,7 +45,7 @@ INSERT INTO `Scope` (
     `IsDeleted`
 ) VALUES (
     "bb2dbe19-705d-4ddf-98a7-14c19a9c0c60",
-    "Content",
+    "CONTENT",
     "Content application login scope",
     0
 );
@@ -58,7 +58,7 @@ INSERT INTO `Scope` (
     `IsDeleted`
 ) VALUES (
     "a3d0db9e-3fb5-414a-9f6c-1bf034339322",
-    "UserManagement",
+    "USER_MANAGEMENT",
     "UserManagement application login scope",
     0
 );
@@ -71,7 +71,7 @@ INSERT INTO `Scope` (
     `IsDeleted`
 ) VALUES (
     "8e61724d-ff95-4f8e-89d8-f644d8cb6c8c",
-    "Forum",
+    "FORUM",
     "Forum application login scope",
     0
 );
@@ -84,7 +84,7 @@ INSERT INTO `Scope` (
     `IsDeleted`
 ) VALUES (
     "7ac64569-5a99-4afb-9180-ca8c1bec3822",
-    "Logs",
+    "LOGS",
     "Logs application login scope",
     0
 );
@@ -97,7 +97,7 @@ INSERT INTO `Scope` (
     `IsDeleted`
 ) VALUES (
     "61723a11-1deb-43fe-92c8-834420051706",
-    "Editor",
+    "EDITOR",
     "Editor application login scope",
     0
 );
