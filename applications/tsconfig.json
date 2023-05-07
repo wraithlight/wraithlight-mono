@@ -6,7 +6,8 @@
         "paths": {
             "@wraithlight/*": [
                 "packages/*/src/index.ts",
-                "packages/auth/*/src/index.ts"
+                "packages/auth/*/src/index.ts",
+                "packages/core/*/src/index.ts"
             ]
         }
     }
