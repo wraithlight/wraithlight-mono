@@ -18,7 +18,7 @@ export function initializeEffects(store: Store<GlobalState>): Store<GlobalState>
                 store.dispatch(action);
             })
             .catch(m => {
-                console.log(m);
+                console.warn(m);
                 store.dispatch(AuthAction.loginFail(["E_UNKNOWN"]))
             })
     });
