@@ -4,7 +4,12 @@ import {
     HttpPost
 } from "@wraithlight/core.node";
 import { API_ROUTES } from "@wraithlight/core.auth.constant";
-import { ApiRegisterErrorResponse, ApiRegisterSuccessResponse, RegisterErrorResponse, RegisterRequest, RegisterSuccessResponse } from "@wraithlight/core.auth.types";
+import {
+    ApiRegisterErrorResponse,
+    RegisterErrorResponse,
+    RegisterRequest,
+    RegisterSuccessResponse
+} from "@wraithlight/core.auth.types";
 
 import { ServerAccountService } from "../service";
 
@@ -14,7 +19,7 @@ export class ServerAccountControllerV1 extends BaseController {
     private readonly _accountService = new ServerAccountService();
 
     @HttpPost(API_ROUTES.v1.account.register)
-    public async login(model: RegisterRequest): Promise<void> {
+    public async register(model: RegisterRequest): Promise<void> {
         const result = await this._accountService.register(
             model.username,
             model.password,
@@ -26,7 +31,7 @@ export class ServerAccountControllerV1 extends BaseController {
                 success: false,
                 errors: (result as ApiRegisterErrorResponse).errors
             }
-            return super.unauthorized(data);
+            return super.badRequest(data);
         }
 
         const data: RegisterSuccessResponse = {
