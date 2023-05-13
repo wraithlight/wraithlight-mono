@@ -33,6 +33,7 @@ module.exports = {
         // Native
         "sort-imports": "warn",
         "no-multiple-empty-lines": "warn",
+        "no-trailing-spaces": "warn",
         // Typescript
         "lines-between-class-members": "off",
         "@typescript-eslint/lines-between-class-members": "warn",
