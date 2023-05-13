@@ -24,5 +24,14 @@ export function initializeReducers(store: Store<GlobalState>): Store<GlobalState
             }
         }
     });
+    store.addReducer([AuthAction.loginSuccess], (state) => {
+        return {
+            ...state,
+            auth: {
+                ...state.auth,
+                isBusy: false
+            }
+        }
+    });
     return store;
 }
