@@ -1,9 +1,6 @@
-export interface AccountUserRegisterState {
-    username: string;
-    password: string;
-    passwordVerify: string;
-    emailAddress: string;
-}
+import { RegisterModel } from "./model/register.model";
+
+export interface AccountUserRegisterState extends RegisterModel { }
 
 export interface AccountState {
     isBusy: boolean;

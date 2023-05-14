@@ -3,6 +3,8 @@ import {
     ActionWithPayload
 } from "@wraithlight/core/core.redux";
 
+import { RegisterModel } from "./model/register.model";
+
 export namespace AccountAction {
 
     export const register = (
@@ -10,12 +12,7 @@ export namespace AccountAction {
         password: string,
         passwordVerify: string,
         emailAddress: string
-    ): ActionWithPayload<{
-        username: string,
-        password: string,
-        passwordVerify: string,
-        emailAddress: string
-    }> => ({
+    ): ActionWithPayload<RegisterModel> => ({
         type: "[ACCOUNT] Register",
         payload: {
             username: username,
