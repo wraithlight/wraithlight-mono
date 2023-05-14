@@ -1,5 +1,5 @@
-import { SHA512 as cryptoSHA512 } from "crypto-js";
+import { hash } from "./_internal/create-hash";
 
 export function SHA512(str: string): string {
-    return cryptoSHA512(str).toString();
+    return hash("sha512", str);
 }

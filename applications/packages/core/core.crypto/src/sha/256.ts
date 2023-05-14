@@ -1,5 +1,5 @@
-import { SHA256 as cryptopSHA256 } from "crypto-js";
+import { hash } from "./_internal/create-hash";
 
 export function SHA256(str: string): string {
-    return cryptopSHA256(str).toString();
+    return hash("sha256", str);
 }
