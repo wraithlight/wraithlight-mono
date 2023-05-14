@@ -1,20 +1,44 @@
 import { Primitive } from "@wraithlight/core.types";
 import { EOL } from "os";
 
+import { QueryConcatResult } from "./query-context.model";
+
 export abstract class QueryContext<T extends Object> {
 
     private readonly _queries: Array<string> = [];
+    private readonly _queries2: Array<string> = [];
+    private readonly _args2: Array<string> = [];
 
     constructor(
         protected readonly _tableName: string
     ) { }
 
+    /**
+     * @deprecated Use `addQuery2()` instead to avoid possible injection attacks.
+     */
     protected addQuery(query: string): void {
         this._queries.push(query);
     }
 
+    protected addQuery2(query: string, args?: Array<string>): void {
+        this._queries2.push(query);
+        if (args) {
+            this._args2.push(...args);
+        }
+    }
+
+    /**
+     * @deprecated Use `concatQueries2()` instead to avoid possible injection attacks.
+     */
     protected concatQueries(): string {
         return this._queries.join(EOL);
+    }
+
+    protected concatQueries2(): QueryConcatResult {
+        return {
+            query: this._queries2.join(EOL),
+            params: this._args2
+        };
     }
 
     protected capitalize(value: string): string {
