@@ -18,7 +18,7 @@ export class LogsEntryController extends BaseController {
             dto.application,
             dto.message,
             dto.logDate,
-            dto.additionalFields
+            dto.additionalFields ?? ""
         );
         super.created();
     }
