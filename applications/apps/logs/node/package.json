@@ -1,12 +1,22 @@
 {
     "name": "@wraithlight/logs.node",
     "version": "1.0.0",
+    "scripts": {
+        "serve": "nodemon -r tsconfig-paths/register ./src/main.ts",
+        "build": "webpack",
+        "build:prod": "webpack --env production"
+    },
     "dependencies": {
         "@wraithlight/core.node": "*",
         "@wraithlight/core.logs-common": "*",
         "@wraithlight/core.types": "*"
     },
     "devDependencies": {
-        "typescript": "~5.0.3"
+        "nodemon": "~2.0.20",
+        "ts-node": "~10.9.1",
+        "typescript": "~5.0.3",
+        "webpack": "~5.76.0",
+        "webpack-cli": "~5.0.1",
+        "ts-loader": "~9.4.2"
     }
 }
