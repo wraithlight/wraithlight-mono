@@ -7,6 +7,11 @@ import { AppRef as AppRefImpl } from "./appref";
 export function createServer(
     enableCors: boolean
 ): AppRef {
+    process.on('uncaughtException', function (err) {
+        console.error(JSON.stringify(err));
+        console.log("Global exception caught!");
+    });
+
     const app = express();
 
     app.use(express.json({ limit: "2mb" }));
