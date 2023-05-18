@@ -9,7 +9,7 @@ import { BaseController, HttpController, HttpPost } from "@wraithlight/core.node
 import { AccountService } from "../service/account/account.service";
 
 @HttpController(ACCOUNT_API_ENDPOINTS.root)
-export class AcoountController extends BaseController {
+export class AccountController extends BaseController {
 
     private readonly _accountService = new AccountService();
 
