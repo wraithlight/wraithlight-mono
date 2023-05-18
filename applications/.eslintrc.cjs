@@ -36,6 +36,17 @@ module.exports = {
         "no-trailing-spaces": "warn",
         "no-console": "warn",
         "no-alert": "warn",
+        "no-restricted-properties": [
+            "warn",
+            {
+                "object": "window",
+                "property": "document"
+            }
+        ],
+        "no-restricted-globals": [
+            "warn",
+            "document"
+        ],
         // Typescript
         "lines-between-class-members": "off",
         "@typescript-eslint/lines-between-class-members": "warn",
