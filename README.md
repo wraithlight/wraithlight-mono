@@ -39,6 +39,5 @@ All of the databases are using MySQL, with a custom ORM, called `core.sql`.
 * ngrx
 * SASS
 * webpack
-* crypto-js
 * typescript
 * lerna
