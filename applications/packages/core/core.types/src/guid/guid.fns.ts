@@ -1,4 +1,5 @@
 import { randomNumberBetween } from "../_internal";
+import { LOWERCASE_ALPHABET, generateRandomString } from "../string";
 
 import { Guid } from "./guid.type";
 
@@ -17,9 +18,24 @@ export function isGuid(guidLike: string): guidLike is Guid {
  * @returns {Guid} The new GUID.
  */
 export function newGuid(): Guid {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-        var r = randomNumberBetween() * 16 | 0,
-          v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
+    const pattern = "xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx".split("");
+    const alphabets = {
+        x: [
+            ...LOWERCASE_ALPHABET.split(""),
+            ..."0123456789".split("")
+        ],
+        M: [
+            ..."123456789".split("")
+        ],
+        N: [
+            ..."89ab".split("")
+        ]
+    }
+    const result = pattern.map(m => {
+        if (m === "-") return m;
+        const key = m as keyof typeof alphabets;
+        const alphabet = alphabets[key];
+        return generateRandomString(1, alphabet);
     });
+    return result.join("");
 }
