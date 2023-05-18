@@ -1,4 +1,5 @@
 import { EOL } from "os";
+import { Primitive } from "@wraithlight/core/core.types";
 
 import { QueryContext } from "./_internal";
 
@@ -23,8 +24,7 @@ export class UpdateQueryContext<T, TKey extends keyof T>
         const query = [
             `UPDATE ${this._tableName} SET`,
             this.getColumnValuePairs(data),
-            "WHERE",
-            `WHERE ${this._tableName}.${this.capitalize(key.toString())} = ${value}`
+            `WHERE ${this._tableName}.${this.capitalize(key.toString())} = ${this.getValueString(value as Primitive)}`
         ].join(EOL);
         this.addQuery(query);
     }
