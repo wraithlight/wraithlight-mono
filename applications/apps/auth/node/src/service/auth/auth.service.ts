@@ -42,7 +42,7 @@ export class AuthService {
         const isPasswordMatch = this._passwordService.verifyPassword(hashedPassword, user.passwordHash);
         if (!isPasswordMatch) {
             user.failedLoginAttempts += 1;
-            this._userRepository.update(user.id, { failedLoginAttempts: user.failedLoginAttempts });
+            await this._userRepository.update(user.id, { failedLoginAttempts: user.failedLoginAttempts });
             return {
                 success: false,
                 errors: [AUTH_ERRORS.invalidPassword]

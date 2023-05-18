@@ -60,7 +60,7 @@ export class AccountService {
             emailAddress: emailAddress,
             isDeleted: false
         };
-        this._userRepository.add(model);
+        await this._userRepository.add(model);
 
         await this.addScopes(model);
 
