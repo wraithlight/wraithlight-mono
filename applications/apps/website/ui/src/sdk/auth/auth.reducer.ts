@@ -24,12 +24,15 @@ export function initializeReducers(store: Store<GlobalState>): Store<GlobalState
             }
         }
     });
-    store.addReducer([AuthAction.loginSuccess], (state) => {
+    store.addReducer([AuthAction.loginSuccess], (state, action: ActionWithPayload<{ token: string, validUntil: Date }>) => {
         return {
             ...state,
             auth: {
                 ...state.auth,
-                isBusy: false
+                isBusy: false,
+                isLoggedIn: true,
+                token: action.payload.token,
+                tokenValidUntil: action.payload.validUntil
             }
         }
     });

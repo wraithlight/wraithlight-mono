@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, ViewEncapsulation } from "@angular/core";
+import { Component, OnDestroy, ViewEncapsulation } from "@angular/core";
 
 import { AuthAction, AuthSelector, GLOBAL_STORE } from "../../../../sdk";
 
@@ -8,8 +8,7 @@ import { AuthAction, AuthSelector, GLOBAL_STORE } from "../../../../sdk";
     styleUrls: [
         "./login.component.scss"
     ],
-    encapsulation: ViewEncapsulation.Emulated,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    encapsulation: ViewEncapsulation.Emulated
 })
 export class LoginComponent implements OnDestroy {
 
@@ -21,16 +20,12 @@ export class LoginComponent implements OnDestroy {
     public username = "";
     public password = "";
 
-    constructor(
-        private readonly _cdr: ChangeDetectorRef
-    ) {
+    constructor() {
         this._store
             .select(AuthSelector.isBusy)
             .onSelection((val, stopFn) => {
-                console.log("aa");
                 this.isBusy = val;
                 this._stopFns.push(stopFn);
-                this._cdr.markForCheck();
             })
         ;
     }
