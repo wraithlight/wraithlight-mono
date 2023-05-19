@@ -43,6 +43,11 @@ export class AuthService {
         if (!isPasswordMatch) {
             user.failedLoginAttempts += 1;
             await this._userRepository.update(user.id, { failedLoginAttempts: user.failedLoginAttempts });
+
+            if (user.failedLoginAttempts === MAXIMUM_FAILED_LOGIN_ATTEMPTS) {
+                await this._userRepository.update(user.id, { status: UserStatus.LockedOutDueTooManyInvalidLogin });
+            }
+
             return {
                 success: false,
                 errors: [AUTH_ERRORS.invalidPassword]
