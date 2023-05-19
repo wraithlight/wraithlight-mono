@@ -35,8 +35,6 @@ All of the databases are using MySQL, with a custom ORM, called `core.sql`.
 * Docker
 * Kubernetes
 * Socket.IO
-* rxjs
-* ngrx
 * SASS
 * webpack
 * typescript
