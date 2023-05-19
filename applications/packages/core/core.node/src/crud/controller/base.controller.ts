@@ -27,6 +27,8 @@ export abstract class BaseController {
         this.response = response;
     }
 
+    // TODO: These should return another function, that sends the response.
+
     protected ok<TData>(data?: TData): void {
         this.json(HttpCode.Ok, data);
     }
