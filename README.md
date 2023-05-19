@@ -23,7 +23,7 @@ This section lists all the technologies that are included in this repository.
 | Game rich client  | Electron      |
 | Game thin client  | Knockout      |
 | Logs              | Aurelia       |
-| User Management   | Ember         |
+| User Management   | Svelte        |
 
 ## Backend
 Most of the backend libraries/applications are written in NodeJS with some custom utility libraries such as `node.core`.
