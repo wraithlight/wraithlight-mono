@@ -14,7 +14,8 @@
     "packages/auth/*",
     "packages/core/*",
     "packages/game/*",
-    "packages/i10n/*"
+    "packages/i10n/*",
+    "packages/user-management/*"
   ],
   "engines" : { 
     "npm" : ">=9.0.0 <10.0.0",

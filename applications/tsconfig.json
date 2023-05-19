@@ -8,7 +8,8 @@
                 "packages/*/src/index.ts",
                 "packages/auth/*/src/index.ts",
                 "packages/core/*/src/index.ts",
-                "packages/game/*/src/index.ts"
+                "packages/game/*/src/index.ts",
+                "packages/user-management/*/src/index.ts"
             ]
         }
     }
