@@ -14,6 +14,10 @@ export const API_ENDPOINTS = Object.freeze({
                 server: `${USER_V1}/findById`,
                 client: (id: string) => `${USER_V1}/findById?id=${id}`
             },
+            edit: {
+                server: `${USER_V1}/edit`,
+                client: (id: string) => `${USER_V1}/edit?id=${id}`
+            }
         }
     }
 });
