@@ -1,1 +1,1 @@
-export * from "./constants/application";
+export * from "./constants";
