@@ -69,7 +69,7 @@ export class AuthService {
             };
         }
         
-        if (user.status === UserStatus.Active) {
+        if (user.status === UserStatus.EmailVerify) {
             return {
                 success: false,
                 errors: [AUTH_ERRORS.needsEmailVerify]
