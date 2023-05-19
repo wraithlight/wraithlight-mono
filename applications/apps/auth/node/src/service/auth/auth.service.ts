@@ -37,6 +37,14 @@ export class AuthService {
                 errors: [AUTH_ERRORS.userBlockDueTooManyInvalidAttempts]
             };
         }
+
+        if (user.status === UserStatus.EmailVerify) {
+            return {
+                success: false,
+                errors: [AUTH_ERRORS.needsEmailVerify]
+            }
+        }
+
         const saltedPassword = this._passwordService.saltPassword(password, user.passwordSalt);
         const hashedPassword = this._passwordService.hashPassword(saltedPassword);
         const isPasswordMatch = this._passwordService.verifyPassword(hashedPassword, user.passwordHash);
@@ -66,13 +74,6 @@ export class AuthService {
             return {
                 success: false,
                 errors: [AUTH_ERRORS.userScopeNotFound]
-            };
-        }
-        
-        if (user.status === UserStatus.EmailVerify) {
-            return {
-                success: false,
-                errors: [AUTH_ERRORS.needsEmailVerify]
             };
         }
 
