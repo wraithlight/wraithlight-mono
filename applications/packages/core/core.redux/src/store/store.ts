@@ -39,12 +39,14 @@ export class Store<TState> {
         return this._instance as Store<TState>;
     }
 
-    public dispatch<TActionPayload>(action: MixedAction<TActionPayload>): void {
-        const reducers = this._reducers.filter(m => m.on.includes(action.type));
-        reducers.forEach(m => { this._state = m.callback(this._state, action) });
-        const effects = this._effects.filter(m => m.on.includes(action.type));
-        effects.forEach(m => m.callback(action));
-        this.invokeSelectors();
+    public dispatch<TActionPayload>(...actions: Array<MixedAction<TActionPayload>>): void {
+        for (const action of actions) {
+            const reducers = this._reducers.filter(m => m.on.includes(action.type));
+            reducers.forEach(m => { this._state = m.callback(this._state, action) });
+            const effects = this._effects.filter(m => m.on.includes(action.type));
+            effects.forEach(m => m.callback(action));
+            this.invokeSelectors();
+        }
     }
 
     public select<TValue>(selector: Selector<TState, TValue>): SelectorResult<TValue> {
