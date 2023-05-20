@@ -8,6 +8,7 @@
         "build:prod": "webpack --env production"
     },
     "dependencies": {
+        "@wraithlight/core.types": "*",
         "@wraithlight/core.common-constant": "*"
     },
     "devDependencies": {
