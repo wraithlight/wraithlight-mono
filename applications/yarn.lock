@@ -2494,8 +2494,11 @@
     "@wraithlight/core.auth.constant" "*"
     "@wraithlight/core.auth.types" "*"
     "@wraithlight/core.common-constant" "*"
+    "@wraithlight/core.crypto" "*"
+    "@wraithlight/core.env-static" "*"
     "@wraithlight/core.logger" "*"
     "@wraithlight/core.node" "*"
+    "@wraithlight/core.sql" "*"
     "@wraithlight/core.types" "*"
 
 "@wraithlight/common.auth-client@*", "@wraithlight/common.auth-client@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/common.auth-client":
@@ -2522,6 +2525,7 @@
   dependencies:
     "@wraithlight/core.auth.constant" "*"
     "@wraithlight/core.auth.types" "*"
+    "@wraithlight/core.env-static" "*"
     "@wraithlight/core.http" "*"
     "@wraithlight/core.node" "*"
     "@wraithlight/core.types" "*"
@@ -2529,6 +2533,8 @@
 "@wraithlight/common.i10n-sdk.client@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/i10n/common.i10n-sdk.client":
   version "3.2.0"
   resolved "file:packages/i10n/common.i10n-sdk.client"
+  dependencies:
+    "@wraithlight/core.types" "*"
 
 "@wraithlight/common.logger-sdk@*", "@wraithlight/common.logger-sdk@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/logger/common.logger-sdk":
   version "1.0.0"
@@ -2544,26 +2550,24 @@
     "@wraithlight/core.env-static" "*"
     "@wraithlight/core.http" "*"
     "@wraithlight/core.logs-common" "*"
-    "@wraithlight/core.node" "*"
     "@wraithlight/core.types" "*"
 
 "@wraithlight/content.node@file:/Users/sohamar/Documents/Projects/wraithlight/applications/apps/content/node":
   version "1.0.0"
   resolved "file:apps/content/node"
   dependencies:
-    "@wraithlight/core.auth-common" "*"
-    "@wraithlight/core.auth.constant" "*"
+    "@wraithlight/common.auth-sdk.server" "*"
     "@wraithlight/core.auth.types" "*"
+    "@wraithlight/core.env-static" "*"
     "@wraithlight/core.node" "*"
-    "@wraithlight/core.types" "*"
 
 "@wraithlight/content.ui@file:/Users/sohamar/Documents/Projects/wraithlight/applications/apps/content/ui":
   version "1.0.1"
   resolved "file:apps/content/ui"
   dependencies:
     "@wraithlight/common.auth-sdk.client" "*"
+    "@wraithlight/core.env-static" "*"
     "@wraithlight/core.redux" "*"
-    "@wraithlight/core.types" "*"
     mithril "~2.2.2"
     rxjs "~7.8.1"
 
@@ -2594,6 +2598,7 @@
   resolved "file:packages/core.common-utils"
   dependencies:
     "@wraithlight/core.common-constant" "*"
+    "@wraithlight/core.types" "*"
 
 "@wraithlight/core.crypto@*", "@wraithlight/core.crypto@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.crypto":
   version "2.0.0"
@@ -2623,7 +2628,7 @@
     "@wraithlight/core.types" "*"
 
 "@wraithlight/core.logger.types@*", "@wraithlight/core.logger.types@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/logger/core.logger.types":
-  version "1.1.0"
+  version "1.1.1"
   resolved "file:packages/core/logger/core.logger.types"
 
 "@wraithlight/core.logger@*", "@wraithlight/core.logger@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.logger":
@@ -2642,6 +2647,7 @@
   version "2.0.1"
   resolved "file:packages/core/core.node"
   dependencies:
+    "@wraithlight/core.http" "*"
     "@wraithlight/core.logger" "*"
 
 "@wraithlight/core.redux@*", "@wraithlight/core.redux@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.redux":
@@ -2655,16 +2661,15 @@
   resolved "file:packages/core/core.sql"
   dependencies:
     "@wraithlight/core.logger" "*"
+    "@wraithlight/core.types" "*"
 
 "@wraithlight/core.types@*", "@wraithlight/core.types@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.types":
-  version "1.15.2"
+  version "1.15.3"
   resolved "file:packages/core/core.types"
 
 "@wraithlight/core.user-management.constant@*", "@wraithlight/core.user-management.constant@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/user-management/core.user-management.constant":
   version "1.2.0"
   resolved "file:packages/user-management/core.user-management.constant"
-  dependencies:
-    "@wraithlight/core.types" "*"
 
 "@wraithlight/core.user-management.types@*", "@wraithlight/core.user-management.types@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/user-management/core.user-management.types":
   version "1.1.0"
@@ -2697,6 +2702,7 @@
   version "1.0.0"
   resolved "file:packages/game/game.context"
   dependencies:
+    "@wraithlight/core.types" "*"
     "@wraithlight/game.scene" "*"
 
 "@wraithlight/game.contract@*", "@wraithlight/game.contract@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/game/game.contract":
@@ -2708,6 +2714,7 @@
   resolved "file:packages/game/game.layer"
   dependencies:
     "@wraithlight/core.types" "*"
+    "@wraithlight/game.contract" "*"
     "@wraithlight/game.renderer" "*"
 
 "@wraithlight/game.renderer@*", "@wraithlight/game.renderer@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/game/game.renderer":
@@ -2721,14 +2728,17 @@
   version "1.0.0"
   resolved "file:packages/game/game.scene"
   dependencies:
+    "@wraithlight/game.contract" "*"
     "@wraithlight/game.layer" "*"
 
 "@wraithlight/logs.node@file:/Users/sohamar/Documents/Projects/wraithlight/applications/apps/logs/node":
   version "1.0.0"
   resolved "file:apps/logs/node"
   dependencies:
+    "@wraithlight/core.env-static" "*"
     "@wraithlight/core.logs-common" "*"
     "@wraithlight/core.node" "*"
+    "@wraithlight/core.sql" "*"
     "@wraithlight/core.types" "*"
 
 "@wraithlight/user-management.node@file:/Users/sohamar/Documents/Projects/wraithlight/applications/apps/user-management/node":
@@ -2736,11 +2746,19 @@
   resolved "file:apps/user-management/node"
   dependencies:
     "@wraithlight/common.auth-sdk.server" "*"
+    "@wraithlight/common.logger-sdk" "*"
+    "@wraithlight/core.auth-common" "*"
     "@wraithlight/core.auth.types" "*"
+    "@wraithlight/core.common-constant" "*"
+    "@wraithlight/core.common-utils" "*"
     "@wraithlight/core.env-static" "*"
     "@wraithlight/core.logger" "*"
     "@wraithlight/core.logger-sdk" "*"
     "@wraithlight/core.node" "*"
+    "@wraithlight/core.sql" "*"
+    "@wraithlight/core.types" "*"
+    "@wraithlight/core.user-management.constant" "*"
+    "@wraithlight/core.user-management.types" "*"
 
 "@wraithlight/user-management.ui@file:/Users/sohamar/Documents/Projects/wraithlight/applications/apps/user-management/ui":
   version "0.0.1"
@@ -2768,6 +2786,9 @@
     "@angular/platform-browser" "^16.0.0"
     "@angular/platform-browser-dynamic" "^16.0.0"
     "@angular/router" "^16.0.0"
+    "@wraithlight/common.auth-sdk.client" "*"
+    "@wraithlight/core.env-static" "*"
+    "@wraithlight/core.redux" "*"
     rxjs "~7.8.0"
     tslib "^2.3.0"
     zone.js "~0.13.0"
