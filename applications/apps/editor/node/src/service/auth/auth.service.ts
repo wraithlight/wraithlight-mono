@@ -1,5 +1,6 @@
 import { AuthClient } from "@wraithlight/common.auth-client";
 import { KeepAliveSuccessResponse, LoginErrorResponse, LoginScope, LoginSuccessResponse } from "@wraithlight/core.auth-common";
+
 import { LoginResult, LogoutResult, RenewResult, ValidateResult } from "./auth.model";
 
 export class AuthService {
