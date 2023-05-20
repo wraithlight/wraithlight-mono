@@ -1,0 +1,19 @@
+{
+    "name": "@wraithlight/core.logger-sdk",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "webpack",
+        "build:prod": "webpack --env production"
+    },
+    "dependencies": {
+        "@wraithlight/core.logger.types": "*",
+        "@wraithlight/core.types": "*"
+    },
+    "devDependencies": {
+        "webpack": "~5.76.0",
+        "webpack-cli": "~5.0.1",
+        "ts-loader": "~9.4.2"
+    }
+}
