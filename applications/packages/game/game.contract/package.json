@@ -6,8 +6,5 @@
     "scripts": {
         "build": "webpack",
         "build:prod": "webpack --env production"
-    },
-    "peerDependencies": {
-        "rxjs": "~7.8.0"
     }
 }
