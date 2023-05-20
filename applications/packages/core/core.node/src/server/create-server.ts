@@ -1,3 +1,4 @@
+import { LoggerService } from "@wraithlight/core.logger";
 import cors from "cors";
 import express from "express";
 
@@ -7,9 +8,9 @@ import { AppRef as AppRefImpl } from "./appref";
 export function createServer(
     enableCors: boolean
 ): AppRef {
+    const logger = LoggerService.getInstance();
     process.on('uncaughtException', function (err) {
-        console.error(JSON.stringify(err));
-        console.log("Global exception caught!");
+        logger.warn("Global exception caught!", JSON.stringify(err));
     });
 
     const app = express();

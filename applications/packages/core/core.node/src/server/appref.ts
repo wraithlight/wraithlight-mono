@@ -1,3 +1,4 @@
+import { LoggerService } from "@wraithlight/core/core.logger";
 import { Application, static as serveStatic } from "express";
 import { Server } from "http";
 import {
@@ -10,6 +11,7 @@ import { AppRef as IAppRef } from "./appref.model";
 export class AppRef implements IAppRef {
 
     private _listener: Server | undefined;
+    private readonly _logger = LoggerService.getInstance();
 
     constructor(
         public readonly app: Application
@@ -31,7 +33,7 @@ export class AppRef implements IAppRef {
         callback?: () => void
     ): void {
         this._listener = this.app.listen(port, () => {
-            console.log(`The app is up and running on http://localhost:${port}`);
+            this._logger.info(`The app is up and running on http://localhost:${port}`);
             if (callback) {
                 callback();
             }

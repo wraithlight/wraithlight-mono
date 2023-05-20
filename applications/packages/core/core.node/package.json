@@ -7,6 +7,9 @@
         "build": "webpack",
         "build:prod": "webpack --env production"
     },
+    "dependencies": {
+        "@wraithlight/core.logger": "*"
+    },
     "peerDependencies": {
         "cors": "~2.8.5",
         "express": "~4.18.2",
