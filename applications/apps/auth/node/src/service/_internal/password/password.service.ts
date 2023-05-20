@@ -5,6 +5,7 @@ import {
     UPPERCASE_ALPHABET
 } from "@wraithlight/core.types";
 import { SHA512 } from "@wraithlight/core.crypto";
+
 import { PASSWORD_SALT_LENGTH } from "./password.const";
 
 export class PasswordService {
