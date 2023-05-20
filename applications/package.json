@@ -13,6 +13,7 @@
     "packages/*",
     "packages/auth/*",
     "packages/core/*",
+    "packages/core/logger/*",
     "packages/game/*",
     "packages/i10n/*",
     "packages/user-management/*"
