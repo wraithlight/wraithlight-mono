@@ -8,6 +8,7 @@ An open-source fanatasy pirate based ORPG game.
 
 ## Links
 * [APP Urls](./docs/urls/apps.md)
+* [Tool Urls](./docs/urls/tools.md)
 * [Database Urls](./docs/urls/database.md)
 
 ## Tecnologies we use

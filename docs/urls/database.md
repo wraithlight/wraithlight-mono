@@ -1,5 +1,3 @@
-8999 - phpmyadmin
-
 | Database Name     | Container Name            | Internal Port | External Port         |
 | ---               | :-:                       | :-:           | :-:                   |
 | WL_AUTH           | `wraithlight-db-auth`     | `3306`        | http://localhost:9000 |
