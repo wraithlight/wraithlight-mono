@@ -1,0 +1,19 @@
+{
+    "name": "@wraithlight/core.user-management.types",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "version": "1.1.0",
+    "scripts": {
+        "build": "webpack",
+        "build:prod": "webpack --env production"
+    },
+    "dependencies": {
+        "@wraithlight/core.types": "*",
+        "@wraithlight/core.common-constant": "*"
+    },
+    "devDependencies": {
+        "webpack": "~5.76.0",
+        "webpack-cli": "~5.0.1",
+        "ts-loader": "~9.4.2"
+    }
+}
