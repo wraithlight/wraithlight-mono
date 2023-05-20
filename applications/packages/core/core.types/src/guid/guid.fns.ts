@@ -1,4 +1,3 @@
-import { randomNumberBetween } from "../_internal";
 import { LOWERCASE_ALPHABET, generateRandomString } from "../string";
 
 import { Guid } from "./guid.type";
