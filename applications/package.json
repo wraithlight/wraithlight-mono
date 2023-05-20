@@ -2,11 +2,13 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "nx": "nx",
     "lerna": "lerna",
     "lint": "eslint .",
     "build": "lerna run build",
     "build:prod": "lerna run build:prod",
-    "bootstrap": "lerna bootstrap"
+    "bootstrap": "lerna bootstrap",
+    "graph": "nx graph"
   },
   "workspaces": [
     "apps/**/*",
