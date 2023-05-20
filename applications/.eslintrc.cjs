@@ -65,7 +65,11 @@ module.exports = {
         "@typescript-eslint/prefer-string-starts-ends-with": "warn",
         "@typescript-eslint/promise-function-async": "warn",
         "no-magic-numbers": "off",
-        "@typescript-eslint/no-magic-numbers": "warn",
+        "@typescript-eslint/no-magic-numbers": [
+            "warn", {
+                "ignoreEnums": true
+            }
+        ],
         "no-useless-constructor": "off",
         "@typescript-eslint/no-useless-constructor": "warn",
         "no-array-constructor": "off",
