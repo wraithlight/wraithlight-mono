@@ -1,4 +1,5 @@
 import { Primitive } from "@wraithlight/core.types";
+import { LoggerService } from "@wraithlight/core.logger";
 import { EOL } from "os";
 
 import { QueryConcatResult } from "./query-context.model";
@@ -8,6 +9,8 @@ export abstract class QueryContext<T extends Object> {
     private readonly _queries: Array<string> = [];
     private readonly _queries2: Array<string> = [];
     private readonly _args2: Array<string> = [];
+
+    protected readonly _logger = LoggerService.getInstance();
 
     constructor(
         protected readonly _tableName: string

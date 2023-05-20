@@ -34,6 +34,7 @@ export class UpdateQueryContext<T, TKey extends keyof T>
         return new Promise((resolve, reject) => {
             this._context.Connection.execute(command, (error) => {
                 if (error) {
+                    this._logger.error("UpdateQueryContext", "Error while executing:", `"${command}"`, "ERROR:", error);
                     reject();
                 }
                 resolve();

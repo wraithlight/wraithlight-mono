@@ -2,10 +2,13 @@
     "name": "@wraithlight/core.sql",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "3.4.0",
+    "version": "3.5.0",
     "scripts": {
         "build": "webpack",
         "build:prod": "webpack --env production"
+    },
+    "dependencies": {
+        "@wraithlight/core.logger": "*"
     },
     "peerDependencies": {
         "mysql2": "~3.2.0"

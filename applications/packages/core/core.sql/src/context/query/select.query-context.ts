@@ -51,6 +51,7 @@ export class SelectQueryContext<T extends Object>
         return new Promise((resolve, reject) => {
             this._context.Connection.execute(command, (error, rows) => {
                 if (error) {
+                    this._logger.error("UpdateQueryContext", "Error while executing:", `"${command}"`, "ERROR:", error);
                     reject(error);
                 }
                 const rawResult = rows && rows.length && rows.length > 0
