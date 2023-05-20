@@ -1,5 +1,5 @@
 {
-    "name": "@wraithlight/core.logger-sdk",
+    "name": "@wraithlight/common.logger-sdk",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "version": "1.0.0",

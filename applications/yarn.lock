@@ -2530,6 +2530,13 @@
   version "3.2.0"
   resolved "file:packages/i10n/common.i10n-sdk.client"
 
+"@wraithlight/common.logger-sdk@*", "@wraithlight/common.logger-sdk@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/logger/common.logger-sdk":
+  version "1.0.0"
+  resolved "file:packages/core/logger/common.logger-sdk"
+  dependencies:
+    "@wraithlight/core.logger.types" "*"
+    "@wraithlight/core.types" "*"
+
 "@wraithlight/common.logs-client@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/common.logs-client":
   version "1.1.0"
   resolved "file:packages/common.logs-client"
@@ -2579,14 +2586,16 @@
 "@wraithlight/core.common-constant@*", "@wraithlight/core.common-constant@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core.common-constant":
   version "2.0.0"
   resolved "file:packages/core.common-constant"
+  dependencies:
+    "@wraithlight/core.types" "*"
 
-"@wraithlight/core.common-utils@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core.common-utils":
+"@wraithlight/core.common-utils@*", "@wraithlight/core.common-utils@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core.common-utils":
   version "1.0.1"
   resolved "file:packages/core.common-utils"
   dependencies:
     "@wraithlight/core.common-constant" "*"
 
-"@wraithlight/core.crypto@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.crypto":
+"@wraithlight/core.crypto@*", "@wraithlight/core.crypto@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.crypto":
   version "2.0.0"
   resolved "file:packages/core/core.crypto"
 
@@ -2606,7 +2615,7 @@
   version "3.4.1"
   resolved "file:packages/core/core.http"
 
-"@wraithlight/core.logger-sdk@*", "@wraithlight/core.logger-sdk@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/logger/common.logger-sdk":
+"@wraithlight/core.logger-sdk@*":
   version "1.0.0"
   resolved "file:packages/core/logger/common.logger-sdk"
   dependencies:
@@ -2632,6 +2641,8 @@
 "@wraithlight/core.node@*", "@wraithlight/core.node@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.node":
   version "2.0.1"
   resolved "file:packages/core/core.node"
+  dependencies:
+    "@wraithlight/core.logger" "*"
 
 "@wraithlight/core.redux@*", "@wraithlight/core.redux@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.redux":
   version "1.1.0"
@@ -2639,21 +2650,23 @@
   dependencies:
     "@wraithlight/core.types" "*"
 
-"@wraithlight/core.sql@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.sql":
+"@wraithlight/core.sql@*", "@wraithlight/core.sql@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.sql":
   version "3.5.0"
   resolved "file:packages/core/core.sql"
+  dependencies:
+    "@wraithlight/core.logger" "*"
 
 "@wraithlight/core.types@*", "@wraithlight/core.types@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.types":
   version "1.15.2"
   resolved "file:packages/core/core.types"
 
-"@wraithlight/core.user-management.constant@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/user-management/core.user-management.constant":
+"@wraithlight/core.user-management.constant@*", "@wraithlight/core.user-management.constant@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/user-management/core.user-management.constant":
   version "1.2.0"
   resolved "file:packages/user-management/core.user-management.constant"
   dependencies:
     "@wraithlight/core.types" "*"
 
-"@wraithlight/core.user-management.types@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/user-management/core.user-management.types":
+"@wraithlight/core.user-management.types@*", "@wraithlight/core.user-management.types@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/user-management/core.user-management.types":
   version "1.1.0"
   resolved "file:packages/user-management/core.user-management.types"
   dependencies:
