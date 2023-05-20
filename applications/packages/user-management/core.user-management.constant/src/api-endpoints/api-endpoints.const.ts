@@ -17,7 +17,8 @@ export const API_ENDPOINTS = Object.freeze({
             edit: {
                 server: `${USER_V1}/edit`,
                 client: (id: string) => `${USER_V1}/edit?id=${id}`
-            }
+            },
+            resetPassword: `${USER_V1}/reset-password`
         }
     }
 });
