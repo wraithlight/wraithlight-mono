@@ -12,7 +12,15 @@
         "@wraithlight/common.auth-sdk.server": "*",
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.logger": "*",
-        "@wraithlight/core.logger-sdk": "*"
+        "@wraithlight/core.logger-sdk": "*",
+        "@wraithlight/core.types": "*",
+        "@wraithlight/core.auth-common": "*",
+        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.user-management.constant": "*",
+        "@wraithlight/core.user-management.types": "*",
+        "@wraithlight/core.sql": "*",
+        "@wraithlight/core.common-utils": "*",
+        "@wraithlight/common.logger-sdk": "*"
     },
     "devDependencies": {
         "nodemon": "~2.0.20",
