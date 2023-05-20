@@ -3,7 +3,7 @@
  * @param {unknown} valueLike The value to check.
  * @returns {boolean} True if the object is `null` or `undefined` otherwise false.
  */
-export function isNil(valueLike: unknown): boolean {
+export function isNil<T>(valueLike: unknown): valueLike is T {
     if (valueLike === null) {
         return true;
     }
