@@ -1,4 +1,4 @@
-export const enum ApplicationName {
+export enum ApplicationName {
     Website = "WEBSITE",
     GameWebsite = "GAME_WEBSITE",
     GameApplication = "GAME_APPLICATION",
