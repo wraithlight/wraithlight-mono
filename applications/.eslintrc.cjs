@@ -6,9 +6,12 @@ module.exports = {
         "deprecation",
         '@typescript-eslint'
     ],
+    parserOptions: {
+        project: ['./tsconfig.json'],
+    },
     overrides: [
         {
-            files: ['*.ts', '*.tsx'],
+            files: ['*.ts'],
             parserOptions: {
                 project: ['./tsconfig.json'],
             }
@@ -29,6 +32,7 @@ module.exports = {
         "@typescript-eslint/no-extra-semi": "warn",
         "@typescript-eslint/no-empty-interface": "warn",
         "no-async-promise-executor": "warn",
+        "@typescript-eslint/no-unnecessary-type-assertion": "warn",
         // END TODO
         // Native
         "sort-imports": "warn",
@@ -48,6 +52,9 @@ module.exports = {
             "document"
         ],
         // Typescript
+        "@typescript-eslint/no-unsafe-assignment": "warn",
+        "@typescript-eslint/no-unsafe-member-access": "warn",
+        "@typescript-eslint/unbound-method": "warn",
         "lines-between-class-members": "off",
         "@typescript-eslint/lines-between-class-members": "warn",
         "@typescript-eslint/parameter-properties": "warn",
