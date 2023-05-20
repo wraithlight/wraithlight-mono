@@ -10,7 +10,6 @@
     "dependencies": {
         "@wraithlight/core.logs-common": "*",
         "@wraithlight/core.http": "*",
-        "@wraithlight/core.node": "*",
         "@wraithlight/core.env-static": "*",
         "@wraithlight/core.types": "*"
     },
