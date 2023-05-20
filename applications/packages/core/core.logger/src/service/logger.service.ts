@@ -2,6 +2,9 @@ import { Nullable, dateISOSerialize, dateNow } from "@wraithlight/core.types";
 
 import { ILogger, LogSeverity } from "./logger.model";
 
+/**
+ * @deprecated Use `LoggerService` from `common.logger-sdk` instead.
+ */
 export class LoggerService implements ILogger {
 
     private static _instance: Nullable<LoggerService>;
