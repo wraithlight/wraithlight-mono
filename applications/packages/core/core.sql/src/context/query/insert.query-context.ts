@@ -1,4 +1,3 @@
-import { Primitive } from "@wraithlight/core.types";
 import { EOL } from "os";
 
 import { DbContext } from "../dbcontext";
