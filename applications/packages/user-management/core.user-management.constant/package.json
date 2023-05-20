@@ -7,9 +7,6 @@
         "build": "webpack",
         "build:prod": "webpack --env production"
     },
-    "dependencies": {
-        "@wraithlight/core.types": "*"
-    },
     "devDependencies": {
         "webpack": "~5.76.0",
         "webpack-cli": "~5.0.1",
