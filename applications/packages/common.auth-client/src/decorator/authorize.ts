@@ -5,6 +5,9 @@ import { Request } from "express";
 
 import { AuthClient } from "../client";
 
+/**
+ * @deprecated Use `Authorize` from `@wraithlight/common.auth-sdk.server` instead.
+ */
 export const Authorize = (scope: LoginScope) => FilterDecorator(async (request: Request) => {
     const token = request.headers[SESSION_TOKEN_HEADER_NAME] as string;
     if (!token) {
