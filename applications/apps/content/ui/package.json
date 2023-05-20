@@ -7,9 +7,9 @@
         "serve": "webpack serve --env development"
     },
     "dependencies": {
-        "@wraithlight/core.types": "*",
-        "@wraithlight/common.auth-sdk.client": "*",
         "@wraithlight/core.redux": "*",
+        "@wraithlight/core.env-static": "*",
+        "@wraithlight/common.auth-sdk.client": "*",
         "mithril": "~2.2.2",
         "rxjs": "~7.8.1"
     },
