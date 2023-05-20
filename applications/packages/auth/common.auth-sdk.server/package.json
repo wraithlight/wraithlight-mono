@@ -15,7 +15,8 @@
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.types": "*",
         "@wraithlight/core.http": "*",
-        "@wraithlight/core.node": "*"
+        "@wraithlight/core.node": "*",
+        "@wraithlight/core.env-static": "*"
     },
     "devDependencies": {
         "webpack": "~5.76.0",
