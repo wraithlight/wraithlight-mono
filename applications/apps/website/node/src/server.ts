@@ -7,7 +7,7 @@ import {
     ServerAccountControllerV1,
     ServerAuthControllerV1
 } from "@wraithlight/common.auth-sdk.server";
-import { LoginScope } from "@wraithlight/auth/core.auth.types";
+import { LoginScope } from "@wraithlight/core.auth.types";
 import { LoggerService } from "@wraithlight/core.logger";
 
 const CONTROLLERS = [

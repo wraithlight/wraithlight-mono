@@ -4,7 +4,7 @@ import {
     createServer
 } from "@wraithlight/core.node";
 import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
-import { LoginScope } from "@wraithlight/auth/core.auth.types";
+import { LoginScope } from "@wraithlight/core.auth.types";
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Content)
