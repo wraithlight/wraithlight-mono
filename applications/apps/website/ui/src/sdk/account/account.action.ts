@@ -1,7 +1,7 @@
 import {
     Action,
     ActionWithPayload
-} from "@wraithlight/core/core.redux";
+} from "@wraithlight/core.redux";
 
 import { RegisterModel } from "./model/register.model";
 

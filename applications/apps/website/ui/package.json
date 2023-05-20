@@ -19,7 +19,10 @@
     "@angular/router": "^16.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.13.0"
+    "zone.js": "~0.13.0",
+    "@wraithlight/core.redux": "*",
+    "@wraithlight/core.env-static": "*",
+    "@wraithlight/common.auth-sdk.client": "*"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.0.0",

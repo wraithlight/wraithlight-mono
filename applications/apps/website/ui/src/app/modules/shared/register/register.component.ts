@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, ViewEncapsulation } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
 
-import { CONTROL_NAMES, CONTROL_VALIDATORS } from "./register.const";
 import { AccountAction, AccountSelector, GLOBAL_STORE } from "../../../../sdk";
+
+import { CONTROL_NAMES, CONTROL_VALIDATORS } from "./register.const";
 
 @Component({
     selector: "wl-register",
