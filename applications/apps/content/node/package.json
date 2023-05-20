@@ -7,11 +7,10 @@
         "build:prod": "webpack --env production"
     },
     "dependencies": {
+        "@wraithlight/core.env-static": "*",
         "@wraithlight/core.node": "*",
-        "@wraithlight/core.auth-common": "*",
-        "@wraithlight/core.types": "*",
-        "@wraithlight/core.auth.constant": "*",
-        "@wraithlight/core.auth.types": "*"
+        "@wraithlight/common.auth-sdk.server": "*",
+        "@wraithlight/auth/core.auth.types": "*"
     },
     "devDependencies": {
         "nodemon": "~2.0.20",
