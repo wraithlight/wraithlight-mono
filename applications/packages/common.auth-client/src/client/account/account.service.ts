@@ -3,6 +3,9 @@ import { HttpClient } from "@wraithlight/core.http";
 
 import { AccountClientConfig } from "./account.config";
 
+/**
+ * @deprecated Use `ClientAccountService` from `@common.auth-sdk.client` instead.
+ */
 export class AccountService {
 
     private readonly _httpClient = new HttpClient();

@@ -13,6 +13,9 @@ import { HttpClient } from "@wraithlight/core.http";
 
 import { AuthClientConfig } from "./auth.config";
 
+/**
+ * @deprecated Use `ClientAuthService` from `@common.auth-sdk.client` instead.
+ */
 export class AuthClient {
 
     private readonly _httpClient = new HttpClient();
