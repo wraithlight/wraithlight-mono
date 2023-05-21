@@ -2,6 +2,7 @@
 | Application Name              | Serve Port            | Watch Port                |
 | ---                           | :-:                   | :-:                       |
 | Auth API                      | http://localhost:3000 | http://localhost:4500     |
+| Auth UI                       | http://localhost:3000 | http://localhost:4500     |
 | Content API                   | http://localhost:3001 | http://localhost:4501     |
 | Content UI                    | http://localhost:4001 | http://localhost:4501     |
 | Editor API                    | http://localhost:3002 | http://localhost:4502     |
@@ -13,7 +14,5 @@
 | Game Website UI               | http://localhost:4005 | http://localhost:4505     |
 | Logs API                      | http://localhost:3006 | http://localhost:4506     |
 | Logs UI                       | http://localhost:4006 | http://localhost:4506     |
-| User Management API           | http://localhost:3007 | http://localhost:4507     |
-| User Management UI            | http://localhost:4007 | http://localhost:4507     |
 | Website API                   | http://localhost:3008 | http://localhost:4508     |
 | Website UI                    | http://localhost:4008 | http://localhost:4508     |
