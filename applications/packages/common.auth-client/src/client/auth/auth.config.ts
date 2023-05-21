@@ -4,23 +4,23 @@ import { COMMON_STATIC } from "@wraithlight/core.env-static";
 export class AuthClientConfig {
 
     public getAuthValidateUrl(): string {
-        return `${this.getAuthRootUrl()}${AUTH_API_ENDPOINTS.sessionValid}`;
+        return `${this.getAuthRootUrl()}${AUTH_API_ENDPOINTS.external.sessionValid}`;
     }
 
     public getAuthLoginUrl(): string {
-        return `${this.getAuthRootUrl()}${AUTH_API_ENDPOINTS.login}`;
+        return `${this.getAuthRootUrl()}${AUTH_API_ENDPOINTS.external.login}`;
     }
 
     public getAuthLogoutUrl(): string {
-        return `${this.getAuthRootUrl()}${AUTH_API_ENDPOINTS.logout}`;
+        return `${this.getAuthRootUrl()}${AUTH_API_ENDPOINTS.external.logout}`;
     }
 
     public getAuthKeepAliveUrl(): string {
-        return `${this.getAuthRootUrl()}${AUTH_API_ENDPOINTS.keepAlive}`;
+        return `${this.getAuthRootUrl()}${AUTH_API_ENDPOINTS.external.keepAlive}`;
     }
 
     private getAuthRootUrl(): string {
-        return `${this.getAuthBaseUrl()}${AUTH_API_ENDPOINTS.root}`;
+        return `${this.getAuthBaseUrl()}${AUTH_API_ENDPOINTS.external.root}`;
     }
 
     private getAuthBaseUrl(): string {

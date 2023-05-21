@@ -4,11 +4,11 @@ import { COMMON_STATIC } from "@wraithlight/core.env-static";
 export class AccountClientConfig {
 
     public getAccountRegisterUrl(): string {
-        return `${this.getAccountRootUrl()}${ACCOUNT_API_ENDPOINTS.register}`;
+        return `${this.getAccountRootUrl()}${ACCOUNT_API_ENDPOINTS.external.register}`;
     }
 
     private getAccountRootUrl(): string {
-        return `${this.getAccountBaseUrl()}${ACCOUNT_API_ENDPOINTS.root}`;
+        return `${this.getAccountBaseUrl()}${ACCOUNT_API_ENDPOINTS.external.root}`;
     }
 
     private getAccountBaseUrl(): string {
