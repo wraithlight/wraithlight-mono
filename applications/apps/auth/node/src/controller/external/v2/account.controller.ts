@@ -6,14 +6,14 @@ import {
 } from "@wraithlight/core.auth.types";
 import { BaseController, HttpController, HttpPost } from "@wraithlight/core.node";
 
-import { AccountService } from "../../service/account/account.service";
+import { AccountService } from "../../../service/account/account.service";
 
-@HttpController(API_ENDPOINTS.v2.account.root)
+@HttpController(API_ENDPOINTS.external.v2.account.root)
 export class AccountControllerV2 extends BaseController {
 
     private readonly _accountService = new AccountService();
 
-    @HttpPost(API_ENDPOINTS.v2.account.register)
+    @HttpPost(API_ENDPOINTS.external.v2.account.register)
     public async register(dto: ApiRegisterRequest): Promise<void> {
         const result = await this._accountService.create(
             dto.username,

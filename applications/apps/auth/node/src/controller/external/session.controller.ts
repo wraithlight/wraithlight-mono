@@ -19,15 +19,15 @@ import {
 } from "@wraithlight/core.node";
 import { toUtc } from "@wraithlight/core.types";
 
-import { AuthService, SessionService } from "../service";
+import { AuthService, SessionService } from "../../service";
 
-@HttpController(AUTH_API_ENDPOINTS.root)
+@HttpController(AUTH_API_ENDPOINTS.external.root)
 export class SessionController extends BaseController {
 
     private readonly _sessionService = SessionService.getInstance();
     private readonly _authServuce = new AuthService();
 
-    @HttpPost(AUTH_API_ENDPOINTS.login)
+    @HttpPost(AUTH_API_ENDPOINTS.external.login)
     public async login(request: LoginRequest): Promise<void> {
         const result = await this._authServuce.login(request.username, request.password, request.scope);
         if (!result.success) {
@@ -50,7 +50,7 @@ export class SessionController extends BaseController {
         super.ok(loginResult);
     }
 
-    @HttpPost(AUTH_API_ENDPOINTS.logout)
+    @HttpPost(AUTH_API_ENDPOINTS.external.logout)
     public async logout(request: LogoutRequest): Promise<void> {
         const result = this._sessionService.stopSession(request.sessionToken, request.scope);
         if (result) {
@@ -65,7 +65,7 @@ export class SessionController extends BaseController {
         super.ok(logoutResult);
     }
 
-    @HttpPost(AUTH_API_ENDPOINTS.keepAlive)
+    @HttpPost(AUTH_API_ENDPOINTS.external.keepAlive)
     public async keepAlive(request: KeepAliveRequest): Promise<void> {
         const result = this._sessionService.renew(request.sessionToken, request.scope);
         if (!result.success) {
@@ -86,7 +86,7 @@ export class SessionController extends BaseController {
         super.ok(keepAliveResult);
     }
 
-    @HttpPost(AUTH_API_ENDPOINTS.sessionValid)
+    @HttpPost(AUTH_API_ENDPOINTS.external.sessionValid)
     public async validate(request: ValidateRequest): Promise<void> {
         const result = this._sessionService.checkSession(request.sessionToken, request.scope);
         if (!result.isValid) {

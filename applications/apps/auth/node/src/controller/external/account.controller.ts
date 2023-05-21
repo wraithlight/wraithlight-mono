@@ -6,14 +6,14 @@ import {
 } from "@wraithlight/core.auth-common";
 import { BaseController, HttpController, HttpPost } from "@wraithlight/core.node";
 
-import { AccountService } from "../service/account/account.service";
+import { AccountService } from "../../service/account/account.service";
 
-@HttpController(ACCOUNT_API_ENDPOINTS.root)
+@HttpController(ACCOUNT_API_ENDPOINTS.external.root)
 export class AccountController extends BaseController {
 
     private readonly _accountService = new AccountService();
 
-    @HttpPost(ACCOUNT_API_ENDPOINTS.register)
+    @HttpPost(ACCOUNT_API_ENDPOINTS.external.register)
     public async register(dto: RegisterModel): Promise<void> {
         const result = await this._accountService.create(
             dto.username,
