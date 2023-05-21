@@ -1,5 +1,5 @@
 {
-	"name": "@wraithlight/user-management.ui",
+	"name": "@wraithlight/auth.ui",
 	"version": "0.0.1",
 	"scripts": {
 		"serve": "vite dev",
