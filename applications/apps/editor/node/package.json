@@ -4,7 +4,6 @@
     "dependencies": {
         "@wraithlight/core.node": "*",
         "@wraithlight/core.editor-common": "*",
-        "@wraithlight/common.auth-client": "*",
         "@wraithlight/core.types": "*"
     },
     "devDependencies": {
