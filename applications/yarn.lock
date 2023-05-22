@@ -2501,14 +2501,9 @@
     "@wraithlight/core.sql" "*"
     "@wraithlight/core.types" "*"
 
-"@wraithlight/common.auth-client@*", "@wraithlight/common.auth-client@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/common.auth-client":
-  version "1.2.2"
-  resolved "file:packages/common.auth-client"
-  dependencies:
-    "@wraithlight/core.auth-common" "*"
-    "@wraithlight/core.env-static" "*"
-    "@wraithlight/core.http" "*"
-    "@wraithlight/core.node" "*"
+"@wraithlight/auth.ui@file:/Users/sohamar/Documents/Projects/wraithlight/applications/apps/auth/ui":
+  version "0.0.1"
+  resolved "file:apps/auth/ui"
 
 "@wraithlight/common.auth-sdk.client@*", "@wraithlight/common.auth-sdk.client@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/auth/common.auth-sdk.client":
   version "1.2.0"
@@ -2520,7 +2515,7 @@
     "@wraithlight/core.types" "*"
 
 "@wraithlight/common.auth-sdk.server@*", "@wraithlight/common.auth-sdk.server@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/auth/common.auth-sdk.server":
-  version "1.3.1"
+  version "1.3.2"
   resolved "file:packages/auth/common.auth-sdk.server"
   dependencies:
     "@wraithlight/core.auth.constant" "*"
@@ -2571,7 +2566,7 @@
     mithril "~2.2.2"
 
 "@wraithlight/core.auth-common@*", "@wraithlight/core.auth-common@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core.auth-common":
-  version "1.3.2"
+  version "2.0.0"
   resolved "file:packages/core.auth-common"
   dependencies:
     "@wraithlight/core.common-constant" "*"
@@ -2667,7 +2662,6 @@
   version "1.0.0"
   resolved "file:apps/editor/node"
   dependencies:
-    "@wraithlight/common.auth-client" "*"
     "@wraithlight/core.editor-common" "*"
     "@wraithlight/core.node" "*"
     "@wraithlight/core.types" "*"
@@ -2725,10 +2719,6 @@
     "@wraithlight/core.node" "*"
     "@wraithlight/core.sql" "*"
     "@wraithlight/core.types" "*"
-
-"@wraithlight/user-management.ui@file:/Users/sohamar/Documents/Projects/wraithlight/applications/apps/auth/ui":
-  version "0.0.1"
-  resolved "file:apps/auth/ui"
 
 "@wraithlight/website.node@file:/Users/sohamar/Documents/Projects/wraithlight/applications/apps/website/node":
   version "1.0.0"
