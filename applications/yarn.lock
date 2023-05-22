@@ -2490,7 +2490,6 @@
   version "1.0.0"
   resolved "file:apps/auth/node"
   dependencies:
-    "@wraithlight/core.auth-common" "*"
     "@wraithlight/core.auth.constant" "*"
     "@wraithlight/core.auth.types" "*"
     "@wraithlight/core.common-constant" "*"
@@ -2564,12 +2563,6 @@
     "@wraithlight/core.env-static" "*"
     "@wraithlight/core.redux" "*"
     mithril "~2.2.2"
-
-"@wraithlight/core.auth-common@*", "@wraithlight/core.auth-common@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core.auth-common":
-  version "2.0.0"
-  resolved "file:packages/core.auth-common"
-  dependencies:
-    "@wraithlight/core.common-constant" "*"
 
 "@wraithlight/core.auth.constant@*", "@wraithlight/core.auth.constant@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/auth/core.auth.constant":
   version "2.0.0"
