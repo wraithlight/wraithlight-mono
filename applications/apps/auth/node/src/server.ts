@@ -6,16 +6,12 @@ import {
 import { LoggerService } from "@wraithlight/core.logger";
 
 import {
-    AccountController,
     AccountControllerV2,
-    SessionController,
     SessionControllerV2
 } from "./controller";
 
 const CONTROLLERS = [
-    new AccountController(),
     new AccountControllerV2(),
-    new SessionController(),
     new SessionControllerV2()
 ];
 

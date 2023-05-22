@@ -1,4 +1,4 @@
-import { LoginScope } from "@wraithlight/core.auth-common";
+import { LoginScope } from "@wraithlight/core.auth.types";
 import { SHA256 } from "@wraithlight/core.crypto";
 import { addMinutes, dateNow, Nullable } from "@wraithlight/core.types";
 

@@ -8,7 +8,6 @@
     },
     "dependencies": {
         "@wraithlight/core.node": "*",
-        "@wraithlight/core.auth-common": "*",
         "@wraithlight/core.types": "*",
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",

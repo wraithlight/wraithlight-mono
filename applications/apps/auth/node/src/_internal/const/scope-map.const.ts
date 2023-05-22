@@ -1,5 +1,5 @@
 import { Guid } from "@wraithlight/core.types";
-import { LoginScope } from "@wraithlight/core.auth-common";
+import { LoginScope } from "@wraithlight/core.auth.types";
 import { ApplicationId } from "@wraithlight/core.common-constant";
 
 export const SCOPE_NAME_MAP: {[key: string]: Guid } = Object.freeze({

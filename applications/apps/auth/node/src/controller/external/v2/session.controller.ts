@@ -1,5 +1,5 @@
 import { API_ENDPOINTS } from "@wraithlight/core.auth.constant";
-import { LoginScope } from "@wraithlight/core.auth-common";
+
 import {
     ApiKeepAliveSessionErrorResponse,
     ApiKeepAliveSessionRequest,
@@ -12,8 +12,7 @@ import {
     ApiLogoutSuccessResponse,
     ApiValidateSessionErrorResponse,
     ApiValidateSessionRequest,
-    ApiValidateSessionSuccessResponse,
-    LoginScope as CoreLoginScope
+    ApiValidateSessionSuccessResponse
 } from "@wraithlight/core.auth.types";
 import { toUtc } from "@wraithlight/core.types";
 import {
@@ -39,12 +38,12 @@ export class SessionControllerV2 extends BaseController {
             .login(
                 model.username,
                 model.password,
-                this.translateScope(model.loginScope)
+                model.loginScope
             )
         ;
         if (result.success) {
             const session = this._sessionService
-                .startSession(model.username, this.translateScope(model.loginScope));
+                .startSession(model.username, model.loginScope);
             const data: ApiLoginSuccessResponse = {
                 success: true,
                 payload: {
@@ -66,7 +65,7 @@ export class SessionControllerV2 extends BaseController {
 
     @HttpPost(API_ENDPOINTS.external.v2.auth.logout)
     public async logout(model: ApiLogoutRequest) {
-        const result = this._sessionService.stopSession(model.sessionToken, this.translateScope(model.loginScope));
+        const result = this._sessionService.stopSession(model.sessionToken, model.loginScope);
         if (result) {
             const data: ApiLogoutErrorResponse = {
                 success: false,
@@ -83,7 +82,7 @@ export class SessionControllerV2 extends BaseController {
 
     @HttpPost(API_ENDPOINTS.external.v2.auth.keepAlive)
     public async keepAliveSession(model: ApiKeepAliveSessionRequest) {
-        const result = this._sessionService.renew(model.sessionToken, this.translateScope(model.loginScope));
+        const result = this._sessionService.renew(model.sessionToken, model.loginScope);
         if (!result.success) {
             const data: ApiKeepAliveSessionErrorResponse = {
                 success: false,
@@ -104,7 +103,7 @@ export class SessionControllerV2 extends BaseController {
 
     @HttpPost(API_ENDPOINTS.external.v2.auth.validateSession)
     public async validateSession(model: ApiValidateSessionRequest) {
-        const result = this._sessionService.checkSession(model.sessionToken, this.translateScope(model.loginScope));
+        const result = this._sessionService.checkSession(model.sessionToken, model.loginScope);
         if (!result.isValid) {
             const validateResult: ApiValidateSessionErrorResponse = {
                 success: false,
@@ -121,10 +120,6 @@ export class SessionControllerV2 extends BaseController {
             }
         };
         return super.ok(validateResult);
-    }
-
-    private translateScope(loginScope: CoreLoginScope): LoginScope {
-        return loginScope as unknown as LoginScope;
     }
 
 }

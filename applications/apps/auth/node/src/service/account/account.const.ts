@@ -1,4 +1,4 @@
-import { LoginScope } from "@wraithlight/core.auth-common";
+import { LoginScope } from "@wraithlight/core.auth.types";
 
 export const DEFAULT_LOGIN_SCOPES = [
     LoginScope.Forum,
