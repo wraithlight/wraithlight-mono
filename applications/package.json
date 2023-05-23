@@ -18,7 +18,7 @@
     "packages/core/logger/*",
     "packages/game/*",
     "packages/i10n/*",
-    "packages/logger/*"
+    "packages/logs/*"
   ],
   "engines" : { 
     "npm" : ">=9.0.0 <10.0.0",
