@@ -2,7 +2,7 @@
     "name": "@wraithlight/common.logs-sdk.server",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "scripts": {
         "build": "webpack",
         "build:prod": "webpack --env production"
@@ -11,6 +11,7 @@
         "@wraithlight/common.logger.sdk": "*",
         "@wraithlight/core.logger.types": "*",
         "@wraithlight/core.logs.sdk": "*",
-        "@wraithlight/core.logs.types": "*"
+        "@wraithlight/core.logs.types": "*",
+        "@wraithlight/core.common-constant": "*"
     }
 }
