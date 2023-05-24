@@ -2537,26 +2537,19 @@
     "@wraithlight/core.logger.types" "*"
     "@wraithlight/core.types" "*"
 
-"@wraithlight/common.logs-client@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/common.logs-client":
-  version "1.1.0"
-  resolved "file:packages/common.logs-client"
-  dependencies:
-    "@wraithlight/core.env-static" "*"
-    "@wraithlight/core.http" "*"
-    "@wraithlight/core.logs-common" "*"
-    "@wraithlight/core.types" "*"
-
 "@wraithlight/common.logs-sdk.client@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/logs/common.logs-sdk.client":
-  version "1.0.0"
+  version "2.0.0"
   resolved "file:packages/logs/common.logs-sdk.client"
   dependencies:
+    "@wraithlight/core.common-constant" "*"
     "@wraithlight/core.logs.sdk" "*"
 
 "@wraithlight/common.logs-sdk.server@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/logs/common.logs-sdk.server":
-  version "1.0.0"
+  version "2.0.0"
   resolved "file:packages/logs/common.logs-sdk.server"
   dependencies:
     "@wraithlight/common.logger.sdk" "*"
+    "@wraithlight/core.common-constant" "*"
     "@wraithlight/core.logger.types" "*"
     "@wraithlight/core.logs.sdk" "*"
     "@wraithlight/core.logs.types" "*"
@@ -2636,20 +2629,15 @@
   dependencies:
     "@wraithlight/core.types" "*"
 
-"@wraithlight/core.logs-common@*", "@wraithlight/core.logs-common@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core.logs-common":
-  version "2.0.1"
-  resolved "file:packages/core.logs-common"
-  dependencies:
-    "@wraithlight/core.types" "*"
-
 "@wraithlight/core.logs.constant@*", "@wraithlight/core.logs.constant@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/logs/core.logs.constant":
   version "1.0.0"
   resolved "file:packages/logs/core.logs.constant"
 
 "@wraithlight/core.logs.sdk@*", "@wraithlight/core.logs.sdk@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/logs/core.logs.sdk":
-  version "1.0.0"
+  version "1.1.0"
   resolved "file:packages/logs/core.logs.sdk"
   dependencies:
+    "@wraithlight/core.common-constant" "*"
     "@wraithlight/core.dom" "*"
     "@wraithlight/core.env-static" "*"
     "@wraithlight/core.logger.types" "*"
@@ -2657,9 +2645,10 @@
     "@wraithlight/core.logs.types" "*"
 
 "@wraithlight/core.logs.types@*", "@wraithlight/core.logs.types@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/logs/core.logs.types":
-  version "1.0.0"
+  version "1.1.0"
   resolved "file:packages/logs/core.logs.types"
   dependencies:
+    "@wraithlight/core.common-constant" "*"
     "@wraithlight/core.logger.types" "*"
 
 "@wraithlight/core.node@*", "@wraithlight/core.node@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.node":
@@ -2676,7 +2665,7 @@
     "@wraithlight/core.types" "*"
 
 "@wraithlight/core.sql@*", "@wraithlight/core.sql@file:/Users/sohamar/Documents/Projects/wraithlight/applications/packages/core/core.sql":
-  version "3.5.0"
+  version "3.5.1"
   resolved "file:packages/core/core.sql"
   dependencies:
     "@wraithlight/core.logger" "*"
@@ -2743,7 +2732,8 @@
   resolved "file:apps/logs/node"
   dependencies:
     "@wraithlight/core.env-static" "*"
-    "@wraithlight/core.logs-common" "*"
+    "@wraithlight/core.logs.constant" "*"
+    "@wraithlight/core.logs.types" "*"
     "@wraithlight/core.node" "*"
     "@wraithlight/core.sql" "*"
     "@wraithlight/core.types" "*"
