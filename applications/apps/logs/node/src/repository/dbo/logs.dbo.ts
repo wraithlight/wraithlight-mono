@@ -1,13 +1,9 @@
-import {
-    LogSeverity,
-    ApplicationName
-} from "@wraithlight/core.logs-common";
+import { LogSeverity } from "@wraithlight/core.logger.types";
+import { ApplicationName } from "@wraithlight/core.common-constant";
 
 export interface LogsDbo {
-    id: number;
     severity: LogSeverity;
     application: ApplicationName;
     message: string;
-    additionalFields?: string;
     logDate: Date
 }

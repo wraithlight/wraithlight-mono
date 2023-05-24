@@ -1,4 +1,7 @@
-import { ApplicationName, LogSeverity } from "@wraithlight/core.logs-common";
+import { ApplicationName } from "@wraithlight/core.common-constant";
+import { LogSeverity } from "@wraithlight/core.logger.types";
+import { dateNow, toUtc } from "@wraithlight/core.types";
+
 import { LogsDbo, LogsRepository } from "../../repository";
 
 export class LogsService {
@@ -7,18 +10,14 @@ export class LogsService {
 
     public async log(
         severity: LogSeverity,
-        application: ApplicationName,
         message: string,
-        logDate: Date,
-        additionalFields?: string
+        application: ApplicationName
     ): Promise<void> {
         const entry: LogsDbo = {
-            id: 0,
             severity: severity,
             application: application,
             message: message,
-            logDate: logDate,
-            additionalFields: additionalFields
+            logDate: toUtc(dateNow())
         };
         await this._logsRepository.insert(entry);
     }

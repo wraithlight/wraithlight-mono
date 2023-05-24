@@ -1,4 +1,5 @@
-import { EntryRequest, LOGS_API_ENDPOINTS } from "@wraithlight/core.logs-common";
+import { BeaconLogEntry } from "@wraithlight/core.logs.types";
+import { LOGGER_API_ENDPOINTS } from "@wraithlight/core.logs.constant";
 import {
     BaseController,
     HttpController,
@@ -6,19 +7,17 @@ import {
 } from "@wraithlight/core.node";
 import { LogsService } from "../service";
 
-@HttpController(LOGS_API_ENDPOINTS.entry.root)
+@HttpController(LOGGER_API_ENDPOINTS.v1.logs.root)
 export class LogsEntryController extends BaseController {
 
     private readonly _logsService = new LogsService();
 
-    @HttpPost(LOGS_API_ENDPOINTS.entry.add)
-    public async logEntry(dto: EntryRequest): Promise<void> {
+    @HttpPost(LOGGER_API_ENDPOINTS.v1.logs.create)
+    public async logEntry(dto: BeaconLogEntry): Promise<void> {
         await this._logsService.log(
             dto.severity,
-            dto.application,
-            dto.message,
-            dto.logDate,
-            dto.additionalFields ?? ""
+            dto.data,
+            dto.applicationName
         );
         super.created();
     }
