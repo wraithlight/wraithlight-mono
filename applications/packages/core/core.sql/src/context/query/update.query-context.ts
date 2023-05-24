@@ -1,5 +1,5 @@
 import { EOL } from "os";
-import { Primitive } from "@wraithlight/core/core.types";
+import { Primitive } from "@wraithlight/core.types";
 
 import { QueryContext } from "./_internal";
 
