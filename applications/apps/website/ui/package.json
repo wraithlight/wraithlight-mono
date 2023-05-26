@@ -28,6 +28,7 @@
     "@angular-devkit/build-angular": "^16.0.0",
     "@angular/cli": "~16.0.0",
     "@angular/compiler-cli": "^16.0.0",
-    "typescript": "~5.0.2"
+    "typescript": "~5.0.2",
+    "jest-preset-angular": "~13.1.1"
   }
 }
