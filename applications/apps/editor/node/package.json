@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "dependencies": {
         "@wraithlight/core.node": "*",
-        "@wraithlight/core.editor-common": "*",
         "@wraithlight/core.types": "*"
     },
     "devDependencies": {
