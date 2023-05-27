@@ -1,6 +1,11 @@
 {
     "name": "@wraithlight/editor.node",
     "version": "1.0.0",
+    "scripts": {
+        "serve": "nodemon -r tsconfig-paths/register ./src/main.ts",
+        "build": "webpack",
+        "build:prod": "webpack --env production"
+    },
     "dependencies": {
         "@wraithlight/core.node": "*",
         "@wraithlight/core.types": "*"
