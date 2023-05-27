@@ -7,7 +7,7 @@ const config = (env) => {
   const cfg = {
     mode: isProduction ? "production" : "development",
     output: {
-      path: path.resolve(__dirname, "./dist"),
+      path: path.resolve(__dirname, "../dist/ui"),
       filename: isProduction ? "bundle.min.js" : "bundle.js"
     },
     plugins: [

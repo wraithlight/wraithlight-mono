@@ -9,7 +9,7 @@ const config = (env) => {
             "./src/main.ts"
         ],
         output: {
-            path: resolve(__dirname, "./dist"),
+            path: resolve(__dirname, "../dist/node"),
             filename,
             clean: true
         },
