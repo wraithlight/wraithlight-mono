@@ -20,7 +20,9 @@ module.exports = {
     root: true,
     ignorePatterns: [
         "**/dist/**",
-        "**/webpack.config.js"
+        "**/webpack.config.js",
+        ".eslintrc.cjs",
+        "jest.config.js"
     ],
     rules: {
         // TODO
