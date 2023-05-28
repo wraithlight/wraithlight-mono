@@ -7,3 +7,6 @@ coverage/
 
 # angular
 .angular
+
+# npm
+*/package-lock.json

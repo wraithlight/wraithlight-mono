@@ -12,8 +12,8 @@ jobs:
       with:
         node-version: 18.x
     - name: Install packages
-      run: npm i
+      run: yarn
       working-directory: ./applications
     - name: Run build
-      run: npm run build
+      run: yarn build
       working-directory: ./applications
