@@ -37,6 +37,7 @@ module.exports = {
         "@typescript-eslint/no-unnecessary-type-assertion": "warn",
         // END TODO
         // Native
+        "no-implicit-globals": "warn",
         "sort-imports": "warn",
         "no-multiple-empty-lines": "warn",
         "no-trailing-spaces": "warn",
