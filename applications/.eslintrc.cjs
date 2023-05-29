@@ -32,7 +32,12 @@ module.exports = {
         "@typescript-eslint/ban-types": "warn",
         "@typescript-eslint/no-var-requires": "warn",
         "@typescript-eslint/no-extra-semi": "warn",
-        "@typescript-eslint/no-empty-interface": "warn",
+        "@typescript-eslint/no-empty-interface": [
+            "warn",
+            {
+                "allowSingleExtends": true
+            }
+        ],
         "no-async-promise-executor": "warn",
         "@typescript-eslint/no-unnecessary-type-assertion": "warn",
         // END TODO
