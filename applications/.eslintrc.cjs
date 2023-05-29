@@ -26,7 +26,14 @@ module.exports = {
     ],
     rules: {
         // TODO
-        "@typescript-eslint/no-empty-function": "warn",
+        "@typescript-eslint/no-empty-function": [
+            "warn",
+            {
+                "allow": [
+                    "constructors"
+                ]
+            }
+        ],
         "@typescript-eslint/no-inferrable-types": "warn",
         "no-var": "warn",
         "@typescript-eslint/ban-types": "warn",
