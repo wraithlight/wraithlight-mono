@@ -2,10 +2,13 @@
     "name": "@wraithlight/core.http",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "3.4.1",
+    "version": "3.5.0",
     "scripts": {
         "build": "webpack",
         "build:prod": "webpack --env production"
+    },
+    "dependencies": {
+        "@wraithlight/core.dom": "*"
     },
     "devDependencies": {
         "webpack": "~5.76.0",
