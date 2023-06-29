@@ -1,5 +1,18 @@
 <script lang="ts">
+    import { Store, type SelectorResultStopFn } from "@wraithlight/core.redux";
+    import { AuthSelector } from "../../sdk";
+    const store = Store.getInstance();
+    
+    let isAuthenticated = false;
+    const stopFns: Array<SelectorResultStopFn> = [];
 
+    store
+        .select(AuthSelector.isLoggedIn)
+        .onSelection((value, stopFn) => {
+            stopFns.push(stopFn);
+            isAuthenticated = value;
+            alert(value);
+        });
 </script>
 
 <div class="sidebar">
@@ -8,6 +21,24 @@
             <span class="sidebar-content__head-title">
                 wlum
             </span>
+        </div>
+        <div class="sidebar-content__body">
+            {#if isAuthenticated}
+                <div class="sidebar-content__body-item">
+                    Users
+                </div>
+                <div class="sidebar-content__body-item">
+                    Applications
+                </div>
+                <div class="sidebar-content__body-item">
+                    Log Out
+                </div>
+            {/if}
+            {#if !isAuthenticated}
+                <div class="sidebar-content__body-item">
+                    Log In
+                </div>
+            {/if}
         </div>
     </div>
 </div>
@@ -23,6 +54,8 @@
         height: 100%;
         padding: 8px;
         box-sizing: border-box;
+        color: var(--on-primary);
+        font-family: Arial, Helvetica, sans-serif;
     }
     .sidebar-content__head {
         display: flex;
@@ -31,8 +64,19 @@
     .sidebar-content__head-title {
         font-size: 3rem;
         font-weight: 800;
-        color: var(--on-primary);
         text-transform: uppercase;
-        font-family: Arial, Helvetica, sans-serif;
+    }
+    .sidebar-content__body {
+        margin-top: 24px;
+        padding-top: 24px;
+        border-top: 1px solid var(--on-primary);
+    }
+    .sidebar-content__body-item {
+        padding: 4px;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+    .sidebar-content__body-item:hover {
+        background-color: var(--primary-variant);
     }
 </style>
