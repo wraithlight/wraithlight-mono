@@ -17,6 +17,9 @@ export class SelectorResult<TValue> {
 
 export class SelectorResultWrapper<TState, TValue> extends SelectorResult<TValue> {
 
+    private firstRun = true;
+    private previousValue: Nullable<TValue>;
+
     constructor(
         public readonly id: string,
         private readonly _stopFn: () => void,
@@ -31,7 +34,14 @@ export class SelectorResultWrapper<TState, TValue> extends SelectorResult<TValue
         if (!this.params) {
             return;
         }
-        this.params(this._selector(state), this._stopFn);
+        const currentValue = this._selector(state);
+        if(this.firstRun) {
+            this.params(this._selector(state), this._stopFn);
+            this.firstRun = false;
+        } else if(currentValue !== this.previousValue) {
+            this.params(this._selector(state), this._stopFn);
+            this.previousValue = currentValue;
+        }
     }
 
 }
