@@ -9,6 +9,11 @@
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
+  "dependencies": {
+    "@wraithlight/core.redux": "*",
+    "@wraithlight/core.env-static": "*",
+    "@wraithlight/common.auth-sdk.client": "*"
+  },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^2.0.4",
     "@tsconfig/svelte": "^4.0.1",

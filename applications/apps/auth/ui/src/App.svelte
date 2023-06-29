@@ -1,25 +1,18 @@
 <script lang="ts">
-  import Counter from './lib/Counter.svelte'
+  import Sidebar from "./layout/sidebar/sidebar.svelte";
+  import Content from "./layout/content/content.svelte";
+  // import Counter from './lib/Counter.svelte'
 </script>
 
-<main>
-  <h1>Vite + Svelte</h1>
-
-  <div class="card">
-    <Counter />
-  </div>
-
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme" target="_blank" rel="noreferrer">SvelteKit</a>, the official Svelte app framework powered by Vite!
-  </p>
-
-  <p class="read-the-docs">
-    Click on the Vite and Svelte logos to learn more
-  </p>
+<main class="main">
+  <Sidebar />
+  <Content />
 </main>
 
 <style>
-  .read-the-docs {
-    color: #888;
+  .main {
+    width: 100%;
+    height: 100%;
+    display: flex;
   }
 </style>
