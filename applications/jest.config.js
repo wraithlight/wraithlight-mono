@@ -227,5 +227,18 @@ module.exports = {
         "dist"
       ]
     },
+    {
+      preset: "ts-jest",
+      displayName: "Packages/Core/Dom",
+      testMatch: [
+        "<rootDir>/packages/core/core.dom/**/*.spec.ts"
+      ],
+      testPathIgnorePatterns: [
+        "dist"
+      ],
+      coveragePathIgnorePatterns: [
+        "dist"
+      ]
+    },
   ]
 };
