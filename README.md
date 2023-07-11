@@ -11,6 +11,31 @@ An open-source fanatasy pirate based ORPG game.
 * [Tool Urls](./docs/urls/tools.md)
 * [Database Urls](./docs/urls/database.md)
 
+## Getting started
+
+**Requirements**
+* Docker
+* Node >= 18
+
+```sh
+# Set up the local environment
+
+gh repo clone kfarkasHU/wraithlight
+cd wraithlight/applications
+yarn
+
+```
+
+```sh
+# To run everything locally
+
+cd wraithlight/database
+./build.sh
+cd applications/database
+yarn watch
+
+```
+
 ## Tecnologies we use
 This section lists all the technologies that are included in this repository.
 
