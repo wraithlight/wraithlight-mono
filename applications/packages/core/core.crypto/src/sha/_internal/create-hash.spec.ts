@@ -8,8 +8,8 @@ import { DIGEST_HEX } from "./create-hash.const";
 
 describe("CreateHashSpecs", () => {
 
-    const updateSpy = jest.fn();
     const digestSpy = jest.fn();
+    const updateSpy = jest.fn().mockReturnValue({ digest: digestSpy });
     const mockHash = {
         update: updateSpy,
         digest: digestSpy
@@ -23,11 +23,11 @@ describe("CreateHashSpecs", () => {
                 hash(mockAlgorithm, SPEC_TEXT);
             });
             it("should call the underlying implementation", () => {
-                expect(createHashSpy).toBeCalledWith(1);
                 expect(createHashSpy).toHaveBeenCalledWith(mockAlgorithm);
-                expect(updateSpy).toBeCalledTimes(1);
+                expect(createHashSpy).toHaveBeenCalledTimes(1);
+                expect(updateSpy).toHaveBeenCalledTimes(1);
                 expect(updateSpy).toHaveBeenCalledWith(SPEC_TEXT);
-                expect(digestSpy).toBeCalledTimes(1);
+                expect(digestSpy).toHaveBeenCalledTimes(1);
                 expect(digestSpy).toHaveBeenCalledWith(DIGEST_HEX)
             });
         });
