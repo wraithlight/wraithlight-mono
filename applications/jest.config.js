@@ -213,6 +213,19 @@ module.exports = {
       coveragePathIgnorePatterns: [
         "dist"
       ]
-    }
+    },
+    {
+      preset: "ts-jest",
+      displayName: "Packages/Core/Crypto",
+      testMatch: [
+        "<rootDir>/packages/core/core.crypto/**/*.spec.ts"
+      ],
+      testPathIgnorePatterns: [
+        "dist"
+      ],
+      coveragePathIgnorePatterns: [
+        "dist"
+      ]
+    },
   ]
 };
