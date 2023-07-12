@@ -1,4 +1,5 @@
 {
+    "$schema": "../../../package.json.schema.json",
     "name": "@wraithlight/common.i10n-sdk.client",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

@@ -1,4 +1,5 @@
 {
+    "$schema": "../../../package.json.schema.json",
     "name": "@wraithlight/content.ui",
     "version": "1.0.1",
     "scripts": {

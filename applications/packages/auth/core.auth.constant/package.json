@@ -1,4 +1,5 @@
 {
+    "$schema": "../../../package.json.schema.json",
     "name": "@wraithlight/core.auth.constant",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
