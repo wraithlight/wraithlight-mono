@@ -11,8 +11,6 @@ import { DIGEST_HEX } from "./create-hash.const";
 
 describe("CreateHashSpecs", () => {
 
-    // const hashWrapper = { createHash: cryptoApi.createHash };
-
     const digestSpy = jest.fn();
     const updateSpy = jest.fn().mockReturnValue({ digest: digestSpy });
     const mockHash = {
