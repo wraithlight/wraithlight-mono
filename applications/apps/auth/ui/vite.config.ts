@@ -10,10 +10,14 @@ export default defineConfig({
   optimizeDeps: {
     include: [
       "@wraithlight/core.redux",
-      "@wraithlight/common.auth-sdk.client"
+      "@wraithlight/common.auth-sdk.client",
+    ],
+    exclude: [
+      "svelte-navigator"
     ]
   },
   build: {
+    outDir: "../dist/ui",
     commonjsOptions: {
       include: [
         /wraithlight/

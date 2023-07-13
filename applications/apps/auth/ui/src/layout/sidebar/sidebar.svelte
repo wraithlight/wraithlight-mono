@@ -1,8 +1,10 @@
 <script lang="ts">
+    import { Link } from "svelte-navigator";
     import { Store, type SelectorResultStopFn } from "@wraithlight/core.redux";
     import { AuthSelector } from "../../sdk";
-    const store = Store.getInstance();
     
+    const store = Store.getInstance();
+
     let isAuthenticated = false;
     const stopFns: Array<SelectorResultStopFn> = [];
 
@@ -36,7 +38,9 @@
             {/if}
             {#if !isAuthenticated}
                 <div class="sidebar-content__body-item">
-                    Log In
+                    <Link to="login">
+                        Log In
+                    </Link>
                 </div>
             {/if}
         </div>
