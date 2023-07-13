@@ -16,11 +16,7 @@ export default defineConfig({
   build: {
     commonjsOptions: {
       include: [
-        /@wraithlight/,
-        /common.auth-sdk.client/,
-        /core.auth.constant/,
-        /core.http/,
-        /core.redux/
+        /wraithlight/
       ]
     }
   }
