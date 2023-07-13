@@ -70,6 +70,7 @@ if (result.length > 0) {
     }))
     const errors = data.filter(m => m.errors.length > 0);
     if (errors.length > 0) {
-        throw errors;
+        console.warn(errors);
+        throw `Found ${errors.length} errors!`;
     }
 }
