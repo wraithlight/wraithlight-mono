@@ -1,3 +1,6 @@
+jest.mock("crypto", () => ({
+    createHash: jest.fn()
+}));
 import * as cryptoApi from "crypto";
 
 import { SPEC_TEXT } from "../spec.const";
@@ -7,6 +10,8 @@ import { hash } from "./create-hash";
 import { DIGEST_HEX } from "./create-hash.const";
 
 describe("CreateHashSpecs", () => {
+
+    // const hashWrapper = { createHash: cryptoApi.createHash };
 
     const digestSpy = jest.fn();
     const updateSpy = jest.fn().mockReturnValue({ digest: digestSpy });
