@@ -10,6 +10,9 @@ const libFolders = [
     "apps",
     "packages"
 ];
+const ignoreFolders = [
+    "node_modules"
+]
 const targetFiles = [
     "package.json"
 ];
@@ -28,6 +31,7 @@ function getPackageJsonFiles(path) {
     const result = [];
     const content = readdirSync(path);
     for (const item of content) {
+        if (ignoreFolders.includes(item)) continue;
         const itemPath = join(path, item);
         const stat = statSync(itemPath);
         if(stat.isDirectory()) {
@@ -64,5 +68,8 @@ if (result.length > 0) {
         path: m.path,
         errors: m.result.map(o => o.property + " " + o.message)
     }))
-    throw data;
+    const errors = data.filter(m => m.errors.length > 0);
+    if (errors.length > 0) {
+        throw errors;
+    }
 }
