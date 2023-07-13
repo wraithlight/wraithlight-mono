@@ -2,6 +2,7 @@
   "$schema": "../../../package.json.schema.json",
   "name": "@wraithlight/website.ui",
   "version": "1.0.0",
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "serve": "ng serve",

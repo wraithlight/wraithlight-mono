@@ -2,6 +2,7 @@
     "$schema": "../../../package.json.schema.json",
     "name": "@wraithlight/content.node",
     "version": "1.0.0",
+    "license": "MIT",
     "scripts": {
         "serve": "nodemon -r tsconfig-paths/register ./src/main.ts",
         "build": "webpack",

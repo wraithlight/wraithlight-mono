@@ -1,9 +1,10 @@
 {
-    "$schema": "../../../package.json.schema.json",
+    "$schema": "../../package.json.schema.json",
     "name": "@wraithlight/core.common-constant",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "version": "2.0.0",
+    "license": "MIT",
     "scripts": {
         "build": "webpack",
         "build:prod": "webpack --env production"

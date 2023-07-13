@@ -2,6 +2,7 @@
     "$schema": "../../../package.json.schema.json",
     "name": "@wraithlight/game-website.ui",
     "version": "1.0.0",
+    "license": "MIT",
     "scripts": {
         "build": "webpack --env development",
         "build:prod": "webpack --env production",
