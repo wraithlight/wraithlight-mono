@@ -1,5 +1,13 @@
 <script lang="ts">
+    import { Store } from "@wraithlight/core.redux";
+    import { AuthAction } from "../../../sdk";
+    const store = Store.getInstance();
 
+    let username = "";
+    let password = "";
+    function tryLogin(): void {
+        store.dispatch(AuthAction.login(username, password));
+    }
 </script>
 
 <div class="login-container">
@@ -10,7 +18,7 @@
                 Username
             </td>
             <td>
-                <input type="text">
+                <input type="text" bind:value={username}>
             </td>
         </tr>
         <tr>
@@ -18,12 +26,12 @@
                 Password
             </td>
             <td>
-                <input type="password">
+                <input type="password" bind:value={password}>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <button>Submit</button>
+                <button on:click={tryLogin}>Submit</button>
             </td>
         </tr>
     </table>
