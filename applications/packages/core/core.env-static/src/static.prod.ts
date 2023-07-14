@@ -73,6 +73,9 @@ export const COMMON_STATIC: CommonModel = Object.freeze({
             port: 0
         }
     },
+    /**
+     * @deprecated
+     */
     userManagement: {
         address: {
             host: "",
