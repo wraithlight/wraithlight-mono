@@ -22,7 +22,9 @@ module.exports = {
         "**/dist/**",
         "**/webpack.config.js",
         ".eslintrc.cjs",
-        "jest.config.js"
+        "jest.config.js",
+        "svelte.config.js",
+        "vite.config.ts"
     ],
     rules: {
         // TODO
