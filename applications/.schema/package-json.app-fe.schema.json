@@ -47,7 +47,6 @@
             },
             "required": [
                 "watch",
-                "serve",
                 "build",
                 "build:prod",
                 "lint",

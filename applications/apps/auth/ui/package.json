@@ -1,13 +1,11 @@
 {
-  "$schema": "../../../package.json.schema.json",
+  "$schema": "../../../.schema/package-json.app-fe.schema.json",
   "name": "@wraithlight/auth.ui",
   "version": "1.0.0",
   "license": "MIT",
   "private": true,
   "type": "module",
   "scripts": {
-    "lerna": "lerna",
-    "serve": "vite",
     "build": "vite build",
     "build:prod": "vite build",
     "watch": "vite build --watch",

@@ -11,10 +11,6 @@ const targetFolder = args[2];
 const schemaFile = args[3];
 const packageNameSuffix = args[4] ?? undefined;
 
-console.log("targetFolder", targetFolder);
-console.log("schemaFile", schemaFile);
-console.log("subFolder", packageNameSuffix);
-
 const libFolders = [
     targetFolder
 ];
