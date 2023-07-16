@@ -38,7 +38,16 @@ export const SERVER_STATIC: ServerModel = Object.freeze({
             password: "",
             database: ""
         }
-    }
+    },
+    common:  {
+        paths: {
+            base: "/",
+            wildcard: "*"
+        },
+        files: {
+            frontend: "../../dist/ui",
+        }
+    },
 });
 
 export const COMMON_STATIC: CommonModel = Object.freeze({
