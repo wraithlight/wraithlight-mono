@@ -6,9 +6,17 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
+const args = process.argv;
+const targetFolder = args[2];
+const schemaFile = args[3];
+const packageNameSuffix = args[4] ?? undefined;
+
+console.log("targetFolder", targetFolder);
+console.log("schemaFile", schemaFile);
+console.log("subFolder", packageNameSuffix);
+
 const libFolders = [
-    "apps",
-    "packages"
+    targetFolder
 ];
 const ignoreFolders = [
     "node_modules"
@@ -16,7 +24,6 @@ const ignoreFolders = [
 const targetFiles = [
     "package.json"
 ];
-const schemaFile = "package.json.schema.json";
 
 function getAllPackageJsonFiles() {
     const result = libFolders.map(m => {
@@ -38,7 +45,12 @@ function getPackageJsonFiles(path) {
             result.push(...getPackageJsonFiles(itemPath));
         } else if (stat.isFile() && targetFiles.includes(item)) {
             const content = readFileSync(itemPath).toString();
-            result.push({ content: JSON.parse(content), path: itemPath });
+            const jsonContent = JSON.parse(content);
+            if (packageNameSuffix && jsonContent.name.endsWith(packageNameSuffix)) {
+                result.push({ content: JSON.parse(content), path: itemPath });
+            } else if (!packageNameSuffix) {
+                result.push({ content: JSON.parse(content), path: itemPath });   
+            }
         }
     }
     return result;

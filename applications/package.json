@@ -11,7 +11,11 @@
     "graph": "nx graph",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
-    "validate-json": "node .tools/json-schema.mjs"
+    "validate-json": "yarn validate-json:apps && yarn validate-json:package",
+    "validate-json:apps": "yarn validate-json:apps:be && yarn validate-json:apps:fe",
+    "validate-json:apps:be": "node .tools/json-schema.mjs apps .schema/package-json.app-be.schema.json node",
+    "validate-json:apps:fe": "node .tools/json-schema.mjs apps .schema/package-json.app-fe.schema.json ui",
+    "validate-json:package": "node .tools/json-schema.mjs packages .schema/package-json.package.schema.json"
   },
   "workspaces": [
     "apps/**/*",

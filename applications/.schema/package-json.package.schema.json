@@ -1,0 +1,60 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/product.schema.json",
+    "title": "PACKAGE JSON SCHEMA",
+    "description": "Schema for package package.json files in the repository.",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string"
+        },
+        "license": {
+            "type": "string",
+            "enum": ["MIT"]
+        },
+        "main": {
+            "type": "string",
+            "enum": ["dist/index.js"]
+        },
+        "types": {
+            "type": "string",
+            "enum": ["dist/index.d.ts"]
+        },
+        "scripts": {
+            "type": "object",
+            "properties": {
+                "build": {
+                    "type": "string"
+                },
+                "build:prod": {
+                    "type": "string"
+                },
+                "lint": {
+                    "type": "string"
+                },
+                "test": {
+                    "type": "string"
+                },
+                "test:coverage": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "build",
+                "build:prod",
+                "lint",
+                "test",
+                "test:coverage"
+            ]
+        }
+    },
+    "required": [
+        "name",
+        "version",
+        "license",
+        "scripts"
+    ]
+}

@@ -1,0 +1,70 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/product.schema.json",
+    "title": "PACKAGE JSON SCHEMA",
+    "description": "Schema for BE app package.json files in the repository.",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string"
+        },
+        "license": {
+            "type": "string",
+            "enum": ["MIT"]
+        },
+        "main": {
+            "type": "string",
+            "enum": ["dist/index.js"]
+        },
+        "types": {
+            "type": "string",
+            "enum": ["dist/index.d.ts"]
+        },
+        "scripts": {
+            "type": "object",
+            "properties": {
+                "lerna": {
+                    "type": "string",
+                    "enum": ["lerna"]
+                },
+                "watch": {
+                    "type": "string"
+                },
+                "build": {
+                    "type": "string"
+                },
+                "build:prod": {
+                    "type": "string"
+                },
+                "lint": {
+                    "type": "string"
+                },
+                "test": {
+                    "type": "string"
+                },
+                "test:coverage": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "watch",
+                "serve",
+                "build",
+                "build:prod",
+                "lint",
+                "test",
+                "test:coverage",
+                "lerna"
+            ]
+        }
+    },
+    "required": [
+        "name",
+        "version",
+        "license",
+        "scripts"
+    ]
+}
