@@ -57,7 +57,8 @@
                 "build:prod",
                 "lint",
                 "test",
-                "test:coverage"
+                "test:coverage",
+                "lerna"
             ]
         }
     },
