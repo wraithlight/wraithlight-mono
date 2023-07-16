@@ -4,6 +4,7 @@
     "version": "1.0.0",
     "license": "MIT",
     "scripts": {
+        "lerna": "lerna",
         "build": "webpack --env development",
         "build:prod": "webpack --env production",
         "serve": "webpack serve --env development",

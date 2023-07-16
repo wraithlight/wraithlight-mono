@@ -6,6 +6,7 @@
     "version": "1.2.0",
     "license": "MIT",
     "scripts": {
+        "lerna": "lerna",
         "watch": "webpack watch",
         "serve": "webpack watch",
         "lint": "eslint .",

@@ -6,6 +6,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "lerna": "lerna",
     "serve": "vite",
     "build": "vite build",
     "build:prod": "vite build",

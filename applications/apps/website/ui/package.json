@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
+    "lerna": "lerna",
     "ng": "ng",
     "serve": "ng serve",
     "build": "ng build",
