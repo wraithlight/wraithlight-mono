@@ -27,6 +27,10 @@
         "scripts": {
             "type": "object",
             "properties": {
+                "lerna": {
+                    "type": "string",
+                    "enum": ["lerna"]
+                },
                 "watch": {
                     "type": "string"
                 },
