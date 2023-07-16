@@ -4,10 +4,11 @@
     "version": "1.0.0",
     "license": "MIT",
     "scripts": {
+        "lerna": "lerna",
         "serve": "nodemon -r tsconfig-paths/register ./src/main.ts",
         "build": "webpack",
         "build:prod": "webpack --env production",
-        "watch": "webpack watch",
+        "watch": "multiview [ lerna run serve --scope @wraithlight/auth.node ] [ lerna run watch --scope @wraithlight/auth.ui ]",
         "lint": "eslint .",
         "test": "jest",
         "test:coverage": "jest --coverage"
@@ -41,6 +42,7 @@
         "@types/jest": "~29.5.1",
         "ts-jest": "~29.1.0",
         "nodemon": "~2.0.20",
-        "ts-node": "~10.9.1"
+        "ts-node": "~10.9.1",
+        "multiview": "~3.0.1"
     }
 }
