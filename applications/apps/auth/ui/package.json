@@ -6,6 +6,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "lerna": "lerna",
     "build": "vite build",
     "build:prod": "vite build",
     "watch": "vite build --watch",
