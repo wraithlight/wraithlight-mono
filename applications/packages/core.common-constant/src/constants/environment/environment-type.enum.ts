@@ -1,4 +1,4 @@
-export const enum EnvironmentType {
+export enum EnvironmentType {
     /**
      * Local environment. Used when the applications are running on the local machine with `watch` command.
      */
