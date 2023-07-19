@@ -11,7 +11,7 @@ import {
     WebsiteShared
 } from "./apps";
 
-export interface EnvironmentStaticClient extends ApplicationStatic<
+export interface EnvironmentStaticShared extends ApplicationStatic<
     EnvironmentStatic<ContentShared>,
     EnvironmentStatic<EditorShared>,
     EnvironmentStatic<ForumShared>,
