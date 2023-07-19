@@ -1,6 +1,6 @@
 {
     "$schema": "../../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/common.environment-static.types",
+    "name": "@wraithlight/core.environment-static.types",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "version": "1.0.0",
