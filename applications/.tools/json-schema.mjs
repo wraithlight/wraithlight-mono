@@ -6,13 +6,9 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const args = process.argv;
-const targetFolder = args[2];
-const schemaFile = args[3];
-const packageNameSuffix = args[4] ?? undefined;
-
 const libFolders = [
-    targetFolder
+    "apps",
+    "packages"
 ];
 const ignoreFolders = [
     "node_modules"
@@ -42,18 +38,15 @@ function getPackageJsonFiles(path) {
         } else if (stat.isFile() && targetFiles.includes(item)) {
             const content = readFileSync(itemPath).toString();
             const jsonContent = JSON.parse(content);
-            if (packageNameSuffix && jsonContent.name.endsWith(packageNameSuffix)) {
-                result.push({ content: JSON.parse(content), path: itemPath });
-            } else if (!packageNameSuffix) {
-                result.push({ content: JSON.parse(content), path: itemPath });   
-            }
+            result.push({ content: JSON.parse(content), path: itemPath, $schema: jsonContent.$schema });
         }
     }
     return result;
 }
 
-function getSchemaFile() {
-    const schema = readFileSync(join(__dirname, "..", schemaFile)).toString();
+function getSchemaFile({ path, $schema }) {
+    console.info("getSchemaFile", path);
+    const schema = readFileSync(join(path, "..", $schema)).toString();
     return JSON.parse(schema);
 }
 
@@ -69,8 +62,13 @@ function validate(content, schema) {
     }
 }
 
-const schema = getSchemaFile();
-const result = getAllPackageJsonFiles().map(m => ({ result: validate(m.content, schema), path: m.path }));
+const result = getAllPackageJsonFiles().map(m => {
+    const schema = getSchemaFile(m);
+    return {
+        result: validate(m.content, schema),
+        path: m.path
+    };
+});
 if (result.length > 0) {
     const data = result.map(m => ({
         path: m.path,

@@ -1,5 +1,5 @@
 {
-    "$schema": "../../../package.json.schema.json",
+    "$schema": "../../../.schema/package-json.app-fe.schema.json",
     "name": "@wraithlight/game-website.ui",
     "version": "1.0.0",
     "license": "MIT",

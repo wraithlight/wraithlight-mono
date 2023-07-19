@@ -1,5 +1,5 @@
 {
-    "$schema": "../../../package.json.schema.json",
+    "$schema": "../../../.schema/package-json.package.schema.json",
     "name": "@wraithlight/core.logs.sdk",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
