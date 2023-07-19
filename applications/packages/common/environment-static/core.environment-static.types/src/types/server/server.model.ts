@@ -11,7 +11,7 @@ import {
     WebsiteServer
 } from "./apps";
 
-export interface EnvironmentStaticClient extends ApplicationStatic<
+export interface EnvironmentStaticServer extends ApplicationStatic<
     EnvironmentStatic<ContentServer>,
     EnvironmentStatic<EditorServer>,
     EnvironmentStatic<ForumServer>,
