@@ -7,7 +7,7 @@ module.exports = {
   projects: [
     {
       preset: "ts-jest",
-      displayName: "Packages/Auth/Types",
+      displayName: "Packages/EnvironmentStatic/SDK",
       testMatch: [
         "<rootDir>/src/**/*.spec.ts"
       ],
