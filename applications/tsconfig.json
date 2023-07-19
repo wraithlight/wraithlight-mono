@@ -11,10 +11,7 @@
                 "packages/core/logger/*/src/index.ts",
                 "packages/game/*/src/index.ts",
                 "packages/logs/*/src/index.ts",
-                "packages/common/environment-static/core.environment-static.types/src/index.ts",
-                "packages/common/environment-static/common.environment-static.client/src/index.ts",
-                "packages/common/environment-static/common.environment-static.server/src/index.ts",
-                "packages/common/environment-static/common.environment-static.shared/src/index.ts"
+                "packages/common/environment-static/*/src/index.ts"
             ]
         }
     }
