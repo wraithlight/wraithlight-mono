@@ -1,20 +1,20 @@
 /* eslint-env node */
 module.exports = {
-    extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
-    parser: '@typescript-eslint/parser',
+    extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    parser: "@typescript-eslint/parser",
     plugins: [
         "deprecation",
-        '@typescript-eslint',
-        'import'
+        "@typescript-eslint",
+        "import"
     ],
     parserOptions: {
-        project: ['./tsconfig.json'],
+        project: ["./tsconfig.json"],
     },
     overrides: [
         {
-            files: ['*.ts'],
+            files: ["*.ts"],
             parserOptions: {
-                project: ['./tsconfig.json'],
+                project: ["./tsconfig.json"],
             }
         }
     ],
