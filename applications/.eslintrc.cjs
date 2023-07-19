@@ -4,7 +4,8 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     plugins: [
         "deprecation",
-        '@typescript-eslint'
+        '@typescript-eslint',
+        'import'
     ],
     parserOptions: {
         project: ['./tsconfig.json'],
@@ -107,5 +108,6 @@ module.exports = {
         ],
         // Typescript Plugins
         "deprecation/deprecation": "warn",
+        "import/no-extraneous-dependencies": "error"
     }
 };
