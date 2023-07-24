@@ -4,9 +4,25 @@ import {
     ServerModel
 } from "./internal";
 
+/**
+ * @deprecated Use the proper reader from
+ * ```
+ * @wraithlight/common.environment-static.client
+ * @wraithlight/common.environment-static.server
+ * @wraithlight/common.environment-static.shared
+ * ```
+ */
 export const CLIENT_STATIC: ClientModel = Object.freeze({
 });
 
+/**
+ * @deprecated Use the proper reader from
+ * ```
+ * @wraithlight/common.environment-static.client
+ * @wraithlight/common.environment-static.server
+ * @wraithlight/common.environment-static.shared
+ * ```
+ */
 export const SERVER_STATIC: ServerModel = Object.freeze({
     auth: {
         database: {
@@ -50,6 +66,14 @@ export const SERVER_STATIC: ServerModel = Object.freeze({
     },
 });
 
+/**
+ * @deprecated Use the proper reader from
+ * ```
+ * @wraithlight/common.environment-static.client
+ * @wraithlight/common.environment-static.server
+ * @wraithlight/common.environment-static.shared
+ * ```
+ */
 export const COMMON_STATIC: CommonModel = Object.freeze({
     isProduction: false,
     auth: {
