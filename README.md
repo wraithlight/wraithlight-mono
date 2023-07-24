@@ -2,9 +2,21 @@
 An open-source fanatasy pirate based ORPG game.
 
 ## Status
-| Database       | Applications    | Lint   | JSON Schema   | Tests |
-|:-:             |:-:              | :-:    | :-:           | :-:   |
-| [![Database GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml) | [![Applications GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml) | [![Applications GHA - Lint](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-lint.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-lint.yaml) | [![Applications GHA - JSON Schema](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Test](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test.yaml)
+
+### Database
+| Build |
+| :-:   |
+| [![Database GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml) |
+
+### Applications
+| Build | Lint  | Tests |
+| :-:   | :-:   | :-:   |
+| [![Applications GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml) | [![Applications GHA - Lint](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-lint.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-lint.yaml) | [![Applications GHA - Test](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test.yaml)
+
+### Chore
+| JSON Schema   |
+| :-:           |
+| [![Applications GHA - JSON Schema](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml) |
 
 ## Links
 * [APP Urls](./docs/urls/apps.md)
