@@ -2,15 +2,15 @@ import { Nullable } from "@wraithlight/core/core.types";
 import { ForumClient } from "@wraithlight/core.environment-static.types";
 import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
 
-import { ClientConfigurationReader } from "../../config-reader";
+import { ServerConfigurationReader } from "../../config-reader";
 
-export class ClientForumConfigReader extends ClientConfigurationReader<ForumClient> {
+export class ClientForumConfigReader extends ServerConfigurationReader<ForumClient> {
 
-    private static _instance: Nullable<ClientConfigurationReader<ForumClient>>;
+    private static _instance: Nullable<ServerConfigurationReader<ForumClient>>;
 
     public static getInstance(environment: EnvironmentType): ClientForumConfigReader {
         if (!this._instance) {
-            this._instance = new ClientConfigurationReader<ForumClient>(ApplicationName.Forum, environment);
+            this._instance = new ServerConfigurationReader<ForumClient>(ApplicationName.Forum, environment);
         }
         return this._instance;
     }
