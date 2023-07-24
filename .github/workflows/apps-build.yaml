@@ -2,7 +2,7 @@ name: "Applications GHA - Build"
 run-name: "APPS BUILD"
 on: [push, workflow_dispatch]
 jobs:
-  build:
+  appsBuild:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout

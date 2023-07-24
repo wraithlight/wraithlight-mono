@@ -2,7 +2,7 @@ name: "Database GHA - Build"
 run-name: "DB BUILD"
 on: [push, workflow_dispatch]
 jobs:
-  build:
+  dbBuild:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
