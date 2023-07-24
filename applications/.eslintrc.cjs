@@ -50,6 +50,7 @@ module.exports = {
         "@typescript-eslint/no-unnecessary-type-assertion": "warn",
         // END TODO
         // Native
+        "max-len": "warn",
         "no-warning-comments": "warn",
         "no-implicit-globals": "warn",
         "sort-imports": "warn",
