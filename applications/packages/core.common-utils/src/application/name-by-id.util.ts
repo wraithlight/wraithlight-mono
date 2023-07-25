@@ -8,7 +8,7 @@ export function applicationNameById(id: Guid): ApplicationName {
     }
     const applicationName = Object.entries(ApplicationName).find(m => m[1] === entry[0]);
     if (!applicationName) {
-        throw `Application with id '${id} was not found!`;
+        throw `Application with id '${id}' was not found!`;
     }
     return applicationName[1];
 }
