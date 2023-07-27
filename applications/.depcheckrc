@@ -9,7 +9,9 @@ ignores: [
   "@jest/globals",
   "ts-jest",
   "ts-node",  # TODO: Check this one, if we need the package at all
-  "tslib",    # TODO: Check if the package is required
+  # (tslib) Required by Angular and svelte
+  # Ref: https://github.com/kfarkasHU/wraithlight/pull/23#discussion_r1276871840
+  "tslib",
   "webpack-cli",
   "webpack-dev-server",
   # angular
