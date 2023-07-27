@@ -1,4 +1,4 @@
-name: "Applications GHA - DEPCHECK"
+name: "Applications GHA - Depcheck"
 run-name: "APPS DEPCHECK"
 on: [push, workflow_dispatch]
 jobs:
