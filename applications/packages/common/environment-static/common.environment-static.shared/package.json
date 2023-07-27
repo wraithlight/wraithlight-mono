@@ -13,7 +13,6 @@
         "build:prod": "webpack --env production"
     },
     "dependencies": {
-        "@wraithlight/core.types": "*",
         "@wraithlight/core.common-constant": "*",
         "@wraithlight/core.environment-static.sdk": "*",
         "@wraithlight/core.environment-static.types": "*"

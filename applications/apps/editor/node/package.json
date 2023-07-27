@@ -15,7 +15,6 @@
     },
     "dependencies": {
         "@wraithlight/core.node": "*",
-        "@wraithlight/core.types": "*",
         "@wraithlight/core.env-static": "*",
         "@wraithlight/common.auth-sdk.server": "*",
         "cors": "~2.8.5",
