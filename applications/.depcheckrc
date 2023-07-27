@@ -1,0 +1,21 @@
+ignores: [
+  # common
+  "ts-loader",
+  "css-loader",
+  "html-loader",
+  "sass-loader",
+  "sass",
+  "@types/jest",
+  "@jest/globals",
+  "ts-jest",
+  "ts-node",  # TODO: Check this one, if we need the package at all
+  "tslib",    # TODO: Check if the package is required
+  "webpack-cli",
+  "webpack-dev-server",
+  # angular
+  "@angular-devkit/build-angular",
+  "@angular/compiler-cli",
+  "jest-preset-angular"
+
+]
+skip-missing: true
