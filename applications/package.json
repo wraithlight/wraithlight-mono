@@ -18,6 +18,7 @@
     "apps/**/*",
     "packages/*",
     "packages/auth/*",
+    "packages/auth-app/*",
     "packages/core/*",
     "packages/core/logger/*",
     "packages/game/*",

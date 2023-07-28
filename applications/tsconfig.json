@@ -7,6 +7,7 @@
             "@wraithlight/*": [
                 "packages/*/src/index.ts",
                 "packages/auth/*/src/index.ts",
+                "packages/auth-app/*/src/index.ts",
                 "packages/core/*/src/index.ts",
                 "packages/core/logger/*/src/index.ts",
                 "packages/game/*/src/index.ts",
