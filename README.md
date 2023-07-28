@@ -14,9 +14,9 @@ An open-source fanatasy pirate based ORPG game.
 | [![Applications GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml) | [![Applications GHA - Lint](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-lint.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-lint.yaml) | [![Applications GHA - Test](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test.yaml)
 
 ### Chore
-| JSON Schema   |
-| :-:           |
-| [![Applications GHA - JSON Schema](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml) |
+| JSON Schema   | DEPCHECK  |
+| :-:           | :-:       |
+| [![Applications GHA - JSON Schema](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Depcheck](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test%20copy.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test%20copy.yaml) |
 
 ## Links
 * [APP Urls](./docs/urls/apps.md)
