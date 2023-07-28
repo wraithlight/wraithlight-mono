@@ -8,5 +8,6 @@ export const enum LoginScope {
     UserManagement = ApplicationName.UserManagement,
     Forum = ApplicationName.Forum,
     Logs = ApplicationName.Logs,
-    Editor = ApplicationName.Editor
+    Editor = ApplicationName.Editor,
+    Notifier = ApplicationName.Notifier
 }
