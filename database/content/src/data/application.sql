@@ -81,3 +81,15 @@ INSERT INTO `Application` (
     "EDITOR",
     1
 );
+
+INSERT INTO `Application` (
+    `Id`,
+    `DisplayName`,
+    `Value`,
+    `IsActive`
+) VALUES (
+    "f9c2412e-3d44-4cd3-9a80-409f0d113775",
+    "Notifier",
+    "NOTIFIER",
+    1
+);
