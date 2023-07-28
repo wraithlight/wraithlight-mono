@@ -7,6 +7,7 @@ import {
     GameApplicationServer,
     GameWebsiteServer,
     LogsServer,
+    NotifierServer,
     UserManagementServer,
     WebsiteServer
 } from "./apps";
@@ -20,7 +21,8 @@ export interface EnvironmentStaticServer extends ApplicationStatic<
     EnvironmentStatic<GameWebsiteServer>,
     EnvironmentStatic<LogsServer>,
     EnvironmentStatic<UserManagementServer>,
-    EnvironmentStatic<WebsiteServer>
+    EnvironmentStatic<WebsiteServer>,
+    EnvironmentStatic<NotifierServer>
 > {
     common: CommonServer
 }

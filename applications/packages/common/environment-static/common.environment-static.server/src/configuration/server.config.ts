@@ -9,6 +9,7 @@ import { SERVER_GAME_WEBSITE_CONFIG } from "./game-website";
 import { SERVER_LOGS_CONFIG } from "./logs";
 import { SERVER_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { SERVER_WEBSITE_CONFIG } from "./website";
+import { SERVER_NOTIFIER_CONFIG } from "./notifier";
 
 export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.Content]: SERVER_CONTENT_CONFIG,
@@ -18,5 +19,13 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.GameWebsite]: SERVER_GAME_WEBSITE_CONFIG,
     [ApplicationName.Logs]: SERVER_LOGS_CONFIG,
     [ApplicationName.UserManagement]: SERVER_USER_MANAGEMENT_CONFIG,
-    [ApplicationName.Website]: SERVER_WEBSITE_CONFIG
+    [ApplicationName.Website]: SERVER_WEBSITE_CONFIG,
+    [ApplicationName.Notifier]: SERVER_NOTIFIER_CONFIG,
+    // TODO: Move this to a separate object.
+    common: {
+        paths: {
+            base: "/",
+            wildcard: "*"
+        }
+    }
 }
