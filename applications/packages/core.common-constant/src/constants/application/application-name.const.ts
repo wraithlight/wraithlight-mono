@@ -6,5 +6,6 @@ export enum ApplicationName {
     UserManagement = "USER_MANAGEMENT",
     Forum = "FORUM",
     Logs = "LOGS",
-    Editor = "EDITOR"
+    Editor = "EDITOR",
+    Notifier = "NOTIFIER"
 }
