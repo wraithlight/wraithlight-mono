@@ -1,0 +1,37 @@
+{
+    "$schema": "../../../.schema/package-json.app-be.schema.json",
+    "name": "@wraithlight/notifier.node",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+        "lerna": "lerna",
+        "serve": "nodemon -r tsconfig-paths/register ./src/main.ts",
+        "build": "webpack",
+        "build:prod": "webpack --env production",
+        "watch": "yarn serve",
+        "lint": "eslint .",
+        "test": "jest",
+        "test:coverage": "jest --coverage"
+    },
+    "dependencies": {
+        "cors": "~2.8.5",
+        "express": "~4.18.2",
+        "swagger-ui-express": "~4.6.2"
+    },
+    "devDependencies": {
+        "webpack": "~5.76.0",
+        "webpack-cli": "~5.0.1",
+        "ts-loader": "~9.4.2",
+        "typescript": "~5.0.3",
+        "@typescript-eslint/parser": "~5.59.2",
+        "@typescript-eslint/eslint-plugin": "~5.59.2",
+        "eslint": "~8.40.0",
+        "eslint-plugin-deprecation": "~1.4.1",
+        "jest": "~29.5.0",
+        "@jest/globals": "~29.5.0",
+        "@types/jest": "~29.5.1",
+        "ts-jest": "~29.1.0",
+        "nodemon": "~2.0.20",
+        "ts-node": "~10.9.1"
+    }
+}
