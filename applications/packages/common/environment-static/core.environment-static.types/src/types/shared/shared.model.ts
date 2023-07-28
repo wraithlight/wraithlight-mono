@@ -10,6 +10,7 @@ import {
     UserManagementShared,
     WebsiteShared
 } from "./apps";
+import { CommonShared } from "./common";
 
 export interface EnvironmentStaticShared extends ApplicationStatic<
     EnvironmentStatic<ContentShared>,
@@ -20,4 +21,6 @@ export interface EnvironmentStaticShared extends ApplicationStatic<
     EnvironmentStatic<LogsShared>,
     EnvironmentStatic<UserManagementShared>,
     EnvironmentStatic<WebsiteShared>
-> { }
+> {
+    common: CommonShared
+}

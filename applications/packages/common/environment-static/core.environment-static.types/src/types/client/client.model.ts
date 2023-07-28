@@ -10,6 +10,7 @@ import {
     UserManagementClient,
     WebsiteClient
 } from "./apps";
+import { CommonClient } from "./common";
 
 export interface EnvironmentStaticClient extends ApplicationStatic<
     EnvironmentStatic<ContentClient>,
@@ -20,4 +21,6 @@ export interface EnvironmentStaticClient extends ApplicationStatic<
     EnvironmentStatic<LogsClient>,
     EnvironmentStatic<UserManagementClient>,
     EnvironmentStatic<WebsiteClient>
-> { }
+> {
+    common: CommonClient
+}
