@@ -18,6 +18,7 @@ import {
 } from "@wraithlight/core.auth.types";
 import { Nullable } from "@wraithlight/core.types";
 import { HttpClient } from "@wraithlight/core.http";
+import { UNKNOWN_ERROR } from "@wraithlight/core.common-constant";
 
 import {
     KeepAliveSessionResponse,
@@ -57,7 +58,7 @@ export class ClientAuthService {
             })
             .catch(() => ({
                 success: false,
-                errors: ["E_UNKNOWN"]
+                errors: [UNKNOWN_ERROR]
             }))
         ;
     }
