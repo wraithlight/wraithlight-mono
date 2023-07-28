@@ -7,6 +7,7 @@ import {
     GameApplicationShared,
     GameWebsiteShared,
     LogsShared,
+    NotifierShared,
     UserManagementShared,
     WebsiteShared
 } from "./apps";
@@ -20,7 +21,8 @@ export interface EnvironmentStaticShared extends ApplicationStatic<
     EnvironmentStatic<GameWebsiteShared>,
     EnvironmentStatic<LogsShared>,
     EnvironmentStatic<UserManagementShared>,
-    EnvironmentStatic<WebsiteShared>
+    EnvironmentStatic<WebsiteShared>,
+    EnvironmentStatic<NotifierShared>
 > {
     common: CommonShared
 }

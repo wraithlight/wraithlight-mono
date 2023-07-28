@@ -9,6 +9,7 @@ import { SHARED_GAME_WEBSITE_CONFIG } from "./game-website";
 import { SHARED_LOGS_CONFIG } from "./logs";
 import { SHARED_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { SHARED_WEBSITE_CONFIG } from "./website";
+import { SHARED_NOTIFIER_CONFIG } from "./notifier";
 
 export const SHARED_CONFIG: Readonly<EnvironmentStaticShared> = {
     [ApplicationName.Content]: SHARED_CONTENT_CONFIG,
@@ -18,5 +19,7 @@ export const SHARED_CONFIG: Readonly<EnvironmentStaticShared> = {
     [ApplicationName.GameWebsite]: SHARED_GAME_WEBSITE_CONFIG,
     [ApplicationName.Logs]: SHARED_LOGS_CONFIG,
     [ApplicationName.UserManagement]: SHARED_USER_MANAGEMENT_CONFIG,
-    [ApplicationName.Website]: SHARED_WEBSITE_CONFIG
+    [ApplicationName.Website]: SHARED_WEBSITE_CONFIG,
+    [ApplicationName.Notifier]: SHARED_NOTIFIER_CONFIG,
+    common: {}
 }
