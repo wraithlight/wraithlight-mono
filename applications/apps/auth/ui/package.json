@@ -19,6 +19,7 @@
   "dependencies": {
     "@wraithlight/core.redux": "*",
     "@wraithlight/core.env-static": "*",
+    "@wraithlight/core.common-constant": "*",
     "@wraithlight/common.auth-sdk.client": "*"
   },
   "devDependencies": {

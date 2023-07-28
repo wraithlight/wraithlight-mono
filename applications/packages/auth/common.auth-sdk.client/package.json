@@ -16,6 +16,7 @@
         "build:prod": "webpack --env production"
     },
     "dependencies": {
+        "@wraithlight/core.common-constant": "*",
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.types": "*",

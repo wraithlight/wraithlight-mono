@@ -1,4 +1,5 @@
 import { type ActionWithPayload, Store } from "@wraithlight/core.redux";
+import { UNKNOWN_ERROR } from "@wraithlight/core.common-constant";
 
 import { type GlobalState } from "../state.model";
 
@@ -19,7 +20,7 @@ export function initializeEffects(store: Store<GlobalState>): Store<GlobalState>
             })
             .catch(m => {
                 console.warn(m);
-                store.dispatch(AuthAction.loginFail(["E_UNKNOWN"]))
+                store.dispatch(AuthAction.loginFail([UNKNOWN_ERROR]))
             })
     });
     return store;
