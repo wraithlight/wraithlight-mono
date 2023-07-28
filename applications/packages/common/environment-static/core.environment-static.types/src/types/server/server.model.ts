@@ -10,6 +10,7 @@ import {
     UserManagementServer,
     WebsiteServer
 } from "./apps";
+import { CommonServer } from "./common";
 
 export interface EnvironmentStaticServer extends ApplicationStatic<
     EnvironmentStatic<ContentServer>,
@@ -20,4 +21,6 @@ export interface EnvironmentStaticServer extends ApplicationStatic<
     EnvironmentStatic<LogsServer>,
     EnvironmentStatic<UserManagementServer>,
     EnvironmentStatic<WebsiteServer>
-> { }
+> {
+    common: CommonServer
+}
