@@ -3,3 +3,4 @@
 | WL_AUTH           | `wraithlight-db-auth`     | `3306`        | http://localhost:9000 |
 | WL_LOGS           | `wraithlight-db-logs`     | `3306`        | http://localhost:9001 |
 | WL_CONTENT        | `wraithlight-db-content`  | `3306`        | http://localhost:9002 |
+| WL_FORUM          | `wraithlight-db-forum`    | `3306`        | http://localhost:9003 |
