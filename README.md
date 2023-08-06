@@ -82,7 +82,6 @@ All of the databases are using MySQL, with a custom ORM, called `core.sql`.
 
 ## Other technologies used
 * Docker
-* Kubernetes
 * Socket.IO
 * SASS
 * webpack
