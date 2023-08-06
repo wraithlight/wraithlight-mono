@@ -4,11 +4,11 @@ import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-const
 
 import { ServerConfigurationReader } from "../../config-reader";
 
-export class ClientEditorConfigReader extends ServerConfigurationReader<EditorServer> {
+export class ServerEditorConfigReader extends ServerConfigurationReader<EditorServer> {
 
     private static _instance: Nullable<ServerConfigurationReader<EditorServer>>;
 
-    public static getInstance(environment: EnvironmentType): ClientEditorConfigReader {
+    public static getInstance(environment: EnvironmentType): ServerEditorConfigReader {
         if (!this._instance) {
             this._instance = new ServerConfigurationReader<EditorServer>(ApplicationName.Editor, environment);
         }
