@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
 import { EnvironmentStaticServer } from "@wraithlight/core.environment-static.types";
 
 import { SERVER_CONTENT_CONFIG } from "./content";
@@ -23,13 +23,37 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.Notifier]: SERVER_NOTIFIER_CONFIG,
     // TODO: Move this to a separate object.
     common: {
-        paths: {
-            base: "/",
-            wildcard: "*"
+        [EnvironmentType.Dev]: {
+            paths: {
+                base: "/",
+                wildcard: "*"
+            },
+            files: {
+                frontend: {
+                    static: "IM_A_TODO" // TODO: Add this property
+                }
+            }
         },
-        files: {
-            frontend: {
-                static: "IM_A_TODO" // TODO: Add this property
+        [EnvironmentType.Local]: {
+            paths: {
+                base: "/",
+                wildcard: "*"
+            },
+            files: {
+                frontend: {
+                    static: "IM_A_TODO" // TODO: Add this property
+                }
+            }
+        },
+        [EnvironmentType.Test]: {
+            paths: {
+                base: "/",
+                wildcard: "*"
+            },
+            files: {
+                frontend: {
+                    static: "IM_A_TODO" // TODO: Add this property
+                }
             }
         }
     }

@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
 import { EnvironmentStaticClient } from "@wraithlight/core.environment-static.types";
 
 import { CLIENT_CONTENT_CONFIG } from "./content";
@@ -21,5 +21,9 @@ export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
     [ApplicationName.UserManagement]: CLIENT_USER_MANAGEMENT_CONFIG,
     [ApplicationName.Website]: CLIENT_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: CLIENT_NOTIFIER_CONFIG,
-    common: {}
+    common: {
+        [EnvironmentType.Dev]: {},
+        [EnvironmentType.Local]: {},
+        [EnvironmentType.Test]: {}
+    }
 }

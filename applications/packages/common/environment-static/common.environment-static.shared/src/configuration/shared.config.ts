@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
 import { EnvironmentStaticShared } from "@wraithlight/core.environment-static.types";
 
 import { SHARED_CONTENT_CONFIG } from "./content";
@@ -21,5 +21,9 @@ export const SHARED_CONFIG: Readonly<EnvironmentStaticShared> = {
     [ApplicationName.UserManagement]: SHARED_USER_MANAGEMENT_CONFIG,
     [ApplicationName.Website]: SHARED_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: SHARED_NOTIFIER_CONFIG,
-    common: {}
+    common: {
+        [EnvironmentType.Dev]: {},
+        [EnvironmentType.Local]: {},
+        [EnvironmentType.Test]: {}
+    }
 }

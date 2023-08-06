@@ -24,5 +24,5 @@ export interface EnvironmentStaticServer extends ApplicationStatic<
     EnvironmentStatic<WebsiteServer>,
     EnvironmentStatic<NotifierServer>
 > {
-    common: CommonServer
+    common: EnvironmentStatic<CommonServer>
 }
