@@ -39,8 +39,8 @@ export abstract class QueryContext<T extends Object> {
 
     protected concatQueries2(): QueryConcatResult {
         return {
-            query: this._queries2.join(EOL),
-            params: this._args2
+            sql: this._queries2.join(EOL),
+            value: this._args2
         };
     }
 

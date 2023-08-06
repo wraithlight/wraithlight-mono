@@ -3,7 +3,7 @@ import { RowDataPacket } from "mysql2";
 
 import { DbContext } from "../dbcontext";
 
-import { WhereableQueryContext } from "./_internal";
+import { QueryConcatResult, WhereableQueryContext } from "./_internal";
 
 import {
     SelectQueryContext as ISelectQueryContext,
@@ -22,12 +22,12 @@ export class SelectQueryContext<T extends Object>
     }
 
     public toList(): Promise<Array<T>> {
-        const command = this.concatQueries();
+        const command = this.concatQueries2();
         return this.exec(command);
     }
 
     public async first(): Promise<Nullable<T>> {
-        const command = this.concatQueries();
+        const command = this.concatQueries2();
         return this.exec(command).then(m => {
             return m.length > 0
                 ? m[0]
@@ -48,7 +48,7 @@ export class SelectQueryContext<T extends Object>
         return <SelectQueryContext<T>>super.orderByDesc(key);
     }
 
-    private async exec(command: string): Promise<Array<T>> {
+    private async exec(command: QueryConcatResult): Promise<Array<T>> {
         return new Promise((resolve, reject) => {
             this._context.Connection.query(command, (error, rows) => {
                 if (error) {
