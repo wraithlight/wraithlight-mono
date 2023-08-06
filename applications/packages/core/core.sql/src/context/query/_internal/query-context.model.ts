@@ -1,4 +1,4 @@
 export interface QueryConcatResult {
-    query: string;
-    params: Array<string>;
+    sql: string;
+    value: Array<string>;
 }

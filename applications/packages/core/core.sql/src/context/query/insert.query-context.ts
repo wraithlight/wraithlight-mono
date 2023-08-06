@@ -27,7 +27,7 @@ export class InsertQueryContext<T extends Object>
     }
 
     public async run(): Promise<void> {
-        const command = this.concatQueries();
+        const command = this.concatQueries2();
         return new Promise((resolve, reject) => {
             this._context.Connection.query(command, (err) => {
                 if (err) {
