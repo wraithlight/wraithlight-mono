@@ -12,7 +12,8 @@
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
     "validate-json": "node .tools/json-schema.mjs",
-    "check-dependencies": "lerna exec --no-bail --stream depcheck"
+    "check-dependencies": "lerna exec --no-bail --stream depcheck",
+    "guid": "node .tools/guidgen.mjs"
   },
   "workspaces": [
     "apps/**/*",
