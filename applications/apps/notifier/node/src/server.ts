@@ -33,5 +33,5 @@ server.serveStatic(serverCfg.getCommon(x => x.paths.wildcard), join(__dirname, f
 
 const logger = LoggerService.getInstance();
 server.start(port, () => {
-    logger.info(`AUTH server is running on http://localhost:${port}`);
+    logger.info(`NOTIFIER server is running on http://localhost:${port}`);
 });
