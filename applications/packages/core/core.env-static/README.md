@@ -2,7 +2,6 @@
 Library to handle environment based constants.
 
 Exports:
-* `CLIENT_STATIC`
 * `SERVER_STATIC`
 * `COMMON_STATIC`
 
@@ -10,7 +9,6 @@ Exports:
 ```ts
 
 import {
-    CLIENT_STATIC,
     SERVER_STATIC,
     COMMON_STATIC
 } from "@wraithlight/core.env-static";
