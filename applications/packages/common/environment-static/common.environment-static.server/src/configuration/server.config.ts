@@ -26,6 +26,11 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
         paths: {
             base: "/",
             wildcard: "*"
+        },
+        files: {
+            frontend: {
+                static: "IM_A_TODO" // TODO: Add this property
+            }
         }
     }
 }
