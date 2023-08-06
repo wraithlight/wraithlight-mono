@@ -14,7 +14,8 @@
         "test:coverage": "jest --coverage"
     },
     "dependencies": {
-        "@wraithlight/core.env-static": "*",
+        "@wraithlight/common.environment-static.shared": "*",
+        "@wraithlight/core.common-constant": "*",
         "@wraithlight/core.node": "*",
         "@wraithlight/common.auth-sdk.server": "*",
         "@wraithlight/core.auth.types": "*",
