@@ -1,4 +1,5 @@
 import { Nullable } from "@wraithlight/core.types";
+import { RowDataPacket } from "mysql2";
 
 import { DbContext } from "../dbcontext";
 
@@ -49,19 +50,19 @@ export class SelectQueryContext<T extends Object>
 
     private async exec(command: string): Promise<Array<T>> {
         return new Promise((resolve, reject) => {
-            this._context.Connection.execute(command, (error, rows) => {
+            this._context.Connection.query(command, (error, rows) => {
                 if (error) {
                     this._logger.error("UpdateQueryContext", "Error while executing:", `"${command}"`, "ERROR:", error);
                     reject(error);
                 }
-                const rawResult = rows && rows.length && rows.length > 0
+                const rawResult = rows && Array.isArray(rows) && rows.length && rows.length > 0
                     ? rows
                     : []
                 ;
                 const result = rawResult.map(m => {
                     const keys = Object.keys(m);
                     const item: { [index: string]: any } = {};
-                    keys.forEach(o => item[this.decapitalize(o)] = m[o]);
+                    keys.forEach(o => item[this.decapitalize(o)] = (m as RowDataPacket)[o]);
                     return item as T;
                 });
                 resolve(result);

@@ -3,7 +3,7 @@
     "name": "@wraithlight/core.sql",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "3.5.1",
+    "version": "3.6.0",
     "license": "MIT",
     "scripts": {
         "lerna": "lerna",
