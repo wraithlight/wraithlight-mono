@@ -30,7 +30,7 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
             },
             files: {
                 frontend: {
-                    static: "IM_A_TODO" // TODO: Add this property
+                    static: "../../dist/ui"
                 }
             }
         },
@@ -41,7 +41,7 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
             },
             files: {
                 frontend: {
-                    static: "IM_A_TODO" // TODO: Add this property
+                    static: "../ui"
                 }
             }
         },
@@ -52,7 +52,7 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
             },
             files: {
                 frontend: {
-                    static: "IM_A_TODO" // TODO: Add this property
+                    static: "../ui"
                 }
             }
         }
