@@ -4,5 +4,6 @@ export * from "./forum";
 export * from "./game-application";
 export * from "./game-webiste";
 export * from "./logs";
+export * from "./notifier";
 export * from "./user-management";
 export * from "./website";
