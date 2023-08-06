@@ -19,7 +19,8 @@
         "swagger-ui-express": "~4.6.2",
         "@wraithlight/common.logger.sdk": "*",
         "@wraithlight/common.auth-sdk.server": "*",
-        "@wraithlight/core.auth.types": "*"
+        "@wraithlight/core.auth.types": "*",
+        "@wraithlight/core.common-constant": "*"
     },
     "devDependencies": {
         "webpack": "~5.76.0",
