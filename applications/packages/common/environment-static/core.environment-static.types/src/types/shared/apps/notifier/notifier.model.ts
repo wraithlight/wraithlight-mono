@@ -1,3 +1,5 @@
-export interface NotifierShared {
+import { Server } from "../_internal";
 
+export interface NotifierShared {
+    server: Server;
 }
