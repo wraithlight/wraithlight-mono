@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@wraithlight/core.redux": "*",
-    "@wraithlight/core.env-static": "*",
     "@wraithlight/core.common-constant": "*",
-    "@wraithlight/common.auth-sdk.client": "*"
+    "@wraithlight/common.auth-sdk.client": "*",
+    "@wraithlight/common.environment-static.shared": "*"
   },
   "devDependencies": {
     "svelte-navigator": "~3.2.2",
