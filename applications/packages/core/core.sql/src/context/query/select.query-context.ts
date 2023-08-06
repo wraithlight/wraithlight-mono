@@ -22,12 +22,12 @@ export class SelectQueryContext<T extends Object>
     }
 
     public toList(): Promise<Array<T>> {
-        const command = this.concatQueries2();
+        const command = this.concatQueries();
         return this.exec(command);
     }
 
     public async first(): Promise<Nullable<T>> {
-        const command = this.concatQueries2();
+        const command = this.concatQueries();
         return this.exec(command).then(m => {
             return m.length > 0
                 ? m[0]
