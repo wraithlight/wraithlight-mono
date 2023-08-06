@@ -19,7 +19,7 @@ export class DeleteQueryContext<T extends Object>
     }
 
     public async run(): Promise<void> {
-        const command = this.concatQueries2();
+        const command = this.concatQueries();
         return new Promise((resolve, reject) => {
             this._context.Connection.query(command, (err) => {
                 if (err) {
