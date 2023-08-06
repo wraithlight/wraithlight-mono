@@ -1,4 +1,4 @@
-import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
+import { ApplicationName } from "@wraithlight/core.common-constant";
 import { EnvironmentStaticServer } from "@wraithlight/core.environment-static.types";
 
 import { SERVER_CONTENT_CONFIG } from "./content";
@@ -10,6 +10,7 @@ import { SERVER_LOGS_CONFIG } from "./logs";
 import { SERVER_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { SERVER_WEBSITE_CONFIG } from "./website";
 import { SERVER_NOTIFIER_CONFIG } from "./notifier";
+import { SERVER_COMMON_CONFIG } from "./common";
 
 export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.Content]: SERVER_CONTENT_CONFIG,
@@ -21,40 +22,5 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.UserManagement]: SERVER_USER_MANAGEMENT_CONFIG,
     [ApplicationName.Website]: SERVER_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: SERVER_NOTIFIER_CONFIG,
-    // TODO: Move this to a separate object.
-    common: {
-        [EnvironmentType.Dev]: {
-            paths: {
-                base: "/",
-                wildcard: "*"
-            },
-            files: {
-                frontend: {
-                    static: "../../dist/ui"
-                }
-            }
-        },
-        [EnvironmentType.Local]: {
-            paths: {
-                base: "/",
-                wildcard: "*"
-            },
-            files: {
-                frontend: {
-                    static: "../ui"
-                }
-            }
-        },
-        [EnvironmentType.Test]: {
-            paths: {
-                base: "/",
-                wildcard: "*"
-            },
-            files: {
-                frontend: {
-                    static: "../ui"
-                }
-            }
-        }
-    }
+    common: SERVER_COMMON_CONFIG
 }
