@@ -12,7 +12,7 @@ export class SharedConfigurationReader<TApplication> extends ConfigurationReader
     ) {
         super(
             SHARED_CONFIG[application][environment] as TApplication,
-            SHARED_CONFIG.common
+            SHARED_CONFIG.common[environment]
         );
     }
 
