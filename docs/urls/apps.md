@@ -2,7 +2,7 @@
 | Application Name              | Serve Port            | Watch Port                |
 | ---                           | :-:                   | :-:                       |
 | Auth API                      | http://localhost:3000 | http://localhost:4500     |
-| Auth UI                       | http://localhost:3000 | http://localhost:4500     |
+| Auth UI                       | http://localhost:4000 | http://localhost:4500     |
 | Content API                   | http://localhost:3001 | http://localhost:4501     |
 | Content UI                    | http://localhost:4001 | http://localhost:4501     |
 | Editor API                    | http://localhost:3002 | http://localhost:4502     |
