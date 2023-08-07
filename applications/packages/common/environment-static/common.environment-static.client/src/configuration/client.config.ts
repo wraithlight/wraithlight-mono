@@ -21,9 +21,11 @@ export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
     [ApplicationName.UserManagement]: CLIENT_USER_MANAGEMENT_CONFIG,
     [ApplicationName.Website]: CLIENT_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: CLIENT_NOTIFIER_CONFIG,
-    common: {
+    common: { // TODO: Move this to a separate object.
         [EnvironmentType.Dev]: {},
         [EnvironmentType.Local]: {},
-        [EnvironmentType.Test]: {}
+        [EnvironmentType.Test]: {},
+        [EnvironmentType.Staging]: {},
+        [EnvironmentType.Production]: {}
     }
 }
