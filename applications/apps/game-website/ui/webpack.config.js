@@ -1,14 +1,19 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
+const { resolve } = require("path");
+const config = require("../../../webpack.config");
 
-const config = (env) => {
+module.exports = (env) => {
   const isProduction = env.production;
-  const cfg = {
-    mode: isProduction ? "production" : "development",
+  const filename = "index.js";
+  return {
+    ...config(env, __dirname),
     output: {
-      path: path.resolve(__dirname, "../dist/ui"),
-      filename: isProduction ? "bundle.min.js" : "bundle.js"
+      path: resolve(__dirname, "./dist/ui"),
+      filename,
+      clean: true,
+      libraryTarget: "commonjs2"
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -33,7 +38,6 @@ const config = (env) => {
             {
               loader: "css-loader",
               options: {
-                // modules: true,
                 sourceMap: true,
                 importLoaders: 2
               }
@@ -52,18 +56,12 @@ const config = (env) => {
         }
       ]
     },
-    resolve: {
-      extensions: [".ts", ".js"]
-    },
     devServer: {
       static: {
         directory: path.join(__dirname, "dist"),
       },
       compress: true,
-      port: 9000,
-    },
-  };
-  return cfg;
+      port: 4001,
+    }
+  }
 };
-
-module.exports = config;
