@@ -10,6 +10,7 @@ import { SERVER_LOGS_CONFIG } from "./logs";
 import { SERVER_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { SERVER_WEBSITE_CONFIG } from "./website";
 import { SERVER_NOTIFIER_CONFIG } from "./notifier";
+import { SERVER_COMMON_CONFIG } from "./common";
 
 export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.Content]: SERVER_CONTENT_CONFIG,
@@ -21,16 +22,5 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.UserManagement]: SERVER_USER_MANAGEMENT_CONFIG,
     [ApplicationName.Website]: SERVER_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: SERVER_NOTIFIER_CONFIG,
-    // TODO: Move this to a separate object.
-    common: {
-        paths: {
-            base: "/",
-            wildcard: "*"
-        },
-        files: {
-            frontend: {
-                static: "IM_A_TODO" // TODO: Add this property
-            }
-        }
-    }
+    common: SERVER_COMMON_CONFIG
 }

@@ -21,7 +21,7 @@ export class DeleteQueryContext<T extends Object>
     public async run(): Promise<void> {
         const command = this.concatQueries();
         return new Promise((resolve, reject) => {
-            this._context.Connection.execute(command, (err) => {
+            this._context.Connection.query(command, (err) => {
                 if (err) {
                     this._logger.error("DeleteQueryContext", "Error while executing:", `"${command}"`, "ERROR:", err);
                     reject(err);

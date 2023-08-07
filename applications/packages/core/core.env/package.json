@@ -1,11 +1,14 @@
 {
-    "$schema": "../../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/common.environment-static.server",
+    "$schema": "../../../.schema/package-json.package.schema.json",
+    "name": "@wraithlight/core.env",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "1.6.1",
+    "version": "1.0.0",
     "license": "MIT",
     "scripts": {
+        "lerna": "lerna",
+        "watch": "webpack watch",
+        "serve": "webpack watch",
         "lint": "eslint .",
         "test": "jest",
         "test:coverage": "jest --coverage",
@@ -13,9 +16,7 @@
         "build:prod": "webpack --env production"
     },
     "dependencies": {
-        "@wraithlight/core.common-constant": "*",
-        "@wraithlight/core.environment-static.sdk": "*",
-        "@wraithlight/core.environment-static.types": "*"
+        "@wraithlight/core.common-constant": "*"
     },
     "devDependencies": {
         "webpack": "~5.76.0",

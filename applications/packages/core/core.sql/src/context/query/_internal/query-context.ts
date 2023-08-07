@@ -30,17 +30,10 @@ export abstract class QueryContext<T extends Object> {
         }
     }
 
-    /**
-     * @deprecated Use `concatQueries2()` instead to avoid possible injection attacks.
-     */
-    protected concatQueries(): string {
-        return this._queries.join(EOL);
-    }
-
-    protected concatQueries2(): QueryConcatResult {
+    protected concatQueries(): QueryConcatResult {
         return {
-            query: this._queries2.join(EOL),
-            params: this._args2
+            sql: this._queries2.join(EOL),
+            value: this._args2
         };
     }
 
