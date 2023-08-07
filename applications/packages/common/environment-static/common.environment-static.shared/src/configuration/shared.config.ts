@@ -24,6 +24,8 @@ export const SHARED_CONFIG: Readonly<EnvironmentStaticShared> = {
     common: {
         [EnvironmentType.Dev]: {},
         [EnvironmentType.Local]: {},
-        [EnvironmentType.Test]: {}
+        [EnvironmentType.Test]: {},
+        [EnvironmentType.Staging]: {},
+        [EnvironmentType.Production]: {}
     }
 }
