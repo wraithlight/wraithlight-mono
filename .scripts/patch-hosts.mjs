@@ -51,11 +51,9 @@ const wraithlightData = [
 let newHosts = hosts;
 if (hosts.includes(wraithlightBannerStart) && hosts.includes(wraithlightBannerEnd)) {
     const pattern = new RegExp(`(${wraithlightBannerStart})((.|\n)*)(${wraithlightBannerEnd})`, "gm");
-    console.log(pattern);
     newHosts = newHosts.replace(pattern, "");
 }
 
 newHosts = newHosts.concat(wraithlightData.join(EOL));
-console.log(newHosts);
 const { mode } = statSync(HOSTS_PATH);
 writeFileSync(HOSTS_PATH, newHosts, { mode });
