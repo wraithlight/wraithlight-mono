@@ -19,7 +19,6 @@
         "@wraithlight/core.logs.constant": "*",
         "@wraithlight/core.logs.types": "*",
         "@wraithlight/core.types": "*",
-        "@wraithlight/core.env-static": "*",
         "@wraithlight/core.sql": "*",
         "@wraithlight/core.logger.types": "*",
         "@wraithlight/core.common-constant": "*",

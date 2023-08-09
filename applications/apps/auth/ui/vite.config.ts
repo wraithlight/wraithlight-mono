@@ -10,7 +10,6 @@ export default defineConfig({
   optimizeDeps: {
     include: [
       "@wraithlight/core.redux",
-      "@wraithlight/core.env-static",
       "@wraithlight/common.auth-sdk.client",
     ],
     exclude: [
