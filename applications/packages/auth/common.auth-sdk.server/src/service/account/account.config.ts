@@ -1,15 +1,18 @@
+import { getEnvironment } from "@wraithlight/core.env";
 import { API_ENDPOINTS } from "@wraithlight/core.auth.constant";
-import { COMMON_STATIC } from "@wraithlight/core.env-static";
+import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
 
 export class ServerAccountServiceConfig {
+
+    private readonly _reader = SharedUserManagementConfigReader.getInstance(getEnvironment());
 
     public getLoginUrl(): string {
         return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.external.v2.account.root, API_ENDPOINTS.external.v2.account.register);
     }
 
     private getApiUrl(): string {
-        const host = COMMON_STATIC.auth.address.host;
-        const port = COMMON_STATIC.auth.address.port;
+        const host = this._reader.get(x => x.server.baseUrl);
+        const port = this._reader.get(x => x.server.port);
         return `${host}:${port}`;
     }
 
