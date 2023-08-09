@@ -20,8 +20,9 @@
         "@wraithlight/core.logs.types": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.logs.constant": "*",
-        "@wraithlight/core.env-static": "*",
-        "@wraithlight/core.common-constant": "*"
+        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.env": "*",
+        "@wraithlight/common.environment-static.shared": "*"
     },
     "devDependencies": {
         "webpack": "~5.76.0",
