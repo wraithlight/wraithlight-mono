@@ -4,7 +4,7 @@ import {
     ControllerBinder,
     createServer
 } from "@wraithlight/core.node";
-import { LoggerService } from "@wraithlight/core.logger";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { EnvironmentType } from "@wraithlight/core.common-constant";
 import { join } from "path";
 
