@@ -8,7 +8,15 @@ export enum EnvironmentType {
      */
     Dev = "DEV",
     /**
-     * Test environment. Used when the applications are runinin in the Cloud.
+     * Test environment. Used when the applications are running in the Cloud.
      */
-    Test = "TEST"
+    Test = "TEST",
+    /**
+     * Staging environment. Used when the applications are running in the Cloud.
+     */
+    Staging = "STAGING",
+    /**
+     * Production environment. Used when the applications are running in the Cloud.
+     */
+    Production = "PRODUCTION"
 }

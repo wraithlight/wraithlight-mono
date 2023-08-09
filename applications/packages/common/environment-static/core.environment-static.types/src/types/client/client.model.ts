@@ -24,5 +24,5 @@ export interface EnvironmentStaticClient extends ApplicationStatic<
     EnvironmentStatic<WebsiteClient>,
     EnvironmentStatic<NotifierClient>
 > {
-    common: CommonClient
+    common: EnvironmentStatic<CommonClient>
 }

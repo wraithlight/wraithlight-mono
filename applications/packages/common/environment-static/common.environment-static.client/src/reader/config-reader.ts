@@ -12,7 +12,7 @@ export class ClientConfigurationReader<TApplication> extends ConfigurationReader
     ) {
         super(
             CLIENT_CONFIG[application][environment] as TApplication,
-            CLIENT_CONFIG.common
+            CLIENT_CONFIG.common[environment]
         );
     }
 

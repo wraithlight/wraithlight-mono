@@ -30,6 +30,15 @@ An open-source fanatasy pirate based ORPG game.
 * Node >= 18
 
 ```sh
+# Initialize local environment
+
+gh repo clone kfarkasHU/wraithlight
+cd wraithlight
+sudo node .scripts/patch-hosts.mjs
+
+```
+
+```sh
 # Set up the local environment
 
 gh repo clone kfarkasHU/wraithlight
@@ -82,7 +91,6 @@ All of the databases are using MySQL, with a custom ORM, called `core.sql`.
 
 ## Other technologies used
 * Docker
-* Kubernetes
 * Socket.IO
 * SASS
 * webpack

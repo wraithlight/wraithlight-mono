@@ -1,18 +1,60 @@
 **Local**
-| Application Name              | Serve Port            | Watch Port                |
-| ---                           | :-:                   | :-:                       |
-| Auth API                      | http://localhost:3000 | http://localhost:4500     |
-| Auth UI                       | http://localhost:4000 | http://localhost:4500     |
-| Content API                   | http://localhost:3001 | http://localhost:4501     |
-| Content UI                    | http://localhost:4001 | http://localhost:4501     |
-| Editor API                    | http://localhost:3002 | http://localhost:4502     |
-| Editor UI                     | http://localhost:4002 | http://localhost:4502     |
-| Forum API                     | http://localhost:3003 | http://localhost:4503     |
-| Forum UI                      | http://localhost:4003 | http://localhost:4503     |
-| Game Application API          | http://localhost:3004 | http://localhost:4504     |
-| Game Website API              | http://localhost:3005 | http://localhost:4505     |
-| Game Website UI               | http://localhost:4005 | http://localhost:4505     |
-| Logs API                      | http://localhost:3006 | http://localhost:4506     |
-| Logs UI                       | http://localhost:4006 | http://localhost:4506     |
-| Website API                   | http://localhost:3008 | http://localhost:4508     |
-| Website UI                    | http://localhost:4008 | http://localhost:4508     |
+| Application Name              | Watch URL                 | 
+| ---                           | :-:                       |
+| Auth                          | http://local.auth.wraithlight.ai:4500           |
+| Content                       | http://local.content.wraithlight.ai:4501        |
+| Editor                        | http://local.editor.wraithlight.ai:4502         |
+| Forum                         | http://local.forum.wraithlight.ai:4503          |
+| Game Application              | http://local.game-app.wraithlight.ai:4504       |
+| Game Website                  | http://local.game-web.wraithlight.ai:4505       |
+| Logs                          | http://local.logs.wraithlight.ai:4506           |
+| Website                       | http://local.website.wraithlight.ai:4508        |
+
+**Dev**
+| Application Name              | Watch Port                                    |
+| ---                           | :-:                                           |
+| Auth                          | http://dev.auth.wraithlight.ai:5500           |
+| Content                       | http://dev.content.wraithlight.ai:5501        |
+| Editor                        | http://dev.editor.wraithlight.ai:5502         |
+| Forum                         | http://dev.forum.wraithlight.ai:5503          |
+| Game Application              | http://dev.game-app.wraithlight.ai:5504       |
+| Game Website                  | http://dev.game-web.wraithlight.ai:5505       |
+| Logs                          | http://dev.logs.wraithlight.ai:5506           |
+| Website                       | http://dev.website.wraithlight.ai:5508        |
+
+**Test**
+**Dev**
+| Application Name              | Watch Port                                    |
+| ---                           | :-:                                           |
+| Auth                          | http://test.auth.wraithlight.ai               |
+| Content                       | http://test.content.wraithlight.ai            |
+| Editor                        | http://test.editor.wraithlight.ai             |
+| Forum                         | http://test.forum.wraithlight.ai              |
+| Game Application              | http://test.game-app.wraithlight.ai           |
+| Game Website                  | http://test.game-web.wraithlight.ai           |
+| Logs                          | http://test.logs.wraithlight.ai               |
+| Website                       | http://test.website.wraithlight.ai            |
+
+**Staging**
+| Application Name              | Watch Port                                    |
+| ---                           | :-:                                           |
+| Auth                          | http://staging.auth.wraithlight.ai            |
+| Content                       | http://staging.content.wraithlight.ai         |
+| Editor                        | http://staging.editor.wraithlight.ai          |
+| Forum                         | http://staging.forum.wraithlight.ai           |
+| Game Application              | http://staging.game-app.wraithlight.ai        |
+| Game Website                  | http://staging.game-web.wraithlight.ai        |
+| Logs                          | http://staging.logs.wraithlight.ai            |
+| Website                       | http://staging.website.wraithlight.ai         |
+
+**Production**
+| Application Name              | Watch Port                                    |
+| ---                           | :-:                                           |
+| Auth                          | http://auth.wraithlight.ai                    |
+| Content                       | http://content.wraithlight.ai                 |
+| Editor                        | http://editor.wraithlight.ai                  |
+| Forum                         | http://forum.wraithlight.ai                   |
+| Game Application              | http://game-app.wraithlight.ai                |
+| Game Website                  | http://game.wraithlight.ai                    |
+| Logs                          | http://logs.wraithlight.ai                    |
+| Website                       | http://wraithlightgame.ai                     |

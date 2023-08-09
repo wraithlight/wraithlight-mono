@@ -5,17 +5,15 @@
             "type": "node",
             "request": "launch",
             "name": "Jest: current file",
-            "program": "${workspaceFolder}/applications/node_modules/.bin/jest",
+            "program": "${workspaceFolder}/applications/vsc/jest-runner.js",
             "args": [
+                "${workspaceFolder}/applications/node_modules/.bin/jest",
+                "${workspaceFolder}/applications/node_modules/jest/bin/jest",
                 "${fileBasenameNoExtension}",
-                "--config",
-                "applications/jest.config.js"
+                "${fileDirname}"
             ],
             "console": "integratedTerminal",
-            "disableOptimisticBPs": true,
-            "windows": {
-                "program": "${workspaceFolder}/applications/node_modules/jest/bin/jest"
-            }
+            "disableOptimisticBPs": true
         }
     ]
 }

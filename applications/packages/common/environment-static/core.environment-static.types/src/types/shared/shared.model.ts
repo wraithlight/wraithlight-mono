@@ -24,5 +24,5 @@ export interface EnvironmentStaticShared extends ApplicationStatic<
     EnvironmentStatic<WebsiteShared>,
     EnvironmentStatic<NotifierShared>
 > {
-    common: CommonShared
+    common: EnvironmentStatic<CommonShared>
 }
