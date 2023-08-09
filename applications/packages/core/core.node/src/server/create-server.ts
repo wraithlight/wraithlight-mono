@@ -1,4 +1,4 @@
-import { LoggerService } from "@wraithlight/core.logger";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 import cors from "cors";
 import express from "express";
 
