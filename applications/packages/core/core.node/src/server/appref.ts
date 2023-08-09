@@ -1,5 +1,5 @@
 import { LoggerService } from "@wraithlight/core.logger";
-import { Application, static as serveStatic } from "express";
+import { Application, static as serveStatic, Request, Response, NextFunction } from "express";
 import { Server } from "http";
 import {
     serve as swaggerServe,
@@ -17,8 +17,11 @@ export class AppRef implements IAppRef {
         public readonly app: Application
     ) { }
 
-    public serveStatic(route: string, staticPath: string): IAppRef {
-        this.app.use(route, serveStatic(staticPath));
+    public serveStatic(route: string, staticPath: string, callback?: (req: Request) => void): IAppRef {
+        this.app.use(route, serveStatic(staticPath), (req: Request, _res: Response, next: NextFunction) => {
+            callback && callback(req);
+            next();
+        });
         return this;
     }
 
