@@ -19,7 +19,7 @@
         "@wraithlight/core.node": "*",
         "@wraithlight/common.auth-sdk.server": "*",
         "@wraithlight/core.auth.types": "*",
-        "@wraithlight/core.logger": "*",
+        "@wraithlight/common.logger.sdk": "*",
         "cors": "~2.8.5",
         "express": "~4.18.2",
         "swagger-ui-express": "~4.6.2"
