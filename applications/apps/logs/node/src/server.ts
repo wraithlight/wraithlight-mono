@@ -1,4 +1,5 @@
-import { SERVER_STATIC } from "@wraithlight/core.env-static";
+import { getEnvironment } from "@wraithlight/core.env";
+import { SharedLogsConfigReader } from "@wraithlight/common.environment-static.shared";
 import {
     ControllerBinder,
     createServer
@@ -10,6 +11,7 @@ const CONTROLLERS = [
     new LogsEntryController()
 ];
 
+const reader = SharedLogsConfigReader.getInstance(getEnvironment());
 const server = createServer(true);
 
 ControllerBinder.bindControllers(
@@ -17,6 +19,8 @@ ControllerBinder.bindControllers(
     CONTROLLERS
 )
 
-server.start(SERVER_STATIC.logs.address.port, () => {
-    console.log(`LOGS server is running at port ${SERVER_STATIC.logs.address.port}`)
+const port = reader.get(x => x.server.port);
+
+server.start(port, () => {
+    console.log(`LOGS server is running at port ${port}`)
 });

@@ -14,6 +14,7 @@
         "test:coverage": "jest --coverage"
     },
     "dependencies": {
+        "@wraithlight/core.env": "*",
         "@wraithlight/core.node": "*",
         "@wraithlight/core.logs.constant": "*",
         "@wraithlight/core.logs.types": "*",
@@ -22,6 +23,7 @@
         "@wraithlight/core.sql": "*",
         "@wraithlight/core.logger.types": "*",
         "@wraithlight/core.common-constant": "*",
+        "@wraithlight/common.environment-static.shared": "*",
         "mysql2": "~3.2.0",
         "cors": "~2.8.5",
         "express": "~4.18.2",
