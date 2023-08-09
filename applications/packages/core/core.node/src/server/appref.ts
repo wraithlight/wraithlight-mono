@@ -1,4 +1,4 @@
-import { LoggerService } from "@wraithlight/core.logger";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { Application, static as serveStatic } from "express";
 import { Server } from "http";
 import {
