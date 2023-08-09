@@ -3,7 +3,7 @@
     "name": "@wraithlight/core.sql",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "3.7.2",
+    "version": "3.7.3",
     "license": "MIT",
     "scripts": {
         "lerna": "lerna",
@@ -16,7 +16,7 @@
         "build:prod": "webpack --env production"
     },
     "dependencies": {
-        "@wraithlight/core.logger": "*",
+        "@wraithlight/common.logger.sdk": "*",
         "@wraithlight/core.types": "*"
     },
     "peerDependencies": {
