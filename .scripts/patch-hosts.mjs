@@ -55,6 +55,5 @@ if (hosts.includes(wraithlightBannerStart) && hosts.includes(wraithlightBannerEn
 }
 
 newHosts = newHosts.concat(wraithlightData.join(EOL));
-console.log(newHosts);
 const { mode } = statSync(HOSTS_PATH);
 writeFileSync(HOSTS_PATH, newHosts, { mode });
