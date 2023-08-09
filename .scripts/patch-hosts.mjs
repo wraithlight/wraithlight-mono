@@ -19,6 +19,7 @@ const appUrls = [
     "www.local.game-web.wraithlight.ai",
     "www.local.logs.wraithlight.ai",
     "www.local.website.wraithlight.ai",
+    "www.local.notifier.wraithlight.ai",
 
     "www.dev.auth.wraithlight.ai",
     "www.dev.content.wraithlight.ai",
@@ -27,7 +28,8 @@ const appUrls = [
     "www.dev.game-app.wraithlight.ai",
     "www.dev.game-web.wraithlight.ai",
     "www.dev.logs.wraithlight.ai",
-    "www.dev.website.wraithlight.ai"
+    "www.dev.website.wraithlight.ai",
+    "www.dev.notifier.wraithlight.ai"
 ];
 const dbUrls = [
     "www.local.db-auth.wraithlight.ai",
