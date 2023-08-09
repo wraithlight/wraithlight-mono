@@ -4,11 +4,11 @@ import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-const
 
 import { ServerConfigurationReader } from "../../config-reader";
 
-export class ClientWebsiteConfigReader extends ServerConfigurationReader<WebsiteServer> {
+export class ServerWebsiteConfigReader extends ServerConfigurationReader<WebsiteServer> {
 
     private static _instance: Nullable<ServerConfigurationReader<WebsiteServer>>;
 
-    public static getInstance(environment: EnvironmentType): ClientWebsiteConfigReader {
+    public static getInstance(environment: EnvironmentType): ServerWebsiteConfigReader {
         if (!this._instance) {
             this._instance = new ServerConfigurationReader<WebsiteServer>(ApplicationName.Website, environment);
         }
