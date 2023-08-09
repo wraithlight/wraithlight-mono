@@ -1,11 +1,10 @@
 
 import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
-import { EnvironmentType } from "@wraithlight/core.common-constant";
+import { getEnvironment } from "@wraithlight/core.env";
 
 export class AuthServiceConfig {
 
-    // TODO: use `getEnvironment()` once its ready.
-    private readonly _userManagementSharedConfigReader = SharedUserManagementConfigReader.getInstance(EnvironmentType.Dev);
+    private readonly _userManagementSharedConfigReader = SharedUserManagementConfigReader.getInstance(getEnvironment());
 
     public getAuthApiBaseUrl(): string {
         const baseApi = this._userManagementSharedConfigReader.get(x => x.server.baseUrl);
