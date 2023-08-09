@@ -4,11 +4,11 @@ import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-const
 
 import { ServerConfigurationReader } from "../../config-reader";
 
-export class ClientUserManagementConfigReader extends ServerConfigurationReader<UserManagementServer> {
+export class ServerUserManagementConfigReader extends ServerConfigurationReader<UserManagementServer> {
 
     private static _instance: Nullable<ServerConfigurationReader<UserManagementServer>>;
 
-    public static getInstance(environment: EnvironmentType): ClientUserManagementConfigReader {
+    public static getInstance(environment: EnvironmentType): ServerUserManagementConfigReader {
         if (!this._instance) {
             this._instance = new ServerConfigurationReader<UserManagementServer>(ApplicationName.UserManagement, environment);
         }
