@@ -1,3 +1,14 @@
-import { COMMON_STATIC } from "@wraithlight/core.env-static";
+import { getEnvironment } from "@wraithlight/core.env";
+import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
 
-export const AUTH_API_BASE_URL = `${COMMON_STATIC.website.address.host}:${COMMON_STATIC.website.address.port}`;
+export class AuthServiceConfig {
+
+    private readonly _configReader = SharedUserManagementConfigReader.getInstance(getEnvironment());
+
+    public getBaseApiUrl(): string {
+        const baseUrl = this._configReader.get(x => x.server.baseUrl);
+        const port = this._configReader.get(x => x.server.port);
+        return `${baseUrl}:${port}`;
+    }
+
+}
