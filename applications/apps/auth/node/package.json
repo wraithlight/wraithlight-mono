@@ -20,6 +20,7 @@
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.common-constant": "*",
         "@wraithlight/core.logger": "*",
+        "@wraithlight/core.env": "*",
         "@wraithlight/common.environment-static.server": "*",
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.sql": "*",
