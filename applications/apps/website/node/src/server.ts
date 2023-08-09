@@ -1,4 +1,4 @@
-import { COMMON_STATIC } from "@wraithlight/core.env-static";
+import { SharedWebsiteConfigReader } from "@wraithlight/common.environment-static.shared";
 import {
     ControllerBinder,
     createServer
@@ -9,12 +9,14 @@ import {
 } from "@wraithlight/common.auth-sdk.server";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { LoggerService } from "@wraithlight/core.logger";
+import { getEnvironment } from "@wraithlight/core.env";
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Website),
     new ServerAccountControllerV1()
 ];
 
+const reader = SharedWebsiteConfigReader.getInstance(getEnvironment());
 const server = createServer(true);
 
 ControllerBinder.bindControllers(
@@ -22,8 +24,9 @@ ControllerBinder.bindControllers(
     CONTROLLERS
 )
 
+const port = reader.get(x => x.server.port);
 
 const logger = LoggerService.getInstance();
-server.start(COMMON_STATIC.website.address.port, () => {
-    logger.info(`WEBSITE server is running on http://localhost:${COMMON_STATIC.website.address.port}`);
+server.start(port, () => {
+    logger.info(`WEBSITE server is running on http://localhost:${port}`);
 });
