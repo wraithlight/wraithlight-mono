@@ -1,5 +1,7 @@
 import { EnvironmentType } from "@wraithlight/core.common-constant";
 
+import { WL_TYPE_PROP_NAME } from "./env.const";
+
 export function getEnvironment(): EnvironmentType {
-    return process.env.wlType as EnvironmentType || EnvironmentType.Local;
+    return process.env[WL_TYPE_PROP_NAME] as EnvironmentType || EnvironmentType.Local;
 }

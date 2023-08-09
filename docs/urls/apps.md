@@ -63,5 +63,3 @@
 | Logs                          | http://logs.wraithlight.ai                    |
 | Website                       | http://wraithlightgame.ai                     |
 | Notifier                      | http://notifier.wraithlight.ai                |
-
-

@@ -1,3 +1,5 @@
-export interface WebsiteShared {
+import { Server } from "../_internal";
 
+export interface WebsiteShared {
+    server: Server;
 }

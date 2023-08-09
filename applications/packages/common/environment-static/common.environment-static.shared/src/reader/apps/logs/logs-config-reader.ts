@@ -4,11 +4,11 @@ import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-const
 
 import { SharedConfigurationReader } from "../../config-reader";
 
-export class ClientLogsConfigReader extends SharedConfigurationReader<LogsShared> {
+export class SharedLogsConfigReader extends SharedConfigurationReader<LogsShared> {
 
     private static _instance: Nullable<SharedConfigurationReader<LogsShared>>;
 
-    public static getInstance(environment: EnvironmentType): ClientLogsConfigReader {
+    public static getInstance(environment: EnvironmentType): SharedLogsConfigReader {
         if (!this._instance) {
             this._instance = new SharedConfigurationReader<LogsShared>(ApplicationName.Logs, environment);
         }

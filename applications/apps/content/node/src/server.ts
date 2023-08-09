@@ -1,4 +1,5 @@
-import { COMMON_STATIC } from "@wraithlight/core.env-static";
+import { SharedContentConfigReader } from "@wraithlight/common.environment-static.shared";
+import { EnvironmentType } from "@wraithlight/core.common-constant";
 import {
     ControllerBinder,
     createServer
@@ -10,13 +11,18 @@ const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Content)
 ];
 
+const environment = EnvironmentType.Local;
+const sharedCfg = SharedContentConfigReader.getInstance(environment);
+
 const server = createServer(true);
 
 ControllerBinder.bindControllers(
     server.app,
     CONTROLLERS
-)
+);
 
-server.start(COMMON_STATIC.content.address.port, () => {
-    console.log(`CONTENT server is running at port ${COMMON_STATIC.content.address.port}`)
+const port = sharedCfg.get(x => x.server.port);
+
+server.start(port, () => {
+    console.log(`CONTENT server is running at port ${port}`)
 });

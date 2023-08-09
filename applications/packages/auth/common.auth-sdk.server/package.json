@@ -23,7 +23,7 @@
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.node": "*",
-        "@wraithlight/core.env-static": "*"
+        "@wraithlight/common.environment-static.shared": "*"
     },
     "devDependencies": {
         "webpack": "~5.76.0",
