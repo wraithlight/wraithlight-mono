@@ -1,5 +1,5 @@
 import { Primitive } from "@wraithlight/core.types";
-import { LoggerService } from "@wraithlight/core.logger";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { EOL } from "os";
 
 import { QueryConcatResult } from "./query-context.model";
