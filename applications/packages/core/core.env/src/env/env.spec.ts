@@ -1,6 +1,7 @@
 import { EnvironmentType } from "@wraithlight/core.common-constant";
 
 import { getEnvironment } from "./env";
+import { WL_TYPE_PROP_NAME } from "./env.const";
 
 describe("EnvSpecs", () => {
 
@@ -10,7 +11,7 @@ describe("EnvSpecs", () => {
     const oldProcessEnv = process.env;
     process.env = {
         ...oldProcessEnv,
-        wlType: "EMTPY"
+        [WL_TYPE_PROP_NAME]: "EMTPY"
     };
 
     describe("given the environment is initialized", () => {
