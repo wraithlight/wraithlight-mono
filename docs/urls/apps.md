@@ -9,6 +9,7 @@
 | Game Website                  | http://local.game-web.wraithlight.ai:4505       |
 | Logs                          | http://local.logs.wraithlight.ai:4506           |
 | Website                       | http://local.website.wraithlight.ai:4508        |
+| Notifier                      | http://local.notifier.wraithlight.ai:4509       |
 
 **Dev**
 | Application Name              | Watch Port                                    |
@@ -21,6 +22,7 @@
 | Game Website                  | http://dev.game-web.wraithlight.ai:5505       |
 | Logs                          | http://dev.logs.wraithlight.ai:5506           |
 | Website                       | http://dev.website.wraithlight.ai:5508        |
+| Notifier                      | http://dev.notifier.wraithlight.ai:5509       |
 
 **Test**
 **Dev**
@@ -34,6 +36,7 @@
 | Game Website                  | http://test.game-web.wraithlight.ai           |
 | Logs                          | http://test.logs.wraithlight.ai               |
 | Website                       | http://test.website.wraithlight.ai            |
+| Notifier                      | http://test.notifier.wraithlight.ai           |
 
 **Staging**
 | Application Name              | Watch Port                                    |
@@ -46,6 +49,7 @@
 | Game Website                  | http://staging.game-web.wraithlight.ai        |
 | Logs                          | http://staging.logs.wraithlight.ai            |
 | Website                       | http://staging.website.wraithlight.ai         |
+| Notifier                      | http://staging.notifier.wraithlight.ai        |
 
 **Production**
 | Application Name              | Watch Port                                    |
@@ -58,4 +62,6 @@
 | Game Website                  | http://game.wraithlight.ai                    |
 | Logs                          | http://logs.wraithlight.ai                    |
 | Website                       | http://wraithlightgame.ai                     |
+| Notifier                      | http://notifier.wraithlight.ai                |
+
 
