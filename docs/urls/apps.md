@@ -59,7 +59,7 @@
 | Editor                        | http://editor.wraithlight.ai                  |
 | Forum                         | http://forum.wraithlight.ai                   |
 | Game Application              | http://game-app.wraithlight.ai                |
-| Game Website                  | http://game.wraithlight.ai                    |
+| Game Website                  | http://play.wraithlightgame.ai                    |
 | Logs                          | http://logs.wraithlight.ai                    |
 | Website                       | http://wraithlightgame.ai                     |
 | Notifier                      | http://notifier.wraithlight.ai                |
