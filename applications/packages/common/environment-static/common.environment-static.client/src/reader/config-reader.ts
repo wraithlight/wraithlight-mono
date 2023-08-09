@@ -7,12 +7,12 @@ import { CLIENT_CONFIG } from "../configuration";
 export class ClientConfigurationReader<TApplication> extends ConfigurationReader<TApplication, CommonClient> {
 
     constructor(
-        readonly application: ApplicationName,
-        readonly environment: EnvironmentType
+        private readonly _application: ApplicationName,
+        private readonly _environment: EnvironmentType
     ) {
         super(
-            CLIENT_CONFIG[application][environment] as TApplication,
-            CLIENT_CONFIG.common[environment]
+            CLIENT_CONFIG[_application][_environment] as TApplication,
+            CLIENT_CONFIG.common[_environment]
         );
     }
 

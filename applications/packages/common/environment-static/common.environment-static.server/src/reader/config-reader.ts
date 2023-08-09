@@ -7,12 +7,12 @@ import { SERVER_CONFIG } from "../configuration";
 export class ServerConfigurationReader<TApplication> extends ConfigurationReader<TApplication, CommonServer> {
 
     constructor(
-        readonly application: ApplicationName,
-        readonly environment: EnvironmentType
+        private readonly _application: ApplicationName,
+        private readonly _environment: EnvironmentType
     ) {
         super(
-            SERVER_CONFIG[application][environment] as TApplication,
-            SERVER_CONFIG.common[environment]
+            SERVER_CONFIG[_application][_environment] as TApplication,
+            SERVER_CONFIG.common[_environment]
         );
     }
 
