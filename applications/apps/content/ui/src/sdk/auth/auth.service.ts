@@ -5,11 +5,12 @@ import {
     LogoutResponse
 } from "@wraithlight/common.auth-sdk.client";
 
-import { AUTH_API_BASE_URL } from "./auth.config";
+import { AuthServiceConfig } from "./auth.config";
 
 export class AuthService {
 
-    private readonly _authService = new ClientAuthService(AUTH_API_BASE_URL);
+    private readonly _config = new AuthServiceConfig();
+    private readonly _authService = new ClientAuthService(this._config.getBaseApiUrl());
 
     public login(username: string, password: string): Promise<LoginResponse> {
         return this._authService.login(username, password);

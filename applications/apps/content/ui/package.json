@@ -14,10 +14,11 @@
         "watch": "webpack watch"
     },
     "dependencies": {
+        "@wraithlight/core.env": "*",
         "@wraithlight/core.redux": "*",
-        "@wraithlight/core.env-static": "*",
         "@wraithlight/core.common-constant": "*",
         "@wraithlight/common.auth-sdk.client": "*",
+        "@wraithlight/common.environment-static.shared": "*",
         "mithril": "~2.2.2"
     },
     "devDependencies": {
