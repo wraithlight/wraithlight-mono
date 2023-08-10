@@ -1,37 +1,33 @@
-import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
-import { SharedNotifierConfigReader } from "@wraithlight/common.environment-static.shared";
-import {
-    ControllerBinder,
-    createServer
-} from "@wraithlight/core.node";
-import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
 import { LoginScope } from "@wraithlight/core.auth.types";
+import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
+import { SharedNotifierConfigReader } from "@wraithlight/common.environment-static.shared";
+import { ApplicationName } from "@wraithlight/core.common-constant";
+import { createNodeServer } from "@wraithlight/core.server";
+import { getEnvironment } from "@wraithlight/core.env";
 import { join } from "path";
-import { EnvironmentType } from "@wraithlight/core.common-constant";
+
+const serverCfg = ServerNotifierConfigReader.getInstance(getEnvironment());
+const sharedCfg = SharedNotifierConfigReader.getInstance(getEnvironment());
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Notifier)
 ];
 
-const environment = EnvironmentType.Local;
-const serverCfg = ServerNotifierConfigReader.getInstance(environment);
-const sharedCfg = SharedNotifierConfigReader.getInstance(environment);
-
-const server = createServer(true);
-
-ControllerBinder.bindControllers(
-    server.app,
-    CONTROLLERS
-);
-
-const port = sharedCfg.get(x => x.server.port);
 const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
 
-server.serveStatic(serverCfg.getCommon(x => x.paths.base), join(__dirname, frontendPath));
-server.serveStatic(serverCfg.getCommon(x => x.paths.wildcard), join(__dirname, frontendPath));
-
-const logger = LoggerService.getInstance();
-server.start(port, () => {
-    logger.info(`NOTIFIER server is running on http://localhost:${port}`);
-});
+createNodeServer(
+    ApplicationName.Notifier,
+    CONTROLLERS,
+    sharedCfg.get(x => x.server.port),
+    [
+        {
+            path: serverCfg.getCommon(x => x.paths.base),
+            staticPath: join(__dirname, frontendPath)
+        },
+        {
+            path: serverCfg.getCommon(x => x.paths.wildcard),
+            staticPath: join(__dirname, frontendPath)
+        }
+    ]
+);
