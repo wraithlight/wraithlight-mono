@@ -1,5 +1,25 @@
+---
+
+<p align="center">
+  <i>
+    ...beneath the waves, a Raven's spirit tamed,<br>
+    by bald Kraken's care, their destinies named.<br>
+    Ambition's lure, a betrayal's cruel rhyme,<br>
+    dreams embraced, yet Kraken's love the true treasure of time...<br>
+  </i>
+</p>
+
+---
+
+
 # wraithlight
-An open-source fanatasy pirate based ORPG game.
+An open-source fanatasy pirate based ORPG game. The purposes of this repository:
+* follow my teenager dream and write a computer game
+* follow my senior/architect dream and create a whole platform
+* have a monorepo for all of my hobbyprojects
+* learn all about platform architecting
+
+This repository is the 8th generatorion of the previous platform larvas (`raptyle`, `vamprye`, `silver-arrow`, `dnf`, `dnf-mono`, `dnf2`, `nexus-reunion`). Some of the code has been merged from them, but most of the current codebase was written inside the repository.
 
 ## Status
 
