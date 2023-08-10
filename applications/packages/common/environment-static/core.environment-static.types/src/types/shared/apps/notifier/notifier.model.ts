@@ -1,5 +1,5 @@
-import { Server } from "../_internal";
+import { ServerShared } from "../_internal";
 
 export interface NotifierShared {
-    server: Server;
+    server: ServerShared;
 }

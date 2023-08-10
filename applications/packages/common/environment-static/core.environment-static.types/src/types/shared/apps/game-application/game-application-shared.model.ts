@@ -1,5 +1,5 @@
-import { Server } from "../_internal";
+import { ServerShared } from "../_internal";
 
 export interface GameApplicationShared {
-    server: Server;
+    server: ServerShared;
 }
