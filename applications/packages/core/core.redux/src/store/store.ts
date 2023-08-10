@@ -1,4 +1,4 @@
-import { Counter, Nullable } from "@wraithlight/core.types";
+import { Counter, DeepPartial, Nullable, Predicate, isNil } from "@wraithlight/core.types";
 
 import { Action, MixedAction } from "./action";
 import {
@@ -30,6 +30,17 @@ export class Store<TState> {
 
     public static initialize<TState>(initialState: TState): void {
         this._instance = new Store(initialState);
+    }
+
+    public static initializePartial<TState, TSubState>(predicate: Predicate<TState, TSubState>, substate: TSubState): void {
+        if (!this._instance) {
+            throw "The store is not initialized!";
+        }
+        let substateStore: Nullable<TSubState> = predicate(this._instance._state);
+        if (!isNil(substateStore)) {
+            throw "The substate has been already initialized!";
+        }
+        substateStore = substate;
     }
 
     public static getInstance<TState>(): Store<TState> {
