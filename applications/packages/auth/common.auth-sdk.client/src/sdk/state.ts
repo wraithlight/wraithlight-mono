@@ -1,18 +1,15 @@
 import { Store } from "@wraithlight/core.redux";
 
-import { GlobalState } from "./state.model";
-import { INITIAL_STATE } from "./state.const";
-
+import { IAuthContainerStore } from "./state.model";
 import { authInitialize } from "./auth/auth";
 import { accountInitialize } from "./account/account";
 
-export const GLOBAL_STORE = () => Store.getInstance<GlobalState>();
+export const GLOBAL_STORE = () => Store.getInstance<IAuthContainerStore>();
 
 export function initializeAuthSdk(
-    apiBaseUrl: string
+    apiBaseUrl: string,
+    storeRef: Store<IAuthContainerStore>
 ): void {
-    Store.initialize<GlobalState>(INITIAL_STATE);
-    const store = Store.getInstance<GlobalState>();
-    authInitialize(store, apiBaseUrl);
-    accountInitialize(store, apiBaseUrl);
+    authInitialize(storeRef, apiBaseUrl);
+    accountInitialize(storeRef, apiBaseUrl);
 }

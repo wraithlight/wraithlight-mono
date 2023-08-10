@@ -1,11 +1,17 @@
-import { GlobalState } from "./state.model";
+import { IAuthContainerStore } from "./state.model";
 
-export const INITIAL_STATE: GlobalState = {
+/**
+ * @deprecated This const wont be exported for login.
+ * Once https://github.com/kfarkasHU/wraithlight/issues/115 is done, this will be removed.
+ */
+export const INITIAL_AUTH_STATE: IAuthContainerStore = {
     auth: {
-        isBusy: false,
-        isLoggedIn: false
-    },
-    account: {
-        isBusy: false   
+        session: {
+            isBusy: false,
+            isLoggedIn: false
+        },
+        account: {
+            isBusy: false   
+        }
     }
 };

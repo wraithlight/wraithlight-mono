@@ -1,13 +1,13 @@
 import { Store } from "@wraithlight/core.redux";
 
-import { GlobalState } from "../state.model";
+import { IAuthContainerStore } from "../state.model";
 import { initializeReducers } from "./auth.reducer";
 import { initializeEffects } from "./auth.effect";
 
 export function authInitialize(
-    store: Store<GlobalState>,
+    store: Store<IAuthContainerStore>,
     apiBaseUrl: string
-): Store<GlobalState> {
+): Store<IAuthContainerStore> {
     initializeReducers(store);
     initializeEffects(store, apiBaseUrl);
     return store;
