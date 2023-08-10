@@ -2,7 +2,7 @@ import { ServerNotifierConfigReader } from "@wraithlight/common.environment-stat
 import { SharedNotifierConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ApplicationName } from "@wraithlight/core.common-constant";
 import { createNodeServer } from "@wraithlight/core.server";
-import { getEnvironment } from "@wraithlight/core/core.env";
+import { getEnvironment } from "@wraithlight/core.env";
 import { join } from "path";
 
 import { AccountControllerV2, SessionControllerV2 } from "./controller";
