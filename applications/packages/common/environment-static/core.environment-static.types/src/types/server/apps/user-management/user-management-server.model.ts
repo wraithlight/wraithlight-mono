@@ -1,5 +1,5 @@
-import { Database } from "../_internal";
+import { DatabaseServer } from "../_internal";
 
 export interface UserManagementServer {
-    database: Database;
+    database: DatabaseServer;
 }
