@@ -1,4 +1,4 @@
-export interface Server {
+export interface ServerShared {
     baseUrl: string;
     port: number;
 }
