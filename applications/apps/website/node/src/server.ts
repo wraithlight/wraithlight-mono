@@ -1,5 +1,5 @@
 import { SharedWebsiteConfigReader } from "@wraithlight/common.environment-static.shared";
-import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
+import { ServerWebsiteConfigReader } from "@wraithlight/common.environment-static.server";
 import { ServerAccountControllerV1, ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { ApplicationName } from "@wraithlight/core.common-constant";
@@ -7,7 +7,7 @@ import { createNodeServer } from "@wraithlight/core.server";
 import { getEnvironment } from "@wraithlight/core.env";
 import { join } from "path";
 
-const serverCfg = ServerNotifierConfigReader.getInstance(getEnvironment());
+const serverCfg = ServerWebsiteConfigReader.getInstance(getEnvironment());
 const sharedCfg = SharedWebsiteConfigReader.getInstance(getEnvironment());
 
 const CONTROLLERS = [
