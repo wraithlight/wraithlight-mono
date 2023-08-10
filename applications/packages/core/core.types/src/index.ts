@@ -8,3 +8,4 @@ export * from "./nullable";
 export * from "./predicate";
 export * from "./primitive";
 export * from "./dictionary";
+export * from "./deeppartial";
