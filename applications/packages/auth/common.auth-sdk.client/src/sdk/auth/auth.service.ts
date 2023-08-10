@@ -1,9 +1,11 @@
 import {
-    ClientAuthService,
     KeepAliveSessionResponse,
     LoginResponse,
     LogoutResponse
-} from "@wraithlight/common.auth-sdk.client";
+} from "../../model";
+import {
+    ClientAuthService
+} from "../../service";
 
 export class AuthService {
 
