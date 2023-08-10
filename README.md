@@ -19,7 +19,7 @@ An open-source fanatasy pirate based ORPG game. The purposes of this repository:
 * have a monorepo for all of my hobbyprojects
 * learn all about platform architecting
 
-This repository is the 8th generatorion of the previous platform larvas (`raptyle`, `vamprye`, `silver-arrow`, `dnf`, `dnf-mono`, `dnf2`, `nexus-reunion`). Some of the code has been merged from them, but most of the current codebase was written inside the repository.
+This repository is the 8th generatorion of the previous platform larvas (`raptyle`, `vampyre`, `silver-arrow`, `dnf`, `dnf-mono`, `dnf2`, `nexus-reunion`). Some of the code has been merged from them, but most of the current codebase was written inside the repository.
 
 ## Status
 
