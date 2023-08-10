@@ -12,7 +12,7 @@ const CONTROLLERS = [
 ];
 
 createNodeServer(
-    ApplicationName.Website,
+    ApplicationName.Logs,
     CONTROLLERS,
     sharedCfg.get(x => x.server.port),
 );
