@@ -16,13 +16,10 @@
     "dependencies": {
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.env": "*",
-        "@wraithlight/core.node": "*",
         "@wraithlight/common.auth-sdk.server": "*",
         "@wraithlight/core.auth.types": "*",
-        "@wraithlight/common.logger.sdk": "*",
-        "cors": "~2.8.5",
-        "express": "~4.18.2",
-        "swagger-ui-express": "~4.6.2"
+        "@wraithlight/core.server": "*",
+        "express": "~4.18.2"
     },
     "devDependencies": {
         "webpack": "~5.76.0",
