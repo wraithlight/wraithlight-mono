@@ -1,1 +1,1 @@
-export * from "./database.model";
+export * from "./database-server.model";

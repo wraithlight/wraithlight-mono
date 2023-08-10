@@ -1,5 +1,5 @@
-import { Database } from "../_internal";
+import { DatabaseServer } from "../_internal";
 
 export interface EditorServer {
-    database: Database;
+    database: DatabaseServer;
 }
