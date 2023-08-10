@@ -25,7 +25,6 @@
 | Notifier                      | http://dev.notifier.wraithlight.ai:5509       |
 
 **Test**
-**Dev**
 | Application Name              | Watch Port                                    |
 | ---                           | :-:                                           |
 | Auth                          | http://test.auth.wraithlight.ai               |
