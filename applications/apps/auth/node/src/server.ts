@@ -1,5 +1,5 @@
-import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
-import { SharedNotifierConfigReader } from "@wraithlight/common.environment-static.shared";
+import { ServerUserManagementConfigReader } from "@wraithlight/common.environment-static.server";
+import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ApplicationName } from "@wraithlight/core.common-constant";
 import { createNodeServer } from "@wraithlight/core.server";
 import { getEnvironment } from "@wraithlight/core.env";
@@ -7,9 +7,10 @@ import { join } from "path";
 
 import { AccountControllerV2, SessionControllerV2 } from "./controller";
 
-const serverCfg = ServerNotifierConfigReader.getInstance(getEnvironment());
-const sharedCfg = SharedNotifierConfigReader.getInstance(getEnvironment());
+const serverCfg = ServerUserManagementConfigReader.getInstance(getEnvironment());
+const sharedCfg = SharedUserManagementConfigReader.getInstance(getEnvironment());
 
+// TODO: Add `ServerAuthControllerV1`
 const CONTROLLERS = [
     new AccountControllerV2(),
     new SessionControllerV2()
