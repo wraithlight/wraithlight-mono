@@ -1,4 +1,5 @@
-import { ClientAccountService, RegisterResponse } from "@wraithlight/common.auth-sdk.client";
+import { ClientAccountService } from "../../service";
+import { RegisterResponse } from "../../model";
 
 import { RegisterModel } from "./model/register.model";
 
