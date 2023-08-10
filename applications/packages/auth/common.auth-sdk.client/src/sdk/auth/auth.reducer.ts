@@ -1,16 +1,19 @@
 import { ActionWithPayload, Store } from "@wraithlight/core.redux";
 
-import { GlobalState } from "../state.model";
+import { IAuthContainerStore } from "../state.model";
 
 import { AuthAction } from "./auth.action";
 
-export function initializeReducers(store: Store<GlobalState>): Store<GlobalState> {
+export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAuthContainerStore> {
     store.addReducer([AuthAction.login], (state) => {
         return {
             ...state,
             auth: {
                 ...state.auth,
-                isBusy: true
+                session: {
+                    ...state.auth.session,
+                    isBusy: true
+                }
             }
         }
     });
@@ -19,8 +22,11 @@ export function initializeReducers(store: Store<GlobalState>): Store<GlobalState
             ...state,
             auth: {
                 ...state.auth,
-                isBusy: false,
-                errors: action.payload
+                session: {
+                    ...state.auth.session,
+                    isBusy: false,
+                    errors: action.payload
+                }
             }
         }
     });
@@ -29,10 +35,13 @@ export function initializeReducers(store: Store<GlobalState>): Store<GlobalState
             ...state,
             auth: {
                 ...state.auth,
-                isBusy: false,
-                isLoggedIn: true,
-                token: action.payload.token,
-                tokenValidUntil: action.payload.validUntil
+                session: {
+                    ...state.auth.session,
+                    isBusy: false,
+                    isLoggedIn: true,
+                    token: action.payload.token,
+                    tokenValidUntil: action.payload.validUntil
+                }
             }
         }
     });
