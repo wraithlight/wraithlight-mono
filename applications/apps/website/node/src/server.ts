@@ -1,32 +1,34 @@
 import { SharedWebsiteConfigReader } from "@wraithlight/common.environment-static.shared";
-import {
-    ControllerBinder,
-    createServer
-} from "@wraithlight/core.node";
-import {
-    ServerAccountControllerV1,
-    ServerAuthControllerV1
-} from "@wraithlight/common.auth-sdk.server";
+import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
+import { ServerAccountControllerV1, ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
 import { LoginScope } from "@wraithlight/core.auth.types";
-import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { ApplicationName } from "@wraithlight/core.common-constant";
+import { createNodeServer } from "@wraithlight/core.server";
 import { getEnvironment } from "@wraithlight/core.env";
+import { join } from "path";
+
+const serverCfg = ServerNotifierConfigReader.getInstance(getEnvironment());
+const sharedCfg = SharedWebsiteConfigReader.getInstance(getEnvironment());
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Website),
     new ServerAccountControllerV1()
 ];
 
-const reader = SharedWebsiteConfigReader.getInstance(getEnvironment());
-const server = createServer(true);
+const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
 
-ControllerBinder.bindControllers(
-    server.app,
-    CONTROLLERS
-)
-
-const port = reader.get(x => x.server.port);
-
-const logger = LoggerService.getInstance();
-server.start(port, () => {
-    logger.info(`WEBSITE server is running on http://localhost:${port}`);
-});
+createNodeServer(
+    ApplicationName.Website,
+    CONTROLLERS,
+    sharedCfg.get(x => x.server.port),
+    [
+        {
+            path: serverCfg.getCommon(x => x.paths.base),
+            staticPath: join(__dirname, frontendPath)
+        },
+        {
+            path: serverCfg.getCommon(x => x.paths.wildcard),
+            staticPath: join(__dirname, frontendPath)
+        }
+    ]
+);
