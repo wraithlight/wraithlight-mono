@@ -105,6 +105,7 @@ Most of the backend libraries/applications are written in NodeJS with some custo
 | :recycle: | Game thin client  | Node          |
 | :recycle: | Logs              | Node          |
 | :recycle: | Auth              | Node          |
+| :recycle: | Notifier          | Node          |
 
 
 ## Database
