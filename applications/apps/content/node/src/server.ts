@@ -1,6 +1,6 @@
 import { SharedContentConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
-import { LoginScope } from "@wraithlight/auth/core.auth.types";
+import { LoginScope } from "@wraithlight/core.auth.types";
 import { ApplicationName } from "@wraithlight/core.common-constant";
 import { createNodeServer } from "@wraithlight/core.server";
 import { getEnvironment } from "@wraithlight/core.env";
