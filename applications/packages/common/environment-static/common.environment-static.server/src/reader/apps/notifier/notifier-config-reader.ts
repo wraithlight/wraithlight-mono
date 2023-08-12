@@ -1,4 +1,4 @@
-import { Nullable } from "@wraithlight/core/core.types";
+import { Nullable } from "@wraithlight/core.types";
 import { EditorServer } from "@wraithlight/core.environment-static.types";
 import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
 
