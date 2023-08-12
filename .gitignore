@@ -10,3 +10,6 @@ coverage/
 
 # npm
 */package-lock.json
+
+# lerna
+lerna-debug.log
