@@ -21,4 +21,4 @@ ignores: [
   # svelte
   "@tsconfig/svelte",
 ]
-skip-missing: true
+# skip-missing: true
