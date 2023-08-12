@@ -1,0 +1,12 @@
+{
+    "ignore": [
+        "webpack.config.js",
+        "**/dist/**",
+        "**/coverage/**",
+        "jest.config.js",
+        "vsc/**",
+        ".scripts/**",
+        ".eslintrc.cjs",
+        "**/vite-env.d.ts"
+    ]
+}
