@@ -1,0 +1,21 @@
+name: "Applications GHA - Knip"
+run-name: "APPS KNIP"
+on: [push, workflow_dispatch]
+jobs:
+  knip:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache: "yarn"
+        cache-dependency-path: applications/yarn.lock
+    - name: Install packages
+      run: yarn
+      working-directory: ./applications
+    - name: Run knip
+      run: yarn knip
+      working-directory: ./applications
