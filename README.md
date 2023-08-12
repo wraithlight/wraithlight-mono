@@ -36,7 +36,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 ### Chore
 | JSON Schema   | DEPCHECK  |
 | :-:           | :-:       |
-| [![Applications GHA - JSON Schema](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Depcheck](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test%20copy.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test%20copy.yaml) |
+| [![Applications GHA - JSON Schema](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Depcheck](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-depcheck.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-depcheck.yaml) |
 
 ## Links
 * [APP Urls](./docs/urls/apps.md)
