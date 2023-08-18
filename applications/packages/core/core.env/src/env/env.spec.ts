@@ -15,7 +15,7 @@ describe("EnvSpecs", () => {
     };
 
     describe("given the environment is initialized", () => {
-        describe("then when i call the function", () => {
+        describe("when i call the function", () => {
             let environment: EnvironmentType;
             beforeEach(() => {
                 process.env.wlType = MOCK_VALUE;
