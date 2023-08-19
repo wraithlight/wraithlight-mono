@@ -1,6 +1,6 @@
 import { EnvironmentType } from "@wraithlight/core.common-constant";
 
-import { getEnvironment } from "./env";
+import { getEnvironmentType } from "./env";
 import { WL_TYPE_PROP_NAME } from "./env.const";
 
 describe("EnvSpecs", () => {
@@ -19,7 +19,7 @@ describe("EnvSpecs", () => {
             let environment: EnvironmentType;
             beforeEach(() => {
                 process.env.wlType = MOCK_VALUE;
-                environment = getEnvironment();
+                environment = getEnvironmentType();
             });
             it("should return the proper value", () => {
                 expect(environment).toBe(MOCK_VALUE);
@@ -31,7 +31,7 @@ describe("EnvSpecs", () => {
             let environment: EnvironmentType;
             beforeEach(() => {
                 process.env.wlType = undefined;
-                environment = getEnvironment();
+                environment = getEnvironmentType();
             });
             it("should return the default value", () => {
                 expect(environment).toBe(DEFAULT_VALUE);
