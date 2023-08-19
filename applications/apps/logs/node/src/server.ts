@@ -1,11 +1,11 @@
 import { SharedLogsConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ApplicationName } from "@wraithlight/core.common-constant";
 import { createNodeServer } from "@wraithlight/core.server";
-import { getEnvironment } from "@wraithlight/core.env";
+import { getEnvironmentType } from "@wraithlight/core.env";
 
 import { LogsEntryController } from "./controller";
 
-const sharedCfg = SharedLogsConfigReader.getInstance(getEnvironment());
+const sharedCfg = SharedLogsConfigReader.getInstance(getEnvironmentType());
 
 const CONTROLLERS = [
     new LogsEntryController()
