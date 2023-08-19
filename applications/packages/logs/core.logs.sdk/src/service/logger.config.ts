@@ -1,10 +1,10 @@
-import { getEnvironment } from "@wraithlight/core.env";
+import { getEnvironmentType } from "@wraithlight/core.env";
 import { LOGGER_API_ENDPOINTS } from "@wraithlight/core.logs.constant";
 import { SharedLogsConfigReader } from "@wraithlight/common.environment-static.shared";
 
 export class LoggerServiceConfig {
 
-    private readonly _configReader = SharedLogsConfigReader.getInstance(getEnvironment());
+    private readonly _configReader = SharedLogsConfigReader.getInstance(getEnvironmentType());
 
     public getLogUrl(): string {
         const baseApiUrl = this._configReader.get(x => x.server.baseUrl);
