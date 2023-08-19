@@ -3,7 +3,7 @@
     "name": "@wraithlight/common.auth-sdk.client",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lerna": "lerna",
@@ -21,7 +21,8 @@
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.types": "*",
-        "@wraithlight/core.http": "*"
+        "@wraithlight/core.http": "*",
+        "@wraithlight/common.logger.sdk": "*"
     },
     "devDependencies": {
         "webpack": "~5.76.0",
