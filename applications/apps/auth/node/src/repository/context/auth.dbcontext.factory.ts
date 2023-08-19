@@ -1,5 +1,5 @@
 import { Nullable } from "@wraithlight/core.types";
-import { getEnvironment } from "@wraithlight/core.env";
+import { getEnvironmentType } from "@wraithlight/core.env";
 import { ServerUserManagementConfigReader } from "@wraithlight/common.environment-static.server";
 
 import { AuthDbContext } from "./auth.dbcontext";
@@ -7,7 +7,7 @@ import { AuthDbContext } from "./auth.dbcontext";
 export class AuthDbContextFactory {
 
     private static _dbContext: Nullable<AuthDbContext>;
-    private static _configReader = ServerUserManagementConfigReader.getInstance(getEnvironment());
+    private static _configReader = ServerUserManagementConfigReader.getInstance(getEnvironmentType());
 
     public static getAuthDbContext(): AuthDbContext {
         if (!this._dbContext) {
