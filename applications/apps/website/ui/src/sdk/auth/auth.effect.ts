@@ -5,10 +5,12 @@ import { GlobalState } from "../state.model";
 
 import { AuthAction } from "./auth.action";
 import { AuthService } from "./auth.service";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 
 export function initializeEffects(store: Store<GlobalState>): Store<GlobalState> {
 
     const service = new AuthService();
+    const logger = LoggerService.getInstance();
 
     store.addEffect([AuthAction.login], (action: ActionWithPayload<{ username: string, password: string }>) => {
         service.login(action.payload.username, action.payload.password)
@@ -19,7 +21,7 @@ export function initializeEffects(store: Store<GlobalState>): Store<GlobalState>
                 store.dispatch(action);
             })
             .catch(m => {
-                console.warn(m);
+                logger.warn(m);
                 store.dispatch(AuthAction.loginFail([UNKNOWN_ERROR]))
             })
     });
