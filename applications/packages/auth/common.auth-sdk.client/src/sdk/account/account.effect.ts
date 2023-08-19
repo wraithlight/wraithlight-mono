@@ -1,5 +1,6 @@
 import { ActionWithPayload, Store } from "@wraithlight/core.redux";
 import { UNKNOWN_ERROR } from "@wraithlight/core.common-constant";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 
 import { IAuthContainerStore } from "../state.model";
 
@@ -13,6 +14,7 @@ export function initializeEffects(
 ): Store<IAuthContainerStore> {
 
     const service = new AccountService(apiBaseUrl);
+    const logger = LoggerService.getInstance();
 
     store.addEffect([AccountAction.register], (action: ActionWithPayload<RegisterModel>) => {
         service
@@ -24,7 +26,7 @@ export function initializeEffects(
                 store.dispatch(action);
             })
             .catch(m => {
-                console.warn(m);
+                logger.warn(m);
                 store.dispatch(AccountAction.registerFail([UNKNOWN_ERROR]));
             })
         ;
