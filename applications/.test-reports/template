@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div.container {
+                width: 100%;
+                border-bottom: 5px solid black;
+            }
+    
+            div.content {
+                height: 500px;
+            }
+    
+            div.container > iframe {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+        {{#.}}
+            <div class="container">
+                <h2>
+                    {{name}}@{{version}}
+                </h2>
+                <div class="content">
+                    <iframe
+                        src="{{location}}/coverage/lcov-report/index.html"
+                        frameborder="0"
+                        height="100%"
+                        width="100%"
+                    >
+                    </iframe>
+                </div>
+            </div>
+        {{/.}}
+    </body>
+</html>
