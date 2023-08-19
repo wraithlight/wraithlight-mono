@@ -4,8 +4,17 @@ module.exports = {
   verbose: true,
   moduleFileExtensions: ["js", "ts"],
   passWithNoTests: true,
+  collectCoverageFrom: [
+    "**/*.ts",
+    "!**/index.ts",
+    "!**/bootstrap.ts",
+    "!**/main.ts",
+    "!**/*.const.ts",
+    "!**/*.model.ts"
+  ],
   projects: [
     {
+      testEnvironment: "jsdom",
       preset: "ts-jest",
       displayName: "Packages/Game/Renderer",
       testMatch: [
