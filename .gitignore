@@ -5,6 +5,10 @@ dist/
 # jest
 coverage/
 
+# custom reporter
+**/.test-reports/data.json
+**/.test-reports/index.html
+
 # angular
 .angular
 
