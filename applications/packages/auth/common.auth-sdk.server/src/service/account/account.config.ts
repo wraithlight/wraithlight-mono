@@ -6,7 +6,7 @@ export class ServerAccountServiceConfig {
 
     private readonly _reader = SharedUserManagementConfigReader.getInstance(getEnvironmentType());
 
-    public getLoginUrl(): string {
+    public getRegisterUrl(): string {
         return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.external.v2.account.root, API_ENDPOINTS.external.v2.account.register);
     }
 

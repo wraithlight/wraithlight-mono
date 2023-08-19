@@ -17,7 +17,7 @@ export class ServerAccountService {
         passwordVerify: string,
         emailAddress: string
     ): Promise<ApiRegisterResponse> {
-        const url = this._config.getLoginUrl();
+        const url = this._config.getRegisterUrl();
         const payload: ApiRegisterRequest = {
             username: username,
             password: password,
