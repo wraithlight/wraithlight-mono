@@ -3,7 +3,7 @@
     "name": "@wraithlight/core.env",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lerna": "lerna",
@@ -16,6 +16,7 @@
         "build:prod": "webpack --env production"
     },
     "dependencies": {
+        "@wraithlight/core.types": "*",
         "@wraithlight/core.common-constant": "*"
     },
     "devDependencies": {
