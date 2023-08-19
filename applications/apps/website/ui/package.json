@@ -31,6 +31,7 @@
     "@wraithlight/core.common-constant": "*",
     "@wraithlight/common.auth-sdk.client": "*",
     "@wraithlight/core.env": "*",
+    "@wraithlight/common.logger.sdk": "*",
     "@wraithlight/common.environment-static.shared": "*"
   },
   "devDependencies": {
