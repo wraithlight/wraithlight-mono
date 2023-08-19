@@ -1,13 +1,13 @@
 import { Nullable } from "@wraithlight/core.types";
 import { ServerLogsConfigReader } from "@wraithlight/common.environment-static.server";
-import { getEnvironment } from "@wraithlight/core.env";
+import { getEnvironmentType } from "@wraithlight/core.env";
 
 import { LogsDbContext } from "./logs.dbcontext";
 
 export class LogsDbContextFactory {
 
     private static _dbContext: Nullable<LogsDbContext>;
-    private static _configReader = ServerLogsConfigReader.getInstance(getEnvironment());
+    private static _configReader = ServerLogsConfigReader.getInstance(getEnvironmentType());
 
     public static getAuthDbContext(): LogsDbContext {
         if (!this._dbContext) {
