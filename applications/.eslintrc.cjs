@@ -56,7 +56,7 @@ module.exports = {
         "sort-imports": "warn",
         "no-multiple-empty-lines": "warn",
         "no-trailing-spaces": "warn",
-        "no-console": "warn",
+        "no-console": "error",
         "no-alert": "warn",
         "no-restricted-properties": [
             "warn",
