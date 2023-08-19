@@ -11,7 +11,7 @@ export class ServerLoggerService {
     constructor(
         private readonly _applicationName: ApplicationName,
         readonly _loggerConfig: LoggerConfig,
-        readonly _logger: ILogger
+        readonly _logger: ILogger = console
     ) {
         CoreLoggerService.initialize(_loggerConfig);
         this._loggerService = CoreLoggerService.getInstance(_logger);
