@@ -9,6 +9,7 @@ ignores: [
   "@jest/globals",
   "ts-jest",
   "ts-node",  # TODO: Check this one, if we need the package at all
+  "jest-environment-jsdom",
   # (tslib) Required by Angular and svelte
   # Ref: https://github.com/kfarkasHU/wraithlight/pull/23#discussion_r1276871840
   "tslib",
