@@ -39,10 +39,15 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 | [![Applications GHA - JSON Schema](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Depcheck](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-depcheck.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-depcheck.yaml) | [![Applications GHA - Knip](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-knip.yaml) |
 
 ## Links
+
+### Documentation
 * [APP Urls](./docs/urls/apps.md)
 * [Tool Urls](./docs/urls/tools.md)
 * [Database Urls](./docs/urls/database.md)
 * [Port Mapping](./docs/urls/port-mapping.md)
+
+### Guides
+* [How to use the test-reporter](./docs/guides/test-reports.md)
 
 ## Getting started
 
