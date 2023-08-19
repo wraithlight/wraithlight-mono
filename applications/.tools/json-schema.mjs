@@ -45,7 +45,6 @@ function getPackageJsonFiles(path) {
 }
 
 function getSchemaFile({ path, $schema }) {
-    console.info("getSchemaFile", path);
     const schema = readFileSync(join(path, "..", $schema)).toString();
     return JSON.parse(schema);
 }
