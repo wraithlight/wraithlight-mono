@@ -8,9 +8,9 @@ const win32Path = args[3];
 const filename = args[4];
 const jestPath = args[5];
 
-const jestConfigPath = jestPath
-    .split(`${sep}src${sep}`)[0]
-    .concat(`${sep}jest.config.js`)
+const jestConfigPath = (jestPath.endsWith(`${sep}src`)
+    ? jestPath.replace(`${sep}src`, "")
+    : jestPath.split(`${sep}src${sep}`)[0]).concat(`${sep}jest.config.js`)
 ;
 
 const path = process.platform === "win32"
