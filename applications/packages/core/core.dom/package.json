@@ -3,7 +3,7 @@
     "name": "@wraithlight/core.dom",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lerna": "lerna",
@@ -28,6 +28,7 @@
         "@jest/globals": "~29.5.0",
         "@types/jest": "~29.5.1",
         "ts-jest": "~29.1.0",
-        "eslint-plugin-import": "~2.27.5"
+        "eslint-plugin-import": "~2.27.5",
+        "jest-environment-jsdom": "29.6.2"
     }
 }
