@@ -22,7 +22,6 @@ const envs = [
 
 for(const folder of folders) {
     const subFolders = readdirSync(join(__dirname, folder)).filter(m => statSync(join(__dirname, folder, m)).isDirectory());
-    console.log(subFolders);
     for(const env of envs) {
         if(!subFolders.includes(env)) {
             cpSync(join(__dirname, folder, "dev"), join(__dirname, folder, env), {recursive: true});
