@@ -3,7 +3,7 @@
     "name": "@wraithlight/core.sql",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
-    "version": "3.7.3",
+    "version": "3.7.4",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lerna": "lerna",
