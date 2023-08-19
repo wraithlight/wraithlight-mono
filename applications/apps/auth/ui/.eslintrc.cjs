@@ -5,6 +5,7 @@ module.exports = {
     ...config,
     ignorePatterns: [
         "**/dist/**",
+        "**/coverage/**",
         "**/webpack.config.js",
         ".eslintrc.cjs",
         "jest.config.js",
