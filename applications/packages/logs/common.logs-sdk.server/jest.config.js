@@ -3,7 +3,15 @@ module.exports = {
   testEnvironment: "node",
   verbose: true,
   moduleFileExtensions: ["js", "ts"],
-  passWithNoTests: true,
+  collectCoverageFrom: [
+    "<rootDir>/**/*.ts",
+    "**/*.service.ts",
+    "!**/index.ts",
+    "!**/bootstrap.ts",
+    "!**/main.ts",
+    "!**/*.const.ts",
+    "!**/*.model.ts"
+  ],
   projects: [
     {
       preset: "ts-jest",
