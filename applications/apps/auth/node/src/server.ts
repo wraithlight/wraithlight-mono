@@ -2,13 +2,13 @@ import { ServerUserManagementConfigReader } from "@wraithlight/common.environmen
 import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ApplicationName } from "@wraithlight/core.common-constant";
 import { createNodeServer } from "@wraithlight/core.server";
-import { getEnvironment } from "@wraithlight/core.env";
+import { getEnvironmentType } from "@wraithlight/core.env";
 import { join } from "path";
 
 import { AccountControllerV2, SessionControllerV2 } from "./controller";
 
-const serverCfg = ServerUserManagementConfigReader.getInstance(getEnvironment());
-const sharedCfg = SharedUserManagementConfigReader.getInstance(getEnvironment());
+const serverCfg = ServerUserManagementConfigReader.getInstance(getEnvironmentType());
+const sharedCfg = SharedUserManagementConfigReader.getInstance(getEnvironmentType());
 
 // TODO: Add `ServerAuthControllerV1`
 const CONTROLLERS = [
