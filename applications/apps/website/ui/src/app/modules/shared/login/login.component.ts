@@ -35,12 +35,10 @@ export class LoginComponent implements OnDestroy {
     }
 
     public isValid(): boolean {
-        console.log(!!this.username && !!this.password);
         return !!this.username && !!this.password;
     }
 
     public onSubmit(): void {
-        console.log("submit");
         this._store.dispatch(AuthAction.login(this.username, this.password));
     }
 

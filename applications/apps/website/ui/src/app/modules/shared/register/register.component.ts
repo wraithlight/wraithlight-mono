@@ -24,7 +24,6 @@ export class RegisterComponent implements OnDestroy {
     ) {
         this._store.select(AccountSelector.state).onSelection((m, s) => {
             this._stopFns.push(s);
-            console.log(m);
             this._cdr.markForCheck();
         });
     }
