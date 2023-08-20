@@ -2,8 +2,9 @@ import { Nullable } from "@wraithlight/core.types";
 
 import { Selector } from "./selector";
 
+type SelectorResultParams<TValue> = (value: TValue, stop: SelectorResultStopFn) => void;
+
 export type SelectorResultStopFn = () => void;
-export type SelectorResultParams<TValue> = (value: TValue, stop: SelectorResultStopFn) => void;
 
 export class SelectorResult<TValue> {
 
