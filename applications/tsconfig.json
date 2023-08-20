@@ -11,6 +11,7 @@
                 "packages/core/logger/*/src/index.ts",
                 "packages/game/*/src/index.ts",
                 "packages/logs/*/src/index.ts",
+                "packages/notifier/*/src/index.ts",
                 "packages/common/environment-static/*/src/index.ts"
             ]
         }
