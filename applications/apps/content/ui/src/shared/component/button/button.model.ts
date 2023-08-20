@@ -1,4 +1,4 @@
-export type ButtonType = "primary" | "secondary" | "danger";
+type ButtonType = "primary" | "secondary" | "danger";
 
 export interface ButtonComponentProps {
     isDisabled: boolean;
