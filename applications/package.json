@@ -30,6 +30,7 @@
     "packages/game/*",
     "packages/i10n/*",
     "packages/logs/*",
+    "packages/notifier/*",
     "packages/common/*",
     "packages/common/environment-static/*"
   ],
