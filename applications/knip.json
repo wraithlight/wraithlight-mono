@@ -1,6 +1,6 @@
 {
+    "$schema": "https://unpkg.com/knip@2/schema.json",
     "ignore": [
-        "webpack.config.js",
         "**/dist/**",
         "**/coverage/**",
         "jest.config.js",

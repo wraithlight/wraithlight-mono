@@ -1,6 +1,6 @@
 const { resolve } = require("path");
 
-module.exports = config = (env, dirname) => {
+module.exports = (env, dirname) => {
   const isProduction = env.production;
   const filename = "index.js";
   const cfg = {
