@@ -3,7 +3,6 @@
     "ignore": [
         "**/dist/**",
         "**/coverage/**",
-        "jest.config.js",
         "vsc/**",
         ".scripts/**",
         "**/vite-env.d.ts"
