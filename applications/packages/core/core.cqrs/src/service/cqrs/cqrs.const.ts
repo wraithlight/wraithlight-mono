@@ -1,0 +1,1 @@
+export const CQRS_PROCESSOR_TIMEOUT = 1000;
