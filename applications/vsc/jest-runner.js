@@ -20,12 +20,12 @@ const path = process.platform === "win32"
 
 exec(`${path} ${filename} --config ${jestConfigPath}`, (error, out, err) => {
     if (error) {
-        console.err(error);
+        console.error(error);
     }
     if (out) {
         console.log(out);
     }
     if (err) {
-        console.err(err);
+        console.error(err);
     }
 });
