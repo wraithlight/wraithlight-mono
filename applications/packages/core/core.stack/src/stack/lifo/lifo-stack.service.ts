@@ -27,4 +27,8 @@ export class LifoStackService<T> {
         return this._cache.shift();
     }
 
+    public clear(): void {
+        this._cache.length = 0;
+    }
+
 }
