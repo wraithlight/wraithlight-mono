@@ -1,4 +1,4 @@
-import { LOWERCASE_ALPHABET, generateRandomString } from "../string";
+import { generateRandomString } from "../string";
 
 import { Guid } from "./guid.type";
 
@@ -7,7 +7,7 @@ import { Guid } from "./guid.type";
  * @param {string} guidLike The object to verify.
  */
 export function isGuid(guidLike: string): guidLike is Guid {
-    const regexStr = "^([a-fA-F0-9]{8}-([a-fA-F0-9]{4}-){3}[a-fA-F0-9]{12})$";
+    const regexStr = "^([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-([1-9][a-fA-F0-9]{3})-([a-bA-B8-9][a-fA-F0-9]{3})-[a-fA-F0-9]{12})$";
     const regex = new RegExp(regexStr);
     return regex.test(guidLike);
 }
@@ -20,7 +20,7 @@ export function newGuid(): Guid {
     const pattern = "xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx".split("");
     const alphabets = {
         x: [
-            ...LOWERCASE_ALPHABET.split(""),
+            ..."abcdef".split(""),
             ..."0123456789".split("")
         ],
         M: [
