@@ -23,6 +23,13 @@
                 "ts-node"
             ]
         },
+        "apps/auth/ui": {
+            "ignoreDependencies": [
+                "@angular-devkit/build-angular",
+                "@angular/compiler-cli",
+                "jest-preset-angular"
+            ]
+        },
         "apps/content/node": {
             "ignoreDependencies": [
                 "ts-node"
