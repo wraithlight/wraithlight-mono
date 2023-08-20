@@ -14,6 +14,36 @@
                 ".eslintrc.cjs",
                 "jest.config.js"
             ]
+        },
+        "apps/auth/node": {
+            "ignoreDependencies": [
+                "ts-node"
+            ]
+        },
+        "apps/content/node": {
+            "ignoreDependencies": [
+                "ts-node"
+            ]
+        },
+        "apps/editor/node": {
+            "ignoreDependencies": [
+                "ts-node"
+            ]
+        },
+        "apps/logs/node": {
+            "ignoreDependencies": [
+                "ts-node"
+            ]
+        },
+        "apps/notifier/node": {
+            "ignoreDependencies": [
+                "ts-node"
+            ]
+        },
+        "apps/website/node": {
+            "ignoreDependencies": [
+                "ts-node"
+            ]
         }
     }
 }
