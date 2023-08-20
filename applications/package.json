@@ -38,6 +38,9 @@
     "node" : ">=18.0.0 <19.0.0",
     "yarn": ">=1.22.0 <1.23.0"
   },
+  "dependencies": {
+    "@wraithlight/core.types": "*"
+  },
   "devDependencies": {
     "@typescript-eslint/parser": "~6.2.0",
     "eslint-plugin-deprecation": "~1.5.0",
@@ -48,6 +51,7 @@
     "depcheck": "~1.4.3",
     "knip": "2.19.3",
     "open-cli": "~7.2.0",
-    "mustache": "~4.2.0"
+    "mustache": "~4.2.0",
+    "nx": "~16.7.2"
   }
 }
