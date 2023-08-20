@@ -42,12 +42,8 @@
     "@wraithlight/core.types": "*"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "~6.2.0",
-    "eslint-plugin-deprecation": "~1.5.0",
-    "@typescript-eslint/eslint-plugin": "~6.2.0",
     "lerna": "^6.5.1",
     "jsonschema": "~1.4.1",
-    "eslint-plugin-import": "~2.27.5",
     "depcheck": "~1.4.3",
     "knip": "2.19.3",
     "open-cli": "~7.2.0",
