@@ -7,6 +7,5 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function bootstrap() {
-    console.log("bootstrap");
     applyBindings(document.body);
 }

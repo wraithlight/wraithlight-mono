@@ -21,7 +21,8 @@
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.types": "*",
-        "@wraithlight/core.http": "*"
+        "@wraithlight/core.http": "*",
+        "@wraithlight/common.logger.sdk": "*"
     },
     "devDependencies": {
         "webpack": "~5.76.0",

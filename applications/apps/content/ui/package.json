@@ -19,6 +19,7 @@
         "@wraithlight/core.common-constant": "*",
         "@wraithlight/common.auth-sdk.client": "*",
         "@wraithlight/common.environment-static.shared": "*",
+        "@wraithlight/common.logger.sdk": "*",
         "mithril": "~2.2.2"
     },
     "devDependencies": {

@@ -6,10 +6,12 @@ import { GlobalState } from "../state.model";
 import { AccountAction } from "./account.action";
 import { AccountService } from "./account.service";
 import { RegisterModel } from "./model/register.model";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 
 export function initializeEffects(store: Store<GlobalState>): Store<GlobalState> {
 
     const service = new AccountService();
+    const logger = LoggerService.getInstance();
 
     store.addEffect([AccountAction.register], (action: ActionWithPayload<RegisterModel>) => {
         service
@@ -21,7 +23,7 @@ export function initializeEffects(store: Store<GlobalState>): Store<GlobalState>
                 store.dispatch(action);
             })
             .catch(m => {
-                console.warn(m);
+                logger.warn(m);
                 store.dispatch(AccountAction.registerFail([UNKNOWN_ERROR]));
             })
         ;
