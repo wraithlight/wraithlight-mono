@@ -23,6 +23,14 @@
                 "ts-node"
             ]
         },
+        "apps/auth/ui": {
+            "ignoreDependencies": [
+                "@tsconfig/svelte",
+                "svelte-navigator",
+                "tslib"
+                
+            ]
+        },
         "apps/content/node": {
             "ignoreDependencies": [
                 "ts-node"
@@ -54,6 +62,6 @@
                 "@angular/compiler-cli",
                 "jest-preset-angular"
             ]
-        },
+        }
     }
 }
