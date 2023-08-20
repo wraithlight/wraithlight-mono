@@ -45,6 +45,7 @@
         "ts-jest": "~29.1.0",
         "nodemon": "~2.0.20",
         "ts-node": "~10.9.1",
-        "eslint-plugin-import": "~2.27.5"
+        "eslint-plugin-import": "~2.27.5",
+        "tsconfig-paths": "~4.2.0"
     }
 }
