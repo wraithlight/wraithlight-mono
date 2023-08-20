@@ -7,7 +7,6 @@ describe("guidFnsSpecs", () => {
             const seed = new Array(100).fill(0, 0, 100);
             const guids = seed.map(newGuid);
             it.each(guids)("should be a valid guid", (guid) => {
-                console.log(guid);
                 expect(isGuid(guid)).toBe(true);
             });
         });
