@@ -48,6 +48,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 
 ### Guides
 * [How to use the test-reporter](./docs/guides/test-reports.md)
+* [How to add a new application](./docs/guides/create-new-application.md)
 
 ### Utils
 * [`purge.sh`](./docs//utils/purge-sh.md)
