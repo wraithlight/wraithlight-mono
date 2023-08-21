@@ -10,6 +10,7 @@ import { CLIENT_LOGS_CONFIG } from "./logs";
 import { CLIENT_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { CLIENT_WEBSITE_CONFIG } from "./website";
 import { CLIENT_NOTIFIER_CONFIG } from "./notifier";
+import { LogSeverity } from "@wraithlight/core/logger/core.logger.types";
 
 export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
     [ApplicationName.Content]: CLIENT_CONTENT_CONFIG,
@@ -22,10 +23,53 @@ export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
     [ApplicationName.Website]: CLIENT_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: CLIENT_NOTIFIER_CONFIG,
     common: { // TODO: Move this to a separate object.
-        [EnvironmentType.Dev]: {},
-        [EnvironmentType.Local]: {},
-        [EnvironmentType.Test]: {},
-        [EnvironmentType.Staging]: {},
-        [EnvironmentType.Production]: {}
+        [EnvironmentType.Dev]: {
+            logging: {
+                enabledLogSeverities: [
+                    LogSeverity.DEBUG,
+                    LogSeverity.INFO,
+                    LogSeverity.WARNING,
+                    LogSeverity.ERROR
+                ]
+            }
+        },
+        [EnvironmentType.Local]: {
+            logging: {
+                enabledLogSeverities: [
+                    LogSeverity.DEBUG,
+                    LogSeverity.INFO,
+                    LogSeverity.WARNING,
+                    LogSeverity.ERROR
+                ]
+            }
+        },
+        [EnvironmentType.Test]: {
+            logging: {
+                enabledLogSeverities: [
+                    LogSeverity.DEBUG,
+                    LogSeverity.INFO,
+                    LogSeverity.WARNING,
+                    LogSeverity.ERROR
+                ]
+            }
+        },
+        [EnvironmentType.Staging]: {
+            logging: {
+                enabledLogSeverities: [
+                    LogSeverity.INFO,
+                    LogSeverity.WARNING,
+                    LogSeverity.ERROR
+                ]
+            }
+        },
+        [EnvironmentType.Production]: {
+            logging: {
+                enabledLogSeverities: [
+                    LogSeverity.INFO,
+                    LogSeverity.WARNING,
+                    LogSeverity.ERROR
+                ]
+            }
+        }
     }
 }
