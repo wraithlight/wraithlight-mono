@@ -21,7 +21,8 @@
         "@wraithlight/common.environment-static.server": "*",
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.server": "*",
-        "@wraithlight/core.env": "*"
+        "@wraithlight/core.env": "*",
+        "nodemailer": "~6.9.4"
     },
     "devDependencies": {
         "webpack": "~5.76.0",
@@ -38,6 +39,7 @@
         "nodemon": "~2.0.20",
         "ts-node": "~10.9.1",
         "eslint-plugin-import": "~2.27.5",
-        "tsconfig-paths": "~4.2.0"
+        "tsconfig-paths": "~4.2.0",
+        "@types/nodemailer": "~6.4.9"
     }
 }
