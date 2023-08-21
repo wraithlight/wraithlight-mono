@@ -16,7 +16,13 @@
         "build:prod": "webpack --env production"
     },
     "dependencies": {
-        "@wraithlight/core.types": "*"
+        "@wraithlight/core.types": "*",
+        "@wraithlight/common.environment-static.shared": "*",
+        "@wraithlight/core.env": "*",
+        "@wraithlight/core.notifier.const": "*",
+        "@wraithlight/core.http": "*",
+        "@wraithlight/core.notifier.types": "*"
+
     },
     "devDependencies": {
         "webpack": "~5.76.0",
