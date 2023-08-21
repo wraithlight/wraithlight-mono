@@ -7,5 +7,17 @@ export const SERVER_DEV_NOTIFIER_CONFIG: Readonly<NotifierServer> = {
         username: "",
         password: "",
         database: "",
+    },
+    emailSending: {
+        fromAddress: "no-reply@wraithlight.ai",
+        smpt: {
+            host: "",
+            port: 0,
+            secure: true,
+            auth: {
+                user: "",
+                pass: ""
+            }
+        }
     }
 };
