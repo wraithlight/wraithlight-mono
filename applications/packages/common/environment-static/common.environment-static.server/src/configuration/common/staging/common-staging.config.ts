@@ -1,4 +1,5 @@
 import { CommonServer } from "@wraithlight/core.environment-static.types";
+import { LogSeverity } from "@wraithlight/core.logger.types";
 
 export const SERVER_STAGING_COMMON_CONFIG: Readonly<CommonServer> = {
     paths: {
@@ -9,5 +10,12 @@ export const SERVER_STAGING_COMMON_CONFIG: Readonly<CommonServer> = {
         frontend: {
             static: "../../dist/ui"
         }
+    },
+    logging: {
+        enabledLogSeverities: [
+            LogSeverity.INFO,
+            LogSeverity.WARNING,
+            LogSeverity.ERROR
+        ]
     }
 };
