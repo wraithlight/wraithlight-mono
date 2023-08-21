@@ -1,5 +1,6 @@
 import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
 import { EnvironmentStaticShared } from "@wraithlight/core.environment-static.types";
+import { LogSeverity } from "@wraithlight/core.logger.types";
 
 import { SHARED_CONTENT_CONFIG } from "./content";
 import { SHARED_EDITOR_CONFIG } from "./editor";
@@ -22,10 +23,53 @@ export const SHARED_CONFIG: Readonly<EnvironmentStaticShared> = {
     [ApplicationName.Website]: SHARED_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: SHARED_NOTIFIER_CONFIG,
     common: {
-        [EnvironmentType.Dev]: {},
-        [EnvironmentType.Local]: {},
-        [EnvironmentType.Test]: {},
-        [EnvironmentType.Staging]: {},
-        [EnvironmentType.Production]: {}
+        [EnvironmentType.Dev]: {
+            logging: {
+                enabledLogSeverities: [
+                    LogSeverity.DEBUG,
+                    LogSeverity.INFO,
+                    LogSeverity.WARNING,
+                    LogSeverity.ERROR
+                ]
+            }
+        },
+        [EnvironmentType.Local]: {
+            logging: {
+                enabledLogSeverities: [
+                    LogSeverity.DEBUG,
+                    LogSeverity.INFO,
+                    LogSeverity.WARNING,
+                    LogSeverity.ERROR
+                ]
+            }
+        },
+        [EnvironmentType.Test]: {
+            logging: {
+                enabledLogSeverities: [
+                    LogSeverity.DEBUG,
+                    LogSeverity.INFO,
+                    LogSeverity.WARNING,
+                    LogSeverity.ERROR
+                ]
+            }
+        },
+        [EnvironmentType.Staging]: {
+            logging: {
+                enabledLogSeverities: [
+                    LogSeverity.INFO,
+                    LogSeverity.WARNING,
+                    LogSeverity.ERROR
+                ]
+            }
+        },
+        [EnvironmentType.Production]: {
+            logging: {
+                enabledLogSeverities: [
+                    LogSeverity.INFO,
+                    LogSeverity.WARNING,
+                    LogSeverity.ERROR
+                ]
+            }
+        }
     }
 }
