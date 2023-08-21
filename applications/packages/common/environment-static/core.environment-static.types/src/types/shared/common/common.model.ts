@@ -1,7 +1,7 @@
 import { LogSeverity } from "@wraithlight/core.logger.types";
 
 export interface CommonShared {
-    logging?: {
+    logging: {
         enabledLogSeverities: ReadonlyArray<LogSeverity>
     }
 }

@@ -10,7 +10,7 @@ export interface CommonServer {
             static: string
         }
     },
-    logging?: {
+    logging: {
         enabledLogSeverities: ReadonlyArray<LogSeverity>
     }
 }
