@@ -1,16 +1,16 @@
 import { Nullable } from "@wraithlight/core.types";
-import { EditorServer } from "@wraithlight/core.environment-static.types";
+import { NotifierServer } from "@wraithlight/core.environment-static.types";
 import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
 
 import { ServerConfigurationReader } from "../../config-reader";
 
-export class ServerNotifierConfigReader extends ServerConfigurationReader<EditorServer> {
+export class ServerNotifierConfigReader extends ServerConfigurationReader<NotifierServer> {
 
-    private static _instance: Nullable<ServerConfigurationReader<EditorServer>>;
+    private static _instance: Nullable<ServerConfigurationReader<NotifierServer>>;
 
     public static getInstance(environment: EnvironmentType): ServerNotifierConfigReader {
         if (!this._instance) {
-            this._instance = new ServerConfigurationReader<EditorServer>(ApplicationName.Notifier, environment);
+            this._instance = new ServerConfigurationReader<NotifierServer>(ApplicationName.Notifier, environment);
         }
         return this._instance;
     }
