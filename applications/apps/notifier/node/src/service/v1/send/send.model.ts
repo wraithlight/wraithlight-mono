@@ -1,3 +1,7 @@
 import { SendMailRequestV1Model } from "@wraithlight/notifier/core.notifier.types";
 
-export interface SendEmailModelV1 extends SendMailRequestV1Model { }
+interface SendEmailModelV1 extends SendMailRequestV1Model { }
+
+export interface WebhookableSendEmailModelV1 extends SendEmailModelV1 {
+    webhookBaseApiUrl?: string;
+}
