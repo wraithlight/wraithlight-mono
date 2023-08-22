@@ -3,4 +3,5 @@ export interface SendMailRequestV1Model {
     subject: string;
     content: string;
     isHtml: boolean;
+    webhookBaseApiUrl?: string
 }

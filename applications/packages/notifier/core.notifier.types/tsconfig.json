@@ -1,7 +1,6 @@
 {
     "extends": "../../../tsconfig.package.json",
     "compilerOptions": {
-        "outDir": "dist",
-        "esModuleInterop": true
+        "outDir": "dist"
     }
 }

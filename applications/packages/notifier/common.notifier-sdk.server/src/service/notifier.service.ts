@@ -1,6 +1,7 @@
 import { Guid } from "@wraithlight/core.types";
 import { HttpClient, HttpCode } from "@wraithlight/core.http";
 import { SendMailRequestV1Model, SendMailResponseV1Model } from "@wraithlight/core.notifier.types";
+
 import { NotifierServiceConfig } from "./notifier.config";
 
 export class NotifierService extends HttpClient {
@@ -11,14 +12,16 @@ export class NotifierService extends HttpClient {
         address: string,
         subject: string,
         content: string,
-        isHtml: boolean
+        isHtml: boolean,
+        webhookBaseApiUrl?: string
     ): Promise<Guid> {
         const url = this._config.getSendMailV1Url();
         const data: SendMailRequestV1Model = {
             address,
             subject,
             content,
-            isHtml
+            isHtml,
+            webhookBaseApiUrl
         };
         const result = await this.post<SendMailResponseV1Model, SendMailRequestV1Model>(url, data);
         if (result.statusCode === HttpCode.Ok) {

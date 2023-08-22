@@ -5,7 +5,7 @@ export interface SmtpServer {
     auth: SmtpServerAuth
 }
 
-export interface SmtpServerAuth {
+interface SmtpServerAuth {
     user: string;
     pass: string;
 }

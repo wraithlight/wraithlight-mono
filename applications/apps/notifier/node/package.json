@@ -22,6 +22,11 @@
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.server": "*",
         "@wraithlight/core.env": "*",
+        "@wraithlight/core.notifier.const": "*",
+        "@wraithlight/core.notifier.types": "*",
+        "@wraithlight/common.logger.sdk": "*",
+        "@wraithlight/core.cqrs": "*",
+        "@wraithlight/core.http": "*",
         "nodemailer": "~6.9.4"
     },
     "devDependencies": {

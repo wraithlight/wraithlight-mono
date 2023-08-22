@@ -1,14 +1,12 @@
 {
     "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/common.notifier.sdk",
+    "name": "@wraithlight/common.notifier-sdk.server",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "version": "1.0.0",
     "license": "LGPL-3.0-only",
     "scripts": {
-        "lerna": "lerna",
         "watch": "webpack watch",
-        "serve": "webpack watch",
         "lint": "eslint .",
         "test": "jest",
         "test:coverage": "jest --coverage",
@@ -19,10 +17,9 @@
         "@wraithlight/core.types": "*",
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.env": "*",
-        "@wraithlight/core.notifier.const": "*",
         "@wraithlight/core.http": "*",
+        "@wraithlight/core.notifier.const": "*",
         "@wraithlight/core.notifier.types": "*"
-
     },
     "devDependencies": {
         "webpack": "~5.76.0",
