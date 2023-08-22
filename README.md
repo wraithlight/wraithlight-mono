@@ -51,6 +51,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 
 ### Utils
 * [`purge.sh`](./docs//utils/purge-sh.md)
+* [`purge-git.sh`](./docs//utils/purge-git-sh.md)
 
 ## Getting started
 
