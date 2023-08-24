@@ -1,28 +1,28 @@
 import { EnvironmentType } from "@wraithlight/core.common-constant";
 
 import { getEnvironmentType } from "./env";
-import { WL_TYPE_PROP_NAME } from "./env.const";
+import { WL_ENV_DEFAULT, WL_ENV_TYPE_PROP_NAME } from "./env.const";
 
 describe("EnvSpecs", () => {
-
-    const MOCK_VALUE = EnvironmentType.Test;
-    const DEFAULT_VALUE = EnvironmentType.Local;
 
     const oldProcessEnv = process.env;
     process.env = {
         ...oldProcessEnv,
-        [WL_TYPE_PROP_NAME]: "EMTPY"
+        [WL_ENV_TYPE_PROP_NAME]: "EMTPY"
     };
+    const envs = Object.values(EnvironmentType);
 
     describe("given the environment is initialized", () => {
-        describe("when i call the function", () => {
+        describe.each(
+            envs.map(m => [m])
+        )("when i call the function", (env: EnvironmentType) => {
             let environment: EnvironmentType;
             beforeEach(() => {
-                process.env.wlType = MOCK_VALUE;
+                process.env.wlType = env;
                 environment = getEnvironmentType();
             });
             it("should return the proper value", () => {
-                expect(environment).toBe(MOCK_VALUE);
+                expect(environment).toBe(env);
             });
         });
     });
@@ -34,7 +34,7 @@ describe("EnvSpecs", () => {
                 environment = getEnvironmentType();
             });
             it("should return the default value", () => {
-                expect(environment).toBe(DEFAULT_VALUE);
+                expect(environment).toBe(WL_ENV_DEFAULT);
             });
         });
     });
