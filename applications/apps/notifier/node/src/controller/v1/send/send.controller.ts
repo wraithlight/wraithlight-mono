@@ -1,4 +1,4 @@
-import { BaseController, HttpController, HttpPost } from "@wraithlight/core/core.node";
+import { BaseController, HttpController, HttpPost } from "@wraithlight/core.node";
 import { SendMailRequestV1Model } from "@wraithlight/core.notifier.types";
 import { NOTIFIER_ENDPOINT_CONST } from "@wraithlight/core.notifier.const";
 
