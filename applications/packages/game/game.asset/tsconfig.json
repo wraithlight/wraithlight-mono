@@ -1,6 +1,7 @@
 {
     "extends": "../../../tsconfig.package.json",
     "compilerOptions": {
-        "lib": ["ES2015", "DOM"]
+        "lib": ["ES2015", "DOM"],
+        "outDir": "dist/esm"
     }
 }
