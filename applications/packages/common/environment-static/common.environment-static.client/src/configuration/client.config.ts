@@ -10,7 +10,7 @@ import { CLIENT_LOGS_CONFIG } from "./logs";
 import { CLIENT_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { CLIENT_WEBSITE_CONFIG } from "./website";
 import { CLIENT_NOTIFIER_CONFIG } from "./notifier";
-import { LogSeverity } from "@wraithlight/core/logger/core.logger.types";
+import { LogSeverity } from "@wraithlight/core.logger.types";
 
 export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
     [ApplicationName.Content]: CLIENT_CONTENT_CONFIG,
