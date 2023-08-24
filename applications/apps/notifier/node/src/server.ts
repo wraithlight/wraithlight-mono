@@ -7,11 +7,14 @@ import { createNodeServer } from "@wraithlight/core.server";
 import { getEnvironmentType } from "@wraithlight/core.env";
 import { join } from "path";
 
+import { SendControllerV1 } from "./controller";
+
 const serverCfg = ServerNotifierConfigReader.getInstance(getEnvironmentType());
 const sharedCfg = SharedNotifierConfigReader.getInstance(getEnvironmentType());
 
 const CONTROLLERS = [
-    new ServerAuthControllerV1(LoginScope.Notifier)
+    new ServerAuthControllerV1(LoginScope.Notifier),
+    new SendControllerV1()
 ];
 
 const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);

@@ -1,0 +1,49 @@
+import { CqrsService } from "@wraithlight/core.cqrs";
+import { Guid, Nullable } from "@wraithlight/core.types";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
+
+import { WebhookableSendEmailModelV1 } from "./send.model";
+import { NodemailerFacadeService } from "../../../nodemailer";
+import { WebhookService } from "../webhook";
+
+export class SendServiceV1 {
+
+    private readonly _logger = LoggerService.getInstance();
+    private readonly _nodemailerFacade = NodemailerFacadeService.getInstance();
+    private readonly _cqrsService = new CqrsService<WebhookableSendEmailModelV1>((item, id) => this.sendWorker(item, id));
+
+    public send(
+        address: string,
+        subject: string,
+        content: string,
+        isHtml: boolean,
+        webhookBaseUrl?: string
+    ): Guid {
+        return this._cqrsService.addItem({
+            address,
+            subject,
+            content,
+            isHtml,
+            webhookBaseApiUrl: webhookBaseUrl
+        }) as Guid; // TODO: Fix this once ESM build has been added.
+    }
+
+    private async sendWorker(item: WebhookableSendEmailModelV1, id: Guid): Promise<void> {
+        let webhookService: Nullable<WebhookService>;
+        if (item.webhookBaseApiUrl) {
+            webhookService = new WebhookService(item.webhookBaseApiUrl);
+        }
+        this._logger.warn(`Entry with id '${id}' is being processed!`);
+        webhookService && await webhookService.start(id);
+        try {
+            await this._nodemailerFacade.sendMail(item.address, item.subject, item.content, item.isHtml);
+            webhookService && await webhookService.succeed(id);
+            this._logger.warn(`Entry with id '${id}' has been processed succesfully!`);
+        } catch (e: unknown) {
+            webhookService && await webhookService.fail(id, JSON.stringify(e));
+            this._logger.warn(`Entry processing ('${id}') has been failed`, JSON.stringify(e));
+        }
+        webhookService && await webhookService.done(id);
+    }
+
+}
