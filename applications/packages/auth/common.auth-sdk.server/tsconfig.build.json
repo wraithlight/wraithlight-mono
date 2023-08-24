@@ -1,0 +1,7 @@
+{
+    "compilerOptions": {
+        "outDir": "dist/esm",
+        "experimentalDecorators": true,
+        "esModuleInterop": true
+    }
+}
