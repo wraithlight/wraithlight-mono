@@ -13,9 +13,6 @@
                 "webpack.config.js",
                 ".eslintrc.cjs",
                 "jest.config.js"
-            ],
-            "ignoreDependencies": [
-                "depcheck"
             ]
         },
         "apps/auth/node": {

@@ -15,7 +15,6 @@
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
     "validate-json": "node .tools/json-schema.mjs",
-    "check-dependencies": "lerna exec --no-bail --stream depcheck",
     "guid": "node .tools/guidgen.mjs",
     "test-report:collect": "lerna la --json > .test-reports/data.json",
     "test-report:generate": "mustache .test-reports/data.json .test-reports/template .test-reports/index.html",
@@ -45,7 +44,6 @@
   "devDependencies": {
     "lerna": "^6.5.1",
     "jsonschema": "~1.4.1",
-    "depcheck": "~1.4.3",
     "knip": "2.19.3",
     "open-cli": "~7.2.0",
     "mustache": "~4.2.0",

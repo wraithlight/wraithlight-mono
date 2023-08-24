@@ -34,9 +34,9 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 | [![Applications GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml) | [![Applications GHA - Lint](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-lint.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-lint.yaml) | [![Applications GHA - Test](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test.yaml)
 
 ### Chore
-| JSON Schema   | DEPCHECK  | Knip  |
-| :-:           | :-:       | :-:   |
-| [![Applications GHA - JSON Schema](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Depcheck](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-depcheck.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-depcheck.yaml) | [![Applications GHA - Knip](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-knip.yaml) |
+| JSON Schema   | Knip  |
+| :-:           | :-:   |
+| [![Applications GHA - JSON Schema](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Knip](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-knip.yaml) |
 
 ## Links
 
@@ -51,6 +51,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 
 ### Utils
 * [`purge.sh`](./docs//utils/purge-sh.md)
+* [`purge-git.sh`](./docs//utils/purge-git-sh.md)
 
 ## Getting started
 
@@ -126,3 +127,7 @@ All of the databases are using MySQL, with a custom ORM, called `core.sql`.
 * webpack
 * typescript
 * lerna
+* Jest
+* Knip
+* selenium
+* swagger

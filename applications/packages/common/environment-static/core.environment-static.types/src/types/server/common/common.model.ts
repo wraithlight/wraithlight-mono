@@ -1,3 +1,5 @@
+import { LogSeverity } from "@wraithlight/core.logger.types";
+
 export interface CommonServer {
     paths: {
         base: string;
@@ -7,5 +9,8 @@ export interface CommonServer {
         frontend: {
             static: string
         }
+    },
+    logging: {
+        enabledLogSeverities: ReadonlyArray<LogSeverity>
     }
 }
