@@ -26,10 +26,6 @@
         "scripts": {
             "type": "object",
             "properties": {
-                "lerna": {
-                    "type": "string",
-                    "enum": ["lerna"]
-                },
                 "watch": {
                     "type": "string"
                 },
@@ -49,21 +45,34 @@
                     "type": "string"
                 }
             },
+            "additionalProperties": false,
             "required": [
                 "watch",
                 "build",
                 "build:prod",
                 "lint",
                 "test",
-                "test:coverage",
-                "lerna"
+                "test:coverage"
             ]
+        },
+        "$schema": {
+            "type": "string"
+        },
+        "dependencies": {
+            "type": "object"
+        },
+        "devDependencies": {
+            "type": "object"
         }
     },
+    "additionalProperties": false,
     "required": [
         "name",
         "version",
         "license",
-        "scripts"
+        "scripts",
+        "$schema",
+        "dependencies",
+        "devDependencies"
     ]
 }
