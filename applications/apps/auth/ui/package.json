@@ -3,15 +3,11 @@
   "name": "@wraithlight/auth.ui",
   "version": "1.0.0",
   "license": "LGPL-3.0-only",
-  "private": true,
   "type": "module",
   "scripts": {
-    "lerna": "lerna",
     "build": "vite build",
     "build:prod": "vite build",
     "watch": "vite build --watch",
-    "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
     "lint": "eslint .",
     "test": "jest",
     "test:coverage": "jest --coverage"
