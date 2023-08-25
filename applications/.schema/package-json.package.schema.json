@@ -42,6 +42,7 @@
                     "type": "string"
                 }
             },
+            "additionalProperties": false,
             "required": [
                 "build",
                 "build:prod",
@@ -49,12 +50,51 @@
                 "test",
                 "test:coverage"
             ]
+        },
+        "$schema": {
+            "type": "string"
+        },
+        "dependencies": {
+            "type": "object"
+        },
+        "devDependencies": {
+            "type": "object"
+        },
+        "exports": {
+            "type": "object",
+            "properties": {
+                ".": {
+                    "type": "object",
+                    "properties": {
+                        "require": {
+                            "type": "string",
+                            "enum": ["./dist/cjs/index.js"]
+                        },
+                        "import": {
+                            "type": "string",
+                            "enum": ["./dist/esm/index.js"]
+                        },
+                        "types": {
+                            "type": "string",
+                            "enum": ["./dist/index.d.ts"]
+                        }
+                    }
+                }
+            }
+        },
+        "browser": {
+            "type": "object",
+            "description": "TODO: Remove this once the crypto issue is resolved #19"
         }
     },
+    "additionalProperties": false,
     "required": [
         "name",
         "version",
         "license",
-        "scripts"
+        "scripts",
+        "$schema",
+        "dependencies",
+        "devDependencies"
     ]
 }
