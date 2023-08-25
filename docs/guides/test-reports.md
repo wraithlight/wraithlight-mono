@@ -22,14 +22,6 @@ These files are added to the root level `.gitignore` file.
 
 ### Known issue
 * If there are no tests within a package **AND** jest is configured to pass if there are no tests, then no reporting will be generated. This issue is happening because istanbul accepts empty lcov-report data during report generation.
-  * As a workaround always add at least one dump test file (easiest way below)
-  
-```ts
 
-describe("MockTestsForPackage", () => {
-    it("should be mock true", () => {
-        expect(true).toBeTruthy();
-    });
-});
-
-```
+Since there is no way to test interfaces in `jest` and it would not make sense at all we are skipping this for now.
+Same applies to const files.
