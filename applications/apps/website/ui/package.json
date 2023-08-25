@@ -4,17 +4,13 @@
   "version": "1.0.0",
   "license": "LGPL-3.0-only",
   "scripts": {
-    "lerna": "lerna",
-    "ng": "ng",
-    "serve": "ng serve",
-    "build": "ng build",
-    "build:prod": "ng build --configuration production",
-    "watch": "ng build --watch --configuration development",
+    "build": "yarn ng build",
+    "build:prod": "yarn ng build --configuration production",
+    "watch": "yarn ng build --watch --configuration development",
     "lint": "eslint .",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^16.0.0",
     "@angular/common": "^16.0.0",
