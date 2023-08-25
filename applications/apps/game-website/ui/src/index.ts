@@ -1,11 +1,14 @@
 import "./styles.scss";
 import "./app";
 import { applyBindings } from "knockout";
+import { getDocumentRef } from "@wraithlight/core.dom";
 
-document.addEventListener("DOMContentLoaded", () => {
+const _document = getDocumentRef();
+
+_document.addEventListener("DOMContentLoaded", () => {
     bootstrap();
 });
 
 function bootstrap() {
-    applyBindings(document.body);
+    applyBindings(_document.body);
 }
