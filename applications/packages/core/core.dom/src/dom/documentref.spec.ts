@@ -8,6 +8,7 @@ describe("DocumentRefSpecs", () => {
                 _document = getDocumentRef();
             });
             it("should return the `document` object", () => {
+                // eslint-disable-next-line no-restricted-globals
                 expect(document).toBe(_document)
             });
         })
