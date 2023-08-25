@@ -13,9 +13,6 @@
     "version": "2.0.0",
     "license": "LGPL-3.0-only",
     "scripts": {
-        "lerna": "lerna",
-        "watch": "webpack watch",
-        "serve": "webpack watch",
         "lint": "eslint .",
         "test": "jest",
         "test:coverage": "jest --coverage",
@@ -35,5 +32,6 @@
         "@types/jest": "~29.5.1",
         "ts-jest": "~29.1.0",
         "eslint-plugin-import": "~2.27.5"
-    }
+    },
+    "dependencies": {}
 }
