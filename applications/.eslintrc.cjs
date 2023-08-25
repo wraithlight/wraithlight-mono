@@ -66,8 +66,10 @@ module.exports = {
             }
         ],
         "no-restricted-globals": [
-            "warn",
-            "document"
+            "error",
+            "document",
+            "window",
+            "navigator"
         ],
         // Typescript
         "@typescript-eslint/no-unsafe-assignment": "warn",
@@ -110,6 +112,6 @@ module.exports = {
         ],
         // Typescript Plugins
         "deprecation/deprecation": "warn",
-        "import/no-extraneous-dependencies": "error"
+        "import/no-extraneous-dependencies": "warn"
     }
 };
