@@ -14,6 +14,7 @@ import { GameContextService } from "./game-context.service";
 
 describe("GameContextServiceSpecs", () => {
 
+    // eslint-disable-next-line no-restricted-globals
     const MOCK_CANVAS = document.createElement("canvas");
     let service: GameContextService;
 
