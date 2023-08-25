@@ -15,13 +15,13 @@
             "type": "string",
             "enum": ["LGPL-3.0-only"]
         },
-        "main": {
+        "module": {
             "type": "string",
-            "enum": ["dist/index.js"]
+            "enum": ["./dist/cjs/index.js"]
         },
         "types": {
             "type": "string",
-            "enum": ["dist/index.d.ts"]
+            "enum": ["./dist/esm/index.d.ts"]
         },
         "scripts": {
             "type": "object",
