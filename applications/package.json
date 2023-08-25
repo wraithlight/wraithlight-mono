@@ -10,7 +10,6 @@
     "lint": "lerna run lint",
     "build": "lerna run build",
     "build:prod": "lerna run build:prod",
-    "bootstrap": "lerna bootstrap",
     "graph": "nx graph",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
