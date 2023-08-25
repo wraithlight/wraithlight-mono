@@ -21,9 +21,7 @@
     },
     "dependencies": {
         "@wraithlight/common.logger.sdk": "*",
-        "@wraithlight/core.types": "*"
-    },
-    "peerDependencies": {
+        "@wraithlight/core.types": "*",
         "mysql2": "~3.2.0"
     },
     "devDependencies": {
