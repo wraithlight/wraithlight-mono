@@ -79,6 +79,9 @@
         "name",
         "version",
         "license",
-        "scripts"
+        "scripts",
+        "devDependencies",
+        "dependencies",
+        "$schema"
     ]
 }
