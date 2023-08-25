@@ -1,3 +1,13 @@
+/**
+ * This script was originally used to create the `tsconfig.build.json` files.
+ * It walks all the folders recursively using tree-walker, and if it founds
+ * a `tsconfig.json` it makes a copy of it then renames the copy to `tsconfig.build.json`
+ * 
+ * Usage:
+ * * place it to the root folder
+ * * run it by using `node tsconfig-cloner.mjs`
+ */
+
 import { fileURLToPath } from 'url';
 import { dirname, join } from "path";
 import { cpSync, readdirSync, rmSync, statSync } from 'fs';
