@@ -9,6 +9,7 @@ import { Renderer } from "./renderer";
 
 describe("RendererSpecs", () => {
 
+    // eslint-disable-next-line no-restricted-globals
     const MOCK_CANVAS = document.createElement("canvas");
     let service: Renderer;
 
