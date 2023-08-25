@@ -1,10 +1,12 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { getDocumentRef } from "@wraithlight/core.dom";
 
 import { AppModule } from './app/app.module';
 import { initializeSdk } from './sdk';
 
-document.addEventListener("DOMContentLoaded", () => {
+const _document = getDocumentRef();
+_document.addEventListener("DOMContentLoaded", () => {
   const logger = LoggerService.getInstance();
   initializeSdk();
   platformBrowserDynamic()
