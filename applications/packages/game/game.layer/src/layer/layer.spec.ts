@@ -14,6 +14,7 @@ import { Layer } from "./layer";
 
 describe("LayerSpecs", () => {
 
+    // eslint-disable-next-line no-restricted-globals
     const MOCK_CANVAS = document.createElement("canvas");
     let layer: Layer;
 
