@@ -25,3 +25,5 @@ These files are added to the root level `.gitignore` file.
 
 Since there is no way to test interfaces in `jest` and it would not make sense at all we are skipping this for now.
 Same applies to const files.
+
+In case when the package contains types and constants only, add `"passWithNoTests": true` to the respective `jest.config.js`.
