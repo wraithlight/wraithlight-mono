@@ -19,7 +19,7 @@
         "lint": "eslint .",
         "test": "jest",
         "test:coverage": "jest --coverage",
-        "build": "tsc && webpack",
+        "build": "tsc -p tsconfig.build.json && webpack",
         "build:prod": "tsc -p tsconfig.build.json && webpack --env production"
     },
     "browser": {
