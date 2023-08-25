@@ -104,17 +104,17 @@ This section lists all the technologies that are included in this repository.
 
 ## Backend
 Most of the backend libraries/applications are written in NodeJS with some custom utility libraries such as `node.core`.
-| Status    | Application       | Technology    |
-|:-:        |:-:                |:-:            |
-| :recycle: | Website           | Node          |
-| :recycle: | Forum             | Node          |
-| :recycle: | Content           | Node          |
-| :recycle: | Editor            | Node          |
-| :recycle: | Game rich client  | Node          |
-| :recycle: | Game thin client  | Node          |
-| :recycle: | Logs              | Node          |
-| :recycle: | Auth              | Node          |
-| :recycle: | Notifier          | Node          |
+| Status              | Application       | Technology    |
+|:-:                  |:-:                |:-:            |
+| :recycle:           | Website           | Node          |
+| :recycle:           | Forum             | Node          |
+| :recycle:           | Content           | Node          |
+| :recycle:           | Editor            | Node          |
+| :recycle:           | Game rich client  | Node          |
+| :recycle:           | Game thin client  | Node          |
+| :recycle:           | Logs              | Node          |
+| :recycle:           | Auth              | Node          |
+| :white_check_mark:  | Notifier          | Node          |
 
 
 ## Database
