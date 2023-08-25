@@ -1,6 +1,7 @@
 import { ClientAuthService } from "@wraithlight/common.auth-sdk.client";
 
 import { AuthService } from "./auth.service";
+import { AuthServiceConfig } from "./auth.config";
 
 const MOCK_USERNAME = "user";
 const MOCK_PASSWORD = "pass";
@@ -8,11 +9,13 @@ const MOCK_SESSIONT = "sess";
 
 describe("AuthServiceSpecs", () => {
 
-    let service: AuthService;
-
+    
     const loginSpy = jest.spyOn(ClientAuthService.prototype, "login").mockImplementation();
     const logoutSpy = jest.spyOn(ClientAuthService.prototype, "logout").mockImplementation();
     const renewSpy = jest.spyOn(ClientAuthService.prototype, "keepAliveSession").mockImplementation();
+    const getBaseApiUrlSpy = jest.spyOn(AuthServiceConfig.prototype, "getBaseApiUrl").mockImplementation(() => "test");
+    
+    let service: AuthService;
 
     describe("given the service is initalized", () => {
 
@@ -20,6 +23,12 @@ describe("AuthServiceSpecs", () => {
 
         it("should be truthy", () => {
             expect(service).toBeTruthy();
+        });
+
+        it("should call `getBaseApiUrl`", () => {
+            expect(getBaseApiUrlSpy).toHaveBeenCalled();
+            expect(getBaseApiUrlSpy).toHaveBeenCalledTimes(1);
+            expect(getBaseApiUrlSpy).toHaveBeenCalledWith();
         });
 
         describe("when the user is trying to log in", () => {
