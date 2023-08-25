@@ -5,8 +5,6 @@
     "nx": "nx",
     "knip": "knip",
     "lerna": "lerna",
-    "mustace": "mustache",
-    "open-cli": "open-cli",
     "lint": "lerna run lint",
     "build": "lerna run build",
     "build:prod": "lerna run build:prod",
@@ -16,8 +14,8 @@
     "validate-json": "node .tools/json-schema.mjs",
     "guid": "node .tools/guidgen.mjs",
     "test-report:collect": "lerna la --json > .test-reports/data.json",
-    "test-report:generate": "mustache .test-reports/data.json .test-reports/template .test-reports/index.html",
-    "test-report:open": "open-cli .test-reports/index.html",
+    "test-report:generate": "yarn mustache .test-reports/data.json .test-reports/template .test-reports/index.html",
+    "test-report:open": "yarn open-cli .test-reports/index.html",
     "test-report": "yarn test:coverage && yarn test-report:collect && yarn test-report:generate && yarn test-report:open"
   },
   "workspaces": [
