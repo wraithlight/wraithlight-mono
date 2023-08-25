@@ -1,16 +1,23 @@
 {
     "$schema": "../../../../.schema/package-json.package.schema.json",
     "name": "@wraithlight/common.environment-static.shared",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "module": "./dist/cjs/index.js",
+    "types": "./dist/esm/index.d.ts",
+    "exports": {
+        ".": {
+            "require": "./dist/cjs/index.js",
+            "import": "./dist/esm/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
     "version": "2.7.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
         "test": "jest",
         "test:coverage": "jest --coverage",
-        "build": "webpack",
-        "build:prod": "webpack --env production"
+        "build": "tsc -p tsconfig.build.json && webpack",
+        "build:prod": "tsc -p tsconfig.build.json && webpack --env production"
     },
     "dependencies": {
         "@wraithlight/core.types": "*",
