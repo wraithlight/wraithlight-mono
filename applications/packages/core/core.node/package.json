@@ -21,9 +21,7 @@
     },
     "dependencies": {
         "@wraithlight/common.logger.sdk": "*",
-        "@wraithlight/core.http": "*"
-    },
-    "peerDependencies": {
+        "@wraithlight/core.http": "*",
         "cors": "~2.8.5",
         "express": "~4.18.2",
         "swagger-ui-express": "~4.6.2"
