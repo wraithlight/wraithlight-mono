@@ -7,5 +7,6 @@ export * from "./counter";
 export * from "./nullable";
 export * from "./predicate";
 export * from "./primitive";
+export * from "./undefined";
 export * from "./dictionary";
 export * from "./deeppartial";
