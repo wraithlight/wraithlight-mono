@@ -17,6 +17,7 @@ import { SceneService } from "./scene.service";
 
 describe("SceneServiceSpecs", () => {
 
+    // eslint-disable-next-line no-restricted-globals
     const MOCK_CANVAS = document.createElement("canvas");
     let service: SceneService;
 
