@@ -24,11 +24,7 @@
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.sql": "*",
         "@wraithlight/core.crypto": "*",
-        "@wraithlight/core.server": "*",
-        "mysql2": "3.2.0",
-        "cors": "2.8.5",
-        "express": "4.18.2",
-        "swagger-ui-express": "4.6.2"
+        "@wraithlight/core.server": "*"
     },
     "devDependencies": {
         "webpack": "5.76.0",
