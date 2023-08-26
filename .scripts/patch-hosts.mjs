@@ -32,11 +32,19 @@ const appUrls = [
     "www.dev.notifier.wraithlight.ai"
 ];
 const dbUrls = [
-    "www.local.db-auth.wraithlight.ai",
-    "www.local.db-content.wraithlight.ai",
+    "www.local.db-auth.wraithlight.ai:9000",
+    "www.local.db-logs.wraithlight.ai:9001",
+    "www.local.db-content.wraithlight.ai:9002",
+    "www.local.db-forum.wraithlight.ai:9003",
+    "www.local.db-game.wraithlight.ai:9004",
+    "www.local.db-notifier.wraithlight.ai:9009",
 
-    "www.dev.db-auth.wraithlight.ai",
-    "www.dev.db-content.wraithlight.ai",
+    "www.dev.db-auth.wraithlight.ai:9000",
+    "www.dev.db-logs.wraithlight.ai:9001",
+    "www.dev.db-content.wraithlight.ai:9002",
+    "www.dev.db-forum.wraithlight.ai:9003",
+    "www.dev.db-game.wraithlight.ai:9004",
+    "www.dev.db-notifier.wraithlight.ai:9009",
 ];
 
 const wraithlightData = [
