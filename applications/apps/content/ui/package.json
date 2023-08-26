@@ -12,6 +12,7 @@
         "watch": "webpack watch"
     },
     "dependencies": {
+        "@wraithlight/core.dom": "*",
         "@wraithlight/core.env": "*",
         "@wraithlight/core.redux": "*",
         "@wraithlight/core.common-constant": "*",
