@@ -15,7 +15,7 @@ export class DeleteQueryContext<T extends Object>
         private readonly _context: DbContext
     ) {
         super(tableName);
-        this.addQuery(`DELETE * FROM ${tableName}`);
+        this.addQuery(`DELETE * FROM ?`, tableName);
     }
 
     public async run(): Promise<void> {

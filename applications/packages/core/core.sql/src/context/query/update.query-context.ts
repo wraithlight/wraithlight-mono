@@ -22,11 +22,18 @@ export class UpdateQueryContext<T, TKey extends keyof T>
     ) {
         super(tableName);
         const query = [
-            `UPDATE ${this._tableName} SET`,
-            this.getColumnValuePairs(data),
-            `WHERE ${this._tableName}.${this.capitalize(key.toString())} = ${this.getValueString(value as Primitive)}`
+            `UPDATE ?`,
+            `SET`,
+            `?`,
+            `WHERE ? = ?`
         ].join(EOL);
-        this.addQuery(query);
+        this.addQuery(
+            query,
+            this._tableName,
+            this.getColumnValuePairs(data),
+            `${this._tableName}.${this.capitalize(key.toString())}`,
+            this.getValueString(value as Primitive)
+        );
     }
 
     public run(): Promise<void> {

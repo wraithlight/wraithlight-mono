@@ -18,12 +18,11 @@ export class InsertQueryContext<T extends Object>
     ) {
         super(tableName);
         const query = [
-            `INSERT INTO ${this._tableName}`,
-            this.getColumns(this._data),
-            "VALUES",
-            this.getColumnValues(this._data)
+            `INSERT INTO ?`,
+            `?`,
+            `VALUES ?`
         ].join(EOL);
-        this.addQuery(query);
+        this.addQuery(query, this._tableName, this.getColumns(this._data), this.getColumnValues(this._data));
     }
 
     public async run(): Promise<void> {
