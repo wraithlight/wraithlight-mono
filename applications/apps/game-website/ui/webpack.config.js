@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const path = require("path");
 const { resolve } = require("path");
 const config = require("../../../webpack.config");
 
@@ -55,13 +54,6 @@ module.exports = (env) => {
           }
         }
       ]
-    },
-    devServer: {
-      static: {
-        directory: path.join(__dirname, "dist"),
-      },
-      compress: true,
-      port: 4001,
     }
   }
 };
