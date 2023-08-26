@@ -1,6 +1,6 @@
 import { RegisterModel } from "./model/register.model";
 
-export interface AccountUserRegisterState extends RegisterModel { }
+interface AccountUserRegisterState extends RegisterModel { }
 
 export interface AccountState {
     isBusy: boolean;
