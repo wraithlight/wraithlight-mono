@@ -10,7 +10,7 @@ export class WebhookConfigService {
         return `${this._baseApiUrl}${NOTIFIER_WEBHOOK_ENDPOINTS.v1.webhooks.mail.processingStarted}`;
     }
 
-    public getSuceedV1Endpoint(): string {
+    public getSucceedV1Endpoint(): string {
         return `${this._baseApiUrl}${NOTIFIER_WEBHOOK_ENDPOINTS.v1.webhooks.mail.processingSucceeded}`;
     }
 

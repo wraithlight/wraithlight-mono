@@ -30,7 +30,7 @@ export class WebhookService extends HttpClient {
     public async succeed(id: Guid): Promise<void> {
         const payload: WebhookRequestSucceedV1Model = { id };
         await this.post(
-            this._config.getStartV1Endpoint(),
+            this._config.getSucceedV1Endpoint(),
             payload
         ).catch(err => this._logger.warn(err));
     }
@@ -38,7 +38,7 @@ export class WebhookService extends HttpClient {
     public async fail(id: Guid, message: string): Promise<void> {
         const payload: WebhookRequestFailV1Model = { id, error: message };
         await this.post(
-            this._config.getStartV1Endpoint(),
+            this._config.getFailV1Endpoint(),
             payload
         ).catch(err => this._logger.warn(err));
     }
@@ -46,7 +46,7 @@ export class WebhookService extends HttpClient {
     public async done(id: Guid): Promise<void> {
         const payload: WebhookRequestStartV1Model = { id };
         await this.post(
-            this._config.getStartV1Endpoint(),
+            this._config.getDoneV1Endpoint(),
             payload
         ).catch(err => this._logger.warn(err));
     }
