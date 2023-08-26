@@ -1,4 +1,5 @@
 import { newGuid } from "@wraithlight/core.types";
+import { NotifierService } from "@wraithlight/common.notifier-sdk.server";
 
 import {
     ScopeRepository,
@@ -17,6 +18,7 @@ export class AccountService {
 
     private readonly _userRepository = new UserRepository();
     private readonly _scopeRepository = new ScopeRepository();
+    private readonly _notifierService = new NotifierService();
     private readonly _userScopeRepository = new UserScopeRepository();
 
     private readonly _passwordService = new PasswordService();
@@ -64,6 +66,12 @@ export class AccountService {
         await this._userRepository.add(model);
 
         await this.addScopes(model);
+        await this._notifierService.sendEmail(
+            emailAddress,
+            "TODO SUBJECT",
+            "TODO CONTENT",
+            true
+        );
 
         return {
             success: true
