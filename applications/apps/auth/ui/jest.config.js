@@ -1,29 +1,16 @@
-/** @type {import("ts-jest").JestConfigWithTsJest} */
-export default {
-  testEnvironment: "node",
-  verbose: true,
-  moduleFileExtensions: ["js", "ts"],
-  collectCoverageFrom: [
-    "**/*.ts",
-    "!**/index.ts",
-    "!**/bootstrap.ts",
-    "!**/main.ts",
-    "!**/*.const.ts",
-    "!**/*.model.ts"
-  ],
-  projects: [
-    {
-      preset: "ts-jest",
-      displayName: "Apps/Auth/UI",
-      testMatch: [
-        "<rootDir>/src/**/*.spec.ts"
-      ],
-      testPathIgnorePatterns: [
-        "dist"
-      ],
-      coveragePathIgnorePatterns: [
-        "dist"
-      ]
-    },
-  ]
-};
+import config from "../../../jest.config.js";
+
+export default config({
+    preset: "ts-jest",
+    displayName: "Apps/Auth/UI",
+    passWithNoTests: true,
+    testMatch: [
+      "<rootDir>/src/**/*.spec.ts"
+    ],
+    testPathIgnorePatterns: [
+      "dist"
+    ],
+    coveragePathIgnorePatterns: [
+      "dist"
+    ]
+});
