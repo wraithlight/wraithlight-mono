@@ -20,7 +20,8 @@
         "build:prod": "tsc -p tsconfig.build.json && webpack --env production"
     },
     "dependencies": {
-        "@wraithlight/core.common-constant": "*"
+        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.logger.types": "*"
     },
     "devDependencies": {
         "webpack": "5.76.0",
