@@ -19,8 +19,7 @@
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.common-constant": "*",
-        "@wraithlight/core.server": "*",
-        "express": "4.18.2"
+        "@wraithlight/core.server": "*"
     },
     "devDependencies": {
         "webpack": "5.76.0",
