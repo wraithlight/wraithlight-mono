@@ -16,14 +16,7 @@ export abstract class QueryContext<T extends Object> {
         protected readonly _tableName: string
     ) { }
 
-    /**
-     * @deprecated Use `addQuery2()` instead to avoid possible injection attacks.
-     */
-    protected addQuery(query: string): void {
-        this._queries.push(query);
-    }
-
-    protected addQuery2(query: string, args?: Array<string>): void {
+    protected addQuery(query: string, ...args: Array<string>): void {
         this._queries2.push(query);
         if (args) {
             this._args2.push(...args);

@@ -18,7 +18,7 @@ export class SelectQueryContext<T extends Object>
         private readonly _context: DbContext
     ) {
         super(tableName);
-        this.addQuery(`SELECT * FROM ${tableName}`);
+        this.addQuery(`SELECT * FROM ?`, tableName);
     }
 
     public toList(): Promise<Array<T>> {
