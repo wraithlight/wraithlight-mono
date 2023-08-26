@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "knockout": "3.5.1",
+        "@wraithlight/core.dom": "*",
         "@wraithlight/game.context": "*"
     },
     "devDependencies": {
