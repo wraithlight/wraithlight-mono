@@ -11,6 +11,7 @@
         ".": {
             "ignore": [
                 "webpack.config.js",
+                "webpack.package.config.js",
                 ".eslintrc.cjs",
                 "jest.config.js"
             ]
