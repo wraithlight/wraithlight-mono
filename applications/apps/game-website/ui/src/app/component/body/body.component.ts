@@ -1,6 +1,6 @@
 import "./body.component.scss";
 
-import { GameContextService } from "@wraithlight/game.context";
+import { GameContextService } from "@wraithlight/core.game.context";
 import { getDocumentRef } from "@wraithlight/core.dom";
 import { observable } from "knockout";
 

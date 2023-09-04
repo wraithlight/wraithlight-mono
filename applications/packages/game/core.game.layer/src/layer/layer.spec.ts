@@ -1,4 +1,4 @@
-jest.mock("@wraithlight/game.renderer", () => {
+jest.mock("@wraithlight/common.game.renderer", () => {
     return {
         Renderer: jest.fn().mockImplementation(() => {
             return {
@@ -8,7 +8,7 @@ jest.mock("@wraithlight/game.renderer", () => {
     }
 });
 
-import { Renderer } from "@wraithlight/game.renderer";
+import { Renderer } from "@wraithlight/common.game.renderer";
 
 import { Layer } from "./layer";
 

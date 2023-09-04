@@ -1,6 +1,6 @@
 {
     "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/game.contract",
+    "name": "@wraithlight/core.game.asset",
     "module": "./dist/cjs/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {

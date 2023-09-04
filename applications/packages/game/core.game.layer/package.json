@@ -1,6 +1,6 @@
 {
     "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/game.renderer",
+    "name": "@wraithlight/core.game.layer",
     "module": "./dist/cjs/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {
@@ -20,8 +20,9 @@
         "build:prod": "tsc -p tsconfig.build.json && webpack --env production"
     },
     "dependencies": {
-        "@wraithlight/core.types": "*",
-        "@wraithlight/game.contract": "*"
+        "@wraithlight/core.game.core": "*",
+        "@wraithlight/common.game.renderer": "*",
+        "@wraithlight/core.types": "*"
     },
     "devDependencies": {
         "webpack": "5.76.0",
