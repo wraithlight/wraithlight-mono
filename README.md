@@ -50,8 +50,9 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [How to use the test-reporter](./docs/guides/test-reports.md)
 
 ### Utils
-* [`purge.sh`](./docs//utils/purge-sh.md)
-* [`purge-git.sh`](./docs//utils/purge-git-sh.md)
+* [`purge.sh`](./docs/utils/purge-sh.md)
+* [`purge-git.sh`](./docs/utils/purge-git-sh.md)
+* [`purge-branch.sh`](./docs/utils/purge-branch.sh.md)
 
 ## Getting started
 
