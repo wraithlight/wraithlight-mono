@@ -1,4 +1,4 @@
-jest.mock("@wraithlight/game.scene", () => {
+jest.mock("@wraithlight/core.game.scene", () => {
     return {
         SceneService: jest.fn().mockImplementation(() => {
             return {
@@ -8,7 +8,7 @@ jest.mock("@wraithlight/game.scene", () => {
     }
 });
 
-import { SceneService } from "@wraithlight/game.scene";
+import { SceneService } from "@wraithlight/core.game.scene";
 
 import { GameContextService } from "./game-context.service";
 

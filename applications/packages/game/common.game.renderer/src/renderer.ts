@@ -1,5 +1,5 @@
 import { Nullable } from "@wraithlight/core.types";
-import { Color, Position, Sprite } from "@wraithlight/game.contract";
+import { Color, Position, Sprite } from "@wraithlight/core.game.core";
 
 import { CanvasService } from "./service";
 

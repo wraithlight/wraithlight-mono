@@ -2,8 +2,8 @@ const config = require("../../../jest.config.js");
 
 module.exports = config({
     preset: "ts-jest",
-    passWithNoTests: true,
-    displayName: "Packages/Game/Asset",
+    displayName: "Packages/Game/Core/Scene",
+    testEnvironment: "jsdom",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],

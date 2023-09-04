@@ -1,5 +1,5 @@
 import { Nullable } from "@wraithlight/core.types";
-import { SceneService } from "@wraithlight/game.scene";
+import { SceneService } from "@wraithlight/core.game.scene";
 
 export class GameContextService {
 
