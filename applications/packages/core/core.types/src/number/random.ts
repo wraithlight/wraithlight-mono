@@ -6,6 +6,7 @@ import { randomNumberBetween as _randomNumberBetween } from "../_internal";
  * @param {number} min Minimum value.
  * @param {number} max Maximum value.
  * @returns {number} A random value betwwen min and max.
+ * @deprecated Use `randomNumberBetween` from `core.random-number` instead.
  */
 export function randomNumberBetween(
     min: number = 0,
