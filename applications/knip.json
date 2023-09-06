@@ -22,11 +22,17 @@
             ]
         },
         "apps/auth/ui": {
+            "entry": [
+                "src/main.ts",
+                "src/App.svelte"
+            ],
+            "ignore": [
+                "src/app.ts"
+            ],
             "ignoreDependencies": [
                 "@tsconfig/svelte",
                 "svelte-navigator",
                 "tslib"
-                
             ]
         },
         "apps/content/node": {
