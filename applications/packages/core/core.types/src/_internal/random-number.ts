@@ -1,3 +1,6 @@
+/**
+ * @deprecated Use `randomNumberBetween` from `core.random-number` instead.
+ */
 export function randomNumberBetween(
     min: number = 0,
     max: number = 1
