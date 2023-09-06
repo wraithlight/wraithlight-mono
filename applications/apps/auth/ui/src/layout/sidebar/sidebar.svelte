@@ -1,7 +1,7 @@
 <script lang="ts">
     import { Link } from "svelte-navigator";
     import { Store, type SelectorResultStopFn } from "@wraithlight/core.redux";
-    import { AuthSelector } from "../../sdk";
+    import { AuthSelector } from "@wraithlight/common.auth-sdk.client";
     
     const store = Store.getInstance();
 
@@ -9,10 +9,10 @@
     const stopFns: Array<SelectorResultStopFn> = [];
 
     store
-        .select(AuthSelector.isLoggedIn)
+        .select(AuthSelector.state)
         .onSelection((value, stopFn) => {
             stopFns.push(stopFn);
-            isAuthenticated = value;
+            isAuthenticated = value.isLoggedIn;
             alert(value);
         });
 </script>

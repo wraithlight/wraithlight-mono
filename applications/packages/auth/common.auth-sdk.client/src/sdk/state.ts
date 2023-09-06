@@ -12,7 +12,7 @@ export function initializeAuthSdk(
     apiBaseUrl: string,
     storeRef: Store<IAuthContainerStore>
 ): void {
-    Store.initializePartial<IAuthContainerStore, IAuthStore>((m => m.auth) ,INITIAL_AUTH_STATE)
+    Store.initializePartial<IAuthContainerStore, IAuthStore>((m => m.auth), INITIAL_AUTH_STATE)
     authInitialize(storeRef, apiBaseUrl);
     accountInitialize(storeRef, apiBaseUrl);
 }

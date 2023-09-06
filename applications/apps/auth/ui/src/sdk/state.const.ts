@@ -1,8 +1,5 @@
-import { type GlobalState } from "./state.model";
+import { type UserManagementGlobalState } from "./state.model";
 
-export const INITIAL_STATE: GlobalState = {
-    auth: {
-        isBusy: false,
-        isLoggedIn: false
-    }
+export const INITIAL_STATE: UserManagementGlobalState = {
+    auth: undefined
 };
