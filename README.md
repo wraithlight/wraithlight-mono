@@ -49,6 +49,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 ### Guides
 * [How to use the test-reporter](./docs/guides/test-reports.md)
 * [How to check hidden files on Mac](./docs/guides/show-hidden-folders-on-mac.md)
+* [How to clean up your local docker cache](./docs/guides/docker-cleanup.md)
 
 ### Utils
 * [`purge.sh`](./docs/utils/purge-sh.md)
