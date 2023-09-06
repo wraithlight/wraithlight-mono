@@ -1,6 +1,6 @@
 import { Nullable, Predicate } from "@wraithlight/core.types";
 
-export class LifoStackService<T> {
+export class FifoStackService<T> {
 
     private readonly _cache: Array<T> = [];
 

@@ -1,21 +1,21 @@
-import { LifoStackService } from "./lifo-stack.service";
+import { FifoStackService } from "./lifo-stack.service";
 
 interface TestModel {
     property1: string;
     property2: number;
 }
 
-describe("LifoStackServiceSpecs", () => {
+describe("FifoStackServiceSpecs", () => {
 
     const MOCK_ITEM: TestModel = {
         property1: "wraithlight",
         property2: 33
     };
-    let service: LifoStackService<TestModel>;
+    let service: FifoStackService<TestModel>;
 
     describe("given the service is initialized", () => {
 
-        service = new LifoStackService();
+        service = new FifoStackService();
 
         describe("when i set an item", () => {
             beforeAll(() => {
