@@ -2,7 +2,6 @@
   import { Router } from "svelte-navigator";
   import Sidebar from "./layout/sidebar/sidebar.svelte";
   import Content from "./layout/content/content.svelte";
-  // import Counter from './lib/Counter.svelte'
 </script>
 
 <main class="main">
