@@ -1,15 +1,25 @@
 import { CqrsService } from "@wraithlight/core.cqrs";
 import { Guid, Nullable } from "@wraithlight/core.types";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { NodemailerFacadeService } from "@wraithlight/common.notifier.nodemailer-sdk";
+import { getEnvironmentType } from "@wraithlight/core.env";
+import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
 
 import { WebhookableSendEmailModelV1 } from "./send.model";
-import { NodemailerFacadeService } from "../../../nodemailer";
+
 import { WebhookService } from "../webhook";
 
 export class SendServiceV1 {
 
     private readonly _logger = LoggerService.getInstance();
-    private readonly _nodemailerFacade = NodemailerFacadeService.getInstance();
+    private readonly _config = ServerNotifierConfigReader.getInstance(getEnvironmentType());
+    private readonly _nodemailerFacade = NodemailerFacadeService.getInstance(
+        this._config.get(m => m.emailSending.smpt.host),
+        this._config.get(m => m.emailSending.smpt.port),
+        this._config.get(m => m.emailSending.smpt.secure),
+        this._config.get(m => m.emailSending.smpt.auth.user),
+        this._config.get(m => m.emailSending.smpt.auth.pass)
+    );
     private readonly _cqrsService = new CqrsService<WebhookableSendEmailModelV1>((item, id) => this.sendWorker(item, id));
 
     public send(
@@ -36,7 +46,13 @@ export class SendServiceV1 {
         this._logger.warn(`Entry with id '${id}' is being processed!`);
         webhookService && await webhookService.start(id);
         try {
-            await this._nodemailerFacade.sendMail(item.address, item.subject, item.content, item.isHtml);
+            await this._nodemailerFacade.sendMail(
+                item.address,
+                this._config.get(m => m.emailSending.fromAddress),
+                item.subject,
+                item.content,
+                item.isHtml
+            );
             webhookService && await webhookService.succeed(id);
             this._logger.warn(`Entry with id '${id}' has been processed succesfully!`);
         } catch (e: unknown) {

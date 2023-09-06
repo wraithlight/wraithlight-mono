@@ -27,7 +27,7 @@
         "@wraithlight/common.logger.sdk": "*",
         "@wraithlight/core.cqrs": "*",
         "@wraithlight/core.http": "*",
-        "nodemailer": "6.9.4"
+        "@wraithlight/common.notifier.nodemailer-sdk": "*"
     },
     "devDependencies": {
         "webpack": "5.76.0",
@@ -44,7 +44,6 @@
         "nodemon": "2.0.20",
         "ts-node": "10.9.1",
         "eslint-plugin-import": "2.27.5",
-        "tsconfig-paths": "4.2.0",
-        "@types/nodemailer": "6.4.9"
+        "tsconfig-paths": "4.2.0"
     }
 }
