@@ -24,7 +24,8 @@
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.sql": "*",
         "@wraithlight/core.crypto": "*",
-        "@wraithlight/core.server": "*"
+        "@wraithlight/core.server": "*",
+        "@wraithlight/common.notifier-sdk.server": "*"
     },
     "devDependencies": {
         "webpack": "5.76.0",
