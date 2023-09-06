@@ -32,6 +32,8 @@
     "@wraithlight/common.environment-static.shared": "*"
   },
   "devDependencies": {
+    "@types/node": "*",
+    "ts-node": "10.9.1",
     "@angular-devkit/build-angular": "16.0.0",
     "@angular/cli": "16.0.0",
     "@angular/compiler-cli": "16.0.0",
