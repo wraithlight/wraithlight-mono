@@ -14,11 +14,11 @@ export class SendServiceV1 {
     private readonly _logger = LoggerService.getInstance();
     private readonly _config = ServerNotifierConfigReader.getInstance(getEnvironmentType());
     private readonly _nodemailerFacade = NodemailerFacadeService.getInstance(
-        this._config.get(m => m.emailSending.smpt.host),
-        this._config.get(m => m.emailSending.smpt.port),
-        this._config.get(m => m.emailSending.smpt.secure),
-        this._config.get(m => m.emailSending.smpt.auth.user),
-        this._config.get(m => m.emailSending.smpt.auth.pass)
+        this._config.get(m => m.emailSending.smtp.host),
+        this._config.get(m => m.emailSending.smtp.port),
+        this._config.get(m => m.emailSending.smtp.secure),
+        this._config.get(m => m.emailSending.smtp.auth.user),
+        this._config.get(m => m.emailSending.smtp.auth.pass)
     );
     private readonly _cqrsService = new CqrsService<WebhookableSendEmailModelV1>((item, id) => this.sendWorker(item, id));
 
