@@ -1,4 +1,4 @@
-import { LifoStackService } from "@wraithlight/core.stack";
+import { FifoStackService } from "@wraithlight/core.stack";
 import { Guid, isNil, newGuid } from "@wraithlight/core.types";
 
 import { CQRS_PROCESSOR_TIMEOUT } from "./cqrs.const";
@@ -7,7 +7,7 @@ import { CqrsContentModel, CqrsProcessor } from "./cqrs.model";
 export class CqrsService<T> {
 
     private _isRunning = false;
-    private readonly _lifoService = new LifoStackService<CqrsContentModel<T>>();
+    private readonly _fifoService = new FifoStackService<CqrsContentModel<T>>();
 
     constructor(
         private readonly _processor: CqrsProcessor<T>,
@@ -22,7 +22,7 @@ export class CqrsService<T> {
             id,
             data: item
         };
-        this._lifoService.set(stackItem);
+        this._fifoService.set(stackItem);
         return id;
     }
 
@@ -40,7 +40,7 @@ export class CqrsService<T> {
 
     public clear(): void {
         this._isRunning = false;
-        this._lifoService.clear();
+        this._fifoService.clear();
     }
 
     private processor(): void {
@@ -48,7 +48,7 @@ export class CqrsService<T> {
             if (!this._isRunning) {
                 return;
             }
-            const item = this._lifoService.tryGetNext();
+            const item = this._fifoService.tryGetNext();
             if (!isNil(item)) {
                 return;
             }
