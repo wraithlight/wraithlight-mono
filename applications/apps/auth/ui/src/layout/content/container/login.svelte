@@ -1,6 +1,6 @@
 <script lang="ts">
     import { Store } from "@wraithlight/core.redux";
-    import { AuthAction } from "../../../sdk";
+    import { AuthAction } from "@wraithlight/common.auth-sdk.client";
     const store = Store.getInstance();
 
     let username = "";
