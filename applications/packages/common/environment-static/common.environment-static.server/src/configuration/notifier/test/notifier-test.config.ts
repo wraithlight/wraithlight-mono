@@ -18,6 +18,15 @@ export const SERVER_TEST_NOTIFIER_CONFIG: Readonly<NotifierServer> = {
                 user: "",
                 pass: ""
             }
+        },
+        smtp: {
+            host: "",
+            port: 0,
+            secure: true,
+            auth: {
+                user: "",
+                pass: ""
+            }
         }
     }
 };
