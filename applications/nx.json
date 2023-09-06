@@ -1,0 +1,15 @@
+{
+    "extends": "nx/presets/npm.json",
+    "affected": {
+        "defaultBase": "main"
+    },
+    "workspaceLayout": {
+        "appsDir": "apps",
+        "libsDir": "packages"
+    },
+    "generators": {
+        "@nx/js:library": {
+            "buildable": true
+        }
+    }
+}
