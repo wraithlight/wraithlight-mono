@@ -10,15 +10,6 @@ export const SERVER_STAGING_NOTIFIER_CONFIG: Readonly<NotifierServer> = {
     },
     emailSending: {
         fromAddress: "no-reply@wraithlight.ai",
-        smpt: {
-            host: "",
-            port: 0,
-            secure: true,
-            auth: {
-                user: "",
-                pass: ""
-            }
-        },
         smtp: {
             host: "",
             port: 0,
