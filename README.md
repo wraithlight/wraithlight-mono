@@ -105,7 +105,7 @@ This section lists all the technologies that are included in this repository.
 | :recycle:           | Logs              | Aurelia       |
 | :recycle:           | Auth              | Svelte        |
 | :recycle:           | Notifier          | QWIK          |
-| :recycle:           | Remote Config     | Astro         |
+| :recycle:           | Remote Config     | Lit           |
 
 ## Backend
 Most of the backend libraries/applications are written in NodeJS with some custom utility libraries such as `node.core`.
@@ -120,7 +120,7 @@ Most of the backend libraries/applications are written in NodeJS with some custo
 | :recycle:           | Logs              | Node          |
 | :recycle:           | Auth              | Node          |
 | :white_check_mark:  | Notifier          | Node          |
-| :recycle:  | Remote Config     | Node          |
+| :recycle:           | Remote Config     | Node          |
 
 
 ## Database
