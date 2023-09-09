@@ -6,3 +6,4 @@ export * from "./game-webiste";
 export * from "./logs";
 export * from "./user-management";
 export * from "./website";
+export * from "./remote-config";

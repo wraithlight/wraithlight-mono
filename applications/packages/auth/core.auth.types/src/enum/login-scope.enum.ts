@@ -9,5 +9,6 @@ export const enum LoginScope {
     Forum = ApplicationName.Forum,
     Logs = ApplicationName.Logs,
     Editor = ApplicationName.Editor,
-    Notifier = ApplicationName.Notifier
+    Notifier = ApplicationName.Notifier,
+    RemoteConfig = ApplicationName.RemoteConfig
 }

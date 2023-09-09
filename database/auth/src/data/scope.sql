@@ -114,3 +114,16 @@ INSERT INTO `Scope` (
     "Notifier application login scope",
     0
 );
+
+-- REMOTE CONFIG
+INSERT INTO `Scope` (
+    `Id`,
+    `Label`,
+    `Description`,
+    `IsDeleted`
+) VALUES (
+    "19b4895b-4738-1be2-8d03-ef36adc9b89b",
+    "REMOTE_CONFIG",
+    "Remote Config application login scope",
+    0
+);

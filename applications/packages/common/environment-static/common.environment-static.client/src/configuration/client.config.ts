@@ -1,5 +1,6 @@
 import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
 import { EnvironmentStaticClient } from "@wraithlight/core.environment-static.types";
+import { LogSeverity } from "@wraithlight/core.logger.types";
 
 import { CLIENT_CONTENT_CONFIG } from "./content";
 import { CLIENT_EDITOR_CONFIG } from "./editor";
@@ -10,7 +11,7 @@ import { CLIENT_LOGS_CONFIG } from "./logs";
 import { CLIENT_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { CLIENT_WEBSITE_CONFIG } from "./website";
 import { CLIENT_NOTIFIER_CONFIG } from "./notifier";
-import { LogSeverity } from "@wraithlight/core.logger.types";
+import { CLIENT_REMOTE_CONFIG_CONFIG } from "./remote-config";
 
 export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
     [ApplicationName.Content]: CLIENT_CONTENT_CONFIG,
@@ -22,6 +23,7 @@ export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
     [ApplicationName.UserManagement]: CLIENT_USER_MANAGEMENT_CONFIG,
     [ApplicationName.Website]: CLIENT_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: CLIENT_NOTIFIER_CONFIG,
+    [ApplicationName.RemoteConfig]: CLIENT_REMOTE_CONFIG_CONFIG,
     common: { // TODO: Move this to a separate object.
         [EnvironmentType.Dev]: {
             logging: {

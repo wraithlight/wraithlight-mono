@@ -15,5 +15,6 @@ export const ApplicationId: ApplicationIdMap = Object.freeze({
     [ApplicationName.Logs]: "7ac64569-5a99-4afb-9180-ca8c1bec3822",
     [ApplicationName.UserManagement]: "a3d0db9e-3fb5-414a-9f6c-1bf034339322",
     [ApplicationName.Website]: "7777ba27-da56-4ddd-ae97-f38a1e48effa",
-    [ApplicationName.Notifier]: "f9c2412e-3d44-4cd3-9a80-409f0d113775"
+    [ApplicationName.Notifier]: "f9c2412e-3d44-4cd3-9a80-409f0d113775",
+    [ApplicationName.RemoteConfig]: "19b4895b-4738-1be2-8d03-ef36adc9b89b"
 });
