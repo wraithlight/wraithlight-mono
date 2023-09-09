@@ -94,16 +94,18 @@ yarn watch
 This section lists all the technologies that are included in this repository.
 
 ### Frontend
-| Status    | Application       | Technology    |
-|:-:        |:-:                |:-:            |
-| :recycle: | Website           | Angular       |
-| :recycle: | Forum             | React         |
-| :recycle: | Content           | Mithril       |
-| :recycle: | Editor            | Vue           |
-| :recycle: | Game rich client  | Electron      |
-| :recycle: | Game thin client  | Knockout      |
-| :recycle: | Logs              | Aurelia       |
-| :recycle: | Auth              | Svelte        |
+| Status              | Application       | Technology    |
+|:-:                  |:-:                |:-:            |
+| :recycle:           | Website           | Angular       |
+| :recycle:           | Forum             | React         |
+| :recycle:           | Content           | Mithril       |
+| :recycle:           | Editor            | Vue           |
+| :recycle:           | Game rich client  | Electron      |
+| :recycle:           | Game thin client  | Knockout      |
+| :recycle:           | Logs              | Aurelia       |
+| :recycle:           | Auth              | Svelte        |
+| :recycle:           | Notifier          | QWIK          |
+| :recycle:           | Remote Config     | Astro         |
 
 ## Backend
 Most of the backend libraries/applications are written in NodeJS with some custom utility libraries such as `node.core`.
@@ -118,6 +120,7 @@ Most of the backend libraries/applications are written in NodeJS with some custo
 | :recycle:           | Logs              | Node          |
 | :recycle:           | Auth              | Node          |
 | :white_check_mark:  | Notifier          | Node          |
+| :recycle:  | Remote Config     | Node          |
 
 
 ## Database
