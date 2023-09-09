@@ -3,11 +3,6 @@ jest.mock("@wraithlight/core.server", () => {
         createNodeServer: jest.fn()
     }
 });
-jest.mock("./controller", () => {
-    return {
-        LogsEntryController: jest.fn()
-    }
-});
 import { createNodeServer } from "@wraithlight/core.server";
 
 describe("ServerSpecs", () => {
