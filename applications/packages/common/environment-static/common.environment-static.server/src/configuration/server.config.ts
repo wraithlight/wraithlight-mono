@@ -11,6 +11,7 @@ import { SERVER_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { SERVER_WEBSITE_CONFIG } from "./website";
 import { SERVER_NOTIFIER_CONFIG } from "./notifier";
 import { SERVER_COMMON_CONFIG } from "./common";
+import { SERVER_REMOTE_CONFIG_CONFIG } from "./remote-config";
 
 export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.Content]: SERVER_CONTENT_CONFIG,
@@ -22,5 +23,6 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.UserManagement]: SERVER_USER_MANAGEMENT_CONFIG,
     [ApplicationName.Website]: SERVER_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: SERVER_NOTIFIER_CONFIG,
+    [ApplicationName.RemoteConfig]: SERVER_REMOTE_CONFIG_CONFIG,
     common: SERVER_COMMON_CONFIG
 }
