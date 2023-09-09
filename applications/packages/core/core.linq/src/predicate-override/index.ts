@@ -1,1 +1,1 @@
-export * from "./predicate-override.model";
+export * from "./predicate-override.fn";
