@@ -93,3 +93,15 @@ INSERT INTO `Application` (
     "NOTIFIER",
     1
 );
+
+INSERT INTO `Application` (
+    `Id`,
+    `DisplayName`,
+    `Value`,
+    `IsActive`
+) VALUES (
+    "19b4895b-4738-1be2-8d03-ef36adc9b89b",
+    "Remote Config",
+    "REMOTE_CONFIG",
+    1
+);
