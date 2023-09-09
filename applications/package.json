@@ -41,7 +41,7 @@
   "devDependencies": {
     "lerna": "6.5.1",
     "jsonschema": "1.4.1",
-    "knip": "2.19.3",
+    "knip": "2.19.10",
     "open-cli": "7.2.0",
     "mustache": "4.2.0",
     "nx": "16.7.2"
