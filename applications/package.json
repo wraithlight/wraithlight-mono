@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "nx": "nx",
-    "knip": "knip",
+    "knip": "knip --config knip-config.ts",
     "lerna": "lerna",
     "lint": "lerna run lint",
     "build": "lerna run build",
