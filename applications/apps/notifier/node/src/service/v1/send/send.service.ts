@@ -4,6 +4,7 @@ import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { NodemailerFacadeService } from "@wraithlight/common.notifier.nodemailer-sdk";
 import { getEnvironmentType } from "@wraithlight/core.env";
 import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
+import { IMailSender } from "@wraithlight/core.notifier.types";
 
 import { WebhookableSendEmailModelV1 } from "./send.model";
 
@@ -13,7 +14,7 @@ export class SendServiceV1 {
 
     private readonly _logger = LoggerService.getInstance();
     private readonly _config = ServerNotifierConfigReader.getInstance(getEnvironmentType());
-    private readonly _nodemailerFacade = NodemailerFacadeService.getInstance(
+    private readonly _nodemailerFacade: IMailSender = NodemailerFacadeService.getInstance(
         this._config.get(m => m.emailSending.smtp.host),
         this._config.get(m => m.emailSending.smtp.port),
         this._config.get(m => m.emailSending.smtp.secure),
@@ -46,7 +47,7 @@ export class SendServiceV1 {
         this._logger.warn(`Entry with id '${id}' is being processed!`);
         webhookService && await webhookService.start(id);
         try {
-            await this._nodemailerFacade.sendMail(
+            await this._nodemailerFacade.sendEmail(
                 item.address,
                 this._config.get(m => m.emailSending.fromAddress),
                 item.subject,
