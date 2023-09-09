@@ -41,11 +41,8 @@ export class NodemailerFacadeService implements IMailSender {
         private readonly _authUsername: string,
         private readonly _authPassword: string
     ) { }
-    sendEmail(toAddress: string, fromAddress: string, subject: string, content: string, isHtml?: boolean | undefined, cc?: readonly string[] | undefined, bcc?: readonly string[] | undefined): Promise<IMailSenderSendMailResult> {
-        throw new Error("Method not implemented.");
-    }
 
-    public async sendMail(
+    public async sendEmail(
         toAddress: string,
         fromAddress: string,
         subject: string,
@@ -75,5 +72,4 @@ export class NodemailerFacadeService implements IMailSender {
             }
         }
     }
-
 }
