@@ -7,3 +7,4 @@ export * from "./logs";
 export * from "./notifier";
 export * from "./user-management";
 export * from "./website";
+export * from "./remote-config";
