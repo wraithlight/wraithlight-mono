@@ -7,5 +7,6 @@ export enum ApplicationName {
     Forum = "FORUM",
     Logs = "LOGS",
     Editor = "EDITOR",
-    Notifier = "NOTIFIER"
+    Notifier = "NOTIFIER",
+    RemoteConfig = "REMOTE_CONFIG"
 }
