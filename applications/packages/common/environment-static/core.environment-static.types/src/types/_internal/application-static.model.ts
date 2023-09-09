@@ -1,6 +1,17 @@
 import { ApplicationName } from "@wraithlight/core.common-constant";
 
-export interface ApplicationStatic<TContent, TEditor, TForum, TGameApplication, TGameWebsite, TLogs, TUserManagement, TWebsite, TNotifier> {
+export interface ApplicationStatic<
+    TContent,
+    TEditor,
+    TForum,
+    TGameApplication,
+    TGameWebsite,
+    TLogs,
+    TUserManagement,
+    TWebsite,
+    TNotifier,
+    TRemoteConfig
+> {
     [ApplicationName.Content]: TContent,
     [ApplicationName.Editor]: TEditor,
     [ApplicationName.Forum]: TForum,
@@ -9,5 +20,6 @@ export interface ApplicationStatic<TContent, TEditor, TForum, TGameApplication, 
     [ApplicationName.Logs]: TLogs,
     [ApplicationName.UserManagement]: TUserManagement,
     [ApplicationName.Website]: TWebsite,
-    [ApplicationName.Notifier]: TNotifier
+    [ApplicationName.Notifier]: TNotifier,
+    [ApplicationName.RemoteConfig]: TRemoteConfig
 }

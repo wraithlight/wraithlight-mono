@@ -7,5 +7,6 @@ export * from "./logs";
 export * from "./user-management";
 export * from "./website";
 export * from "./notifier";
+export * from "./remote-config";
 
 export * from "./_internal";

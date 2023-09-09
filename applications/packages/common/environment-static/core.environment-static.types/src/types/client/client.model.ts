@@ -8,6 +8,7 @@ import {
     GameWebsiteClient,
     LogsClient,
     NotifierClient,
+    RemoteConfigClient,
     UserManagementClient,
     WebsiteClient
 } from "./apps";
@@ -22,7 +23,8 @@ export interface EnvironmentStaticClient extends ApplicationStatic<
     EnvironmentStatic<LogsClient>,
     EnvironmentStatic<UserManagementClient>,
     EnvironmentStatic<WebsiteClient>,
-    EnvironmentStatic<NotifierClient>
+    EnvironmentStatic<NotifierClient>,
+    EnvironmentStatic<RemoteConfigClient>
 > {
     common: EnvironmentStatic<CommonClient>
 }
