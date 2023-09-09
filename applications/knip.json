@@ -60,6 +60,11 @@
                 "ts-node"
             ]
         },
+        "apps/remote-config/node": {
+            "ignoreDependencies": [
+                "ts-node"
+            ]
+        },
         "apps/website/ui": {
             "ignoreDependencies": [
                 "@angular-devkit/build-angular",
