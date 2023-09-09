@@ -9,3 +9,4 @@
 | Logs                  | `xx06`    |
 | Website               | `xx08`    |
 | Notifier              | `xx09`    |
+| Remote Config         | `xx10`    |
