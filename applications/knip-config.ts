@@ -1,15 +1,16 @@
-{
-    "$schema": "https://unpkg.com/knip@2/schema.json",
-    "ignore": [
+import { KnipConfig } from "knip";
+
+const config: KnipConfig = {
+    ignore: [
         "**/dist/**",
         "**/coverage/**",
         "vsc/**",
         ".scripts/**",
         "**/vite-env.d.ts"
     ],
-    "workspaces": {
+    workspaces: {
         ".": {
-            "ignore": [
+            ignore: [
                 "webpack.config.js",
                 "webpack.package.config.js",
                 ".eslintrc.cjs",
@@ -17,56 +18,56 @@
             ]
         },
         "apps/auth/node": {
-            "ignoreDependencies": [
+            ignoreDependencies: [
                 "ts-node"
             ]
         },
         "apps/auth/ui": {
-            "entry": [
+            entry: [
                 "src/main.ts",
                 "src/App.svelte"
             ],
-            "ignore": [
+            ignore: [
                 "src/app.ts"
             ],
-            "ignoreDependencies": [
+            ignoreDependencies: [
                 "@tsconfig/svelte",
                 "svelte-navigator",
                 "tslib"
             ]
         },
         "apps/content/node": {
-            "ignoreDependencies": [
+            ignoreDependencies: [
                 "ts-node"
             ]
         },
         "apps/editor/node": {
-            "ignoreDependencies": [
+            ignoreDependencies: [
                 "ts-node"
             ]
         },
         "apps/logs/node": {
-            "ignoreDependencies": [
+            ignoreDependencies: [
                 "ts-node"
             ]
         },
         "apps/notifier/node": {
-            "ignoreDependencies": [
+            ignoreDependencies: [
                 "ts-node"
             ]
         },
         "apps/website/node": {
-            "ignoreDependencies": [
+            ignoreDependencies: [
                 "ts-node"
             ]
         },
         "apps/remote-config/node": {
-            "ignoreDependencies": [
+            ignoreDependencies: [
                 "ts-node"
             ]
         },
         "apps/website/ui": {
-            "ignoreDependencies": [
+            ignoreDependencies: [
                 "@angular-devkit/build-angular",
                 "@angular/compiler-cli",
                 "jest-preset-angular",
@@ -75,3 +76,5 @@
         }
     }
 }
+
+export default config;
