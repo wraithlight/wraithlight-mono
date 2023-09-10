@@ -1,4 +1,5 @@
-import { Counter, DeepPartial, Nullable, Predicate, isNil } from "@wraithlight/core.types";
+import { Counter, Nullable, isNil } from "@wraithlight/core.types";
+import { predicateOverride, Predicate } from "@wraithlight/core.linq";
 
 import { Action, MixedAction } from "./action";
 import {
@@ -40,7 +41,7 @@ export class Store<TState> {
         if (!isNil(substateStore)) {
             throw "The substate has been already initialized!";
         }
-        substateStore = substate;
+        this._instance._state = predicateOverride(this._instance._state, substate, predicate);
     }
 
     public static getInstance<TState>(): Store<TState> {
