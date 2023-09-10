@@ -2,12 +2,12 @@ import { ConfigurationReader } from "./config-reader";
 
 class TestConfig {
     public propA = "b";
-    public propB: string | undefined;
+    public propB?: string;
 }
 
 class TestCommonConfig {
     public propA = "b";
-    public propB: string | undefined;
+    public propB?: string;
 }
 
 describe("ConfigurationReaderSpecs", () => {

@@ -20,6 +20,7 @@
         "build:prod": "tsc -p tsconfig.build.json && webpack --env production"
     },
     "dependencies": {
+        "@wraithlight/core.linq": "*",
         "@wraithlight/core.types": "*"
     },
     "devDependencies": {
