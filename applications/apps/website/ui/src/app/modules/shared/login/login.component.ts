@@ -1,6 +1,8 @@
 import { Component, OnDestroy, ViewEncapsulation } from "@angular/core";
+import { AuthAction, AuthSelector } from "@wraithlight/common.auth-sdk.client";
+import { Store } from "@wraithlight/core.redux";
 
-import { AuthAction, AuthSelector, GLOBAL_STORE } from "../../../../sdk";
+import { WebsiteGlobalState } from "../../../../sdk";
 
 @Component({
     selector: "wl-login",
@@ -12,7 +14,7 @@ import { AuthAction, AuthSelector, GLOBAL_STORE } from "../../../../sdk";
 })
 export class LoginComponent implements OnDestroy {
 
-    private readonly _store = GLOBAL_STORE();
+    private readonly _store = Store.getInstance<WebsiteGlobalState>();
     private readonly _stopFns: Array<() => void> = [];
 
     public isBusy = false;
@@ -32,10 +34,6 @@ export class LoginComponent implements OnDestroy {
 
     public ngOnDestroy(): void {
         this._stopFns.forEach(m => m());
-    }
-
-    public isValid(): boolean {
-        return !!this.username && !!this.password;
     }
 
     public onSubmit(): void {
