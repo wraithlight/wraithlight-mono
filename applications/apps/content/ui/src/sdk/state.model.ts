@@ -1,5 +1,3 @@
-import { AuthState } from "./auth/auth-state.model";
+import { IAuthContainerStore } from "@wraithlight/common.auth-sdk.client";
 
-export interface GlobalState {
-    auth: AuthState;
-}
+export interface ContentGlobalState extends IAuthContainerStore { }
