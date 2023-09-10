@@ -1,4 +1,6 @@
-import { Nullable, Predicate, Primitive } from "@wraithlight/core.types";
+import { Nullable, Primitive } from "@wraithlight/core.types";
+import { predicateDefault, Predicate } from "@wraithlight/core.linq";
+
 
 export class ConfigurationReader<TConfig, TCommonConfig> {
 
@@ -11,16 +13,16 @@ export class ConfigurationReader<TConfig, TCommonConfig> {
         return predicate(this._config);
     }
 
-    public tryGet<TResult extends Primitive>(predicate: Predicate<TConfig, Nullable<TResult>>, defaultValue: TResult): TResult {
-        return predicate(this._config) ?? defaultValue;
+    public tryGet<TResult>(predicate: Predicate<TConfig, TResult>, defaultValue: TResult): TResult {
+        return predicateDefault(this._config, predicate, defaultValue);
     }
 
     public getCommon<TResult>(predicate: Predicate<TCommonConfig, TResult>): TResult {
         return predicate(this._commonConfig);
     }
 
-    public tryGetCommon<TResult extends Primitive>(predicate: Predicate<TCommonConfig, Nullable<TResult>>, defaultValue: TResult): TResult {
-        return predicate(this._commonConfig) ?? defaultValue;
+    public tryGetCommon<TResult>(predicate: Predicate<TCommonConfig, TResult>, defaultValue: TResult): TResult {
+        return predicateDefault(this._commonConfig, predicate, defaultValue);
     }
 
 }
