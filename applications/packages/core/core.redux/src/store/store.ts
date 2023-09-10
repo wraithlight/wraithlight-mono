@@ -37,7 +37,7 @@ export class Store<TState> {
         if (!this._instance) {
             throw "The store is not initialized!";
         }
-        let substateStore: Nullable<TSubState> = predicate(this._instance._state);
+        const substateStore: Nullable<TSubState> = predicate(this._instance._state);
         if (!isNil(substateStore)) {
             throw "The substate has been already initialized!";
         }
