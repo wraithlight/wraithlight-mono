@@ -1,11 +1,13 @@
-import { GlobalState } from "./state.model";
+import { WebsiteGlobalState } from "./state.model";
 
-export const INITIAL_STATE: GlobalState = {
+export const INITIAL_STATE: WebsiteGlobalState = {
     auth: {
-        isBusy: false,
-        isLoggedIn: false
-    },
-    account: {
-        isBusy: false   
+        session: {
+            isBusy: false,
+            isLoggedIn: false
+        },
+        account: {
+            isBusy: false
+        }
     }
 };

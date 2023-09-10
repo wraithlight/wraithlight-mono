@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, ViewEncapsulation } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
+import { AccountAction, AccountSelector } from "@wraithlight/common.auth-sdk.client";
+import { Store } from "@wraithlight/core.redux";
 
-import { AccountAction, AccountSelector, GLOBAL_STORE } from "../../../../sdk";
+import { WebsiteGlobalState } from "../../../../sdk";
 
 import { CONTROL_NAMES, CONTROL_VALIDATORS } from "./register.const";
 
@@ -14,7 +16,7 @@ import { CONTROL_NAMES, CONTROL_VALIDATORS } from "./register.const";
 })
 export class RegisterComponent implements OnDestroy {
 
-    private readonly _store = GLOBAL_STORE();
+    private readonly _store = Store.getInstance<WebsiteGlobalState>();
     private readonly _stopFns: Array<() => void> = [];
 
     public readonly form = this.createForm();
