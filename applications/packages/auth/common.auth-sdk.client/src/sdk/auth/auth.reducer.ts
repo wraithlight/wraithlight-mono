@@ -85,5 +85,44 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
             }
         }
     });
+    store.addReducer([AuthAction.keepAlive], (state) => {
+        return {
+            ...state,
+            auth: {
+                ...state.auth,
+                session: {
+                    ...state.auth.session,
+                    isBusy: true
+                }
+            }
+        }
+    });
+    store.addReducer([AuthAction.keepAliveFail], (state, action: ActionWithPayload<Array<string>>) => {
+        return {
+            ...state,
+            auth: {
+                ...state.auth,
+                session: {
+                    ...state.auth.session,
+                    isBusy: false,
+                    errors: action.payload
+                }
+            }
+        }
+    });
+    store.addReducer([AuthAction.keepAliveSuccess], (state, action: ActionWithPayload<{ token: string, validUntil: Date }>) => {
+        return {
+            ...state,
+            auth: {
+                ...state.auth,
+                session: {
+                    ...state.auth.session,
+                    isBusy: false,
+                    token: action.payload.token,
+                    tokenValidUntil: action.payload.validUntil
+                }
+            }
+        }
+    });
     return store;
 }

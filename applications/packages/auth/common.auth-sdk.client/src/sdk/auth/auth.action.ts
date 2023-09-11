@@ -27,7 +27,22 @@ export namespace  AuthAction {
     });
 
     export const logoutFail = (errors: Array<string>): ActionWithPayload<Array<string>> => ({
-        type: "[SESSION] Logout Success Sync",
+        type: "[SESSION] Logout Fail Sync",
+        payload: errors
+    });
+
+    export const keepAlive = (token: string): ActionWithPayload<{ token: string}> => ({
+        type: "[SESSION] Keep Alive Sync",
+        payload: { token }
+    });
+
+    export const keepAliveSuccess = (token: string, validUntil: Date): ActionWithPayload<{ token: string, validUntil: Date }> => ({
+        type: "[SESSION] Keep Alive Success Sync",
+        payload: { token, validUntil }
+    });
+
+    export const keepAliveFail = (errors: Array<string>): ActionWithPayload<Array<string>> => ({
+        type: "[SESSION] Keep Alive Fail Sync",
         payload: errors
     });
 

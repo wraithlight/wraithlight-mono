@@ -39,9 +39,23 @@ export function initializeEffects(
             })
             .catch(m => {
                 logger.warn(m);
-                store.dispatch(AuthAction.loginFail([UNKNOWN_ERROR]))
+                store.dispatch(AuthAction.logoutFail([UNKNOWN_ERROR]))
             })
-    ))
+    ));
+
+    store.addEffect([AuthAction.keepAlive], (action: ActionWithPayload<{ token: string}>) => (
+        service.keepAlive(action.payload.token)
+            .then(m => {
+                const action = m.success
+                    ? AuthAction.keepAliveSuccess(m.payload!.sessionToken, m.payload!.validTo)
+                    : AuthAction.keepAliveFail(m.errors!);
+                store.dispatch(action);
+            })
+            .catch(m => {
+                logger.warn(m);
+                store.dispatch(AuthAction.keepAliveFail([UNKNOWN_ERROR]))
+            })
+    ));
 
     return store;
 };
