@@ -1,4 +1,4 @@
-import { ActionWithPayload } from "@wraithlight/core.redux";
+import { Action, ActionWithPayload } from "@wraithlight/core.redux";
 
 export namespace  AuthAction {
 
@@ -14,6 +14,20 @@ export namespace  AuthAction {
 
     export const loginFail = (errors: Array<string>): ActionWithPayload<Array<string>> => ({
         type: "[SESSION] Login Fail Sync",
+        payload: errors
+    });
+
+    export const logout = (token: string): ActionWithPayload<{ token: string}> => ({
+        type: "[SESSION] Logout Sync",
+        payload: { token }
+    });
+
+    export const logoutSuccess = (): Action => ({
+        type: "[SESSION] Logout Success Sync",
+    });
+
+    export const logoutFail = (errors: Array<string>): ActionWithPayload<Array<string>> => ({
+        type: "[SESSION] Logout Success Sync",
         payload: errors
     });
 
