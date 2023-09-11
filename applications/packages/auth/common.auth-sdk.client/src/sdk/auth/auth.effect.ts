@@ -28,5 +28,20 @@ export function initializeEffects(
                 store.dispatch(AuthAction.loginFail([UNKNOWN_ERROR]))
             })
     });
+
+    store.addEffect([AuthAction.logout], (action: ActionWithPayload<{ token: string}>) => (
+        service.logout(action.payload.token)
+            .then(m => {
+                const action = m.success
+                    ? AuthAction.logoutSuccess()
+                    : AuthAction.loginFail(m.errors!);
+                store.dispatch(action);
+            })
+            .catch(m => {
+                logger.warn(m);
+                store.dispatch(AuthAction.loginFail([UNKNOWN_ERROR]))
+            })
+    ))
+
     return store;
 };
