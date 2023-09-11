@@ -1,4 +1,4 @@
-import { Predicate } from "@wraithlight/core.linq";
+import { Predicate, getPropertyName } from "@wraithlight/core.linq";
 
 import { BaseValidationRule } from "../validation-rule";
 
@@ -13,8 +13,7 @@ export abstract class Validator<T> implements IValidator<T> {
 
     public validate(object: T): Array<ValidationResult> {
         const testResults = this._rules.map(m => {
-            const parts = m.predicate.toString().split(".");
-            const propertyName = parts[parts.length - 1];
+            const propertyName = getPropertyName(m.predicate);
             const testResult = m.rule.test(m.predicate(object))
             return {
                 propertyName: propertyName,
