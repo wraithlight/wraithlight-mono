@@ -62,6 +62,11 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * Docker
 * Node >= 18
 
+The section will explain all the required steps to set up your local/dev environment. Please follow the steps propely.
+
+### Hosts patch
+Since most of the applicaions are using valid URLs instead IP addresses/localhost we have to set up our mock DNS server on the machine itself. This is being done by modifying the `hosts` file.
+
 ```sh
 # Initialize local environment
 
@@ -70,6 +75,21 @@ cd wraithlight
 sudo node .scripts/patch-hosts.mjs
 
 ```
+
+### Databases
+Currently all of the databases are running in docker containers. The databases are using MySQL and there is a way to setup a phpmyadmin instance for utility. See the related documentation [here](./docs/guides/how-to-phmyadmin.md).
+
+```sh
+# To run everything locally
+
+gh repo clone kfarkasHU/wraithlight
+cd wraithlight/database
+sh ./build.sh # to build the databases
+sh ./run.sh   # to run them in docker
+
+```
+
+### Applications
 
 ```sh
 # Set up the local environment
@@ -80,15 +100,6 @@ yarn
 
 ```
 
-```sh
-# To run everything locally
-
-cd wraithlight/database
-./build.sh
-cd applications/database
-yarn watch
-
-```
 
 ## Tecnologies we use
 This section lists all the technologies that are included in this repository.
