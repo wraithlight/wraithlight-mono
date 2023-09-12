@@ -58,7 +58,16 @@
             "type": "object"
         },
         "devDependencies": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "rimraf": {
+                    "type": "string",
+                    "enum": ["5.0.1"]
+                }
+            },
+            "required": [
+                "rimraf"
+            ]
         },
         "exports": {
             "type": "object",
