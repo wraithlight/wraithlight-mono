@@ -16,8 +16,8 @@
         "lint": "eslint .",
         "test": "jest",
         "test:coverage": "jest --coverage",
-        "build": "tsc -p tsconfig.build.json && webpack",
-        "build:prod": "tsc -p tsconfig.build.json && webpack --env production"
+        "build": "rimraf dist/esm && tsc -p tsconfig.build.json && webpack",
+        "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json && webpack --env production"
     },
     "dependencies": {
         "@wraithlight/core.game.layer": "*",
@@ -36,6 +36,7 @@
         "@types/jest": "29.5.1",
         "ts-jest": "29.1.0",
         "eslint-plugin-import": "2.27.5",
-        "jest-environment-jsdom": "29.6.2"
+        "jest-environment-jsdom": "29.6.2",
+        "rimraf": "5.0.1"
     }
 }
