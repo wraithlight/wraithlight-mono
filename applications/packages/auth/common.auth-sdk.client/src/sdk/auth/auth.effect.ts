@@ -34,7 +34,7 @@ export function initializeEffects(
             .then(m => {
                 const action = m.success
                     ? AuthAction.logoutSuccess()
-                    : AuthAction.loginFail(m.errors!);
+                    : AuthAction.logoutFail(m.errors!);
                 store.dispatch(action);
             })
             .catch(m => {
