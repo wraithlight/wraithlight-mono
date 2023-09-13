@@ -4,11 +4,11 @@ import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-const
 
 import { SharedConfigurationReader } from "../../config-reader";
 
-export class ClientGameWebsiteConfigReader extends SharedConfigurationReader<GameWebsiteShared> {
+export class SharedGameWebsiteConfigReader extends SharedConfigurationReader<GameWebsiteShared> {
 
     private static _instance: Nullable<SharedConfigurationReader<GameWebsiteShared>>;
 
-    public static getInstance(environment: EnvironmentType): ClientGameWebsiteConfigReader {
+    public static getInstance(environment: EnvironmentType): SharedGameWebsiteConfigReader {
         if (!this._instance) {
             this._instance = new SharedConfigurationReader<GameWebsiteShared>(ApplicationName.GameWebsite, environment);
         }
