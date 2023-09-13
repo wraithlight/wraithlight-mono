@@ -1,7 +1,7 @@
 import { addComponent } from "../../../framework";
 import "./header.component.scss";
 
-export class HeaderComponent {
+class HeaderComponent {
 
 }
 
