@@ -6,7 +6,7 @@ import { observable } from "knockout";
 
 import { addComponent } from "../../../framework";
 
-export class BodyComponent {
+class BodyComponent {
 
     private readonly _gameContextService = new GameContextService();
 

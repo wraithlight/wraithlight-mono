@@ -1,7 +1,7 @@
 import "./app.component.scss";
 import { addComponent } from "../framework";
 
-export class AppComponent {
+class AppComponent {
 
 }
 
