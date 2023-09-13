@@ -22,6 +22,11 @@ const config: KnipConfig = {
                 "ts-node"
             ]
         },
+        "apps/game-website/node": {
+            ignoreDependencies: [
+                "ts-node"
+            ]
+        },
         "apps/auth/ui": {
             entry: [
                 "src/main.ts",
