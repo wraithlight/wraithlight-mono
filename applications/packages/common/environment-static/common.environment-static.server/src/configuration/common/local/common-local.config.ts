@@ -8,7 +8,7 @@ export const SERVER_LOCAL_COMMON_CONFIG: Readonly<CommonServer> = {
     },
     files: {
         frontend: {
-            static: "../ui"
+            static: "../../dist/ui"
         }
     },
     logging: {
