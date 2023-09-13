@@ -36,6 +36,7 @@ export class LoginComponent implements OnDestroy {
         this._stopFns.forEach(m => m());
     }
 
+    /** @public */
     public onSubmit(): void {
         this._store.dispatch(AuthAction.login(this.username, this.password));
     }
