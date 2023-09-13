@@ -1,6 +1,6 @@
 name: Application GHA - Yarn Lock Changes
+run-name: "YARN.LOCK CHANGES"
 on: [pull_request]
-
 jobs:
   yarn_lock_changes:
     runs-on: ubuntu-latest
