@@ -1,11 +1,9 @@
 name: Application GHA - Yarn Lock Changes
 run-name: "YARN.LOCK CHANGES"
-on: [pull_request]
+on: [push, workflow_dispatch]
 jobs:
   yarn_lock_changes:
     runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v3
