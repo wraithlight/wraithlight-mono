@@ -9,7 +9,7 @@ module.exports = (env) => {
   return {
     ...config(env, __dirname),
     output: {
-      path: resolve(__dirname, "./dist/ui"),
+      path: resolve(__dirname, "../dist/ui"),
       filename,
       clean: true,
       libraryTarget: "commonjs2"
