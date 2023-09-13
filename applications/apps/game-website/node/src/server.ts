@@ -29,5 +29,3 @@ createNodeServer(
         }
     ]
 );
-
-console.log(join(__dirname, frontendPath));
