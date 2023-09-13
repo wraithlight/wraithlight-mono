@@ -8,6 +8,10 @@ jobs:
         pull-requests: write
         contents: read
     steps:
+      - name: View the github context
+        run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
       - name: Checkout
         uses: actions/checkout@v3
       - name: Yarn Lock Changes
