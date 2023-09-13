@@ -34,6 +34,7 @@ export class RegisterComponent implements OnDestroy {
         this._stopFns.forEach(m => m());
     }
 
+    /** @public */
     public onSubmit(): void {
         this._store.dispatch(AccountAction.register(
             this.form.controls[CONTROL_NAMES.username].value,
