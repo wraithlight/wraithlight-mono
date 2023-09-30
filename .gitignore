@@ -1,6 +1,11 @@
+# MacOS
 .DS_Store
+
+# node env
 node_modules/
 dist/
+
+# yarn
 yarn-error.log
 
 # jest
