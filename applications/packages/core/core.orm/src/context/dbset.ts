@@ -10,9 +10,6 @@ import { InsertQueryContext } from "./query/insert.query-context";
 import { UpdateQueryContext } from "./query/update.query-context";
 import { DeleteQueryContext } from "./query/delete.query-context";
 
-/**
- * @deprecated Import `DbSet` from `core.orm` instead.
- */
 export class DbSet<T extends Object> {
 
     constructor(
