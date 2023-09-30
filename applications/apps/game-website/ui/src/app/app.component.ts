@@ -1,5 +1,6 @@
 import "./app.component.scss";
 import { addComponent } from "../framework";
+import html from './app.component.html'
 
 class AppComponent {
 
@@ -7,6 +8,6 @@ class AppComponent {
 
 addComponent(
     "game-website",
-    require("./app.component.html").default,
+    html,
     () => new AppComponent()
 );
