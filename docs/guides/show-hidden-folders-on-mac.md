@@ -8,7 +8,7 @@ The easiest way is to show these files and folders, is to
 
 ```sh
 
-gh repo clone kfarkasHU/wraithlight
+gh repo clone wraithlight/wraithlight-mono
 cd wraithlight
 open .
 
