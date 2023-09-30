@@ -13,6 +13,9 @@ export class AccountControllerV2 extends BaseController {
 
     private readonly _accountService = new AccountService();
 
+    /**
+     * @public
+     */
     @HttpPost(API_ENDPOINTS.external.v2.account.register)
     public async register(dto: ApiRegisterRequest): Promise<void> {
         const result = await this._accountService.create(

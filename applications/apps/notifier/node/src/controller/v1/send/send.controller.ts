@@ -9,6 +9,9 @@ export class SendControllerV1 extends BaseController {
 
     private readonly _service = new SendServiceV1();
 
+    /**
+     * @public
+     */
     @HttpPost(NOTIFIER_ENDPOINT_CONST.v1.send.mail)
     public send(
         entry: SendMailRequestV1Model

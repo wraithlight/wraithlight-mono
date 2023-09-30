@@ -31,6 +31,9 @@ export class SessionControllerV2 extends BaseController {
     private readonly _authService = new AuthService();
     private readonly _sessionService = SessionService.getInstance();
 
+    /**
+     * @public
+     */
     @HttpPost(API_ENDPOINTS.external.v2.auth.login)
     public async login(model: ApiLoginRequest): Promise<void> {
         const result = await this._authService
@@ -62,6 +65,9 @@ export class SessionControllerV2 extends BaseController {
         return super.unauthorized(data);
     }
 
+    /**
+     * @public
+     */
     @HttpPost(API_ENDPOINTS.external.v2.auth.logout)
     public async logout(model: ApiLogoutRequest) {
         const result = this._sessionService.stopSession(model.sessionToken, model.loginScope);
@@ -79,6 +85,9 @@ export class SessionControllerV2 extends BaseController {
         return super.ok(data);
     }
 
+    /**
+     * @public
+     */
     @HttpPost(API_ENDPOINTS.external.v2.auth.keepAlive)
     public async keepAliveSession(model: ApiKeepAliveSessionRequest) {
         const result = this._sessionService.renew(model.sessionToken, model.loginScope);
@@ -100,6 +109,9 @@ export class SessionControllerV2 extends BaseController {
         super.ok(data);
     }
 
+    /**
+     * @public
+     */
     @HttpPost(API_ENDPOINTS.external.v2.auth.validateSession)
     public async validateSession(model: ApiValidateSessionRequest) {
         const result = this._sessionService.checkSession(model.sessionToken, model.loginScope);

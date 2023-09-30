@@ -12,6 +12,9 @@ export class LogsEntryController extends BaseController {
 
     private readonly _logsService = new LogsService();
 
+    /**
+     * @public
+     */
     @HttpPost(LOGGER_API_ENDPOINTS.v1.logs.create)
     public async logEntry(dto: BeaconLogEntry): Promise<void> {
         await this._logsService.log(
