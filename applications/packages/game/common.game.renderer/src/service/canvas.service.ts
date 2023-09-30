@@ -35,13 +35,4 @@ export class CanvasService {
         );
     }
 
-    public drawImage(
-        startX: number,
-        startY: number,
-    ): void {
-        if (this.isLocked) {
-            return;
-        }
-    }
-
 }
