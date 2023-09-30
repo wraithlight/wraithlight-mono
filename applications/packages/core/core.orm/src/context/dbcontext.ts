@@ -2,9 +2,6 @@ import { Connection, createConnection, createPool, Pool } from "mysql2";
 
 import { DbSet } from "./dbset";
 
-/**
- * @deprecated Import `DbContext` from `core.orm` instead.
- */
 export abstract class DbContext {
 
     public readonly Connection: Connection | Pool;
