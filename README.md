@@ -26,17 +26,17 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 ### Database
 | Build |
 | :-:   |
-| [![Database GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/db-build.yaml) |
+| [![Database GHA - Build](https://github.com/wraithlight/wraithlight-mono/actions/workflows/db-build.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/db-build.yaml) |
 
 ### Applications
 | Build | Lint  | Tests |
 | :-:   | :-:   | :-:   |
-| [![Applications GHA - Build](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-build.yaml) | [![Applications GHA - Lint](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-lint.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-lint.yaml) | [![Applications GHA - Test](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-test.yaml)
+| [![Applications GHA - Build](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-build.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-build.yaml) | [![Applications GHA - Lint](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-lint.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-lint.yaml) | [![Applications GHA - Test](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-test.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-test.yaml)
 
 ### Chore
 | JSON Schema   | Knip  |
 | :-:           | :-:   |
-| [![Applications GHA - JSON Schema](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Knip](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/kfarkasHU/wraithlight/actions/workflows/apps-knip.yaml) |
+| [![Applications GHA - JSON Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Knip](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml) |
 
 ## Links
 
