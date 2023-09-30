@@ -4,7 +4,7 @@ The monorepo comes with a configured all-in-one test reporter. To make it work, 
 
 ```sh
 
-gh repo clone kfarkasHU/wraithlight
+gh repo clone wraithlight/wraithlight-mono
 cd wraithlight/applications
 yarn
 yarn build

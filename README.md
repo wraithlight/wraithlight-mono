@@ -70,7 +70,7 @@ Since most of the applicaions are using valid URLs instead IP addresses/localhos
 ```sh
 # Initialize local environment
 
-gh repo clone kfarkasHU/wraithlight
+gh repo clone wraithlight/wraithlight-mono
 cd wraithlight
 sudo node .scripts/patch-hosts.mjs
 
@@ -82,7 +82,7 @@ Currently all of the databases are running in docker containers. The databases a
 ```sh
 # To run everything locally
 
-gh repo clone kfarkasHU/wraithlight
+gh repo clone wraithlight/wraithlight-mono
 cd wraithlight/database
 sh ./build.sh # to build the databases
 sh ./run.sh   # to run them in docker
@@ -94,7 +94,7 @@ sh ./run.sh   # to run them in docker
 ```sh
 # Set up the local environment
 
-gh repo clone kfarkasHU/wraithlight
+gh repo clone wraithlight/wraithlight-mono
 cd wraithlight/applications
 yarn
 

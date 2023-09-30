@@ -10,7 +10,7 @@ The script is useful when a non-reproducable error occours during deployment CI/
 **Usage**
 ```sh
 
-gh repo clone kfarkasHU/wraithlight
+gh repo clone wraithlight/wraithlight-mono
 cd wraithlight/applications
 sh purge.sh
 

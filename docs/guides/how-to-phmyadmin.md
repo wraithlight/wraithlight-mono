@@ -12,7 +12,7 @@ Once the setup is done, you can run the instance by running the following script
 
 ```sh
 
-gh repo clone kfarkasHU/wraithlight
+gh repo clone wraithlight/wraithlight-mono
 cd wraithlight/.tools
 sh ./phpmyadmin.sh
 

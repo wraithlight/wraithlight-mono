@@ -5,7 +5,7 @@ This script is useful to keep your local repository clean.
 **Usage**
 ```sh
 
-gh repo clone kfarkasHU/wraithlight
+gh repo clone wraithlight/wraithlight-mono
 cd wraithlight
 sh purge-branch.sh
 
