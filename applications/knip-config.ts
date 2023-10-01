@@ -27,13 +27,19 @@ const config: KnipConfig = {
                 "ts-node"
             ]
         },
+        "apps/game-website/ui": {
+            ignore: [
+                // TODO: Readd this once knip can understand `d.ts` files
+                "html.d.ts"
+            ]
+        },
         "apps/auth/ui": {
             entry: [
                 "src/main.ts",
                 "src/App.svelte"
             ],
             ignore: [
-                "src/app.ts"
+                "src/app.ts",
             ],
             ignoreDependencies: [
                 "@tsconfig/svelte",
