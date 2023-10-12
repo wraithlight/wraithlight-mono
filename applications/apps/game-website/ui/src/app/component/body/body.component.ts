@@ -1,4 +1,5 @@
 import "./body.component.scss";
+import { template } from "./body.component.html";
 
 import { GameContextService } from "@wraithlight/core.game.context";
 import { getDocumentRef } from "@wraithlight/core.dom";
@@ -21,6 +22,6 @@ class BodyComponent {
 
 addComponent(
     "game-website-body",
-    require("./body.component.html").default,
+    template,
     () => new BodyComponent()
 );
