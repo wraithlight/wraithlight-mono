@@ -1,4 +1,4 @@
-<div class="body-container">
+export const template = `<div class="body-container">
     <div class="body-content">
         <canvas
             data-bind="attr: {
@@ -8,4 +8,4 @@
         >
         </canvas>
     </div>
-</div>
+</div>`;

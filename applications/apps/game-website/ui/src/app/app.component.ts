@@ -1,4 +1,6 @@
 import "./app.component.scss";
+import { template } from "./app.component.html";
+
 import { addComponent } from "../framework";
 
 class AppComponent {
@@ -7,6 +9,6 @@ class AppComponent {
 
 addComponent(
     "game-website",
-    require("./app.component.html").default,
+    template,
     () => new AppComponent()
 );
