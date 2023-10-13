@@ -17,7 +17,7 @@
         },
         "module": {
             "type": "string",
-            "enum": ["./dist/cjs/index.js"]
+            "enum": ["./dist/esm/index.js"]
         },
         "types": {
             "type": "string",
@@ -77,7 +77,7 @@
                     "properties": {
                         "require": {
                             "type": "string",
-                            "enum": ["./dist/cjs/index.js"]
+                            "enum": ["./dist/esm/index.js"]
                         },
                         "import": {
                             "type": "string",
