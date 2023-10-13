@@ -1,9 +1,12 @@
 const ignoreTests = [
   "types",
-  "const",
-  // TODO: Align package names
-  "constant",
   "constants",
+  /**
+   * TODO: Align package names
+   * All of the const packages should end with `constants`
+   **/
+  "constant",
+  "const",
 ]
 
 module.exports = (project) => {
