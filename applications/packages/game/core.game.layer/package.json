@@ -20,7 +20,8 @@
         "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
     },
     "dependencies": {
-        "@wraithlight/core.game.core": "*",
+        "@wraithlight/core.game.const": "*",
+        "@wraithlight/core.game.types": "*",
         "@wraithlight/common.game.renderer": "*",
         "@wraithlight/core.types": "*"
     },
