@@ -1,6 +1,6 @@
 import {
     Nullable
-} from "@wraithlight/core.types";
+} from "@wraithlight/core.nullable";
 
 export class CanvasService {
 
