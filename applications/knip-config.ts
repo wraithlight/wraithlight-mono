@@ -6,7 +6,8 @@ const config: KnipConfig = {
         "**/coverage/**",
         "vsc/**",
         ".scripts/**",
-        "**/vite-env.d.ts"
+        "**/vite-env.d.ts",
+        "**/__mocks__/**"
     ],
     workspaces: {
         ".": {
