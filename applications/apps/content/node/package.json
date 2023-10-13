@@ -15,7 +15,7 @@
     },
     "dependencies": {
         "@wraithlight/common.environment-static.shared": "*",
-        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.common-constants": "*",
         "@wraithlight/common.auth-sdk.server": "*",
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.server": "*",

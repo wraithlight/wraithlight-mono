@@ -24,7 +24,7 @@
         "@wraithlight/core.logs.types": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.logs.constant": "*",
-        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.common-constants": "*",
         "@wraithlight/core.env": "*",
         "@wraithlight/common.environment-static.shared": "*"
     },

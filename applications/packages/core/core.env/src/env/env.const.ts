@@ -1,4 +1,4 @@
-import { EnvironmentType } from "@wraithlight/core.common-constant";
+import { EnvironmentType } from "@wraithlight/core.common-constants";
 
 /**
  * @deprecated Use `WL_ENV_TYPE_PROP_NAME` instead.

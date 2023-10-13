@@ -22,7 +22,7 @@
         "@wraithlight/core.types": "*",
         "@wraithlight/core.sql": "*",
         "@wraithlight/core.logger.types": "*",
-        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.common-constants": "*",
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/common.environment-static.server": "*"
     },

@@ -1,5 +1,5 @@
 import { LogsServer, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
-import { EnvironmentType } from "@wraithlight/core.common-constant";
+import { EnvironmentType } from "@wraithlight/core.common-constants";
 
 import { SERVER_LOCAL_LOGS_CONFIG } from "./local";
 import { SERVER_DEV_LOGS_CONFIG } from "./dev";

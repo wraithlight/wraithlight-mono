@@ -20,7 +20,7 @@
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.server": "*",
         "@wraithlight/common.environment-static.server": "*",
-        "@wraithlight/core.common-constant": "*"
+        "@wraithlight/core.common-constants": "*"
     },
     "devDependencies": {
         "webpack": "5.76.0",

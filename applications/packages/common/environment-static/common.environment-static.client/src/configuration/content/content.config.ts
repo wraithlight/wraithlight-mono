@@ -1,5 +1,5 @@
 import { ContentClient, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
-import { EnvironmentType } from "@wraithlight/core.common-constant";
+import { EnvironmentType } from "@wraithlight/core.common-constants";
 
 import { CLIENT_LOCAL_CONTENT_CONFIG } from "./local";
 import { CLIENT_DEV_CONTENT_CONFIG } from "./dev";

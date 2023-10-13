@@ -1,4 +1,4 @@
-import { EnvironmentType } from "@wraithlight/core.common-constant";
+import { EnvironmentType } from "@wraithlight/core.common-constants";
 
 export interface EnvironmentStatic<T> {
     [EnvironmentType.Local]: T,

@@ -3,7 +3,7 @@ import { BeaconLogEntry } from "@wraithlight/core.logs.types";
 import { HttpBeaconClient } from "@wraithlight/core.http";
 
 import { LoggerServiceConfig } from "./logger.config";
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName } from "@wraithlight/core.common-constants";
 
 export class BeaconLoggerService {
 

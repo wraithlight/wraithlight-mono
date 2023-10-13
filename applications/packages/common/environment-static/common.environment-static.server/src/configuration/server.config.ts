@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName } from "@wraithlight/core.common-constants";
 import { EnvironmentStaticServer } from "@wraithlight/core.environment-static.types";
 
 import { SERVER_CONTENT_CONFIG } from "./content";

@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName } from "@wraithlight/core.common-constants";
 import { LogSeverity } from "@wraithlight/core.logger.types";
 import { dateNow, toUtc } from "@wraithlight/core.types";
 

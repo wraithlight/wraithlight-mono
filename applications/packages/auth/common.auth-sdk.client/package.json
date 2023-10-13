@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@wraithlight/core.redux": "*",
-        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.common-constants": "*",
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.types": "*",

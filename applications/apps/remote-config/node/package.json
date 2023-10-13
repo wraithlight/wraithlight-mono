@@ -17,7 +17,7 @@
         "@wraithlight/core.server": "*",
         "@wraithlight/core.env": "*",
         "@wraithlight/core.node": "*",
-        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.common-constants": "*",
         "@wraithlight/common.environment-static.shared": "*"
     },
     "devDependencies": {

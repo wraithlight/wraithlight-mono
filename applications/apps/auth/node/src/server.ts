@@ -1,6 +1,6 @@
 import { ServerUserManagementConfigReader } from "@wraithlight/common.environment-static.server";
 import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName } from "@wraithlight/core.common-constants";
 import { createNodeServer } from "@wraithlight/core.server";
 import { getEnvironmentType } from "@wraithlight/core.env";
 import { join } from "path";

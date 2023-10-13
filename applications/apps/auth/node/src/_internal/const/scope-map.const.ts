@@ -3,7 +3,7 @@ import { LoginScope } from "@wraithlight/core.auth.types";
 import {
     ApplicationId,
     ApplicationName
-} from "@wraithlight/core.common-constant";
+} from "@wraithlight/core.common-constants";
 
 export const SCOPE_NAME_MAP: {[key in ApplicationName]: Guid } = Object.freeze({
     [LoginScope.Website]: ApplicationId.WEBSITE,
