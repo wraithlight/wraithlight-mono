@@ -1,11 +1,11 @@
 {
     "$schema": "../../../.schema/package-json.package.schema.json",
     "name": "@wraithlight/core.random-number",
-    "module": "./dist/cjs/index.js",
+    "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {
         ".": {
-            "require": "./dist/cjs/index.js",
+            "require": "./dist/esm/index.js",
             "import": "./dist/esm/index.js",
             "types": "./dist/index.d.ts"
         }
