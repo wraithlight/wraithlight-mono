@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@wraithlight/core.game.layer": "*",
-        "@wraithlight/core.game.core": "*"
+        "@wraithlight/core.game.const": "*"
     },
     "devDependencies": {
         "typescript": "5.0.3",
