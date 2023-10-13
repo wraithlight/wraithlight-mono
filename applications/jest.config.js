@@ -31,7 +31,20 @@ module.exports = (project) => {
       "!**/*.model.ts"
     ],
     projects: [
-      project
+      {
+        ...project,
+        moduleNameMapper: {
+          "^@wraithlight\/(.*)$": [
+            `${__dirname}/packages/$1/src`,
+            `${__dirname}/packages/core/$1/src`,
+            `${__dirname}/packages/core/logger/$1/src`,
+            `${__dirname}/packages/common/environment-static/$1/src`,
+            `${__dirname}/packages/auth/$1/src`,
+            `${__dirname}/packages/game/$1/src`,
+            `${__dirname}/packages/logs/$1/src`
+          ]
+        }
+      }
     ]
   }
 };
