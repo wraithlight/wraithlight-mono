@@ -31,5 +31,7 @@
         "eslint-plugin-import": "2.27.5",
         "rimraf": "5.0.1"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@wraithlight/core.nullable": "*"
+    }
 }
