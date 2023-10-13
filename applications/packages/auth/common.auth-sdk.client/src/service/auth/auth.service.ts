@@ -18,7 +18,7 @@ import {
 } from "@wraithlight/core.auth.types";
 import { Nullable } from "@wraithlight/core.types";
 import { HttpClient } from "@wraithlight/core.http";
-import { UNKNOWN_ERROR } from "@wraithlight/core.common-constant";
+import { UNKNOWN_ERROR } from "@wraithlight/core.common-constants";
 
 import {
     KeepAliveSessionResponse,

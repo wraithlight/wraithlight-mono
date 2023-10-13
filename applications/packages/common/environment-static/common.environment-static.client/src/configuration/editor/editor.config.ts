@@ -1,5 +1,5 @@
 import { EditorClient, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
-import { EnvironmentType } from "@wraithlight/core.common-constant";
+import { EnvironmentType } from "@wraithlight/core.common-constants";
 
 import { CLIENT_LOCAL_EDITOR_CONFIG } from "./local";
 import { CLIENT_DEV_EDITOR_CONFIG } from "./dev";

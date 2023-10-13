@@ -1,6 +1,6 @@
 import { Nullable } from "@wraithlight/core.types";
 import { WebsiteShared } from "@wraithlight/core.environment-static.types";
-import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
+import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constants";
 
 import { SharedConfigurationReader } from "../../config-reader";
 

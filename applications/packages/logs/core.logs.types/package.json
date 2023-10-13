@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@wraithlight/core.logger.types": "*",
-        "@wraithlight/core.common-constant": "*"
+        "@wraithlight/core.common-constants": "*"
     },
     "devDependencies": {
         "typescript": "5.0.3",

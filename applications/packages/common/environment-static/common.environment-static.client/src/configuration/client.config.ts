@@ -1,4 +1,4 @@
-import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
+import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constants";
 import { EnvironmentStaticClient } from "@wraithlight/core.environment-static.types";
 import { LogSeverity } from "@wraithlight/core.logger.types";
 

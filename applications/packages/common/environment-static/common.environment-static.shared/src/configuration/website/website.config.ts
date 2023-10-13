@@ -1,5 +1,5 @@
 import { WebsiteShared, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
-import { EnvironmentType } from "@wraithlight/core.common-constant";
+import { EnvironmentType } from "@wraithlight/core.common-constants";
 
 import { SHARED_LOCAL_WEBSITE_CONFIG } from "./local";
 import { SHARED_DEV_WEBSITE_CONFIG } from "./dev";

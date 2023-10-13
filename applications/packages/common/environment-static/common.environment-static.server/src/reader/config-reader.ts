@@ -1,5 +1,5 @@
 import { ConfigurationReader } from "@wraithlight/core.environment-static.sdk";
-import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
+import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constants";
 import { CommonServer } from "@wraithlight/core.environment-static.types";
 
 import { SERVER_CONFIG } from "../configuration";

@@ -1,5 +1,5 @@
 import { LoggerService as CoreLoggerService } from "@wraithlight/common.logger.sdk";
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName } from "@wraithlight/core.common-constants";
 import { ILogger, LoggerConfig } from "@wraithlight/core.logger.types";
 import { BeaconLoggerService } from "@wraithlight/core.logs.sdk";
 

@@ -17,7 +17,7 @@
         "@wraithlight/core.node": "*",
         "@wraithlight/common.auth-sdk.server": "*",
         "@wraithlight/core.auth.types": "*",
-        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.common-constants": "*",
         "@wraithlight/common.environment-static.server": "*",
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.server": "*",

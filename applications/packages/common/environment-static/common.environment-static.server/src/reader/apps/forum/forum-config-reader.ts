@@ -1,6 +1,6 @@
 import { Nullable } from "@wraithlight/core.types";
 import { ForumClient } from "@wraithlight/core.environment-static.types";
-import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constant";
+import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constants";
 
 import { ServerConfigurationReader } from "../../config-reader";
 

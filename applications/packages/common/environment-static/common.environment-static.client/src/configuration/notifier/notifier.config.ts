@@ -1,5 +1,5 @@
 import { EnvironmentStatic, NotifierClient } from "@wraithlight/core.environment-static.types";
-import { EnvironmentType } from "@wraithlight/core.common-constant";
+import { EnvironmentType } from "@wraithlight/core.common-constants";
 
 import { CLIENT_LOCAL_NOTIFIER_CONFIG } from "./local";
 import { CLIENT_DEV_NOTIFIER_CONFIG } from "./dev";

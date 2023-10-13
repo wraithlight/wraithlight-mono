@@ -12,7 +12,7 @@ jest.mock("@wraithlight/core.logs.sdk", () => {
     }
 });
 import { LoggerService as CoreLoggerService } from "@wraithlight/common.logger.sdk";
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName } from "@wraithlight/core.common-constants";
 import { ILogger, LoggerConfig } from "@wraithlight/core.logger.types";
 
 import { ServerLoggerService } from "./logger.service";

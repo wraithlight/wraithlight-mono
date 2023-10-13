@@ -1,5 +1,5 @@
 import { UserManagementClient, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
-import { EnvironmentType } from "@wraithlight/core.common-constant";
+import { EnvironmentType } from "@wraithlight/core.common-constants";
 
 import { CLIENT_LOCAL_USER_MANAGEMENT_CONFIG } from "./local";
 import { CLIENT_DEV_USER_MANAGEMENT_CONFIG } from "./dev";

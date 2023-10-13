@@ -2,7 +2,7 @@ import { SharedWebsiteConfigReader } from "@wraithlight/common.environment-stati
 import { ServerWebsiteConfigReader } from "@wraithlight/common.environment-static.server";
 import { ServerAccountControllerV1, ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
 import { LoginScope } from "@wraithlight/core.auth.types";
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName } from "@wraithlight/core.common-constants";
 import { createNodeServer } from "@wraithlight/core.server";
 import { getEnvironmentType } from "@wraithlight/core.env";
 import { join } from "path";

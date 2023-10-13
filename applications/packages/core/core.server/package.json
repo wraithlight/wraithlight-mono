@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@wraithlight/core.node": "*",
-        "@wraithlight/core.common-constant": "*",
+        "@wraithlight/core.common-constants": "*",
         "@wraithlight/common.logger.sdk": "*"
     },
     "devDependencies": {

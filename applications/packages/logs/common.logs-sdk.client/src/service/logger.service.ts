@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constant";
+import { ApplicationName } from "@wraithlight/core.common-constants";
 import { BeaconLoggerService } from "@wraithlight/core.logs.sdk";
 
 export class ClientLoggerService {
