@@ -41,7 +41,8 @@ module.exports = (project) => {
             `${__dirname}/packages/common/environment-static/$1/src`,
             `${__dirname}/packages/auth/$1/src`,
             `${__dirname}/packages/game/$1/src`,
-            `${__dirname}/packages/logs/$1/src`
+            `${__dirname}/packages/logs/$1/src`,
+            `${__dirname}/packages/health-checker/$1/src`
           ]
         }
       }
