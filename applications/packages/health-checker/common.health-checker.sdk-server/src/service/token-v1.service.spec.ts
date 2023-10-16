@@ -12,7 +12,7 @@ describe("HealthCheckTokenV1ServiceSpecs", () => {
 
     describe("given the service is initialized", () => {
 
-        let service = new HealthCheckTokenV1Service(MOCK_TOKEN);
+        const service = new HealthCheckTokenV1Service(MOCK_TOKEN);
 
         describe("when i call `isTokenValid()`", () => {
             describe("and the token is valid", () => {
