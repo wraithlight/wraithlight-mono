@@ -13,7 +13,7 @@ export class MessagebusService {
         }
     }
 
-    public push<T>(token: string, data: T): void {
+    public push<T>(token: string, data?: T): void {
         this._listeners
             .filter(m => m.token === token)
             .forEach(m => m.callback(data))
