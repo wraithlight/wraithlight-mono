@@ -1,11 +1,10 @@
-import { generateRandomString } from "../string";
+import { generateRandomString } from "@wraithlight/core.types";
 
 import { Guid } from "./guid.type";
 
 /**
  * Verifies if the given object is `Guid`.
  * @param {string} guidLike The object to verify.
- * @deprecated Import it from `@wraithlight/core.guid` instead.
  */
 export function isGuid(guidLike: string): guidLike is Guid {
     const regexStr = "^([a-fA-F0-9]{8}-[a-fA-F0-9]{4}-([1-9][a-fA-F0-9]{3})-([a-bA-B8-9][a-fA-F0-9]{3})-[a-fA-F0-9]{12})$";
@@ -16,7 +15,6 @@ export function isGuid(guidLike: string): guidLike is Guid {
 /**
  * Generates a new UUIDv4 Guid.
  * @returns {Guid} The new GUID.
- * @deprecated Import it from `@wraithlight/core.guid` instead.
  */
 export function newGuid(): Guid {
     const pattern = "xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx".split("");
