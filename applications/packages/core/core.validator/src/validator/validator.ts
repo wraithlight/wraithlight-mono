@@ -9,14 +9,17 @@ export abstract class Validator<T> implements IValidator<T> {
 
     private readonly _rules: Array<ValidationRules<T, any>> = [];
 
+    constructor() {
+        this.setupRules();
+    }
+
     public abstract setupRules(): void;
 
     public validate(object: T): Array<ValidationResult> {
         const testResults = this._rules.map(m => {
-            const propertyName = getPropertyName(m.predicate);
             const testResult = m.rule.test(m.predicate(object))
             return {
-                propertyName: propertyName,
+                propertyName: m.propertyName,
                 testResult: testResult
             };
         });
@@ -33,7 +36,8 @@ export abstract class Validator<T> implements IValidator<T> {
     ): void {
         this._rules.push({
             rule: rule,
-            predicate: predicate
+            predicate: predicate,
+            propertyName: getPropertyName(predicate)
         });
     }
 

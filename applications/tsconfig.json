@@ -14,6 +14,7 @@
                 "packages/notifier/*/src/index.ts",
                 "packages/common/environment-static/*/src/index.ts",
                 "packages/framework/*/src/index.ts",
+                "packages/health-checker/*/src/index.ts",
                 "packages/facade/*/index.ts"
             ]
         }
