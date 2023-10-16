@@ -9,6 +9,7 @@ describe("ButtonComponentSpecs", () => {
 
     describe("given the component is initialized", () => {
         mount(
+            // eslint-disable-next-line no-restricted-globals
             document.body,
             {
                 view: () => m(
@@ -28,6 +29,7 @@ describe("ButtonComponentSpecs", () => {
         describe("when i click on the button", () => {
             describe("and it is not disabled", () => {
                 beforeEach(() => {
+                    // eslint-disable-next-line no-restricted-globals
                     const button = document.getElementById(mockId);
                     button?.click();
                 });
