@@ -9,6 +9,7 @@ export interface IValidator<T> {
 export interface ValidationRules<T, U> {
     rule: BaseValidationRule<U>;
     predicate: Predicate<T, U>;
+    propertyName: string;
 }
 
 export interface ValidationResult {
