@@ -2,8 +2,7 @@ const config = require("../../../jest.config.js");
 
 module.exports = config({
     preset: "ts-jest",
-    testEnvironment: "jsdom",
-    displayName: "Apps/Content/UI",
+    displayName: "Packages/Health Checker/Common/Server SDK",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],
@@ -12,8 +11,5 @@ module.exports = config({
     ],
     coveragePathIgnorePatterns: [
       "dist"
-    ],
-    moduleNameMapper: {
-      "^.+\\.(css|less|scss)$": "identity-obj-proxy"
-    }
+    ]
 });

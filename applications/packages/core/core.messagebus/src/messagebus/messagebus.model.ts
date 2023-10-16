@@ -7,5 +7,5 @@ export interface MessagebusListener<T = any> {
 }
 
 export interface MessagebusCallbackFn<T> {
-    (data: T): void
+    (data?: T): void
 }

@@ -78,29 +78,39 @@ export class ControllerBinder {
         if (body && Object.keys(body).length > 0) {
             result.push(body);
         }
-        const request = this.getRequestParams(req);
-        if (request && Object.keys(request).length > 0) {
-            result.push(request);
+        const query = this.getRequestQueryParams(req);
+        if (query && Object.keys(query).length > 0) {
+            result.push(...Object.values(query));
+        }
+        const path = this.getRequestPathParams(req);
+        if (path && Object.keys(path).length > 0) {
+            result.push(...Object.values(path));
         }
         return result;
     }
 
     private static getBodyParams(
         req: Request
-    ): Array<unknown> {
+    ): unknown {
         return this.getParamsFromRequest(req, "body");
     }
 
-    private static getRequestParams(
+    private static getRequestQueryParams(
         req: Request
-    ): Array<unknown> {
-        return this.getParamsFromRequest(req, "query");
+    ): Object {
+        return this.getParamsFromRequest(req, "query") as Object;
+    }
+
+    private static getRequestPathParams(
+        req: Request
+    ): Object {
+        return this.getParamsFromRequest(req, "params") as Object;
     }
 
     private static getParamsFromRequest(
         req: Request,
-        container: "body" | "query"
-    ): Array<unknown> {
+        container: "body" | "query" | "params"
+    ): unknown {
         return req[container];
     }
 
