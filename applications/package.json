@@ -31,7 +31,8 @@
     "packages/common/*",
     "packages/common/environment-static/*",
     "packages/framework/*",
-    "packages/health-checker/*"
+    "packages/health-checker/*",
+    "packages/facade/*"
   ],
   "engines" : { 
     "node" : ">=18.0.0 <19.0.0",
