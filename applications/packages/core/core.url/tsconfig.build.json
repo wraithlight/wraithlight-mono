@@ -2,4 +2,5 @@
     "compilerOptions": {
         "declaration": true,
         "outDir": "dist/esm"
-    }}
+    }
+}
