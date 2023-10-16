@@ -1,11 +1,11 @@
 import { wlDeepmerge } from "./deepmerge.fn"
 
-jest.mock("deepmerge-ts", () => {
+jest.mock("@wraithlight/facade.deepmerge", () => {
     return {
-        deepmerge: jest.fn().mockImplementation(() => {})
+        deepmergeFacade: jest.fn().mockImplementation(() => {})
     }
 })
-import { deepmerge } from "deepmerge-ts";
+import { deepmergeFacade } from "@wraithlight/facade.deepmerge";
 
 describe("wlDeepmergeSpecs", () => {
     const MOCK_TARGET = {};
@@ -17,9 +17,9 @@ describe("wlDeepmergeSpecs", () => {
                 wlDeepmerge(MOCK_TARGET, MOCK_ADDITIONAL)
             })
             it("should call the underlying method", () => {
-                expect(deepmerge).toHaveBeenCalled();
-                expect(deepmerge).toHaveBeenCalledTimes(1);
-                expect(deepmerge).toHaveBeenCalledWith(MOCK_TARGET, MOCK_ADDITIONAL);
+                expect(deepmergeFacade).toHaveBeenCalled();
+                expect(deepmergeFacade).toHaveBeenCalledTimes(1);
+                expect(deepmergeFacade).toHaveBeenCalledWith(MOCK_TARGET, MOCK_ADDITIONAL);
             })
         })
     })
