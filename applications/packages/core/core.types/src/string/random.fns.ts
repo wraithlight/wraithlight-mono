@@ -5,6 +5,7 @@ import { randomNumberBetween } from "../_internal";
  * @param {number} length Length of the generated string.
  * @param {Array<string>} alphabet Alphabets to use. 
  * @returns {string} The generated random string.
+ * @deprecated Import it from `@wraithlight/core.random-string`.
  */
 export function generateRandomString(
     length: number,
