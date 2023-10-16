@@ -20,8 +20,7 @@
         "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
     },
     "dependencies": {
-        "deepmerge-ts": "5.1.0",
-        "@wraithlight/core.types": "*"
+        "deepmerge-ts": "5.1.0"
     },
     "devDependencies": {
         "typescript": "5.0.3",
