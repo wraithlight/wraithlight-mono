@@ -30,7 +30,8 @@
     "packages/notifier/*",
     "packages/common/*",
     "packages/common/environment-static/*",
-    "packages/framework/*"
+    "packages/framework/*",
+    "packages/facade/*"
   ],
   "engines" : { 
     "node" : ">=18.0.0 <19.0.0",
