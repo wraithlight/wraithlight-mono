@@ -34,6 +34,7 @@ module.exports = (project) => {
       {
         ...project,
         moduleNameMapper: {
+          ...project.moduleNameMapper,
           "^@wraithlight\/(.*)$": [
             `${__dirname}/packages/$1/src`,
             `${__dirname}/packages/core/$1/src`,
