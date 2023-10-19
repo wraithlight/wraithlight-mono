@@ -4,7 +4,7 @@ PhpMyAdmin is a very useful tool for manage MySQL server instances. It is writte
 The configuration file is located in `./.tools/phpmyadmin.sh`. The file contains three globals.
 * `TARGET_CONTAINER`
 * `CONTAINER_NAME`
-* `CONTAINER_NAME`
+* `NETWORK_NAME`
 
 Right now only the `TARGET_CONTAINER` should be modified according to the requirements. Please check out the [related docs](../urls/database.md) for proper SQL Server addresses.
 
