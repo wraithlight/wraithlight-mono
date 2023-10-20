@@ -18,5 +18,11 @@ export const SERVER_LOCAL_COMMON_CONFIG: Readonly<CommonServer> = {
             LogSeverity.WARNING,
             LogSeverity.ERROR
         ]
+    },
+    healthChecker: {
+        tokens: {
+            // TODO: Token is 'hc-user-management-token'
+            userManagement: "5537a135783cfafffefa0ddc6787bae87b0850c0fda06c86a4bf544b7ee1cf91"
+        }
     }
 };
