@@ -12,5 +12,10 @@ export interface CommonServer {
     },
     logging: {
         enabledLogSeverities: ReadonlyArray<LogSeverity>
+    },
+    healthChecker: {
+        tokens: {
+            userManagement: string
+        }
     }
 }
