@@ -3,6 +3,7 @@ import { SharedUserManagementConfigReader } from "@wraithlight/common.environmen
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import { createNodeServer } from "@wraithlight/core.server";
 import { getEnvironmentType } from "@wraithlight/core.env";
+import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
 import { join } from "path";
 
 import { AccountControllerV2, SessionControllerV2 } from "./controller";
@@ -10,10 +11,13 @@ import { AccountControllerV2, SessionControllerV2 } from "./controller";
 const serverCfg = ServerUserManagementConfigReader.getInstance(getEnvironmentType());
 const sharedCfg = SharedUserManagementConfigReader.getInstance(getEnvironmentType());
 
+const healthCheckToken = serverCfg.getCommon(x => x.healthChecker.tokens.userManagement);
+
 // TODO: Add `ServerAuthControllerV1`
 const CONTROLLERS = [
     new AccountControllerV2(),
-    new SessionControllerV2()
+    new SessionControllerV2(),
+    new HealthCheckControllerV1(healthCheckToken)
 ];
 
 const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
