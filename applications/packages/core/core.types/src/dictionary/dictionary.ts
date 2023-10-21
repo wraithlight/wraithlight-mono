@@ -1,5 +1,8 @@
 import { Nullable, isNil } from "../nullable";
 
+/**
+ * @deprecated Import it from `core.dictionary` instead.
+ */
 export class Dictionary<TValue> {
 
     private readonly _cache = new Map<string, TValue>();
