@@ -1,5 +1,8 @@
 import { Dictionary } from "../dictionary";
 
+/**
+ * Import from `core.counter` instead.
+ */
 export class Counter {
 
     private _value: number = 0;
