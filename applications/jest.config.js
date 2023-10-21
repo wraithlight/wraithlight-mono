@@ -48,6 +48,9 @@ module.exports = (project) => {
           ]
         }
       }
-    ]
+    ],
+    transform: {
+      ...project.transform
+    }
   }
 };
