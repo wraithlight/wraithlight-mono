@@ -4,7 +4,8 @@ import { Store } from "@wraithlight/core.redux";
 
 import './app.css'
 import App from "./app"
-import { type UserManagementGlobalState, INITIAL_STATE } from "./sdk";
+import type { UserManagementGlobalState } from "./sdk";
+import { INITIAL_STATE } from "./sdk";
 
 const apiBaseUrl = "";
 Store.initialize(INITIAL_STATE);
