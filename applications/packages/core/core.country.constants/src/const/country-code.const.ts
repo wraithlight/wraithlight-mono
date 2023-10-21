@@ -1,13 +1,15 @@
-export enum CountryCode {
-    Hungary = "HU",
-    Malta = "MT",
-    India = "IN",
-    Pakistan = "PK",
-    UnitedStates = "US",
-    Germany = "DE",
-    France = "FR",
-    Austria = "AT",
-    Romania = "RO",
-    Croatia = "HR",
-    Italy = "IT"
-}
+import { CountryName } from "./country-name.const";
+
+export const CountryCode = Object.freeze({
+    [CountryName.Hungary]: "HU",
+    [CountryName.Malta]: "MT",
+    [CountryName.India]: "IN",
+    [CountryName.Pakistan]: "PK",
+    [CountryName.UnitedStates]: "US",
+    [CountryName.Germany]: "DE",
+    [CountryName.France]: "FR",
+    [CountryName.Austria]: "AT",
+    [CountryName.Romania]: "RO",
+    [CountryName.Croatia]: "HR",
+    [CountryName.Italy]: "IT"
+});
