@@ -76,7 +76,7 @@ module.exports = {
         "@typescript-eslint/no-unsafe-member-access": "warn",
         "@typescript-eslint/unbound-method": "warn",
         "lines-between-class-members": "off",
-        "@typescript-eslint/lines-between-class-members": "warn",
+        "@typescript-eslint/lines-between-class-members": "off",
         "@typescript-eslint/parameter-properties": "warn",
         "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/explicit-function-return-type": "warn",
@@ -86,7 +86,9 @@ module.exports = {
         "@typescript-eslint/promise-function-async": "warn",
         "no-magic-numbers": "off",
         "@typescript-eslint/no-magic-numbers": [
-            "warn", {
+            "warn",
+            {
+                "ignore": [-1, 0, 1],
                 "ignoreEnums": true
             }
         ],
