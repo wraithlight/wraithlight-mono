@@ -1,5 +1,6 @@
 jest.mock("@wraithlight/core.dom", () => {
     return {
+        // eslint-disable-next-line no-restricted-globals
         getDocumentRef: jest.fn().mockImplementation(() => document)
     }
 });
