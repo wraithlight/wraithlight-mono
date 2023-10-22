@@ -1,4 +1,4 @@
-import { Guid } from "@wraithlight/core.types";
+import { Guid } from "@wraithlight/core.guid";
 import { HttpClient, HttpCode } from "@wraithlight/core.http";
 import { SendMailRequestV1Model, SendMailResponseV1Model } from "@wraithlight/core.notifier.types";
 
