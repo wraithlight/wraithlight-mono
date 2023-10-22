@@ -1,4 +1,4 @@
-import { Guid, isGuid } from "@wraithlight/core.types";
+import { Guid, isGuid } from "@wraithlight/core.guid";
 
 import { MessagebusService } from "./messagebus.service";
 

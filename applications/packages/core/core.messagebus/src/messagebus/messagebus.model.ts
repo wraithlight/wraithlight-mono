@@ -1,4 +1,4 @@
-import { Guid } from "@wraithlight/core.types";
+import { Guid } from "@wraithlight/core.guid";
 
 export interface MessagebusListener<T = any> {
     id: Guid;

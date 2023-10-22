@@ -1,4 +1,4 @@
-import { Guid, newGuid } from "@wraithlight/core.types";
+import { Guid, newGuid } from "@wraithlight/core.guid";
 
 import { MessagebusCallbackFn, MessagebusListener } from "./messagebus.model";
 
