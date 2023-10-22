@@ -1,4 +1,4 @@
-import { Guid } from "@wraithlight/core.types";
+import { Guid } from "@wraithlight/core.guid";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import {
     ApplicationId,

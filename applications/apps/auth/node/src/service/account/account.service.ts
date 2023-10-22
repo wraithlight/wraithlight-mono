@@ -1,4 +1,4 @@
-import { newGuid } from "@wraithlight/core.types";
+import { newGuid } from "@wraithlight/core.guid";
 import { NotifierService } from "@wraithlight/common.notifier-sdk.server";
 
 import {
