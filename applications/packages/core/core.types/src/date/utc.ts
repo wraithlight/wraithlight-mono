@@ -1,3 +1,6 @@
+/**
+ * @deprecated Import it from `core.date` instead.
+ */
 export function toUtc(date: Date): Date {
     return new Date(
         date.getUTCFullYear(),
@@ -10,6 +13,9 @@ export function toUtc(date: Date): Date {
     );
 }
 
+/**
+ * @deprecated Import it from `core.date` instead.
+ */
 export function utcNow(): Date {
     return toUtc(new Date());
 }
