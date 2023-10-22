@@ -28,7 +28,9 @@ jest.mock("@wraithlight/core.redux", () => {
 
 jest.mock("@angular/platform-browser-dynamic", () => {
     return {
-        bootstrapModule: jest.fn().mockImplementation(() => Promise.resolve())
+        bootstrapModule: jest
+            .fn()
+            .mockImplementation(async () => Promise.resolve())
     }
 });
 jest.mock("./app/app.module", () => {
@@ -42,6 +44,7 @@ import { getDocumentRef } from "@wraithlight/core.dom";
 
 describe("mainSpecs", () => {
 
+    // eslint-disable-next-line no-restricted-globals
     const addEventListenerSpy = jest.spyOn(document, "addEventListener");
 
     describe("given the entry is initialized", () => {
