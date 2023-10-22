@@ -16,6 +16,7 @@
     "dependencies": {
         "@wraithlight/core.node": "*",
         "@wraithlight/core.types": "*",
+        "@wraithlight/core.guid": "*",
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.common-constants": "*",

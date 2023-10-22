@@ -1,4 +1,5 @@
-import { Guid, Nullable } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.types";
+import { Guid } from "@wraithlight/core.guid";
 
 import { AuthDbContextFactory } from "./context";
 import { UserScopeDbo } from "./dbo";
