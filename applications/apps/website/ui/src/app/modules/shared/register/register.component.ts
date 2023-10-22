@@ -1,6 +1,14 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, ViewEncapsulation } from "@angular/core";
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    OnDestroy,
+    ViewEncapsulation
+} from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
-import { AccountAction, AccountSelector } from "@wraithlight/common.auth-sdk.client";
+import {
+    AccountAction,
+    AccountSelector } from "@wraithlight/common.auth-sdk.client";
 import { Store } from "@wraithlight/core.redux";
 
 import { WebsiteGlobalState } from "../../../../sdk";
