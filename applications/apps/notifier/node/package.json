@@ -27,7 +27,9 @@
         "@wraithlight/common.logger.sdk": "*",
         "@wraithlight/core.cqrs": "*",
         "@wraithlight/core.http": "*",
-        "@wraithlight/common.notifier.nodemailer-sdk": "*"
+        "@wraithlight/common.notifier.nodemailer-sdk": "*",
+        "@wraithlight/core.types": "*",
+        "@wraithlight/core.guid": "*"
     },
     "devDependencies": {
         "webpack": "5.76.0",

@@ -1,6 +1,6 @@
 import { HttpClient } from "@wraithlight/core.http";
 import { WebhookConfigService } from "./webhook.config";
-import { Guid } from "@wraithlight/core.types";
+import { Guid } from "@wraithlight/core.guid";
 import {
     WebhookRequestFailV1Model,
     WebhookRequestStartV1Model,
