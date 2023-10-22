@@ -1,6 +1,13 @@
 import { dateNow } from "./now";
 
 describe("dateNowSpecs", () => {
+
+    beforeAll(() => {
+        jest
+            .useFakeTimers()
+            .setSystemTime(new Date());
+    });
+
     describe("given the utility is initialized", () => {
         describe("when i call it", () => {
             let now: Date;
