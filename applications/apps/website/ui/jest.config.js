@@ -3,7 +3,7 @@ const config = require("../../../jest.config.js");
 module.exports = config({
     preset: "ts-jest",
     displayName: "Apps/Website/UI",
-    passWithNoTests: true,
+    testEnvironment: "jsdom",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],
