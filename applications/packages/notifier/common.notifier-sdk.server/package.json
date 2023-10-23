@@ -25,7 +25,8 @@
         "@wraithlight/core.env": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.notifier.const": "*",
-        "@wraithlight/core.notifier.types": "*"
+        "@wraithlight/core.notifier.types": "*",
+        "@wraithlight/core.common-constants": "*"
     },
     "devDependencies": {
         "typescript": "5.0.3",
