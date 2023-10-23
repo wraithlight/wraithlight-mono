@@ -44,7 +44,8 @@ module.exports = (project) => {
             `${__dirname}/packages/game/$1/src`,
             `${__dirname}/packages/logs/$1/src`,
             `${__dirname}/packages/facade/$1/src`,
-            `${__dirname}/packages/health-checker/$1/src`
+            `${__dirname}/packages/health-checker/$1/src`,
+            `${__dirname}/packages/notifier/$1/src`
           ]
         }
       }
