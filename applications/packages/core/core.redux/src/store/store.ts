@@ -26,6 +26,7 @@ export class Store<TState> {
     private static _instance: Nullable<Store<any>>;
 
     private constructor(
+        // eslint-disable-next-line @typescript-eslint/parameter-properties
         private _state: TState
     ) { }
 
