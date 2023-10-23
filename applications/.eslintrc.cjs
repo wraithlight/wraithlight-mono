@@ -30,6 +30,13 @@ module.exports = {
         ".eslintrc.cjs",
         "jest.config.js"
     ],
+    settings: {
+        "import/resolver": {
+            typescript: {
+                project: "./tsconfig.json"
+            }
+        }
+    },
     rules: {
         // TODO
         "@typescript-eslint/no-empty-function": [
