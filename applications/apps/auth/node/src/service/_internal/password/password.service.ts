@@ -8,6 +8,9 @@ import { SHA512 } from "@wraithlight/core.crypto";
 
 import { PASSWORD_SALT_LENGTH } from "./password.const";
 
+/**
+ * @deprecated Use it from `common.password` instead.
+ */
 export class PasswordService {
 
     public generateSalt(): string {

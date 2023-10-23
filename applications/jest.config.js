@@ -38,6 +38,7 @@ module.exports = (project) => {
           "^@wraithlight\/(.*)$": [
             `${__dirname}/packages/$1/src`,
             `${__dirname}/packages/core/$1/src`,
+            `${__dirname}/packages/common/$1/src`,
             `${__dirname}/packages/core/logger/$1/src`,
             `${__dirname}/packages/common/environment-static/$1/src`,
             `${__dirname}/packages/auth/$1/src`,
