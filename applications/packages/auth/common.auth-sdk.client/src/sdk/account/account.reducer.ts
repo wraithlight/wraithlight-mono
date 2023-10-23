@@ -10,9 +10,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 account: {
-                    ...state.auth.account,
+                    ...state.auth!.account,
                     userRegister: action.payload
                 }
             }
@@ -22,9 +22,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 account: {
-                    ...state.auth.account,
+                    ...state.auth!.account,
                     isBusy: false,
                     errors: action.payload
                 }
@@ -35,9 +35,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 account: {
-                    ...state.auth.account,
+                    ...state.auth!.account,
                     isBusy: false
                 }
             }

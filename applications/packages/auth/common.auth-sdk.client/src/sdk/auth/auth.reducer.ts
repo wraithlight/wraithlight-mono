@@ -9,9 +9,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 session: {
-                    ...state.auth.session,
+                    ...state.auth!.session!,
                     isBusy: true
                 }
             }
@@ -21,9 +21,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 session: {
-                    ...state.auth.session,
+                    ...state.auth!.session,
                     isBusy: false,
                     errors: action.payload
                 }
@@ -34,9 +34,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 session: {
-                    ...state.auth.session,
+                    ...state.auth!.session,
                     isBusy: false,
                     isLoggedIn: true,
                     token: action.payload.token,
@@ -49,9 +49,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 session: {
-                    ...state.auth.session,
+                    ...state.auth!.session,
                     isBusy: true
                 }
             }
@@ -61,9 +61,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...store,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 session: {
-                    ...state.auth.session,
+                    ...state.auth!.session,
                     isBusy: false,
                     isLoggedIn: false,
                     token: undefined,
@@ -76,9 +76,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...store,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 session: {
-                    ...state.auth.session,
+                    ...state.auth!.session,
                     isBusy: false,
                     errors: action.payload
                 }
@@ -89,9 +89,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 session: {
-                    ...state.auth.session,
+                    ...state.auth!.session,
                     isBusy: true
                 }
             }
@@ -101,9 +101,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 session: {
-                    ...state.auth.session,
+                    ...state.auth!.session,
                     isBusy: false,
                     errors: action.payload
                 }
@@ -114,9 +114,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth,
+                ...state.auth!,
                 session: {
-                    ...state.auth.session,
+                    ...state.auth!.session,
                     isBusy: false,
                     token: action.payload.token,
                     tokenValidUntil: action.payload.validUntil
