@@ -11,8 +11,8 @@ jest.mock("@wraithlight/core.logs.sdk", () => {
         BeaconLoggerService: jest.fn().mockImplementation(() => { return { }})
     }
 });
-import { LoggerService as CoreLoggerService } from "@wraithlight/common.logger.sdk";
 import { ApplicationName } from "@wraithlight/core.common-constants";
+import { LoggerService as CoreLoggerService } from "@wraithlight/common.logger.sdk";
 import { ILogger, LoggerConfig } from "@wraithlight/core.logger.types";
 
 import { ServerLoggerService } from "./logger.service";
@@ -29,27 +29,34 @@ describe("ServerLoggerService", () => {
         warn: jest.fn(),
         error: jest.fn()
     };
+    const coreLoggerInitializeSpy = jest.spyOn(CoreLoggerService, "initialize");
+    const coreLoggerGetInstanceSpy = jest.spyOn(CoreLoggerService, "getInstance");
     let service: ServerLoggerService;
 
     describe("given the service is initialized", () => {
-        service = new ServerLoggerService(MOCK_APP_NAME, MOCK_LOGGER_CONFIG, MOCK_LOGGER);
+        service = new ServerLoggerService(
+            MOCK_APP_NAME,
+            MOCK_LOGGER_CONFIG,
+            MOCK_LOGGER
+        );
 
         it("should be truthy", () => {
             expect(service).toBeTruthy();
         });
 
         it("should initialize the underlying `LoggerService`", () => {
-            expect(CoreLoggerService.initialize).toHaveBeenCalled();
-            expect(CoreLoggerService.initialize).toHaveBeenCalledTimes(1);
-            expect(CoreLoggerService.initialize).toHaveBeenCalledWith(MOCK_LOGGER_CONFIG);
+            expect(coreLoggerInitializeSpy).toHaveBeenCalled();
+            expect(coreLoggerInitializeSpy).toHaveBeenCalledTimes(1);
+            expect(coreLoggerInitializeSpy)
+                .toHaveBeenCalledWith(MOCK_LOGGER_CONFIG);
         });
 
         it("should get the instance of the underlying `LoggerService`", () => {
-            expect(CoreLoggerService.getInstance).toHaveBeenCalled();
-            expect(CoreLoggerService.getInstance).toHaveBeenCalledTimes(1);
-            expect(CoreLoggerService.getInstance).toHaveBeenCalledWith(MOCK_LOGGER);
+            expect(coreLoggerGetInstanceSpy).toHaveBeenCalled();
+            expect(coreLoggerGetInstanceSpy).toHaveBeenCalledTimes(1);
+            expect(coreLoggerGetInstanceSpy).toHaveBeenCalledWith(MOCK_LOGGER);
         });
 
     });
-    
+
 });
