@@ -27,7 +27,8 @@
         "@wraithlight/core.crypto": "*",
         "@wraithlight/core.server": "*",
         "@wraithlight/common.notifier-sdk.server": "*",
-        "@wraithlight/common.health-checker.sdk-server": "*"
+        "@wraithlight/common.health-checker.sdk-server": "*",
+        "@wraithlight/core.random-string": "*"
     },
     "devDependencies": {
         "@types/node": "*",
