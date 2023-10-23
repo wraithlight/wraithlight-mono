@@ -23,6 +23,7 @@
     "rxjs": "7.8.0",
     "tslib": "2.5.0",
     "zone.js": "0.13.0",
+    "@wraithlight/core.nullable": "*",
     "@wraithlight/core.dom": "*",
     "@wraithlight/core.redux": "*",
     "@wraithlight/common.auth-sdk.client": "*",
