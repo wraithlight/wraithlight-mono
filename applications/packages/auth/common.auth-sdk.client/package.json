@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "2.4.0",
+    "version": "2.5.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -26,7 +26,8 @@
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.types": "*",
         "@wraithlight/core.http": "*",
-        "@wraithlight/common.logger.sdk": "*"
+        "@wraithlight/common.logger.sdk": "*",
+        "@wraithlight/core.nullable": "*"
     },
     "devDependencies": {
         "typescript": "5.0.3",
