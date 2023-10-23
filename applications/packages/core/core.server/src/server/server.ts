@@ -16,7 +16,7 @@ export function createNodeServer(
     const server = createServer(true);
     const logger = LoggerService.getInstance();
     ControllerBinder.bindControllers(
-        server.app,
+        server.getApp(),
         controllers
     );
 
