@@ -7,8 +7,8 @@ import { SERVER_CONFIG } from "../configuration";
 export class ServerConfigurationReader<TApplication> extends ConfigurationReader<TApplication, CommonServer> {
 
     constructor(
-        readonly _application: ApplicationName,
-        readonly _environment: EnvironmentType
+        private readonly _application: ApplicationName,
+        private readonly _environment: EnvironmentType
     ) {
         super(
             SERVER_CONFIG[_application][_environment] as TApplication,

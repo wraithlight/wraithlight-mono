@@ -7,7 +7,7 @@ jest.mock("@wraithlight/core.node", () => {
         },
         createServer: jest.fn().mockImplementation(() => {
             return {
-                app: MOCK_SERVER_APP,
+                getApp: jest.fn().mockImplementation(() => MOCK_SERVER_APP),
                 start: MOCK_START
             }
         })

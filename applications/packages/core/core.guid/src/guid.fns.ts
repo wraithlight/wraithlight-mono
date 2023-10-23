@@ -1,4 +1,4 @@
-import { generateRandomString } from "@wraithlight/core.types";
+import { generateRandomString } from "@wraithlight/core.random-string";
 
 import { Guid } from "./guid.type";
 

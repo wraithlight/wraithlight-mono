@@ -22,11 +22,15 @@ export class SelectorResultWrapper<TState, TValue> extends SelectorResult<TValue
     private previousValue: Nullable<TValue>;
 
     constructor(
-        public readonly id: string,
+        private readonly _id: string,
         private readonly _stopFn: () => void,
         private readonly _selector: Selector<TState, TValue>
     ) {
         super();
+    }
+
+    public get id(): string {
+        return this._id;
     }
 
     public invoke(

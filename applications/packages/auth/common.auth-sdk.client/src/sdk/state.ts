@@ -1,3 +1,4 @@
+import { Nullable } from "@wraithlight/core.nullable";
 import { Store } from "@wraithlight/core.redux";
 
 import { IAuthContainerStore, IAuthStore } from "./state.model";
@@ -11,7 +12,7 @@ export function initializeAuthSdk(
     apiBaseUrl: string,
     storeRef: Store<IAuthContainerStore>
 ): void {
-    Store.initializePartial<IAuthContainerStore, IAuthStore>(
+    Store.initializePartial<IAuthContainerStore, Nullable<IAuthStore>>(
         (m => m.auth),
         INITIAL_AUTH_STATE,
         true

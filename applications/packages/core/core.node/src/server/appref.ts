@@ -14,11 +14,15 @@ export class AppRef implements IAppRef {
     private readonly _logger = LoggerService.getInstance();
 
     constructor(
-        public readonly app: Application
+        private readonly _app: Application
     ) { }
 
+    public getApp(): Application {
+        return this._app;
+    }
+
     public serveStatic(route: string, staticPath: string, callback?: (req: Request) => void): IAppRef {
-        this.app.use(route, serveStatic(staticPath), (req: Request, _res: Response, next: NextFunction) => {
+        this._app.use(route, serveStatic(staticPath), (req: Request, _res: Response, next: NextFunction) => {
             callback && callback(req);
             next();
         });
@@ -27,7 +31,7 @@ export class AppRef implements IAppRef {
 
     public serveSwagger(route: string, staticPath: string): IAppRef {
         const document = require(staticPath);
-        this.app.use(route, swaggerServe, swaggerSetup(document));
+        this._app.use(route, swaggerServe, swaggerSetup(document));
         return this;
     }
 
@@ -35,7 +39,7 @@ export class AppRef implements IAppRef {
         port: number,
         callback?: () => void
     ): void {
-        this._listener = this.app.listen(port, () => {
+        this._listener = this._app.listen(port, () => {
             this._logger.info(`The app is up and running on http://localhost:${port}`);
             if (callback) {
                 callback();
