@@ -1,4 +1,5 @@
-import { DeepPartial } from "@wraithlight/core.types";
+import { DeepPartial } from "../deeppartial";
+
 import { deepmergeFacade } from "@wraithlight/facade.deepmerge";
 
 export function wlDeepmerge<T>(

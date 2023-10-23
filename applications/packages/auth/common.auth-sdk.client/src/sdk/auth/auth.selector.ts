@@ -1,5 +1,5 @@
 import { Selector } from "@wraithlight/core.redux";
-import { Nullable } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.nullable";
 
 import { IAuthContainerStore } from "../state.model";
 
@@ -9,10 +9,10 @@ export namespace AuthSelector {
     /**
      * @deprecated Use the named selectors instead.
      */
-    export const state: Selector<IAuthContainerStore, AuthState> = (state: IAuthContainerStore) => state.auth.session;
-    export const isBusy: Selector<IAuthContainerStore, boolean> = (state: IAuthContainerStore) => state.auth.session.isBusy;
-    export const errors: Selector<IAuthContainerStore, Nullable<ReadonlyArray<string>>> = (state: IAuthContainerStore) => state.auth.session.errors;
-    export const isLoggedIn: Selector<IAuthContainerStore, boolean> = (state: IAuthContainerStore) => state.auth.session.isLoggedIn;
-    export const token: Selector<IAuthContainerStore, Nullable<string>> = (state: IAuthContainerStore) => state.auth.session.token;
-    export const tokenValidUntil: Selector<IAuthContainerStore, Nullable<Date>> = (state: IAuthContainerStore) => state.auth.session.tokenValidUntil;
+    export const state: Selector<IAuthContainerStore, Nullable<AuthState>> = (state: IAuthContainerStore) => state.auth?.session;
+    export const isBusy: Selector<IAuthContainerStore, Nullable<boolean>> = (state: IAuthContainerStore) => state.auth?.session.isBusy;
+    export const errors: Selector<IAuthContainerStore, Nullable<ReadonlyArray<string>>> = (state: IAuthContainerStore) => state.auth?.session.errors;
+    export const isLoggedIn: Selector<IAuthContainerStore, Nullable<boolean>> = (state: IAuthContainerStore) => state.auth?.session.isLoggedIn;
+    export const token: Selector<IAuthContainerStore, Nullable<string>> = (state: IAuthContainerStore) => state.auth?.session.token;
+    export const tokenValidUntil: Selector<IAuthContainerStore, Nullable<Date>> = (state: IAuthContainerStore) => state.auth?.session.tokenValidUntil;
 }

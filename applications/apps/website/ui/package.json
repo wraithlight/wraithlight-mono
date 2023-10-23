@@ -22,6 +22,7 @@
     "@angular/router": "16.0.0",
     "@wraithlight/common.auth-sdk.client": "*",
     "@wraithlight/common.logger.sdk": "*",
+    "@wraithlight/core.nullable": "*",
     "@wraithlight/core.dom": "*",
     "@wraithlight/core.redux": "*",
     "rxjs": "7.8.0",

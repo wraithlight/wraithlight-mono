@@ -3,7 +3,7 @@ import {
     LOWERCASE_ALPHABET,
     NUMBER_ALPHABET,
     UPPERCASE_ALPHABET
-} from "@wraithlight/core.types";
+} from "@wraithlight/core.random-string";
 import { SHA512 } from "@wraithlight/core.crypto";
 
 import { PASSWORD_SALT_LENGTH } from "./password.const";

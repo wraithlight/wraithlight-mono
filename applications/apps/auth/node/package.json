@@ -27,7 +27,7 @@
         "@wraithlight/core.node": "*",
         "@wraithlight/core.server": "*",
         "@wraithlight/core.sql": "*",
-        "@wraithlight/core.types": "*"
+        "@wraithlight/core.random-string": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
