@@ -1,8 +1,8 @@
 import {
     generateRandomString,
-    LOWERCASE_ALPHABET,
 } from "@wraithlight/core.types";
 import {
+    LOWERCASE_ALPHABET,
     NUMBER_ALPHABET,
     UPPERCASE_ALPHABET
 } from "@wraithlight/core.random-string";
