@@ -1,9 +1,11 @@
 import {
     generateRandomString,
     LOWERCASE_ALPHABET,
-    NUMBER_ALPHABET,
-    UPPERCASE_ALPHABET
+    NUMBER_ALPHABET
 } from "@wraithlight/core.types";
+import {
+    UPPERCASE_ALPHABET
+} from "@wraithlight/core.random-string";
 import { SHA512 } from "@wraithlight/core.crypto";
 
 import { PASSWORD_SALT_LENGTH } from "./password.const";
