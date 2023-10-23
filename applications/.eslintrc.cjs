@@ -86,7 +86,15 @@ module.exports = {
         "@typescript-eslint/unbound-method": "warn",
         "lines-between-class-members": "off",
         "@typescript-eslint/lines-between-class-members": "off",
-        "@typescript-eslint/parameter-properties": "warn",
+        "@typescript-eslint/parameter-properties": [
+            "error",
+            {
+                "allow": [
+                    "private readonly",
+                    "protected readonly"
+                ]
+            }
+        ],
         "@typescript-eslint/no-namespace": "off",
         "@typescript-eslint/explicit-function-return-type": "warn",
         "@typescript-eslint/prefer-enum-initializers": "warn",
