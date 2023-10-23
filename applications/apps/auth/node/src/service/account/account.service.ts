@@ -1,6 +1,7 @@
-import { newGuid } from "@wraithlight/core.guid";
 import { NotifierService } from "@wraithlight/common.notifier-sdk.server";
+import { newGuid } from "@wraithlight/core.guid";
 
+import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
 import {
     ScopeRepository,
     UserDbo,
@@ -8,7 +9,6 @@ import {
     UserScopeDbo,
     UserScopeRepository
 } from "../../repository";
-import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
 import { PasswordService } from "../_internal";
 
 import { ACCOUNT_ERRORS, DEFAULT_LOGIN_SCOPES } from "./account.const";
@@ -35,14 +35,16 @@ export class AccountService {
                 errors: [ACCOUNT_ERRORS.passwordMismatch]
             };
         }
-        const userWithSameUsername = await this._userRepository.findUserByName(username);
+        const userWithSameUsername = await this._userRepository
+            .findUserByName(username);
         if (userWithSameUsername) {
             return {
                 success: false,
                 errors: [ACCOUNT_ERRORS.usernameAlreadyTaken]
             };
         }
-        const userWithSameEmailAddress = await this._userRepository.findUserByEmailAddress(emailAddress);
+        const userWithSameEmailAddress = await this._userRepository
+            .findUserByEmailAddress(emailAddress);
         if (userWithSameEmailAddress) {
             return {
                 success: false,
@@ -50,8 +52,10 @@ export class AccountService {
             };
         }
         const salt = this._passwordService.generateSalt();
-        const saltedPassword = this._passwordService.saltPassword(password, salt);
-        const hashedPassword = this._passwordService.hashPassword(saltedPassword);
+        const saltedPassword = this._passwordService
+            .saltPassword(password, salt);
+        const hashedPassword = this._passwordService
+            .hashPassword(saltedPassword);
 
         const model: UserDbo = {
             id: newGuid(),
