@@ -1,4 +1,5 @@
 const ignoreTests = [
+  "assets",
   "types",
   "constants",
   /**
