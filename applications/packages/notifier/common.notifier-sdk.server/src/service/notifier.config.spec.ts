@@ -1,9 +1,11 @@
+import { createUrl } from "@wraithlight/core.url";
 import { EnvironmentType } from "@wraithlight/core.common-constants";
 
 const sharedNotifierConfigReaderGetInstanceSpy = jest.fn();
 const sharedNotifierConfigReaderGetInstanceGetSpy = jest
     .fn()
-    .mockImplementation(() => "test")
+    .mockImplementationOnce(() => "test")
+    .mockImplementationOnce(() => 1234)
 ;
 jest.mock("@wraithlight/common.environment-static.shared", () => {
     return {
@@ -33,7 +35,7 @@ import { NotifierServiceConfig } from "./notifier.config";
 describe("NotifierServiceConfigSpecs", () => {
 
     const MOCK_BASE_URL = "test";
-    const MOCK_PORT = "test";
+    const MOCK_PORT = 1234;
     const MOCK_ROOT = NOTIFIER_ENDPOINT_CONST.v1.send.root;
     const MOCK_MAIL = NOTIFIER_ENDPOINT_CONST.v1.send.mail;
 
@@ -72,7 +74,7 @@ describe("NotifierServiceConfigSpecs", () => {
                 expect(typeof result).toBe("string");
             });
             it("should return the concetenated string", () => {
-                expect(result).toStrictEqual(`${MOCK_BASE_URL}:${MOCK_PORT}${MOCK_ROOT}${MOCK_MAIL}`);
+                expect(result).toStrictEqual(`${createUrl(MOCK_BASE_URL, MOCK_PORT)}${MOCK_ROOT}${MOCK_MAIL}`);
             });
         });
     });
