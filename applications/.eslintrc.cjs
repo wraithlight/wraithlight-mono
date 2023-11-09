@@ -1,6 +1,11 @@
 /* eslint-env node */
 module.exports = {
-    extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/recommended",
+        "plugin:import/typescript"
+    ],
     parser: "@typescript-eslint/parser",
     plugins: [
         "deprecation",
@@ -25,6 +30,13 @@ module.exports = {
         ".eslintrc.cjs",
         "jest.config.js"
     ],
+    settings: {
+        "import/resolver": {
+            typescript: {
+                project: "./tsconfig.json"
+            }
+        }
+    },
     rules: {
         // TODO
         "@typescript-eslint/no-empty-function": [
@@ -62,7 +74,16 @@ module.exports = {
         ],
         "no-warning-comments": "warn",
         "no-implicit-globals": "warn",
-        "sort-imports": "warn",
+        "sort-imports": [
+            "warn",
+            {
+                ignoreCase: false,
+                ignoreDeclarationSort: true,
+                ignoreMemberSort: false,
+                memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
+                allowSeparatedGroups: true
+            }
+        ],
         "no-multiple-empty-lines": "warn",
         "no-trailing-spaces": "warn",
         "no-console": "error",
@@ -131,6 +152,26 @@ module.exports = {
         ],
         // Typescript Plugins
         "deprecation/deprecation": "warn",
-        "import/no-extraneous-dependencies": "warn"
+        "import/no-extraneous-dependencies": "warn",
+        "import/no-unresolved": "error",
+        "import/order": [
+            "warn",
+            {
+                groups: [
+                    "builtin",
+                    "external",
+                    "internal",
+                    "parent",
+                    "sibling",
+                    "index",
+                    "unknown",
+                ],
+                "newlines-between": "always",
+                alphabetize: {
+                    order: "asc",
+                    caseInsensitive: true
+                }
+            }
+        ]
     }
 };

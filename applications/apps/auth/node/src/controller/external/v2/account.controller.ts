@@ -1,7 +1,7 @@
 import { API_ENDPOINTS } from "@wraithlight/core.auth.constant";
 import {
-    ApiRegisterRequest,
     ApiRegisterErrorResponse,
+    ApiRegisterRequest,
     ApiRegisterSuccessResponse
 } from "@wraithlight/core.auth.types";
 import { BaseController, HttpController, HttpPost } from "@wraithlight/core.node";
