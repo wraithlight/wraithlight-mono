@@ -24,6 +24,7 @@ export class CqrsService<T> {
             data: item
         };
         this._fifoService.set(stackItem);
+        this._isRunning = true;
         return id;
     }
 
@@ -50,10 +51,11 @@ export class CqrsService<T> {
                 return;
             }
             const item = this._fifoService.tryGetNext();
-            if (!isNil(item)) {
+            if (isNil(item)) {
                 return;
             }
-            this._processor(item!.data, item!.id);
+            // TODO: Remove forced cast once https://github.com/wraithlight/wraithlight-mono/pull/514 is merged
+            this._processor((item as any)!.data, (item as any)!.id);
         }, this._processorTimeout);
     }
 
