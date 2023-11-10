@@ -1,6 +1,6 @@
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { SHA256 } from "@wraithlight/core.crypto";
-import { addMinutes, dateNow, Nullable } from "@wraithlight/core.types";
+import { Nullable, addMinutes, dateNow } from "@wraithlight/core.types";
 
 import { SESSION_TIME_MINUTES } from "./session.const";
 import {
@@ -13,7 +13,7 @@ export class SessionService {
 
     private static _instance: Nullable<SessionService>;
 
-    private _sessions: Array<SessionModel> = [];
+    private readonly _sessions: Array<SessionModel> = [];
 
     private constructor() { }
 
@@ -67,7 +67,7 @@ export class SessionService {
             return {
                 success: false
             }
-        };
+        }
 
         const now = dateNow();
         const session = this.getSession(token);
@@ -83,7 +83,7 @@ export class SessionService {
         scope: LoginScope
     ): CheckResult {
         const isValid = this.hasValidSession(token, scope);
-        
+
         if (!isValid) {
             return {
                 isValid: false
