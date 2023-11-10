@@ -21,8 +21,7 @@
     },
     "dependencies": {
         "@wraithlight/core.common-constants": "*",
-        "@wraithlight/core.primitive": "*"
-        "@wraithlight/core.common-constants": "*",
+        "@wraithlight/core.primitive": "*",
         "@wraithlight/core.types": "*"
     },
     "devDependencies": {
