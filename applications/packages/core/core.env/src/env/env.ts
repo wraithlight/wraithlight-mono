@@ -1,5 +1,6 @@
 import { EnvironmentType } from "@wraithlight/core.common-constants";
-import { Predicate, Primitive } from "@wraithlight/core.types";
+import { Predicate } from "@wraithlight/core.types";
+import { Primitive } from "@wraithlight/core.primitive";
 
 import { WL_ENV_DEFAULT, WL_ENV_TYPE_PROP_NAME } from "./env.const";
 import { IEnvironment } from "./env.model";

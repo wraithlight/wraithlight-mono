@@ -1,4 +1,4 @@
-import { Primitive } from "@wraithlight/core.types";
+import { Primitive } from "@wraithlight/core.primitive";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { EOL } from "os";
 

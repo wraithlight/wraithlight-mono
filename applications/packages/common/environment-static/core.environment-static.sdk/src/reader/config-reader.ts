@@ -1,6 +1,4 @@
-import { Nullable, Primitive } from "@wraithlight/core.types";
 import { predicateDefault, Predicate } from "@wraithlight/core.linq";
-
 
 export class ConfigurationReader<TConfig, TCommonConfig> {
 
