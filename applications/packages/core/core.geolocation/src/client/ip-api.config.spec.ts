@@ -23,7 +23,6 @@ describe("IpApiClientConfigSpecs", () => {
             let result: string;
             beforeEach(() => {
                 result = service.getUrlForIp(MOCK_IP);
-                console.log(result);
             });
             it("should return the concatenated url", () => {
                 expect(result).toStrictEqual(`${baseUrl}${path}/${MOCK_IP}?${params}`)
