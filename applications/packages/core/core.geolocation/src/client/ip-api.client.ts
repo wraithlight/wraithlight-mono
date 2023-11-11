@@ -1,7 +1,7 @@
 import { HttpClient } from "@wraithlight/core.http";
+
 import { IpApiClientConfig } from "./ip-api.config";
 import { GeolocationInfoModel } from "./ip-api.model";
-import { IP_API_PARAMS } from "./ip-api.const";
 
 export class IpApiClient {
 
