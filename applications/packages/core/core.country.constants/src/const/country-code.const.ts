@@ -13,3 +13,5 @@ export const CountryCode = Object.freeze({
     [CountryName.Croatia]: "HR",
     [CountryName.Italy]: "IT"
 });
+
+export type CountryCode = typeof CountryCode[CountryName]
