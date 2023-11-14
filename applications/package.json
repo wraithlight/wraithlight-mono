@@ -50,6 +50,7 @@
     "open-cli": "7.2.0",
     "mustache": "4.2.0",
     "nx": "16.7.2",
-    "@wraithlight/tools.eslint.base": "*"
+    "@wraithlight/tools.eslint.base": "*",
+    "@wraithlight/tools.jest.base": "*"
   }
 }
