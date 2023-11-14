@@ -1,4 +1,4 @@
-import { isNil } from "@wraithlight/core.types";
+import { isNil } from "@wraithlight/core.nullable";
 
 import { RuleCaseItem, RuleCase } from "./base.validation-rule.model";
 
