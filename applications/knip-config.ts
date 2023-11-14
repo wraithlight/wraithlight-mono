@@ -13,13 +13,13 @@ const config: KnipConfig = {
         ".": {
             ignore: [
                 "webpack.config.js",
-                "webpack.package.config.js",
                 ".eslintrc.cjs",
                 "jest.config.js"
             ],
             ignoreDependencies: [
                 "@wraithlight/tools.eslint.base",
-                "@wraithlight/tools.jest.base"
+                "@wraithlight/tools.jest.base",
+                "@wraithlight/tools.webpack.base"
             ]
         },
         "apps/auth/node": {
@@ -96,6 +96,15 @@ const config: KnipConfig = {
         "packages/tools/tools.jest.base": {
             ignore: [
                 "src/jest.config.js"
+            ],
+            ignoreBinaries: [
+                // TODO: This might cause issues in Windows environments.
+                "rsync"
+            ]
+        },
+        "packages/tools/tools.webpack.base": {
+            ignore: [
+                "src/webpack.config.js"
             ],
             ignoreBinaries: [
                 // TODO: This might cause issues in Windows environments.
