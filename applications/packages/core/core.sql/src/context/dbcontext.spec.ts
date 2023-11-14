@@ -5,7 +5,7 @@ jest.mock("mysql2", () => {
     }
 });
 
-import { Nullable } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.nullable";
 
 import { DbContext } from "./dbcontext";
 import { createConnection, createPool } from "mysql2";
