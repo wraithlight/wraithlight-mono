@@ -11,7 +11,8 @@ const libFolders = [
     "packages"
 ];
 const ignoreFolders = [
-    "node_modules"
+    "node_modules",
+    "tools"
 ]
 const targetFiles = [
     "package.json"
