@@ -1,0 +1,16 @@
+{
+    "name": "@wraithlight/tools.eslint.base",
+    "module": "./dist/.eslintrc.cjs",
+    "exports": {
+        ".": {
+            "require": "./dist/.eslintrc.cjs",
+            "import": "./dist/.eslintrc.cjs"
+        }
+    },
+    "version": "1.0.0",
+    "license": "LGPL-3.0-only",
+    "scripts": {
+        "build": "rsync -a src/ dist/",
+        "build:prod": "rsync -a src/ dist/"
+    }
+}
