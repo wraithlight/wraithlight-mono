@@ -1,5 +1,6 @@
 import { Counter } from "@wraithlight/core.types";
-import { Nullable, isNil } from "@wraithlight/core.nullable";
+import { isNil } from "@wraithlight/core.nullable";
+import { Nullable } from "@wraithlight/core.nullable";
 import { predicateOverride, Predicate } from "@wraithlight/core.linq";
 
 import { Action, MixedAction } from "./action";
