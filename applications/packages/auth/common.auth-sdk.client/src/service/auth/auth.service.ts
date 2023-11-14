@@ -16,7 +16,7 @@ import {
     ValidateSessionResponse as CoreValidateSessionResponse,
     ValidateSessionSuccessResponse
 } from "@wraithlight/core.auth.types";
-import { Nullable } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.nullable";
 import { HttpClient } from "@wraithlight/core.http";
 import { UNKNOWN_ERROR } from "@wraithlight/core.common-constants";
 

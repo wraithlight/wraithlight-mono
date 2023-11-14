@@ -1,5 +1,5 @@
 import { CqrsService } from "@wraithlight/core.cqrs";
-import { Nullable } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.nullable";
 import { Guid } from "@wraithlight/core.guid";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { NodemailerFacadeService } from "@wraithlight/common.notifier.nodemailer-sdk";
