@@ -16,6 +16,9 @@ const config: KnipConfig = {
                 "webpack.package.config.js",
                 ".eslintrc.cjs",
                 "jest.config.js"
+            ],
+            ignoreDependencies: [
+                "@wraithlight/tools.eslint.base"
             ]
         },
         "apps/auth/node": {
@@ -78,6 +81,15 @@ const config: KnipConfig = {
                 "@angular/compiler-cli",
                 "jest-preset-angular",
                 "ts-node"
+            ]
+        },
+        "packages/tools/tools.eslint.base": {
+            ignore: [
+                "src/.eslintrc.cjs"
+            ],
+            ignoreBinaries: [
+                // TODO: This might cause issues in Windows environments.
+                "rsync"
             ]
         }
     }
