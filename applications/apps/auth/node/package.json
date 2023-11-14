@@ -27,6 +27,7 @@
         "@wraithlight/core.node": "*",
         "@wraithlight/core.server": "*",
         "@wraithlight/core.sql": "*",
+        "@wraithlight/core.date": "*",
         "@wraithlight/core.random-string": "*"
     },
     "devDependencies": {
