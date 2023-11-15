@@ -54,8 +54,7 @@ export class CqrsService<T> {
             if (isNil(item)) {
                 return;
             }
-            // TODO: Remove forced cast once https://github.com/wraithlight/wraithlight-mono/pull/514 is merged
-            this._processor((item as any)!.data, (item as any)!.id);
+            this._processor(item.data, item.id);
         }, this._processorTimeout);
     }
 
