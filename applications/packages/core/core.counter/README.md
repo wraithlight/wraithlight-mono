@@ -1,4 +1,4 @@
-## core.types
+## core.counter
 Utility types.
 
 * [nullable](./src/nullable/README.md)
