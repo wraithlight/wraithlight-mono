@@ -9,7 +9,7 @@ import {
     LOWERCASE_ALPHABET,
     UPPERCASE_ALPHABET,
     NUMBER_ALPHABET
-} from "@wraithlight/core.types";
+} from "@wraithlight/core.random-string";
 
 const randomString = generateRandomString(
     10,
