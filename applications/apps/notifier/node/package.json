@@ -29,7 +29,7 @@
         "@wraithlight/core.notifier.const": "*",
         "@wraithlight/core.notifier.types": "*",
         "@wraithlight/core.server": "*",
-        "@wraithlight/core.types": "*"
+        "@wraithlight/core.nullable": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",

@@ -1,4 +1,4 @@
-import { Nullable } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.nullable";
 import { IMailSender, IMailSenderSendMailResult } from "@wraithlight/core.notifier.types";
 import { createTransport } from "nodemailer";
 

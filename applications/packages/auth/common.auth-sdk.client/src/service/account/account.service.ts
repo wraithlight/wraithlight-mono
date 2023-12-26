@@ -1,5 +1,5 @@
 import { HttpClient } from "@wraithlight/core.http";
-import { Nullable } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.nullable";
 
 import {
     RegisterRequest,

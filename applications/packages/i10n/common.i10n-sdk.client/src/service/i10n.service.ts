@@ -1,4 +1,5 @@
-import { Dictionary, Nullable } from "@wraithlight/core.types";
+import { Dictionary } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.nullable";
 
 export class I10NService {
 

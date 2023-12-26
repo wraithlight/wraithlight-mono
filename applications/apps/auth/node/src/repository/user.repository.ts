@@ -1,4 +1,4 @@
-import { Nullable } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.nullable";
 
 import { AuthDbContextFactory } from "./context";
 import { UserDbo } from "./dbo";

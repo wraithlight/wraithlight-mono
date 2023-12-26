@@ -1,4 +1,4 @@
-import { Nullable } from "@wraithlight/core.types";
+import { Nullable } from "@wraithlight/core.nullable";
 import { ServerLogsConfigReader } from "@wraithlight/common.environment-static.server";
 import { getEnvironmentType } from "@wraithlight/core.env";
 
