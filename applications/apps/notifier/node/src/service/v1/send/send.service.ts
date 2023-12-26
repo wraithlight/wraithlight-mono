@@ -3,7 +3,7 @@ import { Nullable } from "@wraithlight/core.nullable";
 import { Guid } from "@wraithlight/core.guid";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { NodemailerFacadeService } from "@wraithlight/common.notifier.nodemailer-sdk";
-import { getEnvironmentType } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env";
 import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
 import { IMailSender } from "@wraithlight/core.notifier.types";
 
@@ -14,7 +14,7 @@ import { WebhookService } from "../webhook";
 export class SendServiceV1 {
 
     private readonly _logger = LoggerService.getInstance();
-    private readonly _config = ServerNotifierConfigReader.getInstance(getEnvironmentType());
+    private readonly _config = ServerNotifierConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
     private readonly _nodemailerFacade: IMailSender = NodemailerFacadeService.getInstance(
         this._config.get(m => m.emailSending.smtp.host),
         this._config.get(m => m.emailSending.smtp.port),

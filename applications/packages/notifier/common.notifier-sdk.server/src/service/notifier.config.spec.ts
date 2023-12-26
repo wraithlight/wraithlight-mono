@@ -21,13 +21,15 @@ jest.mock("@wraithlight/common.environment-static.shared", () => {
 });
 jest.mock("@wraithlight/core.env", () => {
     return {
-        getEnvironmentType: jest
+        CoreEnvironment: {
+            getEnvironmentType: jest
             .fn()
             .mockImplementation(() => EnvironmentType.Dev)
+        }
     }
 });
 
-import { getEnvironmentType } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env";
 import { NOTIFIER_ENDPOINT_CONST } from "@wraithlight/core.notifier.const";
 
 import { NotifierServiceConfig } from "./notifier.config";
@@ -51,9 +53,9 @@ describe("NotifierServiceConfigSpecs", () => {
             expect(sharedNotifierConfigReaderGetInstanceSpy).toHaveBeenCalledWith(EnvironmentType.Dev);
         });
         it("should read the current environment", () => {
-            expect(getEnvironmentType).toHaveBeenCalled();
-            expect(getEnvironmentType).toHaveBeenCalledTimes(1);
-            expect(getEnvironmentType).toHaveBeenCalledWith();
+            expect(CoreEnvironment.getEnvironmentType).toHaveBeenCalled();
+            expect(CoreEnvironment.getEnvironmentType).toHaveBeenCalledTimes(1);
+            expect(CoreEnvironment.getEnvironmentType).toHaveBeenCalledWith();
         });
 
         describe("when i call `getSendMailV1Url`", () => {

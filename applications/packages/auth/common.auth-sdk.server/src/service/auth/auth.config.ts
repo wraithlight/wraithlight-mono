@@ -1,11 +1,11 @@
 import { createUrl } from "@wraithlight/core.url";
-import { getEnvironmentType } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env";
 import { API_ENDPOINTS } from "@wraithlight/core.auth.constant";
 import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
 
 export class ServerAuthServiceConfig {
 
-    private readonly _reader = SharedUserManagementConfigReader.getInstance(getEnvironmentType());
+    private readonly _reader = SharedUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 
     public getLoginUrl(): string {
         return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.external.v2.auth.root, API_ENDPOINTS.external.v2.auth.login);

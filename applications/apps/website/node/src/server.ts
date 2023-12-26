@@ -4,11 +4,11 @@ import { ServerAccountControllerV1, ServerAuthControllerV1 } from "@wraithlight/
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import { createNodeServer } from "@wraithlight/core.server";
-import { getEnvironmentType } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env";
 import { join } from "path";
 
-const serverCfg = ServerWebsiteConfigReader.getInstance(getEnvironmentType());
-const sharedCfg = SharedWebsiteConfigReader.getInstance(getEnvironmentType());
+const serverCfg = ServerWebsiteConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+const sharedCfg = SharedWebsiteConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Website),
