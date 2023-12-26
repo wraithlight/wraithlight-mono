@@ -1,4 +1,4 @@
-import types from "@wraithlight/core.types";
+import types from "@wraithlight/core.guid";
 
 const guid = types.newGuid();
 
