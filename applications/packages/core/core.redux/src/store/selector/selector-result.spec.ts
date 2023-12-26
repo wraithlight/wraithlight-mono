@@ -8,7 +8,7 @@ class TestSelectorResult extends SelectorResult<string> {
 
 describe("SelectorResultSpecs", () => {
 
-    const MOCK_PARAMS = (_val: string, callback: () => void) => {};
+    const MOCK_PARAMS = (_val: string, _callback: () => void) => {};
     let result: TestSelectorResult;
 
     describe("given the object has been initialized", () => {
