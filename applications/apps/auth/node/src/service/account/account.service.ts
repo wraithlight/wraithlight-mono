@@ -58,7 +58,6 @@ export class AccountService {
             id: newGuid(),
             username: username,
             passwordHash: hashedPassword.encryptedPassword,
-            passwordSalt: "salt",
             failedLoginAttempts: 0,
             status: UserStatus.EmailVerify,
             emailAddress: emailAddress,
