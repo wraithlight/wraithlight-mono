@@ -32,10 +32,8 @@ export class MailerService {
             subject,
             undefined,
             htmlText,
-            // TODO: Align the SDK to `ReadonlyArray<string>`
-            bcc as Array<string>,
-            // TODO: Align the SDK to `ReadonlyArray<string>`
-            cc as Array<string>
+            bcc,
+            cc
         );
     }
 
