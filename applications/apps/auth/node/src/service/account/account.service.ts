@@ -1,5 +1,6 @@
 import { NotifierService } from "@wraithlight/common.notifier-sdk.server";
 import { newGuid } from "@wraithlight/core.guid";
+import { PasswordService } from "@wraithlight/common.password";
 
 import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
 import {
@@ -9,7 +10,6 @@ import {
     UserScopeDbo,
     UserScopeRepository
 } from "../../repository";
-import { PasswordService } from "../_internal";
 
 import { ACCOUNT_ERRORS, DEFAULT_LOGIN_SCOPES } from "./account.const";
 import { RegisterResult } from "./account.model";
@@ -51,17 +51,14 @@ export class AccountService {
                 errors: [ACCOUNT_ERRORS.emailAddressAlreadyUsed]
             };
         }
-        const salt = this._passwordService.generateSalt();
-        const saltedPassword = this._passwordService
-            .saltPassword(password, salt);
-        const hashedPassword = this._passwordService
-            .hashPassword(saltedPassword);
+        const salt = this._passwordService.getSalt();
+        const hashedPassword = this._passwordService.encryptPassword(password, salt);
 
         const model: UserDbo = {
             id: newGuid(),
             username: username,
-            passwordHash: hashedPassword,
-            passwordSalt: salt,
+            passwordHash: hashedPassword.encryptedPassword,
+            passwordSalt: "salt",
             failedLoginAttempts: 0,
             status: UserStatus.EmailVerify,
             emailAddress: emailAddress,

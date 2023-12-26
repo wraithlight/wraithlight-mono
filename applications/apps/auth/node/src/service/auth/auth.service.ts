@@ -1,4 +1,5 @@
 import { LoginScope } from "@wraithlight/core.auth.types";
+import { PasswordService } from "@wraithlight/common.password";
 
 import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
 import {
@@ -6,7 +7,6 @@ import {
     UserRepository,
     UserScopeRepository
 } from "../../repository";
-import { PasswordService } from "../_internal";
 
 import { AUTH_ERRORS, MAXIMUM_FAILED_LOGIN_ATTEMPTS } from "./auth.const";
 import { AuthResult } from "./auth.model";
@@ -45,14 +45,8 @@ export class AuthService {
             }
         }
 
-        const saltedPassword = this._passwordService.saltPassword(
-            password,
-            user.passwordSalt
-        );
-        const hashedPassword = this._passwordService
-            .hashPassword(saltedPassword);
         const isPasswordMatch = this._passwordService.verifyPassword(
-            hashedPassword,
+            password,
             user.passwordHash
         );
         if (!isPasswordMatch) {
