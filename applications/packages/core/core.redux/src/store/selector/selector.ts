@@ -1,4 +1,4 @@
-// TODO: Extends predicate
-export interface Selector<TState, TValue> {
-    (state: TState): TValue;
+import { Predicate } from "@wraithlight/core.linq";
+
+export interface Selector<TState, TValue> extends Predicate<TState, TValue> {
 }
