@@ -22,7 +22,7 @@
     "dependencies": {
         "@wraithlight/core.guid": "*",
         "@wraithlight/core.stack": "*",
-        "@wraithlight/core.types": "*"
+        "@wraithlight/core.nullable": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
