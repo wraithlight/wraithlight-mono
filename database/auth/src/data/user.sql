@@ -3,7 +3,6 @@ INSERT INTO `User` (
     `Id`,
     `Username`,
     `EmailAddress`,
-    `PasswordSalt`,
     `PasswordHash`,
     `FailedLoginAttempts`,
     `Status`,
@@ -12,7 +11,6 @@ INSERT INTO `User` (
     "7777ba27-da56-4ddd-ae97-f38a1e48effa",
     "root",
     "root@wraithlight.io",
-    "QwErT123Qw",
     -- password: root
     -- hash: QwErT123Qw
     -- pwToHash: QwErT123QwrootwQ321TrEwQ

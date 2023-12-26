@@ -6,7 +6,6 @@ export interface UserDbo {
     id: Guid;
     username: string;
     passwordHash: string;
-    passwordSalt: string;
     emailAddress: string;
     failedLoginAttempts: number;
     status: UserStatus;
