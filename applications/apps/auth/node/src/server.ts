@@ -2,14 +2,14 @@ import { ServerUserManagementConfigReader } from "@wraithlight/common.environmen
 import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import { createNodeServer } from "@wraithlight/core.server";
-import { getEnvironmentType } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env";
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
 import { join } from "path";
 
 import { AccountControllerV2, SessionControllerV2 } from "./controller";
 
-const serverCfg = ServerUserManagementConfigReader.getInstance(getEnvironmentType());
-const sharedCfg = SharedUserManagementConfigReader.getInstance(getEnvironmentType());
+const serverCfg = ServerUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+const sharedCfg = SharedUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 
 const healthCheckToken = serverCfg.getCommon(x => x.healthChecker.tokens.userManagement);
 

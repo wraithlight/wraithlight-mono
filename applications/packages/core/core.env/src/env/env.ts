@@ -1,14 +1,64 @@
 import { EnvironmentType } from "@wraithlight/core.common-constants";
-import { Predicate } from "@wraithlight/core.linq";
-import { Primitive } from "@wraithlight/core.primitive";
 
-import { WL_ENV_DEFAULT, WL_ENV_TYPE_PROP_NAME } from "./env.const";
-import { IEnvironment } from "./env.model";
+import { WL_ENV_DEFAULT } from "./env.const";
+import { IEnvironment, IEnvironmentPropery } from "./env.model";
 
-export function getEnvironmentType(): EnvironmentType {
-    return process.env[WL_ENV_TYPE_PROP_NAME] as EnvironmentType || WL_ENV_DEFAULT;
-}
+export class CoreEnvironment {
 
-export function getFromEnvironment<T extends Primitive>(predicate: Predicate<IEnvironment, T>): T {
-    return predicate((process.env as unknown as IEnvironment)) as T;
+    public static getEnvironmentType(): EnvironmentType {
+        return this.getStringAsT<EnvironmentType>("wlType", WL_ENV_DEFAULT)
+    }
+
+    public static getStringAsT<T>(
+        key: IEnvironmentPropery,
+        defaultValue: T
+    ): T {
+        return this.getString(
+            key,
+            `${defaultValue}`
+        ) as T
+    }
+
+    public static getString(
+        key: IEnvironmentPropery,
+        defaultValue: string
+    ): string {
+        return this.getFromEnvironment(
+            key,
+            defaultValue.toString(),
+            m => m
+        );
+    }
+
+    public static getNumber(
+        key: IEnvironmentPropery,
+        defaultValue: number
+    ): number {
+        return this.getFromEnvironment(
+            key,
+            defaultValue.toString(),
+            m => Number(m)
+        );
+    }
+
+    public static getBoolean(
+        key: IEnvironmentPropery,
+        defaultValue: boolean
+    ): boolean {
+        return this.getFromEnvironment(
+            key,
+            defaultValue.toString(),
+            m => m.toLowerCase() === true.toString()
+        );
+    }
+
+    private static getFromEnvironment<T, >(
+        key: IEnvironmentPropery,
+        defaultValue: string,
+        transformer: (value: string) => T
+    ): T {
+        const processEnv = process.env as IEnvironment
+        const value = processEnv[key] ?? defaultValue
+        return transformer(value)
+    }
 }

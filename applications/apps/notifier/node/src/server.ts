@@ -4,13 +4,13 @@ import { ServerNotifierConfigReader } from "@wraithlight/common.environment-stat
 import { SharedNotifierConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import { createNodeServer } from "@wraithlight/core.server";
-import { getEnvironmentType } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env";
 import { join } from "path";
 
 import { SendControllerV1 } from "./controller";
 
-const serverCfg = ServerNotifierConfigReader.getInstance(getEnvironmentType());
-const sharedCfg = SharedNotifierConfigReader.getInstance(getEnvironmentType());
+const serverCfg = ServerNotifierConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+const sharedCfg = SharedNotifierConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Notifier),
