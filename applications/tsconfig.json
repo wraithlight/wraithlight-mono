@@ -16,7 +16,8 @@
                 "packages/framework/*/src/index.ts",
                 "packages/facade/*/src/index.ts",
                 "packages/health-checker/*/src/index.ts",
-                "packages/game-website/*/src/index.ts"
+                "packages/game-website/*/src/index.ts",
+                "packages/common/*/src/index.ts"
             ]
         }
     }
