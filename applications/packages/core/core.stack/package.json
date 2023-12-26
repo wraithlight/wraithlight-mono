@@ -21,7 +21,9 @@
     },
     "dependencies": {
         "@wraithlight/core.types": "*",
-        "@wraithlight/core.nullable": "*"
+        "@wraithlight/core.nullable": "*",
+        "@wraithlight/core.linq": "*",
+        "@wraithlight/core.date": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",

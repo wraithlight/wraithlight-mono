@@ -1,5 +1,5 @@
 import { FifoStackService } from "@wraithlight/core.stack";
-import { isNil } from "@wraithlight/core.types";
+import { isNil } from "@wraithlight/core.nullable";
 import { Guid, newGuid } from "@wraithlight/core.guid";
 
 import { CQRS_PROCESSOR_TIMEOUT } from "./cqrs.const";
