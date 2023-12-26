@@ -7,9 +7,10 @@
     "lerna": "lerna",
     "lint": "lerna run lint",
     "build": "lerna run build",
-    "build:tools": "lerna run build --scope='@wraithlight/tools*'",
+    "build:tools": "lerna run build --scope=@wraithlight/tools*",
     "build:prod": "lerna run build:prod",
-    "postinstall": "yarn build:tools",
+    "build:guid": "lerna run build --scope @wraithlight/core.guid --include-dependencies",
+    "postinstall": "yarn build:tools && yarn build:guid",
     "graph": "nx graph",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
@@ -43,7 +44,7 @@
     "yarn": ">=1.22.0 <1.23.0"
   },
   "dependencies": {
-    "@wraithlight/core.types": "*"
+    "@wraithlight/core.guid": "*"
   },
   "devDependencies": {
     "lerna": "6.5.1",
