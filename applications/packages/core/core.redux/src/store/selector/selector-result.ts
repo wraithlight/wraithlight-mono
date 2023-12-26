@@ -10,7 +10,7 @@ export class SelectorResult<TValue> {
 
     protected params: Nullable<SelectorResultParams<TValue>>;
 
-    public onSelection(params: SelectorResultParams<TValue>) {
+    public onSelection(params: SelectorResultParams<TValue>): void {
         this.params = params;
     }
 

@@ -71,7 +71,7 @@ export class Store<TState> {
 
     public select<TValue>(selector: Selector<TState, TValue>): SelectorResult<TValue> {
         const id = `selector_${this._selectorCounter.getNext()}`;
-        const stopFn = () => {
+        const stopFn = (): void => {
             const index = this._selectors.findIndex(m => m.id === id);
             this._selectors.splice(index, 1);
         };
@@ -92,7 +92,7 @@ export class Store<TState> {
     public addEffect<TAction extends Action>(
         actions: Array<(...args: Array<any>) => TAction>,
         effectCallback: EffectCallback<TAction>
-    ) {
+    ): Store<TState> {
         const effect = createEffect(actions, effectCallback);
         this._effects.push(effect);
         return this;

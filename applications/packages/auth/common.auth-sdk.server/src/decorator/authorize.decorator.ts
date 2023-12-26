@@ -1,12 +1,16 @@
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { WRAITHLIGHT_AUTH_SESSION_TOKEN } from "@wraithlight/core.auth.constant";
 import { HttpCode } from "@wraithlight/core.http";
-import { FilterDecorator, FilterResult } from "@wraithlight/core.node";
+import {
+    FilterDecorator,
+    FilterResult,
+    IDecoratorFactory
+} from "@wraithlight/core.node";
 import { Request } from "express";
 
 import { ServerAuthService } from "../service";
 
-export const Authorize = (scope: LoginScope) => FilterDecorator(async (
+export const Authorize = (scope: LoginScope): IDecoratorFactory<any> => FilterDecorator(async (
     request: Request
 ) => {
     const token = request.headers[WRAITHLIGHT_AUTH_SESSION_TOKEN] as string;

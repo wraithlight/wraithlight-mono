@@ -121,7 +121,7 @@ module.exports = {
             }
         ],
         "@typescript-eslint/no-namespace": "off",
-        "@typescript-eslint/explicit-function-return-type": "warn",
+        "@typescript-eslint/explicit-function-return-type": "error",
         "@typescript-eslint/prefer-enum-initializers": "warn",
         "@typescript-eslint/prefer-readonly": "warn",
         "@typescript-eslint/prefer-string-starts-ends-with": "warn",
