@@ -10,7 +10,7 @@ import {
     genSaltSync,
     hashSync,
     compareSync
-} from "bcrypt"
+} from "bcryptjs"
 
 import { Bcrypt } from "./bcrypt";
 
