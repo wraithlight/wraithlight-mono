@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "1.2.2",
+    "version": "1.3.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -23,6 +23,8 @@
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.common-constants": "*",
         "@wraithlight/core.env": "*",
+        "@wraithlight/common.environment-static.shared": "*",
+        "@wraithlight/core.url": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.logger.types": "*",
         "@wraithlight/core.logs.constant": "*",

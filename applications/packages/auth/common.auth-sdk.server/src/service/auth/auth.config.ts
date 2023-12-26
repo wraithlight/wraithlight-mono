@@ -1,3 +1,4 @@
+import { createUrl } from "@wraithlight/core.url";
 import { getEnvironmentType } from "@wraithlight/core.env";
 import { API_ENDPOINTS } from "@wraithlight/core.auth.constant";
 import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
@@ -25,7 +26,7 @@ export class ServerAuthServiceConfig {
     private getApiUrl(): string {
         const host = this._reader.get(x => x.server.baseUrl);
         const port = this._reader.get(x => x.server.port);
-        return `${host}:${port}`;
+        return createUrl(host, port);
     }
 
     private concatSegments(...segments: Array<string>): string {
