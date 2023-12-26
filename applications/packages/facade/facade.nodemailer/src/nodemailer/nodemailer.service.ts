@@ -28,8 +28,8 @@ export class NodemailerFacadeService {
         subject: string,
         text?: string,
         htmlText?: string,
-        bcc: Array<string> = [],
-        cc: Array<string> = []
+        bcc: ReadonlyArray<string> = [],
+        cc: ReadonlyArray<string> = []
     ): Promise<string> {
         const result: { messageId: string } = await this._transport.sendMail({
             to: toAddress,
@@ -37,8 +37,8 @@ export class NodemailerFacadeService {
             subject: subject,
             text: text,
             html: htmlText,
-            bcc: bcc,
-            cc: cc
+            bcc: [...bcc],
+            cc: [...cc]
         });
         return result.messageId;
     }
