@@ -1,7 +1,7 @@
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { SHA256 } from "@wraithlight/core.crypto";
 import { Nullable } from "@wraithlight/core.nullable";
-import { dateNow } from "@wraithlight/core.types";
+import { dateNow } from "@wraithlight/core.date";
 import { addMinutes } from "@wraithlight/core.date";
 
 import { SESSION_TIME_MINUTES } from "./session.const";
