@@ -24,7 +24,6 @@
         "@wraithlight/core.node": "*",
         "@wraithlight/core.server": "*",
         "@wraithlight/core.sql": "*",
-        "@wraithlight/core.types": "*",
         "@wraithlight/core.nullable": "*",
         "@wraithlight/core.date": "*"
     },
