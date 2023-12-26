@@ -12,7 +12,7 @@ import { FILTER_METADATA_KEY } from "../internal/filter-metadata.const";
 import { MethodMetadata } from "../internal/method-metadata.model";
 
 export class ControllerBinder {
-    
+
     public static bindControllers(
         app: Application,
         controllers: ReadonlyArray<BaseController>

@@ -19,7 +19,7 @@ describe("GameContextServiceSpecs", () => {
     let service: GameContextService;
 
     describe("given the service is initialized", () => {
-        
+
         service = new GameContextService();
 
         describe("when i call `initGame()` function", () => {

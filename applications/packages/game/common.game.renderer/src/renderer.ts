@@ -11,7 +11,7 @@ export class Renderer {
     public useCanvas(
         canvas: HTMLCanvasElement
     ): void {
-        if (!this._canvasService) {    
+        if (!this._canvasService) {
             this._canvasService = new CanvasService(canvas);
         }
     }
@@ -27,7 +27,7 @@ export class Renderer {
         sprite: Sprite,
         position: Position
     ): void {
-        
+
     }
 
     public fillColor(

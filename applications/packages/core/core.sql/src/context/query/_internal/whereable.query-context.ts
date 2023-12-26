@@ -11,7 +11,7 @@ export abstract class WhereableQueryContext<T extends Object>
     implements IWhereableQueryContext<T> {
 
     private lastWasWhere = false;
-    
+
     public where<TKey extends keyof T>(key: TKey, value: T[TKey]): IWhereableQueryContext<T> {
         const queryValue = this.getValueString(value as Primitive);
         if (this.lastWasWhere) {

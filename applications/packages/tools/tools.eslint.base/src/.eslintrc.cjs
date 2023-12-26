@@ -28,7 +28,11 @@ module.exports = {
         "**/dist/**",
         "**/webpack.config.js",
         ".eslintrc.cjs",
-        "jest.config.js"
+        "jest.config.js",
+        "**/*.js",
+        "**/*.mjs",
+        "**/*.cjs",
+        "**/*.spec.ts"
     ],
     settings: {
         "import/resolver": {
@@ -85,7 +89,7 @@ module.exports = {
             }
         ],
         "no-multiple-empty-lines": "warn",
-        "no-trailing-spaces": "warn",
+        "no-trailing-spaces": "error",
         "no-console": "error",
         "no-alert": "warn",
         "no-restricted-properties": [

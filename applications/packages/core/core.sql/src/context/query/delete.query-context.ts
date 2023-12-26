@@ -9,7 +9,6 @@ export class DeleteQueryContext<T extends Object>
     extends WhereableQueryContext<T>
     implements IDeleteQueryContext<T> {
 
-    
     constructor(
         tableName: string,
         private readonly _context: DbContext

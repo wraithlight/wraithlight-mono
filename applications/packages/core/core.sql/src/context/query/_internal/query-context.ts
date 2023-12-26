@@ -42,13 +42,13 @@ export abstract class QueryContext<T extends Object> {
         switch(typeof value) {
             case "number": return value.toString();
             case "boolean": return value.toString();
-            default: return `"${value}"`; 
+            default: return `"${value}"`;
         }
     }
 
     protected getColumnValuePairs(data: T): string {
         const keys = Object.keys(data) as Array<keyof T>;
-        return keys.map(key => 
+        return keys.map(key =>
             `${this._tableName}.${this.capitalize(key.toString())} = ${this.getValueString(data[key] as Primitive)}`
         ).join(`,${EOL}`);
     }

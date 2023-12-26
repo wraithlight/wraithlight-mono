@@ -13,7 +13,7 @@ jest.mock("nodemailer", () => {
 import { createTransport } from "nodemailer";
 
 describe("NodemailerFacadeServiceSpecs", () => {
-    
+
     const MOCK_HOST = "host";
     const MOCK_PORT = 123;
     const MOCK_SECURE = false;

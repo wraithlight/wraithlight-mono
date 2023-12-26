@@ -1,6 +1,7 @@
 import { Guid } from "@wraithlight/core.guid";
 import { HttpClient, HttpCode } from "@wraithlight/core.http";
 import { SendMailRequestV1Model, SendMailResponseV1Model } from "@wraithlight/core.notifier.types";
+import { isNil } from "@wraithlight/core.nullable";
 
 import { NotifierServiceConfig } from "./notifier.config";
 
@@ -23,9 +24,14 @@ export class NotifierService extends HttpClient {
             isHtml,
             webhookBaseApiUrl
         };
-        const result = await this.post<SendMailResponseV1Model, SendMailRequestV1Model>(url, data);
-        if (result.statusCode === HttpCode.Ok) {
-            return result.payload!.id;
+        const result = await this.post<
+            SendMailResponseV1Model,
+            SendMailRequestV1Model
+        >
+            (url, data)
+        ;
+        if (result.statusCode === HttpCode.Ok && !isNil(result.payload)) {
+            return result.payload.id;
         } else {
             throw `Sending email has been failed!`;
         }

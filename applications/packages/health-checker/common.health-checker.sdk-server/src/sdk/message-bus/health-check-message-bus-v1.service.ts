@@ -37,7 +37,7 @@ export class HealthCheckMessageBusV1Service {
     public subscribeToError(
         handler: () => void
     ): void {
-        this._messageBus.sub(ERROR_CHANNEL_TOKEN, handler);    
+        this._messageBus.sub(ERROR_CHANNEL_TOKEN, handler);
     }
 
 }

@@ -10,5 +10,4 @@ export function mustacheFacade<T>(template: string, model: T): MustacheRenderRes
     } catch {
         return { isSuccess: false, renderedTemplate: template }
     }
-    
 }

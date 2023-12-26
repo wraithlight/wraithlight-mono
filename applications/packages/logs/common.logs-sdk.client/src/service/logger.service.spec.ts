@@ -27,5 +27,5 @@ describe("ClientLoggerServiceSpecs", () => {
         });
 
     });
-    
+
 });

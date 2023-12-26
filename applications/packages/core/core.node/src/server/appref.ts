@@ -53,7 +53,6 @@ export class AppRef implements IAppRef {
                 callback();
             }
         });
-        
     }
 
 }

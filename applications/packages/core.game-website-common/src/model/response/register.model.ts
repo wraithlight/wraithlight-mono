@@ -15,6 +15,4 @@ export interface ErrorRegisterResponse extends BaseRegisterResponse {
 /**
  * @deprecated Import it from `core.game-website.types` instead.
  */
-export interface SuccessRegisterResponse extends BaseRegisterResponse {
-    
-}
+export interface SuccessRegisterResponse extends BaseRegisterResponse { }

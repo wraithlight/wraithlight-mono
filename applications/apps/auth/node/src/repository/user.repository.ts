@@ -10,7 +10,7 @@ export class UserRepository {
     public async add(dbo: UserDbo): Promise<void> {
         this._dbContext.Users
             .insert(dbo)
-            .run()    
+            .run()
         ;
     }
 
