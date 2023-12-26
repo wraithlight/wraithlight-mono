@@ -13,7 +13,7 @@ import {
     ApiValidateSessionRequest,
     ApiValidateSessionSuccessResponse
 } from "@wraithlight/core.auth.types";
-import { toUtc } from "@wraithlight/core.types";
+import { toUtc } from "@wraithlight/core.date";
 import {
     BaseController,
     HttpController,
