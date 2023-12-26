@@ -1,0 +1,16 @@
+{
+    "name": "@wraithlight/tools.webpack.base",
+    "module": "./dist/webpack.config.js",
+    "exports": {
+        ".": {
+            "require": "./dist/webpack.config.js",
+            "import": "./dist/webpack.config.js"
+        }
+    },
+    "version": "1.0.0",
+    "license": "LGPL-3.0-only",
+    "scripts": {
+        "build": "rsync -a src/ dist/",
+        "build:prod": "rsync -a src/ dist/"
+    }
+}

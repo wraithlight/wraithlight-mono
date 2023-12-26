@@ -103,7 +103,6 @@
         "license",
         "scripts",
         "$schema",
-        "dependencies",
         "devDependencies"
     ]
 }

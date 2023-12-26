@@ -7,7 +7,9 @@
     "lerna": "lerna",
     "lint": "lerna run lint",
     "build": "lerna run build",
+    "build:tools": "lerna run build --scope='@wraithlight/tools*'",
     "build:prod": "lerna run build:prod",
+    "postinstall": "yarn build:tools",
     "graph": "nx graph",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
@@ -33,7 +35,8 @@
     "packages/framework/*",
     "packages/health-checker/*",
     "packages/facade/*",
-    "packages/game-website/*"
+    "packages/game-website/*",
+    "packages/tools/*"
   ],
   "engines" : { 
     "node" : ">=18.0.0 <19.0.0",
@@ -48,6 +51,9 @@
     "knip": "2.19.10",
     "open-cli": "7.2.0",
     "mustache": "4.2.0",
-    "nx": "16.7.2"
+    "nx": "16.7.2",
+    "@wraithlight/tools.eslint.base": "*",
+    "@wraithlight/tools.jest.base": "*",
+    "@wraithlight/tools.webpack.base": "*"
   }
 }

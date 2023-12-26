@@ -1,11 +1,11 @@
 import { LoginScope } from "@wraithlight/core.auth.types";
 
+import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
 import {
     ScopeRepository,
     UserRepository,
     UserScopeRepository
 } from "../../repository";
-import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
 import { PasswordService } from "../_internal";
 
 import { AUTH_ERRORS, MAXIMUM_FAILED_LOGIN_ATTEMPTS } from "./auth.const";
@@ -45,15 +45,32 @@ export class AuthService {
             }
         }
 
-        const saltedPassword = this._passwordService.saltPassword(password, user.passwordSalt);
-        const hashedPassword = this._passwordService.hashPassword(saltedPassword);
-        const isPasswordMatch = this._passwordService.verifyPassword(hashedPassword, user.passwordHash);
+        const saltedPassword = this._passwordService.saltPassword(
+            password,
+            user.passwordSalt
+        );
+        const hashedPassword = this._passwordService
+            .hashPassword(saltedPassword);
+        const isPasswordMatch = this._passwordService.verifyPassword(
+            hashedPassword,
+            user.passwordHash
+        );
         if (!isPasswordMatch) {
             user.failedLoginAttempts += 1;
-            await this._userRepository.update(user.id, { failedLoginAttempts: user.failedLoginAttempts });
+            await this._userRepository.update(
+                user.id,
+                {
+                    failedLoginAttempts: user.failedLoginAttempts
+                }
+            );
 
             if (user.failedLoginAttempts === MAXIMUM_FAILED_LOGIN_ATTEMPTS) {
-                await this._userRepository.update(user.id, { status: UserStatus.LockedOutDueTooManyInvalidLogin });
+                await this._userRepository.update(
+                    user.id,
+                    {
+                        status: UserStatus.LockedOutDueTooManyInvalidLogin
+                    }
+                );
             }
 
             return {
@@ -69,7 +86,10 @@ export class AuthService {
                 errors: [AUTH_ERRORS.scopeNotFound]
             };
         }
-        const userScope = await this._userScopeRepository.find(user.id, scope.id);
+        const userScope = await this._userScopeRepository.find(
+            user.id,
+            scope.id
+        );
         if (!userScope) {
             return {
                 success: false,

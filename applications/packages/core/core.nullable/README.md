@@ -16,7 +16,7 @@ booleanLike = undefined;
 
 ```
 
-### `isNil(valueLike)
+### `isNil(valueLike)`
 Checks if the given value is `null` or `undefined`
 
 #### Usage

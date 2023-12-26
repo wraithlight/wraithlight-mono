@@ -1,5 +1,5 @@
 import { Predicate } from "@wraithlight/core.linq";
-import { isNil } from "@wraithlight/core.types";
+import { isNil } from "@wraithlight/core.nullable";
 
 import { ValidationType } from "./array.validation-rule.model";
 import { IterableValidationRule } from "./iterable.validation-rule";
