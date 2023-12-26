@@ -1,23 +1,19 @@
-import { SHA512 } from "@wraithlight/core.crypto";
-import { generateRandomString } from "@wraithlight/core.random-string";
+jest.mock("@wraithlight/facade.bcrypt", () => {
+    return {
+        Bcrypt: {
+            encryptPasswordWithSaltSync: jest.fn()
+        }
+    }
+});
 
-jest.mock("@wraithlight/core.random-string", () => {
-    return {
-        generateRandomString: jest.fn().mockImplementation(() => "wraithlight")
-    }
-});
-jest.mock("@wraithlight/core.crypto", () => {
-    return {
-        SHA512: jest.fn().mockImplementation(() => "wraithlight")
-    }
-});
+import { Bcrypt } from "@wraithlight/facade.bcrypt";
 
 import { PasswordService } from "./password.service";
-import { SALT_ALPHABET, SALT_LENGTH } from "./password.const";
 
 describe("PasswordServiceSpecs", () => {
 
     const MOCK_PASSWORD = "wraithlight";
+    const MOCK_SALT = "salt"
 
     let service: PasswordService;
 
@@ -27,19 +23,12 @@ describe("PasswordServiceSpecs", () => {
 
         describe("when i call `encryptPassword`", () => {
             beforeAll(() => {
-                service.encryptPassword(MOCK_PASSWORD);
+                service.encryptPassword(MOCK_PASSWORD, MOCK_SALT);
             });
-            it("should generate a salt", () => {
-                expect(generateRandomString).toHaveBeenCalled();
-                expect(generateRandomString).toHaveBeenCalledTimes(1);
-                expect(generateRandomString).toHaveBeenCalledWith(
-                    SALT_LENGTH,
-                    SALT_ALPHABET
-                );
-            });
-            it("should encrypt the password with 512 two times", () => {
-                expect(SHA512).toHaveBeenCalled();
-                expect(SHA512).toHaveBeenCalledTimes(2);
+            it("should encrypt the password with bcrypt", () => {
+                expect(Bcrypt.encryptPasswordWithSaltSync).toHaveBeenCalled()
+                expect(Bcrypt.encryptPasswordWithSaltSync).toHaveBeenCalledTimes(1)
+                expect(Bcrypt.encryptPasswordWithSaltSync).toHaveBeenCalledWith(MOCK_PASSWORD, MOCK_SALT)
             });
         });
     });

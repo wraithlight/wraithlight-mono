@@ -1,59 +1,36 @@
-import { generateRandomString } from "@wraithlight/core.random-string";
-import { SHA512 } from "@wraithlight/core.crypto";
+import { Bcrypt } from "@wraithlight/facade.bcrypt";
 
-import { SALT_ALPHABET, SALT_LENGTH } from "./password.const";
+import { SALT_ROUNDS } from "./password.const";
 import { PasswordEncryptionResult } from "./password.model";
 
 export class PasswordService {
 
-    public encryptPassword(password: string): PasswordEncryptionResult {
-        const salt = this.getSalt();
+    public encryptPassword(
+        password: string,
+        salt: string
+    ): PasswordEncryptionResult {
         return {
             encryptedPassword: this.encryptPasswordInternal(password, salt),
             salt: salt
         }
     }
 
+    public getSalt(): string {
+        return Bcrypt.generateHashSync(SALT_ROUNDS);
+    }
+
     public verifyPassword(
         password: string,
-        salt: string,
         encryptedPassword: string
     ): boolean {
-        const hashedPassword = this.encryptPasswordInternal(password, salt);
-        return encryptedPassword === hashedPassword;
+        return Bcrypt.verifyPasswordSync(password, encryptedPassword)
     }
 
     private encryptPasswordInternal(
         password: string,
         salt: string
     ): string {
-        return this.hashPassword(
-            this.salt(
-                this.hashPassword(
-                    this.salt(password, salt)
-                ),
-                salt
-            )
-        );
-    }
-
-    private hashPassword(password: string): string {
-        return SHA512(password);
-    }
-
-    private salt(
-        password: string,
-        salt: string
-    ): string {
-        return `${salt}${password}${salt}`;
-    }
-
-    private getSalt(): string {
-        return generateRandomString(
-            SALT_LENGTH,
-            // TODO: Align the SDK.
-            SALT_ALPHABET as Array<string>
-        );
+        return Bcrypt.encryptPasswordWithSaltSync(password, salt);
     }
 
 }

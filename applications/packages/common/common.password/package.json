@@ -33,7 +33,6 @@
         "eslint-import-resolver-typescript": "3.6.1"
     },
     "dependencies": {
-        "@wraithlight/core.random-string": "*",
-        "@wraithlight/core.crypto": "*"
+        "@wraithlight/facade.bcrypt": "*"
     }
 }
