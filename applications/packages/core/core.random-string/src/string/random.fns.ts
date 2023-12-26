@@ -8,7 +8,7 @@ import { randomNumberBetween } from "@wraithlight/core.random-number";
  */
 export function generateRandomString(
     length: number,
-    alphabet: Array<string>
+    alphabet: ReadonlyArray<string>
 ): string {
     const letters = alphabet.join("");
     const result: Array<string> = [];
