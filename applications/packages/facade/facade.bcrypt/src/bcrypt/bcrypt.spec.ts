@@ -1,4 +1,4 @@
-jest.mock("bcrypt", () => {
+jest.mock("bcryptjs", () => {
     return {
         genSaltSync: jest.fn(),
         hashSync: jest.fn(),
