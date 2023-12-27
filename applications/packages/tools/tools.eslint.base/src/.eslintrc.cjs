@@ -133,7 +133,7 @@ module.exports = {
         "@typescript-eslint/explicit-function-return-type": "error",
         "@typescript-eslint/prefer-enum-initializers": "warn",
         "@typescript-eslint/prefer-readonly": "error",
-        "@typescript-eslint/prefer-string-starts-ends-with": "warn",
+        "@typescript-eslint/prefer-string-starts-ends-with": "error",
         "@typescript-eslint/no-magic-numbers": [
             "warn",
             {
