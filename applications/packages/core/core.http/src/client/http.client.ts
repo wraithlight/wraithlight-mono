@@ -38,7 +38,7 @@ export class HttpClient {
                 }
             );
             return result
-                .then(o => 
+                .then(o =>
                     o.json()
                     .then(m => resolve(
                         {
