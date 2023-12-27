@@ -26,8 +26,8 @@ export class HttpClient {
         url: string,
         data?: string
     ): Promise<HttpResponse<TResult>> {
-        return new Promise(async (resolve, reject) => {
-            const result = await fetch(
+        return new Promise((resolve, reject) => {
+            const result = fetch(
                 url,
                 {
                     method,
@@ -37,16 +37,19 @@ export class HttpClient {
                     }
                 }
             );
-            return result.json()
-                .then(m => resolve(
-                    {
-                        statusCode: result.status,
-                        payload: m as TResult
-                    }
-                ))
-                .catch(() => reject({
-                    statusCode: result.status
-                }))
+            return result
+                .then(o => 
+                    o.json()
+                    .then(m => resolve(
+                        {
+                            statusCode: o.status,
+                            payload: m as TResult
+                        }
+                    ))
+                    .catch(() => reject({
+                        statusCode: o.status
+                    }))
+                )
             ;
         });
     }
