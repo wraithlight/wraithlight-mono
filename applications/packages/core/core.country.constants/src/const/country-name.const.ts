@@ -10,4 +10,4 @@ export enum CountryName {
     Romania = "Romania",
     Croatia = "Croatia",
     Italy = "Italy",
-};
+}

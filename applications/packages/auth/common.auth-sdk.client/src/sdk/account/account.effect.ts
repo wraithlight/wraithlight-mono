@@ -32,4 +32,4 @@ export function initializeEffects(
         ;
     });
     return store;
-};
+}

@@ -54,7 +54,7 @@ module.exports = {
         "no-var": "warn",
         "@typescript-eslint/ban-types": "warn",
         "@typescript-eslint/no-var-requires": "warn",
-        "@typescript-eslint/no-extra-semi": "warn",
+        "@typescript-eslint/no-extra-semi": "error",
         "@typescript-eslint/no-empty-interface": [
             "warn",
             {
