@@ -117,7 +117,7 @@ module.exports = {
         "@typescript-eslint/no-inferrable-types": "error",
         "@typescript-eslint/no-unsafe-assignment": "warn",
         "@typescript-eslint/promise-function-async": "error",
-        "@typescript-eslint/no-unsafe-member-access": "warn",
+        "@typescript-eslint/no-unsafe-member-access": "error",
         "@typescript-eslint/unbound-method": "warn",
         "@typescript-eslint/lines-between-class-members": "off",
         "@typescript-eslint/parameter-properties": [

@@ -1,5 +1,7 @@
-import { addComponent } from "../../../framework";
 import "./header.component.scss";
+import { template } from "./header.component.html"
+
+import { addComponent } from "../../../framework";
 
 class HeaderComponent {
 
@@ -7,7 +9,6 @@ class HeaderComponent {
 
 addComponent(
     "game-website-header",
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require("./header.component.html").default,
+    template,
     () => new HeaderComponent()
 );

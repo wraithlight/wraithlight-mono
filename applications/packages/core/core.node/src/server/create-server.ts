@@ -1,6 +1,6 @@
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import cors from "cors";
-import express from "express";
+import express, { Application, json } from "express";
 
 import { AppRef } from "./appref.model";
 import { AppRef as AppRefImpl } from "./appref";
@@ -13,9 +13,9 @@ export function createServer(
         logger.warn("Global exception caught!", JSON.stringify(err));
     });
 
-    const app = express();
+    const app: Application = express();
 
-    app.use(express.json({ limit: "2mb" }));
+    app.use(json({ limit: "2mb" }));
 
     if (enableCors) {
         app.use(cors());
