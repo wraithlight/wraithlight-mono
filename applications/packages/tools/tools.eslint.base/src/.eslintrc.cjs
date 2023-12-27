@@ -152,7 +152,7 @@ module.exports = {
             }
         ],
         "@typescript-eslint/explicit-member-accessibility": [
-            "warn", {
+            "error", {
                 "accessibility": "explicit",
                 "overrides": {
                     "constructors": "no-public"

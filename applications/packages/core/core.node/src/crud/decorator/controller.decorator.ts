@@ -12,7 +12,7 @@ export const HttpController = (path: string) => {
             methods: controllerMethods
         };
         return class extends constructor {
-            [CONTROLLER_METADATA_KEY] = metadata
+            public [CONTROLLER_METADATA_KEY] = metadata
         };
     }
 }
