@@ -142,12 +142,12 @@ module.exports = {
                 "ignoreEnums": true
             }
         ],
-        "@typescript-eslint/no-useless-constructor": "warn",
-        "@typescript-eslint/no-array-constructor": "warn",
-        "@typescript-eslint/prefer-includes": "warn",
-        "@typescript-eslint/prefer-function-type": "warn",
+        "@typescript-eslint/no-useless-constructor": "error",
+        "@typescript-eslint/no-array-constructor": "error",
+        "@typescript-eslint/prefer-includes": "error",
+        "@typescript-eslint/prefer-function-type": "error",
         "@typescript-eslint/array-type": [
-            "warn", {
+            "error", {
                 "default": "generic",
                 "readonly": "generic"
             }
