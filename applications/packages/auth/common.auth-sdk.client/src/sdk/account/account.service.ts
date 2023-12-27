@@ -11,7 +11,7 @@ export class AccountService {
         private readonly _apiBaseUrl: string
     ) { }
 
-    public register(payload: RegisterModel): Promise<RegisterResponse> {
+    public async register(payload: RegisterModel): Promise<RegisterResponse> {
         return this._accountService.register(
             payload.username,
             payload.password,

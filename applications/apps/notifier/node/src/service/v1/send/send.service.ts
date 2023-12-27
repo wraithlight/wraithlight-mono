@@ -22,7 +22,7 @@ export class SendServiceV1 {
         this._config.get(m => m.emailSending.smtp.auth.user),
         this._config.get(m => m.emailSending.smtp.auth.pass)
     );
-    private readonly _cqrsService = new CqrsService<WebhookableSendEmailModelV1>((item, id) => this.sendWorker(item, id));
+    private readonly _cqrsService = new CqrsService<WebhookableSendEmailModelV1>(async (item, id) => this.sendWorker(item, id));
 
     public send(
         address: string,

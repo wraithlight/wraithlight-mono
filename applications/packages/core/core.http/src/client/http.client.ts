@@ -26,7 +26,9 @@ export class HttpClient {
         url: string,
         data?: string
     ): Promise<HttpResponse<TResult>> {
-        return new Promise((resolve, reject) => {
+        // TODO: Rewrite this with proper teardown
+        // eslint-disable-next-line no-async-promise-executor
+        return new Promise(async (resolve, reject) => {
             const result = fetch(
                 url,
                 {
@@ -37,20 +39,20 @@ export class HttpClient {
                     }
                 }
             );
-            return result
-                .then(o =>
-                    o.json()
-                    .then(m => resolve(
-                        {
-                            statusCode: o.status,
-                            payload: m as TResult
-                        }
-                    ))
-                    .catch(() => reject({
-                        statusCode: o.status
-                    }))
-                )
-            ;
+            const o = await result;
+            try {
+                const m = await o.json();
+                return resolve(
+                    {
+                        statusCode: o.status,
+                        payload: m as TResult
+                    }
+                );
+            } catch {
+                return reject({
+                    statusCode: o.status
+                });
+            }
         });
     }
 

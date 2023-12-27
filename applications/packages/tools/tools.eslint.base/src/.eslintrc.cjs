@@ -116,6 +116,7 @@ module.exports = {
         "@typescript-eslint/no-unnecessary-type-assertion": "error",
         "@typescript-eslint/no-inferrable-types": "error",
         "@typescript-eslint/no-unsafe-assignment": "warn",
+        "@typescript-eslint/promise-function-async": "error",
         "@typescript-eslint/no-unsafe-member-access": "warn",
         "@typescript-eslint/unbound-method": "warn",
         "@typescript-eslint/lines-between-class-members": "off",
@@ -133,7 +134,6 @@ module.exports = {
         "@typescript-eslint/prefer-enum-initializers": "warn",
         "@typescript-eslint/prefer-readonly": "error",
         "@typescript-eslint/prefer-string-starts-ends-with": "warn",
-        "@typescript-eslint/promise-function-async": "warn",
         "@typescript-eslint/no-magic-numbers": [
             "warn",
             {

@@ -36,7 +36,7 @@ export class UpdateQueryContext<T, TKey extends keyof T>
         );
     }
 
-    public run(): Promise<void> {
+    public async run(): Promise<void> {
         const command = this.concatQueries();
         return new Promise((resolve, reject) => {
             this._context.Connection.query(command, (error) => {

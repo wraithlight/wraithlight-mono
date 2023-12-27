@@ -21,7 +21,7 @@ export class SelectQueryContext<T extends object>
         this.addQuery(`SELECT * FROM ?`, tableName);
     }
 
-    public toList(): Promise<Array<T>> {
+    public async toList(): Promise<Array<T>> {
         const command = this.concatQueries();
         return this.exec(command);
     }
