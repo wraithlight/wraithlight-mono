@@ -1,5 +1,5 @@
-import { getDocumentRef } from "@wraithlight/core.dom";
 import { initializeAuthSdk } from "@wraithlight/common.auth-sdk.client";
+import { getDocumentRef } from "@wraithlight/core.dom";
 import { Store } from "@wraithlight/core.redux";
 
 import './app.css'

@@ -7,11 +7,11 @@ import {
 
 import { BaseController } from "../controller";
 // TODO: Export these from internal's public api
+import { Invoker } from "../internal";
 import { CONTROLLER_METADATA_KEY } from "../internal/controller-metadata.const";
 import { ControllerMetadata } from "../internal/controller-metadata.model";
 import { FILTER_METADATA_KEY } from "../internal/filter-metadata.const";
 import { MethodMetadata } from "../internal/method-metadata.model";
-import { Invoker } from "../internal";
 
 export class ControllerBinder {
 

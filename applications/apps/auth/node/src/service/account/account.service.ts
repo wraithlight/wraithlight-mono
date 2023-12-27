@@ -1,6 +1,6 @@
 import { NotifierService } from "@wraithlight/common.notifier-sdk.server";
-import { newGuid } from "@wraithlight/core.guid";
 import { PasswordService } from "@wraithlight/common.password";
+import { newGuid } from "@wraithlight/core.guid";
 
 import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
 import {

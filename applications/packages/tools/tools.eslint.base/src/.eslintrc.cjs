@@ -164,7 +164,7 @@ module.exports = {
         "import/no-extraneous-dependencies": "error",   // TODO: Remove this rule since we have knip
         "import/no-unresolved": "error",
         "import/order": [
-            "warn",
+            "error",
             {
                 groups: [
                     "builtin",

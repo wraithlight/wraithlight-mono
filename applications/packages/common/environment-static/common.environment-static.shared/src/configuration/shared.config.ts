@@ -8,10 +8,10 @@ import { SHARED_FORUM_CONFIG } from "./forum";
 import { SHARED_GAME_APPLICATION_CONFIG } from "./game-application";
 import { SHARED_GAME_WEBSITE_CONFIG } from "./game-website";
 import { SHARED_LOGS_CONFIG } from "./logs";
-import { SHARED_USER_MANAGEMENT_CONFIG } from "./user-management";
-import { SHARED_WEBSITE_CONFIG } from "./website";
 import { SHARED_NOTIFIER_CONFIG } from "./notifier";
 import { SHARED_REMOTE_CONFIG_CONFIG } from "./remote-config";
+import { SHARED_USER_MANAGEMENT_CONFIG } from "./user-management";
+import { SHARED_WEBSITE_CONFIG } from "./website";
 
 export const SHARED_CONFIG: Readonly<EnvironmentStaticShared> = {
     [ApplicationName.Content]: SHARED_CONTENT_CONFIG,

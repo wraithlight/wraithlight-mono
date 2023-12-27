@@ -1,15 +1,16 @@
-import { CqrsService } from "@wraithlight/core.cqrs";
-import { Nullable } from "@wraithlight/core.nullable";
-import { Guid } from "@wraithlight/core.guid";
+import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { NodemailerFacadeService } from "@wraithlight/common.notifier.nodemailer-sdk";
+import { CqrsService } from "@wraithlight/core.cqrs";
 import { CoreEnvironment } from "@wraithlight/core.env";
-import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
+import { Guid } from "@wraithlight/core.guid";
 import { IMailSender } from "@wraithlight/core.notifier.types";
+import { Nullable } from "@wraithlight/core.nullable";
+
+import { WebhookService } from "../webhook";
 
 import { WebhookableSendEmailModelV1 } from "./send.model";
 
-import { WebhookService } from "../webhook";
 
 export class SendServiceV1 {
 

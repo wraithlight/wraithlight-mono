@@ -1,7 +1,7 @@
 import { createHash } from "crypto";
 
-import { CreateHashAlgorithm } from "./create-hash.model";
 import { DIGEST_HEX } from "./create-hash.const";
+import { CreateHashAlgorithm } from "./create-hash.model";
 
 export function hash(
     algorithm: CreateHashAlgorithm,

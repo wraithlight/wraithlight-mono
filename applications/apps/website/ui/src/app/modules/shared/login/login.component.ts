@@ -1,7 +1,7 @@
 import { Component, OnDestroy, ViewEncapsulation } from "@angular/core";
 import { AuthAction, AuthSelector } from "@wraithlight/common.auth-sdk.client";
-import { Store } from "@wraithlight/core.redux";
 import { isNil } from "@wraithlight/core.nullable";
+import { Store } from "@wraithlight/core.redux";
 
 import { WebsiteGlobalState } from "../../../../sdk";
 

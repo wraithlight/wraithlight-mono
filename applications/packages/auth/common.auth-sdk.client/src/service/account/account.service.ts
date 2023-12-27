@@ -1,15 +1,16 @@
-import { HttpClient } from "@wraithlight/core.http";
-import { Nullable } from "@wraithlight/core.nullable";
-
 import {
     RegisterRequest,
     RegisterResponse as CoreRegisterResponse,
     RegisterErrorResponse,
 } from "@wraithlight/core.auth.types";
+import { HttpClient } from "@wraithlight/core.http";
+import { Nullable } from "@wraithlight/core.nullable";
+
+
+import { RegisterResponse } from "../../model/register-response.model";
 
 import { ClientAccountServiceConfig } from "./account.config";
 
-import { RegisterResponse } from "../../model/register-response.model";
 
 export class ClientAccountService {
 

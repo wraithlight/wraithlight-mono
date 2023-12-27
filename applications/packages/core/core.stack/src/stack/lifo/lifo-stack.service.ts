@@ -1,5 +1,5 @@
-import { Nullable } from "@wraithlight/core.nullable";
 import { Predicate } from "@wraithlight/core.linq";
+import { Nullable } from "@wraithlight/core.nullable";
 
 export class FifoStackService<T> {
 

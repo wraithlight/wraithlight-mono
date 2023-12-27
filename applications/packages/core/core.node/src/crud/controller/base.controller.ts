@@ -1,5 +1,5 @@
-import { Response } from "express";
 import { HttpCode, HttpHeader } from "@wraithlight/core.http";
+import { Response } from "express";
 
 import { CONTROLLER_METADATA_KEY } from "../internal/controller-metadata.const";
 import { ControllerMetadata } from "../internal/controller-metadata.model";

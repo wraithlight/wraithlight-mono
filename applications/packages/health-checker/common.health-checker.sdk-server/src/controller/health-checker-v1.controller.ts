@@ -1,15 +1,15 @@
-import { BaseController, HttpController, HttpGet } from "@wraithlight/core.node";
-import { EXTERNAL_API_ENDPOINTS } from "@wraithlight/core.health-checker.constants";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { EXTERNAL_API_ENDPOINTS } from "@wraithlight/core.health-checker.constants";
 import { HttpCode } from "@wraithlight/core.http";
+import { BaseController, HttpController, HttpGet } from "@wraithlight/core.node";
 
+import { HealthCheckMessageBusV1Service } from "../sdk";
 import {
     HealthCheckTokenV1Service,
     HealthCheckV1Service
 } from "../service";
 
 import { TokenValidator } from "./validation";
-import { HealthCheckMessageBusV1Service } from "../sdk";
 
 @HttpController(EXTERNAL_API_ENDPOINTS.v1.root)
 export class HealthCheckControllerV1 extends BaseController {

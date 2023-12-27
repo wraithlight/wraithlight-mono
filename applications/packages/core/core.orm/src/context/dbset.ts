@@ -1,4 +1,6 @@
 import { DbContext } from "./dbcontext";
+import { DeleteQueryContext } from "./query/delete.query-context";
+import { InsertQueryContext } from "./query/insert.query-context";
 import {
     SelectQueryContext as ISelectQueryContext,
     InsertQueryContext as IInsertQueryContext,
@@ -6,9 +8,7 @@ import {
     DeleteQueryContext as IDeleteQueryContext
 } from "./query/query-context.model";
 import { SelectQueryContext } from "./query/select.query-context";
-import { InsertQueryContext } from "./query/insert.query-context";
 import { UpdateQueryContext } from "./query/update.query-context";
-import { DeleteQueryContext } from "./query/delete.query-context";
 
 export class DbSet<T extends object> {
 

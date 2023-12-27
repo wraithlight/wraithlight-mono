@@ -8,10 +8,10 @@ import { CLIENT_FORUM_CONFIG } from "./forum";
 import { CLIENT_GAME_APPLICATION_CONFIG } from "./game-application";
 import { CLIENT_GAME_WEBSITE_CONFIG } from "./game-website";
 import { CLIENT_LOGS_CONFIG } from "./logs";
-import { CLIENT_USER_MANAGEMENT_CONFIG } from "./user-management";
-import { CLIENT_WEBSITE_CONFIG } from "./website";
 import { CLIENT_NOTIFIER_CONFIG } from "./notifier";
 import { CLIENT_REMOTE_CONFIG_CONFIG } from "./remote-config";
+import { CLIENT_USER_MANAGEMENT_CONFIG } from "./user-management";
+import { CLIENT_WEBSITE_CONFIG } from "./website";
 
 export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
     [ApplicationName.Content]: CLIENT_CONTENT_CONFIG,

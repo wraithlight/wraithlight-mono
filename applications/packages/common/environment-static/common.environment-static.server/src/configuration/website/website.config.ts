@@ -1,11 +1,11 @@
-import { WebsiteServer, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
 import { EnvironmentType } from "@wraithlight/core.common-constants";
+import { WebsiteServer, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
 
-import { SERVER_LOCAL_WEBSITE_CONFIG } from "./local";
 import { SERVER_DEV_WEBSITE_CONFIG } from "./dev";
-import { SERVER_TEST_WEBSITE_CONFIG } from "./test";
-import { SERVER_STAGING_WEBSITE_CONFIG } from "./staging";
+import { SERVER_LOCAL_WEBSITE_CONFIG } from "./local";
 import { SERVER_PRODUCTION_WEBSITE_CONFIG } from "./production";
+import { SERVER_STAGING_WEBSITE_CONFIG } from "./staging";
+import { SERVER_TEST_WEBSITE_CONFIG } from "./test";
 
 export const SERVER_WEBSITE_CONFIG: Readonly<EnvironmentStatic<WebsiteServer>> = {
     [EnvironmentType.Local]: SERVER_LOCAL_WEBSITE_CONFIG,

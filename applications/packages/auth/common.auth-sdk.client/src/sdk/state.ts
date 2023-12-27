@@ -1,10 +1,10 @@
 import { Nullable } from "@wraithlight/core.nullable";
 import { Store } from "@wraithlight/core.redux";
 
-import { IAuthContainerStore, IAuthStore } from "./state.model";
-import { authInitialize } from "./auth/auth";
 import { accountInitialize } from "./account/account";
+import { authInitialize } from "./auth/auth";
 import { INITIAL_AUTH_STATE } from "./state.const";
+import { IAuthContainerStore, IAuthStore } from "./state.model";
 
 export const GLOBAL_STORE = (): Store<IAuthContainerStore> => Store.getInstance<IAuthContainerStore>();
 

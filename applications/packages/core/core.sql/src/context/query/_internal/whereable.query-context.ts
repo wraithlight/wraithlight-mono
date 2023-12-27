@@ -1,10 +1,11 @@
 import { Primitive } from "@wraithlight/core.primitive";
 
-import { QueryContext } from "./query-context";
-
 import {
     WhereableQueryContext as IWhereableQueryContext
 } from "../query-context.model";
+
+import { QueryContext } from "./query-context";
+
 
 export abstract class WhereableQueryContext<T extends object>
     extends QueryContext<T>

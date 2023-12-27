@@ -2,8 +2,8 @@ import { LoggerService } from "@wraithlight/common.logger.sdk";
 import cors from "cors";
 import express, { Application, json } from "express";
 
-import { AppRef } from "./appref.model";
 import { AppRef as AppRefImpl } from "./appref";
+import { AppRef } from "./appref.model";
 
 export function createServer(
     enableCors: boolean

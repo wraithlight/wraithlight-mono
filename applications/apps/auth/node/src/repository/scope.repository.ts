@@ -1,5 +1,5 @@
-import { Nullable } from "@wraithlight/core.nullable";
 import { Guid } from "@wraithlight/core.guid";
+import { Nullable } from "@wraithlight/core.nullable";
 
 import { AuthDbContextFactory } from "./context";
 import { ScopeDbo } from "./dbo";

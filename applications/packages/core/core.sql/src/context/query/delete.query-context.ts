@@ -1,9 +1,10 @@
+import { DbContext } from "../dbcontext";
+
 import { WhereableQueryContext } from "./_internal";
 import {
     DeleteQueryContext as IDeleteQueryContext
 } from "./query-context.model"
 
-import { DbContext } from "../dbcontext";
 
 export class DeleteQueryContext<T extends object>
     extends WhereableQueryContext<T>

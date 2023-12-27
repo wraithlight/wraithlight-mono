@@ -1,11 +1,11 @@
-import { UserManagementShared, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
 import { EnvironmentType } from "@wraithlight/core.common-constants";
+import { UserManagementShared, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
 
-import { SHARED_LOCAL_USER_MANAGEMENT_CONFIG } from "./local";
 import { SHARED_DEV_USER_MANAGEMENT_CONFIG } from "./dev";
-import { SHARED_TEST_USER_MANAGEMENT_CONFIG } from "./test";
-import { SHARED_STAGING_USER_MANAGEMENT_CONFIG } from "./staging";
+import { SHARED_LOCAL_USER_MANAGEMENT_CONFIG } from "./local";
 import { SHARED_PRODUCTION_USER_MANAGEMENT_CONFIG } from "./production";
+import { SHARED_STAGING_USER_MANAGEMENT_CONFIG } from "./staging";
+import { SHARED_TEST_USER_MANAGEMENT_CONFIG } from "./test";
 
 export const SHARED_USER_MANAGEMENT_CONFIG: Readonly<EnvironmentStatic<UserManagementShared>> = {
     [EnvironmentType.Local]: SHARED_LOCAL_USER_MANAGEMENT_CONFIG,

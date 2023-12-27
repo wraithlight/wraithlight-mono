@@ -1,8 +1,8 @@
 import { SharedRemoteConfigConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ApplicationName } from "@wraithlight/core.common-constants";
-import { createNodeServer } from "@wraithlight/core.server";
 import { CoreEnvironment } from "@wraithlight/core.env";
 import { BaseController } from "@wraithlight/core.node";
+import { createNodeServer } from "@wraithlight/core.server";
 
 const sharedCfg = SharedRemoteConfigConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 

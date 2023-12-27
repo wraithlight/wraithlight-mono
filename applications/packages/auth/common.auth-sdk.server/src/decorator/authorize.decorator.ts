@@ -1,5 +1,5 @@
-import { LoginScope } from "@wraithlight/core.auth.types";
 import { WRAITHLIGHT_AUTH_SESSION_TOKEN } from "@wraithlight/core.auth.constant";
+import { LoginScope } from "@wraithlight/core.auth.types";
 import { HttpCode } from "@wraithlight/core.http";
 import {
     FilterDecorator,

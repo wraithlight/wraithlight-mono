@@ -1,5 +1,5 @@
-import { Selector } from "@wraithlight/core.redux";
 import { Nullable } from "@wraithlight/core.nullable";
+import { Selector } from "@wraithlight/core.redux";
 
 import { IAuthContainerStore } from "../state.model";
 

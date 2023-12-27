@@ -1,11 +1,11 @@
-import { Request, Response, NextFunction } from "express";
 import { Nullable, isNil } from "@wraithlight/core.nullable";
+import { Request, Response, NextFunction } from "express";
 
+import { isBot } from "./_internal";
 import {
     IS_BOT_HEADER_NAME,
     USER_AGENT_HEADER_NAME
 } from "./bot-matcher.const";
-import { isBot } from "./_internal";
 
 export function botMatcherMiddleware(
     req: Request,

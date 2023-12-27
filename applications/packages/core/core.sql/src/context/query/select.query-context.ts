@@ -4,7 +4,6 @@ import { RowDataPacket } from "mysql2";
 import { DbContext } from "../dbcontext";
 
 import { QueryConcatResult, WhereableQueryContext } from "./_internal";
-
 import {
     SelectQueryContext as ISelectQueryContext,
 } from "./query-context.model";

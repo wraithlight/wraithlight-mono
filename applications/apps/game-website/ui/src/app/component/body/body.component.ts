@@ -1,11 +1,12 @@
 import "./body.component.scss";
-import { template } from "./body.component.html";
 
-import { GameContextService } from "@wraithlight/core.game.context";
 import { getDocumentRef } from "@wraithlight/core.dom";
+import { GameContextService } from "@wraithlight/core.game.context";
 import { observable } from "knockout";
 
 import { addComponent } from "../../../framework";
+
+import { template } from "./body.component.html";
 
 class BodyComponent {
 
