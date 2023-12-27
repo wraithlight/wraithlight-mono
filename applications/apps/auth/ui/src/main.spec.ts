@@ -17,7 +17,7 @@ jest.mock("@wraithlight/core.redux", () => {
     }
 });
 jest.mock("./app", () => jest.fn().mockImplementation(() => ({})));
-jest.mock("./app.css", () => { });
+jest.mock("./app.css", () => jest.fn());
 jest.mock("./sdk")
 
 import { Store } from "@wraithlight/core.redux";

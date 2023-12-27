@@ -42,22 +42,6 @@ module.exports = {
         }
     },
     rules: {
-        // TODO
-        "@typescript-eslint/no-empty-function": [
-            "warn",
-            {
-                "allow": [
-                    "constructors"
-                ]
-            }
-        ],
-        "@typescript-eslint/no-empty-interface": [
-            "warn",
-            {
-                "allowSingleExtends": true
-            }
-        ],
-        // END TODO
         // Native
         "no-var": "error",
         "max-len": [
@@ -100,7 +84,25 @@ module.exports = {
             "navigator"
         ],
         "no-async-promise-executor": "error",
+        "no-magic-numbers": "off",
+        "lines-between-class-members": "off",
+        "no-useless-constructor": "off",
+        "no-array-constructor": "off",
         // Typescript
+        "@typescript-eslint/no-empty-function": [
+            "error",
+            {
+                "allow": [
+                    "constructors"
+                ]
+            }
+        ],
+        "@typescript-eslint/no-empty-interface": [
+            "error",
+            {
+                "allowSingleExtends": true
+            }
+        ],
         "@typescript-eslint/no-var-requires": "error",
         "@typescript-eslint/no-extra-semi": "error",
         "@typescript-eslint/ban-types": "error",
@@ -109,7 +111,6 @@ module.exports = {
         "@typescript-eslint/no-unsafe-assignment": "warn",
         "@typescript-eslint/no-unsafe-member-access": "warn",
         "@typescript-eslint/unbound-method": "warn",
-        "lines-between-class-members": "off",
         "@typescript-eslint/lines-between-class-members": "off",
         "@typescript-eslint/parameter-properties": [
             "error",
@@ -126,7 +127,6 @@ module.exports = {
         "@typescript-eslint/prefer-readonly": "error",
         "@typescript-eslint/prefer-string-starts-ends-with": "warn",
         "@typescript-eslint/promise-function-async": "warn",
-        "no-magic-numbers": "off",
         "@typescript-eslint/no-magic-numbers": [
             "warn",
             {
@@ -134,9 +134,7 @@ module.exports = {
                 "ignoreEnums": true
             }
         ],
-        "no-useless-constructor": "off",
         "@typescript-eslint/no-useless-constructor": "warn",
-        "no-array-constructor": "off",
         "@typescript-eslint/no-array-constructor": "warn",
         "@typescript-eslint/prefer-includes": "warn",
         "@typescript-eslint/prefer-function-type": "warn",
