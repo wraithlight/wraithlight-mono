@@ -51,7 +51,6 @@ module.exports = {
                 ]
             }
         ],
-        "@typescript-eslint/no-inferrable-types": "warn",
         "no-var": "warn",
         "@typescript-eslint/ban-types": "warn",
         "@typescript-eslint/no-var-requires": "warn",
@@ -106,6 +105,7 @@ module.exports = {
             "navigator"
         ],
         // Typescript
+        "@typescript-eslint/no-inferrable-types": "error",
         "@typescript-eslint/no-unsafe-assignment": "warn",
         "@typescript-eslint/no-unsafe-member-access": "warn",
         "@typescript-eslint/unbound-method": "warn",

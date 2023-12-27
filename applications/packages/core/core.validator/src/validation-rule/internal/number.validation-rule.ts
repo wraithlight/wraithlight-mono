@@ -10,7 +10,10 @@ export class NumberValidationRule extends BaseValidationRule<number> {
         return this;
     }
 
-    public toBeInRange(min: number = -Infinity, max: number = Infinity): NumberValidationRule {
+    public toBeInRange(
+        min = -Infinity,
+        max = Infinity
+    ): NumberValidationRule {
         this.addRuleCase(
             (item: number) => {
                 return item > min && item < max;
@@ -20,7 +23,10 @@ export class NumberValidationRule extends BaseValidationRule<number> {
         return this;
     }
 
-    public noToBeInRange(min: number = -Infinity, max: number = Infinity): NumberValidationRule {
+    public noToBeInRange(
+        min = -Infinity,
+        max = Infinity
+    ): NumberValidationRule {
         this.addRuleCase(
             (item: number) => {
                 return !(item > min && item < max);

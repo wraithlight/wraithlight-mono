@@ -2,7 +2,7 @@ import { Dictionary } from "@wraithlight/core.dictionary";
 
 export class Counter {
 
-    private _value: number = 0;
+    private _value = 0;
     private static readonly _cache = new Dictionary<Counter>();
 
     private constructor(
@@ -14,8 +14,8 @@ export class Counter {
 
     public static getInstance(
         name: string,
-        initialValue: number = 0,
-        step: number = 1
+        initialValue = 0,
+        step = 1
     ): Counter {
         if (!this._cache.has(name)) {
             this._cache.set(name, new Counter(initialValue, step));

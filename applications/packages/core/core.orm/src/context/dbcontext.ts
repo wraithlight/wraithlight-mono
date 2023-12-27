@@ -12,7 +12,7 @@ export abstract class DbContext {
         username: string,
         password: string,
         database: string,
-        usePooling: boolean = false
+        usePooling = false
     ) {
         if (usePooling) {
             this.Connection = createPool({

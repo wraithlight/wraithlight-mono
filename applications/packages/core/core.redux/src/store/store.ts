@@ -38,7 +38,7 @@ export class Store<TState> {
     public static initializePartial<TState, TSubState>(
         predicate: Predicate<TState, TSubState>,
         substate: TSubState,
-        forceOverride: boolean = false
+        forceOverride = false
     ): void {
         if (!this._instance) {
             throw "The store is not initialized!";
