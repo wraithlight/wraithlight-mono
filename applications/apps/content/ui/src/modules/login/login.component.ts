@@ -13,7 +13,7 @@ export class LoginComponent implements Component {
 
     private readonly _store = Store.getInstance<ContentGlobalState>();
 
-    private state: LoginState = {
+    private readonly state: LoginState = {
         username: "",
         password: ""
     };

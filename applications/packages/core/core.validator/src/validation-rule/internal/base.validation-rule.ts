@@ -4,7 +4,7 @@ import { RuleCaseItem, RuleCase } from "./base.validation-rule.model";
 
 export abstract class BaseValidationRule<T> {
 
-    private _ruleCases: Array<RuleCaseItem<T>> = [];
+    private readonly _ruleCases: Array<RuleCaseItem<T>> = [];
 
     public abstract testType(): BaseValidationRule<T>;
 

@@ -7,7 +7,7 @@ import { AuthDbContext } from "./auth.dbcontext";
 export class AuthDbContextFactory {
 
     private static _dbContext: Nullable<AuthDbContext>;
-    private static _configReader = ServerUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+    private static readonly _configReader = ServerUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 
     public static getAuthDbContext(): AuthDbContext {
         if (!this._dbContext) {

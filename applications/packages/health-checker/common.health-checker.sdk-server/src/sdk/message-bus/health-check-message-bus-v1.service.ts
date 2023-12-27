@@ -4,7 +4,7 @@ import { ERROR_CHANNEL_TOKEN, INFORMATION_CHANNEL_TOKEN, WARNING_CHANNEL_TOKEN }
 export class HealthCheckMessageBusV1Service {
 
     private readonly _messageBus = new MessagebusService();
-    private static _instance = new HealthCheckMessageBusV1Service();
+    private static readonly _instance = new HealthCheckMessageBusV1Service();
 
     public static getInstance(): HealthCheckMessageBusV1Service {
         return this._instance;

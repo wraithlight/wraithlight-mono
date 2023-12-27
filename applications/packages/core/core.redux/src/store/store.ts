@@ -18,7 +18,7 @@ import { COUNTER_NAME } from "./store.const";
 
 export class Store<TState> {
 
-    private _selectors: Array<SelectorResultWrapper<TState, any>> = [];
+    private readonly _selectors: Array<SelectorResultWrapper<TState, any>> = [];
 
     private readonly _selectorCounter = Counter.getInstance(COUNTER_NAME);
     private readonly _effects: Array<Effect<any>> = [];
