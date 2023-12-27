@@ -1,7 +1,7 @@
 import {
-    RegisterRequest,
     RegisterResponse as CoreRegisterResponse,
     RegisterErrorResponse,
+    RegisterRequest,
 } from "@wraithlight/core.auth.types";
 import { HttpClient } from "@wraithlight/core.http";
 import { Nullable } from "@wraithlight/core.nullable";

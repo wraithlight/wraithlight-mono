@@ -1,5 +1,5 @@
 import { EnvironmentType } from "@wraithlight/core.common-constants";
-import { LogsShared, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
+import { EnvironmentStatic, LogsShared } from "@wraithlight/core.environment-static.types";
 
 import { SHARED_DEV_LOGS_CONFIG } from "./dev";
 import { SHARED_LOCAL_LOGS_CONFIG } from "./local";

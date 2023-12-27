@@ -1,5 +1,5 @@
 import { EnvironmentType } from "@wraithlight/core.common-constants";
-import { GameWebsiteServer, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
+import { EnvironmentStatic, GameWebsiteServer } from "@wraithlight/core.environment-static.types";
 
 import { SERVER_DEV_GAME_WEBSITE_CONFIG } from "./dev";
 import { SERVER_LOCAL_GAME_WEBSITE_CONFIG } from "./local";

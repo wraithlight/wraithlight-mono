@@ -55,9 +55,9 @@ module.exports = {
             }
         ],
         "no-warning-comments": "warn",
-        "no-implicit-globals": "warn",
+        "no-implicit-globals": "error",
         "sort-imports": [
-            "warn",
+            "error",
             {
                 ignoreCase: false,
                 ignoreDeclarationSort: true,
@@ -69,9 +69,9 @@ module.exports = {
         "no-multiple-empty-lines": "error",
         "no-trailing-spaces": "error",
         "no-console": "error",
-        "no-alert": "warn",
+        "no-alert": "error",
         "no-restricted-properties": [
-            "warn",
+            "error",
             {
                 "object": "window",
                 "property": "document"
@@ -84,6 +84,7 @@ module.exports = {
             "navigator"
         ],
         "no-async-promise-executor": "error",
+        // Native off due to TS rules
         "no-magic-numbers": "off",
         "lines-between-class-members": "off",
         "no-useless-constructor": "off",

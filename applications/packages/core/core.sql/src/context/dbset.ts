@@ -2,10 +2,10 @@ import { DbContext } from "./dbcontext";
 import { DeleteQueryContext } from "./query/delete.query-context";
 import { InsertQueryContext } from "./query/insert.query-context";
 import {
-    SelectQueryContext as ISelectQueryContext,
+    DeleteQueryContext as IDeleteQueryContext,
     InsertQueryContext as IInsertQueryContext,
-    UpdateQueryContext as IUpdateQueryContext,
-    DeleteQueryContext as IDeleteQueryContext
+    SelectQueryContext as ISelectQueryContext,
+    UpdateQueryContext as IUpdateQueryContext
 } from "./query/query-context.model";
 import { SelectQueryContext } from "./query/select.query-context";
 import { UpdateQueryContext } from "./query/update.query-context";

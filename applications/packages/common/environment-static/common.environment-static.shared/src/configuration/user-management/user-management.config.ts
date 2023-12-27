@@ -1,5 +1,5 @@
 import { EnvironmentType } from "@wraithlight/core.common-constants";
-import { UserManagementShared, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
+import { EnvironmentStatic, UserManagementShared } from "@wraithlight/core.environment-static.types";
 
 import { SHARED_DEV_USER_MANAGEMENT_CONFIG } from "./dev";
 import { SHARED_LOCAL_USER_MANAGEMENT_CONFIG } from "./local";

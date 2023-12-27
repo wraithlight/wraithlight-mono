@@ -1,6 +1,6 @@
 import { isNil } from "@wraithlight/core.nullable";
 
-import { RuleCaseItem, RuleCase } from "./base.validation-rule.model";
+import { RuleCase, RuleCaseItem } from "./base.validation-rule.model";
 
 export abstract class BaseValidationRule<T> {
 

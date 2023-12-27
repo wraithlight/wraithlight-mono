@@ -1,4 +1,4 @@
-import { predicateDefault, Predicate } from "@wraithlight/core.linq";
+import { Predicate, predicateDefault } from "@wraithlight/core.linq";
 
 export class ConfigurationReader<TConfig, TCommonConfig> {
 

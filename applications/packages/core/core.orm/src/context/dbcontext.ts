@@ -1,4 +1,4 @@
-import { Connection, createConnection, createPool, Pool } from "mysql2";
+import { Connection, Pool, createConnection, createPool } from "mysql2";
 
 import { DbSet } from "./dbset";
 

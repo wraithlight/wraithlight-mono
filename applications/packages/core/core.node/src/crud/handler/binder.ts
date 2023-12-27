@@ -1,8 +1,8 @@
 import {
     Application,
     IRouterMatcher,
-    Response,
-    Request
+    Request,
+    Response
 } from "express";
 
 import { BaseController } from "../controller";

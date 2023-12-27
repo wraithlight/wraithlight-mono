@@ -1,7 +1,7 @@
 import { Server } from "http";
 
 import { LoggerService } from "@wraithlight/common.logger.sdk";
-import { Application, static as serveStatic, Request, Response, NextFunction } from "express";
+import { Application, NextFunction, Request, Response, static as serveStatic } from "express";
 import {
     serve as swaggerServe,
     setup as swaggerSetup

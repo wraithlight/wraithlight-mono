@@ -1,5 +1,5 @@
 import { EnvironmentType } from "@wraithlight/core.common-constants";
-import { ForumShared, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
+import { EnvironmentStatic, ForumShared } from "@wraithlight/core.environment-static.types";
 
 import { SHARED_DEV_FORUM_CONFIG } from "./dev";
 import { SHARED_LOCAL_FORUM_CONFIG } from "./local";

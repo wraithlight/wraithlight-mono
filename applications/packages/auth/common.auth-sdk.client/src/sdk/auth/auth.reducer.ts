@@ -1,4 +1,4 @@
-import { ActionWithPayload, Action, Store } from "@wraithlight/core.redux";
+import { Action, ActionWithPayload, Store } from "@wraithlight/core.redux";
 
 import { IAuthContainerStore } from "../state.model";
 

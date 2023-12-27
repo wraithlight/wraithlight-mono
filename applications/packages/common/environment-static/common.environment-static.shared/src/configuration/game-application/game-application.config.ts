@@ -1,5 +1,5 @@
 import { EnvironmentType } from "@wraithlight/core.common-constants";
-import { GameApplicationShared, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
+import { EnvironmentStatic, GameApplicationShared } from "@wraithlight/core.environment-static.types";
 
 import { SHARED_DEV_GAME_APPLICATION_CONFIG } from "./dev";
 import { SHARED_LOCAL_GAME_APPLICATION_CONFIG } from "./local";

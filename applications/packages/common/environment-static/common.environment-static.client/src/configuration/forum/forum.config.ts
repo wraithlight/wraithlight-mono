@@ -1,5 +1,5 @@
 import { EnvironmentType } from "@wraithlight/core.common-constants";
-import { ForumClient, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
+import { EnvironmentStatic, ForumClient } from "@wraithlight/core.environment-static.types";
 
 import { CLIENT_DEV_FORUM_CONFIG } from "./dev";
 import { CLIENT_LOCAL_FORUM_CONFIG } from "./local";
