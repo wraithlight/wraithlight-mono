@@ -6,7 +6,7 @@ import { InputComponentProps } from "./input.model";
 
 export class InputComponent implements Component<InputComponentProps> {
 
-    public view(vnode: Vnode<InputComponentProps, {}>): Children {
+    public view(vnode: Vnode<InputComponentProps, object>): Children {
         return m(
             "div.input-container",
             m("label.input-label", {

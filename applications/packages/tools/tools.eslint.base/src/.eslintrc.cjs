@@ -51,10 +51,6 @@ module.exports = {
                 ]
             }
         ],
-        "no-var": "warn",
-        "@typescript-eslint/ban-types": "warn",
-        "@typescript-eslint/no-var-requires": "warn",
-        "@typescript-eslint/no-extra-semi": "error",
         "@typescript-eslint/no-empty-interface": [
             "warn",
             {
@@ -63,6 +59,7 @@ module.exports = {
         ],
         // END TODO
         // Native
+        "no-var": "error",
         "max-len": [
             "warn",
             {
@@ -102,8 +99,11 @@ module.exports = {
             "window",
             "navigator"
         ],
-        // Typescript
         "no-async-promise-executor": "error",
+        // Typescript
+        "@typescript-eslint/no-var-requires": "error",
+        "@typescript-eslint/no-extra-semi": "error",
+        "@typescript-eslint/ban-types": "error",
         "@typescript-eslint/no-unnecessary-type-assertion": "error",
         "@typescript-eslint/no-inferrable-types": "error",
         "@typescript-eslint/no-unsafe-assignment": "warn",

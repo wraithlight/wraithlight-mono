@@ -12,7 +12,7 @@ export abstract class BaseController {
 
     private response: Response | undefined;
 
-    [key: string]: Function | unknown;
+    [key: string]: unknown | (() => void);
 
     public [FILTER_METADATA_KEY]: FilterMetadata | undefined;
     public [CONTROLLER_METADATA_KEY]: ControllerMetadata | undefined;

@@ -68,8 +68,8 @@ export class ControllerBinder {
     private static getMethod(
         controller: BaseController,
         methodMetadata: MethodMetadata
-    ): Function {
-        return controller[methodMetadata.name] as Function;
+    ): ((...args: Array<unknown>) => void) {
+        return controller[methodMetadata.name] as (() => void);
     }
 
     private static getParams(
@@ -93,20 +93,20 @@ export class ControllerBinder {
 
     private static getBodyParams(
         req: Request
-    ): unknown {
-        return this.getParamsFromRequest(req, "body");
+    ): object {
+        return this.getParamsFromRequest(req, "body") as object;
     }
 
     private static getRequestQueryParams(
         req: Request
-    ): Object {
-        return this.getParamsFromRequest(req, "query") as Object;
+    ): object {
+        return this.getParamsFromRequest(req, "query") as object;
     }
 
     private static getRequestPathParams(
         req: Request
-    ): Object {
-        return this.getParamsFromRequest(req, "params") as Object;
+    ): object {
+        return this.getParamsFromRequest(req, "params") as object;
     }
 
     private static getParamsFromRequest(

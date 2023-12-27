@@ -38,6 +38,6 @@ export abstract class DbContext {
         }
     }
 
-    [key: string]: DbSet<Object> | Connection | Pool;
+    [key: string]: DbSet<object> | Connection | Pool;
 
 }

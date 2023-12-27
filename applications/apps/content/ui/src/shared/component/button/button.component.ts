@@ -6,7 +6,7 @@ import { ButtonComponentProps } from "./button.model";
 
 export class ButtonComponent implements Component<ButtonComponentProps> {
 
-    public view(vnode: Vnode<ButtonComponentProps, {}>): Children {
+    public view(vnode: Vnode<ButtonComponentProps, object>): Children {
         const classNameList = [
             "button-component",
             !vnode.attrs.isOutline

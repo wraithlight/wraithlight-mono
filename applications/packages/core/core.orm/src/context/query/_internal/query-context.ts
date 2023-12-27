@@ -4,7 +4,7 @@ import { EOL } from "os";
 
 import { QueryConcatResult } from "./query-context.model";
 
-export abstract class QueryContext<T extends Object> {
+export abstract class QueryContext<T extends object> {
 
     private readonly _queries: Array<string> = [];
     private readonly _queries2: Array<string> = [];

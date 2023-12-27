@@ -9,7 +9,7 @@ import {
     SelectQueryContext as ISelectQueryContext,
 } from "./query-context.model";
 
-export class SelectQueryContext<T extends Object>
+export class SelectQueryContext<T extends object>
     extends WhereableQueryContext<T>
     implements ISelectQueryContext<T> {
 

@@ -6,7 +6,7 @@ import {
     WhereableQueryContext as IWhereableQueryContext
 } from "../query-context.model";
 
-export abstract class WhereableQueryContext<T extends Object>
+export abstract class WhereableQueryContext<T extends object>
     extends QueryContext<T>
     implements IWhereableQueryContext<T> {
 

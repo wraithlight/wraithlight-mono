@@ -5,7 +5,7 @@ import {
 
 import { DbContext } from "../dbcontext";
 
-export class DeleteQueryContext<T extends Object>
+export class DeleteQueryContext<T extends object>
     extends WhereableQueryContext<T>
     implements IDeleteQueryContext<T> {
 

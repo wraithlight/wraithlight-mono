@@ -13,7 +13,7 @@ import { DeleteQueryContext } from "./query/delete.query-context";
 /**
  * @deprecated Import `DbSet` from `core.orm` instead.
  */
-export class DbSet<T extends Object> {
+export class DbSet<T extends object> {
 
     constructor(
         private readonly _context: DbContext,

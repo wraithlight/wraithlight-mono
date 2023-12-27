@@ -2,7 +2,7 @@ import { isNil } from "@wraithlight/core.nullable";
 
 import { BaseValidationRule } from "./base.validation-rule";
 
-export class ObjectValidationRule<T extends {}> extends BaseValidationRule<T> {
+export class ObjectValidationRule<T extends object> extends BaseValidationRule<T> {
 
     public testType(): ObjectValidationRule<T> {
         this.addRuleCase(
