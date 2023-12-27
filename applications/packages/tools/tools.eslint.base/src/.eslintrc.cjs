@@ -89,6 +89,12 @@ module.exports = {
         "no-useless-constructor": "off",
         "no-array-constructor": "off",
         // Typescript
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
         "@typescript-eslint/no-non-null-assertion": "warn",
         "@typescript-eslint/no-empty-function": [
             "error",

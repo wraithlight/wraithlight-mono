@@ -11,7 +11,7 @@ import { DbContext } from "../dbcontext";
 
 export class UpdateQueryContext<T, TKey extends keyof T>
     extends QueryContext<Partial<T>>
-    implements IUpdateQueryContext<T>
+    implements IUpdateQueryContext
 {
     constructor(
         key: TKey,

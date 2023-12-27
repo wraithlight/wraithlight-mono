@@ -9,7 +9,7 @@ import {
 
 export class InsertQueryContext<T extends object>
     extends QueryContext<T>
-    implements IInsertQueryContext<T> {
+    implements IInsertQueryContext {
 
     constructor(
         private readonly _data: T,

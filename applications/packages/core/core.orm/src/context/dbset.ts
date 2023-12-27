@@ -21,11 +21,11 @@ export class DbSet<T extends object> {
         return new SelectQueryContext<T>(this._tableName, this._context);
     }
 
-    public insert(entity: T): IInsertQueryContext<T> {
+    public insert(entity: T): IInsertQueryContext {
         return new InsertQueryContext<T>(entity, this._tableName, this._context);
     }
 
-    public update<TKey extends keyof T>(key: TKey, value: T[TKey], entity: Partial<T>): IUpdateQueryContext<T> {
+    public update<TKey extends keyof T>(key: TKey, value: T[TKey], entity: Partial<T>): IUpdateQueryContext {
         return new UpdateQueryContext<T, TKey>(key, value, entity, this._tableName, this._context);
     }
 

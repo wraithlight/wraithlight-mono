@@ -24,8 +24,8 @@ export class Renderer {
     }
 
     public renderSprite(
-        sprite: Sprite,
-        position: Position
+        _sprite: Sprite,
+        _position: Position
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     ): void {
 

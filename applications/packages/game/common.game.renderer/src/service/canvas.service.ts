@@ -36,8 +36,8 @@ export class CanvasService {
     }
 
     public drawImage(
-        startX: number,
-        startY: number,
+        _startX: number,
+        _startY: number,
     ): void {
         if (this.isLocked) {
             return;
