@@ -11,7 +11,7 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
             auth: {
                 ...state.auth!,
                 session: {
-                    ...state.auth!.session!,
+                    ...state.auth!.session,
                     isBusy: true
                 }
             }

@@ -21,7 +21,7 @@ export class Dictionary<TValue> {
         if (isNil(result)) {
             throw `Key '${key}' was not found!`;
         }
-        return result!;
+        return result;
     }
 
     public has(key: string): boolean {

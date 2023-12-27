@@ -61,8 +61,6 @@ module.exports = {
                 "allowSingleExtends": true
             }
         ],
-        "no-async-promise-executor": "warn",
-        "@typescript-eslint/no-unnecessary-type-assertion": "warn",
         // END TODO
         // Native
         "max-len": [
@@ -105,6 +103,8 @@ module.exports = {
             "navigator"
         ],
         // Typescript
+        "no-async-promise-executor": "error",
+        "@typescript-eslint/no-unnecessary-type-assertion": "error",
         "@typescript-eslint/no-inferrable-types": "error",
         "@typescript-eslint/no-unsafe-assignment": "warn",
         "@typescript-eslint/no-unsafe-member-access": "warn",

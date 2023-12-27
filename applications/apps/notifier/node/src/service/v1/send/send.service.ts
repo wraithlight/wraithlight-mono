@@ -37,7 +37,7 @@ export class SendServiceV1 {
             content,
             isHtml,
             webhookBaseApiUrl: webhookBaseUrl
-        }) as Guid; // TODO: Fix this once ESM build has been added.
+        })
     }
 
     private async sendWorker(item: WebhookableSendEmailModelV1, id: Guid): Promise<void> {
