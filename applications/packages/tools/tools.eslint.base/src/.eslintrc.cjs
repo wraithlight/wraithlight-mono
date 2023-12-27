@@ -66,7 +66,7 @@ module.exports = {
                 allowSeparatedGroups: true
             }
         ],
-        "no-multiple-empty-lines": "warn",
+        "no-multiple-empty-lines": "error",
         "no-trailing-spaces": "error",
         "no-console": "error",
         "no-alert": "warn",
