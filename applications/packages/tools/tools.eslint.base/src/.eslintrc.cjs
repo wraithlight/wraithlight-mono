@@ -135,7 +135,7 @@ module.exports = {
         "@typescript-eslint/prefer-readonly": "error",
         "@typescript-eslint/prefer-string-starts-ends-with": "error",
         "@typescript-eslint/no-magic-numbers": [
-            "warn",
+            "error",
             {
                 "ignore": [-1, 0, 1],
                 "ignoreEnums": true
