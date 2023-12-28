@@ -87,25 +87,16 @@ const config: KnipConfig = {
         "packages/tools/tools.eslint.base": {
             ignore: [
                 "src/.eslintrc.cjs"
-            ],
-            ignoreBinaries: [
-              "cp"
             ]
         },
         "packages/tools/tools.jest.base": {
             ignore: [
                 "src/jest.config.js"
-            ],
-            ignoreBinaries: [
-              "cp"
             ]
         },
         "packages/tools/tools.webpack.base": {
             ignore: [
                 "src/webpack.config.js"
-            ],
-            ignoreBinaries: [
-              "cp"
             ]
         }
     }
