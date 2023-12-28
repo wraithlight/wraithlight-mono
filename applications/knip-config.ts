@@ -89,8 +89,7 @@ const config: KnipConfig = {
                 "src/.eslintrc.cjs"
             ],
             ignoreBinaries: [
-                // TODO: This might cause issues in Windows environments.
-                "rsync"
+              "cp"
             ]
         },
         "packages/tools/tools.jest.base": {
@@ -98,8 +97,7 @@ const config: KnipConfig = {
                 "src/jest.config.js"
             ],
             ignoreBinaries: [
-                // TODO: This might cause issues in Windows environments.
-                "rsync"
+              "cp"
             ]
         },
         "packages/tools/tools.webpack.base": {
@@ -107,8 +105,7 @@ const config: KnipConfig = {
                 "src/webpack.config.js"
             ],
             ignoreBinaries: [
-                // TODO: This might cause issues in Windows environments.
-                "rsync"
+              "cp"
             ]
         }
     }
