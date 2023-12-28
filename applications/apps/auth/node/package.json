@@ -26,7 +26,7 @@
         "@wraithlight/core.guid": "*",
         "@wraithlight/core.node": "*",
         "@wraithlight/core.server": "*",
-        "@wraithlight/core.sql": "*",
+        "@wraithlight/core.orm": "*",
         "@wraithlight/core.nullable": "*",
         "@wraithlight/core.date": "*",
         "@wraithlight/common.password": "*",
