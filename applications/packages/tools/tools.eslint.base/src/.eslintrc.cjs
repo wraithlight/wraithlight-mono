@@ -28,7 +28,11 @@ module.exports = {
         "**/dist/**",
         "**/webpack.config.js",
         ".eslintrc.cjs",
-        "jest.config.js"
+        "jest.config.js",
+        "**/*.js",
+        "**/*.mjs",
+        "**/*.cjs",
+        "**/*.spec.ts"
     ],
     settings: {
         "import/resolver": {
@@ -38,30 +42,8 @@ module.exports = {
         }
     },
     rules: {
-        // TODO
-        "@typescript-eslint/no-empty-function": [
-            "warn",
-            {
-                "allow": [
-                    "constructors"
-                ]
-            }
-        ],
-        "@typescript-eslint/no-inferrable-types": "warn",
-        "no-var": "warn",
-        "@typescript-eslint/ban-types": "warn",
-        "@typescript-eslint/no-var-requires": "warn",
-        "@typescript-eslint/no-extra-semi": "warn",
-        "@typescript-eslint/no-empty-interface": [
-            "warn",
-            {
-                "allowSingleExtends": true
-            }
-        ],
-        "no-async-promise-executor": "warn",
-        "@typescript-eslint/no-unnecessary-type-assertion": "warn",
-        // END TODO
         // Native
+        "no-var": "error",
         "max-len": [
             "warn",
             {
@@ -73,9 +55,9 @@ module.exports = {
             }
         ],
         "no-warning-comments": "warn",
-        "no-implicit-globals": "warn",
+        "no-implicit-globals": "error",
         "sort-imports": [
-            "warn",
+            "error",
             {
                 ignoreCase: false,
                 ignoreDeclarationSort: true,
@@ -84,12 +66,12 @@ module.exports = {
                 allowSeparatedGroups: true
             }
         ],
-        "no-multiple-empty-lines": "warn",
-        "no-trailing-spaces": "warn",
+        "no-multiple-empty-lines": "error",
+        "no-trailing-spaces": "error",
         "no-console": "error",
-        "no-alert": "warn",
+        "no-alert": "error",
         "no-restricted-properties": [
-            "warn",
+            "error",
             {
                 "object": "window",
                 "property": "document"
@@ -101,11 +83,43 @@ module.exports = {
             "window",
             "navigator"
         ],
-        // Typescript
-        "@typescript-eslint/no-unsafe-assignment": "warn",
-        "@typescript-eslint/no-unsafe-member-access": "warn",
-        "@typescript-eslint/unbound-method": "warn",
+        "no-async-promise-executor": "error",
+        // Native off due to TS rules
+        "no-magic-numbers": "off",
         "lines-between-class-members": "off",
+        "no-useless-constructor": "off",
+        "no-array-constructor": "off",
+        // Typescript
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "@typescript-eslint/no-non-null-assertion": "warn",
+        "@typescript-eslint/no-empty-function": [
+            "error",
+            {
+                "allow": [
+                    "constructors"
+                ]
+            }
+        ],
+        "@typescript-eslint/no-empty-interface": [
+            "error",
+            {
+                "allowSingleExtends": true
+            }
+        ],
+        "@typescript-eslint/no-var-requires": "error",
+        "@typescript-eslint/no-extra-semi": "error",
+        "@typescript-eslint/ban-types": "error",
+        "@typescript-eslint/no-unnecessary-type-assertion": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/no-unsafe-assignment": "warn",
+        "@typescript-eslint/promise-function-async": "error",
+        "@typescript-eslint/no-unsafe-member-access": "error",
+        "@typescript-eslint/unbound-method": "warn",
         "@typescript-eslint/lines-between-class-members": "off",
         "@typescript-eslint/parameter-properties": [
             "error",
@@ -117,33 +131,29 @@ module.exports = {
             }
         ],
         "@typescript-eslint/no-namespace": "off",
-        "@typescript-eslint/explicit-function-return-type": "warn",
-        "@typescript-eslint/prefer-enum-initializers": "warn",
-        "@typescript-eslint/prefer-readonly": "warn",
-        "@typescript-eslint/prefer-string-starts-ends-with": "warn",
-        "@typescript-eslint/promise-function-async": "warn",
-        "no-magic-numbers": "off",
+        "@typescript-eslint/explicit-function-return-type": "error",
+        "@typescript-eslint/prefer-enum-initializers": "error",
+        "@typescript-eslint/prefer-readonly": "error",
+        "@typescript-eslint/prefer-string-starts-ends-with": "error",
         "@typescript-eslint/no-magic-numbers": [
-            "warn",
+            "error",
             {
                 "ignore": [-1, 0, 1],
                 "ignoreEnums": true
             }
         ],
-        "no-useless-constructor": "off",
-        "@typescript-eslint/no-useless-constructor": "warn",
-        "no-array-constructor": "off",
-        "@typescript-eslint/no-array-constructor": "warn",
-        "@typescript-eslint/prefer-includes": "warn",
-        "@typescript-eslint/prefer-function-type": "warn",
+        "@typescript-eslint/no-useless-constructor": "error",
+        "@typescript-eslint/no-array-constructor": "error",
+        "@typescript-eslint/prefer-includes": "error",
+        "@typescript-eslint/prefer-function-type": "error",
         "@typescript-eslint/array-type": [
-            "warn", {
+            "error", {
                 "default": "generic",
                 "readonly": "generic"
             }
         ],
         "@typescript-eslint/explicit-member-accessibility": [
-            "warn", {
+            "error", {
                 "accessibility": "explicit",
                 "overrides": {
                     "constructors": "no-public"
@@ -152,10 +162,10 @@ module.exports = {
         ],
         // Typescript Plugins
         "deprecation/deprecation": "warn",
-        "import/no-extraneous-dependencies": "warn",
+        "import/no-extraneous-dependencies": "error",   // TODO: Remove this rule since we have knip
         "import/no-unresolved": "error",
         "import/order": [
-            "warn",
+            "error",
             {
                 groups: [
                     "builtin",

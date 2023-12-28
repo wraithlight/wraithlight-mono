@@ -1,3 +1,3 @@
 import { BaseResponse } from "./internal";
 
-export interface RegisterResponse extends BaseResponse<boolean> {};
+export interface RegisterResponse extends BaseResponse<boolean> {}

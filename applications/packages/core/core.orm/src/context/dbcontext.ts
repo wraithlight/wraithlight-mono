@@ -1,4 +1,4 @@
-import { Connection, createConnection, createPool, Pool } from "mysql2";
+import { Connection, Pool, createConnection, createPool } from "mysql2";
 
 import { DbSet } from "./dbset";
 
@@ -12,7 +12,7 @@ export abstract class DbContext {
         username: string,
         password: string,
         database: string,
-        usePooling: boolean = false
+        usePooling = false
     ) {
         if (usePooling) {
             this.Connection = createPool({
@@ -38,6 +38,6 @@ export abstract class DbContext {
         }
     }
 
-    [key: string]: DbSet<Object> | Connection | Pool;
+    [key: string]: DbSet<object> | Connection | Pool;
 
 }

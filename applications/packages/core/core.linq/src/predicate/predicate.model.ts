@@ -1,3 +1,1 @@
-export interface Predicate<TSource, TResult> {
-    (src: TSource): TResult;
-}
+export type Predicate<TSource, TResult>  = (src: TSource) => TResult;

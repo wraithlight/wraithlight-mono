@@ -8,7 +8,7 @@ import { HttpDecorator } from "./http.decorator";
 import { HttpGet } from "./get.decorator";
 
 describe("HttpGetSpecs", () => {
-    
+
     const MOCK_PATH = "wraithlight/test";
     const decorator = HttpGet;
 

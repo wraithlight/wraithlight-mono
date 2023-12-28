@@ -1,10 +1,11 @@
+import { join } from "path";
+
 import { ServerGameWebsiteConfigReader } from "@wraithlight/common.environment-static.server";
 import { SharedGameWebsiteConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ApplicationName } from "@wraithlight/core.common-constants";
-import { createNodeServer } from "@wraithlight/core.server";
 import { CoreEnvironment } from "@wraithlight/core.env";
 import { BaseController } from "@wraithlight/core.node";
-import { join } from "path";
+import { createNodeServer } from "@wraithlight/core.server";
 
 const serverCfg = ServerGameWebsiteConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 const sharedCfg = SharedGameWebsiteConfigReader.getInstance(CoreEnvironment.getEnvironmentType());

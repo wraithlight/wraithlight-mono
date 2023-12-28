@@ -1,6 +1,6 @@
 import { ApplicationName } from "@wraithlight/core.common-constants";
-import { LogSeverity } from "@wraithlight/core.logger.types";
 import { dateNow, toUtc } from "@wraithlight/core.date";
+import { LogSeverity } from "@wraithlight/core.logger.types";
 
 import { LogsDbo, LogsRepository } from "../../repository";
 

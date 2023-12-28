@@ -1,6 +1,6 @@
-import { Nullable } from "@wraithlight/core.nullable";
-import { Position, Sprite } from "@wraithlight/core.game.types";
 import { Color } from "@wraithlight/core.game.const";
+import { Position, Sprite } from "@wraithlight/core.game.types";
+import { Nullable } from "@wraithlight/core.nullable";
 
 import { CanvasService } from "./service";
 
@@ -11,7 +11,7 @@ export class Renderer {
     public useCanvas(
         canvas: HTMLCanvasElement
     ): void {
-        if (!this._canvasService) {    
+        if (!this._canvasService) {
             this._canvasService = new CanvasService(canvas);
         }
     }
@@ -24,10 +24,11 @@ export class Renderer {
     }
 
     public renderSprite(
-        sprite: Sprite,
-        position: Position
+        _sprite: Sprite,
+        _position: Position
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     ): void {
-        
+
     }
 
     public fillColor(

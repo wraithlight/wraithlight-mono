@@ -1,10 +1,10 @@
+import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { ApplicationName } from "@wraithlight/core.common-constants";
 import {
     BaseController,
     ControllerBinder,
     createServer
 } from "@wraithlight/core.node";
-import { ApplicationName } from "@wraithlight/core.common-constants";
-import { LoggerService } from "@wraithlight/common.logger.sdk";
 
 export function createNodeServer(
     appName: ApplicationName,

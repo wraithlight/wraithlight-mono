@@ -1,7 +1,7 @@
 jest.mock("@wraithlight/common.environment-static.shared", () => {
     return {
         SharedLogsConfigReader: {
-            getInstance: jest.fn().mockImplementation(() => { 
+            getInstance: jest.fn().mockImplementation(() => {
                 return {
                     get: jest.fn().mockImplementation(() => "test")
                 }

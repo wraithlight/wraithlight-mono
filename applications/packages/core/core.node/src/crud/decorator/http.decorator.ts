@@ -1,15 +1,18 @@
+import { BaseController } from "../controller";
 import { METHOD_METADATA_KEY } from "../internal/method-metadata.const";
 import {
     MethodMetadata,
     MethodMetadataType
 } from "../internal/method-metadata.model";
 
+import { IDecoratorFactory } from "./decorator.model";
+
 export const HttpDecorator = (
     verb: MethodMetadataType,
     path: string
-) => {
+): IDecoratorFactory<any> => {
     return (
-        target: any,
+        target: BaseController,
         propertyKey: string
     ) => {
         const metadata: MethodMetadata = {

@@ -1,7 +1,8 @@
 import "./app.component.scss";
+import { addComponent } from "../framework";
+
 import { template } from "./app.component.html";
 
-import { addComponent } from "../framework";
 
 class AppComponent {
 

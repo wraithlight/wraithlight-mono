@@ -1,18 +1,20 @@
 import {
     Application,
     IRouterMatcher,
-    Response,
-    Request
+    Request,
+    Response
 } from "express";
 
 import { BaseController } from "../controller";
+// TODO: Export these from internal's public api
+import { Invoker } from "../internal";
 import { CONTROLLER_METADATA_KEY } from "../internal/controller-metadata.const";
 import { ControllerMetadata } from "../internal/controller-metadata.model";
 import { FILTER_METADATA_KEY } from "../internal/filter-metadata.const";
 import { MethodMetadata } from "../internal/method-metadata.model";
 
 export class ControllerBinder {
-    
+
     public static bindControllers(
         app: Application,
         controllers: ReadonlyArray<BaseController>
@@ -51,7 +53,7 @@ export class ControllerBinder {
     private static getFilters(
         controller: BaseController,
         methodName: string
-    ) {
+    ): ReadonlyArray<Invoker> {
         if (!controller[FILTER_METADATA_KEY]) {
             return [];
         }
@@ -66,8 +68,8 @@ export class ControllerBinder {
     private static getMethod(
         controller: BaseController,
         methodMetadata: MethodMetadata
-    ): Function {
-        return controller[methodMetadata.name] as Function;
+    ): ((...args: Array<unknown>) => void) {
+        return controller[methodMetadata.name] as (() => void);
     }
 
     private static getParams(
@@ -91,20 +93,20 @@ export class ControllerBinder {
 
     private static getBodyParams(
         req: Request
-    ): unknown {
-        return this.getParamsFromRequest(req, "body");
+    ): object {
+        return this.getParamsFromRequest(req, "body") as object;
     }
 
     private static getRequestQueryParams(
         req: Request
-    ): Object {
-        return this.getParamsFromRequest(req, "query") as Object;
+    ): object {
+        return this.getParamsFromRequest(req, "query") as object;
     }
 
     private static getRequestPathParams(
         req: Request
-    ): Object {
-        return this.getParamsFromRequest(req, "params") as Object;
+    ): object {
+        return this.getParamsFromRequest(req, "params") as object;
     }
 
     private static getParamsFromRequest(

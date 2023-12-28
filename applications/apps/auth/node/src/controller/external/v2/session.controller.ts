@@ -63,7 +63,9 @@ export class SessionControllerV2 extends BaseController {
     }
 
     @HttpPost(API_ENDPOINTS.external.v2.auth.logout)
-    public async logout(model: ApiLogoutRequest) {
+    public async logout(
+        model: ApiLogoutRequest
+    ): Promise<void> {
         const result = this._sessionService.stopSession(model.sessionToken, model.loginScope);
         if (result) {
             const data: ApiLogoutErrorResponse = {
@@ -80,7 +82,9 @@ export class SessionControllerV2 extends BaseController {
     }
 
     @HttpPost(API_ENDPOINTS.external.v2.auth.keepAlive)
-    public async keepAliveSession(model: ApiKeepAliveSessionRequest) {
+    public async keepAliveSession(
+        model: ApiKeepAliveSessionRequest
+    ): Promise<void> {
         const result = this._sessionService.renew(model.sessionToken, model.loginScope);
         if (!result.success) {
             const data: ApiKeepAliveSessionErrorResponse = {
@@ -101,8 +105,11 @@ export class SessionControllerV2 extends BaseController {
     }
 
     @HttpPost(API_ENDPOINTS.external.v2.auth.validateSession)
-    public async validateSession(model: ApiValidateSessionRequest) {
-        const result = this._sessionService.checkSession(model.sessionToken, model.loginScope);
+    public async validateSession(
+        model: ApiValidateSessionRequest
+    ): Promise<void> {
+        const result = this._sessionService
+            .checkSession(model.sessionToken, model.loginScope);
         if (!result.isValid) {
             const validateResult: ApiValidateSessionErrorResponse = {
                 success: false,

@@ -1,11 +1,11 @@
-import { LogsServer, EnvironmentStatic } from "@wraithlight/core.environment-static.types";
 import { EnvironmentType } from "@wraithlight/core.common-constants";
+import { EnvironmentStatic, LogsServer } from "@wraithlight/core.environment-static.types";
 
-import { SERVER_LOCAL_LOGS_CONFIG } from "./local";
 import { SERVER_DEV_LOGS_CONFIG } from "./dev";
-import { SERVER_TEST_LOGS_CONFIG } from "./test";
-import { SERVER_STAGING_LOGS_CONFIG } from "./staging";
+import { SERVER_LOCAL_LOGS_CONFIG } from "./local";
 import { SERVER_PRODUCTION_LOGS_CONFIG } from "./production";
+import { SERVER_STAGING_LOGS_CONFIG } from "./staging";
+import { SERVER_TEST_LOGS_CONFIG } from "./test";
 
 export const SERVER_LOGS_CONFIG: Readonly<EnvironmentStatic<LogsServer>> = {
     [EnvironmentType.Local]: SERVER_LOCAL_LOGS_CONFIG,

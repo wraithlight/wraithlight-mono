@@ -26,11 +26,11 @@ export class ValidationRule {
         return this.toRule<Array<T>, ArrayValidationRule<T>>(new ArrayValidationRule());
     }
 
-    public static toBeObject<T extends {}>(): ObjectValidationRule<T> {
+    public static toBeObject<T extends object>(): ObjectValidationRule<T> {
         return this.toRule<T, ObjectValidationRule<T>>(new ObjectValidationRule());
     }
 
-    public static toBeEnum<T extends {}>(): EnumValidationRule<T> {
+    public static toBeEnum<T extends object>(): EnumValidationRule<T> {
         return this.toRule<T, EnumValidationRule<T>>(new EnumValidationRule());
     }
 

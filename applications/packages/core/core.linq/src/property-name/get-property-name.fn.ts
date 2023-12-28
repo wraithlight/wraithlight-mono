@@ -1,4 +1,5 @@
 import { Predicate } from "../predicate";
+
 import { CHAIN_SEPARATOR } from "./get-property-name.const";
 
 export function getPropertyName<T, U>(predicate: Predicate<T, U>): string {

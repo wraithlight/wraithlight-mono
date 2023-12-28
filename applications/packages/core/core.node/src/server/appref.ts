@@ -1,6 +1,7 @@
-import { Application, static as serveStatic, Request, Response, NextFunction } from "express";
-import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { Server } from "http";
+
+import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { Application, NextFunction, Request, Response, static as serveStatic } from "express";
 import {
     serve as swaggerServe,
     setup as swaggerSetup
@@ -30,6 +31,7 @@ export class AppRef implements IAppRef {
     }
 
     public serveSwagger(route: string, staticPath: string): IAppRef {
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         const document = require(staticPath);
         this._app.use(route, swaggerServe, swaggerSetup(document));
         return this;
@@ -53,7 +55,6 @@ export class AppRef implements IAppRef {
                 callback();
             }
         });
-        
     }
 
 }

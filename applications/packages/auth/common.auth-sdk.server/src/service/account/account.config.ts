@@ -1,7 +1,7 @@
-import { createUrl } from "@wraithlight/core.url";
-import { CoreEnvironment } from "@wraithlight/core.env";
-import { API_ENDPOINTS } from "@wraithlight/core.auth.constant";
 import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
+import { API_ENDPOINTS } from "@wraithlight/core.auth.constant";
+import { CoreEnvironment } from "@wraithlight/core.env";
+import { createUrl } from "@wraithlight/core.url";
 
 export class ServerAccountServiceConfig {
 

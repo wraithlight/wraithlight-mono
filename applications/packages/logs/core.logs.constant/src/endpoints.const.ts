@@ -8,5 +8,5 @@ export const LOGGER_API_ENDPOINTS = Object.freeze({
             root: LOGS_V1_API_BASE_URL,
             create: `${LOGS_V1_API_BASE_URL}/create`
         }
-    }    
+    }
 });

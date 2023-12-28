@@ -1,5 +1,5 @@
-import { Nullable } from "@wraithlight/core.nullable";
 import { SceneService } from "@wraithlight/core.game.scene";
+import { Nullable } from "@wraithlight/core.nullable";
 
 export class GameContextService {
 
@@ -7,7 +7,7 @@ export class GameContextService {
 
     public initGame(
         canvas: HTMLCanvasElement,
-        sessionToken: string
+        _sessionToken: string
     ): void {
         if (!this._sceneService) {
             canvas.width = canvas.clientWidth;

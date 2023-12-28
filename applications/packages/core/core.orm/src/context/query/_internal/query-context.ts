@@ -1,10 +1,11 @@
-import { Primitive } from "@wraithlight/core.primitive";
-import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { EOL } from "os";
+
+import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { Primitive } from "@wraithlight/core.primitive";
 
 import { QueryConcatResult } from "./query-context.model";
 
-export abstract class QueryContext<T extends Object> {
+export abstract class QueryContext<T extends object> {
 
     private readonly _queries: Array<string> = [];
     private readonly _queries2: Array<string> = [];
@@ -42,13 +43,13 @@ export abstract class QueryContext<T extends Object> {
         switch(typeof value) {
             case "number": return value.toString();
             case "boolean": return value.toString();
-            default: return `"${value}"`; 
+            default: return `"${value}"`;
         }
     }
 
     protected getColumnValuePairs(data: T): string {
         const keys = Object.keys(data) as Array<keyof T>;
-        return keys.map(key => 
+        return keys.map(key =>
             `${this._tableName}.${this.capitalize(key.toString())} = ${this.getValueString(data[key] as Primitive)}`
         ).join(`,${EOL}`);
     }

@@ -1,5 +1,8 @@
-import { addComponent } from "../../../framework";
 import "./header.component.scss";
+import { addComponent } from "../../../framework";
+
+import { template } from "./header.component.html"
+
 
 class HeaderComponent {
 
@@ -7,6 +10,6 @@ class HeaderComponent {
 
 addComponent(
     "game-website-header",
-    require("./header.component.html").default,
+    template,
     () => new HeaderComponent()
 );

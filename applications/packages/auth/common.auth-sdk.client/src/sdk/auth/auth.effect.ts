@@ -1,6 +1,6 @@
-import { ActionWithPayload, Store } from "@wraithlight/core.redux";
-import { UNKNOWN_ERROR } from "@wraithlight/core.common-constants";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { UNKNOWN_ERROR } from "@wraithlight/core.common-constants";
+import { ActionWithPayload, Store } from "@wraithlight/core.redux";
 
 import { IAuthContainerStore } from "../state.model";
 
@@ -29,7 +29,7 @@ export function initializeEffects(
             })
     });
 
-    store.addEffect([AuthAction.logout], (action: ActionWithPayload<{ token: string}>) => (
+    store.addEffect([AuthAction.logout], async (action: ActionWithPayload<{ token: string}>) => (
         service.logout(action.payload.token)
             .then(m => {
                 const action = m.success
@@ -43,7 +43,7 @@ export function initializeEffects(
             })
     ));
 
-    store.addEffect([AuthAction.keepAlive], (action: ActionWithPayload<{ token: string}>) => (
+    store.addEffect([AuthAction.keepAlive], async (action: ActionWithPayload<{ token: string}>) => (
         service.keepAlive(action.payload.token)
             .then(m => {
                 const action = m.success
@@ -58,4 +58,4 @@ export function initializeEffects(
     ));
 
     return store;
-};
+}

@@ -26,10 +26,9 @@
         "@wraithlight/core.guid": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.notifier.const": "*",
-        "@wraithlight/core.notifier.types": "*",
-        "@wraithlight/core.common-constants": "*",
         "@wraithlight/core.url": "*",
-        "@wraithlight/core.notifier.types": "*"
+        "@wraithlight/core.notifier.types": "*",
+        "@wraithlight/core.nullable": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",

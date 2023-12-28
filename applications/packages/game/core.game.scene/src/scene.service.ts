@@ -12,7 +12,6 @@ export class SceneService {
     public renderLoginScene(): void {
         this._layerService.reset();
         const background = this._layerService.addLayer();
-        const form = this._layerService.addLayer();
 
         background.fillColor(
             { x: 0, y: 0 },

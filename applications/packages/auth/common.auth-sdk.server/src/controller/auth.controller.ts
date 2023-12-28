@@ -1,8 +1,3 @@
-import {
-    BaseController,
-    HttpController,
-    HttpPost
-} from "@wraithlight/core.node";
 import { API_ROUTES } from "@wraithlight/core.auth.constant";
 import {
     ApiKeepAliveSessionErrorResponse,
@@ -27,6 +22,11 @@ import {
     ValidateSessionRequest,
     ValidateSessionSuccessResponse
 } from "@wraithlight/core.auth.types";
+import {
+    BaseController,
+    HttpController,
+    HttpPost
+} from "@wraithlight/core.node";
 
 import { ServerAuthService } from "../service";
 

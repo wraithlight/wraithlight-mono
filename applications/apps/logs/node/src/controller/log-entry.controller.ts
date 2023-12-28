@@ -1,10 +1,11 @@
-import { BeaconLogEntry } from "@wraithlight/core.logs.types";
 import { LOGGER_API_ENDPOINTS } from "@wraithlight/core.logs.constant";
+import { BeaconLogEntry } from "@wraithlight/core.logs.types";
 import {
     BaseController,
     HttpController,
     HttpPost
 } from "@wraithlight/core.node";
+
 import { LogsService } from "../service";
 
 @HttpController(LOGGER_API_ENDPOINTS.v1.logs.root)

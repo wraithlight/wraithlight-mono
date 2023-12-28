@@ -5,6 +5,4 @@ export interface CqrsContentModel<T> {
     data: T;
 }
 
-export interface CqrsProcessor<T> {
-    (item: T, id: Guid): void | Promise<void>
-}
+export type CqrsProcessor<T>  = (item: T, id: Guid) => void | Promise<void>;

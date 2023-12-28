@@ -8,6 +8,6 @@ export const INITIAL_STATE: ContentGlobalState = {
         },
         account: {
             isBusy: false
-        } 
+        }
     }
 };

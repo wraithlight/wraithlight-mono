@@ -1,17 +1,18 @@
 import { EOL } from "os";
+
 import { Primitive } from "@wraithlight/core.primitive";
 
-import { QueryContext } from "./_internal";
+import { DbContext } from "../dbcontext";
 
+import { QueryContext } from "./_internal";
 import {
     UpdateQueryContext as IUpdateQueryContext
 } from "./query-context.model";
 
-import { DbContext } from "../dbcontext";
 
 export class UpdateQueryContext<T, TKey extends keyof T>
     extends QueryContext<Partial<T>>
-    implements IUpdateQueryContext<T>
+    implements IUpdateQueryContext
 {
     constructor(
         key: TKey,
@@ -36,7 +37,7 @@ export class UpdateQueryContext<T, TKey extends keyof T>
         );
     }
 
-    public run(): Promise<void> {
+    public async run(): Promise<void> {
         const command = this.concatQueries();
         return new Promise((resolve, reject) => {
             this._context.Connection.query(command, (error) => {

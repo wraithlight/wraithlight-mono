@@ -7,4 +7,4 @@ export const enum HttpCode {
     NotFound = 404,
     Conflict = 409,
     InternalError = 500
-};
+}

@@ -1,19 +1,19 @@
 import "./login.component.scss";
 
-import { Store } from "@wraithlight/core.redux";
 import { AuthAction } from "@wraithlight/common.auth-sdk.client";
+import { Store } from "@wraithlight/core.redux";
 import m, { Children, Component } from "mithril";
 
+import { ContentGlobalState } from "../../sdk";
 import { ButtonComponent, InputComponent } from "../../shared/component";
 
 import { LoginState } from "./login.model";
-import { ContentGlobalState } from "../../sdk";
 
 export class LoginComponent implements Component {
 
     private readonly _store = Store.getInstance<ContentGlobalState>();
 
-    private state: LoginState = {
+    private readonly state: LoginState = {
         username: "",
         password: ""
     };

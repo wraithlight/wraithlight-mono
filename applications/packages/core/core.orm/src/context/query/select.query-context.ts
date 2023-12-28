@@ -4,12 +4,11 @@ import { RowDataPacket } from "mysql2";
 import { DbContext } from "../dbcontext";
 
 import { QueryConcatResult, WhereableQueryContext } from "./_internal";
-
 import {
     SelectQueryContext as ISelectQueryContext,
 } from "./query-context.model";
 
-export class SelectQueryContext<T extends Object>
+export class SelectQueryContext<T extends object>
     extends WhereableQueryContext<T>
     implements ISelectQueryContext<T> {
 
@@ -21,7 +20,7 @@ export class SelectQueryContext<T extends Object>
         this.addQuery(`SELECT * FROM ?`, tableName);
     }
 
-    public toList(): Promise<Array<T>> {
+    public async toList(): Promise<Array<T>> {
         const command = this.concatQueries();
         return this.exec(command);
     }

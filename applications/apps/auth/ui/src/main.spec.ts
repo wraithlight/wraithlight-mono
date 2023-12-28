@@ -17,12 +17,12 @@ jest.mock("@wraithlight/core.redux", () => {
     }
 });
 jest.mock("./app", () => jest.fn().mockImplementation(() => ({})));
-jest.mock("./app.css", () => { });
+jest.mock("./app.css", () => jest.fn());
 jest.mock("./sdk")
 
-import { Store } from "@wraithlight/core.redux";
-import { getDocumentRef } from "@wraithlight/core.dom";
 import { initializeAuthSdk } from "@wraithlight/common.auth-sdk.client";
+import { getDocumentRef } from "@wraithlight/core.dom";
+import { Store } from "@wraithlight/core.redux";
 
 import App from "./app";
 import { INITIAL_STATE } from "./sdk";

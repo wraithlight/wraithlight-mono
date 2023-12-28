@@ -1,15 +1,15 @@
-import { BaseController, HttpController, HttpGet } from "@wraithlight/core.node";
-import { EXTERNAL_API_ENDPOINTS } from "@wraithlight/core.health-checker.constants";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { EXTERNAL_API_ENDPOINTS } from "@wraithlight/core.health-checker.constants";
 import { HttpCode } from "@wraithlight/core.http";
+import { BaseController, HttpController, HttpGet } from "@wraithlight/core.node";
 
+import { HealthCheckMessageBusV1Service } from "../sdk";
 import {
     HealthCheckTokenV1Service,
     HealthCheckV1Service
 } from "../service";
 
 import { TokenValidator } from "./validation";
-import { HealthCheckMessageBusV1Service } from "../sdk";
 
 @HttpController(EXTERNAL_API_ENDPOINTS.v1.root)
 export class HealthCheckControllerV1 extends BaseController {
@@ -26,7 +26,7 @@ export class HealthCheckControllerV1 extends BaseController {
     }
 
     @HttpGet(EXTERNAL_API_ENDPOINTS.v1.health.forServer)
-    public health(token: string) {
+    public health(token: string): void {
         HealthCheckMessageBusV1Service.getInstance().addError();
         const path = EXTERNAL_API_ENDPOINTS.v1.health.forServer;
         this._logger.info(`GET on ${path}`);
@@ -45,7 +45,7 @@ export class HealthCheckControllerV1 extends BaseController {
     }
 
     @HttpGet(EXTERNAL_API_ENDPOINTS.v1.metrics.forServer)
-    public metrics(token: string) {
+    public metrics(token: string): void {
         const path = EXTERNAL_API_ENDPOINTS.v1.metrics.forServer;
         this._logger.info(`GET on ${path}`);
         const validationResult = this._tokenValidator.validate({ token });

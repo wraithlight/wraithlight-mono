@@ -1,15 +1,16 @@
-import { CqrsService } from "@wraithlight/core.cqrs";
-import { Nullable } from "@wraithlight/core.nullable";
-import { Guid } from "@wraithlight/core.guid";
+import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { NodemailerFacadeService } from "@wraithlight/common.notifier.nodemailer-sdk";
+import { CqrsService } from "@wraithlight/core.cqrs";
 import { CoreEnvironment } from "@wraithlight/core.env";
-import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
+import { Guid } from "@wraithlight/core.guid";
 import { IMailSender } from "@wraithlight/core.notifier.types";
+import { Nullable } from "@wraithlight/core.nullable";
+
+import { WebhookService } from "../webhook";
 
 import { WebhookableSendEmailModelV1 } from "./send.model";
 
-import { WebhookService } from "../webhook";
 
 export class SendServiceV1 {
 
@@ -22,7 +23,7 @@ export class SendServiceV1 {
         this._config.get(m => m.emailSending.smtp.auth.user),
         this._config.get(m => m.emailSending.smtp.auth.pass)
     );
-    private readonly _cqrsService = new CqrsService<WebhookableSendEmailModelV1>((item, id) => this.sendWorker(item, id));
+    private readonly _cqrsService = new CqrsService<WebhookableSendEmailModelV1>(async (item, id) => this.sendWorker(item, id));
 
     public send(
         address: string,
@@ -37,7 +38,7 @@ export class SendServiceV1 {
             content,
             isHtml,
             webhookBaseApiUrl: webhookBaseUrl
-        }) as Guid; // TODO: Fix this once ESM build has been added.
+        })
     }
 
     private async sendWorker(item: WebhookableSendEmailModelV1, id: Guid): Promise<void> {

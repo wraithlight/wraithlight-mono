@@ -1,8 +1,3 @@
-import {
-    BaseController,
-    HttpController,
-    HttpPost
-} from "@wraithlight/core.node";
 import { API_ROUTES } from "@wraithlight/core.auth.constant";
 import {
     ApiRegisterErrorResponse,
@@ -10,6 +5,11 @@ import {
     RegisterRequest,
     RegisterSuccessResponse
 } from "@wraithlight/core.auth.types";
+import {
+    BaseController,
+    HttpController,
+    HttpPost
+} from "@wraithlight/core.node";
 
 import { ServerAccountService } from "../service";
 

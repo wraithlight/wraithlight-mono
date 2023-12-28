@@ -1,17 +1,18 @@
 import { Primitive } from "@wraithlight/core.primitive";
 
-import { QueryContext } from "./query-context";
-
 import {
     WhereableQueryContext as IWhereableQueryContext
 } from "../query-context.model";
 
-export abstract class WhereableQueryContext<T extends Object>
+import { QueryContext } from "./query-context";
+
+
+export abstract class WhereableQueryContext<T extends object>
     extends QueryContext<T>
     implements IWhereableQueryContext<T> {
 
     private lastWasWhere = false;
-    
+
     public where<TKey extends keyof T>(key: TKey, value: T[TKey]): IWhereableQueryContext<T> {
         const queryValue = this.getValueString(value as Primitive);
         if (this.lastWasWhere) {

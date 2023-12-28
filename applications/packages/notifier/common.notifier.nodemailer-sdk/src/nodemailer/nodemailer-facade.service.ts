@@ -1,11 +1,11 @@
-import { Nullable } from "@wraithlight/core.nullable";
 import { IMailSender, IMailSenderSendMailResult } from "@wraithlight/core.notifier.types";
+import { Nullable } from "@wraithlight/core.nullable";
 import { createTransport } from "nodemailer";
 
 export class NodemailerFacadeService implements IMailSender {
 
     private static _instance: Nullable<NodemailerFacadeService>;
-    private _transporter = createTransport({
+    private readonly _transporter = createTransport({
         host: this._host,
         port: this._port,
         secure: this._secure,
@@ -47,7 +47,7 @@ export class NodemailerFacadeService implements IMailSender {
         fromAddress: string,
         subject: string,
         content: string,
-        isHtml: boolean = false,
+        isHtml = false,
         cc: ReadonlyArray<string> = [],
         bcc: ReadonlyArray<string> = []
     ): Promise<IMailSenderSendMailResult> {

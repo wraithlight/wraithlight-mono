@@ -4,7 +4,7 @@ import { MessagebusCallbackFn, MessagebusListener } from "./messagebus.model";
 
 export class MessagebusService {
 
-    private _listeners: Array<MessagebusListener> = [];
+    private readonly _listeners: Array<MessagebusListener> = [];
 
     public removeListener(id: Guid): void {
         const index = this._listeners.findIndex(m => m.id === id);

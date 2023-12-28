@@ -1,10 +1,10 @@
+import { initializeAuthSdk } from "@wraithlight/common.auth-sdk.client";
 import { getDocumentRef, getWindowRef } from "@wraithlight/core.dom";
 import { Store } from "@wraithlight/core.redux";
-import { initializeAuthSdk } from "@wraithlight/common.auth-sdk.client";
 import { mount } from "mithril";
 
-import { ContentGlobalState, INITIAL_STATE } from "./sdk";
 import { AppComponent  } from "./app.component";
+import { ContentGlobalState, INITIAL_STATE } from "./sdk";
 
 const _document = getDocumentRef();
 const _window = getWindowRef();

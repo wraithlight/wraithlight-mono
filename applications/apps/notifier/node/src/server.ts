@@ -1,11 +1,12 @@
+import { join } from "path";
+
 import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
-import { LoginScope } from "@wraithlight/core.auth.types";
 import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
 import { SharedNotifierConfigReader } from "@wraithlight/common.environment-static.shared";
+import { LoginScope } from "@wraithlight/core.auth.types";
 import { ApplicationName } from "@wraithlight/core.common-constants";
-import { createNodeServer } from "@wraithlight/core.server";
 import { CoreEnvironment } from "@wraithlight/core.env";
-import { join } from "path";
+import { createNodeServer } from "@wraithlight/core.server";
 
 import { SendControllerV1 } from "./controller";
 

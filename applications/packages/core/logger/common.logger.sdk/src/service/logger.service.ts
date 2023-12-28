@@ -1,6 +1,6 @@
 import { dateISOSerialize, dateNow } from "@wraithlight/core.date";
-import { Nullable } from "@wraithlight/core.nullable";
 import { ILogger, LogSeverity, LoggerConfig } from "@wraithlight/core.logger.types";
+import { Nullable } from "@wraithlight/core.nullable";
 
 import { DEFAULT_CONFIG } from "./logger.const";
 

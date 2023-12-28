@@ -7,5 +7,5 @@ export interface ErrorRegisterResponse extends BaseRegisterResponse {
 }
 
 export interface SuccessRegisterResponse extends BaseRegisterResponse {
-    
+
 }

@@ -1,12 +1,13 @@
-import { HttpClient } from "@wraithlight/core.http";
-import { WebhookConfigService } from "./webhook.config";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { Guid } from "@wraithlight/core.guid";
+import { HttpClient } from "@wraithlight/core.http";
 import {
     WebhookRequestFailV1Model,
     WebhookRequestStartV1Model,
     WebhookRequestSucceedV1Model
 } from "@wraithlight/core.notifier.types";
-import { LoggerService } from "@wraithlight/common.logger.sdk";
+
+import { WebhookConfigService } from "./webhook.config";
 
 export class WebhookService extends HttpClient {
 
