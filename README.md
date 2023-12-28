@@ -138,7 +138,7 @@ Most of the backend libraries/applications are written in NodeJS with some custo
 
 
 ## Database
-All of the databases are using MySQL, with a custom ORM, called `core.sql`.
+All of the databases are using MySQL, with a custom ORM, called `core.orm`.
 
 ## Other technologies used
 * Docker
