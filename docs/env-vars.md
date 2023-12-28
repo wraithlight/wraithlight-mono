@@ -4,7 +4,7 @@
 ### `wlType`
 This environment variable is used to determine which environment the platform is running in.
 
-Possbile values:
+Possible values:
 * `LOCAL`
 * `DEV`
 * `TEST`

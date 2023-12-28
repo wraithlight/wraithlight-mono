@@ -9,7 +9,19 @@ jest.mock("./controller", () => {
         SessionControllerV2: jest.fn()
     }
 });
+jest.mock("@wraithlight/common.health-checker.sdk-server", () => {
+    return {
+        HealthCheckControllerV1: jest.fn()
+    }
+});
+jest.mock("@wraithlight/common.auth-sdk.server", () => {
+    return {
+        ServerAuthControllerV1: jest.fn()
+    }
+});
 import { createNodeServer } from "@wraithlight/core.server";
+import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
+import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
 
 describe("ServerSpecs", () => {
     import("./server");
