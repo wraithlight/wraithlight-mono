@@ -1,4 +1,4 @@
-import { DbContext, DbSet } from "@wraithlight/core.sql";
+import { DbContext, DbSet } from "@wraithlight/core.orm";
 
 import {
     LogsDbo
