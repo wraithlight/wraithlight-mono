@@ -13,8 +13,8 @@ export class ServerLoggerService {
         private readonly _loggerConfig: LoggerConfig,
         private readonly _logger: ILogger = console
     ) {
-        CoreLoggerService.initialize(_loggerConfig);
-        this._loggerService = CoreLoggerService.getInstance(_logger);
+        CoreLoggerService.initialize(this._loggerConfig, this._logger);
+        this._loggerService = CoreLoggerService.getInstance();
     }
 
     public logDebug(...data: Array<unknown>): void {
