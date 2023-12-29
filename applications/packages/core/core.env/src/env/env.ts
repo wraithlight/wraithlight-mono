@@ -1,12 +1,15 @@
 import { EnvironmentType } from "@wraithlight/core.common-constants";
 
-import { WL_ENV_DEFAULT } from "./env.const";
+import { WL_ENV_DEFAULT, WL_ENV_TYPE_PROP_NAME } from "./env.const";
 import { IEnvironment, IEnvironmentPropery } from "./env.model";
 
 export class CoreEnvironment {
 
     public static getEnvironmentType(): EnvironmentType {
-        return this.getStringAsT<EnvironmentType>("wlType", WL_ENV_DEFAULT)
+        return this.getStringAsT<EnvironmentType>(
+            WL_ENV_TYPE_PROP_NAME,
+            WL_ENV_DEFAULT
+        )
     }
 
     public static getStringAsT<T>(
