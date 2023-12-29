@@ -1,11 +1,6 @@
 import { wlMustache } from "./mustache.fn";
 
-// TODO: Create __mocks__
-jest.mock("@wraithlight/facade.mustache", () => {
-    return {
-        mustacheFacade: jest.fn().mockImplementation((template) => ({ renderedTemplate: template }))
-    }
-});
+jest.mock("@wraithlight/facade.mustache");
 
 import { mustacheFacade } from "@wraithlight/facade.mustache";
 
