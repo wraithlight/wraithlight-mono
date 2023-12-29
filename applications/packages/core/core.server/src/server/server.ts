@@ -5,13 +5,15 @@ import {
     ControllerBinder,
     createServer
 } from "@wraithlight/core.node";
+import { SIGINT, SIGTREM } from "./server.const";
 
 export function createNodeServer(
     appName: ApplicationName,
     controllers: ReadonlyArray<BaseController>,
     port: number,
     staticFiles?: Array<{ path: string, staticPath: string }>,
-    onStartCallback?: (stopRef: () => void) => void
+    onStartCallback?: (stopRef: () => void) => void,
+    onStopCallback?: () => void
 ): void {
     const server = createServer(true);
     const logger = LoggerService.getInstance();
@@ -29,5 +31,15 @@ export function createNodeServer(
     server.start(port, () => {
         logger.info(`${appName} is running on port '${port}'`);
         onStartCallback && onStartCallback(server.stop);
+    });
+
+    process.on(SIGINT, () => {
+        logger.info(`Received '${SIGINT}' signal - stopping.`);
+        onStopCallback && onStopCallback();
+    });
+
+    process.on(SIGTREM, () => {
+        logger.info(`Received '${SIGTREM}' signal - stopping.`);
+        onStopCallback && onStopCallback();
     });
 }
