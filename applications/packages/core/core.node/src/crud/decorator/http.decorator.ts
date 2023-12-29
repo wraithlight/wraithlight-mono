@@ -1,9 +1,9 @@
 import { BaseController } from "../controller";
-import { METHOD_METADATA_KEY } from "../internal/method-metadata.const";
 import {
+    METHOD_METADATA_KEY,
     MethodMetadata,
     MethodMetadataType
-} from "../internal/method-metadata.model";
+} from "../internal";
 
 import { IDecoratorFactory } from "./decorator.model";
 
