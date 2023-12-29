@@ -162,8 +162,6 @@ module.exports = {
         ],
         // Typescript Plugins
         "deprecation/deprecation": "warn",
-        "import/no-extraneous-dependencies": "error",   // TODO: Remove this rule since we have knip
-        "import/no-unresolved": "error",
         "import/order": [
             "error",
             {
