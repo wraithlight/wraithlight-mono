@@ -1,7 +1,5 @@
 import { wlMustache } from "./mustache.fn";
 
-jest.mock("@wraithlight/facade.mustache");
-
 import { mustacheFacade } from "@wraithlight/facade.mustache";
 
 describe("wlMustacheSpecs", () => {

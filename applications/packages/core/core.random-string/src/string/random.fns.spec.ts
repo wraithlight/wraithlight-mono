@@ -1,12 +1,6 @@
 import { generateRandomString } from "./random.fns";
 import { LOWERCASE_ALPHABET } from "./random.fns.const";
 
-jest.mock("@wraithlight/core.random-number", () => {
-    return {
-        randomNumberBetween: jest.fn().mockImplementation(() => 0)
-    }
-});
-
 import { randomNumberBetween } from "@wraithlight/core.random-number";
 
 describe("generateRandomStringSpecs", () => {

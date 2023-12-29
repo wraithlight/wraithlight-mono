@@ -1,7 +1,6 @@
-jest.mock("@wraithlight/core.random-number");
+import { randomBoolean } from "./random";
 
 import { randomNumberBetween } from "@wraithlight/core.random-number";
-import { randomBoolean } from "./random";
 
 describe("randomBooleanSpecs", () => {
     describe("given the utility is initialized", () => {
