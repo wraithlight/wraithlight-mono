@@ -1,6 +1,5 @@
 import { BaseController } from "../controller";
-import { FILTER_METADATA_KEY } from "../internal/filter-metadata.const";
-import { Invoker } from "../internal/filter-metadata.model";
+import { FILTER_METADATA_KEY, Invoker } from "../internal";
 
 import { IDecoratorFactory } from "./decorator.model";
 

@@ -1,12 +1,14 @@
 import { HttpCode, HttpHeader } from "@wraithlight/core.http";
 import { Response } from "express";
 
-import { CONTROLLER_METADATA_KEY } from "../internal/controller-metadata.const";
-import { ControllerMetadata } from "../internal/controller-metadata.model";
-import { FILTER_METADATA_KEY } from "../internal/filter-metadata.const";
-import { FilterMetadata } from "../internal/filter-metadata.model";
-import { METHOD_METADATA_KEY } from "../internal/method-metadata.const";
-import { MethodMetadata } from "../internal/method-metadata.model";
+import {
+    CONTROLLER_METADATA_KEY,
+    ControllerMetadata,
+    FILTER_METADATA_KEY,
+    FilterMetadata,
+    METHOD_METADATA_KEY,
+    MethodMetadata
+} from "../internal";
 
 export abstract class BaseController {
 
