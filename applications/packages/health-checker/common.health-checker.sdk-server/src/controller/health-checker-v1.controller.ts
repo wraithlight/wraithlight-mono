@@ -3,7 +3,6 @@ import { EXTERNAL_API_ENDPOINTS } from "@wraithlight/core.health-checker.constan
 import { HttpCode } from "@wraithlight/core.http";
 import { BaseController, HttpController, HttpGet } from "@wraithlight/core.node";
 
-import { HealthCheckMessageBusV1Service } from "../sdk";
 import {
     HealthCheckTokenV1Service,
     HealthCheckV1Service
