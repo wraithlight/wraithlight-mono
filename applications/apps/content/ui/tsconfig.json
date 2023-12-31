@@ -1,7 +1,6 @@
 {
     "extends": "../../../tsconfig.application.json",
     "compilerOptions": {
-        "lib": ["DOM", "ES2015"],
-        "esModuleInterop": true
+        "lib": ["DOM", "ES2015"]
     }
 }

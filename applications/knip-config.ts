@@ -14,7 +14,8 @@ const config: KnipConfig = {
             ignore: [
                 "webpack.config.js",
                 ".eslintrc.cjs",
-                "jest.config.js"
+                "jest.config.js",
+                "jest-mono.config.js"
             ],
             ignoreDependencies: [
                 "@wraithlight/tools.eslint.base",

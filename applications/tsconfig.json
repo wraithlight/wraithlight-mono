@@ -3,6 +3,8 @@
         "lib": ["ES2015"],
         "baseUrl": ".",
         "strict": true,
+        "esModuleInterop": true,
+        "experimentalDecorators": true,
         "paths": {
             "@wraithlight/*": [
                 "packages/*/src/index.ts",
