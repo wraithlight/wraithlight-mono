@@ -3,7 +3,7 @@ import { Predicate } from "@wraithlight/core.linq";
 import { BaseValidationRule } from "../validation-rule";
 
 export interface IValidator<T> {
-    validate(object: T): ReadonlyArray<ValidationResult>;
+    validate(object: T): ValidationResult;
 }
 
 export interface ValidationRules<T, U> {
@@ -12,8 +12,19 @@ export interface ValidationRules<T, U> {
     propertyName: string;
 }
 
-export interface ValidationResult {
+interface ValidationRuleResult {
     success: boolean;
     propertyName: string;
     errors?: ReadonlyArray<string>;
+}
+
+export interface ValidationPropertyError {
+    propertyName: string;
+    errors: ReadonlyArray<string>;
+}
+
+export interface ValidationResult {
+    success: boolean;
+    errorList: ReadonlyArray<ValidationPropertyError>;
+    ruleResults: ReadonlyArray<ValidationRuleResult>;
 }
