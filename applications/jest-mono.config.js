@@ -16,6 +16,4 @@ const project = {
     ]
 };
 
-console.log(JSON.stringify(config(project), undefined, 2))
-
 module.exports = () => config(project);
