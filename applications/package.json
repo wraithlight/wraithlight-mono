@@ -56,6 +56,7 @@
     "nx": "16.7.2",
     "@wraithlight/tools.eslint.base": "*",
     "@wraithlight/tools.jest.base": "*",
-    "@wraithlight/tools.webpack.base": "*"
+    "@wraithlight/tools.webpack.base": "*",
+    "jest": "29.5.0"
   }
 }
