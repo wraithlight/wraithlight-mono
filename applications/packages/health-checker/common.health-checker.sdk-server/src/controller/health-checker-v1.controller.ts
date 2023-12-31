@@ -31,9 +31,9 @@ export class HealthCheckControllerV1 extends BaseController {
         const path = EXTERNAL_API_ENDPOINTS.v1.health.forServer;
         this._logger.info(`GET on ${path}`);
         const validationResult = this._tokenValidator.validate({ token });
-        if (!validationResult[0].success) {
+        if (!validationResult.success) {
             this._logger.error(`GET on ${path} ${HttpCode.BadRequest}`);
-            return this.badRequest(validationResult[0]);
+            return this.badRequest(validationResult.errorList);
         }
         const isTokenValid = this._tokenService.isTokenValid(token);
         if (!isTokenValid) {
@@ -49,9 +49,9 @@ export class HealthCheckControllerV1 extends BaseController {
         const path = EXTERNAL_API_ENDPOINTS.v1.metrics.forServer;
         this._logger.info(`GET on ${path}`);
         const validationResult = this._tokenValidator.validate({ token });
-        if (!validationResult[0].success) {
+        if (!validationResult.success) {
             this._logger.error(`GET on ${path} ${HttpCode.BadRequest}`);
-            return this.badRequest(validationResult[0]);
+            return this.badRequest(validationResult.errorList);
         }
         const isTokenValid = this._tokenService.isTokenValid(token);
         if (!isTokenValid) {
