@@ -19,7 +19,8 @@
     "test-report:collect": "lerna la --json > .test-reports/data.json",
     "test-report:generate": "yarn mustache .test-reports/data.json .test-reports/template .test-reports/index.html",
     "test-report:open": "yarn open-cli .test-reports/index.html",
-    "test-report": "yarn test:coverage && yarn test-report:collect && yarn test-report:generate && yarn test-report:open"
+    "test-report": "yarn test:coverage && yarn test-report:collect && yarn test-report:generate && yarn test-report:open",
+    "precommit": "yarn && yarn build && yarn lint && yarn knip && yarn test"
   },
   "workspaces": [
     "apps/**/*",
