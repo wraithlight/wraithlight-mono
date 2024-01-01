@@ -1,4 +1,4 @@
-import { NodemailerFacadeService } from "./nodemailer-facade.service";
+import { NodemailerService } from "./nodemailer-facade.service";
 
 const sendMailSpy = jest.fn()
 jest.mock("nodemailer", () => {
@@ -28,17 +28,18 @@ describe("NodemailerFacadeServiceSpecs", () => {
     const MOCK_CC: ReadonlyArray<string> = [];
     const MOCK_BCC: ReadonlyArray<string> = [];
 
-    let service: NodemailerFacadeService;
+    let service: NodemailerService;
 
     describe("given the service is initialized", () => {
         beforeEach(() => {
-            service = NodemailerFacadeService.getInstance(
+            NodemailerService.createInstance(
                 MOCK_HOST,
                 MOCK_PORT,
                 MOCK_SECURE,
                 MOCK_USERNAME,
                 MOCK_PASSWORD
             );
+            service = NodemailerService.getInstance();
         })
         describe("when i call getInstance()", () => {
             it("should create a new transport object", () => {

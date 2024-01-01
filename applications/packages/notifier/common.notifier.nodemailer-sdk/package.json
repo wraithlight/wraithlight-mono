@@ -22,6 +22,7 @@
     "dependencies": {
         "@wraithlight/core.notifier.types": "*",
         "@wraithlight/core.nullable": "*",
+        "@wraithlight/core.errors": "*",
         "nodemailer": "6.9.5"
     },
     "devDependencies": {
