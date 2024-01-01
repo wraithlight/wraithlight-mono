@@ -1,6 +1,6 @@
 import { NodeCronFacade } from "./node-cron";
 
-import cron, { ScheduledTask } from "node-cron";
+import * as cron from "node-cron";
 
 describe("NodeCronFacadeSpecs", () => {
 
@@ -18,7 +18,7 @@ describe("NodeCronFacadeSpecs", () => {
         .mockImplementation(getTasksMock);
     const scheduleSpy = jest
         .spyOn(cron, "schedule")
-        .mockReturnValue(undefined as unknown as ScheduledTask);
+        .mockReturnValue(undefined as unknown as cron.ScheduledTask);
     const validateSpy = jest.spyOn(cron, "validate");
 
     let service: NodeCronFacade;
