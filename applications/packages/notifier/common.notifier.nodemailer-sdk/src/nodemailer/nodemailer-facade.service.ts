@@ -1,10 +1,11 @@
+import { NotInitializedError } from "@wraithlight/core.errors";
 import { IMailSender, IMailSenderSendMailResult } from "@wraithlight/core.notifier.types";
 import { Nullable } from "@wraithlight/core.nullable";
 import { createTransport } from "nodemailer";
 
-export class NodemailerFacadeService implements IMailSender {
+export class NodemailerService implements IMailSender {
 
-    private static _instance: Nullable<NodemailerFacadeService>;
+    private static _instance: Nullable<NodemailerService>;
     private readonly _transporter = createTransport({
         host: this._host,
         port: this._port,
@@ -15,15 +16,15 @@ export class NodemailerFacadeService implements IMailSender {
         }
     });
 
-    public static getInstance(
+    public static createInstance(
         host: string,
         port: number,
         secure: boolean,
         authUsername: string,
         authPassword: string
-    ): NodemailerFacadeService {
+    ): void {
         if (!this._instance) {
-            this._instance = new NodemailerFacadeService(
+            this._instance = new NodemailerService(
                 host,
                 port,
                 secure,
@@ -31,7 +32,13 @@ export class NodemailerFacadeService implements IMailSender {
                 authPassword
             );
         }
-        return this._instance;
+    }
+
+    public static getInstance(): NodemailerService {
+        if (this._instance) {
+            return this._instance;
+        }
+        throw new NotInitializedError("NodemailerService");
     }
 
     private constructor(
