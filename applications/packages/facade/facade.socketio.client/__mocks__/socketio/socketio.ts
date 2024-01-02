@@ -5,7 +5,8 @@ export const SocketIOFacade = jest
             isConnected: jest.fn(),
             connect: jest.fn(),
             disconnect: jest.fn(),
-            onMessage: jest.fn()
+            onMessage: jest.fn(),
+            send: jest.fn()
         }
     })
 ;

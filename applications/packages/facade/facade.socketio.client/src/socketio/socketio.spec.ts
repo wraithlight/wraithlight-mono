@@ -1,15 +1,18 @@
 import { SocketIOFacade } from "./socketio";
 
 const onSpy = jest.fn();
+const emitSpy = jest.fn();
 const connectSpy = jest.fn();
 const disconnectSpy = jest.fn();
 
 const MOCK_TOPIC = "my-topic";
+const MOCK_MESSAGE = "message";
 const MOCK_CALLBACK = (message: string) => console.log(message);
 const MOCK_URL = "/realtime";
 const MOCK_SOCKET = {
     connected: true,
     on: onSpy,
+    emit: emitSpy,
     connect: connectSpy,
     disconnect: disconnectSpy
 };
@@ -77,6 +80,19 @@ describe("SocketIOFacadeSpecs", () => {
                 expect(onSpy).toHaveBeenCalled();
                 expect(onSpy).toHaveBeenCalledTimes(1);
                 expect(onSpy).toHaveBeenCalledWith(MOCK_TOPIC, expect.any(Function));
+            });
+        });
+        describe("when i send a new message", () => {
+            beforeAll(() => {
+                service.send(MOCK_TOPIC, MOCK_MESSAGE);
+            });
+            afterAll(() => {
+                emitSpy.mockReset();
+            });
+            it("should call the native on", () => {
+                expect(emitSpy).toHaveBeenCalled();
+                expect(emitSpy).toHaveBeenCalledTimes(1);
+                expect(emitSpy).toHaveBeenCalledWith(MOCK_TOPIC, MOCK_MESSAGE);
             });
         });
     });

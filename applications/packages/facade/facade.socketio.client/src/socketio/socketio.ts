@@ -41,4 +41,11 @@ export class SocketIOFacade {
         return this;
     }
 
+    public send(
+        topic: string,
+        message: string
+    ): void {
+        this._socket.emit(topic, message);
+    }
+
 }
