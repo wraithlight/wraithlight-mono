@@ -43,6 +43,7 @@ module.exports = (project, dirname) => {
           ...project.moduleNameMapper,
           "^@wraithlight\/(.*)$": [
             `${dirname}/packages/facade/$1/src/__mocks__`,
+            `${dirname}/packages/realtime/$1/src/__mocks__`,
             // TODO: create mocks for these libs. (#571)
             `${dirname}/packages/$1/src`,
             `${dirname}/packages/core/$1/src`,
