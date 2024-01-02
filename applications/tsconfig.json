@@ -5,6 +5,7 @@
         "strict": true,
         "paths": {
             "@wraithlight/*": [
+                "packages/realtime/*/src/index.ts",
                 "packages/*/src/index.ts",
                 "packages/auth/*/src/index.ts",
                 "packages/core/*/src/index.ts",
