@@ -24,6 +24,7 @@
   "workspaces": [
     "apps/**/*",
     "packages/*",
+    "packages/realtime/*",
     "packages/auth/*",
     "packages/core/*",
     "packages/core/logger/*",
