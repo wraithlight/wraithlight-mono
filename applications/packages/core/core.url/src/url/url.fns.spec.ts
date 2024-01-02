@@ -1,10 +1,4 @@
-jest.mock("@wraithlight/core.nullable", () => {
-    return {
-        isNil: jest.fn().mockImplementation((value: unknown) => {
-            return value === undefined
-        })
-    }
-});
+jest.mock("@wraithlight/core.nullable");
 
 import { isNil } from "@wraithlight/core.nullable";
 
