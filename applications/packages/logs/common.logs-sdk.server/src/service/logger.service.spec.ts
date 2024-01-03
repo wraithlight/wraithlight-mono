@@ -48,13 +48,13 @@ describe("ServerLoggerService", () => {
             expect(coreLoggerInitializeSpy).toHaveBeenCalled();
             expect(coreLoggerInitializeSpy).toHaveBeenCalledTimes(1);
             expect(coreLoggerInitializeSpy)
-                .toHaveBeenCalledWith(MOCK_LOGGER_CONFIG);
+                .toHaveBeenCalledWith(MOCK_LOGGER_CONFIG, MOCK_LOGGER);
         });
 
         it("should get the instance of the underlying `LoggerService`", () => {
             expect(coreLoggerGetInstanceSpy).toHaveBeenCalled();
             expect(coreLoggerGetInstanceSpy).toHaveBeenCalledTimes(1);
-            expect(coreLoggerGetInstanceSpy).toHaveBeenCalledWith(MOCK_LOGGER);
+            expect(coreLoggerGetInstanceSpy).toHaveBeenCalledWith();
         });
 
     });

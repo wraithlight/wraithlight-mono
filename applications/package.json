@@ -14,12 +14,14 @@
     "graph": "nx graph",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
+    "test:mono": "yarn jest -c=jest-mono.config.js --coverage",
     "validate-json": "node .tools/json-schema.mjs",
     "guid": "node .tools/guidgen.mjs",
     "test-report:collect": "lerna la --json > .test-reports/data.json",
     "test-report:generate": "yarn mustache .test-reports/data.json .test-reports/template .test-reports/index.html",
     "test-report:open": "yarn open-cli .test-reports/index.html",
-    "test-report": "yarn test:coverage && yarn test-report:collect && yarn test-report:generate && yarn test-report:open"
+    "test-report": "yarn test:coverage && yarn test-report:collect && yarn test-report:generate && yarn test-report:open",
+    "precommit": "yarn && yarn build && yarn lint && yarn knip && yarn test"
   },
   "workspaces": [
     "apps/**/*",
@@ -56,6 +58,7 @@
     "nx": "16.7.2",
     "@wraithlight/tools.eslint.base": "*",
     "@wraithlight/tools.jest.base": "*",
-    "@wraithlight/tools.webpack.base": "*"
+    "@wraithlight/tools.webpack.base": "*",
+    "jest": "29.5.0"
   }
 }

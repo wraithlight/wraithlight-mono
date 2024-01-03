@@ -2,7 +2,5 @@
     "extends": "../../../tsconfig.package.json",
     "compilerOptions": {
         "outDir": "dist/esm",
-        "experimentalDecorators": true,
-        "esModuleInterop": true
     }
 }

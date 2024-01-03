@@ -3,5 +3,11 @@
         "declaration": true,
         "outDir": "dist/esm",
         "esModuleInterop": true
-    }
+    },
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "**/*.spec.ts"
+    ]
 }
