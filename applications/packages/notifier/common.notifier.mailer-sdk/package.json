@@ -1,6 +1,6 @@
 {
     "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/common.notifier.nodemailer-sdk",
+    "name": "@wraithlight/common.notifier.mailer-sdk",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {
@@ -21,13 +21,11 @@
     },
     "dependencies": {
         "@wraithlight/core.notifier.types": "*",
-        "@wraithlight/core.nullable": "*",
-        "@wraithlight/core.errors": "*",
-        "nodemailer": "6.9.5"
+        "@wraithlight/core.common-constants": "*",
+        "@wraithlight/facade.nodemailer": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
-        "@types/nodemailer": "6.4.9",
         "@typescript-eslint/eslint-plugin": "5.59.2",
         "@typescript-eslint/parser": "5.59.2",
         "eslint": "8.40.0",

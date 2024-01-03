@@ -18,7 +18,6 @@
         "@wraithlight/common.environment-static.server": "*",
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/common.logger.sdk": "*",
-        "@wraithlight/common.notifier.nodemailer-sdk": "*",
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.common-constants": "*",
         "@wraithlight/core.cqrs": "*",
@@ -29,7 +28,8 @@
         "@wraithlight/core.notifier.const": "*",
         "@wraithlight/core.notifier.types": "*",
         "@wraithlight/core.server": "*",
-        "@wraithlight/core.nullable": "*"
+        "@wraithlight/core.nullable": "*",
+        "@wraithlight/common.notifier.mailer-sdk": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
