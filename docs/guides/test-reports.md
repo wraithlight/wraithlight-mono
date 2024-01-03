@@ -27,4 +27,4 @@ Since there is no way to test interfaces in `jest` and it would not make sense a
 Same applies to const files.
 
 The common naming convention for packages that contains no logical layer is to `core.*.types` or `core.*.consants`, and for some packages `core.*.assets`.
-These names will be default ignore by the custom jest config, no additional work needed.
+These names will be default ignored by the custom jest config, no additional work needed.
