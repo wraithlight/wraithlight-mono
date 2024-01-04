@@ -11,6 +11,7 @@
 | Website                       | http://local.website.wraithlight.ai:4508          |
 | Notifier                      | http://local.notifier.wraithlight.ai:4509         |
 | Remote Config                 | http://local.remote-config.wraithlight.ai:4510    |
+| Logs Collector                | http://local.logs-collector.wraithlight.ai:4511   |
 
 **Dev**
 | Application Name              | Watch URL                                         |
@@ -25,20 +26,22 @@
 | Website                       | http://dev.website.wraithlight.ai:5508            |
 | Notifier                      | http://dev.notifier.wraithlight.ai:5509           |
 | Remote Config                 | http://dev.remote-config.wraithlight.ai:5510      |
+| Logs Collector                | http://dev.logs-collector.wraithlight.ai:5511     |
 
 **Test**
-| Application Name              | Watch URL                                 |
-| ---                           | :-:                                       |
-| Auth                          | http://test.auth.wraithlight.ai           |
-| Content                       | http://test.content.wraithlight.ai        |
-| Editor                        | http://test.editor.wraithlight.ai         |
-| Forum                         | http://test.forum.wraithlight.ai          |
-| Game Application              | http://test.game-app.wraithlight.ai       |
-| Game Website                  | http://test.game-web.wraithlight.ai       |
-| Logs                          | http://test.logs.wraithlight.ai           |
-| Website                       | http://test.website.wraithlight.ai        |
-| Notifier                      | http://test.notifier.wraithlight.ai       |
-| Remote Config                 | http://test.remote-config.wraithlight.ai  |
+| Application Name              | Watch URL                                         |
+| ---                           | :-:                                               |
+| Auth                          | http://test.auth.wraithlight.ai                   |
+| Content                       | http://test.content.wraithlight.ai                |
+| Editor                        | http://test.editor.wraithlight.ai                 |
+| Forum                         | http://test.forum.wraithlight.ai                  |
+| Game Application              | http://test.game-app.wraithlight.ai               |
+| Game Website                  | http://test.game-web.wraithlight.ai               |
+| Logs                          | http://test.logs.wraithlight.ai                   |
+| Website                       | http://test.website.wraithlight.ai                |
+| Notifier                      | http://test.notifier.wraithlight.ai               |
+| Remote Config                 | http://test.remote-config.wraithlight.ai          |
+| Logs Collector                | http://test.logs-collector.wraithlight.ai         |
 
 **Staging**
 | Application Name              | Watch URL                                         |
@@ -52,18 +55,20 @@
 | Logs                          | http://staging.logs.wraithlight.ai                |
 | Website                       | http://staging.website.wraithlight.ai             |
 | Notifier                      | http://staging.notifier.wraithlight.ai            |
-| Remote Config                 | http://staging.remote-config.wraithlight.ai:4510  |
+| Remote Config                 | http://staging.remote-config.wraithlight.ai       |
+| Logs Collector                | http://staging.logs-collector.wraithlight.ai      |
 
 **Production**
-| Application Name              | Watch URL                                 |
-| ---                           | :-:                                       |
-| Auth                          | http://auth.wraithlight.ai                |
-| Content                       | http://content.wraithlight.ai             |
-| Editor                        | http://editor.wraithlight.ai              |
-| Forum                         | http://forum.wraithlight.ai               |
-| Game Application              | http://game-app.wraithlight.ai            |
-| Game Website                  | http://play.wraithlightgame.ai            |
-| Logs                          | http://logs.wraithlight.ai                |
-| Website                       | http://wraithlightgame.ai                 |
-| Notifier                      | http://notifier.wraithlight.ai            |
-| Remote Config                 | http://remote-config.wraithlight.ai:4510  |
+| Application Name              | Watch URL                                     |
+| ---                           | :-:                                           |
+| Auth                          | http://auth.wraithlight.ai                    |
+| Content                       | http://content.wraithlight.ai                 |
+| Editor                        | http://editor.wraithlight.ai                  |
+| Forum                         | http://forum.wraithlight.ai                   |
+| Game Application              | http://game-app.wraithlight.ai                |
+| Game Website                  | http://play.wraithlightgame.ai                |
+| Logs                          | http://logs.wraithlight.ai                    |
+| Website                       | http://wraithlightgame.ai                     |
+| Notifier                      | http://notifier.wraithlight.ai                |
+| Remote Config                 | http://remote-config.wraithlight.ai           |
+| Logs Collector                | http://logs-collector.wraithlight.ai          |
