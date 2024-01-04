@@ -6,6 +6,7 @@ import {
     ForumShared,
     GameApplicationShared,
     GameWebsiteShared,
+    LogsCollectorShared,
     LogsShared,
     NotifierShared,
     RemoteConfigShared,
@@ -24,7 +25,8 @@ export interface EnvironmentStaticShared extends ApplicationStatic<
     EnvironmentStatic<UserManagementShared>,
     EnvironmentStatic<WebsiteShared>,
     EnvironmentStatic<NotifierShared>,
-    EnvironmentStatic<RemoteConfigShared>
+    EnvironmentStatic<RemoteConfigShared>,
+    EnvironmentStatic<LogsCollectorShared>
 > {
     common: EnvironmentStatic<CommonShared>
 }

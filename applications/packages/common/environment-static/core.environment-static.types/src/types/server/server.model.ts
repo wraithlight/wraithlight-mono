@@ -6,6 +6,7 @@ import {
     ForumServer,
     GameApplicationServer,
     GameWebsiteServer,
+    LogsCollectorServer,
     LogsServer,
     NotifierServer,
     RemoteConfigServer,
@@ -24,7 +25,8 @@ export interface EnvironmentStaticServer extends ApplicationStatic<
     EnvironmentStatic<UserManagementServer>,
     EnvironmentStatic<WebsiteServer>,
     EnvironmentStatic<NotifierServer>,
-    EnvironmentStatic<RemoteConfigServer>
+    EnvironmentStatic<RemoteConfigServer>,
+    EnvironmentStatic<LogsCollectorServer>
 > {
     common: EnvironmentStatic<CommonServer>
 }
