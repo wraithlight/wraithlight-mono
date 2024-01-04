@@ -1,25 +1,31 @@
+import { ScheduledTask } from "node-cron";
+
+let MOCK_CRON_IS_VALID = true;
+
+const startSpy = jest.fn();
+const stopSpy = jest.fn();
+
+const getTasksMock = () => new Map<string, any>([
+    ["task-1", {
+        start: startSpy,
+        stop: stopSpy
+    }]
+])
+const getTasksSpy = jest.fn().mockImplementation(getTasksMock);
+const scheduleSpy = jest.fn().mockReturnValue(undefined as unknown as ScheduledTask);
+const validateSpy = jest.fn().mockImplementation(() => MOCK_CRON_IS_VALID);
+
+jest.mock("node-cron", () => {
+    return {
+        getTasks: getTasksSpy,
+        schedule: scheduleSpy,
+        validate: validateSpy
+    }
+});
+
 import { NodeCronFacade } from "./node-cron";
 
-import * as cron from "node-cron";
-
 describe("NodeCronFacadeSpecs", () => {
-
-    const startSpy = jest.fn();
-    const stopSpy = jest.fn();
-    
-    const getTasksMock = () => new Map<string, any>([
-        ["task-1", {
-            start: startSpy,
-            stop: stopSpy
-        }]
-    ])
-    const getTasksSpy = jest
-        .spyOn(cron, "getTasks")
-        .mockImplementation(getTasksMock);
-    const scheduleSpy = jest
-        .spyOn(cron, "schedule")
-        .mockReturnValue(undefined as unknown as cron.ScheduledTask);
-    const validateSpy = jest.spyOn(cron, "validate");
 
     let service: NodeCronFacade;
     const MOCK_CRON = "0 5 31 2 *";
@@ -34,6 +40,7 @@ describe("NodeCronFacadeSpecs", () => {
         describe("when i queue a new task", () => {
             describe("and i use valid parameters", () => {
                 beforeAll(() => {
+                    MOCK_CRON_IS_VALID = true;
                     service.queueTask(
                         MOCK_TASK_NAME,
                         MOCK_CRON,
@@ -41,6 +48,7 @@ describe("NodeCronFacadeSpecs", () => {
                     );
                 });
                 afterAll(() => {
+                    MOCK_CRON_IS_VALID = true;
                     validateSpy.mockClear();
                     scheduleSpy.mockClear();
                 });
@@ -63,6 +71,7 @@ describe("NodeCronFacadeSpecs", () => {
             });
             describe("and i use invalid parameters", () => {
                 beforeAll(() => {
+                    MOCK_CRON_IS_VALID = false;
                     service.queueTask(
                         MOCK_TASK_NAME,
                         MOCK_CRON_INVALID,
@@ -70,6 +79,7 @@ describe("NodeCronFacadeSpecs", () => {
                     );
                 });
                 afterAll(() => {
+                    MOCK_CRON_IS_VALID = true;
                     validateSpy.mockClear();
                     scheduleSpy.mockClear();
                 });
