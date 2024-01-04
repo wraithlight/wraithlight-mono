@@ -56,4 +56,14 @@ export class NumberValidationRule extends BaseValidationRule<number> {
         return this;
     }
 
+    public toBeGreaterThan(value: number): NumberValidationRule {
+        this.addRuleCase(
+            (item: number) => {
+                return item > value
+            },
+            "E_NUMBER_GRATERTHAN"
+        );
+        return this;
+    }
+
 }
