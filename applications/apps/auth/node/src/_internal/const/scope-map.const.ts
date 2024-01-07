@@ -15,5 +15,6 @@ export const SCOPE_NAME_MAP: {[key in ApplicationName]: Guid } = Object.freeze({
     [LoginScope.Logs]: ApplicationId.LOGS,
     [LoginScope.Editor]: ApplicationId.EDITOR,
     [LoginScope.Notifier]: ApplicationId.NOTIFIER,
-    [LoginScope.RemoteConfig]: ApplicationId.REMOTE_CONFIG
+    [LoginScope.RemoteConfig]: ApplicationId.REMOTE_CONFIG,
+    [LoginScope.LogsCollector]: ApplicationId.LOG_COLLECTOR
 });
