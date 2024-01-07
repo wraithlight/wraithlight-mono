@@ -26,6 +26,14 @@ export const LOGS_COLLECTOR_API_ENDPOINTS = Object.freeze({
             delete: {
                 forServer: `delete/:id`,
                 forClient: (id: string) => `delete/${id}`
+            },
+            deactivate: {
+                forServer: `deactivate/:id`,
+                forClient: (id: string) => `deactivate/${id}`
+            },
+            activate: {
+                forServer: `activate/:id`,
+                forClient: (id: string) => `activate/${id}`
             }
         },
         token: {
