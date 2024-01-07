@@ -4,7 +4,9 @@ import { TokenModel } from "./token.model";
 
 export class TokenMapper {
 
-    public static mapListToModel(items: ReadonlyArray<TokenDbo>): ReadonlyArray<TokenModel> {
+    public static mapListToModel(
+        items: ReadonlyArray<TokenDbo>
+    ): ReadonlyArray<TokenModel> {
         return items.map(m => this.mapItemToModel(m));
     }
 

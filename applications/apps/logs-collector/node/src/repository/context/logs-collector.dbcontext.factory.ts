@@ -7,7 +7,8 @@ import { LogsCollectorDbContext } from "./logs-collector.dbcontext";
 export class LogsCollectorDbContextFactory {
 
     private static _dbContext: Nullable<LogsCollectorDbContext>;
-    private static readonly _configReader = ServerLogsCollectorConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+    private static readonly _configReader = ServerLogsCollectorConfigReader
+        .getInstance(CoreEnvironment.getEnvironmentType());
 
     public static getAuthDbContext(): LogsCollectorDbContext {
         if (!this._dbContext) {

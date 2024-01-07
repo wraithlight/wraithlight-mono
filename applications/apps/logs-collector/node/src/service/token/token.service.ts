@@ -1,10 +1,10 @@
 import { Nullable, isNil } from "@wraithlight/core.nullable";
 
-import { TokenRepository } from "../../repository";
 import { TokenType } from "../../_internal";
+import { TokenRepository } from "../../repository";
 
-import { TokenModel } from "./token.model";
 import { TokenMapper } from "./token.mapper";
+import { TokenModel } from "./token.model";
 
 
 export class TokenService {
@@ -27,7 +27,13 @@ export class TokenService {
     ): Promise<number> {
         return this._tokenRepository
         .findTokenByIdAndSecret(tokenId, tokenSecret)
-        .then(m => m!.applicationId)
+        .then(m => {
+            if (isNil(m)) {
+                // TODO: Refactor this.
+                throw `No token was found with ID: '${tokenId}' SID:'${tokenSecret}'`;
+            }
+            return m.applicationId;
+        })
     }
 
     public async listAllTokens(): Promise<ReadonlyArray<TokenModel>> {
@@ -37,7 +43,9 @@ export class TokenService {
         ;
     }
 
-    public async listAllTokenForApplication(applicationId: number): Promise<ReadonlyArray<TokenModel>> {
+    public async listAllTokenForApplication(
+        applicationId: number
+    ): Promise<ReadonlyArray<TokenModel>> {
         return this._tokenRepository
             .findAllByApplicationId(applicationId)
             .then(m => TokenMapper.mapListToModel(m))

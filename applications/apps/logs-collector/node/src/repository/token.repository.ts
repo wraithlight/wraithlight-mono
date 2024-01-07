@@ -5,9 +5,10 @@ import { TokenDbo } from "./dbo";
 
 export class TokenRepository {
 
-    private readonly _dbContext = LogsCollectorDbContextFactory.getAuthDbContext();
+    private readonly _dbContext = LogsCollectorDbContextFactory
+        .getAuthDbContext();
 
-    public findTokenByIdAndSecret(
+    public async findTokenByIdAndSecret(
         tokenId: string,
         tokenSecret: string
     ): Promise<Nullable<TokenDbo>> {
@@ -20,14 +21,16 @@ export class TokenRepository {
         ;
     }
 
-    public findAll(): Promise<ReadonlyArray<TokenDbo>> {
+    public async findAll(): Promise<ReadonlyArray<TokenDbo>> {
         return this._dbContext.Tokens
             .select()
             .toList()
         ;
     }
 
-    public findAllByApplicationId(applicationId: number): Promise<ReadonlyArray<TokenDbo>> {
+    public async findAllByApplicationId(
+        applicationId: number
+    ): Promise<ReadonlyArray<TokenDbo>> {
         return this._dbContext.Tokens
             .select()
             .where("applicationId", applicationId)
@@ -35,7 +38,7 @@ export class TokenRepository {
         ;
     }
 
-    public findById(id: number): Promise<Nullable<TokenDbo>> {
+    public async findById(id: number): Promise<Nullable<TokenDbo>> {
         return this._dbContext.Tokens
             .select()
             .where("id", id)
@@ -43,21 +46,24 @@ export class TokenRepository {
         ;
     }
 
-    public create(entry: TokenDbo): Promise<void> {
+    public async create(entry: TokenDbo): Promise<void> {
         return this._dbContext.Tokens
             .insert(entry)
             .run()
         ;
     }
 
-    public update(id: number, entry: Omit<Partial<TokenDbo>, "id">): Promise<void> {
+    public async update(
+        id: number,
+        entry: Omit<Partial<TokenDbo>, "id">
+    ): Promise<void> {
         return this._dbContext.Tokens
             .update("id", id, entry)
             .run()
         ;
     }
 
-    public delete(id: number): Promise<void> {
+    public async delete(id: number): Promise<void> {
         return this._dbContext.Tokens
             .delete()
             .where("id", id)

@@ -9,6 +9,9 @@ import {
 export class LogsCollectorDbContext extends DbContext {
 
     public Applications = new DbSet<ApplicationDbo>(this, "Application");
+    /**
+     * @public TODO: Remove this once the property is being used in the repository.
+     */
     public Logs = new DbSet<LogDbo>(this, "Log");
     public Tokens = new DbSet<TokenDbo>(this, "Token");
 

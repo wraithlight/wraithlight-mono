@@ -1,10 +1,10 @@
 import { Nullable, isNil } from "@wraithlight/core.nullable";
 
+import { TokenType } from "../../_internal";
 import { ApplicationService, TokenService } from "../../service";
 
 import { DEFAULT_APPLICATION_NAME, DEFAULT_USER_NAME } from "./token.const";
 import { IToken } from "./token.model";
-import { TokenType } from "../../_internal";
 
 export class TokenManager {
 
@@ -53,8 +53,10 @@ export class TokenManager {
     public async listByApplicationId(
         applicationId: number
     ): Promise<ReadonlyArray<IToken>> {
-        const tokens = await this._tokenService.listAllTokenForApplication(applicationId);
-        const applicationName = await this._applicationService.findApplicationNameById(applicationId);
+        const tokens = await this._tokenService
+            .listAllTokenForApplication(applicationId);
+        const applicationName = await this._applicationService
+            .findApplicationNameById(applicationId);
 
         return tokens.map(m => ({
             id: m.id,
@@ -75,7 +77,8 @@ export class TokenManager {
         if (isNil(token)) {
             return undefined;
         }
-        const applicationName = await this._applicationService.findApplicationNameById(token.applicationId);
+        const applicationName = await this._applicationService
+            .findApplicationNameById(token.applicationId);
         return {
             id: token.id,
             applicationId: token.applicationId,

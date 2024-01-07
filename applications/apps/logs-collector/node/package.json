@@ -18,14 +18,19 @@
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.common-constants": "*",
         "@wraithlight/core.env": "*",
-        "@wraithlight/core.logger.types": "*",
-        "@wraithlight/core.logs.constant": "*",
-        "@wraithlight/core.logs.types": "*",
         "@wraithlight/core.node": "*",
         "@wraithlight/core.server": "*",
         "@wraithlight/core.orm": "*",
         "@wraithlight/core.nullable": "*",
-        "@wraithlight/core.date": "*"
+        "@wraithlight/core.date": "*",
+        "@wraithlight/common.auth-sdk.server": "*",
+        "@wraithlight/core.auth.types": "*",
+        "@wraithlight/core.logs-collector.constants": "*",
+        "@wraithlight/core.logs-collector.types": "*",
+        "@wraithlight/core.validator": "*",
+        "@wraithlight/core.api-token.constants": "*",
+        "@wraithlight/core.http": "*",
+        "express": "4.18.2"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",

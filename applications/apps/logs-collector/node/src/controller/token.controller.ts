@@ -1,7 +1,7 @@
 import { Authorize } from "@wraithlight/common.auth-sdk.server";
 import { LoginScope } from "@wraithlight/core.auth.types";
-import { BaseController, HttpController, HttpDelete, HttpPost } from "@wraithlight/core/core.node";
 import { LOGS_COLLECTOR_API_ENDPOINTS } from "@wraithlight/core.logs-collector.constants";
+import { BaseController, HttpController, HttpDelete, HttpPost } from "@wraithlight/core.node";
 import { isNil } from "@wraithlight/core.nullable";
 
 import { TokenManager } from "../manager";
@@ -21,7 +21,8 @@ export class TokenController extends BaseController {
     @Authorize(LoginScope.LogsCollector)
     @HttpPost(LOGS_COLLECTOR_API_ENDPOINTS.v1.token.create)
     public async create(): Promise<void> {
-
+        // TODO: Finish
+        return this.created();
     }
 
     @Authorize(LoginScope.LogsCollector)

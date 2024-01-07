@@ -5,12 +5,31 @@ import { ApplicationDbo } from "./dbo";
 
 export class ApplicationRepository {
 
-    private readonly _dbContext = LogsCollectorDbContextFactory.getAuthDbContext();
+    private readonly _dbContext = LogsCollectorDbContextFactory
+        .getAuthDbContext();
+
+    public async delete(id: number): Promise<boolean> {
+        return this._dbContext.Applications
+            .delete()
+            .where("id", id)
+            .run()
+            .then(() => true)
+            .catch(() => false)
+        ;
+    }
 
     public async listAll(): Promise<ReadonlyArray<ApplicationDbo>> {
         return this._dbContext.Applications
             .select()
             .toList()
+        ;
+    }
+
+    public async findById(id: number): Promise<Nullable<ApplicationDbo>> {
+        return this._dbContext.Applications
+            .select()
+            .where("id", id)
+            .first()
         ;
     }
 
@@ -23,11 +42,27 @@ export class ApplicationRepository {
         ;
     }
 
-    public findAllNames(): Promise<ReadonlyArray<string>> {
+    public async update(
+        id: number,
+        entity: Partial<ApplicationDbo>
+    ): Promise<boolean> {
         return this._dbContext.Applications
-            .select()
-            .toList()
-            .then(m => m.map(o => o.application))
+            .update("id", id, entity)
+            .run()
+            .then(() => true)
+            .catch(() => false)
+        ;
+    }
+
+    public async create(
+        entity: ApplicationDbo
+    ): Promise<boolean> {
+        return this._dbContext.Applications
+            .insert(entity)
+            .run()
+            .then(() => true)
+            .catch(() => false)
+        ;
     }
 
 }

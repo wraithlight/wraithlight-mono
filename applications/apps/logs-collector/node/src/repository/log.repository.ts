@@ -1,11 +1,11 @@
-import { Guid } from "@wraithlight/core.guid";
-import { Nullable } from "@wraithlight/core.nullable";
-
 import { LogsCollectorDbContextFactory } from "./context";
-import { LogDbo } from "./dbo";
 
+/**
+ * @public - TODO: Remove this once the repository is being used.
+ */
 export class LogRepository {
 
-    private readonly _dbContext = LogsCollectorDbContextFactory.getAuthDbContext();
+    private readonly _dbContext = LogsCollectorDbContextFactory
+        .getAuthDbContext();
 
 }
