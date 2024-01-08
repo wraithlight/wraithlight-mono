@@ -3,6 +3,7 @@ import { Nullable, isNil } from "@wraithlight/core.nullable";
 
 import { ApplicationDbo, ApplicationRepository } from "../../repository";
 
+import { DEFAULT_ACTIVE } from "./application.const";
 import { ApplicationMapper } from "./application.mapper";
 import {
     ApplicationCreateModel,
@@ -10,7 +11,6 @@ import {
     ApplicationNameWithId,
     ApplicationUpdateModel
 } from "./application.model";
-import { DEFAULT_ACTIVE } from "./application.const";
 
 
 export class ApplicationService {
