@@ -59,6 +59,7 @@
     "@wraithlight/tools.eslint.base": "*",
     "@wraithlight/tools.jest.base": "*",
     "@wraithlight/tools.webpack.base": "*",
-    "jest": "29.5.0"
+    "jest": "29.5.0",
+    "@regru/eslint-plugin-prefer-early-return": "1.0.0"
   }
 }

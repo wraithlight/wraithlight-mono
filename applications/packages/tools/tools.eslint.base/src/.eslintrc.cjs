@@ -10,7 +10,8 @@ module.exports = {
     plugins: [
         "deprecation",
         "@typescript-eslint",
-        "import"
+        "import",
+        "@regru/prefer-early-return"
     ],
     parserOptions: {
         project: ["./tsconfig.json"],
@@ -162,6 +163,11 @@ module.exports = {
         ],
         // Typescript Plugins
         "deprecation/deprecation": "warn",
+        "@regru/prefer-early-return/prefer-early-return": [
+            "warn", {
+            "maximumStatements": 1
+            }
+        ],
         "import/order": [
             "error",
             {
