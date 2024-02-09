@@ -1,7 +1,7 @@
 import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constants";
 import { EnvironmentStaticShared } from "@wraithlight/core.environment-static.types";
-import { LogSeverity } from "@wraithlight/core.logger.types";
 
+import { SHARED_COMMON_CONFIG } from "./common";
 import { SHARED_CONTENT_CONFIG } from "./content";
 import { SHARED_EDITOR_CONFIG } from "./editor";
 import { SHARED_FORUM_CONFIG } from "./forum";
@@ -24,55 +24,5 @@ export const SHARED_CONFIG: Readonly<EnvironmentStaticShared> = {
     [ApplicationName.Website]: SHARED_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: SHARED_NOTIFIER_CONFIG,
     [ApplicationName.RemoteConfig]: SHARED_REMOTE_CONFIG_CONFIG,
-    // TODO: Move to common.
-    common: {
-        [EnvironmentType.Dev]: {
-            logging: {
-                enabledLogSeverities: [
-                    LogSeverity.DEBUG,
-                    LogSeverity.INFO,
-                    LogSeverity.WARNING,
-                    LogSeverity.ERROR
-                ]
-            }
-        },
-        [EnvironmentType.Local]: {
-            logging: {
-                enabledLogSeverities: [
-                    LogSeverity.DEBUG,
-                    LogSeverity.INFO,
-                    LogSeverity.WARNING,
-                    LogSeverity.ERROR
-                ]
-            }
-        },
-        [EnvironmentType.Test]: {
-            logging: {
-                enabledLogSeverities: [
-                    LogSeverity.DEBUG,
-                    LogSeverity.INFO,
-                    LogSeverity.WARNING,
-                    LogSeverity.ERROR
-                ]
-            }
-        },
-        [EnvironmentType.Staging]: {
-            logging: {
-                enabledLogSeverities: [
-                    LogSeverity.INFO,
-                    LogSeverity.WARNING,
-                    LogSeverity.ERROR
-                ]
-            }
-        },
-        [EnvironmentType.Production]: {
-            logging: {
-                enabledLogSeverities: [
-                    LogSeverity.INFO,
-                    LogSeverity.WARNING,
-                    LogSeverity.ERROR
-                ]
-            }
-        }
-    }
+    common: SHARED_COMMON_CONFIG
 }
