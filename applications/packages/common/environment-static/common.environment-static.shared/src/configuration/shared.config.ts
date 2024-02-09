@@ -1,5 +1,7 @@
-import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constants";
-import { EnvironmentStaticShared } from "@wraithlight/core.environment-static.types";
+import { ApplicationName } from "@wraithlight/core.common-constants";
+import {
+    EnvironmentStaticShared
+} from "@wraithlight/core.environment-static.types";
 
 import { SHARED_COMMON_CONFIG } from "./common";
 import { SHARED_CONTENT_CONFIG } from "./content";
