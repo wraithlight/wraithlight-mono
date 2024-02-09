@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "3.1.1",
+    "version": "4.0.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -20,8 +20,7 @@
         "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
     },
     "dependencies": {
-        "@wraithlight/core.common-constants": "*",
-        "@wraithlight/core.logger.types": "*"
+        "@wraithlight/core.common-constants": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
