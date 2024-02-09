@@ -1,4 +1,7 @@
-import { OperationResultError, OperationResultSuccess } from "./operation-result.type";
+import {
+    OperationResultError,
+    OperationResultSuccess
+} from "./operation-result.type";
 
 export class OperationResultFactory {
 
@@ -11,9 +14,9 @@ export class OperationResultFactory {
         }
     }
 
-    public static error<T = undefined>(
+    public static error(
         ...errors: ReadonlyArray<string>
-    ): OperationResultError<T> {
+    ): OperationResultError {
         return {
             isSuccess: false,
             errors: errors
