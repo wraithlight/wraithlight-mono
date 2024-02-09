@@ -8,5 +8,6 @@ export enum ApplicationName {
     Logs = "LOGS",
     Editor = "EDITOR",
     Notifier = "NOTIFIER",
-    RemoteConfig = "REMOTE_CONFIG"
+    RemoteConfig = "REMOTE_CONFIG",
+    LogsCollector = "LOG_COLLECTOR"
 }

@@ -33,6 +33,8 @@
     "packages/game/*",
     "packages/i10n/*",
     "packages/logs/*",
+    "packages/logs-collector/*",
+    "packages/api-token/*",
     "packages/notifier/*",
     "packages/common/*",
     "packages/common/environment-static/*",

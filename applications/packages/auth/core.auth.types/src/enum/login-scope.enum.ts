@@ -10,5 +10,6 @@ export const enum LoginScope {
     Logs = ApplicationName.Logs,
     Editor = ApplicationName.Editor,
     Notifier = ApplicationName.Notifier,
-    RemoteConfig = ApplicationName.RemoteConfig
+    RemoteConfig = ApplicationName.RemoteConfig,
+    LogsCollector = ApplicationName.LogsCollector
 }

@@ -8,6 +8,7 @@ import { SERVER_FORUM_CONFIG } from "./forum";
 import { SERVER_GAME_APPLICATION_CONFIG } from "./game-application";
 import { SERVER_GAME_WEBSITE_CONFIG } from "./game-website";
 import { SERVER_LOGS_CONFIG } from "./logs";
+import { SERVER_LOGS_COLLECTOR_CONFIG } from "./logs-collector";
 import { SERVER_NOTIFIER_CONFIG } from "./notifier";
 import { SERVER_REMOTE_CONFIG_CONFIG } from "./remote-config";
 import { SERVER_USER_MANAGEMENT_CONFIG } from "./user-management";
@@ -24,5 +25,6 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.Website]: SERVER_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: SERVER_NOTIFIER_CONFIG,
     [ApplicationName.RemoteConfig]: SERVER_REMOTE_CONFIG_CONFIG,
+    [ApplicationName.LogsCollector]: SERVER_LOGS_COLLECTOR_CONFIG,
     common: SERVER_COMMON_CONFIG
 }

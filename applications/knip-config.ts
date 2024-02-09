@@ -62,6 +62,11 @@ const config: KnipConfig = {
                 "ts-node"
             ]
         },
+        "apps/logs-collector/node": {
+            ignoreDependencies: [
+                "ts-node"
+            ]
+        },
         "apps/notifier/node": {
             ignoreDependencies: [
                 "ts-node"

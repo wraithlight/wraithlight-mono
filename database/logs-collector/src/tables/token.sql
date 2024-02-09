@@ -1,0 +1,11 @@
+CREATE TABLE `Token` (
+    `Id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    `ApplicationId` BIGINT UNSIGNED NOT NULL,
+    `TokenId` TEXT NOT NULL,
+    `TokenSecret` TEXT NOT NULL,
+    `TokenType` ENUM("WRITE", "READ"),
+    `IsActive` BIT NOT NULL,
+    `CreatedAt` DATETIME NOT NULL,
+    `CreatedBy` VARCHAR(36) NOT NULL,
+    PRIMARY KEY (`Id`)
+) ENGINE = MyISAM DEFAULT CHARSET=utf8;

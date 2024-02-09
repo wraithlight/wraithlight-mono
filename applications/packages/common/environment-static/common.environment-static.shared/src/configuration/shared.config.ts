@@ -8,6 +8,7 @@ import { SHARED_FORUM_CONFIG } from "./forum";
 import { SHARED_GAME_APPLICATION_CONFIG } from "./game-application";
 import { SHARED_GAME_WEBSITE_CONFIG } from "./game-website";
 import { SHARED_LOGS_CONFIG } from "./logs";
+import { SHARED_LOGS_COLLECTOR_CONFIG } from "./logs-collector";
 import { SHARED_NOTIFIER_CONFIG } from "./notifier";
 import { SHARED_REMOTE_CONFIG_CONFIG } from "./remote-config";
 import { SHARED_USER_MANAGEMENT_CONFIG } from "./user-management";
@@ -24,6 +25,7 @@ export const SHARED_CONFIG: Readonly<EnvironmentStaticShared> = {
     [ApplicationName.Website]: SHARED_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: SHARED_NOTIFIER_CONFIG,
     [ApplicationName.RemoteConfig]: SHARED_REMOTE_CONFIG_CONFIG,
+    [ApplicationName.LogsCollector]: SHARED_LOGS_COLLECTOR_CONFIG,
     // TODO: Move to common.
     common: {
         [EnvironmentType.Dev]: {

@@ -10,3 +10,5 @@
 | Website               | `xx08`    |
 | Notifier              | `xx09`    |
 | Remote Config         | `xx10`    |
+| Logs Collector        | `xx11`    |
+

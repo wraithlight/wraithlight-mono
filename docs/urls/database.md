@@ -8,6 +8,7 @@
 | WL_GAME           | `wraithlight-db-game`             | `3306`        | http://www.local.db-game.wraithlight.ai:9004              |
 | WL_NOTIFIER       | `wraithlight-db-notifier`         | `3306`        | http://www.local.db-notifier.wraithlight.ai:9009          |
 | WL_REMOTE_CONFIG  | `wraithlight-db-remote-config`    | `3306`        | http://www.local.db-remote-config.wraithlight.ai:9010     |
+| WL_LOGS_COLLECTOR | `wraithlight-db-logs-collector`   | `3306`        | http://www.local.db-logs-collector.wraithlight.ai:9011    |
 
 **Dev**
 | Database Name     | Container Name                    | Internal Port | External Port                                             |
@@ -19,6 +20,7 @@
 | WL_GAME           | `wraithlight-db-game`             | `3306`        | http://www.dev.db-game.wraithlight.ai:9004                |
 | WL_NOTIFIER       | `wraithlight-db-notifier`         | `3306`        | http://www.dev.db-notifier.wraithlight.ai:9009            |
 | WL_REMOTE_CONFIG  | `wraithlight-db-remote-config`    | `3306`        | http://www.dev.db-remote-config.wraithlight.ai:9010       |
+| WL_LOGS_COLLECTOR | `wraithlight-db-logs-collector`   | `3306`        | http://www.dev.db-logs-collector.wraithlight.ai:9011      |
 
 **Test**
 | Database Name     | Container Name                    | Internal Port | External Port                                             |
@@ -30,6 +32,7 @@
 | WL_GAME           | `wraithlight-db-game`             | `3306`        | http://www.test.db-game.wraithlight.ai:9004               |
 | WL_NOTIFIER       | `wraithlight-db-notifier`         | `3306`        | http://www.test.db-notifier.wraithlight.ai:9009           |
 | WL_REMOTE_CONFIG  | `wraithlight-db-remote-config`    | `3306`        | http://www.test.db-remote-config.wraithlight.ai:9010      |
+| WL_LOGS_COLLECTOR | `wraithlight-db-logs-collector`   | `3306`        | http://www.test.db-logs-collector.wraithlight.ai:9011     |
 
 **Staging**
 | Database Name     | Container Name                    | Internal Port | External Port                                                 |
@@ -41,6 +44,7 @@
 | WL_GAME           | `wraithlight-db-game`             | `3306`        | http://www.staging.db-game.wraithlight.ai:9004                |
 | WL_NOTIFIER       | `wraithlight-db-notifier`         | `3306`        | http://www.staging.db-notifier.wraithlight.ai:9009            |
 | WL_REMOTE_CONFIG  | `wraithlight-db-remote-config`    | `3306`        | http://www.staging.db-remote-config.wraithlight.ai:9010       |
+| WL_LOGS_COLLECTOR | `wraithlight-db-logs-collector`   | `3306`        | http://www.staging.db-logs-collector.wraithlight.ai:9011      |
 
 
 **Production**
@@ -53,3 +57,4 @@
 | WL_GAME           | `wraithlight-db-game`             | `3306`        | http://www.db-game.wraithlight.ai:9004                |
 | WL_NOTIFIER       | `wraithlight-db-notifier`         | `3306`        | http://www.db-notifier.wraithlight.ai:9009            |
 | WL_REMOTE_CONFIG  | `wraithlight-db-remote-config`    | `3306`        | http://www.db-remote-config.wraithlight.ai:9010       |
+| WL_LOGS_COLLECTOR | `wraithlight-db-logs-collector`   | `3306`        | http://www.db-logs-collector.wraithlight.ai:9011      |

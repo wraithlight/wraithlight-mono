@@ -127,3 +127,16 @@ INSERT INTO `Scope` (
     "Remote Config application login scope",
     0
 );
+
+-- LOGS COLLECTor
+INSERT INTO `Scope` (
+    `Id`,
+    `Label`,
+    `Description`,
+    `IsDeleted`
+) VALUES (
+    "8b1d6854-c996-4631-b131-fd876b0146a9",
+    "LOGS_COLLECTOR",
+    "Logs Collector application login scope",
+    0
+);

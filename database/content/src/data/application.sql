@@ -105,3 +105,15 @@ INSERT INTO `Application` (
     "REMOTE_CONFIG",
     1
 );
+
+INSERT INTO `Application` (
+    `Id`,
+    `DisplayName`,
+    `Value`,
+    `IsActive`
+) VALUES (
+    "8b1d6854-c996-4631-b131-fd876b0146a9",
+    "Logs Collector",
+    "LOGS_COLLECTOR",
+    1
+);

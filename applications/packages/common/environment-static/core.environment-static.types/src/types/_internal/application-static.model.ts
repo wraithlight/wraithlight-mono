@@ -10,7 +10,8 @@ export interface ApplicationStatic<
     TUserManagement,
     TWebsite,
     TNotifier,
-    TRemoteConfig
+    TRemoteConfig,
+    TLogsCollectorConfig
 > {
     [ApplicationName.Content]: TContent,
     [ApplicationName.Editor]: TEditor,
@@ -21,5 +22,6 @@ export interface ApplicationStatic<
     [ApplicationName.UserManagement]: TUserManagement,
     [ApplicationName.Website]: TWebsite,
     [ApplicationName.Notifier]: TNotifier,
-    [ApplicationName.RemoteConfig]: TRemoteConfig
+    [ApplicationName.RemoteConfig]: TRemoteConfig,
+    [ApplicationName.LogsCollector]: TLogsCollectorConfig
 }
