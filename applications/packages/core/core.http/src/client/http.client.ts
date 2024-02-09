@@ -1,5 +1,9 @@
-import { HttpHeader, HttpHeaderName } from "../constant/http-header.const";
-import { HttpVerb } from "../constant/http-verb.const";
+import {
+    HttpCode,
+    HttpHeader,
+    HttpHeaderName,
+    HttpVerb
+} from "../constant";
 
 import { HttpResponse } from "./http.model";
 
@@ -26,10 +30,7 @@ export class HttpClient {
         url: string,
         data?: string
     ): Promise<HttpResponse<TResult>> {
-        // TODO: Rewrite this with proper teardown
-        // eslint-disable-next-line no-async-promise-executor
-        return new Promise(async (resolve, reject) => {
-            const result = fetch(
+        const result = await fetch(
                 url,
                 {
                     method,
@@ -38,22 +39,16 @@ export class HttpClient {
                         [HttpHeaderName.ContentType]: HttpHeader.ApplicationJson
                     }
                 }
-            );
-            const o = await result;
-            try {
-                const m = await o.json();
-                return resolve(
-                    {
-                        statusCode: o.status,
-                        payload: m as TResult
-                    }
-                );
-            } catch {
-                return reject({
-                    statusCode: o.status
-                });
-            }
-        });
-    }
+            )
+            .then(m => ([m.status, m.json()]))
+            .catch(() => ([HttpCode.InternalError, Promise.resolve(undefined)]))
+        ;
 
+        const payload = await result[1];
+
+        return {
+            statusCode: result[0] as HttpCode,
+            payload: payload as TResult
+        }
+    }
 }
