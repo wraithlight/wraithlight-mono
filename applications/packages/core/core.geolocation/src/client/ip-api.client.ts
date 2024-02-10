@@ -1,4 +1,5 @@
 import { HttpClient } from "@wraithlight/core.http";
+import { isNil } from "@wraithlight/core.nullable";
 
 import { IpApiClientConfig } from "./ip-api.config";
 import { GeolocationInfoModel } from "./ip-api.model";
@@ -14,7 +15,7 @@ export class IpApiClient {
     ): Promise<GeolocationInfoModel> {
         return this._httpClient
             .get<GeolocationInfoModel>(this._config.getUrlForIp(ip))
-            .then(m => m.payload!)
+            .then(m => isNil(m.payload) ? defaultValue : m.payload)
             .catch(() => defaultValue)
         ;
     }
