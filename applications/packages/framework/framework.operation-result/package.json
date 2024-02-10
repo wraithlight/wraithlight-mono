@@ -1,6 +1,6 @@
 {
     "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/core.http",
+    "name": "@wraithlight/framework.operation-result",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {
@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "3.5.3",
+    "version": "1.0.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -18,9 +18,6 @@
         "test:coverage": "jest --coverage",
         "build": "rimraf dist/esm && tsc -p tsconfig.build.json",
         "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
-    },
-    "dependencies": {
-        "@wraithlight/core.dom": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",

@@ -1,7 +1,7 @@
-import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.common-constants";
 import { EnvironmentStaticClient } from "@wraithlight/core.environment-static.types";
-import { LogSeverity } from "@wraithlight/core.logger.types";
 
+import { CLIENT_COMMON_CONFIG } from "./common";
 import { CLIENT_CONTENT_CONFIG } from "./content";
 import { CLIENT_EDITOR_CONFIG } from "./editor";
 import { CLIENT_FORUM_CONFIG } from "./forum";
@@ -24,54 +24,5 @@ export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
     [ApplicationName.Website]: CLIENT_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: CLIENT_NOTIFIER_CONFIG,
     [ApplicationName.RemoteConfig]: CLIENT_REMOTE_CONFIG_CONFIG,
-    common: { // TODO: Move this to a separate object.
-        [EnvironmentType.Dev]: {
-            logging: {
-                enabledLogSeverities: [
-                    LogSeverity.DEBUG,
-                    LogSeverity.INFO,
-                    LogSeverity.WARNING,
-                    LogSeverity.ERROR
-                ]
-            }
-        },
-        [EnvironmentType.Local]: {
-            logging: {
-                enabledLogSeverities: [
-                    LogSeverity.DEBUG,
-                    LogSeverity.INFO,
-                    LogSeverity.WARNING,
-                    LogSeverity.ERROR
-                ]
-            }
-        },
-        [EnvironmentType.Test]: {
-            logging: {
-                enabledLogSeverities: [
-                    LogSeverity.DEBUG,
-                    LogSeverity.INFO,
-                    LogSeverity.WARNING,
-                    LogSeverity.ERROR
-                ]
-            }
-        },
-        [EnvironmentType.Staging]: {
-            logging: {
-                enabledLogSeverities: [
-                    LogSeverity.INFO,
-                    LogSeverity.WARNING,
-                    LogSeverity.ERROR
-                ]
-            }
-        },
-        [EnvironmentType.Production]: {
-            logging: {
-                enabledLogSeverities: [
-                    LogSeverity.INFO,
-                    LogSeverity.WARNING,
-                    LogSeverity.ERROR
-                ]
-            }
-        }
-    }
+    common: CLIENT_COMMON_CONFIG
 }

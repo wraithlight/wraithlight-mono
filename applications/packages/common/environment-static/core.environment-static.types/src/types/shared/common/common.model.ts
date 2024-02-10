@@ -1,7 +1,2 @@
-import { LogSeverity } from "@wraithlight/core.logger.types";
-
-export interface CommonShared {
-    logging: {
-        enabledLogSeverities: ReadonlyArray<LogSeverity>
-    }
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface CommonShared { }
