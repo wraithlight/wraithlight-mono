@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "1.4.0",
+    "version": "1.4.1",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -26,7 +26,6 @@
         "@wraithlight/core.env": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.node": "*",
-        "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.url": "*",
         "express": "4.18.2"
     },

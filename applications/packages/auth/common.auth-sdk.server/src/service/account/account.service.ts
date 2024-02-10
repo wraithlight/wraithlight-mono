@@ -3,6 +3,7 @@ import {
     ApiRegisterResponse
 } from "@wraithlight/core.auth.types";
 import { HttpClient } from "@wraithlight/core.http";
+import { Nullable } from "@wraithlight/core.nullable";
 
 import { ServerAccountServiceConfig } from "./account.config";
 
@@ -16,7 +17,7 @@ export class ServerAccountService {
         password: string,
         passwordVerify: string,
         emailAddress: string
-    ): Promise<ApiRegisterResponse> {
+    ): Promise<Nullable<ApiRegisterResponse>> {
         const url = this._config.getRegisterUrl();
         const payload: ApiRegisterRequest = {
             username: username,
@@ -26,7 +27,7 @@ export class ServerAccountService {
         };
         return this._httpService
             .post<ApiRegisterResponse, ApiRegisterRequest>(url, payload)
-            .then(m => m.payload!)
+            .then(m => m.payload)
         ;
     }
 
