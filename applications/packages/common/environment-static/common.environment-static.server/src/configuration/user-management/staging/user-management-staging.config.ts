@@ -7,5 +7,10 @@ export const SERVER_STAGING_USER_MANAGEMENT_CONFIG: Readonly<UserManagementServe
         username: "",
         password: "",
         database: "",
+    },
+    session: {
+        iv: "",
+        secret: "",
+        key: ""
     }
 };

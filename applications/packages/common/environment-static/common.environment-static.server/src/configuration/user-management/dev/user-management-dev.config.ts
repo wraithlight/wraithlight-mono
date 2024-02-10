@@ -7,5 +7,10 @@ export const SERVER_DEV_USER_MANAGEMENT_CONFIG: Readonly<UserManagementServer> =
         username: "",
         password: "",
         database: "",
+    },
+    session: {
+        iv: "",
+        secret: "",
+        key: ""
     }
 };
