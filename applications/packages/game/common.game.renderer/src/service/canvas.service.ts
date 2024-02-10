@@ -1,16 +1,20 @@
 import {
-    Nullable
+    isNil
 } from "@wraithlight/core.nullable";
 
 export class CanvasService {
 
     private isLocked = false;
-    private readonly _context: Nullable<CanvasRenderingContext2D>;
+    private readonly _context: CanvasRenderingContext2D;
 
     constructor(
         canvas: HTMLCanvasElement
     ) {
-        this._context = canvas.getContext("2d");
+        const context = canvas.getContext("2d")
+        if (isNil(context)) {
+            throw `Context is nil!`
+        }
+        this._context = context;
     }
 
     public dispose(): void {
@@ -27,8 +31,8 @@ export class CanvasService {
         if (this.isLocked) {
             return;
         }
-        this._context!.fillStyle = color;
-        this._context!.fillRect(
+        this._context.fillStyle = color;
+        this._context.fillRect(
             startX, startY,
             endX - startX,
             endY - startY
