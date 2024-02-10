@@ -9,6 +9,7 @@ import {
     LoginScope
 } from "@wraithlight/core.auth.types";
 import { HttpClient } from "@wraithlight/core.http";
+import { Nullable } from "@wraithlight/core.nullable";
 
 import { ServerAuthServiceConfig } from "./auth.config";
 
@@ -21,7 +22,7 @@ export class ServerAuthService {
         username: string,
         password: string,
         scope: LoginScope
-    ): Promise<ApiLoginResponse> {
+    ): Promise<Nullable<ApiLoginResponse>> {
         const url = this._config.getLoginUrl();
         const payload: ApiLoginRequest = {
             username: username,
@@ -30,14 +31,14 @@ export class ServerAuthService {
         };
         return this._httpService
             .post<ApiLoginResponse, ApiLoginRequest>(url, payload)
-            .then(m => m.payload!)
+            .then(m => m.payload)
         ;
     }
 
     public async logout(
         sessionToken: string,
         scope: LoginScope
-    ): Promise<ApiLogoutResponse> {
+    ): Promise<Nullable<ApiLogoutResponse>> {
         const url = this._config.getLogoutUrl();
         const payload: ApiLogoutRequest = {
             sessionToken: sessionToken,
@@ -45,14 +46,14 @@ export class ServerAuthService {
         };
         return this._httpService
             .post<ApiLogoutResponse, ApiLogoutRequest>(url, payload)
-            .then(m => m.payload!)
+            .then(m => m.payload)
         ;
     }
 
     public async validateSession(
         sessionToken: string,
         scope: LoginScope
-    ): Promise<ApiValidateSessionResponse> {
+    ): Promise<Nullable<ApiValidateSessionResponse>> {
         const url = this._config.getValidateSessionUrl();
         const payload: ApiValidateSessionRequest = {
             sessionToken: sessionToken,
@@ -60,14 +61,14 @@ export class ServerAuthService {
         };
         return this._httpService
             .post<ApiValidateSessionResponse, ApiValidateSessionRequest>(url, payload)
-            .then(m => m.payload!)
+            .then(m => m.payload)
         ;
     }
 
     public async keepAliveSession(
         sessionToken: string,
         scope: LoginScope
-    ): Promise<ApiValidateSessionResponse> {
+    ): Promise<Nullable<ApiValidateSessionResponse>> {
         const url = this._config.getKeepAliveSessionUrl();
         const payload: ApiKeepAliveSessionRequest = {
             sessionToken: sessionToken,
@@ -75,7 +76,7 @@ export class ServerAuthService {
         };
         return this._httpService
             .post<ApiValidateSessionResponse, ApiValidateSessionRequest>(url, payload)
-            .then(m => m.payload!)
+            .then(m => m.payload)
         ;
     }
 
