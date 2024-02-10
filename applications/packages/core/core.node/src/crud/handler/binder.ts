@@ -1,3 +1,4 @@
+import { HttpCode } from "@wraithlight/core.http";
 import {
     Application,
     IRouterMatcher,
@@ -39,7 +40,7 @@ export class ControllerBinder {
                 for (const invoker of filters) {
                     const result = await invoker(req);
                     if (!result.success) {
-                        res.status(result.errorHttpCode!);
+                        res.status(result.errorHttpCode ?? HttpCode.InternalError);
                         res.send();
                         return;
                     }
@@ -138,6 +139,6 @@ export class ControllerBinder {
     private static getControllerMetadata(
         controller: BaseController
     ): ControllerMetadata {
-        return controller[CONTROLLER_METADATA_KEY]!;
+        return controller[CONTROLLER_METADATA_KEY] as ControllerMetadata;
     }
 }
