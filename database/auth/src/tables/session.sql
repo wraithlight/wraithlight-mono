@@ -1,0 +1,8 @@
+CREATE TABLE `Session` (
+    `Id` VARCHAR(36) NOT NULL,
+    `UserId` VARCHAR(36) NOT NULL,
+    `ScopeId` VARCHAR(36) NOT NULL,
+    `ValidUntil` DATETIME NOT NULL,
+    `Token` VARCHAR(100) NOT NULL,
+    PRIMARY KEY (`Id`)
+) ENGINE = MyISAM DEFAULT CHARSET=utf8;
