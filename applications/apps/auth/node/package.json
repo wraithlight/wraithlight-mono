@@ -21,7 +21,7 @@
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.common-constants": "*",
-        "@wraithlight/core.crypto": "*",
+        "@wraithlight/core.jwt": "*",
         "@wraithlight/core.env": "*",
         "@wraithlight/core.guid": "*",
         "@wraithlight/core.node": "*",

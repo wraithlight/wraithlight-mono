@@ -19,16 +19,19 @@ import {
     HttpController,
     HttpPost }
 from "@wraithlight/core.node";
+import { isNil } from "@wraithlight/core.nullable";
 
 import {
     AuthService,
     SessionService
 } from "../../../service";
+import { AccountService } from "../../../service/account/account.service";
 
 @HttpController(API_ENDPOINTS.external.v2.auth.root)
 export class SessionControllerV2 extends BaseController {
 
     private readonly _authService = new AuthService();
+    private readonly _accountService = new AccountService();
     private readonly _sessionService = SessionService.getInstance();
 
     @HttpPost(API_ENDPOINTS.external.v2.auth.login)
@@ -41,13 +44,16 @@ export class SessionControllerV2 extends BaseController {
             )
         ;
         if (result.success) {
-            const session = this._sessionService
-                .startSession(model.username, model.loginScope);
+            const user = await this._accountService.findByUsername(model.username);
+            if (isNil(user)) {
+                return super.notFound();
+            }
+            const session = await this._sessionService
+                .startSession(user.id, model.loginScope);
             const data: ApiLoginSuccessResponse = {
                 success: true,
                 payload: {
                     sessionToken: session.token,
-                    validFrom: toUtc(session.startAt),
                     validTo: toUtc(session.validUntil)
                 }
             }
@@ -66,8 +72,8 @@ export class SessionControllerV2 extends BaseController {
     public async logout(
         model: ApiLogoutRequest
     ): Promise<void> {
-        const result = this._sessionService.stopSession(model.sessionToken, model.loginScope);
-        if (result) {
+        const result = await this._sessionService.stopSession(model.sessionToken);
+        if (!result) {
             const data: ApiLogoutErrorResponse = {
                 success: false,
                 errors: []
@@ -85,8 +91,8 @@ export class SessionControllerV2 extends BaseController {
     public async keepAliveSession(
         model: ApiKeepAliveSessionRequest
     ): Promise<void> {
-        const result = this._sessionService.renew(model.sessionToken, model.loginScope);
-        if (!result.success) {
+        const result = await this._sessionService.renew(model.sessionToken);
+        if (isNil(result) || !result.success || isNil(result.session)) {
             const data: ApiKeepAliveSessionErrorResponse = {
                 success: false,
                 errors: []
@@ -96,9 +102,8 @@ export class SessionControllerV2 extends BaseController {
         const data: ApiKeepAliveSessionSuccessResponse = {
             success: true,
             payload: {
-                sessionToken: result.session!.token,
-                validFrom: toUtc(result.session!.startAt),
-                validTo: toUtc(result.session!.validUntil)
+                sessionToken: result.session.token,
+                validTo: toUtc(result.session.validUntil)
             }
         };
         super.ok(data);
@@ -108,21 +113,21 @@ export class SessionControllerV2 extends BaseController {
     public async validateSession(
         model: ApiValidateSessionRequest
     ): Promise<void> {
-        const result = this._sessionService
-            .checkSession(model.sessionToken, model.loginScope);
-        if (!result.isValid) {
+        const result = await this._sessionService
+            .checkSession(model.sessionToken);
+        if (!result.isValid || isNil(result.session)) {
             const validateResult: ApiValidateSessionErrorResponse = {
                 success: false,
                 errors: []
             };
             return super.badRequest(validateResult);
         }
+
         const validateResult: ApiValidateSessionSuccessResponse = {
             success: true,
             payload: {
-                sessionToken: result.session!.token,
-                validFrom: toUtc(result.session!.startAt),
-                validTo: toUtc(result.session!.validUntil)
+                sessionToken: result.session.token,
+                validTo: toUtc(result.session.validUntil)
             }
         };
         return super.ok(validateResult);

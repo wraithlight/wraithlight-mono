@@ -1,6 +1,7 @@
 import { NotifierService } from "@wraithlight/common.notifier-sdk.server";
 import { PasswordService } from "@wraithlight/common.password";
 import { newGuid } from "@wraithlight/core.guid";
+import { Nullable } from "@wraithlight/core.nullable";
 
 import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
 import {
@@ -76,6 +77,10 @@ export class AccountService {
         return {
             success: true
         };
+    }
+
+    public async findByUsername(username: string): Promise<Nullable<UserDbo>> {
+        return this._userRepository.findUserByName(username)
     }
 
     private async addScopes(user: UserDbo): Promise<void> {
