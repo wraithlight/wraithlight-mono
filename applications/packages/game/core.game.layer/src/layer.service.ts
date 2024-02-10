@@ -16,15 +16,12 @@ export class LayerService {
     }
 
     public addLayer(): Layer {
-        const index = this._layers.push(new Layer(this._canvas));
-        return this.getLayerInternal(index - 1)!;
+        const layer = new Layer(this._canvas)
+        this._layers.push(layer);
+        return layer;
     }
 
     public getLayer(index: number): Nullable<Layer> {
-        return this.getLayerInternal(index);
-    }
-
-    private getLayerInternal(index: number): Nullable<Layer> {
         return this._layers[index];
     }
 
