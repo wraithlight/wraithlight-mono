@@ -6,7 +6,7 @@ import { IAuthContainerStore } from "../state.model";
 
 import { AccountAction } from "./account.action";
 import { AccountService } from "./account.service";
-import { RegisterModel } from "./model/register.model";
+import { RegisterModel } from "./model";
 
 export function initializeEffects(
     store: Store<IAuthContainerStore>,
@@ -22,7 +22,7 @@ export function initializeEffects(
             .then(m => {
                 const action = m.success
                     ? AccountAction.registerSuccess()
-                    : AccountAction.registerFail(m.errors!);
+                    : AccountAction.registerFail(m.errors ?? []);
                 store.dispatch(action);
             })
             .catch(m => {

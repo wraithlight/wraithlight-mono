@@ -1,7 +1,7 @@
 import { RegisterResponse } from "../../model";
 import { ClientAccountService } from "../../service";
 
-import { RegisterModel } from "./model/register.model";
+import { RegisterModel } from "./model";
 
 export class AccountService {
 

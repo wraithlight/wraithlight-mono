@@ -18,7 +18,6 @@ import {
 } from "@wraithlight/core.auth.types";
 import { UNKNOWN_ERROR } from "@wraithlight/core.common-constants";
 import { HttpClient } from "@wraithlight/core.http";
-import { Nullable } from "@wraithlight/core.nullable";
 
 import {
     KeepAliveSessionResponse,
@@ -32,7 +31,7 @@ import { ClientAuthServiceConfig } from "./auth.config";
 export class ClientAuthService {
 
     private readonly _httpService = new HttpClient();
-    private readonly _config: Nullable<ClientAuthServiceConfig>;
+    private readonly _config: ClientAuthServiceConfig;
 
     constructor(
         apiBaseUrl: string
@@ -45,7 +44,7 @@ export class ClientAuthService {
             username: username,
             password: password
         };
-        const url = this._config!.getLoginUrl();
+        const url = this._config.getLoginUrl();
         return this._httpService
             .post<CoreLoginResponse, LoginRequest>(url, payload)
             .then(m => {
@@ -67,7 +66,7 @@ export class ClientAuthService {
         const payload: LogoutRequest = {
             sessionToken: sessionToken
         };
-        const url = this._config!.getLogoutUrl();
+        const url = this._config.getLogoutUrl();
         return this._httpService
             .post<CoreLogoutResponse, LogoutRequest>(url, payload)
             .then(m => {
@@ -85,7 +84,7 @@ export class ClientAuthService {
         const payload: ValidateSessionRequest = {
             sessionToken: sessionToken
         };
-        const url = this._config!.getValidateSessionUrl();
+        const url = this._config.getValidateSessionUrl();
         return this._httpService
             .post<CoreValidateSessionResponse, ValidateSessionRequest>(url, payload)
             .then(m => {
@@ -103,7 +102,7 @@ export class ClientAuthService {
         const payload: KeepAliveSessionRequest = {
             sessionToken: sessionToken
         };
-        const url = this._config!.getKeepAliveSessionUrl();
+        const url = this._config.getKeepAliveSessionUrl();
         return this._httpService
             .post<CoreKeepAliveSessionResponse, KeepAliveSessionRequest>(url, payload)
             .then(m => {

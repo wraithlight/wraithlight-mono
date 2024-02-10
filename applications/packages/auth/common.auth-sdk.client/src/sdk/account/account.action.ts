@@ -3,7 +3,7 @@ import {
     ActionWithPayload
 } from "@wraithlight/core.redux";
 
-import { RegisterModel } from "./model/register.model";
+import { RegisterModel } from "./model";
 
 export namespace AccountAction {
 
