@@ -1,4 +1,4 @@
-import { RegisterModel } from "./model/register.model";
+import { RegisterModel } from "./model";
 
 interface AccountUserRegisterState extends RegisterModel { }
 

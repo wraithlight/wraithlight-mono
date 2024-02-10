@@ -1,5 +1,6 @@
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { UNKNOWN_ERROR } from "@wraithlight/core.common-constants";
+import { isNil } from "@wraithlight/core.nullable";
 import { ActionWithPayload, Store } from "@wraithlight/core.redux";
 
 import { IAuthContainerStore } from "../state.model";
@@ -18,9 +19,9 @@ export function initializeEffects(
     store.addEffect([AuthAction.login], (action: ActionWithPayload<{ username: string, password: string }>) => {
         service.login(action.payload.username, action.payload.password)
             .then(m => {
-                const action = m.success
-                    ? AuthAction.loginSuccess(m.payload!.sessionToken, m.payload!.validTo)
-                    : AuthAction.loginFail(m.errors!);
+                const action = m.success && !isNil(m.payload)
+                    ? AuthAction.loginSuccess(m.payload.sessionToken, m.payload.validTo)
+                    : AuthAction.loginFail(m.errors ?? []);
                 store.dispatch(action);
             })
             .catch(m => {
@@ -34,7 +35,7 @@ export function initializeEffects(
             .then(m => {
                 const action = m.success
                     ? AuthAction.logoutSuccess()
-                    : AuthAction.logoutFail(m.errors!);
+                    : AuthAction.logoutFail(m.errors ?? []);
                 store.dispatch(action);
             })
             .catch(m => {
@@ -46,9 +47,9 @@ export function initializeEffects(
     store.addEffect([AuthAction.keepAlive], async (action: ActionWithPayload<{ token: string}>) => (
         service.keepAlive(action.payload.token)
             .then(m => {
-                const action = m.success
-                    ? AuthAction.keepAliveSuccess(m.payload!.sessionToken, m.payload!.validTo)
-                    : AuthAction.keepAliveFail(m.errors!);
+                const action = m.success && !isNil(m.payload)
+                    ? AuthAction.keepAliveSuccess(m.payload.sessionToken, m.payload.validTo)
+                    : AuthAction.keepAliveFail(m.errors ?? []);
                 store.dispatch(action);
             })
             .catch(m => {

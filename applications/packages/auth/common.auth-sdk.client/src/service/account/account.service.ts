@@ -4,10 +4,8 @@ import {
     RegisterRequest,
 } from "@wraithlight/core.auth.types";
 import { HttpClient } from "@wraithlight/core.http";
-import { Nullable } from "@wraithlight/core.nullable";
 
-
-import { RegisterResponse } from "../../model/register-response.model";
+import { RegisterResponse } from "../../model";
 
 import { ClientAccountServiceConfig } from "./account.config";
 
@@ -15,7 +13,7 @@ import { ClientAccountServiceConfig } from "./account.config";
 export class ClientAccountService {
 
     private readonly _httpService = new HttpClient();
-    private readonly _config: Nullable<ClientAccountServiceConfig>;
+    private readonly _config: ClientAccountServiceConfig;
 
     constructor(
         apiBaseUrl: string
@@ -35,7 +33,7 @@ export class ClientAccountService {
             passwordVerify: passwordVerify,
             emailAddress: emailAddress
         };
-        const url = this._config!.getRegisterEndpoint();
+        const url = this._config.getRegisterEndpoint();
         return this._httpService
             .post<CoreRegisterResponse, RegisterRequest>(url, payload)
             .then(m => {

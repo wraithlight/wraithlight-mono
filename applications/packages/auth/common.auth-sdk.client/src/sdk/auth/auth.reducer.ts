@@ -1,5 +1,6 @@
 import { Action, ActionWithPayload, Store } from "@wraithlight/core.redux";
 
+import { INITIAL_AUTH_STATE } from "../state.const";
 import { IAuthContainerStore } from "../state.model";
 
 import { AuthAction } from "./auth.action";
@@ -9,9 +10,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth!,
+                ...state.auth ?? INITIAL_AUTH_STATE,
                 session: {
-                    ...state.auth!.session,
+                    ...state.auth?.session ?? INITIAL_AUTH_STATE.session,
                     isBusy: true
                 }
             }
@@ -21,9 +22,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth!,
+                ...state.auth ?? INITIAL_AUTH_STATE,
                 session: {
-                    ...state.auth!.session,
+                    ...state.auth?.session ?? INITIAL_AUTH_STATE.session,
                     isBusy: false,
                     errors: action.payload
                 }
@@ -34,9 +35,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth!,
+                ...state.auth ?? INITIAL_AUTH_STATE,
                 session: {
-                    ...state.auth!.session,
+                    ...state.auth?.session ?? INITIAL_AUTH_STATE.session,
                     isBusy: false,
                     isLoggedIn: true,
                     token: action.payload.token,
@@ -49,9 +50,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth!,
+                ...state.auth ?? INITIAL_AUTH_STATE,
                 session: {
-                    ...state.auth!.session,
+                    ...state.auth?.session ?? INITIAL_AUTH_STATE.session,
                     isBusy: true
                 }
             }
@@ -61,9 +62,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...store,
             auth: {
-                ...state.auth!,
+                ...state.auth ?? INITIAL_AUTH_STATE,
                 session: {
-                    ...state.auth!.session,
+                    ...state.auth?.session ?? INITIAL_AUTH_STATE.session,
                     isBusy: false,
                     isLoggedIn: false,
                     token: undefined,
@@ -76,9 +77,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...store,
             auth: {
-                ...state.auth!,
+                ...state.auth ?? INITIAL_AUTH_STATE,
                 session: {
-                    ...state.auth!.session,
+                    ...state.auth?.session ?? INITIAL_AUTH_STATE.session,
                     isBusy: false,
                     errors: action.payload
                 }
@@ -89,9 +90,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth!,
+                ...state.auth ?? INITIAL_AUTH_STATE,
                 session: {
-                    ...state.auth!.session,
+                    ...state.auth?.session ?? INITIAL_AUTH_STATE.session,
                     isBusy: true
                 }
             }
@@ -101,9 +102,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth!,
+                ...state.auth ?? INITIAL_AUTH_STATE,
                 session: {
-                    ...state.auth!.session,
+                    ...state.auth?.session ?? INITIAL_AUTH_STATE.session,
                     isBusy: false,
                     errors: action.payload
                 }
@@ -114,9 +115,9 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
         return {
             ...state,
             auth: {
-                ...state.auth!,
+                ...state.auth ?? INITIAL_AUTH_STATE,
                 session: {
-                    ...state.auth!.session,
+                    ...state.auth?.session ?? INITIAL_AUTH_STATE.session,
                     isBusy: false,
                     token: action.payload.token,
                     tokenValidUntil: action.payload.validUntil
