@@ -1,5 +1,5 @@
 import { Predicate } from "@wraithlight/core.linq";
-import { Nullable } from "@wraithlight/core.nullable";
+import { Nullable, isNil } from "@wraithlight/core.nullable";
 
 export class FifoStackService<T> {
 
@@ -18,10 +18,11 @@ export class FifoStackService<T> {
     }
 
     public getNext(): T {
-        if (!this.hasAny) {
+        const next = this._cache.shift()
+        if (isNil(next)) {
             throw `No items in the cache!`;
         }
-        return this._cache.shift()!;
+        return next;
     }
 
     public tryGetNext(): Nullable<T> {
