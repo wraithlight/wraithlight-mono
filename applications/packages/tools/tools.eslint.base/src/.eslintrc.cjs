@@ -120,7 +120,7 @@ module.exports = {
         "@typescript-eslint/no-unsafe-assignment": "warn",
         "@typescript-eslint/promise-function-async": "error",
         "@typescript-eslint/no-unsafe-member-access": "error",
-        "@typescript-eslint/unbound-method": "warn",
+        "@typescript-eslint/unbound-method": "error",
         "@typescript-eslint/lines-between-class-members": "off",
         "@typescript-eslint/parameter-properties": [
             "error",
