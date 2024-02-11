@@ -27,6 +27,7 @@ import {
     HttpController,
     HttpPost
 } from "@wraithlight/core.node";
+import { isNil } from "@wraithlight/core.nullable";
 
 import { ServerAuthService } from "../service";
 
@@ -44,7 +45,7 @@ export class ServerAuthControllerV1 extends BaseController {
     @HttpPost(API_ROUTES.v1.auth.login)
     public async login(model: LoginRequest): Promise<void> {
         const result = await this._authService.login(model.username, model.password, this._scope);
-        if (!result.success) {
+        if (isNil(result) || !result.success) {
             const data: LoginErrorResponse = {
                 success: false,
                 errors: (result as ApiLoginErrorResponse).errors
@@ -62,7 +63,7 @@ export class ServerAuthControllerV1 extends BaseController {
     @HttpPost(API_ROUTES.v1.auth.logout)
     public async logout(model: LogoutRequest): Promise<void> {
         const result = await this._authService.logout(model.sessionToken, this._scope);
-        if (!result.success) {
+        if (isNil(result) || !result.success) {
             const data: LogoutErrorResponse = {
                 success: false,
                 errors: (result as ApiLogoutErrorResponse).errors
@@ -80,7 +81,7 @@ export class ServerAuthControllerV1 extends BaseController {
     @HttpPost(API_ROUTES.v1.auth.keepAlive)
     public async keepAliveSession(model: KeepAliveSessionRequest): Promise<void> {
         const result = await this._authService.keepAliveSession(model.sessionToken, this._scope);
-        if (!result.success) {
+        if (isNil(result) || !result.success) {
             const data: KeepAliveSessionErrorResponse = {
                 success: false,
                 errors: (result as ApiKeepAliveSessionErrorResponse).errors
@@ -98,7 +99,7 @@ export class ServerAuthControllerV1 extends BaseController {
     @HttpPost(API_ROUTES.v1.auth.validateSession)
     public async validateSession(model: ValidateSessionRequest): Promise<void> {
         const result = await this._authService.validateSession(model.sessionToken, this._scope);
-        if (!result.success) {
+        if (isNil(result) || !result.success) {
             const data: ValidateSessionErrorResponse = {
                 success: false,
                 errors: (result as ApiValidateSessionErrorResponse).errors
