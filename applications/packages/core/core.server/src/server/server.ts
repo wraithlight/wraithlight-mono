@@ -37,10 +37,12 @@ export function createNodeServer(
     process.on(SIGINT, () => {
         logger.info(`Received '${SIGINT}' signal - stopping.`);
         onStopCallback && onStopCallback();
+        process.exit()
     });
 
     process.on(SIGTREM, () => {
         logger.info(`Received '${SIGTREM}' signal - stopping.`);
         onStopCallback && onStopCallback();
+        process.exit()
     });
 }
