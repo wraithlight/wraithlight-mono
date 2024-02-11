@@ -6,6 +6,7 @@
     "knip": "knip --config knip-config.ts",
     "lerna": "lerna",
     "lint": "lerna run lint",
+    "lint:quiet": "yarn eslint . --quiet",
     "build": "lerna run build",
     "build:tools": "lerna run build --scope=@wraithlight/tools*",
     "build:prod": "lerna run build:prod",
