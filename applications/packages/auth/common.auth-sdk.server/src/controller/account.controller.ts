@@ -10,6 +10,7 @@ import {
     HttpController,
     HttpPost
 } from "@wraithlight/core.node";
+import { isNil } from "@wraithlight/core.nullable";
 
 import { ServerAccountService } from "../service";
 
@@ -26,7 +27,7 @@ export class ServerAccountControllerV1 extends BaseController {
             model.passwordVerify,
             model.emailAddress
         );
-        if (!result.success) {
+        if (isNil(result) || !result.success) {
             const data: RegisterErrorResponse = {
                 success: false,
                 errors: (result as ApiRegisterErrorResponse).errors

@@ -27,6 +27,7 @@
         "@wraithlight/core.http": "*",
         "@wraithlight/core.node": "*",
         "@wraithlight/core.url": "*",
+        "@wraithlight/core.nullable": "*",
         "express": "4.18.2"
     },
     "devDependencies": {

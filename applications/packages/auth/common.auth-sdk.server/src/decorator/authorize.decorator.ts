@@ -6,6 +6,7 @@ import {
     FilterResult,
     IDecoratorFactory
 } from "@wraithlight/core.node";
+import { isNil } from "@wraithlight/core.nullable";
 import { Request } from "express";
 
 import { ServerAuthService } from "../service";
@@ -23,7 +24,7 @@ export const Authorize = (scope: LoginScope): IDecoratorFactory<any> => FilterDe
     }
     const service = new ServerAuthService();
     const result = await service.validateSession(token, scope);
-    if (!result.success) {
+    if (isNil(result) || !result.success) {
         const data: FilterResult = {
             success: false,
             errorHttpCode: HttpCode.Unauthorized
