@@ -31,7 +31,7 @@ export function createNodeServer(
 
     server.start(port, () => {
         logger.info(`${appName} is running on port '${port}'`);
-        onStartCallback && onStartCallback(server.stop);
+        onStartCallback && onStartCallback(() => server.stop(onStopCallback));
     });
 
     process.on(SIGINT, () => {
