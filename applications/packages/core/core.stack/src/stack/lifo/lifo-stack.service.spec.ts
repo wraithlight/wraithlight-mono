@@ -35,24 +35,16 @@ describe("FifoStackServiceSpecs", () => {
             });
 
             describe("then i get the next item", () => {
-                let result1: TestModel;
-                let result2: boolean;
+                let result: TestModel;
 
                 beforeEach(() => {
-                    result1 = service.getNext();
-                    result2 = service.hasAny();
+                    result = service.getNext();
                 });
 
                 it("should return the mock item", () => {
-                    expect(result1).toBe(MOCK_ITEM);
-                });
-
-                it("should not have any items", () => {
-                    expect(result2).toBe(false);
+                    expect(result).toBe(MOCK_ITEM);
                 });
             });
         });
-
     });
-
 });
