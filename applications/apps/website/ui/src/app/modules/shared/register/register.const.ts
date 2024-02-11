@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/unbound-method */
+
 import { Validators } from "@angular/forms";
 
 export const CONTROL_NAMES = Object.freeze({
