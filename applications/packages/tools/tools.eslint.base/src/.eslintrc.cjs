@@ -122,6 +122,13 @@ module.exports = {
         "@typescript-eslint/no-unsafe-member-access": "error",
         "@typescript-eslint/unbound-method": "error",
         "@typescript-eslint/lines-between-class-members": "off",
+        // TODO: Resolve these
+        "@typescript-eslint/consistent-type-assertions": [
+            "warn",
+            {
+                assertionStyle: 'never'
+            }
+        ],
         "@typescript-eslint/parameter-properties": [
             "error",
             {
