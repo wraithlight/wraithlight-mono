@@ -1,7 +1,7 @@
 import { EnvironmentType } from "@wraithlight/core.common-constants";
 
 import { WL_ENV_DEFAULT, WL_ENV_TYPE_PROP_NAME } from "./env.const";
-import { IEnvironment, IEnvironmentPropery } from "./env.model";
+import { IEnvironmentPropery } from "./env.model";
 
 export class CoreEnvironment {
 
@@ -60,8 +60,8 @@ export class CoreEnvironment {
         defaultValue: string,
         transformer: (value: string) => T
     ): T {
-        const processEnv = process.env as IEnvironment
-        const value = processEnv[key] ?? defaultValue
+        const processEnv = process.env;
+        const value = processEnv[key] ?? defaultValue;
         return transformer(value)
     }
 }
