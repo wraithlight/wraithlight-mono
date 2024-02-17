@@ -21,7 +21,7 @@ describe("EnvironmentStaticEnvSpecs", () => {
             it("should call the underlying env reader", () => {
                 expect(getNumberSpy).toHaveBeenCalled();
                 expect(getNumberSpy).toHaveBeenCalledTimes(1);
-                expect(getNumberSpy).toHaveBeenCalledWith("userManagementDbPort", "");
+                expect(getNumberSpy).toHaveBeenCalledWith("userManagementDbPort", 0);
             });
         });
         describe("when i try to read a string value", () => {
