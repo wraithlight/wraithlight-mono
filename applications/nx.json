@@ -11,5 +11,11 @@
         "@nx/js:library": {
             "buildable": true
         }
+    },
+    "targetDefaults": {
+        "build": {
+            "cache": true,
+            "dependsOn": ["^build"]
+        }
     }
 }
