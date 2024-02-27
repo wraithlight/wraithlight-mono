@@ -8,6 +8,7 @@
     "lint": "lerna run lint",
     "lint:quiet": "yarn eslint . --quiet",
     "build": "lerna run build",
+    "build:changes": "lerna run build --since main",
     "build:tools": "lerna run build --scope=@wraithlight/tools*",
     "build:prod": "lerna run build:prod",
     "build:guid": "lerna run build --scope @wraithlight/core.guid --include-dependencies",
