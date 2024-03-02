@@ -20,7 +20,7 @@ env:
   SRC_BRANCH: ${{ github.event.inputs.source_branch }}
   VERSION:    ${{ github.event.inputs.version_number }}
   FOLDER:     ${{ github.event.inputs.folder }}
-  DATE:       ${{ date +'%Y%m%d') }}
+  DATE:       echo "$(date +'%Y%m%d')"
 
 jobs:
  checkout:
