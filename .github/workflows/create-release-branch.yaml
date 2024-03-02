@@ -8,6 +8,14 @@ on:
         default: "main"
       version_number:
         required: true
+      folder:
+        required: true
+        default: 'release'
+        type: choice
+        options:
+        - release
+        - canary
+
 env:
   SRC_BRANCH: ${{ github.event.inputs.source_branch }}
   VERSION:    ${{ github.event.inputs.version_number }}
@@ -19,7 +27,7 @@ jobs:
 
    steps:
      - name: Checkout source branch
-       uses: actions/checkout@4
+       uses: actions/checkout@3
        with:
          ref: ${{ env.SRC_BRANCH }}
 
