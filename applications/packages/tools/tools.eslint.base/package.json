@@ -12,5 +12,8 @@
     "scripts": {
         "build": "rm -r -f dist && cp -r ./src dist",
         "build:prod": "rm -r -f dist && cp -r ./src dist"
+    },
+    "devDependencies": {
+        "typescript": "5.0.3"
     }
 }

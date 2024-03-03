@@ -171,7 +171,7 @@ module.exports = {
         // Typescript Plugins
         "deprecation/deprecation": "warn",
         "@regru/prefer-early-return/prefer-early-return": [
-            "warn", {
+            "error", {
             "maximumStatements": 1
             }
         ],
