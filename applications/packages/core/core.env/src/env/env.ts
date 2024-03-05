@@ -16,10 +16,11 @@ export class CoreEnvironment {
         key: IEnvironmentPropery,
         defaultValue: T
     ): T {
-        return this.getString(
+        const result = this.getString(
             key,
             `${defaultValue}`
-        ) as T
+        )
+        return JSON.parse(result);
     }
 
     public static getString(
