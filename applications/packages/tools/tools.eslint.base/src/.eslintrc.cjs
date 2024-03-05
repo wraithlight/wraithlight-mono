@@ -124,7 +124,7 @@ module.exports = {
         "@typescript-eslint/lines-between-class-members": "off",
         // TODO: Resolve these
         "@typescript-eslint/consistent-type-assertions": [
-            "warn",
+            "error",
             {
                 assertionStyle: 'never'
             }
