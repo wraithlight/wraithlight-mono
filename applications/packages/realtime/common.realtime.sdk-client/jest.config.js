@@ -11,6 +11,5 @@ module.exports = config({
     ],
     coveragePathIgnorePatterns: [
       "dist"
-    ],
-    passWithNoTests: true
+    ]
 });
