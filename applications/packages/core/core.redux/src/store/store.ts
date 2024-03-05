@@ -49,13 +49,18 @@ export class Store<TState> {
                 throw "The substate has been already initialized!";
             }
         }
-        this._instance._state = predicateOverride(this._instance._state, substate, predicate);
+        this._instance._state = predicateOverride(
+            this._instance._state,
+            substate,
+            predicate
+        );
     }
 
     public static getInstance<TState>(): Store<TState> {
         if (!this._instance) {
             throw "The store is not initialized!";
         }
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return this._instance as Store<TState>;
     }
 
