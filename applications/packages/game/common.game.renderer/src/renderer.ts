@@ -1,4 +1,4 @@
-import { Color } from "@wraithlight/core.game.const";
+import { Color } from "@wraithlight/core.game.constants";
 import { Position, Sprite } from "@wraithlight/core.game.types";
 import { Nullable } from "@wraithlight/core.nullable";
 
