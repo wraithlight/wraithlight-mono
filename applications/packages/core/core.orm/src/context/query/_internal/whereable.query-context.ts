@@ -14,6 +14,7 @@ export abstract class WhereableQueryContext<T extends object>
     private lastWasWhere = false;
 
     public where<TKey extends keyof T>(key: TKey, value: T[TKey]): IWhereableQueryContext<T> {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         const queryValue = this.getValueString(value as Primitive);
         if (this.lastWasWhere) {
             this.addQuery("AND");

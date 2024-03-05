@@ -48,8 +48,10 @@ export abstract class QueryContext<T extends object> {
     }
 
     protected getColumnValuePairs(data: T): string {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         const keys = Object.keys(data) as Array<keyof T>;
         return keys.map(key =>
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             `${this._tableName}.${this.capitalize(key.toString())} = ${this.getValueString(data[key] as Primitive)}`
         ).join(`,${EOL}`);
     }
@@ -66,6 +68,7 @@ export abstract class QueryContext<T extends object> {
     protected getColumnValues(data: T): string {
         const values = Object
             .values(data)
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             .map(m => this.getValueString(m as Primitive))
         ;
         return [

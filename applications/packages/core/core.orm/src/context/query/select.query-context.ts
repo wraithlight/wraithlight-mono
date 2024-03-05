@@ -36,14 +36,17 @@ export class SelectQueryContext<T extends object>
     }
 
     public where<TKey extends keyof T>(key: TKey, value: T[TKey]): SelectQueryContext<T> {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return <SelectQueryContext<T>>super.where(key, value);
     }
 
     public orderByAsc<TKey extends keyof T>(key: TKey): SelectQueryContext<T> {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return <SelectQueryContext<T>>super.orderByAsc(key);
     }
 
     public orderByDesc<TKey extends keyof T>(key: TKey): SelectQueryContext<T> {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return <SelectQueryContext<T>>super.orderByDesc(key);
     }
 
@@ -61,7 +64,9 @@ export class SelectQueryContext<T extends object>
                 const result = rawResult.map(m => {
                     const keys = Object.keys(m);
                     const item: { [index: string]: any } = {};
+                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     keys.forEach(o => item[this.decapitalize(o)] = (m as RowDataPacket)[o]);
+                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     return item as T;
                 });
                 resolve(result);

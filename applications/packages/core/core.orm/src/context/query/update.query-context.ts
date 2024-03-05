@@ -33,6 +33,7 @@ export class UpdateQueryContext<T, TKey extends keyof T>
             this._tableName,
             this.getColumnValuePairs(data),
             `${this._tableName}.${this.capitalize(key.toString())}`,
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             this.getValueString(value as Primitive)
         );
     }
