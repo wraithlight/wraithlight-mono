@@ -36,11 +36,18 @@ export class ControllerBinder {
             const path = this.getMethodPath(metadata, methodMetadata);
             const method = this.getMethod(controller, methodMetadata);
             handler(path, async (req: Request, res: Response) => {
-                const filters = this.getFilters(controller, methodMetadata.name);
+                const filters = this.getFilters(
+                    controller,
+                    methodMetadata.name
+                );
                 for (const invoker of filters) {
                     const result = await invoker(req);
                     if (!result.success) {
-                        res.status(result.errorHttpCode ?? HttpCode.InternalError);
+                        const statusCode = result.errorHttpCode
+                            ? result.errorHttpCode
+                            : HttpCode.InternalError
+                        ;
+                        res.status(statusCode);
                         res.send();
                         return;
                     }
@@ -71,6 +78,7 @@ export class ControllerBinder {
         controller: BaseController,
         methodMetadata: MethodMetadata
     ): ((...args: Array<unknown>) => void) {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return controller[methodMetadata.name] as (() => void);
     }
 
@@ -96,18 +104,21 @@ export class ControllerBinder {
     private static getBodyParams(
         req: Request
     ): object {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return this.getParamsFromRequest(req, "body") as object;
     }
 
     private static getRequestQueryParams(
         req: Request
     ): object {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return this.getParamsFromRequest(req, "query") as object;
     }
 
     private static getRequestPathParams(
         req: Request
     ): object {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return this.getParamsFromRequest(req, "params") as object;
     }
 
@@ -139,6 +150,7 @@ export class ControllerBinder {
     private static getControllerMetadata(
         controller: BaseController
     ): ControllerMetadata {
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return controller[CONTROLLER_METADATA_KEY] as ControllerMetadata;
     }
 }
