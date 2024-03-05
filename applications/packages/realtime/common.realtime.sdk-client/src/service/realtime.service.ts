@@ -28,7 +28,7 @@ export class RealtimeService {
         this._realtimeFacade.onMessage(
             topic,
             (message) => {
-                const objLike = JSON.parse(message) as RealtimeMessage<T>;
+                const objLike: RealtimeMessage<T> = JSON.parse(message);
                 callbackFn(objLike);
             }
         )
