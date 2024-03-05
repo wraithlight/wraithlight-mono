@@ -15,7 +15,9 @@ class BodyComponent {
     public readonly canvasId = observable<string>("gameContent");
 
     public koDescendantsComplete(): void {
-        const canvas = getDocumentRef().getElementById(this.canvasId()) as HTMLCanvasElement;
+        const element = getDocumentRef().getElementById(this.canvasId());
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        const canvas = element as HTMLCanvasElement;
         this._gameContextService.initGame(canvas, "");
     }
 
