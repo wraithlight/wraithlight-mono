@@ -14,6 +14,6 @@ _window.addEventListener("DOMContentLoaded", () => {
     const store = Store.getInstance<ContentGlobalState>();
     initializeAuthSdk(apiBaseUrl, store);
 
-    const body = _document.body as HTMLBodyElement;
+    const body = _document.body;
     mount(body, AppComponent);
 });
