@@ -30,6 +30,8 @@ export class ServerAccountControllerV1 extends BaseController {
         if (isNil(result) || !result.success) {
             const data: RegisterErrorResponse = {
                 success: false,
+                // TODO: OperationResult
+                // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                 errors: (result as ApiRegisterErrorResponse).errors
             }
             return super.badRequest(data);

@@ -48,6 +48,8 @@ export class ServerAuthControllerV1 extends BaseController {
         if (isNil(result) || !result.success) {
             const data: LoginErrorResponse = {
                 success: false,
+                // TODO: OperationResult
+                // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                 errors: (result as ApiLoginErrorResponse).errors
             }
             return super.unauthorized(data);
@@ -55,6 +57,8 @@ export class ServerAuthControllerV1 extends BaseController {
 
         const data: LoginSuccessResponse = {
             success: true,
+            // TODO: OperationResult
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             payload: (result as ApiLoginSuccessResponse).payload
         }
         return super.ok(data);
@@ -66,6 +70,8 @@ export class ServerAuthControllerV1 extends BaseController {
         if (isNil(result) || !result.success) {
             const data: LogoutErrorResponse = {
                 success: false,
+                // TODO: OperationResult
+                // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                 errors: (result as ApiLogoutErrorResponse).errors
             };
             return super.badRequest(data);
@@ -73,6 +79,8 @@ export class ServerAuthControllerV1 extends BaseController {
 
         const data: LogoutSuccessResponse = {
             success: true,
+            // TODO: OperationResult
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             payload: (result as ApiLogoutSuccessResponse).payload
         };
         return super.ok(data);
@@ -84,6 +92,8 @@ export class ServerAuthControllerV1 extends BaseController {
         if (isNil(result) || !result.success) {
             const data: KeepAliveSessionErrorResponse = {
                 success: false,
+                // TODO: OperationResult
+                // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                 errors: (result as ApiKeepAliveSessionErrorResponse).errors
             };
             return super.unauthorized(data);
@@ -91,6 +101,8 @@ export class ServerAuthControllerV1 extends BaseController {
 
         const data: KeepAliveSessionSuccessResponse = {
             success: true,
+            // TODO: OperationResult
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             payload: (result as ApiKeepAliveSessionSuccessResponse).payload
         };
         return super.ok(data);
@@ -102,6 +114,8 @@ export class ServerAuthControllerV1 extends BaseController {
         if (isNil(result) || !result.success) {
             const data: ValidateSessionErrorResponse = {
                 success: false,
+                // TODO: OperationResult
+                // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                 errors: (result as ApiValidateSessionErrorResponse).errors
             };
             return super.unauthorized(data);
@@ -109,6 +123,8 @@ export class ServerAuthControllerV1 extends BaseController {
 
         const data: ValidateSessionSuccessResponse = {
             success: true,
+            // TODO: OperationResult
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             payload: (result as ApiValidateSessionSuccessResponse).payload
         };
         return super.ok(data);

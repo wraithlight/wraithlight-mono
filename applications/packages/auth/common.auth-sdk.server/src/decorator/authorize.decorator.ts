@@ -11,10 +11,26 @@ import { Request } from "express";
 
 import { ServerAuthService } from "../service";
 
-export const Authorize = (scope: LoginScope): IDecoratorFactory<any> => FilterDecorator(async (
+export const Authorize = (
+    scope: LoginScope
+): IDecoratorFactory<unknown> => FilterDecorator(async (
     request: Request
 ) => {
-    const token = request.headers[WRAITHLIGHT_AUTH_SESSION_TOKEN] as string;
+    const token = request.headers[WRAITHLIGHT_AUTH_SESSION_TOKEN];
+    if (typeof token !== "string") {
+        const data: FilterResult = {
+            success: false,
+            errorHttpCode: HttpCode.Unauthorized
+        };
+        return data;
+    }
+    if (Array.isArray(token)) {
+        const data: FilterResult = {
+            success: false,
+            errorHttpCode: HttpCode.Unauthorized
+        };
+        return data;
+    }
     if (!token) {
         const data: FilterResult = {
             success: false,
