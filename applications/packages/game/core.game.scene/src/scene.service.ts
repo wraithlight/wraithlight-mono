@@ -1,4 +1,4 @@
-import { Color } from "@wraithlight/core.game.const";
+import { Color } from "@wraithlight/core.game.constants";
 import { LayerService } from "@wraithlight/core.game.layer";
 
 export class SceneService {
