@@ -9,12 +9,12 @@ export class IpApiClient {
     private readonly _httpClient = new HttpClient();
     private readonly _config = new IpApiClientConfig();
 
-    public async getGeolocationInformation(
+    public async getGeolocationInformation<T>(
         ip: string,
-        defaultValue: GeolocationInfoModel
-    ): Promise<GeolocationInfoModel> {
+        defaultValue: GeolocationInfoModel<T>
+    ): Promise<GeolocationInfoModel<T>> {
         return this._httpClient
-            .get<GeolocationInfoModel>(this._config.getUrlForIp(ip))
+            .get<GeolocationInfoModel<T>>(this._config.getUrlForIp(ip))
             .then(m => isNil(m.payload) ? defaultValue : m.payload)
             .catch(() => defaultValue)
         ;

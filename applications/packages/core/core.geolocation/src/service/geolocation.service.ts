@@ -15,12 +15,15 @@ export class GeolocationService {
         return this.getGeolocationInfo(ip, defaultCountry);
     }
 
-    private async getGeolocationInfo(ip: string, defaultCountry: CountryCode): Promise<CountryCode> {
+    private async getGeolocationInfo(
+        ip: string,
+        defaultCountry: CountryCode
+    ): Promise<CountryCode> {
         return this._ipApiClient
-            .getGeolocationInformation(ip, {
+            .getGeolocationInformation<CountryCode>(ip, {
                 countryCode: defaultCountry
             })
-            .then(m => m.countryCode as CountryCode)
+            .then(m => m.countryCode)
         ;
     }
 
