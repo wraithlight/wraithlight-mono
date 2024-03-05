@@ -53,7 +53,7 @@ export class RealtimeProvider {
         this._socketIoFacade.addListener(
             topic,
             (message: string) => {
-                const event = JSON.parse(message) as RealtimeMessage<T>;
+                const event: RealtimeMessage<T> = JSON.parse(message);
                 listener(event);
             }
         )
