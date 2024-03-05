@@ -26,14 +26,14 @@ export class CoreJWT {
         iv: string,
         key: string,
     ): JWTDecryptResult<T> {
-        const result = JwtEncrypt.decode(
+        const result: Nullable<T> = JwtEncrypt.decode(
             token,
             {
                 iv,
                 key,
                 algorithm: ALGORITHM
             }
-        ) as Nullable<T>;
+        );
         if (isNil(result)) {
             return {
                 success: false
