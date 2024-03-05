@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@wraithlight/common.game.renderer": "*",
-        "@wraithlight/core.game.const": "*",
+        "@wraithlight/core.game.constants": "*",
         "@wraithlight/core.game.types": "*",
         "@wraithlight/core.nullable": "*"
     },

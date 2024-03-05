@@ -1,5 +1,5 @@
 import { Renderer } from "@wraithlight/common.game.renderer";
-import { Color } from "@wraithlight/core.game.const";
+import { Color } from "@wraithlight/core.game.constants";
 import { Position, Sprite } from "@wraithlight/core.game.types";
 
 export class Layer {
