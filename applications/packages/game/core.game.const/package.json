@@ -1,6 +1,6 @@
 {
     "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/core.game.const",
+    "name": "@wraithlight/core.game.constants",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {
