@@ -32,6 +32,7 @@ export function newGuid(): Guid {
     }
     const result = pattern.map(m => {
         if (m === "-") return m;
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         const key = m as keyof typeof alphabets;
         const alphabet = alphabets[key];
         return generateRandomString(1, alphabet);
