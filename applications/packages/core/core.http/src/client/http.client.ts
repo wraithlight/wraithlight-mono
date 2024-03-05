@@ -17,11 +17,17 @@ export class HttpClient {
         return this.fetchInternal(HttpVerb.DELETE, url);
     }
 
-    public async post<TResult, TData>(url: string, data?: TData): Promise<HttpResponse<TResult>> {
+    public async post<TResult, TData>(
+        url: string,
+        data?: TData
+    ): Promise<HttpResponse<TResult>> {
         return this.fetchInternal(HttpVerb.POST, url, JSON.stringify(data));
     }
 
-    public async put<TResult, TData>(url: string, data?: TData): Promise<HttpResponse<TResult>> {
+    public async put<TResult, TData>(
+        url: string,
+        data?: TData
+    ): Promise<HttpResponse<TResult>> {
         return this.fetchInternal(HttpVerb.PUT, url, JSON.stringify(data));
     }
 
@@ -44,11 +50,12 @@ export class HttpClient {
             .catch(() => ([HttpCode.InternalError, Promise.resolve(undefined)]))
         ;
 
-        const payload = await result[1];
+        const payload: TResult = await result[1];
 
         return {
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             statusCode: result[0] as HttpCode,
-            payload: payload as TResult
+            payload: payload
         }
     }
 }
