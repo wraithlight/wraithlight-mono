@@ -19,8 +19,9 @@ export class CoreEnvironment {
         const result = this.getString(
             key,
             `${defaultValue}`
-        )
-        return JSON.parse(result);
+        );
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+        return result as T;
     }
 
     public static getString(
