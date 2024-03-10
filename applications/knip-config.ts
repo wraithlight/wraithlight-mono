@@ -13,7 +13,6 @@ const config: KnipConfig = {
         ".": {
             ignore: [
                 "webpack.config.js",
-                "jest.config.js",
                 "jest-mono.config.js"
             ],
             ignoreDependencies: [
