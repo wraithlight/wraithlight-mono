@@ -1,6 +1,8 @@
-const config = require("../../../../jest.config.js");
+const config = require("@wraithlight/tools.jest.base");
+const { join } = require("path");
 
-module.exports = config({
+module.exports = config(
+  {
     preset: "ts-jest",
     displayName: "Packages/Logger/Common/SDK",
     testMatch: [
@@ -12,4 +14,6 @@ module.exports = config({
     coveragePathIgnorePatterns: [
       "dist"
     ]
-});
+  },
+  join(__dirname, "../../../..")
+);
