@@ -1,5 +1,5 @@
 const { resolve } = require("path");
-const config = require("../../../webpack.config");
+const config = require("@wraithlight/tools.webpack.base");
 
 module.exports = (env) => {
   const filename = "index.js";
