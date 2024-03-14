@@ -14,10 +14,6 @@ const config: KnipConfig = {
             ignore: [
                 "webpack.config.js",
                 "jest-mono.config.js"
-            ],
-            ignoreDependencies: [
-                "@wraithlight/tools.jest.base",
-                "@wraithlight/tools.webpack.base"
             ]
         },
         "apps/auth/node": {
