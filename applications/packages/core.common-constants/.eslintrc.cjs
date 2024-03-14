@@ -1,4 +1,4 @@
-const config = require("../../.eslintrc.cjs");
+const config = require("@wraithlight/tools.eslint.base");
 module.exports = {
     ...config
 };
