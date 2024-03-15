@@ -26,6 +26,11 @@ const config: KnipConfig = {
                 "ts-node"
             ]
         },
+        "apps/game-website/ui": {
+            ignore: [
+                "**/*.html.ts"
+            ]
+        },
         "apps/auth/ui": {
             entry: [
                 "src/main.ts",
@@ -36,7 +41,6 @@ const config: KnipConfig = {
             ],
             ignoreDependencies: [
                 "@tsconfig/svelte",
-                "svelte-navigator",
                 "tslib"
             ]
         },
@@ -72,7 +76,6 @@ const config: KnipConfig = {
         },
         "apps/website/ui": {
             ignoreDependencies: [
-                "@angular-devkit/build-angular",
                 "@angular/compiler-cli",
                 "jest-preset-angular",
                 "ts-node"
