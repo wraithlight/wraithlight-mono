@@ -52,7 +52,7 @@
     "@wraithlight/core.guid": "*"
   },
   "devDependencies": {
-    "typescript": "5.0.3",
+    "typescript": "5.0.4",
     "lerna": "6.5.1",
     "eslint": "8.40.0",
     "jsonschema": "1.4.1",
