@@ -30,7 +30,7 @@
         "jest": "29.5.0",
         "rimraf": "5.0.1",
         "ts-jest": "29.1.0",
-        "typescript": "5.0.3"
+        "typescript": "5.0.4"
     },
     "dependencies": {
         "jwt-encrypt": "1.0.4",
