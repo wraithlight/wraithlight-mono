@@ -1,6 +1,6 @@
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { Guid } from "@wraithlight/core.guid";
-import { HttpClient } from "@wraithlight/core.http";
+import { CoreHttpClient } from "@wraithlight/core.http";
 import {
     WebhookRequestFailV1Model,
     WebhookRequestStartV1Model,
@@ -9,7 +9,7 @@ import {
 
 import { WebhookConfigService } from "./webhook.config";
 
-export class WebhookService extends HttpClient {
+export class WebhookService extends CoreHttpClient {
 
     private readonly _logger = LoggerService.getInstance();
     private readonly _config = new WebhookConfigService(this._webhookBaseApiUrl);
