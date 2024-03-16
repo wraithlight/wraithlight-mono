@@ -2,14 +2,14 @@ import {
     ApiRegisterRequest,
     ApiRegisterResponse
 } from "@wraithlight/core.auth.types";
-import { HttpClient } from "@wraithlight/core.http";
+import { CoreHttpClient } from "@wraithlight/core.http";
 import { Nullable } from "@wraithlight/core.nullable";
 
 import { ServerAccountServiceConfig } from "./account.config";
 
 export class ServerAccountService {
 
-    private readonly _httpService = new HttpClient();
+    private readonly _httpService = new CoreHttpClient();
     private readonly _config = new ServerAccountServiceConfig();
 
     public async register(

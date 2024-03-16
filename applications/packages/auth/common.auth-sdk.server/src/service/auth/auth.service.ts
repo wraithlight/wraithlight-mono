@@ -8,14 +8,14 @@ import {
     ApiValidateSessionResponse,
     LoginScope
 } from "@wraithlight/core.auth.types";
-import { HttpClient } from "@wraithlight/core.http";
+import { CoreHttpClient } from "@wraithlight/core.http";
 import { Nullable } from "@wraithlight/core.nullable";
 
 import { ServerAuthServiceConfig } from "./auth.config";
 
 export class ServerAuthService {
 
-    private readonly _httpService = new HttpClient();
+    private readonly _httpService = new CoreHttpClient();
     private readonly _config = new ServerAuthServiceConfig();
 
     public async login(
