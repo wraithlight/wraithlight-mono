@@ -1,11 +1,11 @@
 import { Guid } from "@wraithlight/core.guid";
-import { HttpClient, HttpCode } from "@wraithlight/core.http";
+import { CoreHttpClient, HttpCode } from "@wraithlight/core.http";
 import { SendMailRequestV1Model, SendMailResponseV1Model } from "@wraithlight/core.notifier.types";
 import { isNil } from "@wraithlight/core.nullable";
 
 import { NotifierServiceConfig } from "./notifier.config";
 
-export class NotifierService extends HttpClient {
+export class NotifierService extends CoreHttpClient {
 
     private readonly _config = new NotifierServiceConfig();
 
