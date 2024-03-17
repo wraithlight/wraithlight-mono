@@ -2,6 +2,7 @@ import { NotifierService } from "@wraithlight/common.notifier-sdk.server";
 import { PasswordService } from "@wraithlight/common.password";
 import { newGuid } from "@wraithlight/core.guid";
 import { Nullable } from "@wraithlight/core.nullable";
+import { Language } from "@wraithlight/core.content.types";
 
 import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
 import {
@@ -59,6 +60,7 @@ export class AccountService {
             id: newGuid(),
             username: username,
             passwordHash: hashedPassword.encryptedPassword,
+            languageId: Language.English,
             failedLoginAttempts: 0,
             status: UserStatus.EmailVerify,
             emailAddress: emailAddress,
