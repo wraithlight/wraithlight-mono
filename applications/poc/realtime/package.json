@@ -4,12 +4,16 @@
     "license": "LGPL-3.0-only",
     "scripts": {
         "start:server": "ts-node src/server.ts",
-        "start:client": "ts-node src/client.ts",
-        "start": "multiview [yarn start:server] [yarn start:client] -x"
+        "start:client-a": "ts-node src/client-a.ts",
+        "start:client-b": "ts-node src/client-b.ts",
+        "start": "multiview [yarn start:server] [yarn start:client-a] [yarn start:client-b] -x"
     },
     "dependencies": {
         "@wraithlight/common.realtime.sdk-client": "*",
-        "@wraithlight/common.realtime.sdk-server": "*"
+        "@wraithlight/common.realtime.sdk-server": "*",
+        "@wraithlight/common.health-checker.sdk-server": "*",
+        "@wraithlight/core.common-constants": "*",
+        "@wraithlight/core.server": "*"
     },
     "devDependencies": {
         "ts-node": "10.9.2",

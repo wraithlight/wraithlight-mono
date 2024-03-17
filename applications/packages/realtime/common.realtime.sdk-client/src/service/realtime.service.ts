@@ -11,9 +11,7 @@ export class RealtimeService {
     ) { }
 
     public connect(): void {
-        console.log("connect");
         if (!this._realtimeFacade.isConnected()) {
-            console.log("not connected - continue");
             this._realtimeFacade.connect();
         }
     }
@@ -31,7 +29,6 @@ export class RealtimeService {
         this._realtimeFacade.onMessage(
             topic,
             (message) => {
-                console.log(message, topic)
                 const objLike: RealtimeMessage<T> = message ? JSON.parse(message) : "";
                 callbackFn(objLike);
             }
@@ -45,7 +42,6 @@ export class RealtimeService {
         const messageLike: RealtimeMessage<T> = {
             payload: message
         };
-        console.log("sending", JSON.stringify(messageLike));
         this._realtimeFacade.send(topic, JSON.stringify(messageLike));
     }
 

@@ -1,36 +1,45 @@
 import { ApplicationName } from "@wraithlight/core.common-constants";
-import { createNodeServer } from "@wraithlight/core.server";
-import { ON_CLIENT_CONNECTING_TOKEN, RealtimeProvider } from "@wraithlight/common.realtime.sdk-server";
+import { createNodeServerV2 } from "@wraithlight/core.server";
+import {
+    AsyncRealtimeMessage,
+    ON_CLIENT_CONNECTING_TOKEN,
+    ON_CLIENT_DISCONNECTING_TOKEN,
+    RealtimeProviderFactory
+} from "@wraithlight/common.realtime.sdk-server";
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
 
-import { RT_PATH, SERVER_PORT, TOPIC_A } from "./shared";
-import { createServer } from "http";
-import { Server } from "socket.io";
-
+import { RT_PATH, SERVER_PORT, TOPIC_A, TOPIC_B, TOPIC_CONNECTED, TOPIC_DISCONNECTED } from "./shared";
 
 function run() {
-    const app = createNodeServer(
+    const rtFactory = new RealtimeProviderFactory();
+
+    createNodeServerV2(
         "Realtime POC Server" as ApplicationName,
         [new HealthCheckControllerV1("alma")],
+        [(server) => rtFactory.createInstance(server, RT_PATH)],
         SERVER_PORT,
-        undefined,
-        false
-    )
-    // const http = createServer(app.getApp())
-    // const io = new Server(
-    //     http,
-    // {
-    //     path: RT_PATH,
-    // });
-    // io.listen(9800);
-    // io.addListener(TOPIC_A, (m) => console.log(m))
+        undefined
+    );
 
-    const server = app.getApp();
-    const rt = new RealtimeProvider(app.getApp(), RT_PATH);
-    rt._messageBusService.sub(ON_CLIENT_CONNECTING_TOKEN, (d) => console.log(d));
-    rt.listenTo(TOPIC_A, (message) => {
-        console.log(`${TOPIC_A} > ${message}`);
+    const rtProvider = rtFactory.getInstance()
+    const mBus = rtProvider.getMessageBus();
+    mBus.sub(ON_CLIENT_CONNECTING_TOKEN, (id: string) => {
+        rtProvider.sendToAll(TOPIC_CONNECTED, id)
+        console.log(`Client connected: '${id}'`)
+    });
+    mBus.sub(ON_CLIENT_DISCONNECTING_TOKEN, (id: string) => {
+        rtProvider.sendToAll(TOPIC_DISCONNECTED, id)
+        console.log(`Client disconnected: '${id}'`)
+    });
+    mBus.sub(TOPIC_A, (m: AsyncRealtimeMessage) => {
+        rtProvider.sendTo(m.id, TOPIC_A, `REPLY:: ${m.message.payload}`);
+        console.log(`(${TOPIC_A}) '${m.id}' says: ${JSON.stringify(m.message)}`)
+    });
+    mBus.sub(TOPIC_B, (m: AsyncRealtimeMessage) => {
+        rtProvider.sendToAll(TOPIC_B, m.message.payload);
+        console.log(`(${TOPIC_B}) '${m.id}' says: ${JSON.stringify(m.message)}`)
     });
 }
+
 
 run()

@@ -42,7 +42,8 @@ describe("SocketIOFacadeSpecs", () => {
                     MOCK_APP,
                     MOCK_PATH,
                     MOCK_CONNECTION_CALLBACK,
-                    MOCK_DISCONNECT_CALLBACK
+                    MOCK_DISCONNECT_CALLBACK,
+                    MOCK_EVENT_CALLBACK
                 );
             })
             it("shoudl register all callbacks", () => {
@@ -55,16 +56,6 @@ describe("SocketIOFacadeSpecs", () => {
             it("should register disconnect callback", () => {
                 expect(onSpy).toHaveBeenNthCalledWith(2, EVT_DISCONNECT, expect.any(Function));
             });
-        });
-        describe("when i add a new listener", () => {
-            beforeEach(() => {
-                service.addListener(MOCK_TOPIC, MOCK_EVENT_CALLBACK);
-            })
-            it("should all the listener", () => {
-                expect(onSpy).toHaveBeenCalled();
-                expect(onSpy).toHaveBeenCalledTimes(1);
-                expect(onSpy).toHaveBeenCalledWith(MOCK_TOPIC, expect.any(Function))
-            })
         });
         describe("when i broadcast to all listeners", () => {
             beforeEach(() => {
