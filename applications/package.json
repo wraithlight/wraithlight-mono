@@ -42,6 +42,7 @@
     "packages/health-checker/*",
     "packages/facade/*",
     "packages/game-website/*",
+    "packages/content/*",
     "packages/tools/*"
   ],
   "engines" : { 
