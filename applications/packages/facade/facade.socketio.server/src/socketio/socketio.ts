@@ -15,27 +15,23 @@ export class SocketIOFacade {
     private readonly _server = new Server(
         this._app,
         {
-            path: this._path,
-            cors: {
-                methods: ["GET"],
-                origin: "localhost"
-            }
+            path: this._path
         },
     );
 
     constructor(
         private readonly _app: HTTPServer,
         private readonly _path: string,
-        private readonly _connectionCallback: OnConnectCallback,
+        private readonly _connectCallback: OnConnectCallback,
         private readonly _disconnectCallback: OnDisconnectCallback,
         private readonly _onMessageCallback: OnEventCallback
     ) {
         this._server.on(EVT_CONNECTION, (socket: Socket) => {
             socket.onAny((m, o) => this._onMessageCallback(m, socket.id, o));
-            this._connectionCallback(socket.id);
-        });
-        this._server.on(EVT_DISCONNECT, (socket: Socket) => {
-            this._disconnectCallback(socket.id);
+            this._connectCallback(socket.id);
+            socket.on(EVT_DISCONNECT, () => {
+                this._disconnectCallback(socket.id);
+            });
         });
     }
 
@@ -51,7 +47,7 @@ export class SocketIOFacade {
         topic: string,
         message: string
     ): void {
-        this._server.sockets.to(id).emit(topic, message)
+        this._server.sockets.to(id).emit(topic, message);
     }
 
     public close(): void {

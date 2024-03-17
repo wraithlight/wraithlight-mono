@@ -16,8 +16,8 @@
         "@wraithlight/core.server": "*"
     },
     "devDependencies": {
-        "ts-node": "10.9.2",
-        "typescript": "5.4.2",
+        "ts-node": "10.9.1",
+        "typescript": "5.0.4",
         "multiview": "3.0.1"
     }
 }

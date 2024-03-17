@@ -48,7 +48,7 @@ describe("RealtimeServiceSpecs", () => {
             describe("and i'm not connected", () => {
                 beforeEach(() => {
                     isConnectedSpy.mockImplementation(() => false);
-                    service.connect();
+                    service.connectSync();
                 });
                 it("should check the facade if it's connected", () => {
                     expect(isConnectedSpy).toHaveBeenCalled();
@@ -64,7 +64,7 @@ describe("RealtimeServiceSpecs", () => {
             describe("and i'm connected", () => {
                 beforeEach(() => {
                     isConnectedSpy.mockImplementation(() => true);
-                    service.connect();
+                    service.connectSync();
                 });
                 it("should check the facade if it's connected", () => {
                     expect(isConnectedSpy).toHaveBeenCalled();

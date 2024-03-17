@@ -28,6 +28,9 @@ export class RealtimeProvider {
         );
     }
 
+    /**
+     * @public
+     */
     public getMessageBus(): MessagebusService {
         return this._messageBusService;
     }
@@ -42,6 +45,9 @@ export class RealtimeProvider {
         this._socketIoFacade.broadcastToAll(topic, JSON.stringify(messageLike));
     }
 
+    /**
+     * @public
+     */
     public sendTo<T>(
         id: string,
         topic: string,

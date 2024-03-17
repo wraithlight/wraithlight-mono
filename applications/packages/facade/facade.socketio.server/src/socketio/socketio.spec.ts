@@ -45,16 +45,13 @@ describe("SocketIOFacadeSpecs", () => {
                     MOCK_DISCONNECT_CALLBACK,
                     MOCK_EVENT_CALLBACK
                 );
-            })
-            it("shoudl register all callbacks", () => {
+            });
+            it("should register all callbacks", () => {
                 expect(onSpy).toHaveBeenCalled();
-                expect(onSpy).toHaveBeenCalledTimes(2);
+                expect(onSpy).toHaveBeenCalledTimes(1);
             });
             it("should register connection callback", () => {
                 expect(onSpy).toHaveBeenNthCalledWith(1, EVT_CONNECTION, expect.any(Function));
-            });
-            it("should register disconnect callback", () => {
-                expect(onSpy).toHaveBeenNthCalledWith(2, EVT_DISCONNECT, expect.any(Function));
             });
         });
         describe("when i broadcast to all listeners", () => {
