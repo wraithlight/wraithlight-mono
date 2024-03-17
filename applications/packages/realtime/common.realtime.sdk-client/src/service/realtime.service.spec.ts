@@ -25,19 +25,20 @@ describe("RealtimeServiceSpecs", () => {
 
     let service: RealtimeService;
     const MOCK_URL = "url";
+    const MOCK_PATH = "realtime";
     const MOCK_TOPIC = "topic";
     const MOCK_MESSAGE = "message";
     const MOCK_HANDLER = () => undefined;
 
     describe("given the service is initialized", () => {
         beforeAll(() => {
-            service = new RealtimeService(MOCK_URL);
+            service = new RealtimeService(MOCK_URL, MOCK_PATH);
         });
 
         it("should create a facade instance", () => {
             expect(facadeCtorSpy).toHaveBeenCalled();
             expect(facadeCtorSpy).toHaveBeenCalledTimes(1);
-            expect(facadeCtorSpy).toHaveBeenCalledWith(MOCK_URL, false);
+            expect(facadeCtorSpy).toHaveBeenCalledWith(MOCK_URL, MOCK_PATH, false);
         });
 
         describe("when i call `connect()`", () => {

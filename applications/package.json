@@ -42,7 +42,8 @@
     "packages/health-checker/*",
     "packages/facade/*",
     "packages/game-website/*",
-    "packages/tools/*"
+    "packages/tools/*",
+    "poc/*"
   ],
   "engines" : { 
     "node" : ">=18.0.0 <19.0.0",

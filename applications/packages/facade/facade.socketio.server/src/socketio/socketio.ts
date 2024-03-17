@@ -12,11 +12,16 @@ import {
 
 export class SocketIOFacade {
 
+    private sockets: Array<Socket> = []
     private readonly _server = new Server(
         this._app,
         {
-            path: this._path
-        }
+            path: this._path,
+            cors: {
+                methods: ["GET"],
+                origin: "localhost"
+            }
+        },
     );
 
     constructor(
@@ -26,6 +31,8 @@ export class SocketIOFacade {
         private readonly _disconnectCallback: OnDisconnectCallback
     ) {
         this._server.on(EVT_CONNECTION, (socket: Socket) => {
+            console.log(socket)
+            this.sockets.push(socket)
             this._connectionCallback(
                 (message) => socket.broadcast.emit(message)
             );
@@ -35,15 +42,14 @@ export class SocketIOFacade {
                 (message) => socket.broadcast.emit(message)
             );
         });
+        this._server.listen(9800)
     }
 
     public addListener(
         topic: string,
         callback: OnEventCallback
     ): void {
-        this._server.on(topic, (message: string) => {
-            callback(message)
-        });
+        this.sockets.forEach(m => m.on(topic, (message) => callback(message)))
     }
 
     public broadcastToAll(

@@ -3,14 +3,17 @@ import { SocketIOFacade } from "@wraithlight/facade.socketio.client";
 
 export class RealtimeService {
 
-    private readonly _realtimeFacade = new SocketIOFacade(this._url, false);
+    private readonly _realtimeFacade = new SocketIOFacade(this._baseUrl, this._path, false);
 
     constructor(
-        private readonly _url: string
+        private readonly _baseUrl: string,
+        private readonly _path: string
     ) { }
 
     public connect(): void {
+        console.log("connect");
         if (!this._realtimeFacade.isConnected()) {
+            console.log("not connected - continue");
             this._realtimeFacade.connect();
         }
     }
@@ -28,7 +31,8 @@ export class RealtimeService {
         this._realtimeFacade.onMessage(
             topic,
             (message) => {
-                const objLike: RealtimeMessage<T> = JSON.parse(message);
+                console.log(message, topic)
+                const objLike: RealtimeMessage<T> = message ? JSON.parse(message) : "";
                 callbackFn(objLike);
             }
         )
@@ -41,6 +45,7 @@ export class RealtimeService {
         const messageLike: RealtimeMessage<T> = {
             payload: message
         };
+        console.log("sending", JSON.stringify(messageLike));
         this._realtimeFacade.send(topic, JSON.stringify(messageLike));
     }
 

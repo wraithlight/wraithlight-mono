@@ -17,7 +17,7 @@ import {
 export class RealtimeProvider {
 
     private readonly _socketIoFacade: SocketIOFacade;
-    private readonly _messageBusService = new MessagebusService();
+    public readonly _messageBusService = new MessagebusService();
 
     constructor(
         app: Application,
@@ -53,6 +53,7 @@ export class RealtimeProvider {
         this._socketIoFacade.addListener(
             topic,
             (message: string) => {
+                console.log("provider", message, topic)
                 const event: RealtimeMessage<T> = JSON.parse(message);
                 listener(event);
             }

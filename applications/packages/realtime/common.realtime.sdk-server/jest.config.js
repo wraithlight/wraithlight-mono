@@ -4,7 +4,7 @@ const { join } = require("path");
 module.exports = config(
   {
     preset: "ts-jest",
-    displayName: "Packages/Logs/Core/Types",
+    displayName: "Packages/Realtime/Common/Server SDK",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],

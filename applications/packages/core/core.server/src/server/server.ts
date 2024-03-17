@@ -1,6 +1,7 @@
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import {
+    AppRef,
     BaseController,
     ControllerBinder,
     createServer
@@ -13,9 +14,10 @@ export function createNodeServer(
     controllers: ReadonlyArray<BaseController>,
     port: number,
     staticFiles?: Array<{ path: string, staticPath: string }>,
+    autoStart = true,
     onStartCallback?: (stopRef: () => void) => void,
     onStopCallback?: () => void
-): void {
+): AppRef {
     const server = createServer(true);
     const logger = LoggerService.getInstance();
     ControllerBinder.bindControllers(
@@ -29,7 +31,7 @@ export function createNodeServer(
         });
     }
 
-    server.start(port, () => {
+    autoStart && server.start(port, () => {
         logger.info(`${appName} is running on port '${port}'`);
         onStartCallback && onStartCallback(() => server.stop(onStopCallback));
     });
@@ -45,4 +47,6 @@ export function createNodeServer(
         onStopCallback && onStopCallback();
         process.exit()
     });
+
+    return server;
 }
