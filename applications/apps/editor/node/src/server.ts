@@ -3,7 +3,7 @@ import { SharedEditorConfigReader } from "@wraithlight/common.environment-static
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import { CoreEnvironment } from "@wraithlight/core.env";
-import { createNodeServer } from "@wraithlight/core.server";
+import { createNodeServerV2 } from "@wraithlight/core.server";
 
 const sharedCfg = SharedEditorConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 
@@ -11,8 +11,9 @@ const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Content)
 ];
 
-createNodeServer(
+createNodeServerV2(
     ApplicationName.Editor,
     CONTROLLERS,
+    [],
     sharedCfg.get(x => x.server.port),
 );
