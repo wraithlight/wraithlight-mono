@@ -5,7 +5,7 @@ import { SharedGameWebsiteConfigReader } from "@wraithlight/common.environment-s
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import { CoreEnvironment } from "@wraithlight/core.env";
 import { BaseController } from "@wraithlight/core.node";
-import { createNodeServer } from "@wraithlight/core.server";
+import { createNodeServerV2 } from "@wraithlight/core.server";
 
 const serverCfg = ServerGameWebsiteConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 const sharedCfg = SharedGameWebsiteConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
@@ -15,9 +15,10 @@ const CONTROLLERS: Array<BaseController> = [
 
 const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
 
-createNodeServer(
+createNodeServerV2(
     ApplicationName.GameWebsite,
     CONTROLLERS,
+    [],
     sharedCfg.get(x => x.server.port),
     [
         {
