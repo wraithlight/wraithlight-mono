@@ -1,6 +1,6 @@
 import { WL_ENV_TYPE_PROP_NAME } from "./env.const";
 
-interface IEnvironment {
+export interface IEnvironment {
     [WL_ENV_TYPE_PROP_NAME]?: string;
     userManagementDbUsername: string;
     userManagementDbPassword: string;
@@ -8,4 +8,8 @@ interface IEnvironment {
     userManagementDbPort: string;
 }
 
-export type IEnvironmentPropery = keyof IEnvironment;
+export type IEnvironmentPropery<T> = keyof T;
+
+export interface IEnvironmentContainer {
+    [WL_ENV_TYPE_PROP_NAME]?: string;
+}
