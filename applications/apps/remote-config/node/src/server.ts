@@ -2,15 +2,16 @@ import { SharedRemoteConfigConfigReader } from "@wraithlight/common.environment-
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import { CoreEnvironment } from "@wraithlight/core.env";
 import { BaseController } from "@wraithlight/core.node";
-import { createNodeServer } from "@wraithlight/core.server";
+import { createNodeServerV2 } from "@wraithlight/core.server";
 
 const sharedCfg = SharedRemoteConfigConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 
 const CONTROLLERS: ReadonlyArray<BaseController> = [
 ];
 
-createNodeServer(
+createNodeServerV2(
     ApplicationName.RemoteConfig,
     CONTROLLERS,
+    [],
     sharedCfg.get(x => x.server.port),
 );
