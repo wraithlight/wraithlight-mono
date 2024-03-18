@@ -1,5 +1,6 @@
 import { NotifierService } from "@wraithlight/common.notifier-sdk.server";
 import { PasswordService } from "@wraithlight/common.password";
+import { Language } from "@wraithlight/core.content.types";
 import { newGuid } from "@wraithlight/core.guid";
 import { Nullable } from "@wraithlight/core.nullable";
 
@@ -53,12 +54,15 @@ export class AccountService {
             };
         }
         const salt = this._passwordService.getSalt();
-        const hashedPassword = this._passwordService.encryptPassword(password, salt);
+        const hashedPassword = this._passwordService
+            .encryptPassword(password, salt)
+        ;
 
         const model: UserDbo = {
             id: newGuid(),
             username: username,
             passwordHash: hashedPassword.encryptedPassword,
+            languageId: Language.English,
             failedLoginAttempts: 0,
             status: UserStatus.EmailVerify,
             emailAddress: emailAddress,
