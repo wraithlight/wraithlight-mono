@@ -1,6 +1,6 @@
 {
     "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/common.auth-sdk.client",
+    "name": "@wraithlight/core.content.types",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {
@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "2.5.3",
+    "version": "1.0.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -20,13 +20,7 @@
         "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
     },
     "dependencies": {
-        "@wraithlight/common.logger.sdk": "*",
-        "@wraithlight/core.auth.constant": "*",
-        "@wraithlight/core.auth.types": "*",
-        "@wraithlight/core.common-constants": "*",
-        "@wraithlight/core.http": "*",
-        "@wraithlight/core.redux": "*",
-        "@wraithlight/core.nullable": "*"
+        "@wraithlight/core.guid": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",

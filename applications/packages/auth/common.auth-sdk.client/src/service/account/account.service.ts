@@ -3,7 +3,7 @@ import {
     RegisterErrorResponse,
     RegisterRequest,
 } from "@wraithlight/core.auth.types";
-import { HttpClient } from "@wraithlight/core.http";
+import { CoreHttpClient } from "@wraithlight/core.http";
 
 import { RegisterResponse } from "../../model";
 
@@ -12,7 +12,7 @@ import { ClientAccountServiceConfig } from "./account.config";
 
 export class ClientAccountService {
 
-    private readonly _httpService = new HttpClient();
+    private readonly _httpService = new CoreHttpClient();
     private readonly _config: ClientAccountServiceConfig;
 
     constructor(
