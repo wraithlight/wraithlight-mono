@@ -1,8 +1,7 @@
-type OnConnectedCallback = (message: string) => void;
-type OnDisconnectedCallback = (message: string) => void;
-
-export type Emitter = (message: string) => void;
-
-export type OnConnectionCallback = (callback: OnConnectedCallback) => void;
-export type OnDisconnectCallback = (callback: OnDisconnectedCallback) => void;
-export type OnEventCallback = Emitter;
+export type OnConnectCallback = (id: string) => void;
+export type OnDisconnectCallback = (id: string) => void;
+export type OnEventCallback = (
+    topic: string,
+    id: string,
+    message: string
+) => void;

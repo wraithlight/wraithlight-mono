@@ -8,7 +8,8 @@ const disconnectSpy = jest.fn();
 const MOCK_TOPIC = "my-topic";
 const MOCK_MESSAGE = "message";
 const MOCK_CALLBACK = (message: string) => console.log(message);
-const MOCK_URL = "/realtime";
+const MOCK_URL = "localhost";
+const MOCK_PATH = "/realtime";
 const MOCK_SOCKET = {
     connected: true,
     on: onSpy,
@@ -30,7 +31,7 @@ describe("SocketIOFacadeSpecs", () => {
     let service: SocketIOFacade;
 
     describe("given the service is initalized", () => {
-        service = new SocketIOFacade(MOCK_URL)
+        service = new SocketIOFacade(MOCK_URL, MOCK_PATH)
         describe("when i create a new instance", () => {
             it("should call native connect", () => {
                 expect(connect).toHaveBeenCalled();
@@ -38,7 +39,8 @@ describe("SocketIOFacadeSpecs", () => {
                 expect(connect).toHaveBeenCalledWith(
                     MOCK_URL,
                     {
-                        autoConnect: true
+                        autoConnect: true,
+                        path: MOCK_PATH
                     }
                 );
             });

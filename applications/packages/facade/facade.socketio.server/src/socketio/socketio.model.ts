@@ -1,9 +1,5 @@
-import { Emitter } from "./socketio.type";
-
-interface Broadcast {
-    emit: Emitter;
-}
-
 export interface Socket {
-    broadcast: Broadcast;
+    id: string;
+    on(topic: string, handler: (message: string) => void): void;
+    onAny(handler: (topic: string, message: string) => void): void;
 }

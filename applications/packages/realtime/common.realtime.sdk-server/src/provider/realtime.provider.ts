@@ -1,18 +1,14 @@
-import { createServer } from "http";
+import { Server } from "http";
 
 import { MessagebusService } from "@wraithlight/core.messagebus";
 import { RealtimeMessage } from "@wraithlight/core.realtime.types";
 import { SocketIOFacade } from "@wraithlight/facade.socketio.server";
-import { Application } from "express";
 
 import {
     ON_CLIENT_CONNECTING_TOKEN,
     ON_CLIENT_DISCONNECTING_TOKEN
 } from "./realtime.const";
-import {
-    ClientEventCallback,
-    EventListener
-} from "./realtime.type";
+import { AsyncRealtimeMessage } from "./realtime.model";
 
 export class RealtimeProvider {
 
@@ -20,16 +16,23 @@ export class RealtimeProvider {
     private readonly _messageBusService = new MessagebusService();
 
     constructor(
-        app: Application,
-        path: string
+        server: Server,
+        path: string,
     ) {
-        const server = createServer(app);
         this._socketIoFacade = new SocketIOFacade(
             server,
             path,
-            (m) => this.onClientConnecting(m),
-            (m) => this.onClientDisconnecting(m)
+            (m) => this.onConnect(m),
+            (m) => this.onDisconnect(m),
+            (m, o, x) => this.onEvent(m, o, x)
         );
+    }
+
+    /**
+     * @public
+     */
+    public getMessageBus(): MessagebusService {
+        return this._messageBusService;
     }
 
     public sendToAll<T>(
@@ -42,33 +45,45 @@ export class RealtimeProvider {
         this._socketIoFacade.broadcastToAll(topic, JSON.stringify(messageLike));
     }
 
+    /**
+     * @public
+     */
+    public sendTo<T>(
+        id: string,
+        topic: string,
+        message: T
+    ): void {
+        const messageLike: RealtimeMessage<T> = {
+            payload: message
+        };
+        this._socketIoFacade.send(id, topic, JSON.stringify(messageLike))
+    }
+
     public close(): void {
         this._socketIoFacade.close();
     }
 
-    public listenTo<T>(
+    private onEvent(
         topic: string,
-        listener: EventListener<T>
+        id: string,
+        payload: string
     ): void {
-        this._socketIoFacade.addListener(
-            topic,
-            (message: string) => {
-                const event: RealtimeMessage<T> = JSON.parse(message);
-                listener(event);
-            }
-        )
+        this._messageBusService.push<AsyncRealtimeMessage>(topic, {
+            id: id,
+            message: JSON.parse(payload)
+        });
     }
 
-    private onClientConnecting(
-        _onClientConnected: ClientEventCallback
+    private onConnect(
+        id: string
     ): void {
-        this._messageBusService.push(ON_CLIENT_CONNECTING_TOKEN);
+        this._messageBusService.push(ON_CLIENT_CONNECTING_TOKEN, id);
     }
 
-    private onClientDisconnecting(
-        _onClientDisconnected: ClientEventCallback
+    private onDisconnect(
+        id: string
     ): void {
-        this._messageBusService.push(ON_CLIENT_DISCONNECTING_TOKEN);
+        this._messageBusService.push(ON_CLIENT_DISCONNECTING_TOKEN, id);
     }
 
 }

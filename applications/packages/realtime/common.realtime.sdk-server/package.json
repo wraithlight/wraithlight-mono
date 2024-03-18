@@ -1,6 +1,6 @@
 {
     "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/common.realtime.server",
+    "name": "@wraithlight/common.realtime.sdk-server",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {
@@ -23,7 +23,8 @@
         "@wraithlight/core.realtime.types": "*",
         "@wraithlight/core.messagebus": "*",
         "@wraithlight/facade.socketio.server": "*",
-        "express": "4.18.2"
+        "@wraithlight/core.errors": "*",
+        "@wraithlight/core.nullable": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",

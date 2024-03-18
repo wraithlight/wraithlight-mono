@@ -10,13 +10,15 @@ export class SocketIOFacade {
     private readonly _socket: Socket;
 
     constructor(
-        url: string,
+        baseUrl: string,
+        path: string,
         autoConnect = true
     ) {
         this._socket = connect(
-            url,
+            baseUrl,
             {
-                autoConnect: autoConnect
+                autoConnect: autoConnect,
+                path: path
             }
         );
     }

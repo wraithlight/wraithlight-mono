@@ -6,4 +6,4 @@ export interface MessagebusListener<T = any> {
     callback: MessagebusCallbackFn<T>
 }
 
-export type MessagebusCallbackFn<T>  = (data?: T) => void;
+export type MessagebusCallbackFn<T>  = (data: T) => void;
