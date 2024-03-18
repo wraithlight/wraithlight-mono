@@ -7,7 +7,7 @@ import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import { CoreEnvironment } from "@wraithlight/core.env";
-import { createNodeServer } from "@wraithlight/core.server";
+import { createNodeServerV2 } from "@wraithlight/core.server";
 
 import { AccountControllerV2, SessionControllerV2 } from "./controller";
 
@@ -25,9 +25,10 @@ const CONTROLLERS = [
 
 const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
 
-createNodeServer(
+createNodeServerV2(
     ApplicationName.UserManagement,
     CONTROLLERS,
+    [],
     sharedCfg.get(x => x.server.port),
     [
         {
