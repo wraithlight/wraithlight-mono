@@ -1,4 +1,4 @@
-import { UNKNOWN_ERROR } from "@wraithlight/core.common-constants";
+import { UNKNOWN_ERROR } from "@wraithlight/core.errors";
 import {
     IMailSender,
     IMailSenderSendMailResult

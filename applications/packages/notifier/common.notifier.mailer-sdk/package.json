@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@wraithlight/core.notifier.types": "*",
-        "@wraithlight/core.common-constants": "*",
+        "@wraithlight/core.errors": "*",
         "@wraithlight/facade.nodemailer": "*"
     },
     "devDependencies": {
