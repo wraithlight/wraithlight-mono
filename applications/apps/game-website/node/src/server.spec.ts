@@ -1,6 +1,6 @@
 jest.mock("@wraithlight/core.server", () => {
     return {
-        createNodeServerV2: jest.fn()
+        createNodeServer: jest.fn()
     }
 });
 const serverGameWebsiteConfigReaderGetInstanceSpy = jest.fn();
@@ -44,7 +44,7 @@ jest.mock("path", () => {
 })
 
 import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constants";
-import { createNodeServerV2 } from "@wraithlight/core.server";
+import { createNodeServer } from "@wraithlight/core.server";
 
 describe("ServerSpecs", () => {
     import("./server");
@@ -53,10 +53,10 @@ describe("ServerSpecs", () => {
             expect(sharedGameWebsiteConfigReaderGetSpy).toHaveBeenCalled();
             expect(sharedGameWebsiteConfigReaderGetSpy).toHaveBeenCalledTimes(1);
         });
-        it("should call `createNodeServerV2`", () => {
-            expect(createNodeServerV2).toHaveBeenCalled();
-            expect(createNodeServerV2).toHaveBeenCalledTimes(1);
-            expect(createNodeServerV2).toHaveBeenCalledWith(
+        it("should call `createNodeServer`", () => {
+            expect(createNodeServer).toHaveBeenCalled();
+            expect(createNodeServer).toHaveBeenCalledTimes(1);
+            expect(createNodeServer).toHaveBeenCalledWith(
                 ApplicationName.GameWebsite,
                 [],
                 [],
