@@ -22,7 +22,7 @@
     "dependencies": {
         "@wraithlight/core.env.types": "*",
         "@wraithlight/core.logger.types": "*",
-        "@wraithlight/core.common-constants": "*"
+        "@wraithlight/core.auth.constant": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
