@@ -1,5 +1,5 @@
 import { createUrl } from "@wraithlight/core.url";
-import { EnvironmentType } from "@wraithlight/core.common-constants";
+import { EnvironmentType } from "@wraithlight/core.env.types";
 
 const sharedNotifierConfigReaderGetInstanceSpy = jest.fn();
 const sharedNotifierConfigReaderGetInstanceGetSpy = jest
