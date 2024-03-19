@@ -1,5 +1,5 @@
 import { LoggerService } from "@wraithlight/common.logger.sdk";
-import { ApplicationName } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 import {
     BaseController,
     ControllerBinder,
