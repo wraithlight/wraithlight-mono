@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { EnvironmentType } from "@wraithlight/core.env.types";
 import { ConfigurationReader } from "@wraithlight/core.environment-static.sdk";
 import { CommonServer } from "@wraithlight/core.environment-static.types";
