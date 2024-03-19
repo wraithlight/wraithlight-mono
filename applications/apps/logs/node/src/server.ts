@@ -1,7 +1,7 @@
 import { SharedLogsConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import { CoreEnvironment } from "@wraithlight/core.env";
-import { createNodeServerV2 } from "@wraithlight/core.server";
+import { createNodeServer } from "@wraithlight/core.server";
 
 import { LogsEntryController } from "./controller";
 
@@ -11,7 +11,7 @@ const CONTROLLERS = [
     new LogsEntryController()
 ];
 
-createNodeServerV2(
+createNodeServer(
     ApplicationName.Logs,
     CONTROLLERS,
     [],
