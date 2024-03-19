@@ -1,4 +1,4 @@
-import { EnvironmentType } from "@wraithlight/core.common-constants";
+import { EnvironmentType } from "@wraithlight/core.env.types";
 
 import { WL_ENV_DEFAULT, WL_ENV_TYPE_PROP_NAME } from "./env.const";
 import { IEnvironment, IEnvironmentContainer, IEnvironmentPropery } from "./env.model";
