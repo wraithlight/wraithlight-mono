@@ -27,7 +27,7 @@ import {
     ControllerBinder,
     createServer
 } from "@wraithlight/core.node";
-import { ApplicationName } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 
 
