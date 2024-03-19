@@ -9,7 +9,7 @@ export class CoreEnvironment {
         return this.getStringAsT<EnvironmentType>(
             WL_ENV_TYPE_PROP_NAME,
             WL_ENV_DEFAULT
-        )
+        );
     }
 
     public static getStringAsT<T>(
@@ -64,6 +64,6 @@ export class CoreEnvironment {
     ): T {
         const processEnv = process.env;
         const value = processEnv[key] ?? defaultValue;
-        return transformer(value)
+        return transformer(value);
     }
 }
