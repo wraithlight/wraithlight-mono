@@ -24,6 +24,7 @@
         "@wraithlight/core.environment-static.sdk": "*",
         "@wraithlight/core.environment-static.types": "*",
         "@wraithlight/core.logger.types": "*",
+        "@wraithlight/core.env.types": "*",
         "@wraithlight/core.nullable": "*"
     },
     "devDependencies": {
