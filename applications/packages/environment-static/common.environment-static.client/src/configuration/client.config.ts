@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { EnvironmentStaticClient } from "@wraithlight/core.environment-static.types";
 
 import { CLIENT_COMMON_CONFIG } from "./common";

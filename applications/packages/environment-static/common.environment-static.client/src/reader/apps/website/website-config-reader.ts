@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { EnvironmentType } from "@wraithlight/core.env.types";
 import { WebsiteClient } from "@wraithlight/core.environment-static.types";
 import { Nullable } from "@wraithlight/core.nullable";
