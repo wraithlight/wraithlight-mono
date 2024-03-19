@@ -14,7 +14,7 @@ jest.mock("@wraithlight/facade.nodemailer", () => {
 import { IMailSenderSendMailResult } from "@wraithlight/core.notifier.types";
 
 import { MailerService } from "./mailer.service";
-import { UNKNOWN_ERROR } from "@wraithlight/core.common-constants";
+import { UNKNOWN_ERROR } from "@wraithlight/core.errors";
 
 describe("MailerServiceSpecs", () => {
 
