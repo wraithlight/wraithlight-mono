@@ -54,7 +54,8 @@ describe("RealtimeProviderSpecs", () => {
                 MOCK_PATH,
                 expect.any(Function),
                 expect.any(Function),
-                expect.any(Function)
+                expect.any(Function),
+                undefined
             );
         });
         it("should create a messagebus instance", () => {
