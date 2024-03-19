@@ -32,7 +32,15 @@ export class RegisterComponent implements OnDestroy {
     constructor(
         private readonly _cdr: ChangeDetectorRef
     ) {
-        this._store.select(AccountSelector.state).onSelection((m, s) => {
+        this._store.select(AccountSelector.errors).onSelection((m, s) => {
+            this._stopFns.push(s);
+            this._cdr.markForCheck();
+        });
+        this._store.select(AccountSelector.isBusy).onSelection((m, s) => {
+            this._stopFns.push(s);
+            this._cdr.markForCheck();
+        });
+        this._store.select(AccountSelector.userRegister).onSelection((m, s) => {
             this._stopFns.push(s);
             this._cdr.markForCheck();
         });
