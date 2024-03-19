@@ -23,7 +23,7 @@
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",
-        "@wraithlight/core.env": "*",
+        "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.node": "*",
         "@wraithlight/core.url": "*",

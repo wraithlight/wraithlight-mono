@@ -28,7 +28,7 @@ jest.mock("@wraithlight/common.environment-static.shared", () => {
         }
     }
 });
-jest.mock("@wraithlight/core.env", () => {
+jest.mock("@wraithlight/core.env.sdk", () => {
     return {
         CoreEnvironment: {
             getEnvironmentType: jest
@@ -43,7 +43,8 @@ jest.mock("path", () => {
     }
 })
 
-import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.common-constants";
+import { EnvironmentType } from "@wraithlight/core.env.types";
 import { createNodeServer } from "@wraithlight/core.server";
 
 describe("ServerSpecs", () => {

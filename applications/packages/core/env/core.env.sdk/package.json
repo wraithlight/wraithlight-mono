@@ -1,6 +1,6 @@
 {
-    "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/core.env",
+    "$schema": "../../../../.schema/package-json.package.schema.json",
+    "name": "@wraithlight/core.env.sdk",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {
@@ -20,7 +20,7 @@
         "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
     },
     "dependencies": {
-        "@wraithlight/core.common-constants": "*"
+        "@wraithlight/core.env.types": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",

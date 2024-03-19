@@ -6,7 +6,7 @@ import { SharedUserManagementConfigReader } from "@wraithlight/common.environmen
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { ApplicationName } from "@wraithlight/core.common-constants";
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createNodeServer } from "@wraithlight/core.server";
 
 import { AccountControllerV2, SessionControllerV2 } from "./controller";

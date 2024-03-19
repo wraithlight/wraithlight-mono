@@ -1,7 +1,7 @@
 const getStringSpy = jest.fn();
 const getNumberSpy = jest.fn();
 
-jest.mock("@wraithlight/core.env", () => {
+jest.mock("@wraithlight/core.env.sdk", () => {
     return {
         CoreEnvironment: {
             getString: getStringSpy,

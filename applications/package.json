@@ -32,6 +32,7 @@
     "packages/realtime/*",
     "packages/auth/*",
     "packages/core/*",
+    "packages/core/env/*",
     "packages/core/logger/*",
     "packages/core/mustache/*",
     "packages/core/deepmerge/*",

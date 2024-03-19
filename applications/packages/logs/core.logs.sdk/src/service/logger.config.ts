@@ -1,5 +1,5 @@
 import { SharedLogsConfigReader } from "@wraithlight/common.environment-static.shared";
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { LOGGER_API_ENDPOINTS } from "@wraithlight/core.logs.constant";
 import { createUrl } from "@wraithlight/core.url";
 

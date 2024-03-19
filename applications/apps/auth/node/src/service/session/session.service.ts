@@ -3,7 +3,7 @@ import {
 } from "@wraithlight/common.environment-static.server";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { addMinutes, dateNow, utcNow } from "@wraithlight/core.date";
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { Guid, newGuid } from "@wraithlight/core.guid";
 import { CoreJWT } from "@wraithlight/core.jwt";
 import { Nullable, isNil } from "@wraithlight/core.nullable";

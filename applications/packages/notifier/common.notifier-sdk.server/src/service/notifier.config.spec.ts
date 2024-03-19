@@ -1,5 +1,5 @@
 import { createUrl } from "@wraithlight/core.url";
-import { EnvironmentType } from "@wraithlight/core.common-constants";
+import { EnvironmentType } from "@wraithlight/core.env.types";
 
 const sharedNotifierConfigReaderGetInstanceSpy = jest.fn();
 const sharedNotifierConfigReaderGetInstanceGetSpy = jest
@@ -19,7 +19,7 @@ jest.mock("@wraithlight/common.environment-static.shared", () => {
         }
     }
 });
-jest.mock("@wraithlight/core.env", () => {
+jest.mock("@wraithlight/core.env.sdk", () => {
     return {
         CoreEnvironment: {
             getEnvironmentType: jest
@@ -29,7 +29,7 @@ jest.mock("@wraithlight/core.env", () => {
     }
 });
 
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { NOTIFIER_ENDPOINT_CONST } from "@wraithlight/core.notifier.const";
 
 import { NotifierServiceConfig } from "./notifier.config";

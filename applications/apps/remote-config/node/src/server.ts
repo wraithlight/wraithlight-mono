@@ -1,6 +1,6 @@
 import { SharedRemoteConfigConfigReader } from "@wraithlight/common.environment-static.shared";
 import { ApplicationName } from "@wraithlight/core.common-constants";
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { BaseController } from "@wraithlight/core.node";
 import { createNodeServer } from "@wraithlight/core.server";
 
