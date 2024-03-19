@@ -33,6 +33,7 @@
     "packages/core/*",
     "packages/core/logger/*",
     "packages/core/deepmerge/*",
+    "packages/core/scheduler/*",
     "packages/game/*",
     "packages/l10n/*",
     "packages/logs/*",
