@@ -22,7 +22,7 @@
     "dependencies": {
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.common-constants": "*",
-        "@wraithlight/core.env": "*",
+        "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.url": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.logger.types": "*",

@@ -17,7 +17,7 @@
         "@wraithlight/common.environment-static.server": "*",
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/core.common-constants": "*",
-        "@wraithlight/core.env": "*",
+        "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.logger.types": "*",
         "@wraithlight/core.logs.constant": "*",
         "@wraithlight/core.logs.types": "*",

@@ -1,4 +1,4 @@
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 
 export namespace EnvironmentStaticEnv {
     export const userManagementDatabaseUsername = (): string => CoreEnvironment.getString("userManagementDbUsername", "");
