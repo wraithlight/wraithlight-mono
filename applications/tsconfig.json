@@ -21,6 +21,7 @@
                 "packages/health-checker/*/src/index.ts",
                 "packages/game-website/*/src/index.ts",
                 "packages/common/*/src/index.ts",
+                "packages/common/password/*/src/index.ts",
                 "packages/content/*/src/index.ts"
             ]
         }

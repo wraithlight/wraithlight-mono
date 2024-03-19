@@ -38,6 +38,7 @@
     "packages/notifier/*",
     "packages/environment-static/*",
     "packages/common/*",
+    "packages/common/password/*",
     "packages/framework/*",
     "packages/health-checker/*",
     "packages/facade/*",
