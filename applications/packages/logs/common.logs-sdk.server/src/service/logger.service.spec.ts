@@ -11,7 +11,7 @@ jest.mock("@wraithlight/core.logs.sdk", () => {
         BeaconLoggerService: jest.fn().mockImplementation(() => { return { }})
     }
 });
-import { ApplicationName } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { LoggerService as CoreLoggerService } from "@wraithlight/common.logger.sdk";
 import { ILogger, LoggerConfig } from "@wraithlight/core.logger.types";
 

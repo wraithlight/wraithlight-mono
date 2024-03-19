@@ -21,7 +21,7 @@
     },
     "dependencies": {
         "@wraithlight/common.logger.sdk": "*",
-        "@wraithlight/core.common-constants": "*",
+        "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.logger.types": "*",
         "@wraithlight/core.logs.sdk": "*"
     },
