@@ -12,7 +12,7 @@
         "@wraithlight/common.realtime.sdk-client": "*",
         "@wraithlight/common.realtime.sdk-server": "*",
         "@wraithlight/common.health-checker.sdk-server": "*",
-        "@wraithlight/core.common-constants": "*",
+        "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.server": "*"
     },
     "devDependencies": {
