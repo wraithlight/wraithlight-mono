@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 
 export interface ApplicationStatic<
     TContent,
