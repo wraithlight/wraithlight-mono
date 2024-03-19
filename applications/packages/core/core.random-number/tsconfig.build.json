@@ -1,12 +1,12 @@
 {
-    "compilerOptions": {
-        "declaration": true,
-        "outDir": "dist/esm"
-    },
-    "include": [
-        "src"
-    ],
-    "exclude": [
-        "**/*.spec.ts"
-    ]
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "dist/esm"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ]
 }
