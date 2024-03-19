@@ -1,4 +1,4 @@
-import { Guid } from "@wraithlight/core.guid"
+import { Guid } from "@wraithlight/core.guid";
 
 export interface SessionDbo {
     id: Guid;

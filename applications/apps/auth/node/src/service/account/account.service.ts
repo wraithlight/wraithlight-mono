@@ -84,7 +84,7 @@ export class AccountService {
     }
 
     public async findByUsername(username: string): Promise<Nullable<UserDbo>> {
-        return this._userRepository.findUserByName(username)
+        return this._userRepository.findUserByName(username);
     }
 
     private async addScopes(user: UserDbo): Promise<void> {

@@ -2,7 +2,7 @@ import {
     compareSync,
     genSaltSync,
     hashSync
-} from "bcryptjs"
+} from "bcryptjs";
 
 import { DEFAULT_SALT_ROUNDS } from "./bcrypt.const";
 

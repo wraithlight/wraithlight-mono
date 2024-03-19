@@ -10,9 +10,9 @@ export class CanvasService {
     constructor(
         canvas: HTMLCanvasElement
     ) {
-        const context = canvas.getContext("2d")
+        const context = canvas.getContext("2d");
         if (isNil(context)) {
-            throw `Context is nil!`
+            throw `Context is nil!`;
         }
         this._context = context;
     }

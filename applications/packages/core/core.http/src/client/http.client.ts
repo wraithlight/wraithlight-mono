@@ -56,7 +56,7 @@ export abstract class HttpClient {
             return {
                 statusCode: HttpCode.InternalError,
                 isAborted: true
-            }
+            };
         }
         const result: InternalHttpResponse = await fetch(
                 url,
@@ -67,10 +67,10 @@ export abstract class HttpClient {
                 }
             )
             .then((m: InternalExpressResponse) => {
-                return { statusCode: m.status, payload: m.text() }
+                return { statusCode: m.status, payload: m.text() };
             })
             .catch((m: InternalExpressResponse) => {
-                return { statusCode: m.status, payload: m.text() }
+                return { statusCode: m.status, payload: m.text() };
             })
         ;
 
@@ -78,11 +78,12 @@ export abstract class HttpClient {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             .then(m => JSON.parse(m))
             .catch(undefined)
+        ;
 
         return {
             statusCode: result.statusCode,
             payload: payload,
             isAborted: false
-        }
+        };
     }
 }

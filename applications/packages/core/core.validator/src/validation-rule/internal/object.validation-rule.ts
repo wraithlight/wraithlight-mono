@@ -39,7 +39,7 @@ export class ObjectValidationRule<T extends object> extends BaseValidationRule<T
     public toHavePropertyNotNull<K extends keyof T>(name: K): ObjectValidationRule<T> {
         this.addRuleCase(
             (item: T) => {
-                return isNil(item[name])
+                return isNil(item[name]);
             },
             "E_OBJECT_TOHAVENPROPERTYNOTNULL"
         );

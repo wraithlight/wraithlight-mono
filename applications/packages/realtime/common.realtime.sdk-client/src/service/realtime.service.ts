@@ -53,7 +53,7 @@ export class RealtimeService {
                 ;
                 callbackFn(objLike);
             }
-        )
+        );
     }
 
     public send<T>(

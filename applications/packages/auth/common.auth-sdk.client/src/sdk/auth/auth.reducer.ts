@@ -16,7 +16,7 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
                     isBusy: true
                 }
             }
-        }
+        };
     });
     store.addReducer([AuthAction.loginFail], (state, action: ActionWithPayload<Array<string>>) => {
         return {
@@ -29,7 +29,7 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
                     errors: action.payload
                 }
             }
-        }
+        };
     });
     store.addReducer([AuthAction.loginSuccess], (state, action: ActionWithPayload<{ token: string, validUntil: Date }>) => {
         return {
@@ -44,7 +44,7 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
                     tokenValidUntil: action.payload.validUntil
                 }
             }
-        }
+        };
     });
     store.addReducer([AuthAction.logout], (state, _action: ActionWithPayload<{ token: string}>) => {
         return {
@@ -56,7 +56,7 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
                     isBusy: true
                 }
             }
-        }
+        };
     });
     store.addReducer([AuthAction.logoutSuccess], (state, _action: Action) => {
         return {
@@ -71,7 +71,7 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
                     tokenValidUntil: undefined
                 }
             }
-        }
+        };
     });
     store.addReducer([AuthAction.loginFail], (state, action: ActionWithPayload<Array<string>>) => {
         return {
@@ -84,7 +84,7 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
                     errors: action.payload
                 }
             }
-        }
+        };
     });
     store.addReducer([AuthAction.keepAlive], (state) => {
         return {
@@ -96,7 +96,7 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
                     isBusy: true
                 }
             }
-        }
+        };
     });
     store.addReducer([AuthAction.keepAliveFail], (state, action: ActionWithPayload<Array<string>>) => {
         return {
@@ -109,7 +109,7 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
                     errors: action.payload
                 }
             }
-        }
+        };
     });
     store.addReducer([AuthAction.keepAliveSuccess], (state, action: ActionWithPayload<{ token: string, validUntil: Date }>) => {
         return {
@@ -123,7 +123,7 @@ export function initializeReducers(store: Store<IAuthContainerStore>): Store<IAu
                     tokenValidUntil: action.payload.validUntil
                 }
             }
-        }
+        };
     });
     return store;
 }

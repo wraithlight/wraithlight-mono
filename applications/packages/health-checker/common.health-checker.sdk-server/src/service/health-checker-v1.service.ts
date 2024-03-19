@@ -22,7 +22,7 @@ export class HealthCheckV1Service {
     public resetState(): void {
         this._state = {
             ...DEFAULT_STATE
-        }
+        };
     }
 
     private onInfoMetric(): void {

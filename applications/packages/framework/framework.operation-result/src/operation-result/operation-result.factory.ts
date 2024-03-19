@@ -11,7 +11,7 @@ export class OperationResultFactory {
         return {
             isSuccess: true,
             payload: payload
-        }
+        };
     }
 
     public static error(
@@ -20,7 +20,7 @@ export class OperationResultFactory {
         return {
             isSuccess: false,
             errors: errors
-        }
+        };
     }
 
 }

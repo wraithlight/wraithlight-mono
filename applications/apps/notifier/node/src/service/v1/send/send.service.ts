@@ -26,7 +26,7 @@ export class SendServiceV1 {
             this._config.get(m => m.emailSending.smtp.secure),
             this._config.get(m => m.emailSending.smtp.auth.user),
             this._config.get(m => m.emailSending.smtp.auth.pass)
-        )
+        );
     }
 
     public send(
@@ -42,7 +42,7 @@ export class SendServiceV1 {
             content,
             isHtml,
             webhookBaseApiUrl: webhookBaseUrl
-        })
+        });
     }
 
     private async sendWorker(item: WebhookableSendEmailModelV1, id: Guid): Promise<void> {

@@ -7,11 +7,11 @@ import {
 export function isSuccessResult<T>(
     operationResultLike: OperationResult<T>
 ): operationResultLike is OperationResultSuccess<T> {
-    return operationResultLike.isSuccess
+    return operationResultLike.isSuccess;
 }
 
 export function isErrorResult<T>(
     operationResultLike: OperationResult<T>
 ): operationResultLike is OperationResultError {
-    return !operationResultLike.isSuccess
+    return !operationResultLike.isSuccess;
 }
