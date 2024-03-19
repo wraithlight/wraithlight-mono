@@ -23,7 +23,7 @@
         "@wraithlight/common.logger.sdk": "*",
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",
-        "@wraithlight/core.common-constants": "*",
+        "@wraithlight/core.errors": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.redux": "*",
         "@wraithlight/core.nullable": "*"
