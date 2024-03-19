@@ -14,10 +14,6 @@ export const API_ENDPOINTS = Object.freeze({
                 login: "/login",
                 logout: "/logout",
                 validateSession: "/validate-session",
-                /**
-                 * @deprecated Use `keepAliveSession` instead.
-                 */
-                keepAlive: "/keep-alive",
                 keepAliveSession: "/keep-alive",
             },
             account: {

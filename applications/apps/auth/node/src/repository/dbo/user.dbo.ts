@@ -1,6 +1,6 @@
+import { UserStatus } from "@wraithlight/core.auth.types";
 import { Guid } from "@wraithlight/core.guid";
 
-import { UserStatus } from "../../_internal";
 
 export interface UserDbo {
     id: Guid;

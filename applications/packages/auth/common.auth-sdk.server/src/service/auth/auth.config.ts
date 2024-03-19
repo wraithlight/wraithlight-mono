@@ -20,7 +20,7 @@ export class ServerAuthServiceConfig {
     }
 
     public getKeepAliveSessionUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.external.v2.auth.keepAlive);
+        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.external.v2.auth.keepAliveSession);
     }
 
     private getApiUrl(): string {

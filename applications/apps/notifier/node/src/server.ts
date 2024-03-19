@@ -6,7 +6,7 @@ import { SharedNotifierConfigReader } from "@wraithlight/common.environment-stat
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { ApplicationName } from "@wraithlight/core.common-constants";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
-import { createNodeServerV2 } from "@wraithlight/core.server";
+import { createNodeServer } from "@wraithlight/core.server";
 
 import { SendControllerV1 } from "./controller";
 
@@ -20,7 +20,7 @@ const CONTROLLERS = [
 
 const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
 
-createNodeServerV2(
+createNodeServer(
     ApplicationName.Notifier,
     CONTROLLERS,
     [],

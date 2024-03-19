@@ -31,7 +31,7 @@ import { ApplicationName } from "@wraithlight/core.common-constants";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 
 
-import { createNodeServerV2 } from "./server";
+import { createNodeServer } from "./server";
 
 describe("ServerSpecs", () => {
 
@@ -43,7 +43,7 @@ describe("ServerSpecs", () => {
 
         describe("when i call it", () => {
 
-            createNodeServerV2(MOCK_APP_NAME, MOCK_CONTROLLERS, [], MOCK_PORT);
+            createNodeServer(MOCK_APP_NAME, MOCK_CONTROLLERS, [], MOCK_PORT);
 
             it("should call `createServer`", () => {
                 expect(createServer).toHaveBeenCalled();

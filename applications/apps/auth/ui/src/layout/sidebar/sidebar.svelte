@@ -9,10 +9,10 @@
     const stopFns: Array<SelectorResultStopFn> = [];
 
     store
-        .select(AuthSelector.state)
+        .select(AuthSelector.isLoggedIn)
         .onSelection((value, stopFn) => {
             stopFns.push(stopFn);
-            isAuthenticated = value.isLoggedIn;
+            isAuthenticated = value;
             alert(value);
         });
 </script>

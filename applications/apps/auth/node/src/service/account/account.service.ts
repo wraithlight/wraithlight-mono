@@ -1,10 +1,11 @@
 import { NotifierService } from "@wraithlight/common.notifier-sdk.server";
 import { PasswordService } from "@wraithlight/common.password";
+import { UserStatus } from "@wraithlight/core.auth.types";
 import { Language } from "@wraithlight/core.content.types";
 import { newGuid } from "@wraithlight/core.guid";
 import { Nullable } from "@wraithlight/core.nullable";
 
-import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
+import { SCOPE_NAME_MAP } from "../../_internal";
 import {
     ScopeRepository,
     UserDbo,

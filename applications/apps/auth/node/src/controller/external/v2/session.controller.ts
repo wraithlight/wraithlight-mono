@@ -87,7 +87,7 @@ export class SessionControllerV2 extends BaseController {
         return super.ok(data);
     }
 
-    @HttpPost(API_ENDPOINTS.external.v2.auth.keepAlive)
+    @HttpPost(API_ENDPOINTS.external.v2.auth.keepAliveSession)
     public async keepAliveSession(
         model: ApiKeepAliveSessionRequest
     ): Promise<void> {
