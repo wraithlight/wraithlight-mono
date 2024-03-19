@@ -1,3 +1,4 @@
+import { API_TOKEN_HEADER_NAME } from "@wraithlight/core.api-token.constants";
 import {
     ContentAppLocalizationResponseModel,
     ContentSingleKeyResponseModel
@@ -20,7 +21,7 @@ export class ContentClient extends CoreHttpClient {
         const defaultHeaders = this._jsonHeaders;
         return {
             ...defaultHeaders,
-            "X-API-TOKEN": this._contentApiKey      // TODO: Align once core.api-token.constants lib is ready.
+            [API_TOKEN_HEADER_NAME]: this._contentApiKey      // TODO: Align once core.api-token.constants lib is ready.
         };
     }
 

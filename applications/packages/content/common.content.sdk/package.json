@@ -25,7 +25,8 @@
         "@wraithlight/core.guid": "*",
         "@wraithlight/core.nullable": "*",
         "@wraithlight/framework.operation-result": "*",
-        "@wraithlight/core.http": "*"
+        "@wraithlight/core.http": "*",
+        "@wraithlight/core.api-token.constants": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
