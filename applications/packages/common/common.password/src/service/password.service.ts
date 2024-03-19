@@ -12,7 +12,7 @@ export class PasswordService {
         return {
             encryptedPassword: this.encryptPasswordInternal(password, salt),
             salt: salt
-        }
+        };
     }
 
     public getSalt(): string {
@@ -23,7 +23,7 @@ export class PasswordService {
         password: string,
         encryptedPassword: string
     ): boolean {
-        return Bcrypt.verifyPasswordSync(password, encryptedPassword)
+        return Bcrypt.verifyPasswordSync(password, encryptedPassword);
     }
 
     private encryptPasswordInternal(
