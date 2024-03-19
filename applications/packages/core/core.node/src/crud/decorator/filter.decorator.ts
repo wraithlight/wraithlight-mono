@@ -17,5 +17,5 @@ export const FilterDecorator = (invoker: Invoker): IDecoratorFactory<any> => {
         }
 
         target[FILTER_METADATA_KEY][propertyKey].push(invoker);
-    }
-}
+    };
+};
