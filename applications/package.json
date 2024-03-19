@@ -32,6 +32,7 @@
     "packages/auth/*",
     "packages/core/*",
     "packages/core/logger/*",
+    "packages/core/mustache/*",
     "packages/game/*",
     "packages/l10n/*",
     "packages/logs/*",
