@@ -1,5 +1,5 @@
 import { LoggerService } from "@wraithlight/common.logger.sdk";
-import { UNKNOWN_ERROR } from "@wraithlight/core.common-constants";
+import { UNKNOWN_ERROR } from "@wraithlight/core.errors";
 import { ActionWithPayload, Store } from "@wraithlight/core.redux";
 
 import { IAuthContainerStore } from "../state.model";
