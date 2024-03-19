@@ -3,8 +3,8 @@ import { join } from "path";
 import { ServerAccountControllerV1, ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
 import { ServerWebsiteConfigReader } from "@wraithlight/common.environment-static.server";
 import { SharedWebsiteConfigReader } from "@wraithlight/common.environment-static.shared";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { LoginScope } from "@wraithlight/core.auth.types";
-import { ApplicationName } from "@wraithlight/core.common-constants";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createNodeServer } from "@wraithlight/core.server";
 
