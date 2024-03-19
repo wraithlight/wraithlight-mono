@@ -15,5 +15,5 @@ module.exports = config(
       "dist"
     ]
   },
-  join(__dirname, "../../..")
+  join(__dirname, "../../../..")
 );
