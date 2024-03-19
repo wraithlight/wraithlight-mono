@@ -3,7 +3,6 @@ import { Selector } from "@wraithlight/core.redux";
 
 import { IAuthContainerStore } from "../state.model";
 
-import { AccountState } from "./account-state.model";
 import { RegisterModel } from "./model";
 
 export namespace AccountSelector {

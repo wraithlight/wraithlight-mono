@@ -3,8 +3,6 @@ import { Selector } from "@wraithlight/core.redux";
 
 import { IAuthContainerStore } from "../state.model";
 
-import { AuthState } from "./auth-state.model";
-
 export namespace AuthSelector {
     export const isBusy: Selector<IAuthContainerStore, Nullable<boolean>> = (state: IAuthContainerStore) => state.auth?.session.isBusy;
     export const errors: Selector<IAuthContainerStore, Nullable<ReadonlyArray<string>>> = (state: IAuthContainerStore) => state.auth?.session.errors;
