@@ -56,7 +56,7 @@ export class RealtimeProvider {
         const messageLike: RealtimeMessage<T> = {
             payload: message
         };
-        this._socketIoFacade.send(id, topic, JSON.stringify(messageLike))
+        this._socketIoFacade.send(id, topic, JSON.stringify(messageLike));
     }
 
     public close(): void {
