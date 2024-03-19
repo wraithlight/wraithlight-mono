@@ -8,7 +8,7 @@ import {
     ON_CLIENT_CONNECTING_TOKEN,
     ON_CLIENT_DISCONNECTING_TOKEN
 } from "./realtime.const";
-import { AsyncRealtimeMessage } from "./realtime.model";
+import { AsyncRealtimeMessage, SocketGuard } from "./realtime.model";
 
 export class RealtimeProvider {
 
@@ -18,13 +18,15 @@ export class RealtimeProvider {
     constructor(
         server: Server,
         path: string,
+        guards?: ReadonlyArray<SocketGuard>
     ) {
         this._socketIoFacade = new SocketIOFacade(
             server,
             path,
             (m) => this.onConnect(m),
             (m) => this.onDisconnect(m),
-            (m, o, x) => this.onEvent(m, o, x)
+            (m, o, x) => this.onEvent(m, o, x),
+            guards
         );
     }
 
