@@ -28,7 +28,7 @@ jest.mock("@wraithlight/common.environment-static.shared", () => {
         }
     }
 });
-jest.mock("@wraithlight/core.env", () => {
+jest.mock("@wraithlight/core.env.sdk", () => {
     return {
         CoreEnvironment: {
             getEnvironmentType: jest

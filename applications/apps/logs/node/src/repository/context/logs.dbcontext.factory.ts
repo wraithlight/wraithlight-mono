@@ -1,5 +1,5 @@
 import { ServerLogsConfigReader } from "@wraithlight/common.environment-static.server";
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { Nullable } from "@wraithlight/core.nullable";
 
 import { LogsDbContext } from "./logs.dbcontext";

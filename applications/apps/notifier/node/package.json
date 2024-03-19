@@ -21,7 +21,7 @@
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.common-constants": "*",
         "@wraithlight/core.cqrs": "*",
-        "@wraithlight/core.env": "*",
+        "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.guid": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.node": "*",

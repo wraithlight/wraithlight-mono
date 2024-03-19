@@ -4,7 +4,7 @@ const { join } = require("path");
 module.exports = config(
   {
     preset: "ts-jest",
-    displayName: "Packages/Core/Env",
+    displayName: "Packages/Core/Env SDK",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],
@@ -15,5 +15,5 @@ module.exports = config(
       "dist"
     ]
   },
-  join(__dirname, "../../..")
+  join(__dirname, "../../../..")
 );

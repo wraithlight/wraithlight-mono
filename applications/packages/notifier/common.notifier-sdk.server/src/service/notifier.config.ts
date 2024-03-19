@@ -1,5 +1,5 @@
 import { SharedNotifierConfigReader } from "@wraithlight/common.environment-static.shared";
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { NOTIFIER_ENDPOINT_CONST } from "@wraithlight/core.notifier.const";
 import { createUrl } from "@wraithlight/core.url";
 

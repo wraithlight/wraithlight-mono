@@ -19,7 +19,7 @@ jest.mock("@wraithlight/common.environment-static.shared", () => {
         }
     }
 });
-jest.mock("@wraithlight/core.env", () => {
+jest.mock("@wraithlight/core.env.sdk", () => {
     return {
         CoreEnvironment: {
             getEnvironmentType: jest
@@ -29,7 +29,7 @@ jest.mock("@wraithlight/core.env", () => {
     }
 });
 
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { NOTIFIER_ENDPOINT_CONST } from "@wraithlight/core.notifier.const";
 
 import { NotifierServiceConfig } from "./notifier.config";
