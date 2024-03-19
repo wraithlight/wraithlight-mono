@@ -50,6 +50,7 @@
     "packages/game-website/*",
     "packages/content/*",
     "packages/tools/*",
+    "packages/api-token/*",
     "poc/*"
   ],
   "engines" : { 
