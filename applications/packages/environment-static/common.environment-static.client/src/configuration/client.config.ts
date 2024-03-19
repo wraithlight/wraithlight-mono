@@ -25,4 +25,4 @@ export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
     [ApplicationName.Notifier]: CLIENT_NOTIFIER_CONFIG,
     [ApplicationName.RemoteConfig]: CLIENT_REMOTE_CONFIG_CONFIG,
     common: CLIENT_COMMON_CONFIG
-}
+};

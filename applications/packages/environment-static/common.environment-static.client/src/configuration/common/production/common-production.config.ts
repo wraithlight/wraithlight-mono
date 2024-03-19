@@ -9,4 +9,4 @@ export const CLIENT_PRODUCTION_COMMON_CONFIG: CommonClient = {
             LogSeverity.ERROR,
         ]
     }
-}
+};
