@@ -19,7 +19,7 @@
         "@wraithlight/common.environment-static.shared": "*",
         "@wraithlight/common.logger.sdk": "*",
         "@wraithlight/core.auth.types": "*",
-        "@wraithlight/core.common-constants": "*",
+        "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.cqrs": "*",
         "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.guid": "*",
