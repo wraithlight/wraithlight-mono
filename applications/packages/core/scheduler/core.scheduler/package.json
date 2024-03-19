@@ -1,6 +1,6 @@
 {
-    "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/core.server",
+    "$schema": "../../../../.schema/package-json.package.schema.json",
+    "name": "@wraithlight/core.scheduler",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {
@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "2.0.2",
+    "version": "1.0.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -20,9 +20,7 @@
         "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
     },
     "dependencies": {
-        "@wraithlight/common.logger.sdk": "*",
-        "@wraithlight/core.common-constants": "*",
-        "@wraithlight/core.node": "*"
+        "@wraithlight/facade.node-cron": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",

@@ -20,10 +20,10 @@ export class CoreHttpClient extends HttpClient {
         return true;
     }
 
-    protected onAfterCall(
+    protected onAfterCall<T>(
         _url: string,
         _responseCode: HttpCode,
-        _responseText: string
+        _responseText: T
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     ): void {
     }

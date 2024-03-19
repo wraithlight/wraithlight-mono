@@ -12,7 +12,7 @@
     "build:tools": "lerna run build --scope=@wraithlight/tools*",
     "build:prod": "lerna run build:prod",
     "build:guid": "lerna run build --scope @wraithlight/core.guid --include-dependencies",
-    "postinstall": "yarn build:tools && yarn build:guid",
+    "postinstall": "yarn build:tools && yarn build:guid && yarn apply-patches",
     "graph": "nx graph",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
@@ -23,7 +23,8 @@
     "test-report:generate": "yarn mustache .test-reports/data.json .test-reports/template .test-reports/index.html",
     "test-report:open": "yarn open-cli .test-reports/index.html",
     "test-report": "yarn test:coverage && yarn test-report:collect && yarn test-report:generate && yarn test-report:open",
-    "precommit": "yarn && yarn build && yarn lint && yarn knip && yarn test"
+    "precommit": "yarn && yarn build && yarn lint && yarn knip && yarn test",
+    "apply-patches": "ts-node .patches/index.ts"
   },
   "workspaces": [
     "apps/**/*",
@@ -33,12 +34,14 @@
     "packages/core/*",
     "packages/core/logger/*",
     "packages/core/mustache/*",
+    "packages/core/scheduler/*",
     "packages/game/*",
     "packages/l10n/*",
     "packages/logs/*",
     "packages/notifier/*",
     "packages/environment-static/*",
     "packages/common/*",
+    "packages/common/password/*",
     "packages/framework/*",
     "packages/health-checker/*",
     "packages/facade/*",
@@ -73,6 +76,7 @@
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-deprecation": "1.4.1",
     "eslint-plugin-import": "2.27.5",
-    "@types/node": "20.11.28"
+    "@types/node": "20.11.28",
+    "ts-node": "10.9.1"
   }
 }
