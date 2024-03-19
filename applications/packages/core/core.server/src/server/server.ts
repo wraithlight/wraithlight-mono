@@ -32,7 +32,7 @@ export function createNodeServer(
         });
     }
 
-    providers.forEach(m => m(server.getServer()))
+    providers.forEach(m => m(server.getServer()));
 
     server.start(port, () => {
         logger.info(`${appName} is running on port '${port}'`);
@@ -42,13 +42,13 @@ export function createNodeServer(
     process.on(SIGINT, () => {
         logger.info(`Received '${SIGINT}' signal - stopping.`);
         onStopCallback && onStopCallback();
-        process.exit()
+        process.exit();
     });
 
     process.on(SIGTREM, () => {
         logger.info(`Received '${SIGTREM}' signal - stopping.`);
         onStopCallback && onStopCallback();
-        process.exit()
+        process.exit();
     });
 }
 
