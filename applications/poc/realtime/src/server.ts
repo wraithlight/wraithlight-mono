@@ -1,5 +1,5 @@
 import { ApplicationName } from "@wraithlight/core.common-constants";
-import { createNodeServerV2 } from "@wraithlight/core.server";
+import { createNodeServer } from "@wraithlight/core.server";
 import {
     AsyncRealtimeMessage,
     ON_CLIENT_CONNECTING_TOKEN,
@@ -13,7 +13,7 @@ import { RT_PATH, SERVER_PORT, TOPIC_A, TOPIC_B, TOPIC_CONNECTED, TOPIC_DISCONNE
 function run() {
     const rtFactory = new RealtimeProviderFactory();
 
-    createNodeServerV2(
+    createNodeServer(
         "Realtime POC Server" as ApplicationName,
         [new HealthCheckControllerV1("alma")],
         [(server) => rtFactory.createInstance(server, RT_PATH)],
