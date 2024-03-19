@@ -1,5 +1,5 @@
 {
-    "$schema": "../../../.schema/package-json.package.schema.json",
+    "$schema": "../../../../.schema/package-json.package.schema.json",
     "name": "@wraithlight/facade.node-cron",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
