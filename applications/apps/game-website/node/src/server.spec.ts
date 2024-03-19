@@ -43,7 +43,9 @@ jest.mock("path", () => {
     }
 })
 
-import { ApplicationName, EnvironmentType } from "@wraithlight/core.common-constants";
+
+import { ApplicationName } from "@wraithlight/core.common-constants";
+import { EnvironmentType } from "@wraithlight/core.env.types";
 import { createNodeServerV2 } from "@wraithlight/core.server";
 
 describe("ServerSpecs", () => {
