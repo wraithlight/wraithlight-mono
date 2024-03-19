@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { LogSeverity } from "@wraithlight/core.logger.types";
 
 export interface LogsDbo {
