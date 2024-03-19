@@ -45,11 +45,17 @@ module.exports = (project, dirname) => {
             `${dirname}/packages/realtime/$1/__mocks__`,
             `${dirname}/packages/facade/$1/__mocks__`,
             `${dirname}/packages/core/$1/__mocks__`,
+            `${dirname}/packages/core/mustache/$1/__mocks__`,
             // TODO: create mocks for these libs. (#571)
             `${dirname}/packages/$1/src`,
             `${dirname}/packages/core/$1/src`,
+            `${dirname}/packages/core/env/$1/src`,
             `${dirname}/packages/common/$1/src`,
+            `${dirname}/packages/common/password/$1/src`,
             `${dirname}/packages/core/logger/$1/src`,
+            `${dirname}/packages/core/mustache/$1/src`,
+            `${dirname}/packages/core/deepmerge/$1/src`,
+            `${dirname}/packages/core/scheduler/$1/src`,
             `${dirname}/packages/environment-static/$1/src`,
             `${dirname}/packages/auth/$1/src`,
             `${dirname}/packages/game/$1/src`,
@@ -58,6 +64,7 @@ module.exports = (project, dirname) => {
             `${dirname}/packages/health-checker/$1/src`,
             `${dirname}/packages/notifier/$1/src`,
             `${dirname}/packages/game-website/$1/src`,
+            `${dirname}/packages/content/$1/src`,
             // END TODO
           ]
         }

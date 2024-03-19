@@ -2,7 +2,7 @@ import { ServerNotifierConfigReader } from "@wraithlight/common.environment-stat
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { MailerService } from "@wraithlight/common.notifier.mailer-sdk";
 import { CqrsService } from "@wraithlight/core.cqrs";
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { Guid } from "@wraithlight/core.guid";
 import { IMailSender } from "@wraithlight/core.notifier.types";
 import { Nullable } from "@wraithlight/core.nullable";
@@ -26,7 +26,7 @@ export class SendServiceV1 {
             this._config.get(m => m.emailSending.smtp.secure),
             this._config.get(m => m.emailSending.smtp.auth.user),
             this._config.get(m => m.emailSending.smtp.auth.pass)
-        )
+        );
     }
 
     public send(
@@ -42,7 +42,7 @@ export class SendServiceV1 {
             content,
             isHtml,
             webhookBaseApiUrl: webhookBaseUrl
-        })
+        });
     }
 
     private async sendWorker(item: WebhookableSendEmailModelV1, id: Guid): Promise<void> {

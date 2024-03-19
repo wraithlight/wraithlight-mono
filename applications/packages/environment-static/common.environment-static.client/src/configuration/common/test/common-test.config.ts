@@ -10,4 +10,4 @@ export const CLIENT_TEST_COMMON_CONFIG: CommonClient = {
             LogSeverity.ERROR,
         ]
     }
-}
+};

@@ -1,14 +1,20 @@
 import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
 import { API_ENDPOINTS } from "@wraithlight/core.auth.constant";
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createUrl } from "@wraithlight/core.url";
 
 export class ServerAccountServiceConfig {
 
-    private readonly _reader = SharedUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+    private readonly _reader = SharedUserManagementConfigReader.getInstance(
+        CoreEnvironment.getEnvironmentType()
+    );
 
     public getRegisterUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.external.v2.account.root, API_ENDPOINTS.external.v2.account.register);
+        return this.concatSegments(
+            this.getApiUrl(),
+            API_ENDPOINTS.external.v2.account.root,
+            API_ENDPOINTS.external.v2.account.register
+        );
     }
 
     private getApiUrl(): string {

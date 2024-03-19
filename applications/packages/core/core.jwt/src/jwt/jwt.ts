@@ -37,13 +37,13 @@ export class CoreJWT {
         if (isNil(result)) {
             return {
                 success: false
-            }
+            };
         }
 
         return {
             success: true,
             payload: result
-        }
+        };
     }
 
 }

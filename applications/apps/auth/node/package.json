@@ -22,7 +22,7 @@
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.common-constants": "*",
         "@wraithlight/core.jwt": "*",
-        "@wraithlight/core.env": "*",
+        "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.guid": "*",
         "@wraithlight/core.node": "*",
         "@wraithlight/core.server": "*",
@@ -30,7 +30,8 @@
         "@wraithlight/core.nullable": "*",
         "@wraithlight/core.date": "*",
         "@wraithlight/common.password": "*",
-        "@wraithlight/common.auth-sdk.server": "*"
+        "@wraithlight/common.auth-sdk.server": "*",
+        "@wraithlight/core.content.types": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
@@ -48,7 +49,7 @@
         "ts-loader": "9.4.2",
         "ts-node": "10.9.1",
         "tsconfig-paths": "4.2.0",
-        "typescript": "5.0.3",
+        "typescript": "5.0.4",
         "webpack": "5.76.0",
         "webpack-cli": "5.0.1"
     }

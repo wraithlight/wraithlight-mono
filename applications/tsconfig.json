@@ -11,7 +11,11 @@
                 "packages/*/src/index.ts",
                 "packages/auth/*/src/index.ts",
                 "packages/core/*/src/index.ts",
+                "packages/core/env/*/src/index.ts",
                 "packages/core/logger/*/src/index.ts",
+                "packages/core/mustache/*/src/index.ts",
+                "packages/core/deepmerge/*/src/index.ts",
+                "packages/core/scheduler/*/src/index.ts",
                 "packages/game/*/src/index.ts",
                 "packages/logs/*/src/index.ts",
                 "packages/notifier/*/src/index.ts",
@@ -20,7 +24,9 @@
                 "packages/facade/*/src/index.ts",
                 "packages/health-checker/*/src/index.ts",
                 "packages/game-website/*/src/index.ts",
-                "packages/common/*/src/index.ts"
+                "packages/common/*/src/index.ts",
+                "packages/common/password/*/src/index.ts",
+                "packages/content/*/src/index.ts"
             ]
         }
     }

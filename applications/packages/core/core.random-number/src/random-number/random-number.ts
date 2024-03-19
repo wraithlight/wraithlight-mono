@@ -5,5 +5,5 @@ export function randomNumberBetween(
     if (max < min) {
         throw "Minimum value should be bigger than maximum value!";
     }
-    return Math.floor(Math.random() * (max - min + 1) + min)
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }

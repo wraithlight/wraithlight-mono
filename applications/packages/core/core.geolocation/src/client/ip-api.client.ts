@@ -1,4 +1,4 @@
-import { HttpClient } from "@wraithlight/core.http";
+import { CoreHttpClient } from "@wraithlight/core.http";
 import { isNil } from "@wraithlight/core.nullable";
 
 import { IpApiClientConfig } from "./ip-api.config";
@@ -6,7 +6,7 @@ import { GeolocationInfoModel } from "./ip-api.model";
 
 export class IpApiClient {
 
-    private readonly _httpClient = new HttpClient();
+    private readonly _httpClient = new CoreHttpClient();
     private readonly _config = new IpApiClientConfig();
 
     public async getGeolocationInformation<T>(

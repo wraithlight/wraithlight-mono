@@ -17,7 +17,7 @@ import {
     ValidateSessionSuccessResponse
 } from "@wraithlight/core.auth.types";
 import { UNKNOWN_ERROR } from "@wraithlight/core.common-constants";
-import { HttpClient } from "@wraithlight/core.http";
+import { CoreHttpClient } from "@wraithlight/core.http";
 
 import {
     KeepAliveSessionResponse,
@@ -30,7 +30,7 @@ import { ClientAuthServiceConfig } from "./auth.config";
 
 export class ClientAuthService {
 
-    private readonly _httpService = new HttpClient();
+    private readonly _httpService = new CoreHttpClient();
     private readonly _config: ClientAuthServiceConfig;
 
     constructor(
@@ -82,7 +82,7 @@ export class ClientAuthService {
                     // TODO: OperationResult
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     payload: m.payload?.success ? (m.payload as LogoutSuccessResponse).payload : undefined
-                }
+                };
                 return result;
             })
         ;
@@ -104,7 +104,7 @@ export class ClientAuthService {
                     // TODO: OperationResult
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     payload: m.payload?.success ? (m.payload as ValidateSessionSuccessResponse).payload : undefined
-                }
+                };
                 return result;
             })
         ;
@@ -126,7 +126,7 @@ export class ClientAuthService {
                     // TODO: OperationResult
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     payload: m.payload?.success ? (m.payload as KeepAliveSessionSuccessResponse).payload : undefined
-                }
+                };
                 return result;
             })
         ;

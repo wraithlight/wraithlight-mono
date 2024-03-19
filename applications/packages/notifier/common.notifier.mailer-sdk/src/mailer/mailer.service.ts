@@ -47,14 +47,14 @@ export class MailerService implements IMailSender {
             return {
                 success: true,
                 errors: []
-            }
+            };
         })
         .catch(() => {
             return {
                 success: false,
                 errors: [UNKNOWN_ERROR]
-            }
-        })
+            };
+        });
     }
 
 }

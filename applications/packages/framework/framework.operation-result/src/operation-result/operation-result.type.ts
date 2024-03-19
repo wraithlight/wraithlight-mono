@@ -15,4 +15,4 @@ export interface OperationResultError extends OperationResultBase {
 
 export type OperationResult<T> =
     OperationResultSuccess<T>
-    | OperationResultError
+    | OperationResultError;

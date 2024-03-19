@@ -95,6 +95,14 @@ const config: KnipConfig = {
             ignore: [
                 "src/webpack.config.js"
             ]
+        },
+        "poc/realtime": {
+            entry: [
+                "src/server.ts",
+                "src/shared.ts",
+                "src/client-a.ts",
+                "src/client-b.ts"
+            ]
         }
     }
 }

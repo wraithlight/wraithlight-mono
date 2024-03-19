@@ -1,6 +1,9 @@
 # MacOS
 .DS_Store
 
+# To avoid root-level yarn commands
+/yarn.lock
+
 # node env
 node_modules/
 dist/

@@ -1,9 +1,11 @@
 import { NotifierService } from "@wraithlight/common.notifier-sdk.server";
 import { PasswordService } from "@wraithlight/common.password";
+import { UserStatus } from "@wraithlight/core.auth.types";
+import { Language } from "@wraithlight/core.content.types";
 import { newGuid } from "@wraithlight/core.guid";
 import { Nullable } from "@wraithlight/core.nullable";
 
-import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
+import { SCOPE_NAME_MAP } from "../../_internal";
 import {
     ScopeRepository,
     UserDbo,
@@ -53,12 +55,15 @@ export class AccountService {
             };
         }
         const salt = this._passwordService.getSalt();
-        const hashedPassword = this._passwordService.encryptPassword(password, salt);
+        const hashedPassword = this._passwordService
+            .encryptPassword(password, salt)
+        ;
 
         const model: UserDbo = {
             id: newGuid(),
             username: username,
             passwordHash: hashedPassword.encryptedPassword,
+            languageId: Language.English,
             failedLoginAttempts: 0,
             status: UserStatus.EmailVerify,
             emailAddress: emailAddress,
@@ -80,7 +85,7 @@ export class AccountService {
     }
 
     public async findByUsername(username: string): Promise<Nullable<UserDbo>> {
-        return this._userRepository.findUserByName(username)
+        return this._userRepository.findUserByName(username);
     }
 
     private async addScopes(user: UserDbo): Promise<void> {

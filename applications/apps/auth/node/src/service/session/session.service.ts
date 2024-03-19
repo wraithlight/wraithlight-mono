@@ -3,7 +3,7 @@ import {
 } from "@wraithlight/common.environment-static.server";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { addMinutes, dateNow, utcNow } from "@wraithlight/core.date";
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { Guid, newGuid } from "@wraithlight/core.guid";
 import { CoreJWT } from "@wraithlight/core.jwt";
 import { Nullable, isNil } from "@wraithlight/core.nullable";
@@ -39,13 +39,13 @@ export class SessionService {
         userId: Guid,
         scope: LoginScope
     ): Promise<SessionModel> {
-        const validUntil = addMinutes(utcNow(), SESSION_TIME_MINUTES)
+        const validUntil = addMinutes(utcNow(), SESSION_TIME_MINUTES);
 
         const payload: SessionTokenPayload = {
             userId: userId,
             validUntil: validUntil,
             scope: scope
-        }
+        };
 
         const token = CoreJWT.encrypt(
             payload,
@@ -53,7 +53,7 @@ export class SessionService {
             this._serverCfg.get(m => m.session.key),
             this._serverCfg.get(m => m.session.secret),
             SESSION_TIME_MINUTES
-        )
+        );
 
         const scopeId = SCOPE_NAME_MAP[scope];
 
@@ -64,7 +64,7 @@ export class SessionService {
             scopeId: scopeId,
             validUntil: validUntil
         };
-        await this._repository.create(session)
+        await this._repository.create(session);
         return {
             token: session.token,
             scope: scope,
@@ -90,13 +90,13 @@ export class SessionService {
         const session = await this.getSession(
             tokenPayload.payload.userId,
             scopeId
-        )
+        );
 
         if (isNil(session)) {
             return false;
         }
 
-        await this._repository.remove(session.id)
+        await this._repository.remove(session.id);
 
         return true;
     }
@@ -128,7 +128,7 @@ export class SessionService {
             // TODO: Add OperationResult.error here
             return {
                 success: false
-            }
+            };
         }
 
         session.validUntil = addMinutes(now, SESSION_TIME_MINUTES);
@@ -183,7 +183,7 @@ export class SessionService {
         if (isNil(session)) {
             return {
                 isValid: false
-            }
+            };
         }
 
         return {
@@ -205,7 +205,7 @@ export class SessionService {
             scopeId
         )
         .then(m => m.filter(o => o.validUntil > dateNow()))
-        .then(m => m.length > 0 ? m[0] : undefined)
+        .then(m => m.length > 0 ? m[0] : undefined);
     }
 
 }

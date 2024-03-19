@@ -3,7 +3,7 @@ import { DbContext } from "../dbcontext";
 import { WhereableQueryContext } from "./_internal";
 import {
     DeleteQueryContext as IDeleteQueryContext
-} from "./query-context.model"
+} from "./query-context.model";
 
 
 export class DeleteQueryContext<T extends object>

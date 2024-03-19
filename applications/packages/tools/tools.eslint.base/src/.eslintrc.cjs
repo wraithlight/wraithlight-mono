@@ -90,6 +90,7 @@ module.exports = {
         "lines-between-class-members": "off",
         "no-useless-constructor": "off",
         "no-array-constructor": "off",
+        "semi": "off",
         // Typescript
         "@typescript-eslint/no-unused-vars": [
             "error",
@@ -112,6 +113,7 @@ module.exports = {
                 "allowSingleExtends": true
             }
         ],
+        "@typescript-eslint/semi": ["error", "always"],
         "@typescript-eslint/no-var-requires": "error",
         "@typescript-eslint/no-extra-semi": "error",
         "@typescript-eslint/ban-types": "error",

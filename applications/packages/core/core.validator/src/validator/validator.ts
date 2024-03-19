@@ -22,7 +22,7 @@ export abstract class Validator<T> implements IValidator<T> {
 
     public validate(object: T): ValidationResult {
         const testResults = this._rules.map(m => {
-            const testResult = m.rule.test(m.predicate(object))
+            const testResult = m.rule.test(m.predicate(object));
             return {
                 propertyName: m.propertyName,
                 testResult: testResult
@@ -45,7 +45,7 @@ export abstract class Validator<T> implements IValidator<T> {
                     errors: m.testResult
                 })
             )
-        }
+        };
     }
 
     protected addValidationRule<U>(

@@ -1,7 +1,7 @@
 {
     "$schema": "../../../.schema/package-json.app-be.schema.json",
     "name": "@wraithlight/notifier.node",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lerna": "lerna",
@@ -21,7 +21,7 @@
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.common-constants": "*",
         "@wraithlight/core.cqrs": "*",
-        "@wraithlight/core.env": "*",
+        "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.guid": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.node": "*",
@@ -45,7 +45,7 @@
         "ts-loader": "9.4.2",
         "ts-node": "10.9.1",
         "tsconfig-paths": "4.2.0",
-        "typescript": "5.0.3",
+        "typescript": "5.0.4",
         "webpack": "5.76.0",
         "webpack-cli": "5.0.1"
     }

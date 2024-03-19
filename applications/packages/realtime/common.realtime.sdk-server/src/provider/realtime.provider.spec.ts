@@ -1,18 +1,11 @@
-import { Application } from "express";
+import { Server } from "http";
 
-const createServerSpy = jest.fn();
 const facadeCtorSpy = jest.fn();
 const messageBusCtorSpy = jest.fn();
 
 const broadcastToAllSpy = jest.fn();
 const closeSpy = jest.fn();
 const addListenerSpy = jest.fn();
-
-jest.mock("http", () => {
-    return {
-        createServer: createServerSpy
-    }
-});
 
 jest.mock("@wraithlight/core.messagebus", () => {
     return {
@@ -39,11 +32,10 @@ import { RealtimeProvider } from "./realtime.provider";
 describe("RealtimeProviderSpecs", () => {
 
     let service: RealtimeProvider;
-    const MOCK_APP = "application" as unknown as Application;
+    const MOCK_APP = "application" as unknown as Server;
     const MOCK_PATH = "path";
     const MOCK_TOPIC = "topic";
     const MOCK_MESSAGE = "message";
-    const MOCK_LISTENER = () => {}
 
     describe("given the provider is initialitzed", () => {
 
@@ -54,17 +46,13 @@ describe("RealtimeProviderSpecs", () => {
             );
         });
 
-        it("should create a http listener", () => {
-            expect(createServerSpy).toHaveBeenCalled();
-            expect(createServerSpy).toHaveBeenCalledTimes(1);
-            expect(createServerSpy).toHaveBeenCalledWith(MOCK_APP);
-        });
         it("should create a facade instance", () => {
             expect(facadeCtorSpy).toHaveBeenCalled();
             expect(facadeCtorSpy).toHaveBeenCalledTimes(1);
             expect(facadeCtorSpy).toHaveBeenCalledWith(
-                undefined,
+                MOCK_APP,
                 MOCK_PATH,
+                expect.any(Function),
                 expect.any(Function),
                 expect.any(Function)
             );
@@ -99,20 +87,6 @@ describe("RealtimeProviderSpecs", () => {
                 expect(closeSpy).toHaveBeenCalled();
                 expect(closeSpy).toHaveBeenCalledTimes(1);
                 expect(closeSpy).toHaveBeenCalledWith()
-            });
-        });
-
-        describe("when i call listenTo", () => {
-            beforeEach(() => {
-                service.listenTo(MOCK_TOPIC, MOCK_LISTENER)
-            })
-            it("should register a new listener through the facade", () => {
-                expect(addListenerSpy).toHaveBeenCalled();
-                expect(addListenerSpy).toHaveBeenCalledTimes(1);
-                expect(addListenerSpy).toHaveBeenCalledWith(
-                    MOCK_TOPIC,
-                    expect.any(Function)
-                );
             });
         });
     });

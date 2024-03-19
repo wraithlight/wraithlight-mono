@@ -20,8 +20,6 @@ jest.mock("@wraithlight/common.auth-sdk.server", () => {
     }
 });
 import { createNodeServer } from "@wraithlight/core.server";
-import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
-import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
 
 describe("ServerSpecs", () => {
     import("./server");

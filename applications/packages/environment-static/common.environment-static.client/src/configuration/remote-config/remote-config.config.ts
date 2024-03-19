@@ -1,4 +1,4 @@
-import { EnvironmentType } from "@wraithlight/core.common-constants";
+import { EnvironmentType } from "@wraithlight/core.env.types";
 import { EnvironmentStatic, RemoteConfigClient } from "@wraithlight/core.environment-static.types";
 
 import { CLIENT_DEV_REMOTE_CONFIG_CONFIG } from "./dev";

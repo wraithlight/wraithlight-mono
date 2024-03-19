@@ -5,7 +5,7 @@ import { ServerWebsiteConfigReader } from "@wraithlight/common.environment-stati
 import { SharedWebsiteConfigReader } from "@wraithlight/common.environment-static.shared";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { ApplicationName } from "@wraithlight/core.common-constants";
-import { CoreEnvironment } from "@wraithlight/core.env";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createNodeServer } from "@wraithlight/core.server";
 
 
@@ -22,6 +22,7 @@ const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
 createNodeServer(
     ApplicationName.Website,
     CONTROLLERS,
+    [],
     sharedCfg.get(x => x.server.port),
     [
         {

@@ -24,5 +24,5 @@ export const HttpDecorator = (
             target[METHOD_METADATA_KEY] = [];
         }
         target[METHOD_METADATA_KEY].push(metadata);
-    }
-}
+    };
+};

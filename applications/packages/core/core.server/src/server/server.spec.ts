@@ -43,7 +43,7 @@ describe("ServerSpecs", () => {
 
         describe("when i call it", () => {
 
-            createNodeServer(MOCK_APP_NAME, MOCK_CONTROLLERS, MOCK_PORT);
+            createNodeServer(MOCK_APP_NAME, MOCK_CONTROLLERS, [], MOCK_PORT);
 
             it("should call `createServer`", () => {
                 expect(createServer).toHaveBeenCalled();

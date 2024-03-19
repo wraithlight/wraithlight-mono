@@ -16,7 +16,7 @@ export class LayerService {
     }
 
     public addLayer(): Layer {
-        const layer = new Layer(this._canvas)
+        const layer = new Layer(this._canvas);
         this._layers.push(layer);
         return layer;
     }
