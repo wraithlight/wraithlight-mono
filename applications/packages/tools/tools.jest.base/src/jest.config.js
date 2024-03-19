@@ -49,6 +49,7 @@ module.exports = (project, dirname) => {
             `${dirname}/packages/$1/src`,
             `${dirname}/packages/core/$1/src`,
             `${dirname}/packages/common/$1/src`,
+            `${dirname}/packages/common/password/$1/src`,
             `${dirname}/packages/core/logger/$1/src`,
             `${dirname}/packages/environment-static/$1/src`,
             `${dirname}/packages/auth/$1/src`,
