@@ -29,7 +29,7 @@ export function newGuid(): Guid {
         N: [
             ..."89ab".split("")
         ]
-    }
+    };
     const result = pattern.map(m => {
         if (m === "-") return m;
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions

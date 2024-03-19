@@ -33,13 +33,13 @@ export class ServerAccountControllerV1 extends BaseController {
                 // TODO: OperationResult
                 // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                 errors: (result as ApiRegisterErrorResponse).errors
-            }
+            };
             return super.badRequest(data);
         }
 
         const data: RegisterSuccessResponse = {
             success: true
-        }
+        };
         return super.ok(data);
     }
 

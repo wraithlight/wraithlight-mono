@@ -113,7 +113,7 @@ module.exports = {
                 "allowSingleExtends": true
             }
         ],
-        "@typescript-eslint/semi": ["warn", "always"],
+        "@typescript-eslint/semi": ["error", "always"],
         "@typescript-eslint/no-var-requires": "error",
         "@typescript-eslint/no-extra-semi": "error",
         "@typescript-eslint/ban-types": "error",

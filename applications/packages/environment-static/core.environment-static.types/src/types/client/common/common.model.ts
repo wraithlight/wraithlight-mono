@@ -1,4 +1,4 @@
-import { LogSeverity } from "@wraithlight/core.logger.types"
+import { LogSeverity } from "@wraithlight/core.logger.types";
 
 export interface CommonClient {
     logging: {

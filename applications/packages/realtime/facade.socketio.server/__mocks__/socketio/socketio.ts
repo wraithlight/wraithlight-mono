@@ -5,6 +5,6 @@ export const SocketIOFacade = jest
             addListener: jest.fn(),
             broadcastToAll: jest.fn(),
             close: jest.fn(),
-        }
+        };
     })
 ;

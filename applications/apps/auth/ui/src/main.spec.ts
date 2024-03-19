@@ -1,12 +1,12 @@
 jest.mock("@wraithlight/core.dom", () => {
     return {
         getDocumentRef: jest.fn().mockImplementation(() => ({ body: undefined}))
-    }
+    };
 });
 jest.mock("@wraithlight/common.auth-sdk.client", () => {
     return {
         initializeAuthSdk: jest.fn()
-    }
+    };
 });
 jest.mock("@wraithlight/core.redux", () => {
     return {
@@ -14,11 +14,11 @@ jest.mock("@wraithlight/core.redux", () => {
             initialize: jest.fn(),
             getInstance: jest.fn()
         }
-    }
+    };
 });
 jest.mock("./app", () => jest.fn().mockImplementation(() => ({})));
 jest.mock("./app.css", () => jest.fn());
-jest.mock("./sdk")
+jest.mock("./sdk");
 
 import { initializeAuthSdk } from "@wraithlight/common.auth-sdk.client";
 import { getDocumentRef } from "@wraithlight/core.dom";

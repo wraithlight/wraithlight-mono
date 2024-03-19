@@ -27,4 +27,4 @@ export const SHARED_CONFIG: Readonly<EnvironmentStaticShared> = {
     [ApplicationName.Notifier]: SHARED_NOTIFIER_CONFIG,
     [ApplicationName.RemoteConfig]: SHARED_REMOTE_CONFIG_CONFIG,
     common: SHARED_COMMON_CONFIG
-}
+};

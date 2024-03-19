@@ -44,7 +44,9 @@ export class Store<TState> {
             throw "The store is not initialized!";
         }
         if (!forceOverride) {
-            const substateStore: Nullable<TSubState> = predicate(this._instance._state);
+            const substateStore: Nullable<TSubState> = predicate(
+                this._instance._state
+            );
             if (!isNil(substateStore)) {
                 throw "The substate has been already initialized!";
             }
@@ -64,17 +66,32 @@ export class Store<TState> {
         return this._instance as Store<TState>;
     }
 
-    public dispatch<TActionPayload>(...actions: Array<MixedAction<TActionPayload>>): void {
+    public dispatch<TActionPayload>(
+        ...actions: Array<MixedAction<TActionPayload>>
+    ): void {
         for (const action of actions) {
-            const reducers = this._reducers.filter(m => m.on.includes(action.type));
-            reducers.forEach(m => { this._state = m.callback(this._state, action) });
-            const effects = this._effects.filter(m => m.on.includes(action.type));
+            const reducers = this._reducers
+                .filter(m => m.on.includes(action.type))
+            ;
+            reducers
+                .forEach(m => this._state = m
+                    .callback(
+                        this._state,
+                        action
+                    )
+                )
+            ;
+            const effects = this._effects
+                .filter(m => m.on.includes(action.type))
+            ;
             effects.forEach(m => m.callback(action));
             this.invokeSelectors();
         }
     }
 
-    public select<TValue>(selector: Selector<TState, TValue>): SelectorResult<TValue> {
+    public select<TValue>(
+        selector: Selector<TState, TValue>
+    ): SelectorResult<TValue> {
         const id = `selector_${this._selectorCounter.getNext()}`;
         const stopFn = (): void => {
             const index = this._selectors.findIndex(m => m.id === id);

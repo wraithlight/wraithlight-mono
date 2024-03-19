@@ -18,7 +18,7 @@ export class FifoStackService<T> {
     }
 
     public getNext(): T {
-        const next = this._cache.shift()
+        const next = this._cache.shift();
         if (isNil(next)) {
             throw `No items in the cache!`;
         }

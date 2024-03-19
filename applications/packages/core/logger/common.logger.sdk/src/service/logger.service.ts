@@ -23,7 +23,7 @@ export class LoggerService implements ILogger {
             throw "LoggerService has been alread initialized!";
         }
         this._config = config;
-        this._logger = logger
+        this._logger = logger;
     }
 
     public static getInstance(): LoggerService {
@@ -37,19 +37,43 @@ export class LoggerService implements ILogger {
     }
 
     public debug(...data: Array<unknown>): void {
-        this.isSeverityEnabled(LogSeverity.DEBUG) && this.log(LogSeverity.DEBUG, data, (message: string) => this._logger.debug(message));
+        if (this.isSeverityEnabled(LogSeverity.DEBUG)) {
+            this.log(
+                LogSeverity.DEBUG,
+                data,
+                (message: string) => this._logger.debug(message)
+            );
+        }
     }
 
     public info(...data: Array<unknown>): void {
-        this.isSeverityEnabled(LogSeverity.INFO) && this.log(LogSeverity.INFO, data, (message: string) => this._logger.info(message));
+        if (this.isSeverityEnabled(LogSeverity.INFO)) {
+            this.log(
+                LogSeverity.INFO,
+                data,
+                (message: string) => this._logger.info(message)
+            );
+        }
     }
 
     public warn(...data: Array<unknown>): void {
-        this.isSeverityEnabled(LogSeverity.WARNING) && this.log(LogSeverity.WARNING, data, (message: string) => this._logger.warn(message));
+        if (this.isSeverityEnabled(LogSeverity.WARNING)) {
+            this.log(
+                LogSeverity.WARNING,
+                data,
+                (message: string) => this._logger.warn(message)
+            );
+        }
     }
 
     public error(...data: Array<unknown>): void {
-        this.isSeverityEnabled(LogSeverity.ERROR) && this.log(LogSeverity.ERROR, data, (message: string) => this._logger.error(message));
+        if (this.isSeverityEnabled(LogSeverity.ERROR)) {
+            this.log(
+                LogSeverity.ERROR,
+                data,
+                (message: string) => this._logger.error(message)
+            );
+        }
     }
 
     private isSeverityEnabled(severity: LogSeverity): boolean {

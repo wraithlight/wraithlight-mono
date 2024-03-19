@@ -25,4 +25,4 @@ export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
     [ApplicationName.Notifier]: SERVER_NOTIFIER_CONFIG,
     [ApplicationName.RemoteConfig]: SERVER_REMOTE_CONFIG_CONFIG,
     common: SERVER_COMMON_CONFIG
-}
+};

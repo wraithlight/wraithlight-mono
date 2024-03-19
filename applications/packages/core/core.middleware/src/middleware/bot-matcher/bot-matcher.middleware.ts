@@ -12,7 +12,7 @@ export function botMatcherMiddleware(
     _res: Response,
     next: NextFunction
 ): void {
-    const userAgent = req.get(USER_AGENT_HEADER_NAME)
+    const userAgent = req.get(USER_AGENT_HEADER_NAME);
     const isVisitorABot = hasNoUserAgent(userAgent) || isBot(userAgent ?? "");
     req.headers[IS_BOT_HEADER_NAME] = isVisitorABot.toString();
     next();

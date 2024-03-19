@@ -82,7 +82,7 @@ export class ClientAuthService {
                     // TODO: OperationResult
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     payload: m.payload?.success ? (m.payload as LogoutSuccessResponse).payload : undefined
-                }
+                };
                 return result;
             })
         ;
@@ -104,7 +104,7 @@ export class ClientAuthService {
                     // TODO: OperationResult
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     payload: m.payload?.success ? (m.payload as ValidateSessionSuccessResponse).payload : undefined
-                }
+                };
                 return result;
             })
         ;
@@ -126,7 +126,7 @@ export class ClientAuthService {
                     // TODO: OperationResult
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     payload: m.payload?.success ? (m.payload as KeepAliveSessionSuccessResponse).payload : undefined
-                }
+                };
                 return result;
             })
         ;

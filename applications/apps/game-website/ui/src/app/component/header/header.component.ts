@@ -1,7 +1,7 @@
 import "./header.component.scss";
 import { addComponent } from "../../../framework";
 
-import { template } from "./header.component.html"
+import { template } from "./header.component.html";
 
 
 class HeaderComponent {

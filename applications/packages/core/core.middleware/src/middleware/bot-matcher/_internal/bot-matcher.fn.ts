@@ -1,4 +1,4 @@
-import { BOT_PATTERNS } from "./bot-matcher.const"
+import { BOT_PATTERNS } from "./bot-matcher.const";
 
 const BOT_REGEXES = BOT_PATTERNS.map(m => new RegExp(m));
 

@@ -7,6 +7,6 @@ export const SocketIOFacade = jest
             disconnect: jest.fn(),
             onMessage: jest.fn(),
             send: jest.fn()
-        }
+        };
     })
 ;

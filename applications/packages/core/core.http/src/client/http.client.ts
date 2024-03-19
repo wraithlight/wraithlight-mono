@@ -19,10 +19,10 @@ export abstract class HttpClient {
         method: HttpVerb,
         bodyJson?: string
     ): boolean;
-    protected abstract onAfterCall(
+    protected abstract onAfterCall<T>(
         url: string,
         responseCode: HttpCode,
-        responseText: string
+        response: T
     ): void;
 
     public async get<TResult>(url: string): Promise<HttpResponse<TResult>> {
@@ -56,7 +56,7 @@ export abstract class HttpClient {
             return {
                 statusCode: HttpCode.InternalError,
                 isAborted: true
-            }
+            };
         }
         const result: InternalHttpResponse = await fetch(
                 url,
@@ -67,22 +67,31 @@ export abstract class HttpClient {
                 }
             )
             .then((m: InternalExpressResponse) => {
-                return { statusCode: m.status, payload: m.text() }
+                if (!this.getNotFailHttpCodes().includes(m.status)) {
+                    throw { status: m.status, text: Promise.resolve("") };
+                }
+                return m;
+            })
+            .then((m: InternalExpressResponse) => {
+                return { statusCode: m.status, payload: m.text() };
             })
             .catch((m: InternalExpressResponse) => {
-                return { statusCode: m.status, payload: m.text() }
+                return { statusCode: m.status, payload: m.text() };
             })
         ;
 
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const payload: TResult = await result.payload
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             .then(m => JSON.parse(m))
             .catch(undefined)
+        ;
+
+        this.onAfterCall(url, result.statusCode, payload);
 
         return {
             statusCode: result.statusCode,
             payload: payload,
             isAborted: false
-        }
+        };
     }
 }
