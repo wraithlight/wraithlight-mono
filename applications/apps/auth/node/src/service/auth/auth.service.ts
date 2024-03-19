@@ -1,7 +1,7 @@
 import { PasswordService } from "@wraithlight/common.password";
-import { LoginScope } from "@wraithlight/core.auth.types";
+import { LoginScope, UserStatus } from "@wraithlight/core.auth.types";
 
-import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
+import { SCOPE_NAME_MAP } from "../../_internal";
 import {
     ScopeRepository,
     UserRepository,
