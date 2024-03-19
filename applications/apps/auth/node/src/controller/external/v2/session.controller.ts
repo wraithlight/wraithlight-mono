@@ -56,7 +56,7 @@ export class SessionControllerV2 extends BaseController {
                     sessionToken: session.token,
                     validTo: toUtc(session.validUntil)
                 }
-            }
+            };
             return super.ok(data);
         }
 

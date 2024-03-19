@@ -42,7 +42,7 @@ export class AuthService {
             return {
                 success: false,
                 errors: [AUTH_ERRORS.needsEmailVerify]
-            }
+            };
         }
 
         const isPasswordMatch = this._passwordService.verifyPassword(
