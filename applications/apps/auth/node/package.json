@@ -20,7 +20,6 @@
         "@wraithlight/common.notifier-sdk.server": "*",
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.auth.types": "*",
-        "@wraithlight/core.common-constants": "*",
         "@wraithlight/core.jwt": "*",
         "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.guid": "*",
