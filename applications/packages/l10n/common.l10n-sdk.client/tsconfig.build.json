@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
         "declaration": true,
-        "outDir": "dist/esm",
+        "outDir": "dist/esm"
     }
 }
