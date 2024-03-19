@@ -9,28 +9,6 @@ import {
 import { SIGINT, SIGTREM } from "./server.const";
 import { IProviderFactory } from "./server.model";
 
-/**
- * @deprecated Use `createNodeServerV2` instead.
- */
-export function createNodeServer(
-    appName: ApplicationName,
-    controllers: ReadonlyArray<BaseController>,
-    port: number,
-    staticFiles?: Array<{ path: string, staticPath: string }>,
-    onStartCallback?: (stopRef: () => void) => void,
-    onStopCallback?: () => void
-): void {
-    createNodeServerV2(
-        appName,
-        controllers,
-        [],
-        port,
-        staticFiles,
-        onStartCallback,
-        onStopCallback
-    );
-}
-
 export function createNodeServerV2(
     appName: ApplicationName,
     controllers: ReadonlyArray<BaseController>,
