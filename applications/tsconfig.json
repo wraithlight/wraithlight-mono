@@ -13,6 +13,7 @@
                 "packages/core/*/src/index.ts",
                 "packages/core/logger/*/src/index.ts",
                 "packages/core/mustache/*/src/index.ts",
+                "packages/core/deepmerge/*/src/index.ts",
                 "packages/core/scheduler/*/src/index.ts",
                 "packages/game/*/src/index.ts",
                 "packages/logs/*/src/index.ts",
