@@ -6,10 +6,6 @@ import { IAuthContainerStore } from "../state.model";
 import { AuthState } from "./auth-state.model";
 
 export namespace AuthSelector {
-    /**
-     * @deprecated Use the named selectors instead.
-     */
-    export const state: Selector<IAuthContainerStore, Nullable<AuthState>> = (state: IAuthContainerStore) => state.auth?.session;
     export const isBusy: Selector<IAuthContainerStore, Nullable<boolean>> = (state: IAuthContainerStore) => state.auth?.session.isBusy;
     export const errors: Selector<IAuthContainerStore, Nullable<ReadonlyArray<string>>> = (state: IAuthContainerStore) => state.auth?.session.errors;
     export const isLoggedIn: Selector<IAuthContainerStore, Nullable<boolean>> = (state: IAuthContainerStore) => state.auth?.session.isLoggedIn;
