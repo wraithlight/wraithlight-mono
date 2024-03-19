@@ -5,7 +5,7 @@ jest.mock("@wraithlight/core.environment-static.sdk", () => {
 });
 
 import { ConfigurationReader } from "@wraithlight/core.environment-static.sdk";
-import { ApplicationName } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { EnvironmentType } from "@wraithlight/core.env.types";
 import { WebsiteShared } from "@wraithlight/core.environment-static.types";
 

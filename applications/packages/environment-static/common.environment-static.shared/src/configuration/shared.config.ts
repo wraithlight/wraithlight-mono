@@ -1,4 +1,4 @@
-import { ApplicationName } from "@wraithlight/core.common-constants";
+import { ApplicationName } from "@wraithlight/core.auth.constant";
 import {
     EnvironmentStaticShared
 } from "@wraithlight/core.environment-static.types";
