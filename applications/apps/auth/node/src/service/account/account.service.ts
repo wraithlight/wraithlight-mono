@@ -3,8 +3,9 @@ import { PasswordService } from "@wraithlight/common.password";
 import { Language } from "@wraithlight/core.content.types";
 import { newGuid } from "@wraithlight/core.guid";
 import { Nullable } from "@wraithlight/core.nullable";
+import { UserStatus } from "@wraithlight/core.auth.types";
 
-import { SCOPE_NAME_MAP, UserStatus } from "../../_internal";
+import { SCOPE_NAME_MAP } from "../../_internal";
 import {
     ScopeRepository,
     UserDbo,
