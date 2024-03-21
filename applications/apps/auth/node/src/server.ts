@@ -14,13 +14,15 @@ import { AccountControllerV2, SessionControllerV2 } from "./controller";
 const serverCfg = ServerUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 const sharedCfg = SharedUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 
-const healthCheckToken = serverCfg.getCommon(x => x.healthChecker.tokens.userManagement);
+// TOOD: Remove this
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const _healthCheckToken = serverCfg.getCommon(x => x.healthChecker.tokens.userManagement);
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.UserManagement),
     new AccountControllerV2(),
     new SessionControllerV2(),
-    new HealthCheckControllerV1(healthCheckToken)
+    new HealthCheckControllerV1("auth", "1.0.0")                // TODO: Package JSON reader
 ];
 
 const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
