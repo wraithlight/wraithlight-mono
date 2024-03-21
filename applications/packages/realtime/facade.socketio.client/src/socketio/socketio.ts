@@ -12,13 +12,23 @@ export class SocketIOFacade {
     constructor(
         baseUrl: string,
         path: string,
-        autoConnect = true
+        autoConnect = true,
+        authHeader = "",
+        authToken = ""
     ) {
+        const headers = authHeader === ""
+            ? undefined
+            : {
+                [authHeader]: authToken
+            }
+        ;
+
         this._socket = connect(
             baseUrl,
             {
                 autoConnect: autoConnect,
-                path: path
+                path: path,
+                extraHeaders: headers
             }
         );
     }
