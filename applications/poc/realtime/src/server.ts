@@ -15,7 +15,7 @@ function run() {
 
     createNodeServer(
         "Realtime POC Server" as ApplicationName,
-        [new HealthCheckControllerV1("alma")],
+        [new HealthCheckControllerV1("rt-poc", "1.0.0")],           // TODO: Remove this.
         [(server) => rtFactory.createInstance(server, RT_PATH)],
         SERVER_PORT,
         undefined
