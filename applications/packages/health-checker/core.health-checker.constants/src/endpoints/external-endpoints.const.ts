@@ -4,12 +4,12 @@ export const EXTERNAL_API_ENDPOINTS = Object.freeze({
     v1: {
         root: HEALTH_CHECK_BASE,
         health: {
-            forServer: `/health/:token`,
-            forClient: (token: string) => `/health/${token}`
+            forServer: `/health`,
+            forClient: `${HEALTH_CHECK_BASE}/health`
         },
         metrics: {
-            forServer: `/metrics/:token`,
-            forClient: (token: string) => `/metrics/${token}`
+            forServer: `/metrics`,
+            forClient: `${HEALTH_CHECK_BASE}/metrics`
         }
     }
 });

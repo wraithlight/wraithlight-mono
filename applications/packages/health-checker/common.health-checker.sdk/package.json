@@ -1,6 +1,6 @@
 {
     "$schema": "../../../.schema/package-json.package.schema.json",
-    "name": "@wraithlight/core.health-checker.types",
+    "name": "@wraithlight/common.health-checker.sdk",
     "module": "./dist/esm/index.js",
     "types": "./dist/esm/index.d.ts",
     "exports": {
@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "2.0.0",
+    "version": "1.0.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -18,6 +18,14 @@
         "test:coverage": "jest --coverage",
         "build": "rimraf dist/esm && tsc -p tsconfig.build.json",
         "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
+    },
+    "dependencies": {
+        "@wraithlight/core.health-checker.constants": "*",
+        "@wraithlight/core.health-checker.types": "*",
+        "@wraithlight/core.nullable": "*",
+        "@wraithlight/framework.operation-result": "*",
+        "@wraithlight/core.http": "*",
+        "@wraithlight/core.api-token.constants": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",

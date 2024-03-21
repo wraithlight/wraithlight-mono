@@ -5,7 +5,6 @@ import {
     ON_CLIENT_CONNECTING_TOKEN,
     ON_CLIENT_DISCONNECTING_TOKEN,
     RTHeaderGuard,
-    RTQueryGuard,
     RealtimeProviderFactory
 } from "@wraithlight/common.realtime.sdk-server";
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
@@ -17,7 +16,7 @@ function run() {
 
     createNodeServer(
         "Realtime POC Server" as ApplicationName,
-        [new HealthCheckControllerV1("alma")],
+        [new HealthCheckControllerV1("rt-poc", "1.0.0")],           // TODO: Remove this.
         [(server) => rtFactory.createInstance(
             server,
             RT_PATH,
