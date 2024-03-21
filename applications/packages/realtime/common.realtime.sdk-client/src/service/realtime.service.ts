@@ -1,9 +1,9 @@
-import { RealtimeMessage, RtAuthType } from "@wraithlight/core.realtime.types";
-import { SocketIOFacade } from "@wraithlight/facade.socketio.client";
 import { isNil } from "@wraithlight/core.nullable";
 import {
     RT_AUTH_HEADER_NAME, RT_AUTH_QUERYPARAM_NAME
 } from "@wraithlight/core.realtime.constants";
+import { RealtimeMessage, RtAuthType } from "@wraithlight/core.realtime.types";
+import { SocketIOFacade } from "@wraithlight/facade.socketio.client";
 
 export class RealtimeService {
 
@@ -44,7 +44,7 @@ export class RealtimeService {
                 break;
             }
             default: {
-                throw `E_RT_CLIENT_INIT_FAILED`
+                throw `E_RT_CLIENT_INIT_FAILED`;
             }
         }
     }
