@@ -1,18 +1,53 @@
-import { RealtimeMessage } from "@wraithlight/core.realtime.types";
+import { isNil } from "@wraithlight/core.nullable";
+import {
+    RT_AUTH_HEADER_NAME, RT_AUTH_QUERYPARAM_NAME
+} from "@wraithlight/core.realtime.constants";
+import { RealtimeMessage, RtAuthType } from "@wraithlight/core.realtime.types";
 import { SocketIOFacade } from "@wraithlight/facade.socketio.client";
 
 export class RealtimeService {
 
-    private readonly _realtimeFacade = new SocketIOFacade(
-        this._baseUrl,
-        this._path,
-        false
-    );
+    private readonly _realtimeFacade: SocketIOFacade;
 
     constructor(
-        private readonly _baseUrl: string,
-        private readonly _path: string
-    ) { }
+        baseUrl: string,
+        path: string,
+        authType?: RtAuthType,
+        authToken?: string
+    ) {
+        if (isNil(authType)) {
+            this._realtimeFacade = new SocketIOFacade(
+                baseUrl,
+                path,
+                false,
+            );
+            return;
+        }
+
+        switch (authType) {
+            case RtAuthType.Header: {
+                this._realtimeFacade = new SocketIOFacade(
+                    baseUrl,
+                    path,
+                    false,
+                    RT_AUTH_HEADER_NAME,
+                    authToken ?? ""
+                );
+                break;
+            }
+            case RtAuthType.QueryParam: {
+                this._realtimeFacade = new SocketIOFacade(
+                    `${baseUrl}?${RT_AUTH_QUERYPARAM_NAME}=${authToken}`,
+                    path,
+                    false,
+                );
+                break;
+            }
+            default: {
+                throw `E_RT_CLIENT_INIT_FAILED`;
+            }
+        }
+    }
 
     public connectAsync(
         onConnectedCallback: () => void

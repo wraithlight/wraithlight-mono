@@ -8,6 +8,9 @@ export interface AsyncRealtimeMessage<T = unknown> {
 }
 
 
-type InternalNextFunction = (error?: Error) => void;
+export type RTNextFunction = (error?: Error) => void;
 
-export type SocketGuard = (request: IncomingMessage, next: InternalNextFunction) => void;
+export type SocketGuard = (
+    request: IncomingMessage,
+    next: RTNextFunction
+) => void;
