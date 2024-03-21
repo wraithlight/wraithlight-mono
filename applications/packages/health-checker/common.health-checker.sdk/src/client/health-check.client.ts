@@ -16,7 +16,7 @@ export class HealthCheckClient extends CoreHttpClient {
         return {
             ...this._jsonHeaders,
             [API_TOKEN_HEADER_NAME]: this._token
-        }    
+        };
     }
 
     public async health(
