@@ -5,7 +5,6 @@ import {
     ON_CLIENT_CONNECTING_TOKEN,
     ON_CLIENT_DISCONNECTING_TOKEN,
     RTHeaderGuard,
-    RTQueryGuard,
     RealtimeProviderFactory
 } from "@wraithlight/common.realtime.sdk-server";
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
