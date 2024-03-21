@@ -21,7 +21,7 @@ describe("HealthCheckServiceSpecs", () => {
         it("should create a client isntance", () => {
             expect(clientCtorSpy).toHaveBeenCalled();
             expect(clientCtorSpy).toHaveBeenCalledTimes(1);
-            expect(clientCtorSpy).toHaveBeenCalledWith(MOCK_BASEURL);
+            expect(clientCtorSpy).toHaveBeenCalledWith(MOCK_BASEURL, MOCK_TOKEN);
         });
     });
 });
