@@ -15,6 +15,10 @@ const path = join(filePath, fileName);
 
 let content = readFileSync(path).toString();
 for (const pair of linePairs) {
+    if (content.includes(pair[1])) {
+        console.log("No patch needed!");
+        continue;
+    }
     content = content.replace(pair[0], pair[1]);
 }
 
