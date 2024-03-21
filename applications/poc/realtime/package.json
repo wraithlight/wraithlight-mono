@@ -13,7 +13,8 @@
         "@wraithlight/common.realtime.sdk-server": "*",
         "@wraithlight/common.health-checker.sdk-server": "*",
         "@wraithlight/core.auth.constant": "*",
-        "@wraithlight/core.server": "*"
+        "@wraithlight/core.server": "*",
+        "@wraithlight/core.realtime.types": "*"
     },
     "devDependencies": {
         "ts-node": "10.9.1",
