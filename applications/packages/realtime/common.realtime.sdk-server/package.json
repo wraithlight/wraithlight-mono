@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "1.1.0",
+    "version": "1.2.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -24,7 +24,8 @@
         "@wraithlight/core.messagebus": "*",
         "@wraithlight/facade.socketio.server": "*",
         "@wraithlight/core.errors": "*",
-        "@wraithlight/core.nullable": "*"
+        "@wraithlight/core.nullable": "*",
+        "@wraithlight/core.realtime.constants": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
