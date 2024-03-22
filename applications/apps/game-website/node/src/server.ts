@@ -7,8 +7,13 @@ import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { BaseController } from "@wraithlight/core.node";
 import { createNodeServer } from "@wraithlight/core.server";
 
-const serverCfg = ServerGameWebsiteConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
-const sharedCfg = SharedGameWebsiteConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+const serverCfg = ServerGameWebsiteConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType())
+;
+
+const sharedCfg = SharedGameWebsiteConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType())
+;
 
 const CONTROLLERS: Array<BaseController> = [
 ];
