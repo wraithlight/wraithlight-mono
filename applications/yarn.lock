@@ -4950,11 +4950,6 @@ decompress-response@^6.0.0:
   dependencies:
     mimic-response "^3.1.0"
 
-dedent-js@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/dedent-js/-/dedent-js-1.0.1.tgz#bee5fb7c9e727d85dffa24590d10ec1ab1255305"
-  integrity sha512-OUepMozQULMLUmhxS95Vudo0jb0UchLimi3+pQ2plj61Fcy8axbP9hbiD4Sz6DPqn6XG3kfmziVfQ1rSys5AJQ==
-
 dedent@0.7.0, dedent@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
@@ -5314,7 +5309,7 @@ end-of-stream@^1.1.0, end-of-stream@^1.4.1:
   dependencies:
     once "^1.4.0"
 
-engine.io-client@~6.5.0, engine.io-client@~6.5.2:
+engine.io-client@~6.5.2:
   version "6.5.3"
   resolved "https://registry.yarnpkg.com/engine.io-client/-/engine.io-client-6.5.3.tgz#4cf6fa24845029b238f83c628916d9149c399bc5"
   integrity sha512-9Z0qLB0NIisTRt1DZ/8U2k12RJn8yls/nXMZLn+/N8hANT3TcYjKFKcwbw5zFQiN4NTde3TSY9zb79e1ij6j9Q==
@@ -9907,7 +9902,7 @@ parseurl@~1.3.2, parseurl@~1.3.3:
   resolved "https://registry.yarnpkg.com/parseurl/-/parseurl-1.3.3.tgz#9da19e7bee8d12dff0513ed5b76957793bc2e8d4"
   integrity sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ==
 
-pascal-case@^3.1.1, pascal-case@^3.1.2:
+pascal-case@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/pascal-case/-/pascal-case-3.1.2.tgz#b48e0ef2b98e205e7c1dae747d0b1508237660eb"
   integrity sha512-uWlGT3YSnK9x3BQJaOdcZwrnV6hPpd8jFH1/ucpiLRPh/2zCVJKS19E4GvYHvaCcACn3foXZ0cLB9Wrx1KGe5g==
@@ -11168,7 +11163,7 @@ socket.io-adapter@~2.5.2:
   dependencies:
     ws "~8.11.0"
 
-socket.io-client@*:
+socket.io-client@*, socket.io-client@4.7.2:
   version "4.7.2"
   resolved "https://registry.yarnpkg.com/socket.io-client/-/socket.io-client-4.7.2.tgz#f2f13f68058bd4e40f94f2a1541f275157ff2c08"
   integrity sha512-vtA0uD4ibrYD793SOIAwlo8cj6haOeMHrGvwPxJsxH7CeIksqJ+3Zc06RvWTIFgiSqx4A3sOnTXpfAEE2Zyz6w==
@@ -11176,16 +11171,6 @@ socket.io-client@*:
     "@socket.io/component-emitter" "~3.1.0"
     debug "~4.3.2"
     engine.io-client "~6.5.2"
-    socket.io-parser "~4.2.4"
-
-socket.io-client@4.7.0:
-  version "4.7.0"
-  resolved "https://registry.yarnpkg.com/socket.io-client/-/socket.io-client-4.7.0.tgz#f869a41a2593bc36f058f3b46175024491d997b5"
-  integrity sha512-7Q8CeDrhuZzg4QLXl3tXlk5yb086oxYzehAVZRLiGCzCmtDneiHz1qHyyWcxhTgxXiokVpWQXoG/u60HoXSQew==
-  dependencies:
-    "@socket.io/component-emitter" "~3.1.0"
-    debug "~4.3.2"
-    engine.io-client "~6.5.0"
     socket.io-parser "~4.2.4"
 
 socket.io-parser@~4.2.4:
@@ -11619,20 +11604,12 @@ svelte-hmr@^0.15.1:
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.15.3.tgz#df54ccde9be3f091bf5f18fc4ef7b8eb6405fbe6"
   integrity sha512-41snaPswvSf8TJUhlkoJBekRrABDXDMdpNpT2tfHIv4JuhgvHqLMhEPGtaQn0BmbNSTkuz2Ed20DF2eHw0SmBQ==
 
-svelte-navigator@3.2.2:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/svelte-navigator/-/svelte-navigator-3.2.2.tgz#4156c2388226e7c42b766ca4def63444ec58a8d2"
-  integrity sha512-Xio4ohLUG1nQJ+ENNbLphXXu9L189fnI1WGg+2Q3CIMPe8Jm2ipytKQthdBs8t0mN7p3Eb03SE9hq0xZAqwQNQ==
+svelte-router-spa@7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/svelte-router-spa/-/svelte-router-spa-7.0.1.tgz#372b7339617a7d582798c7f3c0e4942dc8d070db"
+  integrity sha512-Oh1bVBkK4UYSXzBSrVa8kTRrPtkc9+C7TSVlUkoFXyAf4dQtRrGXqPbXGU0lR5MJ8VkwXU68XclGtpCeWm5gpg==
   dependencies:
-    svelte2tsx "^0.1.151"
-
-svelte2tsx@^0.1.151:
-  version "0.1.193"
-  resolved "https://registry.yarnpkg.com/svelte2tsx/-/svelte2tsx-0.1.193.tgz#16fe594898ef455e4f715ac317d219c9c757656b"
-  integrity sha512-vzy4YQNYDnoqp2iZPnJy7kpPAY6y121L0HKrSBjU/IWW7DQ6T7RMJed2VVHFmVYm0zAGYMDl9urPc6R4DDUyhg==
-  dependencies:
-    dedent-js "^1.0.1"
-    pascal-case "^3.1.1"
+    url-params-parser "^1.0.3"
 
 svelte@3.58.0:
   version "3.58.0"
@@ -12312,6 +12289,11 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+url-params-parser@^1.0.3:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/url-params-parser/-/url-params-parser-1.0.4.tgz#10003b232e9cd13e2ba2374a1abc6e1aa8ff1b67"
+  integrity sha512-0m6BqGpY2OetTZ3UPTLKkbTfUHigsX2YhrzORT9iYiyUJ/SP2WJ3cggg2YWtvMs36GPwK9Q44ffddyarniu2Tg==
 
 url-parse@^1.5.3:
   version "1.5.10"
