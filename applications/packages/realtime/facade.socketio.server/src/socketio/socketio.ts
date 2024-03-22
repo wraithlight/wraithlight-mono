@@ -27,7 +27,9 @@ export class SocketIOFacade {
         private readonly _onMessageCallback: OnEventCallback,
         guards?: ReadonlyArray<SocketGuard>
     ) {
-        guards?.forEach(m => this._server.use((socket, next) => m(socket.request, next)));
+        guards?.forEach(m => this._server.use(
+            (socket, next) => m(socket.request, next))
+        );
         this._server.on(EVT_CONNECTION, (socket: Socket) => {
             socket.onAny((m, o) => this._onMessageCallback(m, socket.id, o));
             this._connectCallback(socket.id);

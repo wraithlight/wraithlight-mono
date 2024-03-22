@@ -8,4 +8,7 @@ export interface Socket {
 
 type InternalNextFunction = (error?: Error) => void;
 
-export type SocketGuard = (request: IncomingMessage, next: InternalNextFunction) => void;
+export type SocketGuard = (
+    request: IncomingMessage,
+    next: InternalNextFunction
+) => void;
