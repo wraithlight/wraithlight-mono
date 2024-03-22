@@ -2,7 +2,10 @@ import { render } from "mustache";
 
 import { MustacheRenderResult } from "./mustache.model";
 
-export function mustacheFacade<T>(template: string, model: T): MustacheRenderResult {
+export function mustacheFacade<T>(
+    template: string,
+    model: T
+): MustacheRenderResult {
     let renderedTemplate = template;
     try {
         renderedTemplate = render(template, model);
