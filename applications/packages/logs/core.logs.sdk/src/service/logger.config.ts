@@ -5,7 +5,8 @@ import { createUrl } from "@wraithlight/core.url";
 
 export class LoggerServiceConfig {
 
-    private readonly _configReader = SharedLogsConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+    private readonly _configReader = SharedLogsConfigReader
+        .getInstance(CoreEnvironment.getEnvironmentType());
 
     public getLogUrl(): string {
         const baseApiUrl = this._configReader.get(x => x.server.baseUrl);
