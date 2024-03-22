@@ -60,7 +60,10 @@ export class ServerAuthService {
             loginScope: scope
         };
         return this._httpService
-            .post<ApiValidateSessionResponse, ApiValidateSessionRequest>(url, payload)
+            .post<ApiValidateSessionResponse, ApiValidateSessionRequest>(
+                url,
+                payload
+            )
             .then(m => m.payload)
         ;
     }
@@ -75,7 +78,10 @@ export class ServerAuthService {
             loginScope: scope
         };
         return this._httpService
-            .post<ApiValidateSessionResponse, ApiValidateSessionRequest>(url, payload)
+            .post<ApiValidateSessionResponse, ApiValidateSessionRequest>(
+                url,
+                payload
+            )
             .then(m => m.payload)
         ;
     }
