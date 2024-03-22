@@ -7,7 +7,9 @@ import { SERVER_PRODUCTION_REMOTE_CONFIG_CONFIG } from "./production";
 import { SERVER_STAGING_REMOTE_CONFIG_CONFIG } from "./staging";
 import { SERVER_TEST_REMOTE_CONFIG_CONFIG } from "./test";
 
-export const SERVER_REMOTE_CONFIG_CONFIG: Readonly<EnvironmentStatic<RemoteConfigServer>> = {
+export const SERVER_REMOTE_CONFIG_CONFIG: Readonly<
+    EnvironmentStatic<RemoteConfigServer>
+    > = {
     [EnvironmentType.Local]: SERVER_LOCAL_REMOTE_CONFIG_CONFIG,
     [EnvironmentType.Dev]: SERVER_DEV_REMOTE_CONFIG_CONFIG,
     [EnvironmentType.Test]: SERVER_TEST_REMOTE_CONFIG_CONFIG,

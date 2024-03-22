@@ -7,7 +7,9 @@ import { SERVER_PRODUCTION_NOTIFIER_CONFIG } from "./production";
 import { SERVER_STAGING_NOTIFIER_CONFIG } from "./staging";
 import { SERVER_TEST_NOTIFIER_CONFIG } from "./test";
 
-export const SERVER_NOTIFIER_CONFIG: Readonly<EnvironmentStatic<NotifierServer>> = {
+export const SERVER_NOTIFIER_CONFIG: Readonly<
+    EnvironmentStatic<NotifierServer>
+    > = {
     [EnvironmentType.Local]: SERVER_LOCAL_NOTIFIER_CONFIG,
     [EnvironmentType.Dev]: SERVER_DEV_NOTIFIER_CONFIG,
     [EnvironmentType.Test]: SERVER_TEST_NOTIFIER_CONFIG,

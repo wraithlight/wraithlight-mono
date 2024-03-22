@@ -13,7 +13,8 @@ import { SERVER_REMOTE_CONFIG_CONFIG } from "./remote-config";
 import { SERVER_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { SERVER_WEBSITE_CONFIG } from "./website";
 
-export const SERVER_CONFIG: Readonly<EnvironmentStaticServer> = {
+export const SERVER_CONFIG: Readonly<
+    EnvironmentStaticServer> = {
     [ApplicationName.Content]: SERVER_CONTENT_CONFIG,
     [ApplicationName.Editor]: SERVER_EDITOR_CONFIG,
     [ApplicationName.Forum]: SERVER_FORUM_CONFIG,

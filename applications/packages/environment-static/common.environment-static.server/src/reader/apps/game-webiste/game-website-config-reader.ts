@@ -5,13 +5,20 @@ import { Nullable } from "@wraithlight/core.nullable";
 
 import { ServerConfigurationReader } from "../../config-reader";
 
-export class ServerGameWebsiteConfigReader extends ServerConfigurationReader<GameWebsiteServer> {
+export class ServerGameWebsiteConfigReader
+    extends ServerConfigurationReader<GameWebsiteServer> {
 
-    private static _instance: Nullable<ServerConfigurationReader<GameWebsiteServer>>;
+    private static _instance: Nullable<
+        ServerConfigurationReader<GameWebsiteServer>>;
 
-    public static getInstance(environment: EnvironmentType): ServerGameWebsiteConfigReader {
+    public static getInstance(
+        environment: EnvironmentType
+    ):ServerGameWebsiteConfigReader {
         if (!this._instance) {
-            this._instance = new ServerConfigurationReader<GameWebsiteServer>(ApplicationName.GameWebsite, environment);
+            this._instance = new ServerConfigurationReader<GameWebsiteServer>(
+                 ApplicationName.GameWebsite,
+                environment
+            );
         }
         return this._instance;
     }
