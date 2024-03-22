@@ -7,7 +7,9 @@ import { CLIENT_PRODUCTION_CONTENT_CONFIG } from "./production";
 import { CLIENT_STAGING_CONTENT_CONFIG } from "./staging";
 import { CLIENT_TEST_CONTENT_CONFIG } from "./test";
 
-export const CLIENT_CONTENT_CONFIG: Readonly<EnvironmentStatic<ContentClient>> = {
+export const CLIENT_CONTENT_CONFIG: Readonly<
+    EnvironmentStatic<ContentClient>
+    > = {
     [EnvironmentType.Local]: CLIENT_LOCAL_CONTENT_CONFIG,
     [EnvironmentType.Dev]: CLIENT_DEV_CONTENT_CONFIG,
     [EnvironmentType.Test]: CLIENT_TEST_CONTENT_CONFIG,
