@@ -5,7 +5,9 @@ import { createNodeServer } from "@wraithlight/core.server";
 
 import { LogsEntryController } from "./controller";
 
-const sharedCfg = SharedLogsConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+const sharedCfg = SharedLogsConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType())
+;
 
 const CONTROLLERS = [
     new LogsEntryController()
