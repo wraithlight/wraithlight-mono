@@ -11,13 +11,14 @@ import { WebhookConfigService } from "./webhook.config";
 
 export class WebhookService extends CoreHttpClient {
 
+    private readonly _config: WebhookConfigService;
     private readonly _logger = LoggerService.getInstance();
-    private readonly _config = new WebhookConfigService(this._webhookBaseApiUrl);
 
     constructor(
-        private readonly _webhookBaseApiUrl: string
+        webhookBaseApiUrl: string
     ) {
         super();
+        this._config = new WebhookConfigService(webhookBaseApiUrl);
     }
 
     public async start(id: Guid): Promise<void> {

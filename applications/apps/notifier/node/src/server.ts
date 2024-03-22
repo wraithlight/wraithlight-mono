@@ -10,8 +10,13 @@ import { createNodeServer } from "@wraithlight/core.server";
 
 import { SendControllerV1 } from "./controller";
 
-const serverCfg = ServerNotifierConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
-const sharedCfg = SharedNotifierConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+const serverCfg = ServerNotifierConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType())
+;
+
+const sharedCfg = SharedNotifierConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType())
+;
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Notifier),
