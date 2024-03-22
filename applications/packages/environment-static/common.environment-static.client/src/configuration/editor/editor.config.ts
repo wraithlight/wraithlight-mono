@@ -7,7 +7,9 @@ import { CLIENT_PRODUCTION_EDITOR_CONFIG } from "./production";
 import { CLIENT_STAGING_EDITOR_CONFIG } from "./staging";
 import { CLIENT_TEST_EDITOR_CONFIG } from "./test";
 
-export const CLIENT_EDITOR_CONFIG: Readonly<EnvironmentStatic<EditorClient>> = {
+export const CLIENT_EDITOR_CONFIG: Readonly<
+    EnvironmentStatic<EditorClient>
+    > = {
     [EnvironmentType.Local]: CLIENT_LOCAL_EDITOR_CONFIG,
     [EnvironmentType.Dev]: CLIENT_DEV_EDITOR_CONFIG,
     [EnvironmentType.Test]: CLIENT_TEST_EDITOR_CONFIG,

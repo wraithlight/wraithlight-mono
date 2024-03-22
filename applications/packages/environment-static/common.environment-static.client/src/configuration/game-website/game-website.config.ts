@@ -7,7 +7,9 @@ import { CLIENT_PRODUCTION_GAME_WEBSITE_CONFIG } from "./production";
 import { CLIENT_STAGING_GAME_WEBSITE_CONFIG } from "./staging";
 import { CLIENT_TEST_GAME_WEBSITE_CONFIG } from "./test";
 
-export const CLIENT_GAME_WEBSITE_CONFIG: Readonly<EnvironmentStatic<GameWebsiteClient>> = {
+export const CLIENT_GAME_WEBSITE_CONFIG: Readonly<
+    EnvironmentStatic<GameWebsiteClient>
+    > = {
     [EnvironmentType.Local]: CLIENT_LOCAL_GAME_WEBSITE_CONFIG,
     [EnvironmentType.Dev]: CLIENT_DEV_GAME_WEBSITE_CONFIG,
     [EnvironmentType.Test]: CLIENT_TEST_GAME_WEBSITE_CONFIG,

@@ -7,7 +7,9 @@ import { CLIENT_PRODUCTION_USER_MANAGEMENT_CONFIG } from "./production";
 import { CLIENT_STAGING_USER_MANAGEMENT_CONFIG } from "./staging";
 import { CLIENT_TEST_USER_MANAGEMENT_CONFIG } from "./test";
 
-export const CLIENT_USER_MANAGEMENT_CONFIG: Readonly<EnvironmentStatic<UserManagementClient>> = {
+export const CLIENT_USER_MANAGEMENT_CONFIG: Readonly<
+    EnvironmentStatic<UserManagementClient>
+    > = {
     [EnvironmentType.Local]: CLIENT_LOCAL_USER_MANAGEMENT_CONFIG,
     [EnvironmentType.Dev]: CLIENT_DEV_USER_MANAGEMENT_CONFIG,
     [EnvironmentType.Test]: CLIENT_TEST_USER_MANAGEMENT_CONFIG,

@@ -13,7 +13,8 @@ import { CLIENT_REMOTE_CONFIG_CONFIG } from "./remote-config";
 import { CLIENT_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { CLIENT_WEBSITE_CONFIG } from "./website";
 
-export const CLIENT_CONFIG: Readonly<EnvironmentStaticClient> = {
+export const CLIENT_CONFIG: Readonly<
+    EnvironmentStaticClient> = {
     [ApplicationName.Content]: CLIENT_CONTENT_CONFIG,
     [ApplicationName.Editor]: CLIENT_EDITOR_CONFIG,
     [ApplicationName.Forum]: CLIENT_FORUM_CONFIG,

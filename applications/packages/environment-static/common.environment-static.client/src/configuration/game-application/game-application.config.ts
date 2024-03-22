@@ -7,7 +7,9 @@ import { CLIENT_PRODUCTION_GAME_APPLICATION_CONFIG } from "./production";
 import { CLIENT_STAGING_GAME_APPLICATION_CONFIG } from "./staging";
 import { CLIENT_TEST_GAME_APPLICATION_CONFIG } from "./test";
 
-export const CLIENT_GAME_APPLICATION_CONFIG: Readonly<EnvironmentStatic<GameApplicationClient>> = {
+export const CLIENT_GAME_APPLICATION_CONFIG: Readonly<
+    EnvironmentStatic<GameApplicationClient>
+    > = {
     [EnvironmentType.Local]: CLIENT_LOCAL_GAME_APPLICATION_CONFIG,
     [EnvironmentType.Dev]: CLIENT_DEV_GAME_APPLICATION_CONFIG,
     [EnvironmentType.Test]: CLIENT_TEST_GAME_APPLICATION_CONFIG,

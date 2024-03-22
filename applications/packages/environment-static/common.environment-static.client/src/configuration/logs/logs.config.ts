@@ -7,7 +7,9 @@ import { CLIENT_PRODUCTION_LOGS_CONFIG } from "./production";
 import { CLIENT_STAGING_LOGS_CONFIG } from "./staging";
 import { CLIENT_TEST_LOGS_CONFIG } from "./test";
 
-export const CLIENT_LOGS_CONFIG: Readonly<EnvironmentStatic<LogsClient>> = {
+export const CLIENT_LOGS_CONFIG: Readonly<
+    EnvironmentStatic<LogsClient>
+    > = {
     [EnvironmentType.Local]: CLIENT_LOCAL_LOGS_CONFIG,
     [EnvironmentType.Dev]: CLIENT_DEV_LOGS_CONFIG,
     [EnvironmentType.Test]: CLIENT_TEST_LOGS_CONFIG,
