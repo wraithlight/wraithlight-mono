@@ -1,6 +1,7 @@
 import { WebsiteServer } from "@wraithlight/core.environment-static.types";
 
-export const SERVER_STAGING_WEBSITE_CONFIG: Readonly<WebsiteServer> = {
+export const SERVER_STAGING_WEBSITE_CONFIG: Readonly<
+    WebsiteServer> = {
     database: {
         host: "",
         port: 0,

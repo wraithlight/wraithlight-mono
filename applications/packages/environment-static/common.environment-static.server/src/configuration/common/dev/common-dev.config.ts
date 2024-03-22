@@ -1,7 +1,8 @@
 import { CommonServer } from "@wraithlight/core.environment-static.types";
 import { LogSeverity } from "@wraithlight/core.logger.types";
 
-export const SERVER_DEV_COMMON_CONFIG: Readonly<CommonServer> = {
+export const SERVER_DEV_COMMON_CONFIG: Readonly<
+    CommonServer> = {
     paths: {
         base: "/",
         wildcard: "*"

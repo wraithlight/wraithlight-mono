@@ -1,6 +1,7 @@
 import { UserManagementServer } from "@wraithlight/core.environment-static.types";
 
-export const SERVER_TEST_USER_MANAGEMENT_CONFIG: Readonly<UserManagementServer> = {
+export const SERVER_TEST_USER_MANAGEMENT_CONFIG: Readonly<
+    UserManagementServer> = {
     database: {
         host: "",
         port: 0,
