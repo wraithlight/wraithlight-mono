@@ -7,6 +7,8 @@ import {
 
 export interface KeepAliveSessionResponse extends BaseResponse { }
 
-export interface KeepAliveSessionSuccessResponse extends KeepAliveSessionResponse, BaseSuccessResponse<SessionPayload> { }
+export interface KeepAliveSessionSuccessResponse
+    extends KeepAliveSessionResponse, BaseSuccessResponse<SessionPayload> { }
 
-export interface KeepAliveSessionErrorResponse extends KeepAliveSessionResponse, BaseErrorResponse { }
+export interface KeepAliveSessionErrorResponse
+    extends KeepAliveSessionResponse, BaseErrorResponse { }

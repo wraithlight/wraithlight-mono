@@ -7,6 +7,8 @@ import {
 
 export interface ApiLoginResponse extends ApiBaseResponse { }
 
-export interface ApiLoginSuccessResponse extends ApiLoginResponse, ApiBaseSuccessResponse<ApiSessionPayload> { }
+export interface ApiLoginSuccessResponse
+    extends ApiLoginResponse, ApiBaseSuccessResponse<ApiSessionPayload> { }
 
-export interface ApiLoginErrorResponse extends ApiLoginResponse, ApiBaseErrorResponse { }
+export interface ApiLoginErrorResponse
+    extends ApiLoginResponse, ApiBaseErrorResponse { }
