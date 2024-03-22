@@ -5,22 +5,36 @@ import { createUrl } from "@wraithlight/core.url";
 
 export class ServerAuthServiceConfig {
 
-    private readonly _reader = SharedUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+    private readonly _reader = SharedUserManagementConfigReader
+        .getInstance(CoreEnvironment.getEnvironmentType());
 
     public getLoginUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.external.v2.auth.root, API_ENDPOINTS.external.v2.auth.login);
+        return this.concatSegments(
+            this.getApiUrl(),
+            API_ENDPOINTS.external.v2.auth.root,
+            API_ENDPOINTS.external.v2.auth.login
+        );
     }
 
     public getLogoutUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.external.v2.auth.logout);
+        return this.concatSegments(
+            this.getApiUrl(),
+            API_ENDPOINTS.external.v2.auth.logout
+        );
     }
 
     public getValidateSessionUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.external.v2.auth.validateSession);
+        return this.concatSegments(
+            this.getApiUrl(),
+            API_ENDPOINTS.external.v2.auth.validateSession
+        );
     }
 
     public getKeepAliveSessionUrl(): string {
-        return this.concatSegments(this.getApiUrl(), API_ENDPOINTS.external.v2.auth.keepAliveSession);
+        return this.concatSegments(
+            this.getApiUrl(),
+            API_ENDPOINTS.external.v2.auth.keepAliveSession
+        );
     }
 
     private getApiUrl(): string {
