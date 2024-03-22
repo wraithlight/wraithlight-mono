@@ -39,7 +39,10 @@ export class ClientAuthService {
         this._config = new ClientAuthServiceConfig(apiBaseUrl);
     }
 
-    public async login(username: string, password: string): Promise<LoginResponse> {
+    public async login(
+        username: string,
+        password: string
+    ): Promise<LoginResponse> {
         const payload: LoginRequest = {
             username: username,
             password: password
@@ -51,11 +54,15 @@ export class ClientAuthService {
                 const result: LoginResponse = {
                     success: m.payload?.success || false,
                     // TODO: OperationResult
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    errors: m.payload?.success ? undefined : (m.payload as LoginErrorResponse).errors,
+                    errors: m.payload?.success
+                    ? undefined
+                        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                        : (m.payload as LoginErrorResponse).errors,
                     // TODO: OperationResult
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    payload: m.payload?.success ? (m.payload as LoginSuccessResponse).payload : undefined
+                    payload: m.payload?.success
+                        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                        ? (m.payload as LoginSuccessResponse).payload
+                        : undefined
                 };
                 return result;
             })
@@ -77,55 +84,77 @@ export class ClientAuthService {
                 const result: LogoutResponse = {
                     success: m.payload?.success || false,
                     // TODO: OperationResult
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    errors: m.payload?.success ? undefined : (m.payload as LogoutErrorResponse).errors,
+                    errors: m.payload?.success
+                    ? undefined
+                        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                        : (m.payload as LogoutErrorResponse).errors,
                     // TODO: OperationResult
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    payload: m.payload?.success ? (m.payload as LogoutSuccessResponse).payload : undefined
+                    payload: m.payload?.success
+                        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                        ? (m.payload as LogoutSuccessResponse).payload
+                        : undefined
                 };
                 return result;
             })
         ;
     }
 
-    public async validateSession(sessionToken: string): Promise<ValidateSessionResponse> {
+    public async validateSession(
+        sessionToken: string
+    ): Promise<ValidateSessionResponse> {
         const payload: ValidateSessionRequest = {
             sessionToken: sessionToken
         };
         const url = this._config.getValidateSessionUrl();
         return this._httpService
-            .post<CoreValidateSessionResponse, ValidateSessionRequest>(url, payload)
+            .post<CoreValidateSessionResponse, ValidateSessionRequest>(
+                url,
+                payload
+            )
             .then(m => {
                 const result: ValidateSessionResponse = {
                     success: m.payload?.success || false,
                     // TODO: OperationResult
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    errors: m.payload?.success ? undefined : (m.payload as ValidateSessionErrorResponse).errors,
+                    errors: m.payload?.success
+                        ? undefined
+                        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                        : (m.payload as ValidateSessionErrorResponse).errors,
                     // TODO: OperationResult
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    payload: m.payload?.success ? (m.payload as ValidateSessionSuccessResponse).payload : undefined
+                    payload: m.payload?.success
+                        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                        ? (m.payload as ValidateSessionSuccessResponse).payload
+                        : undefined
                 };
                 return result;
             })
         ;
     }
 
-    public async keepAliveSession(sessionToken: string): Promise<KeepAliveSessionResponse> {
+    public async keepAliveSession(
+        sessionToken: string
+    ): Promise<KeepAliveSessionResponse> {
         const payload: KeepAliveSessionRequest = {
             sessionToken: sessionToken
         };
         const url = this._config.getKeepAliveSessionUrl();
         return this._httpService
-            .post<CoreKeepAliveSessionResponse, KeepAliveSessionRequest>(url, payload)
+            .post<CoreKeepAliveSessionResponse, KeepAliveSessionRequest>(
+                url,
+                payload
+            )
             .then(m => {
                 const result: KeepAliveSessionResponse = {
                     success: m.payload?.success || false,
                     // TODO: OperationResult
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    errors: m.payload?.success ? undefined : (m.payload as KeepAliveSessionErrorResponse).errors,
+                    errors: m.payload?.success
+                        ? undefined
+                        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                        : (m.payload as KeepAliveSessionErrorResponse).errors,
                     // TODO: OperationResult
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    payload: m.payload?.success ? (m.payload as KeepAliveSessionSuccessResponse).payload : undefined
+                    payload: m.payload?.success
+                        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                        ? (m.payload as KeepAliveSessionSuccessResponse).payload
+                        : undefined
                 };
                 return result;
             })
