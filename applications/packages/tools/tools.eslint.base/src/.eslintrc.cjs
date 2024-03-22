@@ -46,7 +46,7 @@ module.exports = {
         // Native
         "no-var": "error",
         "max-len": [
-            "warn",
+            "error",
             {
                 "ignoreComments": true,
                 "ignoreUrls": true,
@@ -124,7 +124,6 @@ module.exports = {
         "@typescript-eslint/no-unsafe-member-access": "error",
         "@typescript-eslint/unbound-method": "error",
         "@typescript-eslint/lines-between-class-members": "off",
-        // TODO: Resolve these
         "@typescript-eslint/consistent-type-assertions": [
             "error",
             {
