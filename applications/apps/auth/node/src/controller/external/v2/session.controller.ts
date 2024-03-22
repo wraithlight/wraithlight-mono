@@ -44,7 +44,8 @@ export class SessionControllerV2 extends BaseController {
             )
         ;
         if (result.success) {
-            const user = await this._accountService.findByUsername(model.username);
+            const user = await this._accountService
+                .findByUsername(model.username);
             if (isNil(user)) {
                 return super.notFound();
             }
@@ -72,7 +73,8 @@ export class SessionControllerV2 extends BaseController {
     public async logout(
         model: ApiLogoutRequest
     ): Promise<void> {
-        const result = await this._sessionService.stopSession(model.sessionToken);
+        const result = await this._sessionService
+            .stopSession(model.sessionToken);
         if (!result) {
             const data: ApiLogoutErrorResponse = {
                 success: false,
