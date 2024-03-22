@@ -31,7 +31,10 @@ export class DeleteQueryContext<T extends object>
         });
     }
 
-    public where<TKey extends keyof T>(key: TKey, value: T[TKey]): DeleteQueryContext<T> {
+    public where<TKey extends keyof T>(
+        key: TKey,
+        value: T[TKey]
+    ): DeleteQueryContext<T> {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return <DeleteQueryContext<T>>super.where(key, value);
     }

@@ -22,7 +22,12 @@ export class InsertQueryContext<T extends object>
             `?`,
             `VALUES ?`
         ].join(EOL);
-        this.addQuery(query, this._tableName, this.getColumns(this._data), this.getColumnValues(this._data));
+        this.addQuery(
+            query,
+            this._tableName,
+            this.getColumns(this._data),
+            this.getColumnValues(this._data)
+        );
     }
 
     public async run(): Promise<void> {
