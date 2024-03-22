@@ -49,8 +49,10 @@ export class SessionControllerV2 extends BaseController {
             if (isNil(user)) {
                 return super.notFound();
             }
-            const session = await this._sessionService
-                .startSession(user.id, model.loginScope);
+            const session = await this._sessionService.startSession(
+                user.id,
+                model.loginScope
+            );
             const data: ApiLoginSuccessResponse = {
                 success: true,
                 payload: {
