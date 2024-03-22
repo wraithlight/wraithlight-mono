@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Link } from "svelte-navigator";
+    import { Navigate } from "svelte-router-spa";
     import { Store, type SelectorResultStopFn } from "@wraithlight/core.redux";
     import { AuthSelector } from "@wraithlight/common.auth-sdk.client";
     
@@ -38,9 +38,9 @@
             {/if}
             {#if !isAuthenticated}
                 <div class="sidebar-content__body-item">
-                    <Link to="login">
+                    <Navigate to="login">
                         Log In
-                    </Link>
+                    </Navigate>
                 </div>
             {/if}
         </div>

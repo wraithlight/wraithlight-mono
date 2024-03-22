@@ -11,9 +11,6 @@ export default defineConfig({
     include: [
       "@wraithlight/core.redux",
       "@wraithlight/common.auth-sdk.client",
-    ],
-    exclude: [
-      "svelte-navigator"
     ]
   },
   build: {
