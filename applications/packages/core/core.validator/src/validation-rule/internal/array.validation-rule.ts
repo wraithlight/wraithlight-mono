@@ -41,7 +41,9 @@ export class ArrayValidationRule<T> extends IterableValidationRule<Array<T>> {
         return this;
     }
 
-    public toHavePropertyOnItems<U>(predicate: Predicate<T, U>): ArrayValidationRule<T> {
+    public toHavePropertyOnItems<U>(
+        predicate: Predicate<T, U>
+    ): ArrayValidationRule<T> {
         this.addRuleCase(
             (array: Array<T>) => {
                 return array.map(m => {

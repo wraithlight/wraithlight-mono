@@ -1,7 +1,8 @@
 import { BaseValidationRule } from "./base.validation-rule";
 import { LengthContainer } from "./iterable.validation-rule.model";
 
-export abstract class IterableValidationRule<T extends LengthContainer> extends BaseValidationRule<T> {
+export abstract class IterableValidationRule<T extends LengthContainer>
+    extends BaseValidationRule<T> {
 
     public toHaveLength(length: number): IterableValidationRule<T> {
         this.addRuleCase(
