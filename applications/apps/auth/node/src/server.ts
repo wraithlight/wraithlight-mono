@@ -11,12 +11,13 @@ import { createNodeServer } from "@wraithlight/core.server";
 
 import { AccountControllerV2, SessionControllerV2 } from "./controller";
 
-const serverCfg = ServerUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
-const sharedCfg = SharedUserManagementConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+const serverCfg = ServerUserManagementConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType())
+;
 
-// TOOD: Remove this
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const _healthCheckToken = serverCfg.getCommon(x => x.healthChecker.tokens.userManagement);
+const sharedCfg = SharedUserManagementConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType())
+;
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.UserManagement),
