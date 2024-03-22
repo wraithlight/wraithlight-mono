@@ -22,11 +22,25 @@ export class DbSet<T extends object> {
     }
 
     public insert(entity: T): IInsertQueryContext {
-        return new InsertQueryContext<T>(entity, this._tableName, this._context);
+        return new InsertQueryContext<T>(
+            entity,
+            this._tableName,
+            this._context
+        );
     }
 
-    public update<TKey extends keyof T>(key: TKey, value: T[TKey], entity: Partial<T>): IUpdateQueryContext {
-        return new UpdateQueryContext<T, TKey>(key, value, entity, this._tableName, this._context);
+    public update<TKey extends keyof T>(
+        key: TKey,
+        value: T[TKey],
+        entity: Partial<T>
+    ): IUpdateQueryContext {
+        return new UpdateQueryContext<T, TKey>(
+            key,
+            value,
+            entity,
+            this._tableName,
+            this._context
+        );
     }
 
     public delete(): IDeleteQueryContext<T> {

@@ -35,7 +35,10 @@ export class SelectQueryContext<T extends object>
         });
     }
 
-    public where<TKey extends keyof T>(key: TKey, value: T[TKey]): SelectQueryContext<T> {
+    public where<TKey extends keyof T>(
+        key: TKey,
+        value: T[TKey]
+    ): SelectQueryContext<T> {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return <SelectQueryContext<T>>super.where(key, value);
     }
@@ -57,6 +60,7 @@ export class SelectQueryContext<T extends object>
                     this._logger.error("UpdateQueryContext", "Error while executing:", `"${command}"`, "ERROR:", error);
                     reject(error);
                 }
+                // eslint-disable-next-line max-len
                 const rawResult = rows && Array.isArray(rows) && rows.length && rows.length > 0
                     ? rows
                     : []
@@ -64,7 +68,7 @@ export class SelectQueryContext<T extends object>
                 const result = rawResult.map(m => {
                     const keys = Object.keys(m);
                     const item: { [index: string]: any } = {};
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions, max-len
                     keys.forEach(o => item[this.decapitalize(o)] = (m as RowDataPacket)[o]);
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     return item as T;

@@ -13,7 +13,10 @@ export abstract class WhereableQueryContext<T extends object>
 
     private lastWasWhere = false;
 
-    public where<TKey extends keyof T>(key: TKey, value: T[TKey]): IWhereableQueryContext<T> {
+    public where<TKey extends keyof T>(
+        key: TKey,
+        value: T[TKey]
+    ): IWhereableQueryContext<T> {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         const queryValue = this.getValueString(value as Primitive);
         if (this.lastWasWhere) {
@@ -26,12 +29,16 @@ export abstract class WhereableQueryContext<T extends object>
         return this;
     }
 
-    public orderByAsc<TKey extends keyof T>(key: TKey): IWhereableQueryContext<T> {
+    public orderByAsc<TKey extends keyof T>(
+        key: TKey
+    ): IWhereableQueryContext<T> {
         this.orderBy(key.toString(), "ASC");
         return this;
     }
 
-    public orderByDesc<TKey extends keyof T>(key: TKey): IWhereableQueryContext<T> {
+    public orderByDesc<TKey extends keyof T>(
+        key: TKey
+    ): IWhereableQueryContext<T> {
         this.orderBy(key.toString(), "DESC");
         return this;
     }
