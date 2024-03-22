@@ -16,8 +16,14 @@ export class SendServiceV1 {
 
     private readonly _mailer: IMailSender;
     private readonly _logger = LoggerService.getInstance();
-    private readonly _config = ServerNotifierConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
-    private readonly _cqrsService = new CqrsService<WebhookableSendEmailModelV1>(async (item, id) => this.sendWorker(item, id));
+    private readonly _config = ServerNotifierConfigReader
+        .getInstance(CoreEnvironment.getEnvironmentType())
+    ;
+    private readonly _cqrsService = new CqrsService<
+        WebhookableSendEmailModelV1
+    >(
+        async (item, id) => this.sendWorker(item, id)
+    );
 
     constructor() {
         this._mailer = new MailerService(
@@ -45,7 +51,10 @@ export class SendServiceV1 {
         });
     }
 
-    private async sendWorker(item: WebhookableSendEmailModelV1, id: Guid): Promise<void> {
+    private async sendWorker(
+        item: WebhookableSendEmailModelV1,
+        id: Guid
+    ): Promise<void> {
         let webhookService: Nullable<WebhookService>;
         if (item.webhookBaseApiUrl) {
             webhookService = new WebhookService(item.webhookBaseApiUrl);
