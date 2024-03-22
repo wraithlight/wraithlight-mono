@@ -11,15 +11,23 @@ export class ConfigurationReader<TConfig, TCommonConfig> {
         return predicate(this._config);
     }
 
-    public tryGet<TResult>(predicate: Predicate<TConfig, TResult>, defaultValue: TResult): TResult {
+    public tryGet<TResult>(
+        predicate: Predicate<TConfig, TResult>,
+        defaultValue: TResult
+    ): TResult {
         return predicateDefault(this._config, predicate, defaultValue);
     }
 
-    public getCommon<TResult>(predicate: Predicate<TCommonConfig, TResult>): TResult {
+    public getCommon<TResult>(
+        predicate: Predicate<TCommonConfig, TResult>
+    ): TResult {
         return predicate(this._commonConfig);
     }
 
-    public tryGetCommon<TResult>(predicate: Predicate<TCommonConfig, TResult>, defaultValue: TResult): TResult {
+    public tryGetCommon<TResult>(
+        predicate: Predicate<TCommonConfig, TResult>,
+        defaultValue: TResult
+    ): TResult {
         return predicateDefault(this._commonConfig, predicate, defaultValue);
     }
 
