@@ -4,7 +4,9 @@ import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { BaseController } from "@wraithlight/core.node";
 import { createNodeServer } from "@wraithlight/core.server";
 
-const sharedCfg = SharedRemoteConfigConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+const sharedCfg = SharedRemoteConfigConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType())
+;
 
 const CONTROLLERS: ReadonlyArray<BaseController> = [
 ];
