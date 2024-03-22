@@ -7,6 +7,9 @@ import {
 
 export interface ApiKeepAliveSessionResponse extends ApiBaseResponse { }
 
-export interface ApiKeepAliveSessionSuccessResponse extends ApiKeepAliveSessionResponse, ApiBaseSuccessResponse<ApiSessionPayload> { }
+export interface ApiKeepAliveSessionSuccessResponse
+    extends ApiKeepAliveSessionResponse,
+        ApiBaseSuccessResponse<ApiSessionPayload> { }
 
-export interface ApiKeepAliveSessionErrorResponse extends ApiKeepAliveSessionResponse, ApiBaseErrorResponse { }
+export interface ApiKeepAliveSessionErrorResponse
+    extends ApiKeepAliveSessionResponse, ApiBaseErrorResponse { }

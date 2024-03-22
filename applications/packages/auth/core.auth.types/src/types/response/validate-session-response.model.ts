@@ -7,6 +7,8 @@ import {
 
 export interface ValidateSessionResponse extends BaseResponse { }
 
-export interface ValidateSessionSuccessResponse extends ValidateSessionResponse, BaseSuccessResponse<SessionPayload> { }
+export interface ValidateSessionSuccessResponse
+    extends ValidateSessionResponse, BaseSuccessResponse<SessionPayload> { }
 
-export interface ValidateSessionErrorResponse extends ValidateSessionResponse, BaseErrorResponse { }
+export interface ValidateSessionErrorResponse
+    extends ValidateSessionResponse, BaseErrorResponse { }
