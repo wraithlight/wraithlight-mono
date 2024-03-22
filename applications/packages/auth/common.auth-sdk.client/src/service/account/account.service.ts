@@ -40,8 +40,10 @@ export class ClientAccountService {
                 const result: RegisterResponse = {
                     success: m.payload?.success ?? false,
                     // TODO: OperationResult
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    errors: m.payload?.success ? [] : (m.payload as RegisterErrorResponse).errors,
+                    errors: m.payload?.success
+                        ? []
+                        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                        : (m.payload as RegisterErrorResponse).errors,
                     payload: m.payload?.success
                 };
                 return result;

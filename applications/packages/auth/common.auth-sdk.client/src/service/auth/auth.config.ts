@@ -7,19 +7,31 @@ export class ClientAuthServiceConfig {
     ) { }
 
     public getLoginUrl(): string {
-        return this.concatSegments(this._apiBaseUrl, API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.login);
+        return this.concatSegments(
+            this._apiBaseUrl,
+            API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.login
+        );
     }
 
     public getLogoutUrl(): string {
-        return this.concatSegments(this._apiBaseUrl, API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.logout);
+        return this.concatSegments(
+            this._apiBaseUrl,
+            API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.logout
+        );
     }
 
     public getValidateSessionUrl(): string {
-        return this.concatSegments(this._apiBaseUrl, API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.validateSession);
+        return this.concatSegments(
+            this._apiBaseUrl,
+            API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.validateSession
+        );
     }
 
     public getKeepAliveSessionUrl(): string {
-        return this.concatSegments(this._apiBaseUrl, API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.keepAlive);
+        return this.concatSegments(
+            this._apiBaseUrl,
+            API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.keepAlive
+        );
     }
 
     private concatSegments(...segments: Array<string>): string {

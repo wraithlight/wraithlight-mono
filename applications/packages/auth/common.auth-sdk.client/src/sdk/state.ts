@@ -6,7 +6,8 @@ import { authInitialize } from "./auth/auth";
 import { INITIAL_AUTH_STATE } from "./state.const";
 import { IAuthContainerStore, IAuthStore } from "./state.model";
 
-export const GLOBAL_STORE = (): Store<IAuthContainerStore> => Store.getInstance<IAuthContainerStore>();
+export const GLOBAL_STORE = (
+): Store<IAuthContainerStore> => Store.getInstance<IAuthContainerStore>();
 
 export function initializeAuthSdk(
     apiBaseUrl: string,

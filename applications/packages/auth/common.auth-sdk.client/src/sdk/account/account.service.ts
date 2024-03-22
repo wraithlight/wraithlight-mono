@@ -5,11 +5,13 @@ import { RegisterModel } from "./model";
 
 export class AccountService {
 
-    private readonly _accountService = new ClientAccountService(this._apiBaseUrl);
+    private readonly _accountService: ClientAccountService;
 
     constructor(
-        private readonly _apiBaseUrl: string
-    ) { }
+        apiBaseUrl: string
+    ) {
+        this._accountService = new ClientAccountService(apiBaseUrl);
+    }
 
     public async register(payload: RegisterModel): Promise<RegisterResponse> {
         return this._accountService.register(

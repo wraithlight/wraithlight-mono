@@ -15,7 +15,10 @@ export class AuthService {
         private readonly _apiBaseUrl: string
     ) { }
 
-    public async login(username: string, password: string): Promise<LoginResponse> {
+    public async login(
+        username: string,
+        password: string
+    ): Promise<LoginResponse> {
         return this._authService.login(username, password);
     }
 
@@ -23,7 +26,9 @@ export class AuthService {
         return this._authService.logout(sessionToken);
     }
 
-    public async keepAlive(sessionToken: string): Promise<KeepAliveSessionResponse> {
+    public async keepAlive(
+        sessionToken: string
+    ): Promise<KeepAliveSessionResponse> {
         return this._authService.keepAliveSession(sessionToken);
     }
 

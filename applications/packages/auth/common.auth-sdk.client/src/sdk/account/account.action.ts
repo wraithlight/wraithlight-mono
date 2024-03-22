@@ -26,7 +26,9 @@ export namespace AccountAction {
         type: "[ACCOUNT] Register Success"
     });
 
-    export const registerFail = (errors: Array<string>): ActionWithPayload<Array<string>> => ({
+    export const registerFail = (
+        errors: Array<string>
+    ): ActionWithPayload<Array<string>> => ({
         type: "[ACCOUNT] Register Fail Sync",
         payload: errors
     });
