@@ -1,13 +1,15 @@
 <script lang="ts">
-    import { Route } from "svelte-navigator";
-    import LoginContainer from "./container/login.svelte";
+    import { Route } from "svelte-router-spa";
+
+    import type { CurrentRoute } from "../../core";
+    
+    export let currentRoute: CurrentRoute;
+
 </script>
 
 <div class="content">
     <div class="content-body">
-        <Route path="login">
-            <LoginContainer />
-        </Route>
+        <Route {currentRoute}></Route>
     </div>
 </div>
 
