@@ -28,6 +28,8 @@ const config: KnipConfig = {
         },
         "apps/auth/ui": {
             entry: [
+                // TODO: Remove this once the processor is ready.
+                "src/core/index.ts",
                 "src/main.ts",
                 "src/App.svelte"
             ],
@@ -36,8 +38,8 @@ const config: KnipConfig = {
             ],
             ignoreDependencies: [
                 "@tsconfig/svelte",
-                "svelte-navigator",
-                "tslib"
+                "tslib",
+                "svelte-router-spa"
             ]
         },
         "apps/content/node": {
@@ -96,7 +98,6 @@ const config: KnipConfig = {
         "poc/realtime": {
             entry: [
                 "src/server.ts",
-                "src/shared.ts",
                 "src/client-a.ts",
                 "src/client-b.ts"
             ]
