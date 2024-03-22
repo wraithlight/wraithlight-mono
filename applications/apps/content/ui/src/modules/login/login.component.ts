@@ -27,7 +27,12 @@ export class LoginComponent implements Component {
     }
 
     private onSubmit(): void {
-        this._store.dispatch(AuthAction.login(this.state.username, this.state.password));
+        this._store.dispatch(
+            AuthAction.login(
+                this.state.username,
+                this.state.password
+            )
+        );
     }
 
     public view(): Children {

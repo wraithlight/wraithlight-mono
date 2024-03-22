@@ -17,7 +17,9 @@ export class InputComponent implements Component<InputComponentProps> {
             ),
             m("input.input-element", {
                 id: vnode.attrs.elementId,
-                onchange: (event: { target: HTMLInputElement }) => vnode.attrs.onChange(event.target.value),
+                onchange: (
+                    event: { target: HTMLInputElement }
+                ) => vnode.attrs.onChange(event.target.value),
                 type: vnode.attrs.type
             })
         );
