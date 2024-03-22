@@ -9,8 +9,13 @@ import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createNodeServer } from "@wraithlight/core.server";
 
 
-const serverCfg = ServerWebsiteConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
-const sharedCfg = SharedWebsiteConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
+const serverCfg = ServerWebsiteConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType())
+;
+
+const sharedCfg = SharedWebsiteConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType())
+;
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Website),
