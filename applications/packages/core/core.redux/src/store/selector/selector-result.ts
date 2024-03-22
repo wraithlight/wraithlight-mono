@@ -2,7 +2,10 @@ import { Nullable } from "@wraithlight/core.nullable";
 
 import { Selector } from "./selector";
 
-type SelectorResultParams<TValue> = (value: TValue, stop: SelectorResultStopFn) => void;
+type SelectorResultParams<TValue> = (
+    value: TValue,
+    stop: SelectorResultStopFn
+) => void;
 
 export type SelectorResultStopFn = () => void;
 
@@ -13,10 +16,10 @@ export class SelectorResult<TValue> {
     public onSelection(params: SelectorResultParams<TValue>): void {
         this.params = params;
     }
-
 }
 
-export class SelectorResultWrapper<TState, TValue> extends SelectorResult<TValue> {
+export class SelectorResultWrapper<TState, TValue>
+    extends SelectorResult<TValue> {
 
     private firstRun = true;
     private previousValue: Nullable<TValue>;

@@ -1,6 +1,9 @@
 import { Action } from "./action";
 
-export type ReducerCallback<TState, TAction> = (state: TState, action: TAction) => TState;
+export type ReducerCallback<TState, TAction> = (
+    state: TState,
+    action: TAction
+) => TState;
 
 export interface Reducer<TState, TAction> {
     on: Array<string>,
