@@ -15,7 +15,8 @@ import { SHARED_REMOTE_CONFIG_CONFIG } from "./remote-config";
 import { SHARED_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { SHARED_WEBSITE_CONFIG } from "./website";
 
-export const SHARED_CONFIG: Readonly<EnvironmentStaticShared> = {
+export const SHARED_CONFIG: Readonly<
+    EnvironmentStaticShared> = {
     [ApplicationName.Content]: SHARED_CONTENT_CONFIG,
     [ApplicationName.Editor]: SHARED_EDITOR_CONFIG,
     [ApplicationName.Forum]: SHARED_FORUM_CONFIG,
