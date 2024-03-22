@@ -5,13 +5,20 @@ import { Nullable } from "@wraithlight/core.nullable";
 
 import { SharedConfigurationReader } from "../../config-reader";
 
-export class SharedLogsConfigReader extends SharedConfigurationReader<LogsShared> {
+export class SharedLogsConfigReader
+    extends SharedConfigurationReader<LogsShared> {
 
-    private static _instance: Nullable<SharedConfigurationReader<LogsShared>>;
+    private static _instance: Nullable<
+        SharedConfigurationReader<LogsShared>>;
 
-    public static getInstance(environment: EnvironmentType): SharedLogsConfigReader {
+    public static getInstance(
+        environment: EnvironmentType
+    ): SharedLogsConfigReader {
         if (!this._instance) {
-            this._instance = new SharedConfigurationReader<LogsShared>(ApplicationName.Logs, environment);
+            this._instance = new SharedConfigurationReader<LogsShared>(
+                ApplicationName.Logs,
+                environment
+            );
         }
         return this._instance;
     }
