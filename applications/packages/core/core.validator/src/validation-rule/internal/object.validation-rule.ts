@@ -2,7 +2,8 @@ import { isNil } from "@wraithlight/core.nullable";
 
 import { BaseValidationRule } from "./base.validation-rule";
 
-export class ObjectValidationRule<T extends object> extends BaseValidationRule<T> {
+export class ObjectValidationRule<T extends object>
+    extends BaseValidationRule<T> {
 
     public testType(): ObjectValidationRule<T> {
         this.addRuleCase(
@@ -36,7 +37,9 @@ export class ObjectValidationRule<T extends object> extends BaseValidationRule<T
         return this;
     }
 
-    public toHavePropertyNotNull<K extends keyof T>(name: K): ObjectValidationRule<T> {
+    public toHavePropertyNotNull<K extends keyof T>(
+        name: K
+    ): ObjectValidationRule<T> {
         this.addRuleCase(
             (item: T) => {
                 return isNil(item[name]);

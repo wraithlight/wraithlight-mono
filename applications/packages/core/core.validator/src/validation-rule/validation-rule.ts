@@ -11,27 +11,39 @@ import {
 export class ValidationRule {
 
     public static toBeNumber(): NumberValidationRule {
-        return this.toRule<number, NumberValidationRule>(new NumberValidationRule());
+        return this.toRule<number, NumberValidationRule>(
+            new NumberValidationRule()
+        );
     }
 
     public static toBeString(): StringValidationRule {
-        return this.toRule<string, StringValidationRule>(new StringValidationRule());
+        return this.toRule<string, StringValidationRule>(
+            new StringValidationRule()
+        );
     }
 
     public static toBeBoolean(): BooleanValidationRule {
-        return this.toRule<boolean, BooleanValidationRule>(new BooleanValidationRule());
+        return this.toRule<boolean, BooleanValidationRule>(
+            new BooleanValidationRule()
+        );
     }
 
     public static toBeArray<T>(): ArrayValidationRule<T> {
-        return this.toRule<Array<T>, ArrayValidationRule<T>>(new ArrayValidationRule());
+        return this.toRule<Array<T>, ArrayValidationRule<T>>(
+            new ArrayValidationRule()
+        );
     }
 
     public static toBeObject<T extends object>(): ObjectValidationRule<T> {
-        return this.toRule<T, ObjectValidationRule<T>>(new ObjectValidationRule());
+        return this.toRule<T, ObjectValidationRule<T>>(
+            new ObjectValidationRule()
+        );
     }
 
     public static toBeEnum<T extends object>(): EnumValidationRule<T> {
-        return this.toRule<T, EnumValidationRule<T>>(new EnumValidationRule());
+        return this.toRule<T, EnumValidationRule<T>>(
+            new EnumValidationRule()
+        );
     }
 
     private static toRule<U, T extends BaseValidationRule<U>>(rule: T): T {
