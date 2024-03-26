@@ -6,6 +6,9 @@ import {
 
 export class LogsDbContext extends DbContext {
 
-    public Logs = new DbSet<LogsDbo>(this, "Logs");
+    public Logs = new DbSet<LogsDbo>(
+        this,
+        "Logs"
+    );
 
 }
