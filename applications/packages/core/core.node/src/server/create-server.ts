@@ -17,8 +17,12 @@ export function createServer(
     logRequests = true
 ): AppRef {
     const logger = LoggerService.getInstance();
-    process.on('uncaughtException', function (err) {
-        logger.warn("Global exception caught!", JSON.stringify(err));
+    process.on(
+        "uncaughtException",
+        function (err) {
+            logger.warn("Global exception caught!",
+            JSON.stringify(err)
+        );
     });
 
     const app: Application = express();
@@ -27,7 +31,11 @@ export function createServer(
     logRequests && app.use((
         req: Request,
         res: Response,
-        next: NextFunction) => requestLogger(req, res, next)
+        next: NextFunction) => requestLogger(
+            req,
+            res,
+            next
+        )
     );
 
     if (enableCors) {
