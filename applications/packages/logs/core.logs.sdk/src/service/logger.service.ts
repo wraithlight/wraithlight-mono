@@ -14,28 +14,44 @@ export class BeaconLoggerService {
         applicationName: ApplicationName,
         ...data: Array<unknown>
     ): void {
-        this.log(applicationName, LogSeverity.DEBUG, data);
+        this.log(
+            applicationName,
+            LogSeverity.DEBUG,
+            data
+        );
     }
 
     public logInfo(
         applicationName: ApplicationName,
         ...data: Array<unknown>
     ): void {
-        this.log(applicationName, LogSeverity.INFO, data);
+        this.log(
+            applicationName,
+            LogSeverity.INFO,
+            data
+        );
     }
 
     public logWarning(
         applicationName: ApplicationName,
         ...data: Array<unknown>
     ): void {
-        this.log(applicationName, LogSeverity.WARNING, data);
+        this.log(
+            applicationName,
+            LogSeverity.WARNING,
+            data
+        );
     }
 
     public logError(
         applicationName: ApplicationName,
         ...data: Array<unknown>
     ): void {
-        this.log(applicationName, LogSeverity.ERROR, data);
+        this.log(
+            applicationName,
+            LogSeverity.ERROR,
+            data
+        );
     }
 
     private log(
@@ -49,7 +65,10 @@ export class BeaconLoggerService {
             data: JSON.stringify(data.map(m => typeof m === "object" ? JSON.stringify(m) : m))
         };
         const url = this._config.getLogUrl();
-        this._beaconService.beacon(url, entry);
+        this._beaconService.beacon(
+            url,
+            entry
+        );
     }
 
 }
