@@ -18,7 +18,10 @@ export class HealthCheckService {
         baseUrl: string,
         token: string
     ) {
-        this._client = new HealthCheckClient(baseUrl, token);
+        this._client = new HealthCheckClient(
+            baseUrl,
+            token
+        );
     }
 
     public async checkHealth(
