@@ -26,25 +26,39 @@ export abstract class HttpClient {
     ): void;
 
     public async get<TResult>(url: string): Promise<HttpResponse<TResult>> {
-        return this.fetchInternal(HttpVerb.GET, url);
+        return this.fetchInternal(
+            HttpVerb.GET,
+            url
+        );
     }
 
     public async delete<TResult>(url: string): Promise<HttpResponse<TResult>> {
-        return this.fetchInternal(HttpVerb.DELETE, url);
+        return this.fetchInternal(
+            HttpVerb.DELETE,
+            url
+        );
     }
 
     public async post<TResult, TData>(
         url: string,
         data?: TData
     ): Promise<HttpResponse<TResult>> {
-        return this.fetchInternal(HttpVerb.POST, url, JSON.stringify(data));
+        return this.fetchInternal(
+            HttpVerb.POST,
+            url,
+            JSON.stringify(data)
+        );
     }
 
     public async put<TResult, TData>(
         url: string,
         data?: TData
     ): Promise<HttpResponse<TResult>> {
-        return this.fetchInternal(HttpVerb.PUT, url, JSON.stringify(data));
+        return this.fetchInternal(
+            HttpVerb.PUT,
+            url,
+            JSON.stringify(data)
+        );
     }
 
     private async fetchInternal<TResult>(
@@ -52,7 +66,11 @@ export abstract class HttpClient {
         url: string,
         data?: string
     ): Promise<HttpResponse<TResult>> {
-        if (!this.onBeforeCall(url, method, data)) {
+        if (!this.onBeforeCall(
+            url,
+            method,
+            data
+        )) {
             return {
                 statusCode: HttpCode.InternalError,
                 isAborted: true
@@ -86,7 +104,11 @@ export abstract class HttpClient {
             .catch(undefined)
         ;
 
-        this.onAfterCall(url, result.statusCode, payload);
+        this.onAfterCall(
+            url,
+            result.statusCode,
+            payload
+        );
 
         return {
             statusCode: result.statusCode,
