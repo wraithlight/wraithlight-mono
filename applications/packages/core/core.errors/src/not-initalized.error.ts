@@ -4,6 +4,9 @@ export class NotInitializedError extends WraithlightError {
     constructor(
         objectName: string
     ) {
-        super("NotInitializedError", `Object: '${objectName}'`);
+        super(
+            "NotInitializedError",
+            `Object: '${objectName}'`
+        );
     }
 }
