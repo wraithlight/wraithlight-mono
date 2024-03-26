@@ -28,7 +28,10 @@ export class NotifierService extends CoreHttpClient {
             SendMailResponseV1Model,
             SendMailRequestV1Model
         >
-            (url, data)
+            (
+                url,
+                data
+            )
         ;
         if (result.statusCode === HttpCode.Ok && !isNil(result.payload)) {
             return result.payload.id;
