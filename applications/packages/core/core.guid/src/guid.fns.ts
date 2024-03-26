@@ -35,7 +35,10 @@ export function newGuid(): Guid {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         const key = m as keyof typeof alphabets;
         const alphabet = alphabets[key];
-        return generateRandomString(1, alphabet);
+        return generateRandomString(
+            1,
+            alphabet
+        );
     });
     return result.join("");
 }
