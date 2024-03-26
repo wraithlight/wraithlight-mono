@@ -22,7 +22,10 @@ export class SendServiceV1 {
     private readonly _cqrsService = new CqrsService<
         WebhookableSendEmailModelV1
     >(
-        async (item, id) => this.sendWorker(item, id)
+        async (item, id) => this.sendWorker(
+            item,
+            id
+        )
     );
 
     constructor() {
@@ -72,8 +75,14 @@ export class SendServiceV1 {
             webhookService && await webhookService.succeed(id);
             this._logger.warn(`Entry with id '${id}' has been processed succesfully!`);
         } catch (e: unknown) {
-            webhookService && await webhookService.fail(id, JSON.stringify(e));
-            this._logger.warn(`Entry processing ('${id}') has been failed`, JSON.stringify(e));
+            webhookService && await webhookService.fail(
+                id,
+                JSON.stringify(e)
+            );
+            this._logger.warn(
+                `Entry processing ('${id}') has been failed`,
+                JSON.stringify(e)
+            );
         }
         webhookService && await webhookService.done(id);
     }
