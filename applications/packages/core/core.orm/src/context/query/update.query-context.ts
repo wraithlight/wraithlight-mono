@@ -41,9 +41,18 @@ export class UpdateQueryContext<T, TKey extends keyof T>
     public async run(): Promise<void> {
         const command = this.concatQueries();
         return new Promise((resolve, reject) => {
-            this._context.Connection.query(command, (error) => {
-                if (error) {
-                    this._logger.error("UpdateQueryContext", "Error while executing:", `"${command}"`, "ERROR:", error);
+            this._context.Connection.query(
+                command,
+                (error) => {
+                    if (error) {
+                        this._logger.error(
+                            "UpdateQueryContext",
+                            "Error while executing:",
+                            `"${command}"`,
+                            "ERROR:",
+                            error
+                        )
+                    ;
                     reject();
                 }
                 resolve();

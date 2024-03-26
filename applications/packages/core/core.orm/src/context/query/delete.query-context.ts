@@ -15,15 +15,25 @@ export class DeleteQueryContext<T extends object>
         private readonly _context: DbContext
     ) {
         super(tableName);
-        this.addQuery(`DELETE * FROM ?`, tableName);
+        this.addQuery(
+            `DELETE * FROM ?`,
+            tableName
+        );
     }
 
     public async run(): Promise<void> {
         const command = this.concatQueries();
         return new Promise((resolve, reject) => {
-            this._context.Connection.query(command, (err) => {
+            this._context.Connection.query(command,
+(err) => {
                 if (err) {
-                    this._logger.error("DeleteQueryContext", "Error while executing:", `"${command}"`, "ERROR:", err);
+                    this._logger.error(
+                        "DeleteQueryContext",
+                        "Error while executing:",
+                        `"${command}"`,
+                        "ERROR:",
+                        err
+                    );
                     reject(err);
                 }
                 resolve();
@@ -36,7 +46,10 @@ export class DeleteQueryContext<T extends object>
         value: T[TKey]
     ): DeleteQueryContext<T> {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-        return <DeleteQueryContext<T>>super.where(key, value);
+        return <DeleteQueryContext<T>>super.where(
+            key,
+            value
+        );
     }
 
     public orderByAsc<TKey extends keyof T>(key: TKey): DeleteQueryContext<T> {

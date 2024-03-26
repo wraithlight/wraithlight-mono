@@ -18,7 +18,10 @@ export class DbSet<T extends object> {
     ) { }
 
     public select(): ISelectQueryContext<T> {
-        return new SelectQueryContext<T>(this._tableName, this._context);
+        return new SelectQueryContext<T>(
+            this._tableName,
+            this._context
+        );
     }
 
     public insert(entity: T): IInsertQueryContext {
@@ -44,7 +47,10 @@ export class DbSet<T extends object> {
     }
 
     public delete(): IDeleteQueryContext<T> {
-        return new DeleteQueryContext<T>(this._tableName, this._context);
+        return new DeleteQueryContext<T>(
+            this._tableName,
+            this._context
+        );
     }
 
 }
