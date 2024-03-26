@@ -20,7 +20,10 @@ export const RTQueryGuard = (
         return;
     }
 
-    const parsedUrl = parse(url, true);
+    const parsedUrl = parse(
+        url,
+        true
+    );
     const params = parsedUrl.query;
     const token = params[RT_AUTH_QUERYPARAM_NAME];
 
