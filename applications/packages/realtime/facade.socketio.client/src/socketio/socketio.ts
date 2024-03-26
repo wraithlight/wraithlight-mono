@@ -49,7 +49,10 @@ export class SocketIOFacade {
         topic: string,
         callback: SocketIOClientCallback
     ): SocketIOFacade {
-        this._socket?.on(topic, (message) => callback(message));
+        this._socket?.on(
+            topic,
+            (message) => callback(message)
+        );
         return this;
     }
 
@@ -57,7 +60,10 @@ export class SocketIOFacade {
         topic: string,
         message: string
     ): void {
-        this._socket.emit(topic, message);
+        this._socket.emit(
+            topic,
+            message
+        );
     }
 
 }

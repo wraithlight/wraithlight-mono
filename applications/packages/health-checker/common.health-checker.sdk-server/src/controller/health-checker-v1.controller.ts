@@ -14,7 +14,10 @@ export class HealthCheckControllerV1 extends BaseController {
         appVersion: string
     ) {
         super();
-        this._healthService = new HealthCheckV1Service(appName, appVersion);
+        this._healthService = new HealthCheckV1Service(
+            appName,
+            appVersion
+        );
     }
 
     @HttpGet(EXTERNAL_API_ENDPOINTS.v1.health.forServer)

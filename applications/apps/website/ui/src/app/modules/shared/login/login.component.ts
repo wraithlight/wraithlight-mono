@@ -40,7 +40,12 @@ export class LoginComponent implements OnDestroy {
 
     /** @public */
     public onSubmit(): void {
-        this._store.dispatch(AuthAction.login(this.username, this.password));
+        this._store.dispatch(
+            AuthAction.login(
+                this.username,
+                this.password
+            )
+        );
     }
 
 }

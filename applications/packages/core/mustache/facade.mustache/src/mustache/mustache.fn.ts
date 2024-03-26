@@ -8,7 +8,10 @@ export function mustacheFacade<T>(
 ): MustacheRenderResult {
     let renderedTemplate = template;
     try {
-        renderedTemplate = render(template, model);
+        renderedTemplate = render(
+            template,
+            model
+        );
         return { isSuccess: true, renderedTemplate: renderedTemplate };
     } catch {
         return { isSuccess: false, renderedTemplate: template };

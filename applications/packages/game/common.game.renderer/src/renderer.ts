@@ -40,8 +40,10 @@ export class Renderer {
             throw "The renderer needs to be initialized!";
         }
         this._canvasService.drawRectangle(
-            from.x, from.y,
-            to.x, to.y,
+            from.x,
+            from.y,
+            to.x,
+            to.y,
             color
         );
     }

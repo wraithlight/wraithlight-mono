@@ -4,6 +4,9 @@ export class AlreadyInitializedError extends WraithlightError {
     constructor(
         objectName: string
     ) {
-        super("AlreadyInitializedError", `Object: '${objectName}'`);
+        super(
+            "AlreadyInitializedError",
+            `Object: '${objectName}'`
+        );
     }
 }

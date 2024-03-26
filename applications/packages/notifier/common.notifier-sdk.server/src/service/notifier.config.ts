@@ -13,7 +13,11 @@ export class NotifierServiceConfig {
         const port = this._notifierSharedReader.get(m => m.server.port);
         const pathRoot = NOTIFIER_ENDPOINT_CONST.v1.send.root;
         const path = NOTIFIER_ENDPOINT_CONST.v1.send.mail;
-        return `${createUrl(baseUrl, port)}${pathRoot}${path}`;
+        const url = createUrl(
+            baseUrl,
+            port
+        );
+        return `${url}${pathRoot}${path}`;
     }
 
 }

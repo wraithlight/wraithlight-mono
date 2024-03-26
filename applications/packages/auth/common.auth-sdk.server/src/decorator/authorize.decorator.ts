@@ -39,7 +39,10 @@ export const Authorize = (
         return data;
     }
     const service = new ServerAuthService();
-    const result = await service.validateSession(token, scope);
+    const result = await service.validateSession(
+        token,
+        scope
+    );
     if (isNil(result) || !result.success) {
         const data: FilterResult = {
             success: false,

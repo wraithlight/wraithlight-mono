@@ -17,7 +17,10 @@ export class SelectQueryContext<T extends object>
         private readonly _context: DbContext
     ) {
         super(tableName);
-        this.addQuery(`SELECT * FROM ?`, tableName);
+        this.addQuery(
+            `SELECT * FROM ?`,
+            tableName
+        );
     }
 
     public async toList(): Promise<Array<T>> {
@@ -40,7 +43,10 @@ export class SelectQueryContext<T extends object>
         value: T[TKey]
     ): SelectQueryContext<T> {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-        return <SelectQueryContext<T>>super.where(key, value);
+        return <SelectQueryContext<T>>super.where(
+            key,
+            value
+        );
     }
 
     public orderByAsc<TKey extends keyof T>(key: TKey): SelectQueryContext<T> {
@@ -55,9 +61,18 @@ export class SelectQueryContext<T extends object>
 
     private async exec(command: QueryConcatResult): Promise<Array<T>> {
         return new Promise((resolve, reject) => {
-            this._context.Connection.query(command, (error, rows) => {
-                if (error) {
-                    this._logger.error("UpdateQueryContext", "Error while executing:", `"${command}"`, "ERROR:", error);
+            this._context.Connection.query(
+                command,
+                (error, rows) => {
+                    if (error) {
+                        this._logger.error(
+                            "UpdateQueryContext",
+                            "Error while executing:",
+                            `"${command}"`,
+                            "ERROR:",
+                            error
+                        )
+                    ;
                     reject(error);
                 }
                 // eslint-disable-next-line max-len

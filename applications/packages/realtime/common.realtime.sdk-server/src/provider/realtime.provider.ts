@@ -25,7 +25,11 @@ export class RealtimeProvider {
             path,
             (m) => this.onConnect(m),
             (m) => this.onDisconnect(m),
-            (m, o, x) => this.onEvent(m, o, x),
+            (m, o, x) => this.onEvent(
+                m,
+                o,
+                x
+            ),
             guards
         );
     }
@@ -44,7 +48,10 @@ export class RealtimeProvider {
         const messageLike: RealtimeMessage<T> = {
             payload: message
         };
-        this._socketIoFacade.broadcastToAll(topic, JSON.stringify(messageLike));
+        this._socketIoFacade.broadcastToAll(
+            topic,
+            JSON.stringify(messageLike)
+        );
     }
 
     /**
@@ -58,7 +65,11 @@ export class RealtimeProvider {
         const messageLike: RealtimeMessage<T> = {
             payload: message
         };
-        this._socketIoFacade.send(id, topic, JSON.stringify(messageLike));
+        this._socketIoFacade.send(
+            id,
+            topic,
+            JSON.stringify(messageLike)
+        );
     }
 
     public close(): void {
@@ -70,22 +81,31 @@ export class RealtimeProvider {
         id: string,
         payload: string
     ): void {
-        this._messageBusService.push<AsyncRealtimeMessage>(topic, {
-            id: id,
-            message: JSON.parse(payload)
-        });
+        this._messageBusService.push<AsyncRealtimeMessage>(
+            topic,
+            {
+                id: id,
+                message: JSON.parse(payload)
+            }
+        );
     }
 
     private onConnect(
         id: string
     ): void {
-        this._messageBusService.push(ON_CLIENT_CONNECTING_TOKEN, id);
+        this._messageBusService.push(
+            ON_CLIENT_CONNECTING_TOKEN,
+            id
+        );
     }
 
     private onDisconnect(
         id: string
     ): void {
-        this._messageBusService.push(ON_CLIENT_DISCONNECTING_TOKEN, id);
+        this._messageBusService.push(
+            ON_CLIENT_DISCONNECTING_TOKEN,
+            id
+        );
     }
 
 }

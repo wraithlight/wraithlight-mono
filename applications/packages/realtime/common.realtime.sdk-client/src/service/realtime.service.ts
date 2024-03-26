@@ -56,14 +56,20 @@ export class RealtimeService {
             return;
         }
         this._realtimeFacade.connect();
-        this._realtimeFacade.onMessage("connect", () => onConnectedCallback());
+        this._realtimeFacade.onMessage(
+            "connect",
+            () => onConnectedCallback()
+        );
     }
 
     public async connectSync(): Promise<void> {
         if (!this._realtimeFacade.isConnected()) {
             return new Promise((resolve) => {
                 this._realtimeFacade.connect();
-                this._realtimeFacade.onMessage("connect", () => resolve(undefined));
+                this._realtimeFacade.onMessage(
+                    "connect",
+                    () => resolve(undefined)
+                );
             });
         }
         return Promise.resolve(undefined);
@@ -98,7 +104,10 @@ export class RealtimeService {
         const messageLike: RealtimeMessage<T> = {
             payload: message
         };
-        this._realtimeFacade.send(topic, JSON.stringify(messageLike));
+        this._realtimeFacade.send(
+            topic,
+            JSON.stringify(messageLike)
+        );
     }
 
 }

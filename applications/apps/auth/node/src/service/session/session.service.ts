@@ -39,7 +39,10 @@ export class SessionService {
         userId: Guid,
         scope: LoginScope
     ): Promise<SessionModel> {
-        const validUntil = addMinutes(utcNow(), SESSION_TIME_MINUTES);
+        const validUntil = addMinutes(
+            utcNow(),
+            SESSION_TIME_MINUTES
+        );
 
         const payload: SessionTokenPayload = {
             userId: userId,
@@ -131,7 +134,10 @@ export class SessionService {
             };
         }
 
-        session.validUntil = addMinutes(now, SESSION_TIME_MINUTES);
+        session.validUntil = addMinutes(
+            now,
+            SESSION_TIME_MINUTES
+        );
         tokenPayload.payload.validUntil = addMinutes(
             tokenPayload.payload.validUntil,
             SESSION_TIME_MINUTES

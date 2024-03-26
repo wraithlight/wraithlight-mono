@@ -10,7 +10,10 @@ export class PasswordService {
         salt: string
     ): PasswordEncryptionResult {
         return {
-            encryptedPassword: this.encryptPasswordInternal(password, salt),
+            encryptedPassword: this.encryptPasswordInternal(
+                password,
+                salt
+            ),
             salt: salt
         };
     }
@@ -23,14 +26,20 @@ export class PasswordService {
         password: string,
         encryptedPassword: string
     ): boolean {
-        return Bcrypt.verifyPasswordSync(password, encryptedPassword);
+        return Bcrypt.verifyPasswordSync(
+            password,
+            encryptedPassword
+        );
     }
 
     private encryptPasswordInternal(
         password: string,
         salt: string
     ): string {
-        return Bcrypt.encryptPasswordWithSaltSync(password, salt);
+        return Bcrypt.encryptPasswordWithSaltSync(
+            password,
+            salt
+        );
     }
 
 }

@@ -30,7 +30,10 @@ export class ServerAuthService {
             loginScope: scope
         };
         return this._httpService
-            .post<ApiLoginResponse, ApiLoginRequest>(url, payload)
+            .post<ApiLoginResponse, ApiLoginRequest>(
+                url,
+                payload
+            )
             .then(m => m.payload)
         ;
     }
@@ -45,7 +48,10 @@ export class ServerAuthService {
             loginScope: scope
         };
         return this._httpService
-            .post<ApiLogoutResponse, ApiLogoutRequest>(url, payload)
+            .post<ApiLogoutResponse, ApiLogoutRequest>(
+                url,
+                payload
+            )
             .then(m => m.payload)
         ;
     }

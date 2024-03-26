@@ -10,7 +10,10 @@ import { INITIAL_STATE } from "./sdk";
 const apiBaseUrl = "";
 Store.initialize(INITIAL_STATE);
 const store = Store.getInstance<UserManagementGlobalState>();
-initializeAuthSdk(apiBaseUrl, store);
+initializeAuthSdk(
+  apiBaseUrl,
+  store
+);
 
 const app = new App({
   target: getDocumentRef().body

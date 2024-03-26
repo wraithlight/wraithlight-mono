@@ -62,10 +62,22 @@ export class RegisterComponent implements OnDestroy {
 
     private createForm(): FormGroup {
         return new FormGroup({
-            [CONTROL_NAMES.username]: new FormControl("", { validators: CONTROL_VALIDATORS[CONTROL_NAMES.username] }),
-            [CONTROL_NAMES.password]: new FormControl("", { validators: CONTROL_VALIDATORS[CONTROL_NAMES.password] }),
-            [CONTROL_NAMES.passwordVerify]: new FormControl("", { validators: CONTROL_VALIDATORS[CONTROL_NAMES.passwordVerify] }),
-            [CONTROL_NAMES.emailAddress]: new FormControl("", { validators: CONTROL_VALIDATORS[CONTROL_NAMES.emailAddress] }),
+            [CONTROL_NAMES.username]: new FormControl(
+                "",
+                { validators: CONTROL_VALIDATORS[CONTROL_NAMES.username] }
+            ),
+            [CONTROL_NAMES.password]: new FormControl(
+                "",
+                { validators: CONTROL_VALIDATORS[CONTROL_NAMES.password] }
+            ),
+            [CONTROL_NAMES.passwordVerify]: new FormControl(
+                "",
+                { validators: CONTROL_VALIDATORS[CONTROL_NAMES.passwordVerify] }
+            ),
+            [CONTROL_NAMES.emailAddress]: new FormControl(
+                "",
+                { validators: CONTROL_VALIDATORS[CONTROL_NAMES.emailAddress] }
+            ),
         });
     }
 

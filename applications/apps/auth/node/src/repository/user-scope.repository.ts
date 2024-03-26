@@ -23,8 +23,14 @@ export class UserScopeRepository {
     ): Promise<Nullable<UserScopeDbo>> {
         return this._dbContext.UserScope
             .select()
-            .where("userId", userId)
-            .where("scopeId", scopeId)
+            .where(
+                "userId",
+                userId
+            )
+            .where(
+                "scopeId",
+                scopeId
+            )
             .first()
         ;
     }

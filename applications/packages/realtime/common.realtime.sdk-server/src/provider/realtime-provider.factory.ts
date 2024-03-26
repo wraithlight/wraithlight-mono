@@ -16,7 +16,9 @@ export class RealtimeProviderFactory {
         guards?: ReadonlyArray<SocketGuard>
     ): void {
         if (isNil(this._instance)) {
-            this._instance = new RealtimeProvider(server, path, guards);
+            this._instance = new RealtimeProvider(server,
+path,
+guards);
         }
     }
 

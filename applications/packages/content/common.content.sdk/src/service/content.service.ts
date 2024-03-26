@@ -16,7 +16,10 @@ export class ContentService {
         _contentApiBaseUrl: string,
         _contentApiKey: string
     ) {
-        this._client = new ContentClient(_contentApiBaseUrl, _contentApiKey);
+        this._client = new ContentClient(
+            _contentApiBaseUrl,
+            _contentApiKey
+        );
     }
 
     public async getSingleKey(
@@ -24,7 +27,11 @@ export class ContentService {
         language: Language
     ): Promise<OperationResult<ContentSingleKeyRequestModel>> {
         const path = EXTERNAL_SINGLE_ENDPOINTS.api.v1.content.single.byKey
-            .forClient(language, key);
+            .forClient(
+                language,
+                key
+            )
+        ;
         const result = await this._client.fetchSingle(path);
 
         if (isNil(result)) {
@@ -39,7 +46,11 @@ export class ContentService {
         application: Guid       // TODO: Should be an appname enum
     ): Promise<OperationResult<ContentAppLocalizationResponseModel>> {
         const path = EXTERNAL_MULTI_ENDPOINTS.api.v1.content.multi.byKey
-            .forClient(language, application);
+            .forClient(
+                language,
+                application
+            )
+        ;
         const result = await this._client.fetchMulti(path);
 
         if (isNil(result)) {

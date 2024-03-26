@@ -32,11 +32,17 @@ createNodeServer(
     [
         {
             path: serverCfg.getCommon(x => x.paths.base),
-            staticPath: join(__dirname, frontendPath)
+            staticPath: join(
+                __dirname,
+                frontendPath
+            )
         },
         {
             path: serverCfg.getCommon(x => x.paths.wildcard),
-            staticPath: join(__dirname, frontendPath)
+            staticPath: join(
+                __dirname,
+                frontendPath
+            )
         }
     ]
 );

@@ -38,25 +38,43 @@ export class LoginComponent implements Component {
     public view(): Children {
         return m(
             "div.login",
-            m("div.login-row", m(InputComponent, {
-                label: "Username",
-                elementId: "login-username",
-                type: "input",
-                onChange: (val: string) => this.onNameChange(val)
-            })),
-            m("div.login-row", m(InputComponent, {
-                label: "Password",
-                elementId: "login-password",
-                type: "password",
-                onChange: (val: string) => this.onPasswordChange(val)
-            })),
-            m("div.login-options", m(ButtonComponent, {
-                label: "Log in",
-                elementId: "login-submit",
-                type: "primary",
-                isDisabled: false,
-                onClick: () => this.onSubmit()
-            })),
+            m(
+                "div.login-row",
+                m(
+                    InputComponent,
+                    {
+                        label: "Username",
+                        elementId: "login-username",
+                        type: "input",
+                        onChange: (val: string) => this.onNameChange(val)
+                    }
+                )
+            ),
+            m(
+                "div.login-row",
+                m(
+                    InputComponent,
+                    {
+                        label: "Password",
+                        elementId: "login-password",
+                        type: "password",
+                        onChange: (val: string) => this.onPasswordChange(val)
+                    }
+                )
+            ),
+            m(
+                "div.login-options",
+                m(
+                    ButtonComponent,
+                    {
+                        label: "Log in",
+                        elementId: "login-submit",
+                        type: "primary",
+                        isDisabled: false,
+                        onClick: () => this.onSubmit()
+                    }
+                )
+            ),
         );
     }
 

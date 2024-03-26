@@ -18,7 +18,13 @@ export class Counter {
         step = 1
     ): Counter {
         if (!this._cache.has(name)) {
-            this._cache.set(name, new Counter(initialValue, step));
+            this._cache.set(
+                name,
+                new Counter(
+                    initialValue,
+                    step
+                )
+            );
         }
         return this._cache.get(name);
     }

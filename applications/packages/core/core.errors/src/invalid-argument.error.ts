@@ -4,6 +4,9 @@ export class InvalidArgumentError extends WraithlightError {
     constructor(
         argumentName: string
     ) {
-        super("InvalidArgumentError", `Argument: '${argumentName}'`);
+        super(
+            "InvalidArgumentError",
+            `Argument: '${argumentName}'`
+        );
     }
 }

@@ -56,7 +56,10 @@ export class AccountService {
         }
         const salt = this._passwordService.getSalt();
         const hashedPassword = this._passwordService
-            .encryptPassword(password, salt)
+            .encryptPassword(
+                password,
+                salt
+            )
         ;
 
         const model: UserDbo = {

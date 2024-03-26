@@ -91,7 +91,10 @@ export class AuthService {
             };
         }
 
-        await this._userRepository.update(user.id, { failedLoginAttempts: 0 });
+        await this._userRepository.update(
+            user.id,
+            { failedLoginAttempts: 0 }
+        );
 
         return {
             success: true

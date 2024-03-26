@@ -49,7 +49,10 @@ export class ClientAuthService {
         };
         const url = this._config.getLoginUrl();
         return this._httpService
-            .post<CoreLoginResponse, LoginRequest>(url, payload)
+            .post<CoreLoginResponse, LoginRequest>(
+                url,
+                payload
+            )
             .then(m => {
                 const result: LoginResponse = {
                     success: m.payload?.success || false,
@@ -79,7 +82,10 @@ export class ClientAuthService {
         };
         const url = this._config.getLogoutUrl();
         return this._httpService
-            .post<CoreLogoutResponse, LogoutRequest>(url, payload)
+            .post<CoreLogoutResponse, LogoutRequest>(
+                url,
+                payload
+            )
             .then(m => {
                 const result: LogoutResponse = {
                     success: m.payload?.success || false,

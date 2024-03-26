@@ -8,13 +8,19 @@ import { AppModule } from "./app/app.module";
 import { INITIAL_STATE, WebsiteGlobalState } from './sdk';
 
 const _document = getDocumentRef();
-_document.addEventListener("DOMContentLoaded", () => {
-  const logger = LoggerService.getInstance();
-  const apibaseUrl = "";
-  Store.initialize(INITIAL_STATE);
-  const store = Store.getInstance<WebsiteGlobalState>();
-  initializeAuthSdk(apibaseUrl, store);
-  platformBrowserDynamic()
-    .bootstrapModule(AppModule)
-    .catch(err => logger.error(err));
-});
+_document.addEventListener(
+  "DOMContentLoaded",
+  () => {
+    const logger = LoggerService.getInstance();
+    const apibaseUrl = "";
+    Store.initialize(INITIAL_STATE);
+    const store = Store.getInstance<WebsiteGlobalState>();
+    initializeAuthSdk(
+      apibaseUrl,
+      store
+    );
+    platformBrowserDynamic()
+      .bootstrapModule(AppModule)
+      .catch(err => logger.error(err));
+  }
+);

@@ -32,19 +32,31 @@ export abstract class BaseController {
     // TODO: These should return another function, that sends the response.
 
     protected ok<TData>(data?: TData): void {
-        this.json(HttpCode.Ok, data);
+        this.json(
+            HttpCode.Ok,
+            data
+        );
     }
 
     protected created<TData>(data?: TData): void {
-        this.json(HttpCode.Created, data);
+        this.json(
+            HttpCode.Created,
+            data
+        );
     }
 
     protected badRequest<TData>(data?: TData): void {
-        this.json(HttpCode.BadRequest, data);
+        this.json(
+            HttpCode.BadRequest,
+            data
+        );
     }
 
     protected unauthorized<TData>(data?: TData): void {
-        this.json(HttpCode.Unauthorized, data);
+        this.json(
+            HttpCode.Unauthorized,
+            data
+        );
     }
 
     protected notFound(): void {

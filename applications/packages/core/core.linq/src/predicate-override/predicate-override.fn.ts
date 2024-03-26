@@ -8,6 +8,9 @@ export function predicateOverride<TSource, TResult>(
     predicate: Predicate<TSource, TResult>
 ): TSource {
     const value = predicate(target);
-    wlDeepmerge(value, newValue);
+    wlDeepmerge(
+        value,
+        newValue
+    );
     return target;
 }

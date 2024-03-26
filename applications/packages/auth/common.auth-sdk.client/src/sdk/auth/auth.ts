@@ -10,6 +10,9 @@ export function authInitialize(
     apiBaseUrl: string
 ): Store<IAuthContainerStore> {
     initializeReducers(store);
-    initializeEffects(store, apiBaseUrl);
+    initializeEffects(
+        store,
+        apiBaseUrl
+    );
     return store;
 }

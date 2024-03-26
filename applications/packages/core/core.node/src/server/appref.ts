@@ -48,7 +48,11 @@ export class AppRef implements IAppRef {
     public serveSwagger(route: string, staticPath: string): IAppRef {
         // eslint-disable-next-line @typescript-eslint/no-var-requires
         const document = require(staticPath);
-        this._app.use(route, swaggerServe, swaggerSetup(document));
+        this._app.use(
+            route,
+            swaggerServe,
+            swaggerSetup(document)
+        );
         return this;
     }
 
@@ -56,12 +60,15 @@ export class AppRef implements IAppRef {
         port: number,
         callback?: () => void
     ): void {
-        this._listener = this._server.listen(port, () => {
-            this._logger.info(`The app is up and running on http://localhost:${port}`);
-            if (callback) {
-                callback();
+        this._listener = this._server.listen(
+            port,
+            () => {
+                this._logger.info(`The app is up and running on http://localhost:${port}`);
+                if (callback) {
+                    callback();
+                }
             }
-        });
+        );
     }
 
     public stop(callback?: () => void): void {

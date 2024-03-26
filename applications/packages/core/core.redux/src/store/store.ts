@@ -95,9 +95,16 @@ export class Store<TState> {
         const id = `selector_${this._selectorCounter.getNext()}`;
         const stopFn = (): void => {
             const index = this._selectors.findIndex(m => m.id === id);
-            this._selectors.splice(index, 1);
+            this._selectors.splice(
+                index,
+                1
+            );
         };
-        const wrapper = new SelectorResultWrapper(id, stopFn, selector);
+        const wrapper = new SelectorResultWrapper(
+            id,
+            stopFn,
+            selector
+        );
         this._selectors.push(wrapper);
         return wrapper;
     }
@@ -106,7 +113,10 @@ export class Store<TState> {
         actions: Array<(...args: Array<any>) => TAction>,
         reducerCallback: ReducerCallback<TState, TAction>
     ): Store<TState> {
-        const reducer = createReducer(actions, reducerCallback);
+        const reducer = createReducer(
+            actions,
+            reducerCallback
+        );
         this._reducers.push(reducer);
         return this;
     }
@@ -115,7 +125,10 @@ export class Store<TState> {
         actions: Array<(...args: Array<any>) => TAction>,
         effectCallback: EffectCallback<TAction>
     ): Store<TState> {
-        const effect = createEffect(actions, effectCallback);
+        const effect = createEffect(
+            actions,
+            effectCallback
+        );
         this._effects.push(effect);
         return this;
     }

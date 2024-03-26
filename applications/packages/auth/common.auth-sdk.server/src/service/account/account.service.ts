@@ -26,7 +26,10 @@ export class ServerAccountService {
             emailAddress: emailAddress
         };
         return this._httpService
-            .post<ApiRegisterResponse, ApiRegisterRequest>(url, payload)
+            .post<ApiRegisterResponse, ApiRegisterRequest>(
+                url,
+                payload
+            )
             .then(m => m.payload)
         ;
     }

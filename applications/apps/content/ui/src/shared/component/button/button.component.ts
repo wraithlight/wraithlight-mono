@@ -13,12 +13,16 @@ export class ButtonComponent implements Component<ButtonComponentProps> {
                 ? `button-component-${vnode.attrs.type}`
                 : `button-component-outline-${vnode.attrs.type}`
         ];
-        return m("button", {
-            id: vnode.attrs.elementId,
-            onclick: () => vnode.attrs.onClick(),
-            disabled: vnode.attrs.isDisabled,
-            className: classNameList.join(" ")
-        }, vnode.attrs.label);
+        return m(
+            "button",
+            {
+                id: vnode.attrs.elementId,
+                onclick: () => vnode.attrs.onClick(),
+                disabled: vnode.attrs.isDisabled,
+                className: classNameList.join(" ")
+            },
+            vnode.attrs.label
+        );
     }
 
 }

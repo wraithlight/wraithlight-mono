@@ -15,7 +15,11 @@ export class ConfigurationReader<TConfig, TCommonConfig> {
         predicate: Predicate<TConfig, TResult>,
         defaultValue: TResult
     ): TResult {
-        return predicateDefault(this._config, predicate, defaultValue);
+        return predicateDefault(
+            this._config,
+            predicate,
+            defaultValue
+        );
     }
 
     public getCommon<TResult>(
@@ -28,7 +32,11 @@ export class ConfigurationReader<TConfig, TCommonConfig> {
         predicate: Predicate<TCommonConfig, TResult>,
         defaultValue: TResult
     ): TResult {
-        return predicateDefault(this._commonConfig, predicate, defaultValue);
+        return predicateDefault(
+            this._commonConfig,
+            predicate,
+            defaultValue
+        );
     }
 
 }

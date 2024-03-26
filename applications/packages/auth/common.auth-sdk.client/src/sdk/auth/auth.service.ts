@@ -19,7 +19,10 @@ export class AuthService {
         username: string,
         password: string
     ): Promise<LoginResponse> {
-        return this._authService.login(username, password);
+        return this._authService.login(
+            username,
+            password
+        );
     }
 
     public async logout(sessionToken: string): Promise<LogoutResponse> {

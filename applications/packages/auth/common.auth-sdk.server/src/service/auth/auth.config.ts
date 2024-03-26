@@ -40,7 +40,10 @@ export class ServerAuthServiceConfig {
     private getApiUrl(): string {
         const host = this._reader.get(x => x.server.baseUrl);
         const port = this._reader.get(x => x.server.port);
-        return createUrl(host, port);
+        return createUrl(
+            host,
+            port
+        );
     }
 
     private concatSegments(...segments: Array<string>): string {

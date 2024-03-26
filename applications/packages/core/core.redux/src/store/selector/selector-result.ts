@@ -44,10 +44,16 @@ export class SelectorResultWrapper<TState, TValue>
         }
         const currentValue = this._selector(state);
         if(this.firstRun) {
-            this.params(this._selector(state), this._stopFn);
+            this.params(
+                this._selector(state),
+                this._stopFn
+            );
             this.firstRun = false;
         } else if(currentValue !== this.previousValue) {
-            this.params(this._selector(state), this._stopFn);
+            this.params(
+                this._selector(state),
+                this._stopFn
+            );
             this.previousValue = currentValue;
         }
     }

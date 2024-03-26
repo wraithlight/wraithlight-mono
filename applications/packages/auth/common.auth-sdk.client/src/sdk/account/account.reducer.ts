@@ -40,17 +40,20 @@ export function initializeReducers(
             };
         }
     );
-    store.addReducer([AccountAction.registerSuccess], (state) => {
-        return {
-            ...state,
-            auth: {
-                ...state.auth ?? INITIAL_AUTH_STATE,
-                account: {
-                    ...state.auth?.account ?? INITIAL_AUTH_STATE.account,
-                    isBusy: false
+    store.addReducer(
+        [AccountAction.registerSuccess],
+        (state) => {
+            return {
+                ...state,
+                auth: {
+                    ...state.auth ?? INITIAL_AUTH_STATE,
+                    account: {
+                        ...state.auth?.account ?? INITIAL_AUTH_STATE.account,
+                        isBusy: false
+                    }
                 }
-            }
-        };
-    });
+            };
+        }
+    );
     return store;
 }
