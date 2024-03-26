@@ -23,7 +23,10 @@ const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.UserManagement),
     new AccountControllerV2(),
     new SessionControllerV2(),
-    new HealthCheckControllerV1("auth", "1.0.0")                // TODO: Package JSON reader
+    new HealthCheckControllerV1(
+        "auth", // TODO: Package JSON reader
+        "1.0.0" // TODO: Package JSON reader
+    )
 ];
 
 const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
@@ -36,11 +39,17 @@ createNodeServer(
     [
         {
             path: serverCfg.getCommon(x => x.paths.base),
-            staticPath: join(__dirname, frontendPath)
+            staticPath: join(
+                __dirname,
+                frontendPath
+            )
         },
         {
             path: serverCfg.getCommon(x => x.paths.wildcard),
-            staticPath: join(__dirname, frontendPath)
+            staticPath: join(
+                __dirname,
+                frontendPath
+            )
         }
     ]
 );
