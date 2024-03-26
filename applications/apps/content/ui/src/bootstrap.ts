@@ -8,12 +8,21 @@ import { ContentGlobalState, INITIAL_STATE } from "./sdk";
 
 const _document = getDocumentRef();
 const _window = getWindowRef();
-_window.addEventListener("DOMContentLoaded", () => {
-    const apiBaseUrl = "";
-    Store.initialize(INITIAL_STATE);
-    const store = Store.getInstance<ContentGlobalState>();
-    initializeAuthSdk(apiBaseUrl, store);
+_window.addEventListener(
+    "DOMContentLoaded",
+    () => {
+        const apiBaseUrl = "";
+        Store.initialize(INITIAL_STATE);
+        const store = Store.getInstance<ContentGlobalState>();
+        initializeAuthSdk(
+            apiBaseUrl,
+            store
+        );
 
-    const body = _document.body;
-    mount(body, AppComponent);
-});
+        const body = _document.body;
+        mount(
+            body,
+            AppComponent
+        );
+    }
+);
