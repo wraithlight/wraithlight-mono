@@ -9,28 +9,32 @@ export class ClientAuthServiceConfig {
     public getLoginUrl(): string {
         return this.concatSegments(
             this._apiBaseUrl,
-            API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.login
+            API_ROUTES.v1.auth.root,
+            API_ROUTES.v1.auth.login
         );
     }
 
     public getLogoutUrl(): string {
         return this.concatSegments(
             this._apiBaseUrl,
-            API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.logout
+            API_ROUTES.v1.auth.root,
+            API_ROUTES.v1.auth.logout
         );
     }
 
     public getValidateSessionUrl(): string {
         return this.concatSegments(
             this._apiBaseUrl,
-            API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.validateSession
+            API_ROUTES.v1.auth.root,
+            API_ROUTES.v1.auth.validateSession
         );
     }
 
     public getKeepAliveSessionUrl(): string {
         return this.concatSegments(
             this._apiBaseUrl,
-            API_ROUTES.v1.auth.root, API_ROUTES.v1.auth.keepAlive
+            API_ROUTES.v1.auth.root,
+            API_ROUTES.v1.auth.keepAlive
         );
     }
 

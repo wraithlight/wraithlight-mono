@@ -35,7 +35,10 @@ export class ClientAccountService {
         };
         const url = this._config.getRegisterEndpoint();
         return this._httpService
-            .post<CoreRegisterResponse, RegisterRequest>(url, payload)
+            .post<CoreRegisterResponse, RegisterRequest>(
+                url,
+                payload
+            )
             .then(m => {
                 const result: RegisterResponse = {
                     success: m.payload?.success ?? false,
