@@ -18,7 +18,10 @@ export namespace Bcrypt {
         password: string,
         salt: string
     ): string {
-        return hashSync(password, salt);
+        return hashSync(
+            password,
+            salt
+        );
     }
 
     export function verifyPasswordSync(
