@@ -18,7 +18,10 @@ class BodyComponent {
         const element = getDocumentRef().getElementById(this.canvasId());
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         const canvas = element as HTMLCanvasElement;
-        this._gameContextService.initGame(canvas, "");
+        this._gameContextService.initGame(
+            canvas,
+            ""
+        );
     }
 
 }
