@@ -46,16 +46,22 @@ export class CqrsService<T> {
     }
 
     private processor(): void {
-        setInterval(() => {
-            if (!this._isRunning) {
-                return;
-            }
-            const item = this._fifoService.tryGetNext();
-            if (isNil(item)) {
-                return;
-            }
-            this._processor(item.data, item.id);
-        }, this._processorTimeout);
+        setInterval(
+            () => {
+                if (!this._isRunning) {
+                    return;
+                }
+                const item = this._fifoService.tryGetNext();
+                if (isNil(item)) {
+                    return;
+                }
+                this._processor(
+                    item.data,
+                    item.id
+                );
+            },
+            this._processorTimeout
+        );
     }
 
 }
