@@ -22,7 +22,10 @@ export class ControllerBinder {
         controllers: ReadonlyArray<BaseController>
     ): void {
         for(const controller of controllers) {
-            this.bindController(app, controller);
+            this.bindController(
+                app,
+                controller
+            );
         }
     }
 
@@ -32,30 +35,45 @@ export class ControllerBinder {
     ): void {
         const metadata = this.getControllerMetadata(controller);
         for(const methodMetadata of metadata.methods) {
-            const handler = this.getAppMethod(app, methodMetadata);
-            const path = this.getMethodPath(metadata, methodMetadata);
-            const method = this.getMethod(controller, methodMetadata);
-            handler(path, async (req: Request, res: Response) => {
-                const filters = this.getFilters(
-                    controller,
-                    methodMetadata.name
-                );
-                for (const invoker of filters) {
-                    const result = await invoker(req);
-                    if (!result.success) {
-                        const statusCode = result.errorHttpCode
-                            ? result.errorHttpCode
-                            : HttpCode.InternalError
-                        ;
-                        res.status(statusCode);
-                        res.send();
-                        return;
+            const handler = this.getAppMethod(
+                app,
+                methodMetadata
+            );
+            const path = this.getMethodPath(
+                metadata,
+                methodMetadata
+            );
+            const method = this.getMethod(
+                controller,
+                methodMetadata
+            );
+            handler(
+                path,
+                async (req: Request, res: Response) => {
+                    const filters = this.getFilters(
+                        controller,
+                        methodMetadata.name
+                    );
+                    for (const invoker of filters) {
+                        const result = await invoker(req);
+                        if (!result.success) {
+                            const statusCode = result.errorHttpCode
+                                ? result.errorHttpCode
+                                : HttpCode.InternalError
+                            ;
+                            res.status(statusCode);
+                            res.send();
+                            return;
+                        }
                     }
+                    const params = this.getParams(req);
+                    controller.setResponseContext(res);
+                    method.apply(
+                        controller,
+                        [...params]
+                    );
                 }
-                const params = this.getParams(req);
-                controller.setResponseContext(res);
-                method.apply(controller, [...params]);
-            });
+            );
         }
     }
 
@@ -105,21 +123,30 @@ export class ControllerBinder {
         req: Request
     ): object {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-        return this.getParamsFromRequest(req, "body") as object;
+        return this.getParamsFromRequest(
+            req,
+            "body"
+        ) as object;
     }
 
     private static getRequestQueryParams(
         req: Request
     ): object {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-        return this.getParamsFromRequest(req, "query") as object;
+        return this.getParamsFromRequest(
+            req,
+            "query"
+        ) as object;
     }
 
     private static getRequestPathParams(
         req: Request
     ): object {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-        return this.getParamsFromRequest(req, "params") as object;
+        return this.getParamsFromRequest(
+            req,
+            "params"
+        ) as object;
     }
 
     private static getParamsFromRequest(
