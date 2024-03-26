@@ -28,26 +28,40 @@ export function createNodeServer(
 
     if(staticFiles && staticFiles.length > 0) {
         staticFiles.forEach(m => {
-            server.serveStatic(m.path, m.staticPath);
+            server.serveStatic(
+                m.path,
+                m.staticPath
+            );
         });
     }
 
     providers.forEach(m => m(server.getServer()));
 
-    server.start(port, () => {
-        logger.info(`${appName} is running on port '${port}'`);
-        onStartCallback && onStartCallback(() => server.stop(onStopCallback));
-    });
+    server.start(
+        port,
+        () => {
+            logger.info(`${appName} is running on port '${port}'`);
+            onStartCallback && onStartCallback(
+                () => server.stop(onStopCallback)
+            );
+        }
+    );
 
-    process.on(SIGINT, () => {
-        logger.info(`Received '${SIGINT}' signal - stopping.`);
-        onStopCallback && onStopCallback();
-        process.exit();
-    });
+    process.on(
+        SIGINT,
+        () => {
+            logger.info(`Received '${SIGINT}' signal - stopping.`);
+            onStopCallback && onStopCallback();
+            process.exit();
+        }
+    );
 
-    process.on(SIGTREM, () => {
-        logger.info(`Received '${SIGTREM}' signal - stopping.`);
-        onStopCallback && onStopCallback();
-        process.exit();
-    });
+    process.on(
+        SIGTREM,
+        () => {
+            logger.info(`Received '${SIGTREM}' signal - stopping.`);
+            onStopCallback && onStopCallback();
+            process.exit();
+        }
+    );
 }
