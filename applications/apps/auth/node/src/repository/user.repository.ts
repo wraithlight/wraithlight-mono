@@ -21,7 +21,11 @@ export class UserRepository {
         model: Partial<UserDbo>
     ): Promise<void> {
         this._dbContext.Users
-            .update("id", userId, model)
+            .update(
+                "id",
+                userId
+            ,
+model)
             .run()
         ;
     }
@@ -31,7 +35,10 @@ export class UserRepository {
     ): Promise<Nullable<UserDbo>> {
         return this._dbContext.Users
             .select()
-            .where("username", username)
+            .where(
+                "username",
+                username
+            )
             .first()
         ;
     }
@@ -41,7 +48,10 @@ export class UserRepository {
     ): Promise<Nullable<UserDbo>> {
         return this._dbContext.Users
             .select()
-            .where("emailAddress", emailAddress)
+            .where(
+                "emailAddress",
+                emailAddress
+            )
             .first()
         ;
     }

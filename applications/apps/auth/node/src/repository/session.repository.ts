@@ -13,8 +13,14 @@ export class SessionRepository {
     ): Promise<ReadonlyArray<SessionDbo>> {
         return this._dbContext.Session
             .select()
-            .where("userId", userId)
-            .where("scopeId", scopeId)
+            .where(
+                "userId",
+                userId
+            )
+            .where(
+                "scopeId",
+                scopeId
+            )
             .toList()
         ;
     }
@@ -29,7 +35,9 @@ export class SessionRepository {
     public async remove(id: Guid): Promise<void> {
         return this._dbContext.Session
             .delete()
-            .where("id", id)
+            .where(
+                "id",
+                id)
             .run()
         ;
     }
@@ -40,7 +48,11 @@ export class SessionRepository {
         validUntil: Date
     ): Promise<void> {
         return this._dbContext.Session
-            .update("id", id, { validUntil: validUntil, token: newToken })
+            .update(
+                "id",
+                id,
+                { validUntil: validUntil, token: newToken }
+            )
             .run()
         ;
     }

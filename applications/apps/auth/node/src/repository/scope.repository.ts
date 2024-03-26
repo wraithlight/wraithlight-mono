@@ -11,7 +11,10 @@ export class ScopeRepository {
     public async findById(scopeId: Guid): Promise<Nullable<ScopeDbo>> {
         return this._dbContext.Scope
             .select()
-            .where("id", scopeId)
+            .where(
+                "id",
+                scopeId
+            )
             .first()
         ;
     }
