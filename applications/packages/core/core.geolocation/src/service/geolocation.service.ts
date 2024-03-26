@@ -12,7 +12,10 @@ export class GeolocationService {
         ip: string,
         defaultCountry: CountryCode = DEFAULT_COUNTRY_CODE
     ): Promise<CountryCode> {
-        return this.getGeolocationInfo(ip, defaultCountry);
+        return this.getGeolocationInfo(
+            ip,
+            defaultCountry
+        );
     }
 
     private async getGeolocationInfo(
@@ -20,9 +23,12 @@ export class GeolocationService {
         defaultCountry: CountryCode
     ): Promise<CountryCode> {
         return this._ipApiClient
-            .getGeolocationInformation<CountryCode>(ip, {
-                countryCode: defaultCountry
-            })
+            .getGeolocationInformation<CountryCode>(
+                ip,
+                {
+                    countryCode: defaultCountry
+                }
+            )
             .then(m => m.countryCode)
         ;
     }
