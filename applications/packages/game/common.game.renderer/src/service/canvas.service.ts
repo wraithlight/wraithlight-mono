@@ -33,7 +33,8 @@ export class CanvasService {
         }
         this._context.fillStyle = color;
         this._context.fillRect(
-            startX, startY,
+            startX,
+            startY,
             endX - startX,
             endY - startY
         );
