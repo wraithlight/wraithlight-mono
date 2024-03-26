@@ -8,7 +8,10 @@ export class Dictionary<TValue> {
         if (this.findInternal(key)) {
             return false;
         }
-        this._cache.set(key, value);
+        this._cache.set(
+            key,
+            value
+        );
         return true;
     }
 
