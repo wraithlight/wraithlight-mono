@@ -28,14 +28,27 @@ export class SocketIOFacade {
         guards?: ReadonlyArray<SocketGuard>
     ) {
         guards?.forEach(m => this._server.use(
-            (socket, next) => m(socket.request, next))
+            (socket, next) => m(
+                socket.request,
+                next
+            )
+        )
         );
-        this._server.on(EVT_CONNECTION, (socket: Socket) => {
-            socket.onAny((m, o) => this._onMessageCallback(m, socket.id, o));
+        this._server.on(
+            EVT_CONNECTION,
+            (socket: Socket) => {
+                socket.onAny((m, o) => this._onMessageCallback(
+                    m,
+                    socket.id,
+                    o
+                ));
             this._connectCallback(socket.id);
-            socket.on(EVT_DISCONNECT, () => {
-                this._disconnectCallback(socket.id);
-            });
+            socket.on(
+                EVT_DISCONNECT,
+                () => {
+                    this._disconnectCallback(socket.id);
+                }
+            );
         });
     }
 
@@ -43,7 +56,10 @@ export class SocketIOFacade {
         topic: string,
         message: string
     ): void {
-        this._server.emit(topic, message);
+        this._server.emit(
+            topic,
+            message
+        );
     }
 
     public send(
@@ -51,7 +67,10 @@ export class SocketIOFacade {
         topic: string,
         message: string
     ): void {
-        this._server.sockets.to(id).emit(topic, message);
+        this._server.sockets.to(id).emit(
+            topic,
+            message
+        );
     }
 
     public close(): void {
