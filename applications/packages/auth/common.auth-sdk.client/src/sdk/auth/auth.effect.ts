@@ -19,20 +19,23 @@ export function initializeEffects(
     store.addEffect(
         [AuthAction.login],
         (action: ActionWithPayload<{ username: string, password: string }>) => {
-            service.login(action.payload.username, action.payload.password)
-                .then(m => {
-                    const action = m.success && !isNil(m.payload)
-                        ? AuthAction.loginSuccess(
-                            m.payload.sessionToken,
-                            m.payload.validTo
-                        )
-                        : AuthAction.loginFail(m.errors ?? []);
-                    store.dispatch(action);
-                })
-                .catch(m => {
-                    logger.warn(m);
-                    store.dispatch(AuthAction.loginFail([UNKNOWN_ERROR]));
-                });
+            service.login(
+                action.payload.username,
+                action.payload.password
+            )
+            .then(m => {
+                const action = m.success && !isNil(m.payload)
+                    ? AuthAction.loginSuccess(
+                        m.payload.sessionToken,
+                        m.payload.validTo
+                    )
+                    : AuthAction.loginFail(m.errors ?? []);
+                store.dispatch(action);
+            })
+            .catch(m => {
+                logger.warn(m);
+                store.dispatch(AuthAction.loginFail([UNKNOWN_ERROR]));
+            });
         }
     );
 

@@ -18,6 +18,12 @@ export function initializeAuthSdk(
         INITIAL_AUTH_STATE,
         true
     );
-    authInitialize(storeRef, apiBaseUrl);
-    accountInitialize(storeRef, apiBaseUrl);
+    authInitialize(
+        storeRef,
+        apiBaseUrl
+    );
+    accountInitialize(
+        storeRef,
+        apiBaseUrl
+    );
 }
