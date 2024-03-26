@@ -13,28 +13,43 @@ export class ServerLoggerService {
         private readonly _loggerConfig: LoggerConfig,
         private readonly _logger: ILogger = console
     ) {
-        CoreLoggerService.initialize(this._loggerConfig, this._logger);
+        CoreLoggerService.initialize(
+            this._loggerConfig,
+            this._logger
+        );
         this._loggerService = CoreLoggerService.getInstance();
     }
 
     public logDebug(...data: Array<unknown>): void {
         this._loggerService.debug(data);
-        this._beaconLoggerService.logDebug(this._applicationName, data);
+        this._beaconLoggerService.logDebug(
+            this._applicationName,
+            data
+        );
     }
 
     public logInfo(...data: Array<unknown>): void {
         this._loggerService.info(data);
-        this._beaconLoggerService.logInfo(this._applicationName, data);
+        this._beaconLoggerService.logInfo(
+            this._applicationName,
+            data
+        );
     }
 
     public logWarning(...data: Array<unknown>): void {
         this._loggerService.warn(data);
-        this._beaconLoggerService.logWarning(this._applicationName, data);
+        this._beaconLoggerService.logWarning(
+            this._applicationName,
+            data
+        );
     }
 
     public logError(...data: Array<unknown>): void {
         this._loggerService.error(data);
-        this._beaconLoggerService.logError(this._applicationName, data);
+        this._beaconLoggerService.logError(
+            this._applicationName,
+            data
+        );
     }
 
 }
