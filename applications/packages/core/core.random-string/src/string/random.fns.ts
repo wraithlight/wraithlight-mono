@@ -13,7 +13,10 @@ export function generateRandomString(
     const letters = alphabet.join("");
     const result: Array<string> = [];
     for (let i = 0; i < length; i++) {
-        const index = randomNumberBetween(0, letters.length - 1);
+        const index = randomNumberBetween(
+            0,
+            letters.length - 1
+        );
         result.push(letters[index]);
     }
     return result.join("");
