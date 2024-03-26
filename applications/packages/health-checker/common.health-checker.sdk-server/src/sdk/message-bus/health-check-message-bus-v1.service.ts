@@ -26,19 +26,28 @@ export class HealthCheckMessageBusV1Service {
     public subscribeToInfo(
         handler: () => void
     ): void {
-        this._messageBus.sub(INFORMATION_CHANNEL_TOKEN, handler);
+        this._messageBus.sub(
+            INFORMATION_CHANNEL_TOKEN,
+            handler
+        );
     }
 
     public subscribeToWarning(
         handler: () => void
     ): void {
-        this._messageBus.sub(WARNING_CHANNEL_TOKEN, handler);
+        this._messageBus.sub(
+            WARNING_CHANNEL_TOKEN,
+            handler
+        );
     }
 
     public subscribeToError(
         handler: () => void
     ): void {
-        this._messageBus.sub(ERROR_CHANNEL_TOKEN, handler);
+        this._messageBus.sub(
+            ERROR_CHANNEL_TOKEN,
+            handler
+        );
     }
 
 }
