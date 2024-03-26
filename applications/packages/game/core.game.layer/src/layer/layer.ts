@@ -16,7 +16,10 @@ export class Layer {
         sprite: Sprite,
         position: Position
     ): void {
-        this._renderer.renderSprite(sprite, position);
+        this._renderer.renderSprite(
+            sprite,
+            position
+        );
     }
 
     public fillColor(
