@@ -9,7 +9,10 @@ export class MessagebusService {
     public removeListener(id: Guid): void {
         const index = this._listeners.findIndex(m => m.id === id);
         if (index > -1) {
-            this._listeners.splice(index, 1);
+            this._listeners.splice(
+                index,
+                1
+            );
         }
     }
 
