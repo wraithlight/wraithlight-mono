@@ -51,6 +51,7 @@
     "packages/content/*",
     "packages/tools/*",
     "packages/api-token/*",
+    "packages/user-management/*",
     "poc/*"
   ],
   "engines" : { 
