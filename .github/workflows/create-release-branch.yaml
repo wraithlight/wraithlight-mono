@@ -47,3 +47,22 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           branch: 'refs/heads/${{ env.FOLDER }}/${{ env.DATE }}_${{ env.VERSION }}'
+      - name: Checkout branch
+        uses: actions/checkout@v3
+      - name: Update Version
+        uses: jaywcjlove/github-action-package@main
+        with:
+          path: ./applications/package.json
+          version: '${{ env.VERSION }}'
+      - name: Commit changes
+        run: |
+          git config --global user.name 'gha'
+          git config --global user.email 'noreply@github.com'
+          git add .
+          git commit -m "chore(*): bump to ${{ env.VERSION }}"
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          base: dev
+          branch: '${{ env.FOLDER }}/${{ env.DATE }}_${{ env.VERSION }}'
+          title: 'downmerge: ${{ github.event.inputs.version }} (${{ env.FOLDER }})'
