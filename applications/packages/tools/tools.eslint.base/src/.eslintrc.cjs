@@ -86,6 +86,7 @@ module.exports = {
         ],
         "no-async-promise-executor": "error",
         "function-call-argument-newline": "error",
+        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
         // Native off due to TS rules
         "no-magic-numbers": "off",
         "lines-between-class-members": "off",
