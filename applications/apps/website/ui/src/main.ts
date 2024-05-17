@@ -5,7 +5,7 @@ import { getDocumentRef } from "@wraithlight/core.dom";
 import { Store } from "@wraithlight/core.redux";
 
 import { AppModule } from "./app/app.module";
-import { INITIAL_STATE, WebsiteGlobalState } from './sdk';
+import { INITIAL_STATE, WebsiteGlobalState } from "./sdk";
 
 const _document = getDocumentRef();
 _document.addEventListener(
