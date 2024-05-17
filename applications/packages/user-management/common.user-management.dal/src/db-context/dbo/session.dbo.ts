@@ -2,8 +2,8 @@ import { Guid } from "@wraithlight/core.guid";
 
 export interface SessionDbo {
     id: Guid;
-    userId: string;
-    applicationId: string;
+    userId: Guid;
+    applicationId: Guid;
     token: string;
     refreshToken: string;
     tokenValidFromUtc: Date;
@@ -12,7 +12,7 @@ export interface SessionDbo {
     refreshTokenValidUntilUtc: Date;
     createdAtUtc: Date;
     createdByUserId: Guid;
-    updatedAtUtc: Date;
-    updatedByUserUtc: Date;
+    updatedAtUtc?: Date;
+    updatedByUserId?: Guid;
     isDeleted: boolean;
 }

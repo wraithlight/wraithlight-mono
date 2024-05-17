@@ -13,6 +13,16 @@ export class AccountControllerV2 extends BaseController {
 
     private readonly _accountService = new AccountService();
 
+    constructor() {
+        super();
+        this.register({
+            username: "kolos4",
+            emailAddress: "kolos4@kolos.kolos",
+            password: "kolos",
+            passwordVerify: "kolos"
+        })
+    }
+
     @HttpPost(API_ENDPOINTS.external.v2.account.register)
     public async register(dto: ApiRegisterRequest): Promise<void> {
         const result = await this._accountService.create(

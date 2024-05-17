@@ -1,0 +1,2 @@
+export const SESSION_VALID_FOR_MINUTES = 60;
+export const REFRESH_VALID_FOR_HOURS = 24;
