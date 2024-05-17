@@ -10,10 +10,12 @@ export class UserRepository {
     public async add(
         dbo: UserDbo
     ): Promise<void> {
-        this._dbContext.Users
+        const result = await this._dbContext.Users
             .insert(dbo)
             .run()
         ;
+
+        console.log("result", JSON.stringify(result));
     }
 
     public async update(
@@ -23,9 +25,9 @@ export class UserRepository {
         this._dbContext.Users
             .update(
                 "id",
-                userId
-            ,
-model)
+                userId,
+                model
+        )
             .run()
         ;
     }

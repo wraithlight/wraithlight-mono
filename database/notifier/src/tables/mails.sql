@@ -3,7 +3,7 @@ CREATE TABLE `Logs` (
     `ToAddress` TEXT NOT NULL,
     `Subject` TEXT NOT NULL,
     `Content` TEXT NOT NULL,
-    `IsHtml` BIT NOT NULL,
+    `IsHtml` BOOLEAN NOT NULL,
     `WebhookBaseUrl` TEXT NULL,
     `QueuedAt` DATETIME NOT NULL,
     `ProcessingStartedAt` DATETIME NULL,

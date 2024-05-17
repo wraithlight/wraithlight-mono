@@ -4,7 +4,7 @@ const { join } = require("path");
 module.exports = config(
   {
     preset: "ts-jest",
-    displayName: "Packages/User Management/Core/DAL",
+    displayName: "Packages/User Management/Common/DAL",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],

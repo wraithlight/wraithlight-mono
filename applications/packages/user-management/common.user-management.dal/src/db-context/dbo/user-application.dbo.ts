@@ -4,4 +4,6 @@ export interface UserApplicationDbo {
     id: Guid;
     userId: Guid;
     applicationId: Guid;
+    createdAtUtc: Date;
+    createdByUserId: Guid;
 }

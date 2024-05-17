@@ -26,8 +26,8 @@ export abstract class QueryContext<T extends object> {
 
     protected concatQueries(): QueryConcatResult {
         return {
-            sql: this._queries2.join(EOL),
-            value: this._args2
+            sql: this._queries2.join(' '),
+            values: this._args2
         };
     }
 
@@ -40,10 +40,9 @@ export abstract class QueryContext<T extends object> {
     }
 
     protected getValueString(value: Primitive): string {
-        switch(typeof value) {
-            case "number": return value.toString();
-            case "boolean": return value.toString();
-            default: return `"${value}"`;
+        switch (typeof value) {
+            case "boolean": return value ? '1' : '0';
+            default: return value.toString();
         }
     }
 

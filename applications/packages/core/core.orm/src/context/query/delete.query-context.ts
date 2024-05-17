@@ -16,28 +16,29 @@ export class DeleteQueryContext<T extends object>
     ) {
         super(tableName);
         this.addQuery(
-            `DELETE * FROM ?`,
-            tableName
+            `DELETE * FROM ${tableName}`
         );
     }
 
     public async run(): Promise<void> {
         const command = this.concatQueries();
         return new Promise((resolve, reject) => {
-            this._context.Connection.query(command,
-(err) => {
-                if (err) {
-                    this._logger.error(
-                        "DeleteQueryContext",
-                        "Error while executing:",
-                        `"${command}"`,
-                        "ERROR:",
-                        err
-                    );
-                    reject(err);
+            this._context.Connection.query(
+                command,
+                (err) => {
+                    if (err) {
+                        this._logger.error(
+                            "DeleteQueryContext",
+                            "Error while executing:",
+                            `"${JSON.stringify(command)}"`,
+                            "ERROR:",
+                            err
+                        );
+                        reject(err);
+                    }
+                    resolve();
                 }
-                resolve();
-            });
+            );
         });
     }
 
