@@ -6,3 +6,4 @@ export * from "./invalid-argument.error";
 export * from "./not-initalized.error";
 export * from "./bad-request.error";
 export * from "./unauthorized.error";
+export * from "./internal-server-error.error";
