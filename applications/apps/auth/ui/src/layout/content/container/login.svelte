@@ -12,29 +12,44 @@
 
 <div class="login-container">
     <h1>Log In</h1>
-    <table>
-        <tr>
-            <td>
-                Username
-            </td>
-            <td>
-                <input type="text" bind:value={username}>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Password
-            </td>
-            <td>
-                <input type="password" bind:value={password}>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <button on:click={tryLogin}>Submit</button>
-            </td>
-        </tr>
-    </table>
+    <form>  <!--  TODO: Add submit event -->
+        <table>
+            <tr>
+                <td>
+                    Username
+                </td>
+                <td>
+                    <input
+                        id="login-username"
+                        type="text"
+                        bind:value={username}
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Password
+                </td>
+                <td>
+                    <input
+                        id="login-password"
+                        type="password"
+                        bind:value={password}
+                    />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button
+                        id="login-submit"
+                        on:click={tryLogin}
+                    >
+                        Submit
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </form>
 </div>
 
 
