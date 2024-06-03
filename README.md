@@ -132,6 +132,7 @@ test-report:open      - Utility script for test-reporting. Opens the default bro
 test-report           - Collects test-coverage, then opens the result in your browser.
 precommit             - Runs `yarn`, `lint`, `knip`, `build` and `test` on the repo.
 apply-patches         - Runs `node_modules` patches.
+deplist               - Checks for duplicate 3rd party dependencies. Optional flag: --silent
 
 ```
 
