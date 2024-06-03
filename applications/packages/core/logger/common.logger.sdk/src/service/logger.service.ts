@@ -77,7 +77,10 @@ export class LoggerService implements ILogger {
     }
 
     private isSeverityEnabled(severity: LogSeverity): boolean {
-        const enabledLogSeverities = this._config.enabledLogSeverities ?? DEFAULT_CONFIG.enabledLogSeverities;
+        const enabledLogSeverities = this._config.enabledLogSeverities
+            ? this._config.enabledLogSeverities
+            : DEFAULT_CONFIG.enabledLogSeverities
+        ;
         return enabledLogSeverities.includes(severity);
     }
 
@@ -86,7 +89,10 @@ export class LoggerService implements ILogger {
         data: Array<unknown>,
         loggerFn: (message: string) => void
     ): void {
-        const applicationName = this._config.applicationName ?? DEFAULT_CONFIG.applicationName;
+        const applicationName = this._config.applicationName
+            ? this._config.applicationName
+            : DEFAULT_CONFIG.applicationName
+        ;
         const sev = `[${severity}]`;
         const time = dateISOSerialize(dateNow());
         const message = data.map(m => {
