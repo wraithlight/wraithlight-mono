@@ -16,6 +16,9 @@
         "build": {
             "cache": true,
             "dependsOn": ["^build"]
+        },
+        "lint": {
+            "cache": true
         }
     }
 }

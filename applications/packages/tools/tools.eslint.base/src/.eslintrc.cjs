@@ -86,6 +86,7 @@ module.exports = {
         ],
         "no-async-promise-executor": "error",
         "function-call-argument-newline": "error",
+        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
         "indent": ["warn", 2],                      // TODO
         // Native off due to TS rules
         "no-magic-numbers": "off",

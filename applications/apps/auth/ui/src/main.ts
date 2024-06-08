@@ -2,7 +2,7 @@ import { initializeAuthSdk } from "@wraithlight/common.auth-sdk.client";
 import { getDocumentRef } from "@wraithlight/core.dom";
 import { Store } from "@wraithlight/core.redux";
 
-import './app.css';
+import "./app.css";
 import App from "./app";
 import type { UserManagementGlobalState } from "./sdk";
 import { INITIAL_STATE } from "./sdk";
