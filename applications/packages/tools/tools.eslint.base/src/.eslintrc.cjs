@@ -85,7 +85,7 @@ module.exports = {
             "navigator"
         ],
         "no-async-promise-executor": "error",
-        "function-call-argument-newline": "error",
+        "function-call-argument-newline": ["error", "consistent"],
         "quotes": ["error", "double", { "allowTemplateLiterals": true }],
         "indent": ["warn", 2],                      // TODO
         // Native off due to TS rules
