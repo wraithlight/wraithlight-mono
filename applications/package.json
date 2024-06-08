@@ -24,7 +24,8 @@
     "test-report:open": "yarn open-cli .test-reports/index.html",
     "test-report": "yarn test:coverage && yarn test-report:collect && yarn test-report:generate && yarn test-report:open",
     "precommit": "yarn && yarn build && yarn lint && yarn knip && yarn test",
-    "apply-patches": "ts-node .patches/index.ts"
+    "apply-patches": "ts-node .patches/index.ts",
+    "deplist": "node deplist.mjs"
   },
   "workspaces": [
     "apps/**/*",

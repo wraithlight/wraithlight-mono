@@ -6,17 +6,17 @@ import { DEFAULT_CONFIG } from "./logger.const";
 
 export class LoggerService implements ILogger {
 
-    private static _config: Nullable<LoggerConfig>;
+    private static _config: Nullable<Partial<LoggerConfig>>;
     private static _logger: Nullable<ILogger>;
     private static _instance: Nullable<LoggerService>;
 
     private constructor(
-        private readonly _config: LoggerConfig,
+        private readonly _config: Partial<LoggerConfig>,
         private readonly _logger: ILogger
     ) { }
 
     public static initialize(
-        config?: LoggerConfig,
+        config?: Partial<LoggerConfig>,
         logger?: ILogger
     ): void {
         if (this._config || this._logger) {
@@ -77,7 +77,11 @@ export class LoggerService implements ILogger {
     }
 
     private isSeverityEnabled(severity: LogSeverity): boolean {
-        return this._config.enabledLogSeverities.includes(severity);
+        const enabledLogSeverities = this._config.enabledLogSeverities
+            ? this._config.enabledLogSeverities
+            : DEFAULT_CONFIG.enabledLogSeverities
+        ;
+        return enabledLogSeverities.includes(severity);
     }
 
     private log(
@@ -85,6 +89,10 @@ export class LoggerService implements ILogger {
         data: Array<unknown>,
         loggerFn: (message: string) => void
     ): void {
+        const applicationName = this._config.applicationName
+            ? this._config.applicationName
+            : DEFAULT_CONFIG.applicationName
+        ;
         const sev = `[${severity}]`;
         const time = dateISOSerialize(dateNow());
         const message = data.map(m => {
@@ -93,7 +101,7 @@ export class LoggerService implements ILogger {
             }
             return m;
         }).join("\n\t");
-        const entry = `${time} ${sev} - ${message}`;
+        const entry = `${time} ${applicationName} ${sev} - ${message}`;
         loggerFn(entry);
     }
 
