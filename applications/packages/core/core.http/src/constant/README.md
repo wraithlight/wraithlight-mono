@@ -6,7 +6,7 @@ Enum that represents the most common HTTP verbs.
 
 import {
     HttpVerb
-} from "@wraithfire/core.http";
+} from "@wraithlight/core.http";
 
 const get = HttpVerb.GET;
 

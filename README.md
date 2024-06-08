@@ -55,6 +55,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [How to clean up your local docker cache](./docs/guides/docker-cleanup.md)
 * [How to check what uses the given port (MAC)](./docs/guides/how-to-check-used-port.md)
 * [How to kill a process by PID (MAC)](./docs/guides/how-to-kill-a-process.md)
+* [How to generate GUIDs](./docs/guides/guidgen.md)
 
 ### Utils
 * [`purge.sh`](./docs/utils/purge-sh.md)
@@ -132,6 +133,7 @@ test-report:open      - Utility script for test-reporting. Opens the default bro
 test-report           - Collects test-coverage, then opens the result in your browser.
 precommit             - Runs `yarn`, `lint`, `knip`, `build` and `test` on the repo.
 apply-patches         - Runs `node_modules` patches.
+deplist               - Checks for duplicate 3rd party dependencies. Optional flag: --silent
 
 ```
 

@@ -21,7 +21,12 @@ export function createServer(
         "uncaughtException",
         function (err) {
             logger.warn("Global exception caught!",
-            JSON.stringify(err)
+            JSON.stringify(
+                err,
+                Object.getOwnPropertyNames(
+                    err
+                )
+            )
         );
     });
 
