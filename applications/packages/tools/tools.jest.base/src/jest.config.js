@@ -68,6 +68,7 @@ module.exports = (project, dirname) => {
             `${dirname}/packages/game-website/$1/src`,
             `${dirname}/packages/content/$1/src`,
             `${dirname}/packages/api-token/$1/src`,
+            `${dirname}/packages/latency/$1/src`,
             // END TODO
           ]
         }
