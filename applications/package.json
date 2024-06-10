@@ -52,6 +52,7 @@
     "packages/content/*",
     "packages/tools/*",
     "packages/api-token/*",
+    "packages/latency/*",
     "poc/*"
   ],
   "engines" : { 
