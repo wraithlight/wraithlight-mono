@@ -52,6 +52,7 @@
     "packages/content/*",
     "packages/tools/*",
     "packages/api-token/*",
+    "packages/request-id/*",
     "poc/*"
   ],
   "engines" : { 
