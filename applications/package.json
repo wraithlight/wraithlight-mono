@@ -25,7 +25,8 @@
     "test-report": "yarn test:coverage && yarn test-report:collect && yarn test-report:generate && yarn test-report:open",
     "precommit": "yarn && yarn build && yarn lint && yarn knip && yarn test",
     "apply-patches": "ts-node .patches/index.ts",
-    "deplist": "node deplist.mjs"
+    "deplist": "node deplist.mjs",
+    "readme-check": "node readme-check.mjs"
   },
   "workspaces": [
     "apps/**/*",
