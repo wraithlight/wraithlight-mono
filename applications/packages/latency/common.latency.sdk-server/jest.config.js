@@ -4,8 +4,7 @@ const { join } = require("path");
 module.exports = config(
   {
     preset: "ts-jest",
-    displayName: "Packages/Logs/Common/SDK Client",
-    passWithNoTests: true,  // TODO
+    displayName: "Packages/Latency/Common/SDK Server",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],
