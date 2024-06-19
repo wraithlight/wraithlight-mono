@@ -38,6 +38,7 @@
     "packages/core/mustache/*",
     "packages/core/deepmerge/*",
     "packages/core/scheduler/*",
+    "packages/core/package-info/*",
     "packages/game/*",
     "packages/l10n/*",
     "packages/logs/*",
@@ -53,6 +54,7 @@
     "packages/tools/*",
     "packages/api-token/*",
     "packages/request-id/*",
+    "packages/latency/*",
     "poc/*"
   ],
   "engines" : { 
