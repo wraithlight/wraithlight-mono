@@ -54,6 +54,7 @@
     "packages/content/*",
     "packages/tools/*",
     "packages/api-token/*",
+    "packages/request-id/*",
     "packages/latency/*",
     "poc/*"
   ],
