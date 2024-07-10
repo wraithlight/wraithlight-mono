@@ -79,10 +79,10 @@ entries.forEach(m => checkPackageDocs(join(__dirname, m)))
 
 if (!throwError) {
     if (_missingReadmes.length > 0) {
-        throw `The following packages are missing the readme files: ${_missingReadmes.join(", ")}`;
+        throw `The following packages are missing the readme file: ${_missingReadmes.join(", ")}`;
     }
 
     if (_wrongReadmes.length > 0) {
-        throw `The following packages are missing the readme files: ${_wrongReadmes.join(", ")}`;
+        throw `The following packages are having wrong readme file: ${_wrongReadmes.join(", ")}`;
     }
 }
