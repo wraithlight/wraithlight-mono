@@ -82,7 +82,15 @@ module.exports = {
             "error",
             "document",
             "window",
-            "navigator"
+            "navigator",
+            {
+                name: "atob",
+                message: "Import `wlAtob() from `core.base64` instead."
+            },
+            {
+                name: "btoa",
+                message: "Import `wlBtoa() from `core.base64` instead."
+            }
         ],
         "no-async-promise-executor": "error",
         "function-call-argument-newline": ["error", "consistent"],
