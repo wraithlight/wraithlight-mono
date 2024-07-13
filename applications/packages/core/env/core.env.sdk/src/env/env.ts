@@ -1,4 +1,5 @@
 import { EnvironmentType } from "@wraithlight/core.env.types";
+import { Primitive } from "@wraithlight/core.primitive";
 
 import { WL_ENV_DEFAULT, WL_ENV_TYPE_PROP_NAME } from "./env.const";
 import { IEnvironment, IEnvironmentContainer, IEnvironmentPropery } from "./env.model";
@@ -27,6 +28,9 @@ export class CoreEnvironment {
         );
     }
 
+    /**
+     * @deprecated Use `getComplexV2()`, `getArray()` or `getEnum()` instead.
+     */
     public static getStringAsT<T, TEnv = IEnvironment>(
         key: IEnvironmentPropery<TEnv>,
         defaultValue: T
@@ -37,6 +41,52 @@ export class CoreEnvironment {
         );
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         return result as T;
+    }
+
+    public static getComplexV2<T extends object, TEnv = IEnvironment>(
+        key: IEnvironmentPropery<TEnv>,
+        defaultValue: T
+    ): T {
+        const result = this.getFromEnvironment(
+            key,
+            JSON.stringify(defaultValue),
+            (val: string) => JSON.parse(val)
+        );
+        return result;
+    }
+
+    public static getEnum<TEnum extends Primitive, TEnv = IEnvironment>(
+        key: IEnvironmentPropery<TEnv>,
+        defaultValue: TEnum
+    ): TEnum {
+        const result = this.getFromEnvironment(
+            key,
+            defaultValue.toString(),
+            (val: string) => {
+                switch(typeof defaultValue) {
+                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                    case "string": return val as TEnum;
+                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                    case "number": parseFloat(val) as TEnum;
+                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                    case "boolean": val === true.toString() as TEnum;
+                    default: return defaultValue;
+                }
+            }
+        );
+        return result;
+    }
+
+    public static getArray<TArrayItem, TEnv extends IEnvironment>(
+        key: IEnvironmentPropery<TEnv>,
+        defaultValue: ReadonlyArray<TArrayItem> = []
+    ): ReadonlyArray<TArrayItem> {
+        const result = this.getFromEnvironment(
+            key,
+            JSON.stringify(defaultValue),
+            (val: string) => JSON.parse(val)
+        );
+        return result;
     }
 
     public static getString<TEnv = IEnvironment>(
