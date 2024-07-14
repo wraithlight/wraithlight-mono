@@ -20,7 +20,8 @@
         "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
     },
     "dependencies": {
-        "@wraithlight/core.env.types": "*"
+        "@wraithlight/core.env.types": "*",
+        "@wraithlight/core.primitive": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
