@@ -67,10 +67,11 @@ export class CoreEnvironment {
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     case "string": return val as TEnum;
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    case "number": parseFloat(val) as TEnum;
+                    case "number":return  parseFloat(val) as TEnum;
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    case "boolean": val === true.toString() as TEnum;
-                    default: return defaultValue;
+                    case "boolean": return (val === true.toString()) as TEnum;
+                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+                    default: return defaultValue as TEnum;
                 }
             }
         );
