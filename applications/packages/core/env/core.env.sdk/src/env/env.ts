@@ -20,13 +20,13 @@ export class CoreEnvironment {
      *
      * ```
      */
-    public static getEnvironmentType<TEnv extends IEnvironmentContainer>(
-    ): EnvironmentType {
-        return this.getStringAsT<EnvironmentType, TEnv>(
-            WL_ENV_TYPE_PROP_NAME,
-            WL_ENV_DEFAULT
-        );
-    }
+  public static getEnvironmentType<TEnv extends IEnvironmentContainer>(
+  ): EnvironmentType {
+    return this.getStringAsT<EnvironmentType, TEnv>(
+      WL_ENV_TYPE_PROP_NAME,
+      WL_ENV_DEFAULT
+      );
+  }
 
     /**
      * @deprecated Use `getComplexV2()`, `getArray()` or `getEnum()` instead.
@@ -50,7 +50,8 @@ export class CoreEnvironment {
         const result = this.getFromEnvironment(
             key,
             JSON.stringify(defaultValue),
-            (val: string) => JSON.parse(val)
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            (val: string) => JSON.parse(val) as T
         );
         return result;
     }
@@ -70,8 +71,7 @@ export class CoreEnvironment {
                     case "number":return  parseFloat(val) as TEnum;
                     // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                     case "boolean": return (val === true.toString()) as TEnum;
-                    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-                    default: return defaultValue as TEnum;
+                    default: return defaultValue;
                 }
             }
         );
@@ -85,7 +85,8 @@ export class CoreEnvironment {
         const result = this.getFromEnvironment(
             key,
             JSON.stringify(defaultValue),
-            (val: string) => JSON.parse(val)
+            // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
+            (val: string) => JSON.parse(val) as ReadonlyArray<TArrayItem>
         );
         return result;
     }
