@@ -85,11 +85,11 @@ module.exports = {
             "navigator",
             {
                 name: "atob",
-                message: "Import `wlAtob() from `core.base64` instead."
+                message: "Import `fromBase64String() from `core.base64` instead."
             },
             {
                 name: "btoa",
-                message: "Import `wlBtoa() from `core.base64` instead."
+                message: "Import `toBase64String() from `core.base64` instead."
             }
         ],
         "no-async-promise-executor": "error",
