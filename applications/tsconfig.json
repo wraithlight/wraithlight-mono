@@ -27,7 +27,9 @@
                 "packages/common/*/src/index.ts",
                 "packages/common/password/*/src/index.ts",
                 "packages/content/*/src/index.ts",
-                "packages/api-token/*/src/index.ts"
+                "packages/api-token/*/src/index.ts",
+                "packages/request-id/*/src/index.ts",
+                "packages/latency/*/src/index.ts"
             ]
         }
     }
