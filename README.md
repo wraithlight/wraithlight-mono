@@ -1,4 +1,6 @@
-Dedicated to Kevin V. @ Gozo - i love you
+Dedicated to
+* Kevin V. @ Gozo - i love you
+* G @ wine events - love the thing in yourself that you loved in me
 
 ---
 
