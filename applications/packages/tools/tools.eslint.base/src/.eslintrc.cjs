@@ -90,6 +90,10 @@ module.exports = {
             {
                 name: "btoa",
                 message: "Import `toBase64String() from `core.base64` instead."
+            },
+            {
+                name: "isNaN",
+                message: "Import `isNan()` or `isNanOrNil()` from `core.nullable` instead."
             }
         ],
         "no-async-promise-executor": "error",
