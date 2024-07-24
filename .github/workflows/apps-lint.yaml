@@ -17,5 +17,5 @@ jobs:
       run: yarn
       working-directory: ./applications
     - name: Run lint
-      run: yarn lint
+      run: yarn lint -- -- --quiet
       working-directory: ./applications
