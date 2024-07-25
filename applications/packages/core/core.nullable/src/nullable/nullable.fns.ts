@@ -29,7 +29,7 @@ function isEmptyStringCore(valueLike: string): valueLike is "" {
 }
 
 function isNanCore(valueLike: number): valueLike is number {
-  return isNaN(valueLike)
+  return isNaN(valueLike);
 }
 
 function isNilCore(valueLike: unknown): valueLike is undefined | null {
