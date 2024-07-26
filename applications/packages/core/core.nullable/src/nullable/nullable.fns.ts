@@ -29,6 +29,7 @@ function isEmptyStringCore(valueLike: string): valueLike is "" {
 }
 
 function isNanCore(valueLike: number): valueLike is number {
+  // eslint-disable-next-line no-restricted-globals
   return isNaN(valueLike);
 }
 
