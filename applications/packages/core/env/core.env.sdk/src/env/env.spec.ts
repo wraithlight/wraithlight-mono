@@ -18,7 +18,7 @@ describe("EnvSpecs", () => {
         )("when i call the function", (env: EnvironmentType) => {
             let environment: EnvironmentType;
             beforeEach(() => {
-                process.env.wlType = env;
+                process.env.WLTYPE = env;
                 environment = CoreEnvironment.getEnvironmentType();
             });
             it("should return the proper value", () => {
@@ -30,7 +30,7 @@ describe("EnvSpecs", () => {
         describe("then i call the function", () => {
             let environment: EnvironmentType;
             beforeEach(() => {
-                process.env.wlType = undefined;
+                process.env.WLTYPE = undefined;
                 environment = CoreEnvironment.getEnvironmentType();
             });
             it("should return the default value", () => {

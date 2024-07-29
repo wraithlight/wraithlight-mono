@@ -12,7 +12,7 @@ docker rm $CONTAINER_NAME >/dev/null 2>&1 || true
 docker build -t $CONTAINER_NAME -f ./Dockerfile ../../..
 docker run \
     -d \
-    -e wlType=LOCAL \
+    -e WLTYPE=DEV \
     -p $OUT_PORT:$IN_PORT \
     --name $CONTAINER_NAME \
     --network $NETWORK_NAME \
