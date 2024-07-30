@@ -9,7 +9,7 @@ export const SERVER_DEV_COMMON_CONFIG: Readonly<
     },
     files: {
         frontend: {
-            static: "../../dist/ui"
+            static: "../ui"
         }
     },
     logging: {
