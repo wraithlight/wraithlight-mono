@@ -4,11 +4,11 @@ import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
 import { ServerContentConfigReader } from "@wraithlight/common.environment-static.server";
 import { SharedContentConfigReader } from "@wraithlight/common.environment-static.shared";
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createNodeServer } from "@wraithlight/core.server";
-import { LoggerService } from "@wraithlight/common.logger.sdk";
 
 LoggerService.initialize({
     applicationName: ApplicationName.Content
