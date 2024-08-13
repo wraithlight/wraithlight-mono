@@ -1,4 +1,5 @@
 import { SharedLogsConfigReader } from "@wraithlight/common.environment-static.shared";
+import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
 import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createNodeServer } from "@wraithlight/core.server";
@@ -10,7 +11,11 @@ const sharedCfg = SharedLogsConfigReader
 ;
 
 const CONTROLLERS = [
-    new LogsEntryController()
+    new LogsEntryController(),
+    new HealthCheckControllerV1(
+        ApplicationName.Logs,
+        "1.0.0" // TODO: Package JSON reader
+    )
 ];
 
 createNodeServer(
