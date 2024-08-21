@@ -6,7 +6,7 @@ module.exports = (env) => {
   return {
     ...config(env, __dirname),
     output: {
-      path: resolve(__dirname, "./dist/node"),
+      path: resolve(__dirname, "../dist/node"),
       filename,
       clean: true,
       libraryTarget: "commonjs2"
