@@ -3,6 +3,7 @@ import { join } from "path";
 import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
 import { ServerNotifierConfigReader } from "@wraithlight/common.environment-static.server";
 import { SharedNotifierConfigReader } from "@wraithlight/common.environment-static.shared";
+import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
 import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
@@ -20,7 +21,11 @@ const sharedCfg = SharedNotifierConfigReader
 
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Notifier),
-    new SendControllerV1()
+    new SendControllerV1(),
+    new HealthCheckControllerV1(
+        ApplicationName.Logs,
+        "1.0.0" // TODO: Package JSON reader
+    )
 ];
 
 const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
