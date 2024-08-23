@@ -29,7 +29,8 @@
         "@wraithlight/core.notifier.types": "*",
         "@wraithlight/core.server": "*",
         "@wraithlight/core.nullable": "*",
-        "@wraithlight/common.notifier.mailer-sdk": "*"
+        "@wraithlight/common.notifier.mailer-sdk": "*",
+        "@wraithlight/common.health-checker.sdk-server": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
