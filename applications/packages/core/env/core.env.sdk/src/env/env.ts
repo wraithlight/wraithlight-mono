@@ -1,5 +1,5 @@
 import { EnvironmentType } from "@wraithlight/core.env.types";
-import { Primitive } from "@wraithlight/core.primitive";
+import { Primitive } from "@wraithlight/framework.primitive";
 
 import { WL_ENV_DEFAULT, WL_ENV_TYPE_PROP_NAME } from "./env.const";
 import { IEnvironment, IEnvironmentContainer, IEnvironmentPropery } from "./env.model";
