@@ -1,6 +1,6 @@
 import { EOL } from "os";
 
-import { Primitive } from "@wraithlight/core.primitive";
+import { Primitive } from "@wraithlight/framework.primitive";
 
 import { DbContext } from "../dbcontext";
 
