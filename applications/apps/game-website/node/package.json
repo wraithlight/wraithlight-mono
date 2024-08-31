@@ -16,6 +16,7 @@
     "dependencies": {
         "@wraithlight/common.environment-static.server": "*",
         "@wraithlight/common.environment-static.shared": "*",
+        "@wraithlight/common.health-checker.sdk-server": "*",
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.env.types": "*",
