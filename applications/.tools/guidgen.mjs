@@ -3,7 +3,7 @@ import types from "@wraithlight/core.guid";
 const numberOfGuidsStr = process.argv[2];
 const numberOfGuids = Number(numberOfGuidsStr) || 1;
 
-Array.from({ length: numberOfGuids }).forEach(_ =>generateAndPrintGuid())
+Array.from({ length: numberOfGuids }).forEach(_ => generateAndPrintGuid())
 
 function generateAndPrintGuid() {
     const guid = types.newGuid();
