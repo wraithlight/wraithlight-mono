@@ -1,4 +1,16 @@
 import types from "@wraithlight/core.guid";
+import logger from "@wraithlight/common.logger.sdk";
+
+const { LoggerService } = logger;
+
+LoggerService.initialize({
+    applicationName: "guidgen",
+    enabledLogSeverities: [
+        "INF" // TODO: since its a const enum it cannot be imported in mjs files
+    ]
+});
+
+const loggerService = LoggerService.getInstance();
 
 const numberOfGuidsStr = process.argv[2];
 const numberOfGuids = Number(numberOfGuidsStr) || 1;
@@ -16,7 +28,7 @@ function generateAndPrintGuid() {
     ;
     const guidLine = `# ${guid} #`
     
-    console.log(`
+    loggerService.info(`
         ${banner}
         #${line}#
         ${guidLine}
