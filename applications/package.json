@@ -12,7 +12,7 @@
     "build:tools": "lerna run build --scope=@wraithlight/tools*",
     "build:prod": "lerna run build:prod",
     "build:guid": "lerna run build --scope @wraithlight/core.guid --include-dependencies",
-    "postinstall": "yarn build:tools && yarn build:guid && yarn apply-patches",
+    "postinstall": "yarn build:tools && yarn build:guid && yarn apply-patches && yarn build --scope=@wraithlight/common.logger.sdk",
     "graph": "nx graph",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
@@ -63,7 +63,8 @@
     "yarn": ">=1.22.0 <1.23.0"
   },
   "dependencies": {
-    "@wraithlight/core.guid": "*"
+    "@wraithlight/core.guid": "*",
+    "@wraithlight/common.logger.sdk": "*"
   },
   "devDependencies": {
     "typescript": "5.0.4",
