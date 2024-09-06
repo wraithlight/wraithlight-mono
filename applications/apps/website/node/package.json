@@ -20,7 +20,9 @@
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.auth.constant": "*",
         "@wraithlight/core.env.sdk": "*",
-        "@wraithlight/core.server": "*"
+        "@wraithlight/core.server": "*",
+        "@wraithlight/common.health-checker.sdk-server": "*",
+        "@wraithlight/common.logger.sdk": "*"
     },
     "devDependencies": {
         "@types/jest": "29.5.1",
