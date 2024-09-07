@@ -4,7 +4,7 @@ WORKDIR /temp
 COPY . /temp
 USER root
 RUN yarn
-RUN yarn build --scope=@wraithlight/game-website.ui --scope=@wraithlight/game-website.node
+RUN yarn build:prod --scope=@wraithlight/game-website.ui --scope=@wraithlight/game-website.node
 
 FROM node:18.13.0 AS runner
 COPY --from=install /temp/apps/game-website/dist /usr/src/app
