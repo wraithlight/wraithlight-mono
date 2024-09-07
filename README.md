@@ -51,6 +51,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [Database Urls](./docs/urls/database.md)
 * [Port Mapping](./docs/urls/port-mapping.md)
 * [Environment variables](./docs/env-vars.md)
+* [Colors > Game](./docs/colors/game.md)
 
 ### Guides
 * [How to use the test-reporter](./docs/guides/test-reports.md)
