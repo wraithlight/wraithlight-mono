@@ -4,7 +4,7 @@ WORKDIR /temp
 COPY . /temp
 USER root
 RUN yarn
-RUN yarn build --scope=@wraithlight/remote-config.node
+RUN yarn build:prod --scope=@wraithlight/remote-config.node
 
 FROM node:18.13.0 AS runner
 COPY --from=install /temp/apps/remote-config/dist /usr/src/app
