@@ -3,10 +3,15 @@ import { join } from "path";
 import { ServerGameWebsiteConfigReader } from "@wraithlight/common.environment-static.server";
 import { SharedGameWebsiteConfigReader } from "@wraithlight/common.environment-static.shared";
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { BaseController } from "@wraithlight/core.node";
 import { createNodeServer } from "@wraithlight/core.server";
+
+LoggerService.initialize({
+    applicationName: ApplicationName.GameWebsite
+});
 
 const serverCfg = ServerGameWebsiteConfigReader
     .getInstance(CoreEnvironment.getEnvironmentType())
