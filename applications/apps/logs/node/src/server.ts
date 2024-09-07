@@ -1,10 +1,15 @@
 import { SharedLogsConfigReader } from "@wraithlight/common.environment-static.shared";
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createNodeServer } from "@wraithlight/core.server";
 
 import { LogsEntryController } from "./controller";
+
+LoggerService.initialize({
+    applicationName: ApplicationName.Logs
+});
 
 const sharedCfg = SharedLogsConfigReader
     .getInstance(CoreEnvironment.getEnvironmentType())
