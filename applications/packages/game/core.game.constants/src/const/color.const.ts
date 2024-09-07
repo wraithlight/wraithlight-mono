@@ -1,3 +1,6 @@
+/**
+ * @deprecated Use the same enum from `@wraithlight/core.game.types`.
+ */
 export const enum Color {
     /**
      * In memoriam G - never forget!
