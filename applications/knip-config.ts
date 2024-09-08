@@ -95,6 +95,11 @@ const config: KnipConfig = {
                 "src/webpack.config.js"
             ]
         },
+        "packages/tools/tools.package-json-copy.base": {
+            ignore: [
+                "src/package-json-copy.js"
+            ]
+        },
         "poc/realtime": {
             entry: [
                 "src/server.ts",
