@@ -36,7 +36,13 @@
                 "build": {
                     "type": "string"
                 },
+                "postbuild": {
+                    "type": "string"
+                },
                 "build:prod": {
+                    "type": "string"
+                },
+                "postbuild:prod": {
                     "type": "string"
                 },
                 "lint": {
