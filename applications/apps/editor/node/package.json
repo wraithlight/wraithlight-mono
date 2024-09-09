@@ -23,7 +23,9 @@
         "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.server": "*",
         "@wraithlight/common.health-checker.sdk-server": "*",
-        "@wraithlight/common.logger.sdk": "*"
+        "@wraithlight/common.logger.sdk": "*",
+        "@wraithlight/common.package-info.sdk-server": "*",
+        "@wraithlight/common.environment-static.server": "*"
     },
     "devDependencies": {
         "@wraithlight/tools.package-json-copy.base": "*",
