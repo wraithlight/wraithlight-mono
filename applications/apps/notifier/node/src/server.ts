@@ -5,6 +5,7 @@ import { ServerNotifierConfigReader } from "@wraithlight/common.environment-stat
 import { SharedNotifierConfigReader } from "@wraithlight/common.environment-static.shared";
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { PackageJsonReader } from "@wraithlight/common.package-info.sdk-server";
 import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
@@ -24,12 +25,20 @@ const sharedCfg = SharedNotifierConfigReader
     .getInstance(CoreEnvironment.getEnvironmentType())
 ;
 
+
+const packageInfoReader = new PackageJsonReader(
+  join(__dirname, serverCfg.getCommon(m => m.files.packageJson.path)),
+  LoggerService.getInstance(),
+  ApplicationName.Notifier,
+  "0.0.1"   // TODO: From domain constants.
+);
+
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.Notifier),
     new SendControllerV1(),
     new HealthCheckControllerV1(
         ApplicationName.Notifier,
-        "1.0.0" // TODO: Package JSON reader
+        packageInfoReader.getPackageJsonInfo().version
     )
 ];
 
