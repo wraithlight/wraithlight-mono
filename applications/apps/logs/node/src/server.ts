@@ -26,7 +26,7 @@ const sharedCfg = SharedLogsConfigReader
 const packageInfoReader = new PackageJsonReader(
   join(__dirname, serverCfg.getCommon(m => m.files.packageJson.path)),
   LoggerService.getInstance(),
-  ApplicationName.Editor,
+  ApplicationName.Logs,
   "0.0.1"   // TODO: From domain constants.
 );
 
