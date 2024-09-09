@@ -32,7 +32,8 @@
         "@wraithlight/core.date": "*",
         "@wraithlight/common.password": "*",
         "@wraithlight/common.auth-sdk.server": "*",
-        "@wraithlight/core.content.types": "*"
+        "@wraithlight/core.content.types": "*",
+        "@wraithlight/common.package-info.sdk-server": "*"
     },
     "devDependencies": {
         "@wraithlight/tools.package-json-copy.base": "*",

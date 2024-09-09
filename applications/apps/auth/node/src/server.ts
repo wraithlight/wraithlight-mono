@@ -5,6 +5,7 @@ import { ServerUserManagementConfigReader } from "@wraithlight/common.environmen
 import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { PackageJsonReader } from "@wraithlight/common.package-info.sdk-server";
 import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
@@ -24,13 +25,20 @@ const sharedCfg = SharedUserManagementConfigReader
     .getInstance(CoreEnvironment.getEnvironmentType())
 ;
 
+const packageInfoReader = new PackageJsonReader(
+  join(__dirname, serverCfg.getCommon(m => m.files.packageJson.path)),
+  LoggerService.getInstance(),
+  ApplicationName.UserManagement,
+  "0.0.1"   // TODO: From domain constants.
+);
+
 const CONTROLLERS = [
     new ServerAuthControllerV1(LoginScope.UserManagement),
     new AccountControllerV2(),
     new SessionControllerV2(),
     new HealthCheckControllerV1(
         ApplicationName.UserManagement,
-        "1.0.0" // TODO: Package JSON reader
+        packageInfoReader.getPackageJsonInfo().version
     )
 ];
 
