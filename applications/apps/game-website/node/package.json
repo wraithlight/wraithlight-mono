@@ -23,7 +23,8 @@
         "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.env.types": "*",
         "@wraithlight/core.node": "*",
-        "@wraithlight/core.server": "*"
+        "@wraithlight/core.server": "*",
+        "@wraithlight/common.package-info.sdk-server": "*"
     },
     "devDependencies": {
         "@wraithlight/tools.package-json-copy.base": "*",

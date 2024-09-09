@@ -4,6 +4,7 @@ import { ServerGameWebsiteConfigReader } from "@wraithlight/common.environment-s
 import { SharedGameWebsiteConfigReader } from "@wraithlight/common.environment-static.shared";
 import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
 import { LoggerService } from "@wraithlight/common.logger.sdk";
+import { PackageJsonReader } from "@wraithlight/common.package-info.sdk-server";
 import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { BaseController } from "@wraithlight/core.node";
@@ -21,10 +22,17 @@ const sharedCfg = SharedGameWebsiteConfigReader
     .getInstance(CoreEnvironment.getEnvironmentType())
 ;
 
+const packageInfoReader = new PackageJsonReader(
+  join(__dirname, serverCfg.getCommon(m => m.files.packageJson.path)),
+  LoggerService.getInstance(),
+  ApplicationName.GameWebsite,
+  "0.0.1"   // TODO: From domain constants.
+);
+
 const CONTROLLERS: Array<BaseController> = [
     new HealthCheckControllerV1(
         ApplicationName.GameWebsite,
-        "1.0.0" // TODO: Package JSON reader
+        packageInfoReader.getPackageJsonInfo().version
     )
 ];
 
