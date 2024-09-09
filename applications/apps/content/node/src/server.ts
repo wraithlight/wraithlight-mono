@@ -28,6 +28,7 @@ const packageInfoReader = new PackageJsonReader(
   ApplicationName.Content,
   "0.0.1"   // TODO: From domain constants.
 );
+
 const CONTROLLERS = [
   new ServerAuthControllerV1(LoginScope.Content),
   new HealthCheckControllerV1(
