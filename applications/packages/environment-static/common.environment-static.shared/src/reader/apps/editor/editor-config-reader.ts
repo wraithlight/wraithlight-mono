@@ -16,7 +16,7 @@ export class SharedEditorConfigReader
     ):SharedEditorConfigReader {
         if (!this._instance) {
             this._instance = new SharedConfigurationReader<EditorShared>(
-                 ApplicationName.Editor,
+                ApplicationName.Editor,
                 environment
             );
         }
