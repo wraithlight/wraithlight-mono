@@ -16,6 +16,7 @@
                 "packages/core/mustache/*/src/index.ts",
                 "packages/core/deepmerge/*/src/index.ts",
                 "packages/core/scheduler/*/src/index.ts",
+                "packages/core/package-info/*/src/index.ts",
                 "packages/game/*/src/index.ts",
                 "packages/logs/*/src/index.ts",
                 "packages/notifier/*/src/index.ts",
