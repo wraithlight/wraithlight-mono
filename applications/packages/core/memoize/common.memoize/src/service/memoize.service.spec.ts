@@ -26,7 +26,7 @@ describe("MemoizeServiceSpecs", () => {
 
   describe("given the service is initialized", () => {
 
-    service = new MemoizeService();
+    service = MemoizeService.getInstance();
 
     describe("when i call `reset`", () => {
       beforeAll(() => {
