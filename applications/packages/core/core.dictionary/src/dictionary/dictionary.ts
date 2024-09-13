@@ -39,6 +39,10 @@ export class Dictionary<TValue> {
         return true;
     }
 
+    public reset(): void {
+      this._cache.clear();
+    }
+
     private findInternal(key: string): Nullable<TValue> {
         return this._cache.get(key);
     }
