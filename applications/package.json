@@ -38,6 +38,7 @@
     "packages/core/logger/*",
     "packages/core/mustache/*",
     "packages/core/memoize/*",
+    "packages/core/decorator/*",
     "packages/core/scheduler/*",
     "packages/core/package-info/*",
     "packages/game/*",
