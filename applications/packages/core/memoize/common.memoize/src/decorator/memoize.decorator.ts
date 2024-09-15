@@ -5,6 +5,7 @@ import { MemoizeDictionaryFactory } from "../dictionary";
 
 const memoizeDictionary = MemoizeDictionaryFactory.getDictionary();
 
+// TODO: Use `core.decorator.types` instead.
 export const MemoizeDecorator = (token: string): MethodDecorator => (
   _target: object,
   _propertyKey: string | symbol,
