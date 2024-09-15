@@ -17,6 +17,7 @@
                 "packages/core/scheduler/*/src/index.ts",
                 "packages/core/package-info/*/src/index.ts",
                 "packages/core/memoize/*/src/index.ts",
+                "packages/core/decorator/*/src/index.ts",
                 "packages/game/*/src/index.ts",
                 "packages/logs/*/src/index.ts",
                 "packages/notifier/*/src/index.ts",
