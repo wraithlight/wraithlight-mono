@@ -59,6 +59,7 @@ module.exports = (project, dirname) => {
             `${dirname}/packages/core/deepmerge/$1/src`,
             `${dirname}/packages/core/scheduler/$1/src`,
             `${dirname}/packages/core/memoize/$1/src`,
+            `${dirname}/packages/core/decorator/$1/src`,
             `${dirname}/packages/core/package-info/$1/src`,
             `${dirname}/packages/environment-static/$1/src`,
             `${dirname}/packages/auth/$1/src`,
