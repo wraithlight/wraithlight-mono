@@ -56,7 +56,6 @@ module.exports = (project, dirname) => {
             `${dirname}/packages/common/password/$1/src`,
             `${dirname}/packages/core/logger/$1/src`,
             `${dirname}/packages/core/mustache/$1/src`,
-            `${dirname}/packages/core/deepmerge/$1/src`,
             `${dirname}/packages/core/scheduler/$1/src`,
             `${dirname}/packages/core/memoize/$1/src`,
             `${dirname}/packages/core/package-info/$1/src`,
@@ -72,6 +71,7 @@ module.exports = (project, dirname) => {
             `${dirname}/packages/api-token/$1/src`,
             `${dirname}/packages/request-id/$1/src`,
             `${dirname}/packages/latency/$1/src`,
+            `${dirname}/packages/framework/deepmerge/$1/src`,
             // END TODO
           ]
         }
