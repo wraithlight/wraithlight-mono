@@ -4,10 +4,10 @@ WORKDIR /temp
 COPY . /temp
 USER root
 RUN yarn
-RUN yarn build --scope=@wraithlight/auth.ui
-CMD echo szia
-# FROM node:18.13.0 AS runner
-# COPY --from=install /temp /usr/src/app
+RUN yarn build:prod --scope=@wraithlight/auth.node --scope=@wraithlight/auth.ui
 
-# WORKDIR /usr/src/app
-# CMD node node/index.js
+FROM node:18.13.0 AS runner
+COPY --from=install /temp/apps/auth/dist /usr/src/app
+
+WORKDIR /usr/src/app
+CMD node node/index.js
