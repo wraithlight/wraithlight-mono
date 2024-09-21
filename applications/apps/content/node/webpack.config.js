@@ -1,4 +1,4 @@
-const config = require("@wraithlight/tools.webpack.base");
+const config = require("@wraithlight/tools.webpack.base").beConfig;
 const { resolve } = require("path");
 
 module.exports = (env) => {
