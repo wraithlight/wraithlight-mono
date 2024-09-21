@@ -1,3 +1,6 @@
+/**
+ * @deprecated Import it from `domain.application-info.constants`
+ */
 export enum ApplicationName {
     Website = "WEBSITE",
     GameWebsite = "GAME_WEBSITE",
