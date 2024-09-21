@@ -72,6 +72,7 @@ module.exports = (project, dirname) => {
             `${dirname}/packages/api-token/$1/src`,
             `${dirname}/packages/request-id/$1/src`,
             `${dirname}/packages/latency/$1/src`,
+            `${dirname}/packages/domain/$1/src`,
             // END TODO
           ]
         }
