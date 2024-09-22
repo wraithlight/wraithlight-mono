@@ -26,7 +26,7 @@ export abstract class QueryContext<T extends object> {
 
     protected concatQueries(): QueryConcatResult {
         return {
-            sql: this._queries2.join(' '),
+            sql: this._queries2.join(" "),
             values: this._args2
         };
     }
