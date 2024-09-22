@@ -24,7 +24,7 @@ export class DbSet<T extends object> {
         );
     }
 
-    public insert(entity: T): IInsertQueryContext<T> {
+    public insert(entity: T): IInsertQueryContext {
         return new InsertQueryContext<T>(
             entity,
             this._tableName,
@@ -36,7 +36,7 @@ export class DbSet<T extends object> {
         key: TKey,
         value: T[TKey],
         entity: Partial<T>
-    ): IUpdateQueryContext<T> {
+    ): IUpdateQueryContext {
         return new UpdateQueryContext<T, TKey>(
             key,
             value,

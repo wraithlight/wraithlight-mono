@@ -25,15 +25,15 @@ export interface SelectQueryContext<T> extends WhereableQueryContext<T> {
 
 }
 
-export interface UpdateQueryContext<T> {
+export interface UpdateQueryContext {
 
-    run(): Promise<Nullable<T>>;
+    run(): Promise<void>;
 
 }
 
-export interface InsertQueryContext<T> {
+export interface InsertQueryContext {
 
-    run(): Promise<Nullable<T>>;
+    run(): Promise<void>;
 
 }
 

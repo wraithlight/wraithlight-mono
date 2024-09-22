@@ -40,10 +40,10 @@ export abstract class QueryContext<T extends object> {
     }
 
     protected getValueString(value: Primitive): string {
-        switch (typeof value) {
-            case "boolean": return value ? '1' : '0';
-            default: return value.toString();
-        }
+      switch(typeof value) {
+        case "number": return value.toString();
+        case "boolean": return value.toString();
+        default: return `"${value}"`;
     }
 
     protected getColumnValuePairs(data: T): string {

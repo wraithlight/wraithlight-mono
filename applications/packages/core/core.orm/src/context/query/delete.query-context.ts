@@ -16,7 +16,8 @@ export class DeleteQueryContext<T extends object>
     ) {
         super(tableName);
         this.addQuery(
-            `DELETE * FROM ${tableName}`
+            `DELETE * FROM ?`,
+            tableName
         );
     }
 

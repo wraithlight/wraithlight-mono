@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TARGET_CONTAINER=wraithlight-db-auth
+TARGET_CONTAINER=wraithlight-db-logs
 CONTAINER_NAME=wraithlight-db-phpmyadmin
 NETWORK_NAME=WL_Internal
 
