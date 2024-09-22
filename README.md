@@ -63,6 +63,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [How to check what uses the given port (MAC)](./docs/guides/how-to-check-used-port.md)
 * [How to kill a process by PID (MAC)](./docs/guides/how-to-kill-a-process.md)
 * [How to generate GUIDs](./docs/guides/guidgen.md)
+* [How to reset your branch to origin](./docs/guides/git-reset-to-origin.md)
 
 ### Utils
 * [`purge.sh`](./docs/utils/purge-sh.md)
