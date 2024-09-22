@@ -4,7 +4,7 @@ const { join } = require("path");
 module.exports = jestConfig(
   {
     preset: "ts-jest",
-    displayName: "Packages/Decorator/Core/Types",
+    displayName: "Packages/Domain/Application info/Constants",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],
@@ -15,5 +15,5 @@ module.exports = jestConfig(
       "dist"
     ]
   },
-  join(__dirname, "../../../..")
+  join(__dirname, "../../..")
 );

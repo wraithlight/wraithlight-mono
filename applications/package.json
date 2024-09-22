@@ -58,6 +58,7 @@
     "packages/api-token/*",
     "packages/request-id/*",
     "packages/latency/*",
+    "packages/domain/*",
     "poc/*"
   ],
   "engines" : { 
