@@ -1,7 +1,5 @@
-import types from "@wraithlight/core.guid";
-import logger from "@wraithlight/common.logger.sdk";
-
-const { LoggerService } = logger;
+import { newGuid } from "@wraithlight/core.guid";
+import { LoggerService } from "@wraithlight/common.logger.sdk";
 
 LoggerService.initialize({
     applicationName: "guidgen",
@@ -18,7 +16,7 @@ const numberOfGuids = Number(numberOfGuidsStr) || 1;
 Array.from({ length: numberOfGuids }).forEach(_ => generateAndPrintGuid())
 
 function generateAndPrintGuid() {
-    const guid = types.newGuid();
+    const guid = newGuid();
 
     const banner = "".padStart(guid.length + 4, "#");
     const line = ""
