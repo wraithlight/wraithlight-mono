@@ -33,14 +33,14 @@ Usage:
 
 ```js
 
-const config = require("@wraithlight/tools.eslint.base");
+const { eslintConfig } = require("@wraithlight/tools.eslint.base");
 
 // To use the config as is.
 module.exports = config;
 
 // To overwrite the config.
 module.exports = {
-    ...config,
+    ...eslintConfig,
     ignorePatterns: [
         "**/dist/**",
         "**/coverage/**",
