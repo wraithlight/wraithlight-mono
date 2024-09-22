@@ -1,11 +1,11 @@
-import { UserStatus } from "@wraithlight/core.user-management.types";
 import { LOWERCASE_ALPHABET, NUMBER_ALPHABET } from "@wraithlight/core.random-string";
+import { UserStatus } from "@wraithlight/core.user-management.types";
 
 export const DEFAULT_STATUS = UserStatus.EmailVerify;
 
 const ANONYMIZED_ALPHABET: ReadonlyArray<string> = [
-    ...LOWERCASE_ALPHABET.split(""),
-    ...NUMBER_ALPHABET.split("")
+  ...LOWERCASE_ALPHABET.split(""),
+  ...NUMBER_ALPHABET.split("")
 ];
 
 export const ANONYMIZED_EMAIL_ALPHABET = ANONYMIZED_ALPHABET;
