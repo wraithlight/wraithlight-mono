@@ -2,10 +2,10 @@
  * To copy package.json file to dist.
  */
 
-const copy = require("@wraithlight/tools.package-json-copy.base");
+const { packageJsonCopyFn } = require("@wraithlight/tools.package-json-copy.base");
 const { resolve } = require("path");
 
-copy(
+packageJsonCopyFn(
     resolve(__dirname, "package.json"),
     resolve(__dirname, "..", "dist", "node", "_package.json")
 );
