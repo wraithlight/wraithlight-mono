@@ -1,3 +1,3 @@
-const config = require("@wraithlight/tools.eslint.base");
+const { eslintConfig } = require("@wraithlight/tools.eslint.base");
 
 module.exports = config;
