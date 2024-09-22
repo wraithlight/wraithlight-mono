@@ -15,7 +15,7 @@ const ignoreTests = [
  "asset",
 ]
 
-module.exports = (project, dirname) => {
+const jestConfig = (project, dirname) => {
   if(!project.displayName) {
     throw "Project should contain `displayName`!";
   }
@@ -81,4 +81,8 @@ module.exports = (project, dirname) => {
       ...project.transform
     }
   }
+};
+
+module.exports = {
+  jestConfig
 };
