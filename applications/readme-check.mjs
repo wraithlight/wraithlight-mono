@@ -37,7 +37,7 @@ function checkPackageDocs(
         const packageInternalName = packageName.replace("@wraithlight/", "");
 
         if (readmeTitle !== `## ${packageInternalName}`) {
-            _wrongReadmes.push(packageInternalName);
+            _wrongReadmes.push(packageName);
         }
 
         return;
@@ -78,11 +78,15 @@ function getReadmeTitle(
 entries.forEach(m => checkPackageDocs(join(__dirname, m)))
 
 if (!throwError) {
-    if (_missingReadmes.length > 0) {
-        throw `The following packages are missing the readme file: ${_missingReadmes.join(", ")}`;
-    }
+  const errors = [];
+  if (_missingReadmes.length > 0) {
+    const packages = _missingReadmes.map(m => `\x1b[31m${m}\x1b[0m`).join(", ");
+    errors.push(`The following packages are missing the readme file: ${packages}`);
+  }
 
-    if (_wrongReadmes.length > 0) {
-        throw `The following packages are having wrong readme file: ${_wrongReadmes.join(", ")}`;
-    }
+  if (_wrongReadmes.length > 0) {
+    const packages = _wrongReadmes.map(m => `\x1b[31m${m}\x1b[0m`).join(", ");
+    errors.push(`The following packages are having wrong readme file: ${packages}`);
+  }
+  throw errors.join(EOL);
 }

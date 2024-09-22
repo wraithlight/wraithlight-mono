@@ -53,6 +53,9 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [Environment variables](./docs/env-vars.md)
 * [Colors > Game](./docs/colors/game.md)
 
+### Architecture
+* [Communication methodologies](./docs/architecture/communication.md)
+
 ### Guides
 * [How to use the test-reporter](./docs/guides/test-reports.md)
 * [How to check hidden files on Mac](./docs/guides/show-hidden-folders-on-mac.md)
@@ -60,6 +63,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [How to check what uses the given port (MAC)](./docs/guides/how-to-check-used-port.md)
 * [How to kill a process by PID (MAC)](./docs/guides/how-to-kill-a-process.md)
 * [How to generate GUIDs](./docs/guides/guidgen.md)
+* [How to reset your branch to origin](./docs/guides/git-reset-to-origin.md)
 
 ### Utils
 * [`purge.sh`](./docs/utils/purge-sh.md)
