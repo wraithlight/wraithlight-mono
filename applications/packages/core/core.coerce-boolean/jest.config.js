@@ -1,7 +1,7 @@
-const config = require("@wraithlight/tools.jest.base");
+const { jestConfig } = require("@wraithlight/tools.jest.base");
 const { join } = require("path");
 
-module.exports = config(
+module.exports = jestConfig(
   {
     preset: "ts-jest",
     displayName: "Packages/Core/Coerce Boolean",
