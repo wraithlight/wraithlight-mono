@@ -1,4 +1,4 @@
-import { wlDeepmerge } from "@wraithlight/core.deepmerge";
+import { wlDeepmerge } from "@wraithlight/framework.deepmerge";
 
 import { Predicate } from "../predicate/predicate.model";
 

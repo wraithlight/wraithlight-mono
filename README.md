@@ -1,4 +1,6 @@
-Dedicated to Kevin V. @ Gozo - i love you
+Dedicated to
+* Kevin V. @ Gozo - i love you
+* G @ wine events - love the thing in yourself that you loved in me
 
 ---
 
@@ -39,7 +41,8 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 | JSON Schema   | Knip  |
 | :-:           | :-:   |
 | [![Applications GHA - JSON Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Knip](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml) |
-
+| [![Application GHA - Yarn Lock Changes](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml) | [![Applications GHA - Deplist](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml) |
+| [![Applications GHA - Readme Check](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml) |
 ## Links
 
 ### Documentation
@@ -48,6 +51,10 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [Database Urls](./docs/urls/database.md)
 * [Port Mapping](./docs/urls/port-mapping.md)
 * [Environment variables](./docs/env-vars.md)
+* [Colors > Game](./docs/colors/game.md)
+
+### Architecture
+* [Communication methodologies](./docs/architecture/communication.md)
 
 ### Guides
 * [How to use the test-reporter](./docs/guides/test-reports.md)
@@ -55,6 +62,8 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [How to clean up your local docker cache](./docs/guides/docker-cleanup.md)
 * [How to check what uses the given port (MAC)](./docs/guides/how-to-check-used-port.md)
 * [How to kill a process by PID (MAC)](./docs/guides/how-to-kill-a-process.md)
+* [How to generate GUIDs](./docs/guides/guidgen.md)
+* [How to reset your branch to origin](./docs/guides/git-reset-to-origin.md)
 
 ### Utils
 * [`purge.sh`](./docs/utils/purge-sh.md)
@@ -132,6 +141,8 @@ test-report:open      - Utility script for test-reporting. Opens the default bro
 test-report           - Collects test-coverage, then opens the result in your browser.
 precommit             - Runs `yarn`, `lint`, `knip`, `build` and `test` on the repo.
 apply-patches         - Runs `node_modules` patches.
+deplist               - Checks for duplicate 3rd party dependencies. Optional flag: --silent
+readme-check        - Checks if the readmes are there and has proper title. Optional flag: --silent
 
 ```
 

@@ -10,6 +10,9 @@ export const SERVER_LOCAL_COMMON_CONFIG: Readonly<
     files: {
         frontend: {
             static: "../../dist/ui"
+        },
+        packageJson: {
+          path: "../package.json"
         }
     },
     logging: {

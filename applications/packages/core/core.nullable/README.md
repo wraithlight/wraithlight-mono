@@ -1,5 +1,13 @@
 ## core.nullable
 
+**Exports**:
+* `Nullable<T>`
+* `isNil()`
+* `isNan()`
+* `isNanOrNil()`
+* `isEmptyString()`
+* `isEmptyStringOrNil()`
+
 ### `Nullable<T>`
 Represents any nullable type that can be `T`, `null` or `undefined`.
 

@@ -14,11 +14,9 @@ export default defineConfig({
     ]
   },
   build: {
-    outDir: "../dist/ui",
-    commonjsOptions: {
-      include: [
-        /wraithlight/
-      ]
-    }
+    outDir: "../dist/ui"
+  },
+  resolve: {
+    preserveSymlinks: true
   }
 })

@@ -1,32 +1,27 @@
-import { IncomingMessage } from "http";
-
-import { BadRequestError, UnauthorizedError } from "@wraithlight/core.errors";
 import { isNil } from "@wraithlight/core.nullable";
 import {
     RT_AUTH_HEADER_NAME
 } from "@wraithlight/core.realtime.constants";
 
-import { RTNextFunction, SocketGuard } from "../../provider";
+import { SocketGuard } from "../../provider";
+import { RTAbstractGuard } from "../abstract";
 
 export const RTHeaderGuard = (
     tokens: ReadonlyArray<string>
-): SocketGuard => (request: IncomingMessage, next: RTNextFunction) => {
+): SocketGuard => RTAbstractGuard((request) => {
     const token = request.headers[RT_AUTH_HEADER_NAME.toLowerCase()];
 
     if (isNil(token)) {
-        next(new BadRequestError());
-        return;
+        return false;
     }
 
     if (Array.isArray(token)) {
-        next(new BadRequestError());
-        return;
+        return false;
     }
 
     if (!tokens.includes(token)) {
-        next(new UnauthorizedError());
-        return;
+        return false;
     }
 
-    next();
-};
+    return true;
+});

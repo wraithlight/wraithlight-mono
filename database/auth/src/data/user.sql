@@ -11,7 +11,7 @@ INSERT INTO `User` (
 ) VALUES (
     "7777ba27-da56-4ddd-ae97-f38a1e48effa",
     "root",
-    "root@wraithlight.io",
+    "root@wraithlight.ai",
     -- password: root
     -- hash: QwErT123Qw
     -- pwToHash: QwErT123QwrootwQ321TrEwQ

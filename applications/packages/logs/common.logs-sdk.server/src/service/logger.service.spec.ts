@@ -21,7 +21,8 @@ describe("ServerLoggerService", () => {
 
     const MOCK_APP_NAME = ApplicationName.Website;
     const MOCK_LOGGER_CONFIG: LoggerConfig = Object.freeze({
-        enabledLogSeverities: []
+        enabledLogSeverities: [],
+        applicationName: "mock-app"
     });
     const MOCK_LOGGER: ILogger = {
         debug: jest.fn(),

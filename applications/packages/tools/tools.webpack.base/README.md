@@ -12,7 +12,7 @@ Usage:
 
 ```js
 
-const config = require("@wraithlight/tools.webpack.base");
+const config = require("@wraithlight/tools.webpack.base").beConfig;
 
 module.exports = (env) => config(project, __dirname);
 

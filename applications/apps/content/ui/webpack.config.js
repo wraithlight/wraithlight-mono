@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { resolve } = require("path");
-const config = require("@wraithlight/tools.webpack.base");
+const config = require("@wraithlight/tools.webpack.base").feConfig;
 
 module.exports = (env) => {
   const isProduction = env.production;
@@ -9,7 +9,7 @@ module.exports = (env) => {
   return {
     ...config(env, __dirname),
     output: {
-      path: resolve(__dirname, "./dist/ui"),
+      path: resolve(__dirname, "../dist/ui"),
       filename,
       clean: true,
       libraryTarget: "commonjs2"

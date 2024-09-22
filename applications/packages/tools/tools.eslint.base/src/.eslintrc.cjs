@@ -82,10 +82,24 @@ module.exports = {
             "error",
             "document",
             "window",
-            "navigator"
+            "navigator",
+            {
+                name: "atob",
+                message: "Import `fromBase64String() from `core.base64` instead."
+            },
+            {
+                name: "btoa",
+                message: "Import `toBase64String() from `core.base64` instead."
+            },
+            {
+                name: "isNaN",
+                message: "Import `isNan()` or `isNanOrNil()` from `core.nullable` instead."
+            }
         ],
         "no-async-promise-executor": "error",
-        "function-call-argument-newline": "error",
+        "function-call-argument-newline": ["error", "consistent"],
+        "quotes": ["error", "double", { "allowTemplateLiterals": true }],
+        "indent": ["warn", 2],                      // TODO
         // Native off due to TS rules
         "no-magic-numbers": "off",
         "lines-between-class-members": "off",

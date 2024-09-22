@@ -1,0 +1,16 @@
+{
+    "name": "@wraithlight/tools.package-json-copy.base",
+    "module": "./dist/package-json-copy.js",
+    "exports": {
+        ".": {
+            "require": "./dist/package-json-copy.js",
+            "import": "./dist/package-json-copy.js"
+        }
+    },
+    "version": "1.0.0",
+    "license": "LGPL-3.0-only",
+    "scripts": {
+        "build": "rm -r -f dist && cp -r ./src dist",
+        "build:prod": "rm -r -f dist && cp -r ./src dist"
+    }
+}

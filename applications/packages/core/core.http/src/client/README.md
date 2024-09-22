@@ -6,7 +6,7 @@ Utility class to perform HTTP operations.
 
 import {
     HttpClient
-} from "@wraithfire/core.http";
+} from "@wraithlight/core.http";
 
 const url = "";
 const data: unknown = "";

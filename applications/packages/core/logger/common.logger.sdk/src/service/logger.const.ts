@@ -6,5 +6,6 @@ export const DEFAULT_CONFIG: LoggerConfig = Object.freeze({
         LogSeverity.INFO,
         LogSeverity.WARNING,
         LogSeverity.ERROR
-    ]
+    ],
+    applicationName: "NO_APPLICATION"
 });

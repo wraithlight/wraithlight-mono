@@ -4,7 +4,7 @@ files=$(git status --porcelain | cut -b4-)
 for file in $files; do
     echo $file
     git add $file
-    git commit -m "chore(*): ignore spec files during build
+    git commit -m "chore(*): use named import in jest config
 
-Ref: #537"
+Ref: #933"
 done

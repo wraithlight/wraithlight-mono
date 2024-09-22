@@ -1,0 +1,21 @@
+name: "Applications GHA - Deplist"
+run-name: "APPS DEPLIST"
+on: [push, workflow_dispatch]
+jobs:
+  deplist:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+        cache: "yarn"
+        cache-dependency-path: applications/yarn.lock
+    - name: Install packages
+      run: yarn
+      working-directory: ./applications
+    - name: Run deplist
+      run: yarn deplist
+      working-directory: ./applications

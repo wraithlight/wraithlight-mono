@@ -73,7 +73,7 @@ if (result.length > 0) {
     const data = result.map(m => ({
         path: m.path,
         errors: m.result.map(o => o.property + " " + o.message)
-    }))
+    }));
     const errors = data.filter(m => m.errors.length > 0);
     if (errors.length > 0) {
         console.warn(errors);

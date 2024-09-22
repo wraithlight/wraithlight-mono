@@ -7,7 +7,9 @@
         "lerna": "lerna",
         "serve": "nodemon -r tsconfig-paths/register ./src/main.ts",
         "build": "webpack",
+        "postbuild": "node cpj.js",
         "build:prod": "webpack --env production",
+        "postbuild:prod": "node cpj.js",
         "watch": "multiview [ lerna run serve --scope @wraithlight/auth.node ] [ lerna run watch --scope @wraithlight/auth.ui ]",
         "lint": "eslint .",
         "test": "jest",
@@ -30,9 +32,11 @@
         "@wraithlight/core.date": "*",
         "@wraithlight/common.password": "*",
         "@wraithlight/common.auth-sdk.server": "*",
-        "@wraithlight/core.content.types": "*"
+        "@wraithlight/core.content.types": "*",
+        "@wraithlight/common.package-info.sdk-server": "*"
     },
     "devDependencies": {
+        "@wraithlight/tools.package-json-copy.base": "*",
         "@types/jest": "29.5.1",
         "@types/node": "*",
         "@typescript-eslint/eslint-plugin": "5.59.2",

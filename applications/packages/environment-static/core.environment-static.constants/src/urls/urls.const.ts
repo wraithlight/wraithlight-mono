@@ -1,1 +1,1 @@
-export const BASE_URL = "wraithlight.io";
+export const BASE_URL = "wraithlight.ai";

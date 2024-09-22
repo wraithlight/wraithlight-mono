@@ -8,7 +8,7 @@ import {
     Guid,
     isGuid,
     newGuid
-} from "@wraithfire/core.guid";
+} from "@wraithlight/core.guid";
 
 let guid: Guid;
 guid = newGuid();

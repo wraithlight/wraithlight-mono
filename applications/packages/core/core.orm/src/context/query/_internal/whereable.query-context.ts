@@ -1,4 +1,4 @@
-import { Primitive } from "@wraithlight/core.primitive";
+import { Primitive } from "@wraithlight/framework.primitive";
 
 import {
     WhereableQueryContext as IWhereableQueryContext

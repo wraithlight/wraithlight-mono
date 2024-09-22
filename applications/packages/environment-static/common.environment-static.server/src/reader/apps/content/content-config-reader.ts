@@ -16,7 +16,7 @@ export class ServerContentConfigReader
     ):ServerContentConfigReader {
         if (!this._instance) {
             this._instance = new ServerConfigurationReader<ContentServer>(
-                 ApplicationName.Content,
+                ApplicationName.Content,
                 environment
             );
         }

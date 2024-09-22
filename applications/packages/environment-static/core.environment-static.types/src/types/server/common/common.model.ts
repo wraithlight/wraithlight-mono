@@ -8,6 +8,9 @@ export interface CommonServer {
     files: {
         frontend: {
             static: string
+        },
+        packageJson: {
+          path: string
         }
     },
     logging: {

@@ -1,23 +1,20 @@
-import { IncomingMessage } from "http";
 import { parse } from "url";
 
-import { BadRequestError, UnauthorizedError } from "@wraithlight/core.errors";
 import { isNil } from "@wraithlight/core.nullable";
 import {
     RT_AUTH_QUERYPARAM_NAME
 } from "@wraithlight/core.realtime.constants";
 
-import { RTNextFunction, SocketGuard } from "../../provider";
-
+import { SocketGuard } from "../../provider";
+import { RTAbstractGuard } from "../abstract";
 
 export const RTQueryGuard = (
     tokens: ReadonlyArray<string>
-): SocketGuard => (request: IncomingMessage, next: RTNextFunction) => {
+): SocketGuard => RTAbstractGuard((request) => {
     const url = request.url;
 
     if (isNil(url)) {
-        next(new BadRequestError());
-        return;
+        return false;
     }
 
     const parsedUrl = parse(
@@ -28,19 +25,16 @@ export const RTQueryGuard = (
     const token = params[RT_AUTH_QUERYPARAM_NAME];
 
     if (isNil(token)) {
-        next(new BadRequestError());
-        return;
+        return false;
     }
 
     if (Array.isArray(token)) {
-        next(new BadRequestError());
-        return;
+        return false;
     }
 
     if (!tokens.includes(token)) {
-        next(new UnauthorizedError());
-        return;
+        return false;
     }
 
-    next();
-};
+    return true;
+});

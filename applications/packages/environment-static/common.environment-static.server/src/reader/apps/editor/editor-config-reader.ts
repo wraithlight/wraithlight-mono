@@ -16,7 +16,7 @@ export class ServerEditorConfigReader
     ):ServerEditorConfigReader {
         if (!this._instance) {
             this._instance = new ServerConfigurationReader<EditorServer>(
-                 ApplicationName.Editor,
+                ApplicationName.Editor,
                 environment
             );
         }

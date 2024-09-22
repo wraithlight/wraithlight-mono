@@ -2,10 +2,16 @@ import { Guid } from "@wraithlight/core.guid";
 
 import { ApplicationName } from "./application-name.const";
 
+/**
+ * @deprecated Import it from `domain.application-info.constants`
+ */
 export type ApplicationIdMap = {
     [key in ApplicationName]: Guid;
 };
 
+/**
+ * @deprecated Import it from `domain.application-info.constants`
+ */
 export const ApplicationId: ApplicationIdMap = Object.freeze({
     [ApplicationName.Content]: "bb2dbe19-705d-4ddf-98a7-14c19a9c0c60",
     [ApplicationName.Editor]: "61723a11-1deb-43fe-92c8-834420051706",

@@ -4,6 +4,8 @@ import { Primitive } from "@wraithlight/core.primitive";
 import { Nullable } from "@wraithlight/core.nullable";
 import { RowDataPacket } from "mysql2";
 
+import { Primitive } from "@wraithlight/framework.primitive";
+
 import { DbContext } from "../dbcontext";
 
 import { QueryContext } from "./_internal";
