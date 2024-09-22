@@ -18,7 +18,7 @@ export class UserApplicationService {
   private readonly _context = UserManagementDbContextFactory
     .getInstance()
     .getDbContext()
-    ;
+  ;
 
   public async addContextToUser(
     userId: Guid,
@@ -38,7 +38,7 @@ export class UserApplicationService {
         createdByUserId: adminUserId
       })
       .run()
-      ;
+    ;
 
     if (isNil(result)) {
       return OperationResultFactory.error("E_ADD_CONTEXT_TO_USER");
@@ -57,7 +57,7 @@ export class UserApplicationService {
       .where("applicationId", applicationId)
       .where("userId", userId)
       .first()
-      ;
+    ;
 
     if (isNil(result)) {
       return OperationResultFactory.error("E_FIND_CONTEXT_TO_REMOVE");
@@ -68,7 +68,7 @@ export class UserApplicationService {
       .delete()
       .where("id", result.id)
       .run()
-      ;
+    ;
 
     return OperationResultFactory.success(undefined);
   }
@@ -110,7 +110,7 @@ export class UserApplicationService {
       .select()
       .where("id", id)
       .first()
-      ;
+    ;
 
     if (isNil(result)) {
       return OperationResultFactory.error("E_FIND_USER_APPLICATION_BY_ID");
