@@ -1,5 +1,5 @@
 /* eslint-env node */
-module.exports = {
+const eslintConfig = {
     extends: [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
@@ -211,4 +211,8 @@ module.exports = {
             }
         ]
     }
+};
+
+module.exports = {
+  eslintConfig
 };
