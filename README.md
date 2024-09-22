@@ -53,6 +53,9 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [Environment variables](./docs/env-vars.md)
 * [Colors > Game](./docs/colors/game.md)
 
+### Architecture
+* [Communication methodologies](./docs/architecture/communication.md)
+
 ### Guides
 * [How to use the test-reporter](./docs/guides/test-reports.md)
 * [How to check hidden files on Mac](./docs/guides/show-hidden-folders-on-mac.md)
