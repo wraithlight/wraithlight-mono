@@ -4,7 +4,7 @@ const {
   writeFileSync
 } = require("fs");
 
-module.exports = (srcLocation, dstLocation) => {
+const packageJsonCopyFn = (srcLocation, dstLocation) => {
   console.log(`Copy from '${srcLocation}' to '${dstLocation}'`);
   copyFileSync(srcLocation, dstLocation);
   const content = readFileSync(dstLocation).toString();
@@ -15,3 +15,7 @@ module.exports = (srcLocation, dstLocation) => {
   const newContent = JSON.stringify(data, undefined, 2);
   writeFileSync(dstLocation, newContent);
 }
+
+module.exports = {
+  packageJsonCopyFn
+};
