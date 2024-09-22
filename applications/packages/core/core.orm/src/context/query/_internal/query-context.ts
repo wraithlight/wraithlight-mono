@@ -44,6 +44,7 @@ export abstract class QueryContext<T extends object> {
         case "number": return value.toString();
         case "boolean": return value.toString();
         default: return `"${value}"`;
+      }
     }
 
     protected getColumnValuePairs(data: T): string {
