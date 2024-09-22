@@ -18,7 +18,7 @@ export class ServerUserManagementConfigReader
             this._instance = new ServerConfigurationReader<
                 UserManagementServer
             >(
-                 ApplicationName.UserManagement,
+                ApplicationName.UserManagement,
                 environment
             );
         }

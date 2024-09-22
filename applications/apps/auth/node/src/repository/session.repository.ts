@@ -29,6 +29,7 @@ export class SessionRepository {
         return this._dbContext.Session
             .insert(dbo)
             .run()
+            .then(m => undefined)
         ;
     }
 
@@ -54,6 +55,7 @@ export class SessionRepository {
                 { validUntil: validUntil, token: newToken }
             )
             .run()
+            .then(m => undefined)
         ;
     }
 
