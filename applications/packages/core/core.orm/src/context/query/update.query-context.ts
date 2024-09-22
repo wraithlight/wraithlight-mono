@@ -12,7 +12,8 @@ import {
 
 export class UpdateQueryContext<T, TKey extends keyof T>
     extends QueryContext<Partial<T>>
-    implements IUpdateQueryContext {
+    implements IUpdateQueryContext
+{
     constructor(
         key: TKey,
         value: T[TKey],
@@ -51,11 +52,11 @@ export class UpdateQueryContext<T, TKey extends keyof T>
                             "ERROR:",
                             error
                         )
-                            ;
-                        reject();
+                      ;
+                      reject();
                     }
-                    resolve();
-                });
+                  resolve();
+              });
         });
     }
 

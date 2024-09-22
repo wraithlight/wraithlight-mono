@@ -19,9 +19,9 @@ export class InsertQueryContext<T extends object>
         super(tableName);
 
         const query = [
-          `INSERT INTO ?`,
-          `?`,
-          `VALUES ?`
+            `INSERT INTO ?`,
+            `?`,
+            `VALUES ?`
         ].join(EOL);
         this.addQuery(
             query,
@@ -44,11 +44,12 @@ export class InsertQueryContext<T extends object>
                             `"${JSON.stringify(command)}"`,
                             "ERROR:",
                             err
-                        );
-                        reject(err);
-                    }
-                    resolve();
-                });
+                        )
+                      ;
+                      reject(err);
+                  }
+                resolve();
+            });
         });
     }
 
