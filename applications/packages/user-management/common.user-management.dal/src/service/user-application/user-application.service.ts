@@ -51,26 +51,7 @@ export class UserApplicationService {
     userId: Guid,
     applicationId: Guid
   ): Promise<OperationResult<void>> {
-    const result = await this._context
-      .UsersApplications
-      .select()
-      .where("applicationId", applicationId)
-      .where("userId", userId)
-      .first()
-    ;
-
-    if (isNil(result)) {
-      return OperationResultFactory.error("E_FIND_CONTEXT_TO_REMOVE");
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const _deleteResult = await this._context.UsersApplications
-      .delete()
-      .where("id", result.id)
-      .run()
-    ;
-
-    return OperationResultFactory.success(undefined);
+    return this.removeContextFromUserInternal(userId, applicationId);
   }
 
   public async removeAllContextFromUser(
@@ -81,10 +62,9 @@ export class UserApplicationService {
   }
 
   public async findAllContextForUser(
-    _userId: Guid
-  ): Promise<OperationResult<ApplicationDbo>> {
-    // TODO: Implement
-    return OperationResultFactory.error("NOT_IMPLEMENTED");
+    userId: Guid
+  ): Promise<OperationResult<ReadonlyArray<ApplicationDbo>>> {
+    return this.findAllContextForUserInternal(userId);
   }
 
   public async findAllUserForContext(
@@ -129,6 +109,39 @@ export class UserApplicationService {
     }
 
     return OperationResultFactory.success(result);
+  }
+
+  private async findAllContextForUserInternal(
+    _userId: Guid
+  ): Promise<OperationResult<ReadonlyArray<ApplicationDbo>>> {
+    // TODO: Implement
+    return OperationResultFactory.error("NOT_IMPLEMENTED");
+  }
+
+  private async removeContextFromUserInternal(
+    userId: Guid,
+    applicationId: Guid
+  ): Promise<OperationResult<void>> {
+    const result = await this._context
+      .UsersApplications
+      .select()
+      .where("applicationId", applicationId)
+      .where("userId", userId)
+      .first()
+    ;
+
+    if (isNil(result)) {
+      return OperationResultFactory.error("E_FIND_CONTEXT_TO_REMOVE");
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const _deleteResult = await this._context.UsersApplications
+      .delete()
+      .where("id", result.id)
+      .run()
+    ;
+
+    return OperationResultFactory.success(undefined);
   }
 
 }
