@@ -95,11 +95,23 @@ export class UserApplicationService {
   }
 
   public async hasUserContext(
-    _userId: Guid,
-    _applicationId: Guid
+    userId: Guid,
+    applicationId: Guid
   ): Promise<OperationResult<boolean>> {
-    // TODO: Implement
-    return OperationResultFactory.error("NOT_IMPLEMENTED");
+    try {
+      const context = await this._context.UsersApplications
+        .select()
+        .where("applicationId", applicationId)
+        .where("userId", userId)
+        .first()
+      ;
+      if (isNil(context)) {
+        return OperationResultFactory.success(false);
+      }
+      return OperationResultFactory.success(true);
+    } catch {
+      return OperationResultFactory.error("E_HAS_USER_CONTEXT");
+    }
   }
 
   private async findContextByIdInternal(
