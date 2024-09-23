@@ -45,7 +45,7 @@ export class UserService {
         createdAtUtc: now,
         createdByUserId: creatorId,
         isDeleted: false,
-      }
+      };
 
       try {
         await this._context.Users
