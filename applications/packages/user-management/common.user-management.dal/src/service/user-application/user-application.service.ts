@@ -63,7 +63,7 @@ export class UserApplicationService {
 
   public async findAllContextForUser(
     userId: Guid
-  ): Promise<OperationResult<ReadonlyArray<ApplicationDbo>>> {
+  ): Promise<OperationResult<ReadonlyArray<UserApplicationDbo>>> {
     return this.findAllContextForUserInternal(userId);
   }
 
@@ -112,10 +112,18 @@ export class UserApplicationService {
   }
 
   private async findAllContextForUserInternal(
-    _userId: Guid
-  ): Promise<OperationResult<ReadonlyArray<ApplicationDbo>>> {
-    // TODO: Implement
-    return OperationResultFactory.error("NOT_IMPLEMENTED");
+    userId: Guid
+  ): Promise<OperationResult<ReadonlyArray<UserApplicationDbo>>> {
+    try {
+      const result = await this._context.UsersApplications
+        .select()
+        .where("userId", userId)
+        .toList()
+      ;
+      return OperationResultFactory.success(result);
+    } catch {
+      return OperationResultFactory.error("E_LIST_USER_CONTEXTS");
+    }
   }
 
   private async removeContextFromUserInternal(
