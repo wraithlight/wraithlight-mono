@@ -1,5 +1,5 @@
 import { utcNow } from "@wraithlight/core.date";
-import { Guid } from "@wraithlight/core.guid";
+import { Guid, newGuid } from "@wraithlight/core.guid";
 import { Nullable, isNil } from "@wraithlight/core.nullable";
 import { generateRandomString } from "@wraithlight/core.random-string";
 import { UserStatus } from "@wraithlight/core.user-management.types";
@@ -16,7 +16,8 @@ import {
     ANONYMIZED_PASSWORD_ALPHABET,
     ANONYMIZED_PASSWORD_LENGTH,
     ANONYMIZED_USERNAME_ALPHABET,
-    ANONYMIZED_USERNAME_LENGTH
+    ANONYMIZED_USERNAME_LENGTH,
+    DEFAULT_STATUS
 } from "./user.const";
 
 export class UserService {
@@ -25,6 +26,42 @@ export class UserService {
         .getInstance()
         .getDbContext()
     ;
+
+    public async create(
+      email: string,
+      usename: string,
+      passwordHash: string,
+      creatorId: Guid
+    ): Promise<OperationResult<UserDbo>> {
+      const userId = newGuid();
+      const now = utcNow();
+      const dbo: UserDbo = {
+        id: userId,
+        emailAddress: email,
+        username: usename,
+        userStatus: DEFAULT_STATUS,
+        passwordHash: passwordHash,
+        failedLoginAttempts: 0,
+        createdAtUtc: now,
+        createdByUserId: creatorId,
+        isDeleted: false,
+      }
+
+      try {
+        await this._context.Users
+        .insert(dbo)
+        .run()
+      ;
+      } catch {
+        return OperationResultFactory.error("E_CREATE_USER");
+      }
+
+      const userResult = await this.findUserByIdInternal(userId);
+      if (isNil(userResult)) {
+          return OperationResultFactory.error("E_USER_NOT_FOUND");
+      }
+      return OperationResultFactory.success(userResult);
+    }
 
     public async findUserById(
         id: Guid
