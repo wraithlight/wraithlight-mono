@@ -7,9 +7,7 @@ import {
 } from "@wraithlight/framework.operation-result";
 
 import {
-  ApplicationDbo,
   UserApplicationDbo,
-  UserDbo,
   UserManagementDbContextFactory
 } from "../../db-context";
 
