@@ -55,10 +55,16 @@ export class UserApplicationService {
   }
 
   public async removeAllContextFromUser(
-    _userId: Guid
+    userId: Guid
   ): Promise<OperationResult<void>> {
-    // TODO: Implement
-    return OperationResultFactory.error("NOT_IMPLEMENTED");
+    const contexts = await this.findAllContextForUserInternal(userId);
+    if (!contexts.isSuccess) {
+      return OperationResultFactory.error("E_REMOVE_ALL_CONTEXTS_LISTING");
+    }
+    for (const context of contexts.payload) {
+      await this.removeContextFromUserInternal(userId, context.applicationId);
+    }
+    return OperationResultFactory.success(undefined);
   }
 
   public async findAllContextForUser(
