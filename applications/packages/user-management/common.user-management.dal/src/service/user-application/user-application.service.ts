@@ -74,10 +74,19 @@ export class UserApplicationService {
   }
 
   public async findAllUserForContext(
-    _applicationId: Guid
-  ): Promise<OperationResult<Array<UserDbo>>> {
-    // TODO: Implement
-    return OperationResultFactory.error("NOT_IMPLEMENTED");
+    applicationId: Guid
+  ): Promise<OperationResult<ReadonlyArray<Guid>>> {
+    try {
+      const userApplications = await this._context.UsersApplications
+        .select()
+        .where("applicationId", applicationId)
+        .toList()
+      ;
+      const userIds = userApplications.map(m => m.userId);
+      return OperationResultFactory.success(userIds);
+    } catch {
+      return OperationResultFactory.error("E_LIST_USERS_FOR_CONTEXT");
+    }
   }
 
   public async hasUserContext(
