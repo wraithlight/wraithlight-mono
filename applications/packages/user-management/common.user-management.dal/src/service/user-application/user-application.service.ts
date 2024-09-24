@@ -18,6 +18,14 @@ export class UserApplicationService {
     .getDbContext()
   ;
 
+  // TODO: Return ReadonlyArray<Application> once https://github.com/wraithlight/wraithlight-mono/issues/766 is done.
+  public async listAll(): Promise<ReadonlyArray<UserApplicationDbo>> {
+    return this._context.UsersApplications
+      .select()
+      .toList()
+    ;
+  }
+
   public async addContextToUser(
     userId: Guid,
     applicationId: Guid,
@@ -65,12 +73,14 @@ export class UserApplicationService {
     return OperationResultFactory.success(undefined);
   }
 
+  // TODO: Return ReadonlyArray<Application> once https://github.com/wraithlight/wraithlight-mono/issues/766 is done.
   public async findAllContextForUser(
     userId: Guid
   ): Promise<OperationResult<ReadonlyArray<UserApplicationDbo>>> {
     return this.findAllContextForUserInternal(userId);
   }
 
+  // TODO: Return ReadonlyArray<User> once https://github.com/wraithlight/wraithlight-mono/issues/766 is done.
   public async findAllUserForContext(
     applicationId: Guid
   ): Promise<OperationResult<ReadonlyArray<Guid>>> {
@@ -124,6 +134,7 @@ export class UserApplicationService {
     return OperationResultFactory.success(result);
   }
 
+  // TODO: Return ReadonlyArray<Application> once https://github.com/wraithlight/wraithlight-mono/issues/766 is done.
   private async findAllContextForUserInternal(
     userId: Guid
   ): Promise<OperationResult<ReadonlyArray<UserApplicationDbo>>> {
