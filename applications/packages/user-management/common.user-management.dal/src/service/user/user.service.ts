@@ -87,6 +87,15 @@ export class UserService {
         return OperationResultFactory.success(users);
     }
 
+  // TODO: Return ReadonlyArray<UserWithContextsDbo> once https://github.com/wraithlight/wraithlight-mono/issues/766 is done.
+  // https://github.com/wraithlight/wraithlight-mono/pull/764#discussion_r1773815886
+  public async listAllWithContexts(): Promise<ReadonlyArray<UserDbo>> {
+    return this._context.Users
+      .select()
+      .toList()
+    ;
+  }
+
     public async findUserByEmail(
         email: string
     ): Promise<OperationResult<UserDbo>> {

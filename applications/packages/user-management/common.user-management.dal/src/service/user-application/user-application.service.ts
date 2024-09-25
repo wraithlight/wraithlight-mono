@@ -18,14 +18,6 @@ export class UserApplicationService {
     .getDbContext()
   ;
 
-  // TODO: Return ReadonlyArray<Application> once https://github.com/wraithlight/wraithlight-mono/issues/766 is done.
-  public async listAll(): Promise<ReadonlyArray<UserApplicationDbo>> {
-    return this._context.UsersApplications
-      .select()
-      .toList()
-    ;
-  }
-
   public async addContextToUser(
     userId: Guid,
     applicationId: Guid,
