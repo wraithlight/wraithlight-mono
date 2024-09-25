@@ -48,15 +48,15 @@ export class UpdateQueryContext<T, TKey extends keyof T>
                         this._logger.error(
                             "UpdateQueryContext",
                             "Error while executing:",
-                            `"${command}"`,
+                            `"${JSON.stringify(command)}"`,
                             "ERROR:",
                             error
                         )
-                    ;
-                    reject();
-                }
-                resolve();
-            });
+                      ;
+                      reject();
+                    }
+                  resolve();
+              });
         });
     }
 

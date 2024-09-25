@@ -70,6 +70,7 @@ const jestConfig = (project, dirname) => {
             `${dirname}/packages/game-website/$1/src`,
             `${dirname}/packages/content/$1/src`,
             `${dirname}/packages/api-token/$1/src`,
+            `${dirname}/packages/user-management/$1/src`,
             `${dirname}/packages/request-id/$1/src`,
             `${dirname}/packages/latency/$1/src`,
             `${dirname}/packages/domain/$1/src`,

@@ -1,4 +1,4 @@
 export interface QueryConcatResult {
     sql: string;
-    value: Array<string>;
+    values: Array<string>;
 }

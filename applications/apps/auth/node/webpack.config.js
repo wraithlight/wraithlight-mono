@@ -1,8 +1,6 @@
 const config = require("@wraithlight/tools.webpack.base").beConfig;
 const { resolve } = require("path");
 
-console.log(config);
-
 module.exports = (env) => {
   const filename = "index.js";
   return {

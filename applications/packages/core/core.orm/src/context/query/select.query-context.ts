@@ -66,9 +66,9 @@ export class SelectQueryContext<T extends object>
                 (error, rows) => {
                     if (error) {
                         this._logger.error(
-                            "UpdateQueryContext",
+                            "SelectQueryContext",
                             "Error while executing:",
-                            `"${command}"`,
+                            `"${JSON.stringify(command)}"`,
                             "ERROR:",
                             error
                         )

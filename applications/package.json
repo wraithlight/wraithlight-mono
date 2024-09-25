@@ -56,6 +56,7 @@
     "packages/content/*",
     "packages/tools/*",
     "packages/api-token/*",
+    "packages/user-management/*",
     "packages/request-id/*",
     "packages/latency/*",
     "packages/domain/*",

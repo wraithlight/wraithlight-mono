@@ -17,6 +17,7 @@ export class InsertQueryContext<T extends object>
         private readonly _context: DbContext
     ) {
         super(tableName);
+
         const query = [
             `INSERT INTO ?`,
             `?`,
@@ -40,13 +41,13 @@ export class InsertQueryContext<T extends object>
                         this._logger.error(
                             "InsertQueryContext",
                             "Error while executing:",
-                            `"${command}"`,
+                            `"${JSON.stringify(command)}"`,
                             "ERROR:",
                             err
                         )
-                    ;
-                    reject(err);
-                }
+                      ;
+                      reject(err);
+                  }
                 resolve();
             });
         });

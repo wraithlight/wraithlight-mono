@@ -10,7 +10,7 @@ export class UserRepository {
     public async add(
         dbo: UserDbo
     ): Promise<void> {
-        this._dbContext.Users
+        return this._dbContext.Users
             .insert(dbo)
             .run()
         ;
@@ -20,12 +20,12 @@ export class UserRepository {
         userId: string,
         model: Partial<UserDbo>
     ): Promise<void> {
-        this._dbContext.Users
+        return this._dbContext.Users
             .update(
                 "id",
-                userId
-            ,
-model)
+                userId,
+                model
+        )
             .run()
         ;
     }
