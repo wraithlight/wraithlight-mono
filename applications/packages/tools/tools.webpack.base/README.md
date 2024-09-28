@@ -14,6 +14,6 @@ Usage:
 
 const config = require("@wraithlight/tools.webpack.base").beConfig;
 
-module.exports = (env) => config(project, __dirname);
+module.exports = (env) => config(project, __dirname, "tsconfig.build.json");
 
 ```
