@@ -8,6 +8,10 @@ This library is the Data Access Layer for User Management (previously auth) micr
 * `SessionService`
 * `UserService`
 * `UserApplicationService`
+* `APPLICATION_ERROR_CODES`
+* `SESSION_ERROR_CODES`
+* `USER_ERROR_CODES`
+* `USER_APPLICATION_ERROR_CODES`
 
 **Usage:**
 
