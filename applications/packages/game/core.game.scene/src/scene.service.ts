@@ -1,13 +1,15 @@
-import { Color } from "@wraithlight/core.game.constants";
+import { Color } from "@wraithlight/core.game.types";
 import { LayerService } from "@wraithlight/core.game.layer";
 
 export class SceneService {
 
-    private readonly _layerService = new LayerService(this._canvas);
+    private readonly _layerService: LayerService;
 
     constructor(
         private readonly _canvas: HTMLCanvasElement
-    ) { }
+    ) {
+      this._layerService = new LayerService(_canvas);
+    }
 
     public renderLoginScene(): void {
         this._layerService.reset();
