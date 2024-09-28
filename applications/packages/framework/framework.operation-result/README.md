@@ -3,7 +3,6 @@
 **Exports**:
 * `AsyncOperationResult`
 * `OperationResult`
-* `OperationResultBase`
 * `isSuccessResult`
 * `isErrorResult`
 * `OperationResultFactory`
