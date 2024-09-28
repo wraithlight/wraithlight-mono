@@ -1,3 +1,8 @@
+/**
+ * @internal
+ * @deprecated - Do not use!
+ * TODO: Do not export this.
+ */
 export interface OperationResultBase {
     isSuccess: boolean
 }
@@ -16,3 +21,5 @@ export interface OperationResultError extends OperationResultBase {
 export type OperationResult<T> =
     OperationResultSuccess<T>
     | OperationResultError;
+
+export type AsyncOperationResult<T> = Promise<OperationResult<T>>;
