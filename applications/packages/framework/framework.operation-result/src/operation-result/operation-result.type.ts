@@ -1,25 +1,23 @@
-/**
- * @internal
- * @deprecated - Do not use!
- * TODO: Do not export this.
- */
 export interface OperationResultBase {
-    isSuccess: boolean
+  isSuccess: boolean;
+  isError: boolean;
 }
 
 export interface OperationResultSuccess<T = undefined>
-    extends OperationResultBase {
+  extends OperationResultBase {
     isSuccess: true;
+    isError: false;
     payload: T;
 }
 
 export interface OperationResultError extends OperationResultBase {
-    isSuccess: false;
-    errors: ReadonlyArray<string>
+  isSuccess: false;
+  isError: true;
+  errors: ReadonlyArray<string>
 }
 
 export type OperationResult<T> =
-    OperationResultSuccess<T>
-    | OperationResultError;
+  OperationResultSuccess<T>
+  | OperationResultError;
 
 export type AsyncOperationResult<T> = Promise<OperationResult<T>>;
