@@ -49,12 +49,12 @@ jest.mock("path", () => {
     }
 })
 
-import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { EnvironmentType } from "@wraithlight/core.env.types";
 import { createNodeServer } from "@wraithlight/core.server";
 
+import "./server";
+
 describe("ServerSpecs", () => {
-    import("./server");
     describe("given the server has been started", () => {
         it("should reated the port", () => {
             expect(sharedGameWebsiteConfigReaderGetSpy).toHaveBeenCalled();
