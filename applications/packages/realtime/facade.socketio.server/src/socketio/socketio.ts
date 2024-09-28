@@ -15,8 +15,8 @@ export class SocketIOFacade {
   private readonly _server: Server;
 
   constructor(
-    readonly app: HTTPServer,
-    readonly path: string,
+    app: HTTPServer,
+    path: string,
     private readonly _connectCallback: OnConnectCallback,
     private readonly _disconnectCallback: OnDisconnectCallback,
     private readonly _onMessageCallback: OnEventCallback,
