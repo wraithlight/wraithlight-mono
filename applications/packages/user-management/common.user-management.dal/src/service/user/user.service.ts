@@ -17,7 +17,8 @@ import {
     ANONYMIZED_PASSWORD_LENGTH,
     ANONYMIZED_USERNAME_ALPHABET,
     ANONYMIZED_USERNAME_LENGTH,
-    DEFAULT_STATUS
+    DEFAULT_STATUS,
+    ERROR_CODES
 } from "./user.const";
 
 export class UserService {
@@ -53,12 +54,12 @@ export class UserService {
         .run()
       ;
       } catch {
-        return OperationResultFactory.error("E_CREATE_USER");
+        return OperationResultFactory.error(ERROR_CODES.CREATE);
       }
 
       const userResult = await this.findUserByIdInternal(userId);
       if (isNil(userResult)) {
-          return OperationResultFactory.error("E_USER_NOT_FOUND");
+          return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
       }
       return OperationResultFactory.success(userResult);
     }
@@ -68,7 +69,7 @@ export class UserService {
     ): Promise<OperationResult<UserDbo>> {
         const user = await this.findUserByIdInternal(id);
         if (isNil(user)) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(user);
     }
@@ -81,7 +82,7 @@ export class UserService {
         ;
 
         if (isNil(users)) {
-            return OperationResultFactory.error("E_USER_LIST");
+            return OperationResultFactory.error(ERROR_CODES.LIST);
         }
 
         return OperationResultFactory.success(users);
@@ -105,7 +106,7 @@ export class UserService {
             .first()
         ;
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(user);
     }
@@ -119,7 +120,7 @@ export class UserService {
             .first()
         ;
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(user);
     }
@@ -130,7 +131,7 @@ export class UserService {
     ): Promise<OperationResult<UserDbo>> {
         const user = await this.findUserByIdInternal(id);
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         const now = utcNow();
         await this._context.Users
@@ -149,7 +150,7 @@ export class UserService {
 
         const userResult = await this.findUserByIdInternal(id);
         if (isNil(userResult)) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(userResult);
     }
@@ -159,7 +160,7 @@ export class UserService {
     ): Promise<OperationResult<UserDbo>> {
         const user = await this.findUserByIdInternal(id);
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         const now = utcNow();
         await this._context.Users
@@ -177,7 +178,7 @@ export class UserService {
 
         const userResult = await this.findUserByIdInternal(id);
         if (isNil(userResult)) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(userResult);
     }
@@ -187,7 +188,7 @@ export class UserService {
     ): Promise<OperationResult<UserDbo>> {
         const user = await this.findUserByIdInternal(id);
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         const now = utcNow();
         await this._context.Users
@@ -205,7 +206,7 @@ export class UserService {
 
         const userResult = await this.findUserByIdInternal(id);
         if (isNil(userResult)) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(userResult);
     }
@@ -215,7 +216,7 @@ export class UserService {
     ): Promise<OperationResult<UserDbo>> {
         const user = await this.findUserByIdInternal(id);
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         const now = utcNow();
         await this._context.Users
@@ -233,7 +234,7 @@ export class UserService {
 
         const userResult = await this.findUserByIdInternal(id);
         if (isNil(userResult)) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(userResult);
     }
@@ -243,7 +244,7 @@ export class UserService {
     ): Promise<OperationResult<UserDbo>> {
         const user = await this.findUserByIdInternal(id);
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         const now = utcNow();
         await this._context.Users
@@ -261,7 +262,7 @@ export class UserService {
 
         const userResult = await this.findUserByIdInternal(id);
         if (isNil(userResult)) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(userResult);
     }
@@ -271,7 +272,7 @@ export class UserService {
     ): Promise<OperationResult<UserDbo>> {
         const user = await this.findUserByIdInternal(id);
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         const now = utcNow();
         await this._context.Users
@@ -289,7 +290,7 @@ export class UserService {
 
         const userResult = await this.findUserByIdInternal(id);
         if (isNil(userResult)) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(userResult);
     }
@@ -299,7 +300,7 @@ export class UserService {
     ): Promise<OperationResult<UserDbo>> {
         const user = await this.findUserByIdInternal(id);
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         const now = utcNow();
         await this._context.Users
@@ -317,7 +318,7 @@ export class UserService {
 
         const userResult = await this.findUserByIdInternal(id);
         if (isNil(userResult)) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(userResult);
     }
@@ -327,7 +328,7 @@ export class UserService {
     ): Promise<OperationResult<UserDbo>> {
         const user = await this.findUserByIdInternal(id);
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         const now = utcNow();
 
@@ -361,7 +362,7 @@ export class UserService {
 
         const userResult = await this.findUserByIdInternal(id);
         if (isNil(userResult)) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(userResult);
     }
@@ -371,7 +372,7 @@ export class UserService {
     ): Promise<OperationResult<UserDbo>> {
         const user = await this.findUserByIdInternal(id);
         if (isNil(user) || user.userStatus === UserStatus.Deleted) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         const now = utcNow();
         await this._context.Users
@@ -390,7 +391,7 @@ export class UserService {
 
         const userResult = await this.findUserByIdInternal(id);
         if (isNil(userResult)) {
-            return OperationResultFactory.error("E_USER_NOT_FOUND");
+            return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(userResult);
     }
