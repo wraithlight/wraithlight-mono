@@ -1,0 +1,3 @@
+export const ERROR_CODES = {
+  LIST: "E_LIST_ALL_APPLICATIONS"
+};
