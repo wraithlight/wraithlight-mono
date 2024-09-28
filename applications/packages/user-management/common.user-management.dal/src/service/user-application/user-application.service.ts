@@ -11,6 +11,8 @@ import {
   UserManagementDbContextFactory
 } from "../../db-context";
 
+import { ERROR_CODES } from "./user-application.const";
+
 export class UserApplicationService {
 
   private readonly _context = UserManagementDbContextFactory
@@ -39,7 +41,7 @@ export class UserApplicationService {
     ;
 
     if (isNil(result)) {
-      return OperationResultFactory.error("E_ADD_CONTEXT_TO_USER");
+      return OperationResultFactory.error(ERROR_CODES.ADD_CONTEXT_TO_USER);
     }
 
     return this.findContextByIdInternal(id);
@@ -57,7 +59,7 @@ export class UserApplicationService {
   ): Promise<OperationResult<void>> {
     const contexts = await this.findAllContextForUserInternal(userId);
     if (!contexts.isSuccess) {
-      return OperationResultFactory.error("E_REMOVE_ALL_CONTEXTS_LISTING");
+      return OperationResultFactory.error(ERROR_CODES.REMOVE_ALL_CONTEXTS_LISTING);
     }
     for (const context of contexts.payload) {
       await this.removeContextFromUserInternal(userId, context.applicationId);
@@ -85,7 +87,7 @@ export class UserApplicationService {
       const userIds = userApplications.map(m => m.userId);
       return OperationResultFactory.success(userIds);
     } catch {
-      return OperationResultFactory.error("E_LIST_USERS_FOR_CONTEXT");
+      return OperationResultFactory.error(ERROR_CODES.LIST_USERS_FOR_CONTEXT);
     }
   }
 
@@ -105,7 +107,7 @@ export class UserApplicationService {
       }
       return OperationResultFactory.success(true);
     } catch {
-      return OperationResultFactory.error("E_HAS_USER_CONTEXT");
+      return OperationResultFactory.error(ERROR_CODES.HAS_USER_CONTEXT);
     }
   }
 
@@ -120,7 +122,7 @@ export class UserApplicationService {
     ;
 
     if (isNil(result)) {
-      return OperationResultFactory.error("E_FIND_USER_APPLICATION_BY_ID");
+      return OperationResultFactory.error(ERROR_CODES.FIND_USER_APPLICATION_BY_ID);
     }
 
     return OperationResultFactory.success(result);
@@ -138,7 +140,7 @@ export class UserApplicationService {
       ;
       return OperationResultFactory.success(result);
     } catch {
-      return OperationResultFactory.error("E_LIST_USER_CONTEXTS");
+      return OperationResultFactory.error(ERROR_CODES.LIST_USER_CONTEXTS);
     }
   }
 
@@ -155,7 +157,7 @@ export class UserApplicationService {
     ;
 
     if (isNil(result)) {
-      return OperationResultFactory.error("E_FIND_CONTEXT_TO_REMOVE");
+      return OperationResultFactory.error(ERROR_CODES.FIND_CONTEXT_TO_REMOVE);
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
