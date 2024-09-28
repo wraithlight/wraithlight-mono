@@ -18,7 +18,7 @@ jest.mock("socket.io", () => {
 
 import { Server } from "http";
 import { SocketIOFacade} from "./socketio";
-import { EVT_CONNECTION, EVT_DISCONNECT } from "./socketio.const";
+import { EVT_CONNECTION } from "./socketio.const";
 
 describe("SocketIOFacadeSpecs", () => {
 
