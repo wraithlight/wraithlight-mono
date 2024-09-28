@@ -4,7 +4,12 @@ import {
   OperationResultFactory
 } from "@wraithlight/framework.operation-result";
 
-import { ApplicationDbo, UserManagementDbContextFactory } from "../../db-context";
+import {
+  ApplicationDbo,
+  UserManagementDbContextFactory
+} from "../../db-context";
+
+import { ERROR_CODES } from "./application.const";
 
 export class ApplicationService {
 
@@ -21,7 +26,7 @@ export class ApplicationService {
       ;
 
     if (isNil(result)) {
-      return OperationResultFactory.error("E_LIST_ALL_APPLICATIONS");
+      return OperationResultFactory.error(ERROR_CODES.LIST);
     }
 
     return OperationResultFactory.success(result);
