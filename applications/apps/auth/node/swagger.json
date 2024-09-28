@@ -1,0 +1,861 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger Petstore - OpenAPI 3.0",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://petstore3.swagger.io/api/v3",
+      "description": "dev"
+    },
+    {
+      "url": "https://petstore3.swagger.io/api/v3",
+      "description": "local"
+    },
+    {
+      "url": "https://petstore3.swagger.io/api/v3",
+      "description": "test"
+    },
+    {
+      "url": "https://petstore3.swagger.io/api/v3",
+      "description": "staging"
+    },
+    {
+      "url": "https://petstore3.swagger.io/api/v3",
+      "description": "prod"
+    }
+  ],
+  "tags": [
+    {
+      "name": "internal/session"
+    },
+    {
+      "name": "internal/user"
+    },
+    {
+      "name": "internal/context"
+    },
+    {
+      "name": "external/session"
+    },
+    {
+      "name": "external/user"
+    }
+  ],
+  "paths": {
+    "/external/api/v3/session/{contextId}": {
+      "get": {
+        "tags": [
+          "external/session"
+        ],
+        "summary": "Used to check if the given session exists.",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The session is alive.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "sessionToken": {
+                      "type": "string"
+                    },
+                    "sessionValidUntilUTC": {
+                      "type": "string",
+                      "format": "datetime",
+                      "example": "2022-09-27 18:00:00.000"
+                    },
+                    "refreshToken": {
+                      "type": "string"
+                    },
+                    "refreshTokenValidUntilUTC": {
+                      "type": "string",
+                      "format": "datetime",
+                      "example": "2022-09-27 18:00:00.000"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The session is unalive.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The session was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                  "errorCode": {
+                    "type": "string",
+                    "example": "E_USER_NOT_FOUND"
+                  }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "external/session"
+        ],
+        "summary": "Used to delete a session (logout).",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "post": {
+        "tags": [
+          "external/session"
+        ],
+        "summary": "Used to create a session (login).",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {}
+      },
+      "patch": {
+        "tags": [
+          "external/session"
+        ],
+        "summary": "Used to renew a session.",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/external/api/v3/user": {
+      "get": {
+        "tags": [
+          "external/user"
+        ],
+        "summary": "Used to fetch the user information.",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+        }
+      },
+      "post": {
+        "tags": [
+          "external/user"
+        ],
+        "summary": "Used to create a new user (register).",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+        }
+      },
+      "patch": {
+        "tags": [
+          "external/user"
+        ],
+        "summary": "Used to update an already existing user (profile edit).",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+        }
+      },
+      "delete": {
+        "tags": [
+          "external/user"
+        ],
+        "summary": "Used to delete an already existing user (profile delete).",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+        }
+      }
+    },
+    "/internal/api/v1/session": {
+      "get": {
+        "tags": [
+          "internal/session"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      },
+      "post": {
+        "tags": [
+          "internal/session"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      },
+      "delete": {
+        "tags": [
+          "internal/session"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      },
+      "patch": {
+        "tags": [
+          "internal/session"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      }
+    },
+    "/internal/api/v1/user": {
+      "get": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      },
+      "post": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      }
+    },
+    "/internal/api/v1/user/{userId}": {
+      "get": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      },
+      "patch": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      },
+      "delete": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      }
+    },
+    "/internal/api/v1/user/{userId}/context/{contextId}": {
+      "post": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      },
+      "delete": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      }
+    },
+    "/internal/api/v1/context": {
+      "get": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "responses": {
+
+        }
+      },
+      "post": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      }
+    },
+    "/internal/api/v1/context/{contextId}": {
+      "get": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      },
+      "patch": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      },
+      "delete": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      }
+    },
+    "/internal/api/v1/context/{contextId}/user": {
+      "delete": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      }
+    },
+    "/internal/api/v1/context/{contextId}/user/{userId}": {
+      "post": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      },
+      "delete": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+
+        }
+      }
+    }
+  }
+}
