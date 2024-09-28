@@ -10,6 +10,7 @@ export class OperationResultFactory {
     ): OperationResultSuccess<T> {
         return {
             isSuccess: true,
+            isError: false,
             payload: payload
         };
     }
@@ -19,6 +20,7 @@ export class OperationResultFactory {
     ): OperationResultError {
         return {
             isSuccess: false,
+            isError: true,
             errors: errors
         };
     }
