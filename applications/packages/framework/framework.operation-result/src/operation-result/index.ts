@@ -3,6 +3,5 @@ export * from "./operation-result.fn";
 
 export {
   AsyncOperationResult,
-  OperationResult,
-  OperationResultBase
+  OperationResult
 } from "./operation-result.type";
