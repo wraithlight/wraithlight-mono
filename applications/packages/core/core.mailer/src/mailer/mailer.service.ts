@@ -2,22 +2,24 @@ import { NodemailerFacadeService } from "@wraithlight/facade.nodemailer";
 
 export class MailerService {
 
-    private readonly _service = new NodemailerFacadeService(
-        this._host,
-        this._port,
-        this._isSecure,
-        this._username,
-        this._password
-    );
+    private readonly _service: NodemailerFacadeService;
 
     constructor(
-        private readonly _host: string,
-        private readonly _port: number,
-        private readonly _isSecure: boolean,
-        private readonly _username: string,
-        private readonly _password: string,
+        host: string,
+        port: number,
+        isSecure: boolean,
+        username: string,
+        password: string,
         private readonly _fromAddress: string
-    ) { }
+    ) {
+      this._service = new NodemailerFacadeService(
+        host,
+        port,
+        isSecure,
+        username,
+        password
+    );
+    }
 
     public async sendEmail(
         toAddress: string,
