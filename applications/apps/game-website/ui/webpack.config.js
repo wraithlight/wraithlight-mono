@@ -7,7 +7,7 @@ module.exports = (env) => {
   const isProduction = env.production;
   const filename = "index.js";
   return {
-    ...config(env, __dirname),
+    ...config(env, __dirname, ""),
     output: {
       path: resolve(__dirname, "../dist/ui"),
       filename,
@@ -27,7 +27,12 @@ module.exports = (env) => {
       rules: [
         {
           test: /\.ts$/,
-          use: "ts-loader",
+          use: [{
+            loader: "ts-loader",
+            options: {
+              configFile: "tsconfig.build.json"
+            }
+          }],
           exclude: /node_modules/
         },
         {
