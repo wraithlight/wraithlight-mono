@@ -29,11 +29,23 @@
                 "watch": {
                     "type": "string"
                 },
+                "prebuild": {
+                  "type": "string"
+                },
                 "build": {
                     "type": "string"
                 },
+                "postbuild": {
+                  "type": "string"
+                },
+                "prebuild:prod": {
+                  "type": "string"
+                },
                 "build:prod": {
                     "type": "string"
+                },
+                "postbuild:prod": {
+                  "type": "string"
                 },
                 "lint": {
                     "type": "string"
