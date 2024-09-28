@@ -59,7 +59,9 @@ export class UserApplicationService {
   ): Promise<OperationResult<void>> {
     const contexts = await this.findAllContextForUserInternal(userId);
     if (!contexts.isSuccess) {
-      return OperationResultFactory.error(ERROR_CODES.REMOVE_ALL_CONTEXTS_LISTING);
+      return OperationResultFactory.error(
+        ERROR_CODES.REMOVE_ALL_CONTEXTS_LISTING
+      );
     }
     for (const context of contexts.payload) {
       await this.removeContextFromUserInternal(userId, context.applicationId);
@@ -122,7 +124,9 @@ export class UserApplicationService {
     ;
 
     if (isNil(result)) {
-      return OperationResultFactory.error(ERROR_CODES.FIND_USER_APPLICATION_BY_ID);
+      return OperationResultFactory.error(
+        ERROR_CODES.FIND_USER_APPLICATION_BY_ID
+      );
     }
 
     return OperationResultFactory.success(result);
