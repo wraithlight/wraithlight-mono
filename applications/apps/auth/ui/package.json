@@ -5,8 +5,12 @@
   "license": "LGPL-3.0-only",
   "type": "module",
   "scripts": {
+    "prebuild": "node .tools/prebuild.mjs",
     "build": "vite build",
+    "postbuild": "node .tools/postbuild.mjs",
+    "prebuild:prod": "node .tools/prebuild.mjs",
     "build:prod": "vite build",
+    "postbuild:prod": "node .tools/postbuild.mjs",
     "watch": "vite build --watch",
     "lint": "eslint .",
     "test": "jest",
