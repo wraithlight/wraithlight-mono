@@ -1,5 +1,5 @@
-import { Color } from "@wraithlight/core.game.types";
 import { LayerService } from "@wraithlight/core.game.layer";
+import { Color } from "@wraithlight/core.game.types";
 
 export class SceneService {
 
