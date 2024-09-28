@@ -41,8 +41,9 @@ jest.mock("@wraithlight/common.environment-static.shared", () => {
 
 import { createNodeServer } from "@wraithlight/core.server";
 
+import "./server";
+
 describe("ServerSpecs", () => {
-    import("./server");
     describe("given the server has been started", () => {
         it("should call `createNodeServer`", () => {
             expect(createNodeServer).toHaveBeenCalled();
