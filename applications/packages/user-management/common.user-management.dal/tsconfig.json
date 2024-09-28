@@ -1,5 +1,6 @@
 {
-    "extends": "../../../tsconfig.package.json",
-    "compilerOptions": {
-        "outDir": "dist/esm"
-    }}
+  "extends": "../../../tsconfig.package.json",
+  "compilerOptions": {
+    "outDir": "dist/esm"
+  }
+}
