@@ -1,6 +1,6 @@
 const { resolve } = require("path");
 
-const coreConfig = (env, dirname) => {
+const coreConfig = (env, dirname, tsConfigPath) => {
   const isProduction = env.production;
   const filename = "index.js";
   const cfg = {
@@ -18,7 +18,12 @@ const coreConfig = (env, dirname) => {
       rules: [
         {
           test: /\.ts$/,
-          use: "ts-loader",
+          use: [{
+            loader: "ts-loader",
+            options: {
+              configFile: tsConfigPath
+            }
+          }],
           exclude: /node_modules/
         },
       ]
@@ -30,8 +35,8 @@ const coreConfig = (env, dirname) => {
   return cfg;
 }
 
-const beConfig = (env, dirname) => {
-  const core = coreConfig(env, dirname);
+const beConfig = (env, dirname, tsConfigPath) => {
+  const core = coreConfig(env, dirname, tsConfigPath);
   return {
     ...core,
     target: "node",
@@ -43,8 +48,8 @@ const beConfig = (env, dirname) => {
     }
   }
 };
-const feConfig = (env, dirname) => {
-  const core = coreConfig(env, dirname, {});
+const feConfig = (env, dirname, tsConfigPath) => {
+  const core = coreConfig(env, dirname, tsConfigPath);
   return {
     ...core,
     output: {
