@@ -87,7 +87,7 @@
                     "sessionValidUntilUTC": {
                       "type": "string",
                       "format": "datetime",
-                      "example": "2022-09-27 18:00:00.000"
+                      "example": "2024-09-29T10:55:45.889Z"
                     },
                     "refreshToken": {
                       "type": "string"
@@ -95,7 +95,7 @@
                     "refreshTokenValidUntilUTC": {
                       "type": "string",
                       "format": "datetime",
-                      "example": "2022-09-27 18:00:00.000"
+                      "example": "2024-09-29T10:55:45.889Z"
                     }
                   }
                 }
