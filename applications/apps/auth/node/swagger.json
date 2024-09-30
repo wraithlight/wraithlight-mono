@@ -71,6 +71,16 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           }
         ],
         "responses": {
