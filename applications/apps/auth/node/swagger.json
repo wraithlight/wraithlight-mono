@@ -91,21 +91,39 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "sessionToken": {
-                      "type": "string"
-                    },
-                    "sessionValidUntilUTC": {
+                    "correlationId": {
                       "type": "string",
-                      "format": "datetime",
-                      "example": "2024-09-29T10:55:45.889Z"
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
                     },
-                    "refreshToken": {
-                      "type": "string"
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        }
+                      }
                     },
-                    "refreshTokenValidUntilUTC": {
-                      "type": "string",
-                      "format": "datetime",
-                      "example": "2024-09-29T10:55:45.889Z"
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "sessionToken": {
+                          "type": "string"
+                        },
+                        "sessionValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        },
+                        "refreshToken": {
+                          "type": "string"
+                        },
+                        "refreshTokenValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        }
+                      }
                     }
                   }
                 }
@@ -118,7 +136,26 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "E_USER_NOT_FOUND"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
                 }
               }
             }
@@ -129,7 +166,26 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "E_USER_NOT_FOUND"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
                 }
               }
             }
@@ -140,7 +196,26 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "E_USER_NOT_FOUND"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
                 }
               }
             }
@@ -151,7 +226,26 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "E_USER_NOT_FOUND"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
                 }
               }
             }
@@ -163,10 +257,24 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                  "errorCode": {
-                    "type": "string",
-                    "example": "E_USER_NOT_FOUND"
-                  }
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "E_USER_NOT_FOUND"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {}
+                    }
                   }
                 }
               }
