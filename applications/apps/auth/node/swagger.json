@@ -283,6 +283,7 @@
         }
       },
       "delete": {
+        "deprecated": true,
         "tags": [
           "external/session"
         ],
@@ -312,6 +313,7 @@
         "responses": {}
       },
       "post": {
+        "deprecated": true,
         "tags": [
           "external/session"
         ],
@@ -341,6 +343,7 @@
         "responses": {}
       },
       "patch": {
+        "deprecated": true,
         "tags": [
           "external/session"
         ],
@@ -372,6 +375,7 @@
     },
     "/external/api/v3/user": {
       "get": {
+        "deprecated": true,
         "tags": [
           "external/user"
         ],
@@ -392,6 +396,7 @@
         }
       },
       "post": {
+        "deprecated": true,
         "tags": [
           "external/user"
         ],
@@ -412,6 +417,7 @@
         }
       },
       "patch": {
+        "deprecated": true,
         "tags": [
           "external/user"
         ],
@@ -432,6 +438,7 @@
         }
       },
       "delete": {
+        "deprecated": true,
         "tags": [
           "external/user"
         ],
@@ -454,6 +461,7 @@
     },
     "/internal/api/v1/session": {
       "get": {
+        "deprecated": true,
         "tags": [
           "internal/session"
         ],
@@ -475,6 +483,7 @@
         }
       },
       "post": {
+        "deprecated": true,
         "tags": [
           "internal/session"
         ],
@@ -496,6 +505,7 @@
         }
       },
       "delete": {
+        "deprecated": true,
         "tags": [
           "internal/session"
         ],
@@ -517,6 +527,7 @@
         }
       },
       "patch": {
+        "deprecated": true,
         "tags": [
           "internal/session"
         ],
@@ -540,6 +551,7 @@
     },
     "/internal/api/v1/user": {
       "get": {
+        "deprecated": true,
         "tags": [
           "internal/user"
         ],
@@ -561,6 +573,7 @@
         }
       },
       "post": {
+        "deprecated": true,
         "tags": [
           "internal/user"
         ],
@@ -584,6 +597,7 @@
     },
     "/internal/api/v1/user/{userId}": {
       "get": {
+        "deprecated": true,
         "tags": [
           "internal/user"
         ],
@@ -613,6 +627,7 @@
         }
       },
       "patch": {
+        "deprecated": true,
         "tags": [
           "internal/user"
         ],
@@ -642,6 +657,7 @@
         }
       },
       "delete": {
+        "deprecated": true,
         "tags": [
           "internal/user"
         ],
@@ -673,6 +689,7 @@
     },
     "/internal/api/v1/user/{userId}/context/{contextId}": {
       "post": {
+        "deprecated": true,
         "tags": [
           "internal/user"
         ],
@@ -710,6 +727,7 @@
         }
       },
       "delete": {
+        "deprecated": true,
         "tags": [
           "internal/user"
         ],
@@ -749,6 +767,7 @@
     },
     "/internal/api/v1/context": {
       "get": {
+        "deprecated": true,
         "tags": [
           "internal/context"
         ],
@@ -781,6 +800,7 @@
     },
     "/internal/api/v1/context/{contextId}": {
       "get": {
+        "deprecated": true,
         "tags": [
           "internal/context"
         ],
@@ -810,6 +830,7 @@
         }
       },
       "patch": {
+        "deprecated": true,
         "tags": [
           "internal/context"
         ],
@@ -839,6 +860,7 @@
         }
       },
       "delete": {
+        "deprecated": true,
         "tags": [
           "internal/context"
         ],
@@ -870,6 +892,7 @@
     },
     "/internal/api/v1/context/{contextId}/user": {
       "delete": {
+        "deprecated": true,
         "tags": [
           "internal/context"
         ],
@@ -901,6 +924,7 @@
     },
     "/internal/api/v1/context/{contextId}/user/{userId}": {
       "post": {
+        "deprecated": true,
         "tags": [
           "internal/context"
         ],
@@ -938,6 +962,7 @@
         }
       },
       "delete": {
+        "deprecated": true,
         "tags": [
           "internal/context"
         ],
