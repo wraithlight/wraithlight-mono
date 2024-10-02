@@ -175,27 +175,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "correlationId": {
-                      "type": "string",
-                      "format": "uuid",
-                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
-                    },
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "code": {
-                          "type": "string",
-                          "example": "E_USER_NOT_FOUND"
-                        }
-                      }
-                    },
-                    "payload": {
-                      "type": "object",
-                      "properties": {}
-                    }
-                  }
+                  "$ref": "#/components/schemas/error500"
                 }
               }
             }
@@ -994,6 +974,29 @@
         }
       },
       "error404": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error500": {
         "type": "object",
         "properties": {
           "correlationId": {
