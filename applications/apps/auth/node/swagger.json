@@ -433,7 +433,6 @@
         }
       },
       "patch": {
-        "deprecated": true,
         "tags": [
           "external/session"
         ],
@@ -458,9 +457,134 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "The login was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "sessionToken": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "sessionValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        },
+                        "refreshToken": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "refreshTokenValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        }
+                      }
+                    },
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The session or the given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The context or the session was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "418": {
+            "description": "The session is already expired.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error418"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        }
       }
     },
     "/external/api/v3/user": {
@@ -1164,6 +1288,29 @@
         }
       },
       "error404": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error418": {
         "type": "object",
         "properties": {
           "correlationId": {
