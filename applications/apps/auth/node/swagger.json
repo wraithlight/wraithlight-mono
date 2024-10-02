@@ -407,6 +407,29 @@
               }
             }
           }
+        },
+        "requestBody": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "identifier": {
+                  "type": "string",
+                  "format": "email",
+                  "example": "user@wraithlight.ai"
+                },
+                "password": {
+                  "type": "string",
+                  "format": "password",
+                  "example": "F4HCXqdjbc"
+                },
+                "keepSignedIn": {
+                  "type": "boolean",
+                  "example": "true"
+                }
+              }
+            }
+          }
         }
       },
       "patch": {
