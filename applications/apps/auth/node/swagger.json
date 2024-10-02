@@ -777,6 +777,7 @@
         }
       },
       "post": {
+        "deprecated": true,
         "tags": [
           "internal/context"
         ],
