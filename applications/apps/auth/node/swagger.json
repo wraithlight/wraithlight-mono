@@ -183,7 +183,6 @@
         }
       },
       "delete": {
-        "deprecated": true,
         "tags": [
           "external/session"
         ],
@@ -208,9 +207,81 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "The session was deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The session is unalive.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The session was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       },
       "post": {
         "deprecated": true,
