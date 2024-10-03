@@ -409,23 +409,25 @@
           }
         },
         "requestBody": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "identifier": {
-                  "type": "string",
-                  "format": "email",
-                  "example": "user@wraithlight.ai"
-                },
-                "password": {
-                  "type": "string",
-                  "format": "password",
-                  "example": "F4HCXqdjbc"
-                },
-                "keepSignedIn": {
-                  "type": "boolean",
-                  "example": "true"
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "identifier": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@wraithlight.ai"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "F4HCXqdjbc"
+                  },
+                  "keepSignedIn": {
+                    "type": "boolean",
+                    "example": "true"
+                  }
                 }
               }
             }
@@ -578,10 +580,12 @@
           }
         },
         "requestBody": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {}
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
             }
           }
         }
@@ -589,14 +593,13 @@
     },
     "/external/api/v3/user": {
       "get": {
-        "deprecated": true,
         "tags": [
           "external/user"
         ],
         "summary": "Used to fetch the user information.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-API-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -607,6 +610,150 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "userId": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "username": {
+                          "type": "string",
+                          "format": "email",
+                          "example": "user"
+                        },
+                        "identifier": {
+                          "type": "string",
+                          "format": "email",
+                          "example": "user@wraithlight.ai"
+                        },
+                        "emailAddress": {
+                          "type": "string",
+                          "format": "email",
+                          "example": "user@wraithlight.ai"
+                        },
+                        "createdAtUTC": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example":"2024-09-29T10:55:45.889Z"
+                        },
+                        "createdById": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "lastUpdatedAtUTC": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example":"2024-09-29T10:55:45.889Z"
+                        },
+                        "lastUpdatedById": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "ACTIVE",
+                            "EMAIL_VERIFY",
+                            "LOCKED_OUT_DUE_TOO_MANY_INVALID_LOGIN",
+                            "INACTIVE",
+                            "DELETED",
+                            "FORGOT_PASSWORD"
+                          ],
+                          "example": "ACTIVE"
+                        },
+                        "languageId": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "failedLoginAttempts": {
+                          "type": "number",
+                          "example": "0"
+                        },
+                        "isDeleted": {
+                          "type": "boolean",
+                          "format": "uuid",
+                          "example": "false"
+                        }
+                      },
+                      "required": [
+                        "userId",
+                        "username",
+                        "identifier",
+                        "emailAddress",
+                        "createdAtUTC",
+                        "createdById",
+                        "status",
+                        "languageId",
+                        "failedLoginAttempts",
+                        "isDeleted"
+                      ]
+                    },
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
         }
       },
       "post": {
