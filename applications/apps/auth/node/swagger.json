@@ -591,13 +591,23 @@
         }
       }
     },
-    "/external/api/v3/user": {
+    "/external/api/v3/user/{userId}": {
       "get": {
         "tags": [
           "external/user"
         ],
         "summary": "Used to fetch the user information.",
         "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
           {
             "name": "X-WL-API-TOKEN",
             "in": "header",
