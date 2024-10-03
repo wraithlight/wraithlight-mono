@@ -1365,11 +1365,10 @@
         }
       },
       "delete": {
-        "deprecated": true,
         "tags": [
           "internal/session"
         ],
-        "summary": "",
+        "summary": "Used to delete a session (logout).",
         "parameters": [
           {
             "name": "X-WL-SESSION",
@@ -1382,7 +1381,69 @@
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "The session was deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The session is unalive or the given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The session was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       },
       "patch": {
         "deprecated": true,
