@@ -762,7 +762,6 @@
         }
       },
       "post": {
-        "deprecated": true,
         "tags": [
           "external/user"
         ],
@@ -779,7 +778,98 @@
             }
           }
         ],
-        "responses": {}
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "user"
+                  },
+                  "emailAddress": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@wraithlight.ai"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "F4HCXqdjbc"
+                  },
+                  "passwordConfirmation": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "F4HCXqdjbc"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The creation was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The given context (by API token) is not allowed to create a new user.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A user already exists with the same email or username.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       },
       "patch": {
         "deprecated": true,
@@ -1399,6 +1489,29 @@
         }
       },
       "error404": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error409": {
         "type": "object",
         "properties": {
           "correlationId": {
