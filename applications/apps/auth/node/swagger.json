@@ -624,7 +624,7 @@
                     "payload": {
                       "type": "array",
                       "items": {
-                        "$ref": "#/components/schemas/user200"
+                        "$ref": "#/components/schemas/user"
                       }
                     },
                     "correlationId": {
@@ -1588,87 +1588,7 @@
             "properties": {}
           },
           "payload": {
-            "type": "object",
-            "properties": {
-              "userId": {
-                "type": "string",
-                "format": "uuid",
-                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
-              },
-              "username": {
-                "type": "string",
-                "format": "email",
-                "example": "user"
-              },
-              "identifier": {
-                "type": "string",
-                "format": "email",
-                "example": "user@wraithlight.ai"
-              },
-              "emailAddress": {
-                "type": "string",
-                "format": "email",
-                "example": "user@wraithlight.ai"
-              },
-              "createdAtUTC": {
-                "type": "string",
-                "format": "uuid",
-                "example": "2024-09-29T10:55:45.889Z"
-              },
-              "createdById": {
-                "type": "string",
-                "format": "uuid",
-                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
-              },
-              "lastUpdatedAtUTC": {
-                "type": "string",
-                "format": "uuid",
-                "example": "2024-09-29T10:55:45.889Z"
-              },
-              "lastUpdatedById": {
-                "type": "string",
-                "format": "uuid",
-                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
-              },
-              "status": {
-                "type": "string",
-                "enum": [
-                  "ACTIVE",
-                  "EMAIL_VERIFY",
-                  "LOCKED_OUT_DUE_TOO_MANY_INVALID_LOGIN",
-                  "INACTIVE",
-                  "DELETED",
-                  "FORGOT_PASSWORD"
-                ],
-                "example": "ACTIVE"
-              },
-              "languageId": {
-                "type": "string",
-                "format": "uuid",
-                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
-              },
-              "failedLoginAttempts": {
-                "type": "number",
-                "example": "0"
-              },
-              "isDeleted": {
-                "type": "boolean",
-                "format": "uuid",
-                "example": "false"
-              }
-            },
-            "required": [
-              "userId",
-              "username",
-              "identifier",
-              "emailAddress",
-              "createdAtUTC",
-              "createdById",
-              "status",
-              "languageId",
-              "failedLoginAttempts",
-              "isDeleted"
-            ]
+            "$ref": "#/components/schemas/user"
           },
           "correlationId": {
             "type": "string",
@@ -1676,6 +1596,89 @@
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
           }
         }
+      },
+      "user": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "username": {
+            "type": "string",
+            "format": "email",
+            "example": "user"
+          },
+          "identifier": {
+            "type": "string",
+            "format": "email",
+            "example": "user@wraithlight.ai"
+          },
+          "emailAddress": {
+            "type": "string",
+            "format": "email",
+            "example": "user@wraithlight.ai"
+          },
+          "createdAtUTC": {
+            "type": "string",
+            "format": "uuid",
+            "example": "2024-09-29T10:55:45.889Z"
+          },
+          "createdById": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "lastUpdatedAtUTC": {
+            "type": "string",
+            "format": "uuid",
+            "example": "2024-09-29T10:55:45.889Z"
+          },
+          "lastUpdatedById": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "EMAIL_VERIFY",
+              "LOCKED_OUT_DUE_TOO_MANY_INVALID_LOGIN",
+              "INACTIVE",
+              "DELETED",
+              "FORGOT_PASSWORD"
+            ],
+            "example": "ACTIVE"
+          },
+          "languageId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "failedLoginAttempts": {
+            "type": "number",
+            "example": "0"
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "format": "uuid",
+            "example": "false"
+          }
+        },
+        "required": [
+          "userId",
+          "username",
+          "identifier",
+          "emailAddress",
+          "createdAtUTC",
+          "createdById",
+          "status",
+          "languageId",
+          "failedLoginAttempts",
+          "isDeleted"
+        ]
       }
     }
   }
