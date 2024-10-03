@@ -1584,11 +1584,10 @@
     },
     "/internal/api/v1/user": {
       "get": {
-        "deprecated": true,
         "tags": [
           "internal/user"
         ],
-        "summary": "",
+        "summary": "Used to list all users.",
         "parameters": [
           {
             "name": "X-WL-SESSION",
@@ -1601,7 +1600,114 @@
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "correlationId": {
+                      "type":  "string",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                      "format": "uuid"
+                    },
+                    "payload": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                          },
+                          "username": {
+                            "type": "string",
+                            "example": "user"
+                          },
+                          "emailAddress": {
+                            "type": "string",
+                            "format": "email",
+                            "example": "user@wraithlight.ai"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "ACTIVE",
+                              "EMAIL_VERIFY",
+                              "LOCKED_OUT_DUE_TOO_MANY_INVALID_LOGIN",
+                              "INACTIVE",
+                              "DELETED",
+                              "FORGOT_PASSWORD"
+                            ],
+                            "example": "ACTIVE"
+                          },
+                          "createdAtUTC": {
+                            "type": "string",
+                            "format": "datetime",
+                            "example": "2024-09-29T10:55:45.889Z"
+                          },
+                          "isLoggedIn": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "lastLoginAtUTC": {
+                            "type": "string",
+                            "format": "datetime",
+                            "example": "2024-09-29T10:55:45.889Z"
+                          },
+                          "numberOfContexts": {
+                            "type": "number",
+                            "example": 5
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given user is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The given user has no access to the given operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       },
       "post": {
         "deprecated": true,
