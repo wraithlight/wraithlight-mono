@@ -2264,11 +2264,10 @@
         }
       },
       "delete": {
-        "deprecated": true,
         "tags": [
           "internal/user"
         ],
-        "summary": "",
+        "summary": "Used to remove a context from a user.",
         "parameters": [
           {
             "name": "userId",
@@ -2297,7 +2296,77 @@
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "Delete successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "correlationId": {
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                      "format": "uuid",
+                      "type": "string"
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user or the context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/internal/api/v1/context": {
