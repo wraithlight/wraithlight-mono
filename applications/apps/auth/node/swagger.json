@@ -2029,11 +2029,10 @@
         }
       },
       "delete": {
-        "deprecated": true,
         "tags": [
           "internal/user"
         ],
-        "summary": "",
+        "summary": "Userd to delete a user.",
         "parameters": [
           {
             "name": "userId",
@@ -2054,7 +2053,58 @@
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "The delete was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/internal/api/v1/user/{userId}/context/{contextId}": {
