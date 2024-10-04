@@ -2109,7 +2109,6 @@
     },
     "/internal/api/v1/user/{userId}/context/{contextId}": {
       "post": {
-        "deprecated": true,
         "tags": [
           "internal/user"
         ],
@@ -2142,7 +2141,127 @@
             }
           }
         ],
-        "responses": {}
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The creation was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                      "format": "uuid"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "relationId": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "userId": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "contextId": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "createdById": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "createdByUsername": {
+                          "type": "string",
+                          "example": "user"
+                        },
+                        "createdAtUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user or the context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The given relation already exists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       },
       "delete": {
         "deprecated": true,
