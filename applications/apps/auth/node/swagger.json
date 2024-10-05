@@ -225,8 +225,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {}
+                  "$ref": "#/components/schemas/ok204"
                 }
               }
             }
@@ -1060,7 +1059,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {}
+                  "$ref": "#/components/schemas/ok204"
                 }
               }
             }
@@ -1387,8 +1386,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {}
+                  "$ref": "#/components/schemas/ok204"
                 }
               }
             }
@@ -2059,7 +2057,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {}
+                  "$ref": "#/components/schemas/ok204"
                 }
               }
             }
@@ -2302,26 +2300,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "code": {
-                          "type": "string"
-                        }
-                      }
-                    },
-                    "correlationId": {
-                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
-                      "format": "uuid",
-                      "type": "string"
-                    },
-                    "payload": {
-                      "type": "object",
-                      "properties": {}
-                    }
-                  }
+                  "$ref": "#/components/schemas/ok204"
                 }
               }
             }
@@ -2741,7 +2720,6 @@
         "responses": {}
       },
       "delete": {
-        "deprecated": true,
         "tags": [
           "internal/context"
         ],
@@ -2774,12 +2752,85 @@
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "The delete was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok204"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The relation with the same userid and contextid was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
   "components": {
     "schemas": {
+      "ok204": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
       "error400": {
         "type": "object",
         "properties": {
