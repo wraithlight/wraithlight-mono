@@ -2486,7 +2486,7 @@
             }
           },
           "409": {
-            "description": "A conflict with the same label already exists.",
+            "description": "A context with the same label already exists.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2538,11 +2538,10 @@
         "responses": {}
       },
       "patch": {
-        "deprecated": true,
         "tags": [
           "internal/context"
         ],
-        "summary": "",
+        "summary": "Used to update a context.",
         "parameters": [
           {
             "name": "contextId",
@@ -2563,7 +2562,87 @@
             }
           }
         ],
-        "responses": {}
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/context"
+                }
+              }
+            },
+            "description": "The update was successful."
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The given context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A context with the same label already exists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       },
       "delete": {
         "deprecated": true,
