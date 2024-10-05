@@ -2654,11 +2654,10 @@
     },
     "/internal/api/v1/context/{contextId}/user": {
       "delete": {
-        "deprecated": true,
         "tags": [
           "internal/context"
         ],
-        "summary": "",
+        "summary": "Used to remove all users from a context.",
         "parameters": [
           {
             "name": "contextId",
@@ -2679,7 +2678,58 @@
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "204": {
+            "description": "The delete was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok204"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/internal/api/v1/context/{contextId}/user/{userId}": {
