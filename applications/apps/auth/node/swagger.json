@@ -2371,12 +2371,133 @@
     },
     "/internal/api/v1/context": {
       "get": {
-        "deprecated": true,
         "tags": [
           "internal/context"
         ],
-        "summary": "",
-        "responses": {}
+        "summary": "Used to list all contexts.",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "correlationId": {
+                      "type": "string",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                      "format": "uuid"
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                              },
+                              "label": {
+                                "type": "string",
+                                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                              },
+                              "description": {
+                                "type": "string",
+                                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                              },
+                              "isDeleted": {
+                                "type": "boolean",
+                                "example": false
+                              },
+                              "createdAtUTC": {
+                                "type": "string",
+                                "example": "2024-09-29T10:55:45.889Z",
+                                "format": "datetime"
+                              },
+                              "createdById": {
+                                "type": "string",
+                                "format": "uuid",
+                                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                              },
+                              "createdByUsername": {
+                                "type": "string",
+                                "example": "user"
+                              },
+                              "lastUpdatedAtUTC": {
+                                "type": "string",
+                                "example": "2024-09-29T10:55:45.889Z",
+                                "format": "datetime"
+                              },
+                              "lastUpdatedById": {
+                                "type": "string",
+                                "format": "uuid",
+                                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                              },
+                              "lastUpdatedByUsername": {
+                                "type": "string",
+                                "example": "user"
+                              },
+                              "numberOfUsers": {
+                                "type": "number",
+                                "example": 5
+                              }
+                            }
+                          }
+                        },
+                        "count": {
+                          "type": "number",
+                          "example": 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       },
       "post": {
         "deprecated": true,
