@@ -2784,7 +2784,6 @@
     },
     "/internal/api/v1/context/{contextId}/user/{userId}": {
       "post": {
-        "deprecated": true,
         "tags": [
           "internal/context"
         ],
@@ -2822,20 +2821,7 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {
-                  "correlationId": {
-                    "type": "string",
-                    "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
-                  },
-                  "error": {
-                    "type": "object",
-                    "properties": {}
-                  },
-                  "payload": {
-                    "type": "object",
-                    "properties": {}
-                  }
-                }
+                "properties": {}
               }
             }
           }
@@ -2847,7 +2833,20 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
                 }
               }
             }
