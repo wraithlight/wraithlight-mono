@@ -1855,7 +1855,39 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/user200"
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/user200"
+                    },
+                    "contexts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "relationId": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                          },
+                          "context": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                              },
+                              "label": {
+                                "type": "string",
+                                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -2489,7 +2521,6 @@
     },
     "/internal/api/v1/context/{contextId}": {
       "get": {
-        "deprecated": true,
         "tags": [
           "internal/context"
         ],
@@ -2514,7 +2545,163 @@
             }
           }
         ],
-        "responses": {}
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                      "format": "uuid"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "E_USER_NOT_FOUND"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                                "format": "uuid"
+                              },
+                              "label": {
+                                "type": "string",
+                                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                              },
+                              "description": {
+                                "type": "string",
+                                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                              },
+                              "isDeleted": {
+                                "type": "boolean",
+                                "example": true
+                              },
+                              "users": {
+                                "type": "object",
+                                "properties": {
+                                  "count": {
+                                    "type": "number",
+                                    "example": 5
+                                  },
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string",
+                                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                                          "format": "uuid"
+                                        },
+                                        "username": {
+                                          "type": "string",
+                                          "example": "user"
+                                        },
+                                        "emailAddress": {
+                                          "type": "string",
+                                          "example": "user@wraithlight.ai",
+                                          "format": "email"
+                                        },
+                                        "relation": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                                              "format": "uuid"
+                                            },
+                                            "createdAtUTC": {
+                                              "type": "string",
+                                              "example": "2024-09-29T10:55:45.889Z",
+                                              "format": "datetime"
+                                            },
+                                            "createdById": {
+                                              "type": "string",
+                                              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                                              "format": "uuid"
+                                            },
+                                            "createdByUsername": {
+                                              "type": "string",
+                                              "example": "user"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "count": {
+                          "type": "number",
+                          "example": 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The request context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
       },
       "patch": {
         "tags": [
