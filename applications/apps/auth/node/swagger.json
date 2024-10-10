@@ -557,16 +557,6 @@
               }
             }
           },
-          "418": {
-            "description": "The session is already expired.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/error418"
-                }
-              }
-            }
-          },
           "500": {
             "description": "Internal server error.",
             "content": {
@@ -1543,16 +1533,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/error404"
-                }
-              }
-            }
-          },
-          "418": {
-            "description": "The session is already expired.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/error418"
                 }
               }
             }
@@ -3295,29 +3275,6 @@
         }
       },
       "error409": {
-        "type": "object",
-        "properties": {
-          "correlationId": {
-            "type": "string",
-            "format": "uuid",
-            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
-          },
-          "error": {
-            "type": "object",
-            "properties": {
-              "code": {
-                "type": "string",
-                "example": "E_USER_NOT_FOUND"
-              }
-            }
-          },
-          "payload": {
-            "type": "object",
-            "properties": {}
-          }
-        }
-      },
-      "error418": {
         "type": "object",
         "properties": {
           "correlationId": {
