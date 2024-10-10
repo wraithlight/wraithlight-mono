@@ -1,0 +1,3509 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger Auth - OpenAPI 3.0",
+    "description": "Swagger file for wraithlight's auth microservice.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://local.auth.wraithlight.ai:4500",
+      "description": "local"
+    },
+    {
+      "url": "http://dev.auth.wraithlight.ai:5500",
+      "description": "dev"
+    },
+    {
+      "url": "http://test.auth.wraithlight.ai",
+      "description": "test"
+    },
+    {
+      "url": "http://staging.auth.wraithlight.ai",
+      "description": "staging"
+    },
+    {
+      "url": "http://auth.wraithlight.ai",
+      "description": "prod"
+    }
+  ],
+  "tags": [
+    {
+      "name": "internal/session"
+    },
+    {
+      "name": "internal/user"
+    },
+    {
+      "name": "internal/context"
+    },
+    {
+      "name": "external/session"
+    },
+    {
+      "name": "external/user"
+    }
+  ],
+  "paths": {
+    "/external/api/v3/session/{contextId}": {
+      "get": {
+        "tags": [
+          "external/session"
+        ],
+        "summary": "Used to check if the given session exists.",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The session is alive.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "sessionToken": {
+                          "type": "string"
+                        },
+                        "sessionValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        },
+                        "refreshToken": {
+                          "type": "string"
+                        },
+                        "refreshTokenValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The session is unalive or the given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The session was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "external/session"
+        ],
+        "summary": "Used to delete a session (logout).",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The session was deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok204"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The session is unalive or the given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The session was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "external/session"
+        ],
+        "summary": "Used to create a session (login).",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The login was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "sessionToken": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "sessionValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        },
+                        "refreshToken": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "refreshTokenValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        }
+                      }
+                    },
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The context or the user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "identifier": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@wraithlight.ai"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "F4HCXqdjbc"
+                  },
+                  "keepSignedIn": {
+                    "type": "boolean",
+                    "example": "true"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "external/session"
+        ],
+        "summary": "Used to renew a session.",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The login was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "sessionToken": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "sessionValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        },
+                        "refreshToken": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "refreshTokenValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        }
+                      }
+                    },
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The session or the given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The context or the session was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/external/api/v3/user": {
+      "get": {
+        "tags": [
+          "external/user"
+        ],
+        "summary": "Used to fetch multiple user information.",
+        "parameters": [
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "payload": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/user"
+                      }
+                    },
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The token was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "external/user"
+        ],
+        "summary": "Used to create a new user (register).",
+        "parameters": [
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string",
+                    "example": "user"
+                  },
+                  "emailAddress": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@wraithlight.ai"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "F4HCXqdjbc"
+                  },
+                  "passwordConfirmation": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "F4HCXqdjbc"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The creation was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The given context (by API token) is not allowed to create a new user.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A user already exists with the same email or username.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/external/api/v3/user/{userId}": {
+      "get": {
+        "tags": [
+          "external/user"
+        ],
+        "summary": "Used to fetch the user information.",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "external/user"
+        ],
+        "summary": "Used to update an already existing user (profile edit).",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "update": {
+                    "type": "object",
+                    "properties": {
+                      "emailAddress?": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "user@wraithlight.ai"
+                      },
+                      "password?": {
+                        "type": "string",
+                        "format": "password",
+                        "example": "F4HCXqdjbc"
+                      },
+                      "passwordConfirmation?": {
+                        "type": "string",
+                        "format": "password",
+                        "example": "F4HCXqdjbc"
+                      }
+                    }
+                  },
+                  "confirmationPassword": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "F4HCXqdjbc"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User with the given session has no access to the given user specified by the userid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The given email address is already in use.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "external/user"
+        ],
+        "summary": "Used to delete an already existing user (profile delete).",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The delete was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok204"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "User with the given session has no access to the given user specified by the userid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/api/v1/session": {
+      "get": {
+        "tags": [
+          "internal/session"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The session is alive.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "sessionToken": {
+                          "type": "string"
+                        },
+                        "sessionValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        },
+                        "refreshToken": {
+                          "type": "string"
+                        },
+                        "refreshTokenValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The session is unalive or the given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The session was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "internal/session"
+        ],
+        "summary": "Used to create a session (login).",
+        "responses": {
+          "200": {
+            "description": "The login was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "sessionToken": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "sessionValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        },
+                        "refreshToken": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "refreshTokenValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        }
+                      }
+                    },
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The context or the user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "identifier": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@wraithlight.ai"
+                  },
+                  "password": {
+                    "type": "string",
+                    "format": "password",
+                    "example": "F4HCXqdjbc"
+                  },
+                  "keepSignedIn": {
+                    "type": "boolean",
+                    "example": "true"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "internal/session"
+        ],
+        "summary": "Used to delete a session (logout).",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The session was deleted successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok204"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The session is unalive or the given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The session was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "internal/session"
+        ],
+        "summary": "Used to renew a session.",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The login was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "sessionToken": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "sessionValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        },
+                        "refreshToken": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "refreshTokenValidUntilUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        }
+                      }
+                    },
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The session or the given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The user does not have permission to that context.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The context or the session was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/api/v1/user": {
+      "get": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "Used to list all users.",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "correlationId": {
+                      "type": "string",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                      "format": "uuid"
+                    },
+                    "payload": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                          },
+                          "username": {
+                            "type": "string",
+                            "example": "user"
+                          },
+                          "emailAddress": {
+                            "type": "string",
+                            "format": "email",
+                            "example": "user@wraithlight.ai"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "ACTIVE",
+                              "EMAIL_VERIFY",
+                              "LOCKED_OUT_DUE_TOO_MANY_INVALID_LOGIN",
+                              "INACTIVE",
+                              "DELETED",
+                              "FORGOT_PASSWORD"
+                            ],
+                            "example": "ACTIVE"
+                          },
+                          "createdAtUTC": {
+                            "type": "string",
+                            "format": "datetime",
+                            "example": "2024-09-29T10:55:45.889Z"
+                          },
+                          "isLoggedIn": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "lastLoginAtUTC": {
+                            "type": "string",
+                            "format": "datetime",
+                            "example": "2024-09-29T10:55:45.889Z"
+                          },
+                          "numberOfContexts": {
+                            "type": "number",
+                            "example": 5
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given user is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The given user has no access to the given operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error403"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "context": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                      }
+                    }
+                  },
+                  "user": {
+                    "type": "object",
+                    "properties": {
+                      "username": {
+                        "type": "string",
+                        "example": "user"
+                      },
+                      "emailAddress": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "user@wraithlight.ai"
+                      },
+                      "password": {
+                        "type": "string",
+                        "format": "password",
+                        "example": "F4HCXqdjbc"
+                      },
+                      "passwordConfirmation": {
+                        "type": "string",
+                        "format": "password",
+                        "example": "F4HCXqdjbc"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The creation was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given API TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A user already exists with the same email or username.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/api/v1/user/{userId}": {
+      "get": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "user": {
+                      "$ref": "#/components/schemas/user200"
+                    },
+                    "contexts": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "relationId": {
+                            "type": "string",
+                            "format": "uuid",
+                            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                          },
+                          "context": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                              },
+                              "label": {
+                                "type": "string",
+                                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "Used to update an already existing user (profile edit).",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "update": {
+                    "type": "object",
+                    "properties": {
+                      "username?": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "user"
+                      },
+                      "emailAddress?": {
+                        "type": "string",
+                        "format": "email",
+                        "example": "user@wraithlight.ai"
+                      },
+                      "password?": {
+                        "type": "string",
+                        "format": "password",
+                        "example": "F4HCXqdjbc"
+                      },
+                      "passwordConfirmation?": {
+                        "type": "string",
+                        "format": "password",
+                        "example": "F4HCXqdjbc"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The given email address or username is already in use.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "Userd to delete a user.",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The delete was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok204"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/api/v1/user/{userId}/context/{contextId}": {
+      "post": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The creation was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                      "format": "uuid"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "relationId": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "userId": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "contextId": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "createdById": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "createdByUsername": {
+                          "type": "string",
+                          "example": "user"
+                        },
+                        "createdAtUTC": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user or the context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The given relation already exists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "Used to remove a context from a user.",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Delete successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok204"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user or the context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/api/v1/context": {
+      "get": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "Used to list all contexts.",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/context"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "Used to create a new context",
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The creation was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/context"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A context with the same label already exists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/api/v1/context/{contextId}": {
+      "get": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                      "format": "uuid"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": "E_USER_NOT_FOUND"
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                                "format": "uuid"
+                              },
+                              "label": {
+                                "type": "string",
+                                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                              },
+                              "description": {
+                                "type": "string",
+                                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                              },
+                              "isDeleted": {
+                                "type": "boolean",
+                                "example": true
+                              },
+                              "users": {
+                                "type": "object",
+                                "properties": {
+                                  "count": {
+                                    "type": "number",
+                                    "example": 5
+                                  },
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "object",
+                                      "properties": {
+                                        "id": {
+                                          "type": "string",
+                                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                                          "format": "uuid"
+                                        },
+                                        "username": {
+                                          "type": "string",
+                                          "example": "user"
+                                        },
+                                        "emailAddress": {
+                                          "type": "string",
+                                          "example": "user@wraithlight.ai",
+                                          "format": "email"
+                                        },
+                                        "relation": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                                              "format": "uuid"
+                                            },
+                                            "createdAtUTC": {
+                                              "type": "string",
+                                              "example": "2024-09-29T10:55:45.889Z",
+                                              "format": "datetime"
+                                            },
+                                            "createdById": {
+                                              "type": "string",
+                                              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+                                              "format": "uuid"
+                                            },
+                                            "createdByUsername": {
+                                              "type": "string",
+                                              "example": "user"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "count": {
+                          "type": "number",
+                          "example": 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The request context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "Used to update a context.",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/context"
+                }
+              }
+            },
+            "description": "The update was successful."
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The given context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "A context with the same label already exists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "Used to delete a context (and removing all users).",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The delete was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok204"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/api/v1/context/{contextId}/user": {
+      "delete": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "Used to remove all users from a context.",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The delete was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok204"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/api/v1/context/{contextId}/user/{userId}": {
+      "post": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The creation was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {}
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {}
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            },
+            "description": "Bad request."
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The given user or context was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The given relation already exists.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "internal/context"
+        ],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "contextId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The delete was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok204"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The relation with the same userid and contextid was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ok204": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error400": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error401": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error403": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error404": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error409": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error500": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "user200": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {}
+          },
+          "payload": {
+            "$ref": "#/components/schemas/user"
+          },
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          }
+        }
+      },
+      "user": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "username": {
+            "type": "string",
+            "format": "email",
+            "example": "user"
+          },
+          "identifier": {
+            "type": "string",
+            "format": "email",
+            "example": "user@wraithlight.ai"
+          },
+          "emailAddress": {
+            "type": "string",
+            "format": "email",
+            "example": "user@wraithlight.ai"
+          },
+          "createdAtUTC": {
+            "type": "string",
+            "format": "uuid",
+            "example": "2024-09-29T10:55:45.889Z"
+          },
+          "createdById": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "lastUpdatedAtUTC": {
+            "type": "string",
+            "format": "uuid",
+            "example": "2024-09-29T10:55:45.889Z"
+          },
+          "lastUpdatedById": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "ACTIVE",
+              "EMAIL_VERIFY",
+              "LOCKED_OUT_DUE_TOO_MANY_INVALID_LOGIN",
+              "INACTIVE",
+              "DELETED",
+              "FORGOT_PASSWORD"
+            ],
+            "example": "ACTIVE"
+          },
+          "languageId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "failedLoginAttempts": {
+            "type": "number",
+            "example": "0"
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "format": "uuid",
+            "example": "false"
+          }
+        },
+        "required": [
+          "userId",
+          "username",
+          "identifier",
+          "emailAddress",
+          "createdAtUTC",
+          "createdById",
+          "status",
+          "languageId",
+          "failedLoginAttempts",
+          "isDeleted"
+        ]
+      },
+      "context": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            }
+          },
+          "correlationId": {
+            "type": "string",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "format": "uuid"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "label": {
+                      "type": "string",
+                      "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+                    },
+                    "isDeleted": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "createdAtUTC": {
+                      "type": "string",
+                      "example": "2024-09-29T10:55:45.889Z",
+                      "format": "datetime"
+                    },
+                    "createdById": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "createdByUsername": {
+                      "type": "string",
+                      "example": "user"
+                    },
+                    "lastUpdatedAtUTC": {
+                      "type": "string",
+                      "example": "2024-09-29T10:55:45.889Z",
+                      "format": "datetime"
+                    },
+                    "lastUpdatedById": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "lastUpdatedByUsername": {
+                      "type": "string",
+                      "example": "user"
+                    },
+                    "numberOfUsers": {
+                      "type": "number",
+                      "example": 5
+                    }
+                  }
+                }
+              },
+              "count": {
+                "type": "number",
+                "example": 5
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
