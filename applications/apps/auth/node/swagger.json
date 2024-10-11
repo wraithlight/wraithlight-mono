@@ -1112,7 +1112,7 @@
         "tags": [
           "internal/session"
         ],
-        "summary": "",
+        "summary": "Endpoint that used to check if the user is logged in.",
         "parameters": [
           {
             "name": "X-WL-SESSION",
@@ -1691,7 +1691,7 @@
         "tags": [
           "internal/user"
         ],
-        "summary": "",
+        "summary": "Used to create a new user.",
         "parameters": [
           {
             "name": "X-WL-SESSION",
@@ -1808,7 +1808,7 @@
         "tags": [
           "internal/user"
         ],
-        "summary": "",
+        "summary": "Used to fetch a single user.",
         "parameters": [
           {
             "name": "userId",
@@ -2122,7 +2122,7 @@
         "tags": [
           "internal/user"
         ],
-        "summary": "",
+        "summary": "Used to create a new context-user relation.",
         "parameters": [
           {
             "name": "userId",
@@ -2504,7 +2504,7 @@
         "tags": [
           "internal/context"
         ],
-        "summary": "",
+        "summary": "Used to fetch a single context.",
         "parameters": [
           {
             "name": "contextId",
@@ -2954,7 +2954,7 @@
         "tags": [
           "internal/context"
         ],
-        "summary": "",
+        "summary": "Used to create a new user-context relation.",
         "parameters": [
           {
             "name": "contextId",
@@ -3074,7 +3074,7 @@
         "tags": [
           "internal/context"
         ],
-        "summary": "",
+        "summary": "Used to delete an already existing user-context relation.",
         "parameters": [
           {
             "name": "contextId",
