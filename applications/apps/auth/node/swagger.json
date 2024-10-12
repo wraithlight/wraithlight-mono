@@ -1228,6 +1228,7 @@
         "tags": [
           "internal/session"
         ],
+        "parameters": [],
         "summary": "Used to create a session (login).",
         "responses": {
           "200": {
@@ -1814,8 +1815,10 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1924,8 +1927,10 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2048,8 +2053,10 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2128,16 +2135,20 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "contextId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2283,16 +2294,20 @@
             "name": "userId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "contextId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2366,6 +2381,7 @@
           "internal/context"
         ],
         "summary": "Used to list all contexts.",
+        "parameters": [],
         "responses": {
           "200": {
             "description": "",
@@ -2510,8 +2526,10 @@
             "name": "contextId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2693,8 +2711,10 @@
             "name": "contextId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2800,8 +2820,10 @@
             "name": "contextId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2880,8 +2902,10 @@
             "name": "contextId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2960,16 +2984,20 @@
             "name": "contextId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "userId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -3080,16 +3108,20 @@
             "name": "contextId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "userId",
             "in": "path",
             "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
