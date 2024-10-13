@@ -21,3 +21,27 @@ INSERT INTO `User` (
     1,
     0
 );
+
+-- Platform deployer svc user
+INSERT INTO `User` (
+    `Id`,
+    `Username`,
+    `EmailAddress`,
+    `PasswordHash`,
+    `LanguageId`,
+    `FailedLoginAttempts`,
+    `Status`,
+    `IsDeleted`
+) VALUES (
+    "3f0e995e-6bcc-71f9-9d17-5e82c7c84301",
+    "platform_deployer_svc",
+    "platform_deployer_svc@wraithlight.ai",
+    -- password: P4ssw0rd_1
+    -- hash: QwErT123Qw
+    -- pwToHash: QwErT123QwP4ssw0rd_1wQ321TrEwQ
+    "$2a$12$OIbOt.PpDKdNgt4NdHAa5Op5InVxfide0T8ZHbVTHzX1A/li33sq6",
+    "b6d2118f-1fca-4485-b61f-82a6538e8144", -- english
+    0,
+    1,
+    1
+);
