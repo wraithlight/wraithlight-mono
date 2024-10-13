@@ -71,6 +71,10 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [`purge-git.sh`](./docs/utils/purge-git-sh.md)
 * [`purge-branch.sh`](./docs/utils/purge-branch.sh.md)
 
+### Credentials
+* [Credentials](./docs/credentials/README.md)
+  * [Service users](./docs/credentials/service-users.md)
+
 ## Getting started
 
 **Requirements**
