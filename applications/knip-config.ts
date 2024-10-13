@@ -19,6 +19,9 @@ const config: KnipConfig = {
         "apps/auth/node": {
             ignoreDependencies: [
                 "ts-node"
+            ],
+            ignore: [
+              "src/manager/account/account.const.ts"
             ]
         },
         "apps/game-website/node": {
