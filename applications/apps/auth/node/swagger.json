@@ -779,6 +779,94 @@
         }
       }
     },
+    "/external/api/v3/user/check-email": {
+      "post": {
+        "tags": [
+          "external/user"
+        ],
+        "parameters": [
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "emailAddress": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@wraithlight.ai"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok202"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Usd to check if the given username is used or not."
+      }
+    },
     "/external/api/v3/user/{userId}": {
       "get": {
         "tags": [
@@ -1890,6 +1978,94 @@
             }
           }
         }
+      }
+    },
+    "/internal/api/v1/user/check-email": {
+      "post": {
+        "tags": [
+          "internal/user"
+        ],
+        "parameters": [
+          {
+            "name": "X-WL-SESSION",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "emailAddress": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "user@wraithlight.ai"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok202"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Usd to check if the given username is used or not."
       }
     },
     "/internal/api/v1/user/{userId}": {
