@@ -57,7 +57,7 @@ INSERT INTO `User` (
     `Status`,
     `IsDeleted`
 ) VALUES (
-    "3f0e995e-6bcc-71f9-9d17-5e82c7c84301",
+    "ebe313ba-47e9-68df-978e-0d6a0ef34c6b",
     "platform_onboarding_svc",
     "platform_onboarding_svc@wraithlight.ai",
     -- password: P4ssw0rd_1
