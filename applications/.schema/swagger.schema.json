@@ -64,8 +64,16 @@
         "properties": {
           "name": {
             "$ref": "#/components/nonEmptyString"
+          },
+          "description": {
+            "$ref": "#/components/nonEmptyString"
           }
-        }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "description"
+        ]
       }
     },
     "paths": {
