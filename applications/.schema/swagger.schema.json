@@ -224,7 +224,29 @@
                   "type": "object",
                   "patternProperties": {
                     "(200|201|400|401|403|404|409|500)": {
-                      "type": "object"
+                      "type": "object",
+                      "properties": {
+                        "description": {
+                          "$ref": "#/components/nonEmptyString"
+                        },
+                        "content": {
+                          "type": "object",
+                          "properties": {
+                            "application/json": {
+                              "type": "object",
+                              "properties": {
+
+                              }
+                            }
+                          },
+                          "additionalProperties": false
+                        }
+                      },
+                      "additionalProperties": false,
+                      "required": [
+                        "description",
+                        "content"
+                      ]
                     },
                     "additionalProperties": false
                   },
