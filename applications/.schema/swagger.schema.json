@@ -235,7 +235,22 @@
                             "application/json": {
                               "type": "object",
                               "properties": {
-
+                                "schema": {
+                                  "type": "object",
+                                  "oneOf": [
+                                    {
+                                      "type": "object",
+                                      "properties": {
+                                        "$ref": {
+                                          "$ref": "#/components/nonEmptyString"
+                                        }
+                                      }
+                                    },
+                                    {
+                                      
+                                    }
+                                  ]
+                                }
                               }
                             }
                           },
