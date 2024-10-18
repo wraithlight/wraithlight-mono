@@ -6,5 +6,6 @@ export const enum HttpCode {
     Unauthorized = 401,
     NotFound = 404,
     Conflict = 409,
+    ImATeapot = 428,
     InternalError = 500
 }
