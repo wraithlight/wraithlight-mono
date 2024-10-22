@@ -104,7 +104,11 @@
                       },
                       "in": {
                         "type": "string",
-                        "enum": ["path", "query", "header"]
+                        "enum": [
+                          "path",
+                          "query",
+                          "header"
+                        ]
                       },
                       "required": {
                         "type": "boolean"
@@ -127,7 +131,9 @@
                             "$ref": "#/components/nonEmptyString"
                           }
                         },
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "additionalProperties": false
                       },
                       "example": {}
@@ -182,7 +188,11 @@
                       },
                       "in": {
                         "type": "string",
-                        "enum": ["path", "query", "header"]
+                        "enum": [
+                          "path",
+                          "query",
+                          "header"
+                        ]
                       },
                       "required": {
                         "type": "boolean"
@@ -205,7 +215,9 @@
                             "$ref": "#/components/nonEmptyString"
                           }
                         },
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "additionalProperties": false
                       },
                       "example": {}
@@ -224,44 +236,7 @@
                   "type": "object",
                   "patternProperties": {
                     "(200|201|400|401|403|404|409|500)": {
-                      "type": "object",
-                      "properties": {
-                        "description": {
-                          "$ref": "#/components/nonEmptyString"
-                        },
-                        "content": {
-                          "type": "object",
-                          "properties": {
-                            "application/json": {
-                              "type": "object",
-                              "properties": {
-                                "schema": {
-                                  "type": "object",
-                                  "oneOf": [
-                                    {
-                                      "type": "object",
-                                      "properties": {
-                                        "$ref": {
-                                          "$ref": "#/components/nonEmptyString"
-                                        }
-                                      }
-                                    },
-                                    {
-                                      "type": "object"
-                                    }
-                                  ]
-                                }
-                              }
-                            }
-                          },
-                          "additionalProperties": false
-                        }
-                      },
-                      "additionalProperties": false,
-                      "required": [
-                        "description",
-                        "content"
-                      ]
+                      "$ref": "#/components/generalResponse"
                     },
                     "additionalProperties": false
                   },
@@ -298,7 +273,11 @@
                       },
                       "in": {
                         "type": "string",
-                        "enum": ["path", "query", "header"]
+                        "enum": [
+                          "path",
+                          "query",
+                          "header"
+                        ]
                       },
                       "required": {
                         "type": "boolean"
@@ -321,7 +300,9 @@
                             "$ref": "#/components/nonEmptyString"
                           }
                         },
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "additionalProperties": false
                       },
                       "example": {}
@@ -377,7 +358,11 @@
                       },
                       "in": {
                         "type": "string",
-                        "enum": ["path", "query", "header"]
+                        "enum": [
+                          "path",
+                          "query",
+                          "header"
+                        ]
                       },
                       "required": {
                         "type": "boolean"
@@ -400,7 +385,9 @@
                             "$ref": "#/components/nonEmptyString"
                           }
                         },
-                        "required": ["type"],
+                        "required": [
+                          "type"
+                        ],
                         "additionalProperties": false
                       },
                       "example": {}
@@ -465,6 +452,46 @@
     "nonEmptyString": {
       "type": "string",
       "minLength": 1
+    },
+    "generalResponse": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "$ref": "#/components/nonEmptyString"
+        },
+        "content": {
+          "type": "object",
+          "properties": {
+            "application/json": {
+              "type": "object",
+              "properties": {
+                "schema": {
+                  "type": "object",
+                  "oneOf": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "$ref": {
+                          "$ref": "#/components/nonEmptyString"
+                        }
+                      }
+                    },
+                    {
+                      "type": "object"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "description",
+        "content"
+      ]
     }
   }
 }
