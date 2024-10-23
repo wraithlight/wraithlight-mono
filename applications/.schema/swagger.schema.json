@@ -152,7 +152,7 @@
                   "type": "object",
                   "patternProperties": {
                     "(200|400|401|403|404|409|500)": {
-                      "type": "object"
+                      "$ref": "#/components/generalResponse"
                     },
                     "additionalProperties": false
                   },
@@ -321,7 +321,7 @@
                   "type": "object",
                   "patternProperties": {
                     "(200|400|401|403|404|409|500)": {
-                      "type": "object"
+                      "$ref": "#/components/generalResponse"
                     },
                     "additionalProperties": false
                   },
@@ -406,18 +406,7 @@
                   "type": "object",
                   "patternProperties": {
                     "(204|400|401|403|404|500)": {
-                      "type": "object",
-                      "properties": {
-                        "description": "#/components/nonEmptyString",
-                        "content": {
-                          "type": "object"
-                        }
-                      },
-                      "required": [
-                        "description",
-                        "content"
-                      ],
-                      "additionalProperties": false
+                      "$ref": "#/components/generalResponse"
                     },
                     "additionalProperties": false
                   },
