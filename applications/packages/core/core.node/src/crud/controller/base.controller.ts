@@ -1,6 +1,8 @@
 import { HttpCode, HttpHeader } from "@wraithlight/core.http";
-import { Response } from "express";
+import { Predicate } from "@wraithlight/core.linq";
+import { Request, Response } from "express";
 
+import { PARAM_PROPERTY_KEY } from "../decorator";
 import {
     CONTROLLER_METADATA_KEY,
     ControllerMetadata,
@@ -19,6 +21,9 @@ export abstract class BaseController {
     public [FILTER_METADATA_KEY]: FilterMetadata | undefined;
     public [CONTROLLER_METADATA_KEY]: ControllerMetadata | undefined;
     public [METHOD_METADATA_KEY]: Array<MethodMetadata> | undefined;
+    // TODO: Type.
+    // eslint-disable-next-line max-len
+    public [PARAM_PROPERTY_KEY]: {[key: keyof BaseController]: { contextExecutor: Predicate<Request, any>, parameters: Array<Predicate<unknown, unknown>> } }| undefined;
 
     /**
      * This is being used by the controller binder.
