@@ -864,7 +864,7 @@
             }
           }
         },
-        "summary": "Usd to check if the given username is used or not."
+        "summary": "Used to check if the given email address is used or not."
       }
     },
     "/external/api/v3/user/{userId}": {
@@ -1977,7 +1977,7 @@
             }
           }
         },
-        "summary": "Usd to check if the given username is used or not."
+        "summary": "Used to check if the given email address is used or not."
       }
     },
     "/internal/api/v1/user/{userId}": {
