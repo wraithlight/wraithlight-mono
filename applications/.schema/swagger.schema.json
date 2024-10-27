@@ -466,7 +466,11 @@
                       }
                     },
                     {
-                      "type": "object"
+                      "type": "object",
+                      "properties": {
+
+                      },
+                      "additionalProperties": false
                     }
                   ]
                 }
