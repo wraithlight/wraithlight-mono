@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "2.3.2",
+    "version": "2.4.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -21,7 +21,10 @@
     },
     "dependencies": {
         "@wraithlight/common.logger.sdk": "*",
+        "@wraithlight/core.decorator.types": "*",
+        "@wraithlight/core.linq": "*",
         "@wraithlight/core.http": "*",
+        "@wraithlight/core.nullable": "*",
         "cors": "2.8.5",
         "express": "4.18.2",
         "swagger-ui-express": "4.6.2"
