@@ -8,9 +8,9 @@
  * * run it by using `node webpack-config-remover.mjs`
  */
 
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { cpSync, readdirSync, rmSync, statSync } from 'fs';
+import { readdirSync, rmSync, statSync } from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
