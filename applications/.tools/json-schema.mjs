@@ -14,9 +14,19 @@ const ignoreFolders = [
     "node_modules",
     "tools"
 ]
-const targetFiles = [
-    "package.json"
-];
+
+const filesSwitch = "--files=";
+const silentModeSwitch = "--silent";
+
+const filesParam = process.argv.filter(m => m.startsWith(filesSwitch));
+const hasFilesParam = filesParam.length > 0;
+const isSilentRun = process.argv.includes(silentModeSwitch);
+
+if (!hasFilesParam) {
+  throw `'--files={filename}' must be set!`;
+}
+
+const targetFiles = filesParam.map(m => m.replace(filesSwitch, ""));
 
 function getAllPackageJsonFiles() {
     const result = libFolders.map(m => {
@@ -77,6 +87,8 @@ if (result.length > 0) {
     const errors = data.filter(m => m.errors.length > 0);
     if (errors.length > 0) {
         console.warn(errors);
-        throw `Found ${errors.length} errors!`;
+        if (!isSilentRun) {
+          throw `Found ${errors.length} errors!`;
+        }
     }
 }
