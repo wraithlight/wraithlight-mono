@@ -1,6 +1,12 @@
-import { generateRandomString } from "@wraithlight/core.random-string";
+import { randomUUID } from "crypto";
 
 import { Guid } from "./guid.type";
+
+Object.defineProperty(globalThis, "crypto", {
+  value: {
+    randomUUID: () => randomUUID()
+  }
+});
 
 /**
  * Verifies if the given object is `Guid`.
@@ -17,28 +23,5 @@ export function isGuid(guidLike: string): guidLike is Guid {
  * @returns {Guid} The new GUID.
  */
 export function newGuid(): Guid {
-    const pattern = "xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx".split("");
-    const alphabets = {
-        x: [
-            ..."abcdef".split(""),
-            ..."0123456789".split("")
-        ],
-        M: [
-            ..."123456789".split("")
-        ],
-        N: [
-            ..."89ab".split("")
-        ]
-    };
-    const result = pattern.map(m => {
-        if (m === "-") return m;
-        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-        const key = m as keyof typeof alphabets;
-        const alphabet = alphabets[key];
-        return generateRandomString(
-            1,
-            alphabet
-        );
-    });
-    return result.join("");
+  return crypto.randomUUID();
 }
