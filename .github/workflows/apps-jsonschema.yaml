@@ -17,5 +17,5 @@ jobs:
       run: yarn
       working-directory: ./applications
     - name: Run validate
-      run: yarn validate-json
+      run: yarn validate-package-json
       working-directory: ./applications
