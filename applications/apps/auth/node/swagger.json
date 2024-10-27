@@ -1,4 +1,5 @@
 {
+  "$schema": "../../../.schema/swagger.schema.json",
   "openapi": "3.0.3",
   "info": {
     "title": "Swagger Auth - OpenAPI 3.0",
