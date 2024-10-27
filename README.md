@@ -138,7 +138,7 @@ graph                 - Draw NX graph.
 test                  - Runs jest on the project.
 test:coverage         - Runs jest on the project. Collect coverage per package.
 test:mono             - Runs jest on the monorepo.
-validate-json         - Validates `package.json` files.
+validate-package-json - Validates `package.json` files.
 guid                  - Generates a new guid.
 test-report:collect   - Utility script for test-reporting. Runs jest.
 test-report:generate  - Utility script for test-reporting. Runs custom parsing.
