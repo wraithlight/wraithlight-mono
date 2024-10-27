@@ -18,6 +18,7 @@
     "test:coverage": "lerna run test:coverage",
     "test:mono": "yarn jest -c=jest-mono.config.js --coverage",
     "validate-package-json": "node .tools/json-schema.mjs --files=package.json",
+    "validate-swagger-json": "node .tools/json-schema.mjs --files=swagger.json --silent",
     "guid": "node .tools/guidgen.mjs",
     "test-report:collect": "lerna la --json > .test-reports/data.json",
     "test-report:generate": "yarn mustache .test-reports/data.json .test-reports/template .test-reports/index.html",
