@@ -235,7 +235,7 @@
                 "responses": {
                   "type": "object",
                   "patternProperties": {
-                    "(200|201|400|401|403|404|409|500)": {
+                    "(200|201|202|400|401|403|404|409|500)": {
                       "$ref": "#/components/generalResponse"
                     },
                     "additionalProperties": false
