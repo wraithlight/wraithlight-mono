@@ -56,6 +56,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 
 ### Architecture
 * [Communication methodologies](./docs/architecture/communication.md)
+* [Server-side pagination](./docs/architecture/server-side-pagination.md)
 
 ### Guides
 * [How to use the test-reporter](./docs/guides/test-reports.md)
