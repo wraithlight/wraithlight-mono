@@ -20,13 +20,14 @@
         "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
     },
     "dependencies": {
+        "@types/express": "4.17.17",
         "@wraithlight/core.api-token.constants": "*",
         "@wraithlight/core.http": "*",
         "@wraithlight/core.node": "*",
-        "@wraithlight/core.nullable": "*",
-        "@types/express": "4.17.17"
+        "@wraithlight/core.nullable": "*"
     },
     "devDependencies": {
+        "@regru/eslint-plugin-prefer-early-return": "1.0.0",
         "@types/jest": "29.5.1",
         "@typescript-eslint/eslint-plugin": "5.59.2",
         "@typescript-eslint/parser": "5.59.2",
