@@ -25,10 +25,11 @@
         "@wraithlight/core.auth.types": "*",
         "@wraithlight/core.errors": "*",
         "@wraithlight/core.http": "*",
-        "@wraithlight/core.redux": "*",
-        "@wraithlight/core.nullable": "*"
+        "@wraithlight/core.nullable": "*",
+        "@wraithlight/core.redux": "*"
     },
     "devDependencies": {
+        "@regru/eslint-plugin-prefer-early-return": "1.0.0",
         "@types/jest": "29.5.1",
         "@typescript-eslint/eslint-plugin": "5.59.2",
         "@typescript-eslint/parser": "5.59.2",
