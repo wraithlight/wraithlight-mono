@@ -5,7 +5,8 @@ export const SERVER_LOCAL_COMMON_CONFIG: Readonly<
     CommonServer> = {
     paths: {
         base: "/",
-        wildcard: "*"
+        wildcard: "*",
+        swagger: "/swagger"
     },
     files: {
         frontend: {
@@ -13,6 +14,9 @@ export const SERVER_LOCAL_COMMON_CONFIG: Readonly<
         },
         packageJson: {
           path: "../package.json"
+        },
+        swaggerJson: {
+          path: "../swagger.json"
         }
     },
     logging: {
