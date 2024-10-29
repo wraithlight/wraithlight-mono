@@ -10,59 +10,87 @@ import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { LoginScope } from "@wraithlight/core.auth.types";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createNodeServer } from "@wraithlight/core.server";
+import { DEFAULT_APPLICATION_VERSION } from "@wraithlight/domain.application-info.constants";
 
 import { AccountControllerV2, SessionControllerV2 } from "./controller";
 
 LoggerService.initialize({
-    applicationName: ApplicationName.UserManagement
+  applicationName: ApplicationName.UserManagement
 });
 
 const serverCfg = ServerUserManagementConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType())
-;
+  .getInstance(CoreEnvironment.getEnvironmentType())
+  ;
 
 const sharedCfg = SharedUserManagementConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType())
-;
+  .getInstance(CoreEnvironment.getEnvironmentType())
+  ;
 
 const packageInfoReader = new PackageJsonReader(
   join(__dirname, serverCfg.getCommon(m => m.files.packageJson.path)),
   LoggerService.getInstance(),
   ApplicationName.UserManagement,
-  "0.0.1"   // TODO: From domain constants.
+  DEFAULT_APPLICATION_VERSION
 );
 
 const CONTROLLERS = [
-    new ServerAuthControllerV1(LoginScope.UserManagement),
-    new AccountControllerV2(),
-    new SessionControllerV2(),
-    new HealthCheckControllerV1(
-        ApplicationName.UserManagement,
-        packageInfoReader.getPackageJsonInfo().version
-    )
+  new ServerAuthControllerV1(LoginScope.UserManagement),
+  new AccountControllerV2(),
+  new SessionControllerV2(),
+  new HealthCheckControllerV1(
+    ApplicationName.UserManagement,
+    packageInfoReader.getPackageJsonInfo().version
+  )
 ];
 
-const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
-
 createNodeServer(
-    ApplicationName.UserManagement,
-    CONTROLLERS,
-    [],
-    sharedCfg.get(x => x.server.port),
-    [
-        {
-            path: serverCfg.getCommon(x => x.paths.base),
-            staticPath: join(
-                __dirname,
-                frontendPath
-            )
-        },
-        {
-            path: serverCfg.getCommon(x => x.paths.wildcard),
-            staticPath: join(
-                __dirname,
-                frontendPath
-            )
-        }
-    ]
+  ApplicationName.UserManagement,
+  CONTROLLERS,
+  [],
+  sharedCfg.get(x => x.server.port),
+  getStaticFiles(),
+  getSwaggerFiles()
 );
+
+function getStaticFiles(): Array<{ path: string, staticPath: string}> {
+  const result = [
+    ...getFeStaticFiles(serverCfg.getCommon(x => x.files.frontend.static))
+  ];
+  return result;
+}
+
+function getSwaggerFiles(): Array<{ path: string, staticPath: string}> {
+  const result = [
+    ...getSwaggerStaticFiles(serverCfg.getCommon(x => x.files.swaggerJson.path))
+  ];
+  return result;
+}
+
+function getFeStaticFiles(frontendPath: string): Array<{ path: string, staticPath: string}> {
+  const paths = [
+    serverCfg.getCommon(x => x.paths.base),
+    serverCfg.getCommon(x => x.paths.wildcard)
+  ].map(m => createStaticFilePath(m, frontendPath));
+  return paths;
+}
+
+function getSwaggerStaticFiles(swaggerPath: string): Array<{ path: string, staticPath: string}> {
+  const paths = [
+    serverCfg.getCommon(x => x.paths.swagger)
+  ].map(m => createStaticFilePath(m, swaggerPath));
+  return paths;
+}
+
+function createStaticFilePath(
+  path: string,
+  staticPath: string
+): { path: string, staticPath: string } {
+  const result =     {
+    path: path,
+    staticPath: join(
+      __dirname,
+      staticPath
+    )
+  };
+  return result;
+}
