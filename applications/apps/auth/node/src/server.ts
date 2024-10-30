@@ -66,7 +66,9 @@ function getSwaggerFiles(): Array<{ path: string, staticPath: string}> {
   return result;
 }
 
-function getFeStaticFiles(frontendPath: string): Array<{ path: string, staticPath: string}> {
+function getFeStaticFiles(
+  frontendPath: string
+): Array<{ path: string, staticPath: string}> {
   const paths = [
     serverCfg.getCommon(x => x.paths.base),
     serverCfg.getCommon(x => x.paths.wildcard)
@@ -74,7 +76,9 @@ function getFeStaticFiles(frontendPath: string): Array<{ path: string, staticPat
   return paths;
 }
 
-function getSwaggerStaticFiles(swaggerPath: string): Array<{ path: string, staticPath: string}> {
+function getSwaggerStaticFiles(
+  swaggerPath: string
+): Array<{ path: string, staticPath: string}> {
   const paths = [
     serverCfg.getCommon(x => x.paths.swagger)
   ].map(m => createStaticFilePath(m, swaggerPath));
