@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "2.0.1",
+    "version": "2.1.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -22,7 +22,8 @@
     "dependencies": {
         "@wraithlight/core.date": "*",
         "@wraithlight/core.logger.types": "*",
-        "@wraithlight/core.nullable": "*"
+        "@wraithlight/core.nullable": "*",
+        "ansi-colors": "4.1.3"
     },
     "devDependencies": {
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",

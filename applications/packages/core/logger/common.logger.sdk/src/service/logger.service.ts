@@ -1,6 +1,7 @@
 import { dateISOSerialize, dateNow } from "@wraithlight/core.date";
 import { ILogger, LogSeverity, LoggerConfig } from "@wraithlight/core.logger.types";
 import { Nullable } from "@wraithlight/core.nullable";
+import { blue, red, yellow } from "ansi-colors"
 
 import { DEFAULT_CONFIG } from "./logger.const";
 
@@ -41,7 +42,7 @@ export class LoggerService implements ILogger {
             this.log(
                 LogSeverity.DEBUG,
                 data,
-                (message: string) => this._logger.debug(message)
+                (message: string) => this._logger.debug(blue(message))
             );
         }
     }
@@ -61,7 +62,7 @@ export class LoggerService implements ILogger {
             this.log(
                 LogSeverity.WARNING,
                 data,
-                (message: string) => this._logger.warn(message)
+                (message: string) => this._logger.warn(yellow(message))
             );
         }
     }
@@ -71,7 +72,7 @@ export class LoggerService implements ILogger {
             this.log(
                 LogSeverity.ERROR,
                 data,
-                (message: string) => this._logger.error(message)
+                (message: string) => this._logger.error(red(message))
             );
         }
     }
