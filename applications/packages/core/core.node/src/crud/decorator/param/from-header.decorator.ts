@@ -6,7 +6,7 @@ import { BaseController } from "../../controller";
 import { ParamDecorator } from "./param.decorator";
 
 export const FromHeader = <T extends BaseController>(
-  propertyName?: string
+  propertyName: string
 ): IArgumentDecoratorFactory<T> => ParamDecorator<T>(
   (m: Request) => m.headers,
   propertyName
