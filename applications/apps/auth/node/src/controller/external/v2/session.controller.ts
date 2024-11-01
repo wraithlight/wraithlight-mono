@@ -27,6 +27,9 @@ import {
 } from "../../../service";
 import { AccountService } from "../../../service/account/account.service";
 
+/**
+ * @deprecated
+ */
 @HttpController(API_ENDPOINTS.external.v2.auth.root)
 export class SessionControllerV2 extends BaseController {
 
