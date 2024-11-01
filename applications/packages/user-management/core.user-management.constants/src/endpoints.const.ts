@@ -156,7 +156,7 @@ export const API_ENDPOINTS = {
             forClient: ():string => `/check-email`
           }
         },
-        checkusername: {
+        checkUsername: {
           post: {
             forServer: `/check-username`,
             forClient: ():string => `/check-username`
