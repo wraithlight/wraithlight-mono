@@ -12,7 +12,12 @@ import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createNodeServer } from "@wraithlight/core.server";
 import { DEFAULT_APPLICATION_VERSION } from "@wraithlight/domain.application-info.constants";
 
-import { AccountControllerV2, SessionControllerV2 } from "./controller";
+import {
+  AccountControllerV2,
+  SessionControllerV2,
+  ExternalSessionV3Controller,
+  ExternalUserV3Controller
+} from "./controller";
 
 LoggerService.initialize({
   applicationName: ApplicationName.UserManagement
@@ -40,7 +45,9 @@ const CONTROLLERS = [
   new HealthCheckControllerV1(
     ApplicationName.UserManagement,
     packageInfoReader.getPackageJsonInfo().version
-  )
+  ),
+  new ExternalSessionV3Controller(),
+  new ExternalUserV3Controller()
 ];
 
 createNodeServer(
