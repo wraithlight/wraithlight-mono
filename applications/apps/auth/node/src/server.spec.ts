@@ -6,7 +6,9 @@ jest.mock("@wraithlight/core.server", () => {
 jest.mock("./controller", () => {
     return {
         AccountControllerV2: jest.fn(),
-        SessionControllerV2: jest.fn()
+        SessionControllerV2: jest.fn(),
+        ExternalSessionV3Controller: jest.fn(),
+        ExternalUserV3Controller: jest.fn()
     }
 });
 jest.mock("@wraithlight/common.health-checker.sdk-server", () => {
