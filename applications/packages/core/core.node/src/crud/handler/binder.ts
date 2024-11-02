@@ -52,38 +52,44 @@ export class ControllerBinder {
       handler(
         path,
         async (req: Request, res: Response) => {
-          const filters = this.getFilters(
-            controller,
-            methodMetadata.name
-          );
-          for (const invoker of filters) {
-            const result = await invoker(req);
-            if (!result.success) {
-              const statusCode = result.errorHttpCode
-                ? result.errorHttpCode
-                : HttpCode.InternalError
-                ;
-              res.status(statusCode);
-              res.send();
-              return;
+          try {
+            const filters = this.getFilters(
+              controller,
+              methodMetadata.name
+            );
+            for (const invoker of filters) {
+              const result = await invoker(req);
+              if (!result.success) {
+                const statusCode = result.errorHttpCode
+                  ? result.errorHttpCode
+                  : HttpCode.InternalError
+                  ;
+                res.status(statusCode);
+                res.send();
+                return;
+              }
+            }
+            if (this.isLegacy(controller, methodMetadata.name)) {
+              const params = this.getParams(req);
+              controller.setResponseContext(res);
+              method.apply(
+                controller,
+                [...params]
+              );
+            } else {
+              // eslint-disable-next-line max-len
+              const executor = controller[PARAM_PROPERTY_KEY]?.[methodMetadata.name].contextExecutor;
+              const context = executor ? executor(req) : {};
+              // eslint-disable-next-line max-len, @typescript-eslint/no-unsafe-member-access
+              const paramExecutors = context[PARAM_PROPERTY_KEY]?.[methodMetadata.name].parameters;
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+              const params = paramExecutors.map((m: any) => m(context));
+              method.apply(context, params);
             }
           }
-          if (this.isLegacy(controller, methodMetadata.name)) {
-            const params = this.getParams(req);
-            controller.setResponseContext(res);
-            method.apply(
-              controller,
-              [...params]
-            );
-          } else {
-            // eslint-disable-next-line max-len
-            const executor = controller[PARAM_PROPERTY_KEY]?.[methodMetadata.name].contextExecutor;
-            const context = executor ? executor(req) : {};
-            // eslint-disable-next-line max-len, @typescript-eslint/no-unsafe-member-access
-            const paramExecutors = context[PARAM_PROPERTY_KEY]?.[methodMetadata.name].parameters;
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-            const params = paramExecutors.map((m: any) => m(context));
-            method.apply(context, params);
+          catch {
+            // TODO: Proper format
+            res.status(HttpCode.InternalError).send({  });
           }
         }
       );
