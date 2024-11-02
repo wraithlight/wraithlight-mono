@@ -34,7 +34,8 @@
         "@wraithlight/core.nullable": "*",
         "@wraithlight/core.orm": "*",
         "@wraithlight/core.server": "*",
-        "@wraithlight/domain.application-info.constants": "*"
+        "@wraithlight/domain.application-info.constants": "*",
+        "@wraithlight/core.user-management.constants": "*"
     },
     "devDependencies": {
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",
