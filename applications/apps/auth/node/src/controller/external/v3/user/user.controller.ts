@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function */
+
+import { Guid } from "@wraithlight/core.guid";
 import {
   BaseController,
   FromBody,
@@ -10,7 +13,6 @@ import {
   HttpPost
 } from "@wraithlight/core.node";
 import { API_ENDPOINTS } from "@wraithlight/core.user-management.constants";
-import { Guid } from "@wraithlight/core.guid";
 
 @HttpController(API_ENDPOINTS.external.v3.user.root)
 export class ExternalUserV3Controller extends BaseController {
@@ -32,13 +34,13 @@ export class ExternalUserV3Controller extends BaseController {
     @FromHeader("X-WL-API-TOKEN") apiToken: Guid,     // TODO: Constants
     @FromBody() model: { emailAddress: string }
   ) {}
-  
+
   @HttpPost(API_ENDPOINTS.external.v3.user.checkUsername.post.forServer)
   public async checkUsername(
     @FromHeader("X-WL-API-TOKEN") apiToken: Guid,     // TODO: Constants
     @FromBody() model: { username: string }
   ) {}
-  
+
   @HttpGet(API_ENDPOINTS.external.v3.user.id.get.forServer)
   public async getUser(
     @FromHeader("X-WL-API-TOKEN") apiToken: Guid,     // TODO: Constants

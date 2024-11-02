@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type, @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function */
+
+import { Guid } from "@wraithlight/core.guid";
 import {
   BaseController,
   FromBody,
@@ -10,7 +13,6 @@ import {
   HttpPost
 } from "@wraithlight/core.node";
 import { API_ENDPOINTS } from "@wraithlight/core.user-management.constants";
-import { Guid } from "@wraithlight/core.guid";
 
 @HttpController(API_ENDPOINTS.external.v3.session.root)
 export class ExternalSessionV3Controller extends BaseController {
@@ -35,7 +37,11 @@ export class ExternalSessionV3Controller extends BaseController {
   public async createSession(
     @FromHeader("X-WL-API-TOKEN") apiToken: Guid,     // TODO: Constants
     @FromPath("contextId") contextId: Guid,
-    @FromBody() model: { identifier: string, password: string, keepSignedIn: boolean } // TODO: Types
+    @FromBody() model: {
+      identifier: string,
+      password: string,
+      keepSignedIn: boolean
+    } // TODO: Types
   ) {}
 
   @HttpPatch(API_ENDPOINTS.external.v3.session.id.patch.forServer)
