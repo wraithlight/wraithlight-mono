@@ -24,8 +24,7 @@ function run(): void {
                 RTHeaderGuard(["token-1"])
             ]
         )],
-        SERVER_PORT,
-        undefined
+        SERVER_PORT
     );
 
     const rtProvider = rtFactory.getInstance();

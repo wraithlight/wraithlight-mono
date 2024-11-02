@@ -7,9 +7,9 @@
         "lerna": "lerna",
         "serve": "nodemon -r tsconfig-paths/register ./src/main.ts",
         "build": "webpack",
-        "postbuild": "node cpj.js",
+        "postbuild": "node cpj.js && cp ./swagger.json ../dist/node/_swagger.json",
         "build:prod": "webpack --env production",
-        "postbuild:prod": "node cpj.js",
+        "postbuild:prod": "node cpj.js && cp ./swagger.json ../dist/node/_swagger.json",
         "watch": "multiview [ lerna run serve --scope @wraithlight/auth.node ] [ lerna run watch --scope @wraithlight/auth.ui ]",
         "lint": "eslint .",
         "test": "jest",
@@ -33,7 +33,9 @@
         "@wraithlight/core.node": "*",
         "@wraithlight/core.nullable": "*",
         "@wraithlight/core.orm": "*",
-        "@wraithlight/core.server": "*"
+        "@wraithlight/core.server": "*",
+        "@wraithlight/domain.application-info.constants": "*",
+        "@wraithlight/core.user-management.constants": "*"
     },
     "devDependencies": {
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",
