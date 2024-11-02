@@ -14,9 +14,9 @@ import { DEFAULT_APPLICATION_VERSION } from "@wraithlight/domain.application-inf
 
 import {
   AccountControllerV2,
-  SessionControllerV2,
   ExternalSessionV3Controller,
-  ExternalUserV3Controller
+  ExternalUserV3Controller,
+  SessionControllerV2
 } from "./controller";
 
 LoggerService.initialize({
@@ -46,8 +46,8 @@ const CONTROLLERS = [
     ApplicationName.UserManagement,
     packageInfoReader.getPackageJsonInfo().version
   ),
-  new ExternalSessionV3Controller(),
-  new ExternalUserV3Controller()
+  new ExternalUserV3Controller(),
+  new ExternalSessionV3Controller()
 ];
 
 createNodeServer(
