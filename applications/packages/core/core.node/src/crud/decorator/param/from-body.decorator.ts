@@ -7,7 +7,8 @@ import { BaseController } from "../../controller";
 
 import { ParamDecorator } from "./param.decorator";
 
-export const FromBody = <T extends BaseController, U>(
+export const FromBody = <T extends BaseController>(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   propertyName?: string | Predicate<any, any>
 ): IArgumentDecoratorFactory<T> => {
   if (isNil(propertyName)) {
@@ -22,4 +23,4 @@ export const FromBody = <T extends BaseController, U>(
   return ParamDecorator<T>(
     propertyName((m: Request) => m.body)
   );
-}
+};
