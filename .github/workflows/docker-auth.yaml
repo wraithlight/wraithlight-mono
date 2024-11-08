@@ -1,0 +1,23 @@
+name: "Applications GHA - Docker Auth"
+run-name: "DOCKER - AUTH"
+on: [push, workflow_dispatch]
+
+env:
+  WORK_DIR: ./applications/auth/node
+  DOCKER_IMAGE_NAME: auth-node
+
+jobs:
+  build_docker_images:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    - name: Build the Docker image
+      working-directory: $WORK_DIR
+      run: docker build . --file Dockerfile --tag $DOCKER_IMAGE_NAME
+
+    - name: Remove the local image
+      run: docker rmi $DOCKER_IMAGE_NAME
