@@ -1,4 +1,4 @@
-export type MethodMetadataType = "GET" | "POST";
+export type MethodMetadataType = "GET" | "POST" | "DELETE";
 
 export interface MethodMetadata {
     path: string;
