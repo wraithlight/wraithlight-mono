@@ -4,3 +4,4 @@ export * from "./post.decorator";
 export * from "./filter.decorator";
 export * from "./decorator.model";
 export * from "./param";
+export * from "./delete.decorator";
