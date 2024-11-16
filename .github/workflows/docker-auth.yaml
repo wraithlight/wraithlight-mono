@@ -3,11 +3,12 @@ run-name: "DOCKER - AUTH"
 on: [push, workflow_dispatch]
 
 env:
-  WORK_DIR: applications/apps/auth/node
+  WORK_DIR: applications
+  DOCKER_FILE_PATH: apps/auth/node/Dockerfile
   DOCKER_IMAGE_NAME: auth-node
 
 jobs:
-  build_docker_images:
+  build_docker_image:
     name: Build Auth Docker Image
     runs-on: ubuntu-latest
 
@@ -17,7 +18,7 @@ jobs:
 
     - name: Build the Docker image
       working-directory: ${{ env.WORK_DIR }}
-      run: docker build . --file Dockerfile --tag $DOCKER_IMAGE_NAME
+      run: docker build . -f ${{ DOCKER_FILE_PATH }} -t $DOCKER_IMAGE_NAME
 
     - name: Remove the local image
       run: docker rmi $DOCKER_IMAGE_NAME
