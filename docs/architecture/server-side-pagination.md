@@ -25,7 +25,7 @@ public async listUsers(
 
 ```json
 
-parameters: [
+"parameters": [
   {
     "name": "skip",
     "type": "number",
