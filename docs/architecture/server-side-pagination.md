@@ -67,15 +67,18 @@ When returning the items, the reponse should follow the `IServerSidePaginated<T>
 
 ```ts
 
-// TODO: core.server-side-pagination.types
-interface IServerSidePaginated<T> {
+interface IListResult<T> {
   items: ReadonlyArray<T>;
-  count: number;
-  taken: number;
+  visibleCount: number;
+  allCount: number;
+  skip: number;
+  take: number;
 }
 
 ```
 
 * `items` - Contains the visible items.
-* `count` - Count of all items.
-* `taken` - Count of visible items.
+* `visibleCount` - Count of visible items.
+* `allCount` - Count of all items.
+* `skip` - Number of items to skip before take the visible elements.
+* `take` - Number of items to take.
