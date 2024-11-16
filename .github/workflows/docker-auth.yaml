@@ -3,7 +3,7 @@ run-name: "DOCKER - AUTH"
 on: [push, workflow_dispatch]
 
 env:
-  WORK_DIR: ./applications/auth/node
+  WORK_DIR: applications/apps/auth/node
   DOCKER_IMAGE_NAME: auth-node
 
 jobs:
