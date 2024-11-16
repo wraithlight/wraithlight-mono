@@ -35,7 +35,7 @@ export const FromBodyV2 = <TBody>(
   if (isNil(selector)) {
     return ParamDecorator(m => m.body);
   }
-  const extractor = (m: Request) => {
+  const extractor = (m: Request): any => {
     return selector(m.body);
   };
   return ParamDecorator(extractor);
