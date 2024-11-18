@@ -5,4 +5,4 @@ export namespace HeaderName {
   export const IsSsrEnabled = "X-WL-SSR-ENABLED";
   export const CorrelationId = "X-WL-CORRELATION-ID";
   export const RealtimeToken = "X-WL-RT-TOKEN";
-};
+}
