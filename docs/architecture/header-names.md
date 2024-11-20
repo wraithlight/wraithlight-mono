@@ -13,7 +13,7 @@
 ---
 
 ### X-WL-SESSION-TOKEN
-This session is used to identify the session based on a JSON Web Token. The token contains the principal's ID (used in auth microservice) and the scope of the given token (`ApplicationId`) enum.
+This token is used to identify the session based on a JSON Web Token. The token contains the principal's ID (used in auth microservice) and the scope of the given token (`ApplicationId`) enum.
 
 Usage:
 
@@ -28,6 +28,17 @@ const sessionToken = req.headers[HeaderName.SessionToken];
 ---
 
 ### X-WL-API-TOKEN
+This token is used to verify that the given caller microservice has access to the requested endpoint on the target microservice. Used when a mciroservice<>microservice communication happens. On requestor side a single access token should be declared, but on receiver side an array of tokens are listed, to help transactional changes on the access tokens.
+
+Usage:
+
+```ts
+
+import { HeaderName } from "@wraithlight/domain.http.constants";
+
+const sessionToken = req.headers[HeaderName.ApiToken];
+
+```
 
 ---
 
