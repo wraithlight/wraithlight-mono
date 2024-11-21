@@ -36,14 +36,24 @@ Usage:
 
 import { HeaderName } from "@wraithlight/domain.http.constants";
 
-const sessionToken = req.headers[HeaderName.ApiToken];
+const apiToken = req.headers[HeaderName.ApiToken];
 
 ```
 
 ---
 
 ### X-WL-IS-BOT
+This token is used to identify if the given request is coming from a bot scraper. The header is being added by a global (app level) middleware.
 
+Usage:
+
+```ts
+
+import { HeaderName } from "@wraithlight/domain.http.constants";
+
+const botToken = req.headers[HeaderName.IsBot];
+
+```
 ---
 
 ### X-WL-SSR-ENABLED
