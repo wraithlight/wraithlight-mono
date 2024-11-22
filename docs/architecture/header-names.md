@@ -61,7 +61,17 @@ const botToken = req.headers[HeaderName.IsBot];
 ---
 
 ### X-WL-CORRELATION-ID
+This header is used to uniquely identifiy each incoming request per endpoint. This hedaer is being added by a global (app level) middleware. The value of this header is a valid UUIDv5 (GUID).
 
+Usage:
+
+```ts
+
+import { HeaderName } from "@wraithlight/domain.http.constants";
+
+const correlationId = req.headers[HeaderName.CorrelationId];
+
+```
 ---
 
 ### X-WL-RT-TOKEN
