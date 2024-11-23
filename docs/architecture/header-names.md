@@ -75,5 +75,16 @@ const correlationId = req.headers[HeaderName.CorrelationId];
 ---
 
 ### X-WL-RT-TOKEN
+This header is used to authorize the user when connecting to the realtime server. This header is being added by tha client.
+
+Usage:
+
+```ts
+
+import { HeaderName } from "@wraithlight/domain.http.constants";
+
+const realtimeToken = req.headers[HeaderName.RealtimeToken];
+
+```
 
 ---
