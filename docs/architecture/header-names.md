@@ -6,7 +6,7 @@
   - [X-WL-SESSION-TOKEN](#x-wl-session-token)
   - [X-WL-API-TOKEN](#x-wl-api-token)
   - [X-WL-IS-BOT](#x-wl-is-bot)
-  - [X-WL-SSR-ENABLED](#x-wl-ssr-enabled)
+  - [X-WL-SSR-ENABLED @deprecated](#x-wl-ssr-enabled-deprecated)
   - [X-WL-CORRELATION-ID](#x-wl-correlation-id)
   - [X-WL-RT-TOKEN](#x-wl-rt-token)
 
@@ -56,8 +56,18 @@ const botToken = req.headers[HeaderName.IsBot];
 ```
 ---
 
-### X-WL-SSR-ENABLED
+### X-WL-SSR-ENABLED @deprecated
+This heades is used to determine if the SSR functionality is enabled or disabled.
 
+Usage:
+
+```ts
+
+import { HeaderName } from "@wraithlight/domain.http.constants";
+
+const ssrEnabled = req.headers[HeaderName.IsSsrEnabled];
+
+```
 ---
 
 ### X-WL-CORRELATION-ID
