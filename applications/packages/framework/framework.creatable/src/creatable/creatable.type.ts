@@ -1,0 +1,1 @@
+export type Creatable<T> = { new(...args: Array<any>): T }
