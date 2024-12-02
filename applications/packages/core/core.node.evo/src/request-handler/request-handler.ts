@@ -2,6 +2,7 @@ import { Application, Request, Response } from "express";
 import { HttpCode, HttpVerb } from "@wraithlight/core.http";
 import { Guid, newGuid } from "@wraithlight/core.guid";
 import { Timer } from "@wraithlight/framework.timer";
+import { HeaderName } from "@wraithlight/domain.http.constants";
 
 import { isBaseControllerResult } from "../base";
 import { Injector } from "../injector";
@@ -11,11 +12,11 @@ import {
   HandlerControllerEndpointFilterModel
 } from "./request-handler.model";
 import { EventBus } from "../events";
+import { isBot } from "./is-bot";
 
 // TODO: Wire in `EventBus`
 // TODO: Wire in filters properly
 // TODO: Wire in param decoratorss
-// TODO: Add proper headers (isbot, correlationid)
 export class RequestHandler {
 
   private static controllers: Array<HandleControllerModel> = [];
@@ -38,6 +39,9 @@ export class RequestHandler {
           res: Response
         ) => {
           const correlation = newGuid();
+          req.headers[HeaderName.CorrelationId] = correlation;
+          req.headers[HeaderName.IsBot] = isBot(req.headers["user-agent"]).toString()
+
           const timer = new Timer();
           timer.start();
           EventBus.emitRequestStart(correlation);
