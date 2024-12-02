@@ -10,13 +10,13 @@ export interface HandlerContextModel {
   class: HandlerContextClassModel;
 }
 
-export interface HandlerContextParamModel {
+interface HandlerContextParamModel {
   methodName: string;
   propertyIndex: number;
   extractorFn: <T>(req: Request) => T;
 }
 
-export interface HandlerContextFilterModel {
+interface HandlerContextFilterModel {
   methodName: string;
   guardFn: (req: Request) => Promise<FilterResult> | FilterResult;
 }
