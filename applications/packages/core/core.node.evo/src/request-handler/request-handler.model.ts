@@ -20,7 +20,7 @@ export interface HandlerControllerEndpointFilterModel {
   guardFn: (req: Request) => Promise<FilterResult> | FilterResult;
 }
 
-export interface HandlerControllerParamModel {
+interface HandlerControllerParamModel {
   methodName: string;
   propertyIndex: number;
   extractorFn: <T>(req: Request) => T;
