@@ -16,7 +16,6 @@ import { isBot } from "./is-bot";
 
 // TODO: Wire in `EventBus`
 // TODO: Wire in filters properly
-// TODO: Wire in param decoratorss
 export class RequestHandler {
 
   private static controllers: Array<HandleControllerModel> = [];
@@ -66,12 +65,16 @@ export class RequestHandler {
             return;
           }
 
-          const controllerInstance = Injector.getInstance<any>(controller.injectionToken);
+          const params = endpoint.params
+            .sort((l, r) => l.propertyIndex > r.propertyIndex ? 1 : -1)
+            .map(m => m.extractorFn(req))
+          ;
 
+          const controllerInstance = Injector.getInstance<any>(controller.injectionToken);
           const method = controllerInstance[endpoint.methodName];
 
           try {
-            const methodResult = await method();
+            const methodResult = await method(...params);
 
             if (isBaseControllerResult(methodResult)) {
               this.processSuccessResponse(
