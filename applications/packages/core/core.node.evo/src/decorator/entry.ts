@@ -6,6 +6,12 @@ import {
   PostDecorator,
   PutDecorator
 } from "./method";
+import {
+  BodyDecorator,
+  HeaderDecorator,
+  PathDecorator,
+  QueryDecorator
+} from "./param";
 
 export namespace HttpDecorators {
   export const httpDelete = DeleteDecorator;
@@ -14,4 +20,9 @@ export namespace HttpDecorators {
   export const httpPost = PostDecorator;
   export const httpPut = PutDecorator;
   export const httpController = HttpController;
+
+  export const fromBody = BodyDecorator;
+  export const fromHeader = HeaderDecorator;
+  export const fromPath = PathDecorator;
+  export const fromQuery = QueryDecorator;
 }
