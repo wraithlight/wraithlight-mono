@@ -193,6 +193,7 @@ export class RequestHandler {
       case HttpVerb.DELETE: return application.delete.bind(application);
       case HttpVerb.PUT: return application.put.bind(application);
       case HttpVerb.POST: return application.post.bind(application);
+      case HttpVerb.PATCH: return application.patch.bind(application);
     }
   }
 
