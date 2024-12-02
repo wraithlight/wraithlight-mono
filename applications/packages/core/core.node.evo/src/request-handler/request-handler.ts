@@ -4,18 +4,25 @@ import { Guid, newGuid } from "@wraithlight/core.guid";
 import { Timer } from "@wraithlight/framework.timer";
 import { HeaderName } from "@wraithlight/domain.http.constants";
 
-import { isBaseControllerResult } from "../base";
+import { BaseController, isBaseControllerResult } from "../base";
+import { EventBus } from "../events";
 import { Injector } from "../injector";
 
+import { isBot } from "./is-bot";
 import {
   HandleControllerModel,
   HandlerControllerEndpointFilterModel
 } from "./request-handler.model";
-import { EventBus } from "../events";
-import { isBot } from "./is-bot";
+import {
+  CORE_CONTROLLER_FATAL_CODE,
+  CORE_CONTROLLER_FATAL_MESSAGE,
+  CORE_METHOD_FATAL_CODE,
+  CORE_METHOD_FATAL_MESSAGE,
+  PARAM_FATAL_CODE,
+  PARAM_FATAL_MESSAGE
+} from "./request-handler.const";
 
 // TODO: Wire in `EventBus`
-// TODO: Wire in filters properly
 export class RequestHandler {
 
   private static controllers: Array<HandleControllerModel> = [];
@@ -29,8 +36,8 @@ export class RequestHandler {
   public static defineBlueprints(
     application: Application
   ): void {
-    for(const controller of this.controllers) {
-      for(const endpoint of controller.endpoints) {
+    for (const controller of this.controllers) {
+      for (const endpoint of controller.endpoints) {
         const handler = this.getHandler(application, endpoint.verb);
 
         handler(endpoint.fullPath, async (
@@ -65,13 +72,54 @@ export class RequestHandler {
             return;
           }
 
-          const params = endpoint.params
-            .sort((l, r) => l.propertyIndex > r.propertyIndex ? 1 : -1)
-            .map(m => m.extractorFn(req))
-          ;
+          let params: Array<unknown> = [];
+          try {
+            params = endpoint.params
+              .sort((l, r) => l.propertyIndex > r.propertyIndex ? 1 : -1)
+              .map(m => m.extractorFn(req))
+              ;
+          } catch {
+            EventBus.emitParamFatal(correlation);
+            this.processErrorResponse(
+              res,
+              correlation,
+              PARAM_FATAL_CODE,
+              PARAM_FATAL_MESSAGE
+            );
+            return;
+          }
 
-          const controllerInstance = Injector.getInstance<any>(controller.injectionToken);
-          const method = controllerInstance[endpoint.methodName];
+          let controllerInstance: BaseController;
+          try {
+            controllerInstance = Injector.getInstance<BaseController>(controller.injectionToken);
+          } catch {
+            EventBus.emitOnCoreControllerFatal(correlation, controller.injectionToken);
+            this.processErrorResponse(
+              res,
+              correlation,
+              CORE_CONTROLLER_FATAL_CODE,
+              CORE_CONTROLLER_FATAL_MESSAGE
+            );
+            return;
+          }
+
+          let method: Function;
+          try {
+            method = (controllerInstance as any)[endpoint.methodName];
+          } catch {
+            EventBus.emitOnCoreMethodFatal(
+              correlation,
+              controller.injectionToken,
+              endpoint.methodName
+            );
+            this.processErrorResponse(
+              res,
+              correlation,
+              CORE_METHOD_FATAL_CODE,
+              CORE_METHOD_FATAL_MESSAGE
+            );
+            return;
+          }
 
           try {
             const methodResult = await method(...params);
@@ -91,7 +139,6 @@ export class RequestHandler {
                 methodResult
               );
             }
-
           } catch {
             // TODO: Error handling here.
             this.processErrorResponse(
@@ -191,7 +238,7 @@ export class RequestHandler {
     application: Application,
     verb: HttpVerb
   ) {
-    switch(verb) {
+    switch (verb) {
       case HttpVerb.GET: return application.get.bind(application);
       case HttpVerb.DELETE: return application.delete.bind(application);
       case HttpVerb.PUT: return application.put.bind(application);
