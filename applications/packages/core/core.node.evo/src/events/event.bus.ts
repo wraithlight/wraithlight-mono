@@ -6,6 +6,8 @@ import { MessagebusService } from "@wraithlight/core.messagebus";
 import { SERVER_EVENTS } from "./event.const";
 import { ServerStopReason } from "./event.enum";
 import {
+  ICoreControllerFatalEvent,
+  ICoreMethodFatalEvent,
   IFilterFailEvent,
   IFilterFatalEvent,
   IParamFatalEvent,
@@ -29,6 +31,36 @@ export class EventBus {
       {
         dateUtc: utcNow(),
         error: error
+      }
+    );
+  }
+
+  public static emitOnCoreControllerFatal(
+    correlationId: Guid,
+    injectionToken: string
+  ): void {
+    this.messageBus.push<ICoreControllerFatalEvent>(
+      SERVER_EVENTS.ON_CORE_CONTROLLER_FATAL,
+      {
+        dateUtc: utcNow(),
+        correlationId: correlationId,
+        injectionToken: injectionToken
+      }
+    );
+  }
+
+  public static emitOnCoreMethodFatal(
+    correlationId: Guid,
+    injectionToken: string,
+    methodName: string,
+  ): void {
+    this.messageBus.push<ICoreMethodFatalEvent>(
+      SERVER_EVENTS.ON_CORE_METHOD_FATAL,
+      {
+        dateUtc: utcNow(),
+        correlationId: correlationId,
+        injectionToken: injectionToken,
+        methodName: methodName
       }
     );
   }
@@ -100,15 +132,13 @@ export class EventBus {
   }
 
   public static emitParamFatal(
-    correlationId: Guid,
-    paramName: string
+    correlationId: Guid
   ): void {
     this.messageBus.push<IParamFatalEvent>(
       SERVER_EVENTS.ON_PARAM_FATAL,
       {
         correlationId: correlationId,
-        dateUtc: utcNow(),
-        paramName: paramName
+        dateUtc: utcNow()
       }
     );
   }
@@ -235,6 +265,18 @@ export class EventBus {
     handler: (payload: IServerStopEvent) => void
   ): void {
     this.messageBus.sub(SERVER_EVENTS.ON_SIGKILL, handler);
+  }
+
+  public static onCoreControllerFatal(
+    handler: (payload: ICoreControllerFatalEvent) => void
+  ): void {
+    this.messageBus.sub(SERVER_EVENTS.ON_CORE_CONTROLLER_FATAL, handler);
+  }
+
+  public static onCoreMethodFatal(
+    handler: (payload: ICoreMethodFatalEvent) => void
+  ): void {
+    this.messageBus.sub(SERVER_EVENTS.ON_CORE_METHOD_FATAL, handler);
   }
 
 }

@@ -13,8 +13,15 @@ interface IRequestEvent extends IProcessEvent {
 
 interface IFilterEvent extends IRequestEvent {}
 
-interface IParamEvent extends IRequestEvent {
-  paramName: string;
+interface IParamEvent extends IRequestEvent {}
+
+export interface ICoreControllerFatalEvent extends IRequestEvent {
+  injectionToken: string;
+}
+
+export interface ICoreMethodFatalEvent extends IRequestEvent {
+  injectionToken: string;
+  methodName: string;
 }
 
 export interface IProcessFatalEvent extends IProcessEvent {
