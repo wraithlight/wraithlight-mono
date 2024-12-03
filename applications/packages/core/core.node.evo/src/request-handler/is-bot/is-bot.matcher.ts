@@ -11,4 +11,4 @@ export const isBot = (userAgent: Nullable<string>): boolean => {
     .map(m => m.test(userAgent))
     .includes(true)
   ;
-}
+};
