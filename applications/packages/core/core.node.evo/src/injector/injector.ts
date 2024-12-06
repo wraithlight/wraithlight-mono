@@ -1,6 +1,6 @@
 export class Injector {
 
-  private static cache = new Map<string, Function>();
+  private static readonly cache = new Map<string, Function>();
 
   public static registerSingleton<TController>(
     token: string,
