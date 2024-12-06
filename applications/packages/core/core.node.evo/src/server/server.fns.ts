@@ -1,5 +1,5 @@
-import express, { Application, json } from "express";
 import cors from "cors";
+import express, { Application, json } from "express";
 
 import { EventBus } from "../events";
 import { RequestHandler } from "../request-handler";
@@ -19,7 +19,7 @@ process.on("unhandledRejection", (err) => {
 
 export const initServer = (
   options?: Partial<ServerOptions>
-) => {
+): void => {
   const payloadSize = options?.maxPayloadSizeMB ?? DEFAULT_PAYLOAD_SIZE;
 
   application.use(json({ limit: `${payloadSize}mb` }));
@@ -38,12 +38,12 @@ export const startServer = (
     EventBus.emitServerStart(port);
   });
 
-  const stopSignal = () => {
+  const stopSignal = (): void => {
     EventBus.emitServerStopSignal();
     server.close();
   };
 
   return {
     stopSignal: stopSignal
-  }
+  };
 };
