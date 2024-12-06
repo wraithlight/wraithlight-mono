@@ -1,5 +1,5 @@
-import { Request } from "express";
 import { HttpVerb } from "@wraithlight/core.http";
+import { Request } from "express";
 
 import { FilterResult } from "../model";
 
