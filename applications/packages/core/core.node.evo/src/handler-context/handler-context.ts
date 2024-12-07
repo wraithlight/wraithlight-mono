@@ -1,12 +1,12 @@
-import { Request } from "express";
+import { Counter } from "@wraithlight/core.counter";
 import { HttpVerb } from "@wraithlight/core.http";
 import { Creatable } from "@wraithlight/framework.creatable";
-import { Counter } from "@wraithlight/core.counter";
+import { Request } from "express";
 
-import { FilterResult } from "../model";
+import { BaseController } from "../base";
 import { InjectionScope } from "../enum";
 import { Injector } from "../injector";
-import { BaseController } from "../base";
+import { FilterResult } from "../model";
 import {
   HandleControllerModel,
   HandlerControllerEndpointModel,
@@ -14,6 +14,7 @@ import {
 
 import {
   COUNTER_NAME,
+  DEFAULT_COUNTER_STATE,
   DEFAULT_STATE,
   INJECTION_PREFIX
 } from "./handler-context.const";
@@ -22,7 +23,10 @@ import { HandlerContextModel } from "./handler-context.model";
 export class HandlerContext {
 
   private static state: HandlerContextModel = DEFAULT_STATE;
-  private static counter = Counter.getInstance(COUNTER_NAME, 100);
+  private static readonly counter = Counter.getInstance(
+    COUNTER_NAME,
+    DEFAULT_COUNTER_STATE
+  );
 
   public static addParameter(
     methodName: string,
@@ -43,7 +47,7 @@ export class HandlerContext {
     this.state.filters.push({
       methodName: methodName,
       guardFn: filter
-    })
+    });
   }
 
   public static addMethod(
@@ -55,7 +59,7 @@ export class HandlerContext {
       methodName: methodName,
       path: path,
       verb: verb
-    })
+    });
   }
 
   public static addClass<TController extends Creatable<BaseController>>(
@@ -63,7 +67,6 @@ export class HandlerContext {
     injectionScope: InjectionScope,
     proto: TController
   ): void {
-    
     const injectionToken = `${INJECTION_PREFIX}${this.counter.getNext()}`;
     this.state.class.basePath = basePath;
     this.state.class.injectionToken = injectionToken;
@@ -84,7 +87,9 @@ export class HandlerContext {
         verb: method.verb,
         methodName: method.methodName,
         fullPath: `${this.state.class.basePath}${method.path}`,
+        // eslint-disable-next-line max-len
         params: this.state.params.filter(m => m.methodName === method.methodName),
+        // eslint-disable-next-line max-len
         filters: this.state.filters.filter(m => m.methodName === method.methodName),
       };
       endpoints.push(endpoint);
@@ -92,7 +97,6 @@ export class HandlerContext {
     return {
       injectionToken: this.state.class.injectionToken,
       endpoints: endpoints
-    }
+    };
   }
-
 }

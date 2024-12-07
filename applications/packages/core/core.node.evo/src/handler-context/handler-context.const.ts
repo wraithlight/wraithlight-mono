@@ -12,3 +12,5 @@ export const DEFAULT_STATE: HandlerContextModel = {
 
 export const COUNTER_NAME = "CONTROLLER_INJECTION_TOKEN";
 export const INJECTION_PREFIX = "WLCONTROLLER_";
+
+export const DEFAULT_COUNTER_STATE = 100;
