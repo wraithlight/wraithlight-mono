@@ -21,7 +21,7 @@ import {
 
 export class EventBus {
 
-  private static messageBus = new MessagebusService();
+  private static readonly messageBus = new MessagebusService();
 
   public static emitProcessFatal(
     error: Error | unknown
@@ -152,7 +152,7 @@ export class EventBus {
         dateUtc: utcNow(),
         port: port
       }
-    )
+    );
   }
 
   public static emitServerStopSignal(): void {
