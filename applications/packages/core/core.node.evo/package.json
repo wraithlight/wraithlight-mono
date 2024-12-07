@@ -30,7 +30,8 @@
     "@wraithlight/core.messagebus": "*",
     "@wraithlight/core.counter": "*",
     "@wraithlight/domain.http.constants": "*",
-    "@wraithlight/framework.timer": "*"
+    "@wraithlight/framework.timer": "*",
+    "@wraithlight/framework.type-utils": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
