@@ -1,18 +1,15 @@
-import { Application, Request, Response } from "express";
-import { HttpCode, HttpVerb } from "@wraithlight/core.http";
 import { Guid, newGuid } from "@wraithlight/core.guid";
-import { Timer } from "@wraithlight/framework.timer";
+import { HttpCode, HttpVerb } from "@wraithlight/core.http";
 import { HeaderName } from "@wraithlight/domain.http.constants";
+import { Timer } from "@wraithlight/framework.timer";
+import { cast } from "@wraithlight/framework.type-utils";
+import { Application, IRouterMatcher, Request, Response } from "express";
 
 import { BaseController, isBaseControllerResult } from "../base";
 import { EventBus } from "../events";
 import { Injector } from "../injector";
 
 import { isBot } from "./is-bot";
-import {
-  HandleControllerModel,
-  HandlerControllerEndpointFilterModel
-} from "./request-handler.model";
 import {
   CORE_CONTROLLER_FATAL_CODE,
   CORE_CONTROLLER_FATAL_MESSAGE,
@@ -21,11 +18,15 @@ import {
   PARAM_FATAL_CODE,
   PARAM_FATAL_MESSAGE
 } from "./request-handler.const";
+import {
+  HandleControllerModel,
+  HandlerControllerEndpointFilterModel
+} from "./request-handler.model";
 
 // TODO: Wire in `EventBus`
 export class RequestHandler {
 
-  private static controllers: Array<HandleControllerModel> = [];
+  private static readonly controllers: Array<HandleControllerModel> = [];
 
   public static addBluepirnt(
     context: HandleControllerModel
@@ -46,7 +47,7 @@ export class RequestHandler {
         ) => {
           const correlation = newGuid();
           req.headers[HeaderName.CorrelationId] = correlation;
-          req.headers[HeaderName.IsBot] = isBot(req.headers["user-agent"]).toString()
+          req.headers[HeaderName.IsBot] = isBot(req.headers["user-agent"]).toString();
 
           const timer = new Timer();
           timer.start();
@@ -62,7 +63,7 @@ export class RequestHandler {
             EventBus.emitRequestEnd(
               correlation,
               end
-            )
+            );
             this.processErrorResponse(
               res,
               correlation,
@@ -91,9 +92,14 @@ export class RequestHandler {
 
           let controllerInstance: BaseController;
           try {
-            controllerInstance = Injector.getInstance<BaseController>(controller.injectionToken);
+            controllerInstance = Injector.getInstance<BaseController>(
+              controller.injectionToken
+            );
           } catch {
-            EventBus.emitOnCoreControllerFatal(correlation, controller.injectionToken);
+            EventBus.emitOnCoreControllerFatal(
+              correlation,
+              controller.injectionToken
+            );
             this.processErrorResponse(
               res,
               correlation,
@@ -103,9 +109,10 @@ export class RequestHandler {
             return;
           }
 
-          let method: Function;
+          let method: (...args: Array<unknown>) => unknown;
           try {
-            method = (controllerInstance as any)[endpoint.methodName];
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+            method = cast<any>(controllerInstance)[endpoint.methodName];
           } catch {
             EventBus.emitOnCoreMethodFatal(
               correlation,
@@ -146,7 +153,7 @@ export class RequestHandler {
               correlation,
               HttpCode.InternalError,
               "E_METHOD"
-            )
+            );
           }
         });
       }
@@ -170,7 +177,7 @@ export class RequestHandler {
           return {
             errorCode: result.errorHttpCode,
             message: result.errorMessage
-          }
+          };
         }
       } catch {
         EventBus.emitFilterFatal(
@@ -179,7 +186,7 @@ export class RequestHandler {
         return {
           errorCode: HttpCode.InternalError,
           message: "E_FILTER"
-        }
+        };
       }
     }
   }
@@ -237,7 +244,7 @@ export class RequestHandler {
   private static getHandler(
     application: Application,
     verb: HttpVerb
-  ) {
+  ): IRouterMatcher<Application>  {
     switch (verb) {
       case HttpVerb.GET: return application.get.bind(application);
       case HttpVerb.DELETE: return application.delete.bind(application);
