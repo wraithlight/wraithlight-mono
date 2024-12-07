@@ -10,6 +10,7 @@ import {
   SIGINT_NAME,
   SIGKILL_CODE,
   SIGKILL_NAME,
+  SIGTERM_CODE,
   SIGTERM_NAME
 } from "./server.const";
 import { ServerOptions, ServerStartPayload } from "./server.model";
@@ -26,7 +27,7 @@ process.on("unhandledRejection", (err) => {
 
 process.on(SIGTERM_NAME, () => {
   EventBus.emitSigterm();
-  process.exit(SIGINT_CODE);
+  process.exit(SIGTERM_CODE);
 });
 
 process.on(SIGINT_NAME, () => {
