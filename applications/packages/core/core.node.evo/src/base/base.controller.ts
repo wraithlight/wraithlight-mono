@@ -1,7 +1,7 @@
 import { HttpCode } from "@wraithlight/core.http";
 
-import { BaseControllerResult } from "./base.model";
 import { RESULT_BRAND } from "./base.const";
+import { BaseControllerResult } from "./base.model";
 
 export abstract class BaseController {
   protected ok<T>(payload?: T): BaseControllerResult<T> {
