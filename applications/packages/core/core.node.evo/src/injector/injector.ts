@@ -1,6 +1,10 @@
+import { isNil } from "@wraithlight/core.nullable";
+import { cast } from "@wraithlight/framework.type-utils";
+
 export class Injector {
 
-  private static readonly cache = new Map<string, Function>();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private static readonly cache = new Map<string, () => any>();
 
   public static registerSingleton<TController>(
     token: string,
@@ -20,11 +24,11 @@ export class Injector {
   public static getInstance<TController>(
     token: string
   ): TController {
-    if (!this.cache.has(token)) {
+    const factory = this.cache.get(token);
+    if (isNil(factory)) {
       throw `No registered object was found for token '${token}'!`;
     }
-    const factory = this.cache.get(token)!;
-    const instance = factory();
+    const instance = cast<TController>(factory());
     return instance;
   }
 }
