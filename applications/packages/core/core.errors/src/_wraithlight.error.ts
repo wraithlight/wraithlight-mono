@@ -1,12 +1,13 @@
-import { UNKNOWN_ERROR } from "./error";
+import { WL_MESSAGE } from "./_wraithlight.const";
 
 export abstract class WraithlightError extends Error {
+  public abstract readonly statusCode: number;
+  public abstract readonly statusMessage: string;
+
     constructor(
         type: string,
         message: string,
-        public readonly statusCode = 500,
-        public readonly statusMessage = UNKNOWN_ERROR
     ) {
-        super(`WraithlightError::${type}\n${message}`);
+        super(`${WL_MESSAGE}::${type}\n${message}`);
     }
 }

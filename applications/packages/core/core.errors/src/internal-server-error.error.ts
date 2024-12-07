@@ -1,10 +1,16 @@
+import { HttpCode } from "@wraithlight/core.http";
+
 import { WraithlightError } from "./_wraithlight.error";
 
 export class InternalServerError extends WraithlightError {
-    constructor() {
-        super(
-            "InternalServerError",
-            "E_INTERNALSERVERERROR"
-        );
-    }
+
+  public statusCode = HttpCode.InternalError;
+  public statusMessage = "E_INTERNAL_SERVER_ERROR";
+
+  constructor() {
+    super(
+      "InternalServerError",
+      "E_INTERNALSERVERERROR"
+    );
+  }
 }

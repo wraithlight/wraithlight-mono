@@ -1,6 +1,10 @@
+import { HttpCode } from "@wraithlight/core/core.http";
 import { WraithlightError } from "./_wraithlight.error"
 
-class TestError extends WraithlightError { }
+class TestError extends WraithlightError {
+  public statusCode = HttpCode.Accepted;
+  public statusMessage = "E_MOCK_MESSAGE";
+}
 
 describe("WraithlightErrorSpecs", () => {
     const MOCK_TYPE = "error type";
