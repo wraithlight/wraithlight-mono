@@ -2,9 +2,8 @@ import { HttpCode } from "@wraithlight/core.http";
 import { Request } from "express";
 
 import { BaseController } from "../../../base";
-import { FilterResult } from "../../../model";
 import { HandlerContext } from "../../../handler-context";
-
+import { FilterResult } from "../../../model";
 import { IHttpDecorator } from "../_http.decorator";
 
 export const createFilterAttribute = (
@@ -19,7 +18,7 @@ export const createFilterAttribute = (
     propertyName,
     guardFn
   );
-}
+};
 
 export const createFailResponse = (
   code: HttpCode,
@@ -30,7 +29,7 @@ export const createFailResponse = (
     isSuccess: false,
     errorHttpCode: code,
     errorMessage: message
-  }
+  };
 };
 
 export const createSuccessResponse = (): FilterResult => {
