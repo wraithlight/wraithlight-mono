@@ -1,7 +1,9 @@
 import { HttpVerb } from "@wraithlight/core.http";
 
-import { HttpDecorator } from "./_http.decorator";
+import { BaseController } from "../../base";
+
+import { HttpDecorator, IHttpDecorator } from "./_http.decorator";
 
 export const PutDecorator = (
   path: string
-) => HttpDecorator(path, HttpVerb.PUT);
+): IHttpDecorator<BaseController> => HttpDecorator(path, HttpVerb.PUT);

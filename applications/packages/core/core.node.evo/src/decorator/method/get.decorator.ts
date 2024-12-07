@@ -1,7 +1,9 @@
 import { HttpVerb } from "@wraithlight/core.http";
 
-import { HttpDecorator } from "./_http.decorator";
+import { BaseController } from "../../base";
+
+import { HttpDecorator, IHttpDecorator } from "./_http.decorator";
 
 export const GetDecorator = (
   path: string
-) => HttpDecorator(path, HttpVerb.GET);
+): IHttpDecorator<BaseController> => HttpDecorator(path, HttpVerb.GET);
