@@ -1,4 +1,4 @@
-import { isEmptyStringOrNil, Nullable } from "@wraithlight/core.nullable";
+import { Nullable, isEmptyStringOrNil } from "@wraithlight/core.nullable";
 
 import { IS_BOT_REGEX_LIST } from "./is-bot.const";
 
