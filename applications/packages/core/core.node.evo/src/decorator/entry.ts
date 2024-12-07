@@ -13,6 +13,12 @@ import {
   QueryDecorator
 } from "./param";
 
+export {
+  createFilterAttribute,
+  createFailResponse,
+  createSuccessResponse
+} from "./method";
+
 export namespace HttpDecorators {
   export const httpDelete = DeleteDecorator;
   export const httpGet = GetDecorator;
