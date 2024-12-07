@@ -4,7 +4,14 @@ import express, { Application, json } from "express";
 import { EventBus } from "../events";
 import { RequestHandler } from "../request-handler";
 
-import { DEFAULT_PAYLOAD_SIZE } from "./server.const";
+import {
+  DEFAULT_PAYLOAD_SIZE,
+  SIGINT_CODE,
+  SIGINT_NAME,
+  SIGKILL_CODE,
+  SIGKILL_NAME,
+  SIGTERM_NAME
+} from "./server.const";
 import { ServerOptions, ServerStartPayload } from "./server.model";
 
 const application: Application = express();
@@ -15,6 +22,21 @@ process.on("uncaughtException", (err) => {
 
 process.on("unhandledRejection", (err) => {
   EventBus.emitProcessFatal(err);
+});
+
+process.on(SIGTERM_NAME, () => {
+  EventBus.emitSigterm();
+  process.exit(SIGINT_CODE);
+});
+
+process.on(SIGINT_NAME, () => {
+  EventBus.emitSigint();
+  process.exit(SIGINT_CODE);
+});
+
+process.on(SIGKILL_NAME, () => {
+  EventBus.emitSigkill();
+  process.exit(SIGKILL_CODE);
 });
 
 export const initServer = (
