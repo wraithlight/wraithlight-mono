@@ -1,7 +1,10 @@
+import { AnyOrT, cast } from "@wraithlight/framework.type-utils";
+
 import { BaseControllerResult } from "./base.model";
 
 export function isBaseControllerResult<T>(
-  o: BaseControllerResult<T>
+  o: AnyOrT<T>
 ): o is BaseControllerResult<T> {
-  return o.__brand === "BaseControllerResult<T>";
+  const obj = cast<BaseControllerResult<T>>(o);
+  return obj.__brand === "BaseControllerResult<T>";
 }
