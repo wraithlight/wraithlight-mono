@@ -185,7 +185,7 @@ export class EventBus {
     );
   }
 
-  public static emitSigkil(): void {
+  public static emitSigkill(): void {
     this.messageBus.push<IServerStopEvent>(
       SERVER_EVENTS.ON_SIGKILL,
       {
