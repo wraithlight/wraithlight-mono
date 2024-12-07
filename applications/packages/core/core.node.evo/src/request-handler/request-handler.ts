@@ -1,3 +1,4 @@
+import { isWraithlightError } from "@wraithlight/core.errors";
 import { Guid, newGuid } from "@wraithlight/core.guid";
 import { HttpCode, HttpVerb } from "@wraithlight/core.http";
 import { HeaderName } from "@wraithlight/domain.http.constants";
@@ -23,7 +24,6 @@ import {
   HandlerControllerEndpointFilterModel
 } from "./request-handler.model";
 
-// TODO: Wire in `EventBus`
 export class RequestHandler {
 
   private static readonly controllers: Array<HandleControllerModel> = [];
@@ -81,6 +81,11 @@ export class RequestHandler {
               ;
           } catch {
             EventBus.emitParamFatal(correlation);
+            const end = timer.stop();
+            EventBus.emitRequestEnd(
+              correlation,
+              end
+            );
             this.processErrorResponse(
               res,
               correlation,
@@ -100,6 +105,11 @@ export class RequestHandler {
               correlation,
               controller.injectionToken
             );
+            const end = timer.stop();
+            EventBus.emitRequestEnd(
+              correlation,
+              end
+            );
             this.processErrorResponse(
               res,
               correlation,
@@ -118,6 +128,11 @@ export class RequestHandler {
               correlation,
               controller.injectionToken,
               endpoint.methodName
+            );
+            const end = timer.stop();
+            EventBus.emitRequestEnd(
+              correlation,
+              end
             );
             this.processErrorResponse(
               res,
@@ -146,14 +161,35 @@ export class RequestHandler {
                 methodResult
               );
             }
-          } catch {
-            // TODO: Error handling here.
-            this.processErrorResponse(
-              res,
+            const end = timer.stop();
+            EventBus.emitRequestEnd(
               correlation,
-              HttpCode.InternalError,
-              "E_METHOD"
+              end
             );
+          } catch (e: any) {
+            const end = timer.stop();
+            EventBus.emitRequestFatal(
+              correlation
+            );
+            EventBus.emitRequestEnd(
+              correlation,
+              end
+            );
+            if (isWraithlightError(e)) {
+              this.processErrorResponse(
+                res,
+                correlation,
+                e.statusCode,
+                e.statusMessage
+              );
+            } else {
+              this.processErrorResponse(
+                res,
+                correlation,
+                HttpCode.InternalError,
+                "E_METHOD"
+              );
+            }
           }
         });
       }
