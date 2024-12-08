@@ -15,7 +15,7 @@ import {
 
 export {
   IParamDecorator
-} from "./param"
+} from "./param";
 
 export {
   createFilterAttribute,
