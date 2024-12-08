@@ -1,9 +1,12 @@
 import {
-  HttpDecorators
+  BaseController,
+  HttpDecorators,
+  IParamDecorator
 } from "@wraithlight/core.node.evo";
 import {
   HeaderName
 } from "@wraithlight/domain.http.constants";
 
-export const ApiToken = (
-) => HttpDecorators.fromHeader(HeaderName.ApiToken);
+export const ApiToken = (): IParamDecorator<BaseController> =>
+  HttpDecorators.fromHeader(HeaderName.ApiToken)
+;

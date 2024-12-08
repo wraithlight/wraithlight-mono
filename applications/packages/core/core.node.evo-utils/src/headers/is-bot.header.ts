@@ -1,9 +1,12 @@
 import {
-  HttpDecorators
+  BaseController,
+  HttpDecorators,
+  IParamDecorator
 } from "@wraithlight/core.node.evo";
 import {
   HeaderName
 } from "@wraithlight/domain.http.constants";
 
-export const IsBot = (
-) => HttpDecorators.fromHeader(HeaderName.IsBot);
+export const IsBot = (): IParamDecorator<BaseController> =>
+  HttpDecorators.fromHeader(HeaderName.IsBot)
+;
