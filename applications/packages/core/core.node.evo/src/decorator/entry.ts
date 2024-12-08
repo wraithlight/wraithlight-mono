@@ -14,6 +14,10 @@ import {
 } from "./param";
 
 export {
+  IParamDecorator
+} from "./param"
+
+export {
   createFilterAttribute,
   createFailResponse,
   createSuccessResponse
