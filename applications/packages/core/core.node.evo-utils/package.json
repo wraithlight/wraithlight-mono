@@ -1,6 +1,6 @@
 {
   "$schema": "../../../.schema/package-json.package.schema.json",
-  "name": "@wraithlight/core.node.evo",
+  "name": "@wraithlight/core.node.evo-utils",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "exports": {
@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "1.1.0",
+  "version": "1.0.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -20,24 +20,11 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@wraithlight/core.http": "*",
-    "@wraithlight/core.linq": "*",
-    "@wraithlight/core.nullable": "*",
-    "@wraithlight/framework.creatable": "*",
-    "cors": "2.8.5",
-    "express": "4.18.2",
-    "@wraithlight/core.date": "*",
-    "@wraithlight/core.messagebus": "*",
-    "@wraithlight/core.counter": "*",
-    "@wraithlight/domain.http.constants": "*",
-    "@wraithlight/framework.timer": "*",
-    "@wraithlight/framework.type-utils": "*",
-    "@wraithlight/core.errors": "*"
+    "@wraithlight/core.node.evo": "*",
+    "@wraithlight/domain.http.constants": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
-    "@types/cors": "2.8.13",
-    "@types/express": "4.17.17",
     "@types/jest": "29.5.1",
     "@typescript-eslint/eslint-plugin": "5.59.2",
     "@typescript-eslint/parser": "5.59.2",
