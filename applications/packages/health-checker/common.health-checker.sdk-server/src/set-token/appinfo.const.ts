@@ -1,0 +1,2 @@
+export const HC_APPNAME_KEY = "HC_APPNAME_KEY";
+export const HC_APPVERSION_KEY = "HC_APPVERSION_KEY";
