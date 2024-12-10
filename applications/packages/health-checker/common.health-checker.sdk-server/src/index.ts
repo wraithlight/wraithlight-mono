@@ -2,5 +2,6 @@ export * from "./controller";
 
 export {
   setHcHealthTokens,
-  setHcMetricsTokens
+  setHcMetricsTokens,
+  setAppinfo
 } from "./set-token";
