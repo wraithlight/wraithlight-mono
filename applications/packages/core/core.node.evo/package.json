@@ -32,7 +32,8 @@
     "@wraithlight/domain.http.constants": "*",
     "@wraithlight/framework.timer": "*",
     "@wraithlight/framework.type-utils": "*",
-    "@wraithlight/core.errors": "*"
+    "@wraithlight/core.errors": "*",
+    "@wraithlight/core.dictionary": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
