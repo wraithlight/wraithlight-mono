@@ -2,7 +2,7 @@ import { Dictionary } from "@wraithlight/core/core.dictionary";
 
 export class TokenDictionary extends Dictionary<ReadonlyArray<string>> {
 
-  private static _instance = new TokenDictionary();
+  private static readonly _instance = new TokenDictionary();
 
   private constructor() {
     super();
