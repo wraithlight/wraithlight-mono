@@ -1,4 +1,4 @@
-import { HttpCode } from "@wraithlight/core/core.http";
+import { HttpCode } from "@wraithlight/core.http";
 import { WraithlightError } from "./_wraithlight.error"
 
 class TestError extends WraithlightError {
