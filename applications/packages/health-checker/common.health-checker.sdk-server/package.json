@@ -24,7 +24,11 @@
         "@wraithlight/core.health-checker.constants": "*",
         "@wraithlight/core.health-checker.types": "*",
         "@wraithlight/core.messagebus": "*",
-        "@wraithlight/core.node": "*"
+        "@wraithlight/core.node": "*",
+        "@wraithlight/core.errors": "*",
+        "@wraithlight/core.node.evo": "*",
+        "@wraithlight/core.node.evo-utils": "*",
+        "@wraithlight/core.nullable": "*"
     },
     "devDependencies": {
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",
