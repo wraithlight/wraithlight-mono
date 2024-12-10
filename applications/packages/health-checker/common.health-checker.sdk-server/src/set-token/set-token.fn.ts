@@ -1,5 +1,5 @@
 import { HC_HEALTH_TOKENS_KEY, HC_METRICS_TOKENS_KEY } from "./token.const";
-import { TokenDictionary } from "./token.dictionary"
+import { TokenDictionary } from "./token.dictionary";
 
 export function setHcHealthTokens(
   tokens: ReadonlyArray<string>
