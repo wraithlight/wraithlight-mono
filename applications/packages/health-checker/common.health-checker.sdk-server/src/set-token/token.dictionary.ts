@@ -1,4 +1,4 @@
-import { Dictionary } from "@wraithlight/core/core.dictionary";
+import { Dictionary } from "@wraithlight/core.dictionary";
 
 export class TokenDictionary extends Dictionary<ReadonlyArray<string>> {
 
