@@ -1,5 +1,17 @@
 import cors from "cors";
-import express, { Application, json } from "express";
+import
+express,
+{
+  Application,
+  json,
+  static as serveStatic
+}
+  from "express";
+import {
+  JsonObject as SwaggerFileContent,
+  serve as swaggerServe,
+  setup as swaggerSetup
+} from "swagger-ui-express";
 
 import { EventBus } from "../events";
 import { RequestHandler } from "../request-handler";
@@ -47,11 +59,48 @@ export const initServer = (
 
   application.use(json({ limit: `${payloadSize}mb` }));
 
-  if(options?.enableCors) {
+  if (options?.enableCors) {
     application.use(cors());
   }
 
   RequestHandler.defineBlueprints(application);
+};
+
+export const serveStaticFile = (
+  route: string,
+  absoluteFilePath: string,
+  isEnabled = true
+): void => {
+  if (!isEnabled) {
+    return;
+  }
+  application.use(route, serveStatic(absoluteFilePath));
+};
+
+export const serveStaticFolder = (
+  route: string,
+  absoluteFolderPath: string,
+  isEnabled = true
+): void => {
+  if (!isEnabled) {
+    return;
+  }
+  application.use(route, serveStatic(absoluteFolderPath));
+};
+
+export const serveSwaggerFile = (
+  route: string,
+  jsonContent: SwaggerFileContent,
+  isEnabled = true
+): void => {
+  if (!isEnabled) {
+    return;
+  }
+  application.use(
+    route,
+    swaggerServe,
+    swaggerSetup(jsonContent)
+  );
 };
 
 export const startServer = (
