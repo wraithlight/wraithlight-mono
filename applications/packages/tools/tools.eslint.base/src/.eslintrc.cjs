@@ -99,7 +99,9 @@ const eslintConfig = {
     "no-async-promise-executor": "error",
     "function-call-argument-newline": ["error", "consistent"],
     "quotes": ["error", "double", { "allowTemplateLiterals": true }],
-    "indent": ["warn", 2],                      // TODO
+    "indent": ["warn", 2, {
+      "SwitchCase": 1
+    }],                      // TODO
     // Native off due to TS rules
     "no-magic-numbers": "off",
     "lines-between-class-members": "off",
