@@ -1,9 +1,10 @@
+import { readFileSync } from "fs";
+
 import {
   OperationResult,
   OperationResultFactory
 } from "@wraithlight/framework.operation-result";
 import { cast } from "@wraithlight/framework.type-utils";
-import { readFileSync } from "fs";
 
 export class FileOperator {
 
@@ -35,7 +36,8 @@ export class FileOperator {
       const content = readFileSync(path).toString();
       return OperationResultFactory.success(content);
     } catch (e: any) {
-      switch(e.code) {
+      const code = cast<{ code: string }>(e).code;
+      switch (code) {
         case "ENOENT": return OperationResultFactory.error("E_IO_NOT_EXIST");
         case "EACCES": return OperationResultFactory.error("E_IO_ACCESS");
         case "EPERM": return OperationResultFactory.error("E_IO_PERMISSION");
@@ -44,7 +46,7 @@ export class FileOperator {
         case "ENAMETOOLONG": return OperationResultFactory.error("E_IO_NAME_TOO_LONG");
         case "ENOTDIR": return OperationResultFactory.error("E_IO_NOT_DIR");
         case "EBADF": return OperationResultFactory.error("E_IO_BAD_DESCRIPTOR");
-        default: return OperationResultFactory.error("E_IO_UNKNOWN", e.code)
+        default: return OperationResultFactory.error("E_IO_UNKNOWN", code);
       }
     }
   }
