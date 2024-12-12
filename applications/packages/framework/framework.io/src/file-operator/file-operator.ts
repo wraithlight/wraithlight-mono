@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 
 import {
+  isErrorResult,
   OperationResult,
   OperationResultFactory
 } from "@wraithlight/framework.operation-result";
@@ -18,7 +19,7 @@ export class FileOperator {
     path: string
   ): OperationResult<T> {
     const result = this.readFileText(path);
-    if (!result.isSuccess) {
+    if (isErrorResult(result)) {
       return OperationResultFactory.error(...result.errors);
     }
     try {
