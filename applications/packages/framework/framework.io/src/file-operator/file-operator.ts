@@ -1,9 +1,9 @@
 import { readFileSync } from "fs";
 
 import {
-  isErrorResult,
   OperationResult,
-  OperationResultFactory
+  OperationResultFactory,
+  isErrorResult
 } from "@wraithlight/framework.operation-result";
 import { cast } from "@wraithlight/framework.type-utils";
 
@@ -36,7 +36,7 @@ export class FileOperator {
     try {
       const content = readFileSync(path).toString();
       return OperationResultFactory.success(content);
-    } catch (e: any) {
+    } catch (e) {
       const code = cast<{ code: string }>(e).code;
       switch (code) {
         case "ENOENT": return OperationResultFactory.error("E_IO_NOT_EXIST");
