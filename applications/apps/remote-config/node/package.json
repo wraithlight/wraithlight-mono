@@ -1,5 +1,5 @@
 {
-    "$schema": "../../../.schema/package-json.app-be.schema.json",
+    "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/package-json.app-be.schema.json",
     "name": "@wraithlight/remote-config.node",
     "version": "1.0.0",
     "license": "LGPL-3.0-only",
