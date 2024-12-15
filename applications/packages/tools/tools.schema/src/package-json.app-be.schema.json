@@ -1,0 +1,94 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://example.com/product.schema.json",
+    "title": "PACKAGE JSON SCHEMA",
+    "description": "Schema for BE app package.json files in the repository.",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string"
+        },
+        "license": {
+            "type": "string",
+            "enum": ["LGPL-3.0-only"]
+        },
+        "main": {
+            "type": "string",
+            "enum": ["dist/index.js"]
+        },
+        "types": {
+            "type": "string",
+            "enum": ["dist/index.d.ts"]
+        },
+        "scripts": {
+            "type": "object",
+            "properties": {
+                "lerna": {
+                    "type": "string",
+                    "enum": ["lerna"]
+                },
+                "watch": {
+                    "type": "string"
+                },
+                "build": {
+                    "type": "string"
+                },
+                "postbuild": {
+                    "type": "string"
+                },
+                "build:prod": {
+                    "type": "string"
+                },
+                "postbuild:prod": {
+                    "type": "string"
+                },
+                "lint": {
+                    "type": "string"
+                },
+                "test": {
+                    "type": "string"
+                },
+                "test:coverage": {
+                    "type": "string"
+                },
+                "serve": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "watch",
+                "serve",
+                "build",
+                "postbuild",
+                "build:prod",
+                "postbuild:prod",
+                "lint",
+                "test",
+                "test:coverage",
+                "lerna"
+            ],
+            "additionalProperties": false
+        },
+        "$schema": {
+            "type": "string"
+        },
+        "dependencies": {
+            "type": "object"
+        },
+        "devDependencies": {
+            "type": "object"
+        }
+    },
+    "additionalProperties": false,
+    "required": [
+        "name",
+        "version",
+        "license",
+        "scripts",
+        "devDependencies",
+        "$schema"
+    ]
+}
