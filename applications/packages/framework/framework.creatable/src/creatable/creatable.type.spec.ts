@@ -19,7 +19,7 @@ describe("CreatableSpecs", () => {
       });
       it("should return the new object", () => {
         expect(obj.key).toBe(MOCK_KEY);
-        expect(typeof obj).toBe(MockClass);
+        expect(obj instanceof MockClass).toBe(true);
       });
     });
   });
