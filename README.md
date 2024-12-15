@@ -67,11 +67,13 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [How to kill a process by PID (MAC)](./docs/guides/how-to-kill-a-process.md)
 * [How to generate GUIDs](./docs/guides/guidgen.md)
 * [How to reset your branch to origin](./docs/guides/git-reset-to-origin.md)
+* [How to batch commit your changes](./docs/guides/batch-committer.md)
 
 ### Utils
 * [`purge.sh`](./docs/utils/purge-sh.md)
 * [`purge-git.sh`](./docs/utils/purge-git-sh.md)
 * [`purge-branch.sh`](./docs/utils/purge-branch.sh.md)
+* [`batch-committer.sh`](./docs/guides/batch-committer.md)
 
 ### Credentials
 * [Credentials](./docs/credentials/README.md)
