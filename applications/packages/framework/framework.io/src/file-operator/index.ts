@@ -1,1 +1,13 @@
 export * from "./file-operator";
+export {
+  ERROR_IO_NOT_EXIST,
+  ERROR_IO_ACCESS,
+  ERROR_IO_PERMISSION,
+  ERROR_IO_IS_DIR,
+  ERROR_IO_TOO_MANY_OPEN,
+  ERROR_IO_NAME_TOO_LONG,
+  ERROR_IO_NOT_DIR,
+  ERROR_IO_BAD_DESCRIPTOR,
+  ERROR_IO_UNKNOWN,
+  ERROR_IO_JSON_PARSE
+} from "./file-operator.const";
