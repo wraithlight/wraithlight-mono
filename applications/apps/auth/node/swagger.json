@@ -30,19 +30,24 @@
   ],
   "tags": [
     {
-      "name": "internal/session"
+      "name": "internal/session",
+      "description": "Endpoints that are related to internal (microservice frontend) operations. Modifies the session resource."
     },
     {
-      "name": "internal/user"
+      "name": "internal/user",
+      "description": "Endpoints that are related to internal (microservice frontend) operations. Modifies the user resource."
     },
     {
-      "name": "internal/context"
+      "name": "internal/context",
+      "description": "Endpoints that are related to internal (microservice frontend) operations. Modifies the context resource."
     },
     {
-      "name": "external/session"
+      "name": "external/session",
+      "description": "Endpoints that are related to external (other microservices) operations. Modifies the session resource."
     },
     {
-      "name": "external/user"
+      "name": "external/user",
+      "description": "Endpoints that are related to external (other microservices) operations. Modifies the user resource."
     }
   ],
   "paths": {
@@ -2737,7 +2742,7 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": "",
+            "description": "The operation was successful.",
             "content": {
               "application/json": {
                 "schema": {
