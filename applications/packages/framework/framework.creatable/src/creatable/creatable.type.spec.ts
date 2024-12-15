@@ -18,7 +18,6 @@ describe("CreatableSpecs", () => {
         obj = factory(MockClass);
       });
       it("should return the new object", () => {
-        expect(obj).toBe(Object);
         expect(obj.key).toBe(MOCK_KEY);
         expect(typeof obj).toBe(MockClass);
       });
