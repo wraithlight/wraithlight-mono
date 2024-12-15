@@ -1,8 +1,10 @@
 import { LATENCY_API_ENDPOINTS } from "@wraithlight/core.latency.constants";
+import { createFullUrl } from "@wraithlight/core.url";
 import {
   OperationResult,
   OperationResultFactory
 } from "@wraithlight/framework.operation-result";
+import { Timer } from "@wraithlight/framework.timer";
 
 import { LatencyClient } from "../client";
 
@@ -16,12 +18,13 @@ export class LatencyService {
 
   public async getLatency(): Promise<OperationResult<number>> {
     const path = this.getLatencyPath();
-    const start = performance.now();
+    const timer = new Timer();
+    timer.start();
     const result = await this._client.getLatency(path);
-    const end = performance.now();
+    const duration = timer.stop();
 
     if (result) {
-      return OperationResultFactory.success(start - end);
+      return OperationResultFactory.success(duration);
     }
 
     return OperationResultFactory.error("E_GET_LATENCY");
@@ -30,7 +33,7 @@ export class LatencyService {
   private getLatencyPath(): string {
     const controller = LATENCY_API_ENDPOINTS.v1.controller;
     const method = LATENCY_API_ENDPOINTS.v1.getLatency;
-    return `${controller}${method}`;
+    return createFullUrl(controller, method);
   }
 
 }

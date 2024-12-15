@@ -1,5 +1,8 @@
 import { Nullable, isNil } from "@wraithlight/core.nullable";
 
+/**
+ * @deprecated Use `Dictionary` from `"@wraithlight/framework.nullable"` instead.
+ */
 export class Dictionary<TValue> {
 
     private readonly _cache = new Map<string, TValue>();
