@@ -1,19 +1,42 @@
-export interface OperationResultBase {
-  isSuccess: boolean;
-  isError: boolean;
+export abstract class OperationResultBase {
+  public abstract isSuccess: boolean;
+  public abstract isError: boolean;
+
+  public isErrorTC(): this is OperationResultError {
+    return this.isError;
+  }
+
+  public isSuccessTC<T>(): this is OperationResultSuccess<T> {
+    return this.isSuccess;
+  }
 }
 
-export interface OperationResultSuccess<T = undefined>
+export class OperationResultSuccess<T = undefined>
   extends OperationResultBase {
-    isSuccess: true;
-    isError: false;
-    payload: T;
+    public readonly isError = false;
+    public readonly isSuccess = true;
+    public readonly payload: T;
+
+    constructor(
+      _payload: T
+    ) {
+      super();
+      this.payload = _payload;
+    }
 }
 
-export interface OperationResultError extends OperationResultBase {
-  isSuccess: false;
-  isError: true;
-  errors: ReadonlyArray<string>
+export class OperationResultError extends OperationResultBase {
+  public readonly isError = true;
+  public readonly isSuccess = false;
+  public readonly errors: ReadonlyArray<string>;
+
+
+  constructor(
+    ..._errors: ReadonlyArray<string>
+  ) {
+    super();
+    this.errors = _errors;
+  }
 }
 
 export type OperationResult<T> =

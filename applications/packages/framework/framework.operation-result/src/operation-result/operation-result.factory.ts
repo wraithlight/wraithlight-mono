@@ -8,21 +8,13 @@ export class OperationResultFactory {
   public static success<T = undefined>(
     payload: T
   ): OperationResultSuccess<T> {
-    return {
-      isSuccess: true,
-      isError: false,
-      payload: payload
-    };
+    return new OperationResultSuccess(payload);
   }
 
   public static error(
     ...errors: ReadonlyArray<string>
   ): OperationResultError {
-    return {
-      isSuccess: false,
-      isError: true,
-      errors: errors
-    };
+    return new OperationResultError(...errors);
   }
 
 }
