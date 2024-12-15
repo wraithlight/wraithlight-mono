@@ -8,7 +8,7 @@
     "$schema": {
       "type": "string",
       "enum": [
-        "../../../.schema/swagger.schema.json"
+        "../../../node_modules/@wraithlight/tools.schema/dist/swagger.schema.json"
       ]
     },
     "openapi": {
