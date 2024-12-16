@@ -1,9 +1,14 @@
-const INTERNAL_BASE = (version: number) => `internal/api/v${version}`;
-const RESOURCE_BASE = (resource: string) => `${INTERNAL_BASE(1)}/${resource}`;
+const INTERNAL_BASE = (version: number): string => `internal/api/v${version}`;
+const RESOURCE_BASE = (resource: string): string => `${INTERNAL_BASE(1)}/${resource}`;
+
+interface VerbEndpoint {
+  forClient(): string;
+  forServer(): string;
+}
 
 const VERB_FACTORY = (
   resource: string,
-) => ({
+): VerbEndpoint => ({
   forServer: () => ``,
   forClient: () => resource
 });

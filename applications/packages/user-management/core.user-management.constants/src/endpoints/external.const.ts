@@ -1,5 +1,5 @@
-const EXTERNAL_BASE = (version: number) => `internal/api/v${version}`;
-const RESOURCE_BASE = (resource: string) => `${EXTERNAL_BASE(1)}/${resource}`;
+const EXTERNAL_BASE = (version: number): string => `internal/api/v${version}`;
+const RESOURCE_BASE = (resource: string): string => `${EXTERNAL_BASE(1)}/${resource}`;
 
 const SESSION_RES = RESOURCE_BASE("session");
 const USER_RES = RESOURCE_BASE("user");
