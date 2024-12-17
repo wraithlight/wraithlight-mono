@@ -37,6 +37,7 @@ export interface ExternalCheckEmailRequest {
   emailAddress: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExternalCheckEmailResponse {
 }
 
@@ -44,6 +45,7 @@ export interface ExternalCheckUsernameRequest {
   username: string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExternalCheckUsernameResponse {
 }
 
@@ -61,5 +63,6 @@ export interface ExternalUserPatchRequest {
 export interface ExternalUserPatchResponse extends UserResponse {
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExternalUserDeleteResponse {
 }

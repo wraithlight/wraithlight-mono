@@ -42,17 +42,22 @@ export interface InternalContextPatchResponse {
   count: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalContextDeleteResponse {
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalContextUsersDeleteResponse {
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalContextUserPostRequest {
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalContextUserPostResponse {
 }
 
-export interface InternalContextUsersDeleteResponse {
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface InternalContextUserDeleteResponse {
 }

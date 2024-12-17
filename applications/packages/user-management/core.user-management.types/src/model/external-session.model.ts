@@ -8,6 +8,7 @@ interface SessionResponse {
 export interface ExternalSessionGetResponse extends SessionResponse {
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExternalSessionDeleteResponse {
 }
 
@@ -20,6 +21,7 @@ export interface ExternalSessionPostRequest {
 export interface ExternalSessionPostResponse extends SessionResponse {
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExternalSessionPatchRequest {
 }
 
