@@ -1,4 +1,4 @@
-export interface IHttpResponse<T = Object> {
+export interface IHttpResponse<T = object> {
   correlationId: string;
   error: {
     code: string;
