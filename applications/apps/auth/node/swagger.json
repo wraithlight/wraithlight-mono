@@ -1135,6 +1135,16 @@
               "type": "string",
               "format": "uuid"
             }
+          },
+          {
+            "name": "X-WL-USERPASSWORD",
+            "in": "header",
+            "required": true,
+            "example": "cGFzc3dvcmQxMjM0",
+            "schema": {
+              "type": "string",
+              "format": "base64"
+            }
           }
         ],
         "responses": {
