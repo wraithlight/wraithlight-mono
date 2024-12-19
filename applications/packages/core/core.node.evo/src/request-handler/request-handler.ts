@@ -144,7 +144,7 @@ export class RequestHandler {
           }
 
           try {
-            const methodResult = await method(...params);
+            const methodResult = await method.apply(controllerInstance, params);
 
             if (isBaseControllerResult(methodResult)) {
               this.processSuccessResponse(
@@ -168,6 +168,7 @@ export class RequestHandler {
             );
           } catch (e: any) {
             const end = timer.stop();
+            console.log(e);
             EventBus.emitRequestFatal(
               correlation
             );
