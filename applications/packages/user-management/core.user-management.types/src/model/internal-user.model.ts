@@ -74,6 +74,7 @@ export interface InternalUserContextPostResponse {
   createdById: Guid;
   createdByUsername: string;
   createdAtUTC: string;
+  contextName: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-interface
