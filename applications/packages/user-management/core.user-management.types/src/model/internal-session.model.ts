@@ -19,10 +19,8 @@ export interface InternalSessionPostRequest {
 export interface InternalSessionPostResponse extends InternalSessionResponse {
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalSessionDeleteReqponse {}
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalSessionPatchRequest {}
 
 export interface InternalSessionPathcResponse extends InternalSessionResponse {

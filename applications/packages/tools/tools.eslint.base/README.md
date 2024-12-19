@@ -8,24 +8,24 @@ Limitations:
 * the exported config extends the following configurations
 ```
 
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:import/recommended",
-        "plugin:import/typescript",
+  "eslint:recommended",
+  "plugin:@typescript-eslint/recommended",
+  "plugin:import/recommended",
+  "plugin:import/typescript",
 
 ```
 * the exported config uses the followng parser
 ```
 
-"@typescript-eslint/parser"
+  "@typescript-eslint/parser"
 
 ```
 * the exported config uses the following plugins
 ```
 
-        "deprecation",
-        "@typescript-eslint",
-        "import",
+  "deprecation",
+  "@typescript-eslint",
+  "import",
 
 ```
 
