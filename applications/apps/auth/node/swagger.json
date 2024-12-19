@@ -2554,6 +2554,10 @@
                     "payload": {
                       "type": "object",
                       "properties": {
+                        "contextName": {
+                          "type": "string",
+                          "example": "User Management"
+                        },
                         "relationId": {
                           "type": "string",
                           "format": "uuid",
