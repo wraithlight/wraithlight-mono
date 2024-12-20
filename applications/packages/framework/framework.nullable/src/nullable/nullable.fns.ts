@@ -21,7 +21,7 @@ export function isEmptyString(valueLike: string): valueLike is "" {
 export function isEmptyStringOrNil(
   valueLike: Nullable<string>
 ): valueLike is undefined | null | "" {
-  return isNil(valueLike) || isEmptyStringCore(valueLike);
+  return isNilCore(valueLike) || isEmptyStringCore(valueLike);
 }
 
 function isEmptyStringCore(valueLike: string): valueLike is "" {
