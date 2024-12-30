@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "TSCONFIG JSON SCHEMA",
+  "description": "Schema for package tsconfig.json files in the repository.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "enum": [
+        ""
+      ]
+    },
+    "extends": {
+      "type": "string",
+      "enum": [
+        ""
+      ]
+    },
+    "compilerOptions": {
+      "type": "object",
+      "properties": {
+        "outDir": {
+          "type": "string",
+          "enum": ["dist/esm"]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "outDir"
+      ]
+    },
+    "include": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["src"]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "extends",
+    "compilerOptions",
+    "include"
+  ]
+}
