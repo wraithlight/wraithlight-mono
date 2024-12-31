@@ -1,0 +1,1 @@
+export const USER_PASSWORD = "X-WL-USERPASSWORD";
