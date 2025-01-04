@@ -1,4 +1,8 @@
 CREATE TABLE `UserScope` (
-    `UserId` VARCHAR(36) NOT NULL,
-    `ScopeId` VARCHAR(36) NOT NULL
+  `Id` VARCHAR(36) NOT NULL,
+  `UserId` VARCHAR(36) NOT NULL,
+  `ApplicationId` VARCHAR(36) NOT NULL,
+  `CreatedAtUtc` DATETIME NOT NULL,
+  `CreatedByUserId` VARCHAR(36) NOT NULL,
+  PRIMARY KEY (`Id`)
 ) ENGINE = MyISAM DEFAULT CHARSET=utf8;
