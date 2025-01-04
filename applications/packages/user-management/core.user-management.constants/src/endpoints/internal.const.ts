@@ -69,6 +69,14 @@ export const INTERNAL_ENDPOINTS = {
             forServer: () => `/:userId/context/:contextId`
           }
         }
+      },
+      resetFailedLoginAttempts: {
+        patch: {
+          forClient: (
+            userId: string
+          ) => `${USER_RES}/${userId}/reset-login-attempts`,
+          forServer: () => `/:userId/reset-login-attempts`
+        }
       }
     },
 

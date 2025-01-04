@@ -75,3 +75,9 @@ export interface InternalUserContextPostResponse {
 
 export interface InternalUserContextDeleteResponse {
 }
+
+export interface InternalUserResetFailedLoginAttemptsRequest {}
+
+export interface InternalUserResetFailedLoginAttemptsResponse
+  extends UserResponse {
+}
