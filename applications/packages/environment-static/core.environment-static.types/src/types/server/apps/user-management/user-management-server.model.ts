@@ -5,4 +5,5 @@ import { UserManagementServerSession } from "./session.model";
 export interface UserManagementServer {
     database: DatabaseServer;
     session: UserManagementServerSession;
+    apiTokens: ReadonlyArray<string>;
 }
