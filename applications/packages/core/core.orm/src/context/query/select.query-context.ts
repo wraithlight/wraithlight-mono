@@ -18,8 +18,7 @@ export class SelectQueryContext<T extends object>
     ) {
         super(tableName);
         this.addQuery(
-            `SELECT * FROM ?`,
-            tableName
+            `SELECT * FROM ${tableName}`
         );
     }
 

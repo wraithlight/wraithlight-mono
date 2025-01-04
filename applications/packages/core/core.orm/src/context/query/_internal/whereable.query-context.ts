@@ -25,8 +25,7 @@ export abstract class WhereableQueryContext<T extends object>
             this.addQuery("WHERE");
         }
         this.addQuery(
-            `? = ?`,
-            `${this._tableName}.${this.capitalize(key.toString())}`,
+            `${this._tableName}.${this.capitalize(key.toString())} = ?`,
             queryValue
         );
         this.lastWasWhere = true;
