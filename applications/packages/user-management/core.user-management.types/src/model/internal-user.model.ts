@@ -70,6 +70,7 @@ export interface InternalUserContextPostResponse {
   createdById: Guid;
   createdByUsername: string;
   createdAtUTC: string;
+  contextName: string;
 }
 
 export interface InternalUserContextDeleteResponse {
