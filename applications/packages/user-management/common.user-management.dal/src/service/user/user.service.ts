@@ -1,6 +1,6 @@
 import { utcNow } from "@wraithlight/core.date";
 import { Guid, newGuid } from "@wraithlight/core.guid";
-import { Nullable, isNil } from "@wraithlight/core.nullable";
+import { Nullable, isNil } from "@wraithlight/framework.nullable";
 import { generateRandomString } from "@wraithlight/core.random-string";
 import { UserStatus } from "@wraithlight/core.user-management.types";
 import {
@@ -105,7 +105,7 @@ export class UserService {
             .where("emailAddress", email)
             .first()
         ;
-        if (isNil(user) || user.userStatus === UserStatus.Deleted) {
+        if (isNil(user)) {
             return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(user);
@@ -119,7 +119,7 @@ export class UserService {
             .where("username", username)
             .first()
         ;
-        if (isNil(user) || user.userStatus === UserStatus.Deleted) {
+        if (isNil(user)) {
             return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(user);
