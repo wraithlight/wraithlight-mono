@@ -28,16 +28,16 @@ if (!hasFilesParam) {
 
 const targetFiles = filesParam.map(m => m.replace(filesSwitch, ""));
 
-function getAllPackageJsonFiles() {
+function getAllTargetFiles() {
   const result = libFolders.map(m => {
     const path = join(__dirname, "..", m);
-    const files = getPackageJsonFiles(path);
+    const files = getTargetFiles(path);
     return files;
   });
   return result.flat();
 }
 
-function getPackageJsonFiles(path) {
+function getTargetFiles(path) {
   const result = [];
   const content = readdirSync(path);
   for (const item of content) {
@@ -45,7 +45,7 @@ function getPackageJsonFiles(path) {
     const itemPath = join(path, item);
     const stat = statSync(itemPath);
     if (stat.isDirectory()) {
-      result.push(...getPackageJsonFiles(itemPath));
+      result.push(...getTargetFiles(itemPath));
     } else if (stat.isFile() && targetFiles.includes(item)) {
       const content = readFileSync(itemPath).toString();
       const jsonContent = JSON.parse(content);
@@ -72,7 +72,8 @@ function validate(content, schema) {
   }
 }
 
-const result = getAllPackageJsonFiles().map(m => {
+const result = getAllTargetFiles().map(m => {
+  if (!m.$schema) throw `No schema path defined in '${m.path}'!`;
   const schema = getSchemaFile(m);
   return {
     result: validate(m.content, schema),
