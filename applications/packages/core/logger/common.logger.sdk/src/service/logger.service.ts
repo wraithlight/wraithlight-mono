@@ -5,6 +5,9 @@ import { blue, red, yellow } from "ansi-colors";
 
 import { DEFAULT_CONFIG } from "./logger.const";
 
+/**
+ * @deprecated Use `Logger` from `"@wraithlight/framework.logger"` instead.
+ */
 export class LoggerService implements ILogger {
 
   private static _config: Nullable<Partial<LoggerConfig>>;
