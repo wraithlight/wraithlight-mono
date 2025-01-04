@@ -16,16 +16,19 @@ import {
 import { UserManager } from "../../../../manager";
 
 import {
+  ApiTokenValidator,
   CheckEmailValidator,
   CheckUsernameValidator
 } from "./validator";
-import { BadRequestError } from "@wraithlight/core/core.errors";
+import { BadRequestError, UnauthorizedError } from "@wraithlight/core/core.errors";
 
 @HttpDecorators.httpController(EXTERNAL_ENDPOINTS.user.forServer())
 export class UserController extends BaseController {
 
+  private readonly _apiTokenValidator = new ApiTokenValidator();
   private readonly _checkEmailValidator = new CheckEmailValidator();
   private readonly _checkUsernameValidator = new CheckUsernameValidator();
+
   private readonly _userManager = new UserManager();
 
   @HttpDecorators.httpPost(EXTERNAL_ENDPOINTS.user.checkUsername.forServer())
@@ -33,6 +36,11 @@ export class UserController extends BaseController {
     @ApiToken() apiToken: string,
     @HttpDecorators.fromBody() model: ExternalCheckUsernameRequest
   ) {
+    const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
+    if (!apiTokenValidationResult.success) {
+      throw new UnauthorizedError();
+    }
+
     const validatonResult = this._checkUsernameValidator.validate(model);
     if (!validatonResult.success) {
       throw new BadRequestError();
@@ -47,6 +55,11 @@ export class UserController extends BaseController {
     @ApiToken() apiToken: string,
     @HttpDecorators.fromBody() model: ExternalCheckEmailRequest
   ) {
+    const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
+    if (!apiTokenValidationResult.success) {
+      throw new UnauthorizedError();
+    }
+
     const validatonResult = this._checkEmailValidator.validate(model);
     if (!validatonResult.success) {
       throw new BadRequestError();
