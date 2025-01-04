@@ -1,68 +1,43 @@
-import { join } from "path";
-
-import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
-import { ServerUserManagementConfigReader } from "@wraithlight/common.environment-static.server";
-import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
-import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
-import { LoggerService } from "@wraithlight/common.logger.sdk";
-import { PackageJsonReader } from "@wraithlight/common.package-info.sdk-server";
-import { ApplicationName } from "@wraithlight/core.auth.constant";
-import { LoginScope } from "@wraithlight/core.auth.types";
+import "./controller";
+import {
+  initServer,
+  startServer,
+  EventBus
+} from "@wraithlight/core.node.evo";
+import {
+  SharedUserManagementConfigReader
+} from "@wraithlight/common.environment-static.shared";
+import {
+  ServerUserManagementConfigReader
+} from "@wraithlight/common.environment-static.server";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
-import { createNodeServer } from "@wraithlight/core.server";
+import {
+  initializeDal
+} from "@wraithlight/common.user-management.dal";
 
-import { AccountControllerV2, SessionControllerV2 } from "./controller";
+const sharedReader = SharedUserManagementConfigReader
+  .getInstance(CoreEnvironment.getEnvironmentType())
+;
+const serverReader = ServerUserManagementConfigReader
+  .getInstance(CoreEnvironment.getEnvironmentType())
+;
 
-LoggerService.initialize({
-    applicationName: ApplicationName.UserManagement
+initializeDal(
+  serverReader.get(m => m.database.host),
+  serverReader.get(m => m.database.port),
+  serverReader.get(m => m.database.username),
+  serverReader.get(m => m.database.password),
+  serverReader.get(m => m.database.database),
+  true
+);
+
+
+EventBus.onRequestStart((m) => {
+  console.log("on request", m.correlationId);
 });
 
-const serverCfg = ServerUserManagementConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType())
-;
-
-const sharedCfg = SharedUserManagementConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType())
-;
-
-const packageInfoReader = new PackageJsonReader(
-  join(__dirname, serverCfg.getCommon(m => m.files.packageJson.path)),
-  LoggerService.getInstance(),
-  ApplicationName.UserManagement,
-  "0.0.1"   // TODO: From domain constants.
-);
-
-const CONTROLLERS = [
-    new ServerAuthControllerV1(LoginScope.UserManagement),
-    new AccountControllerV2(),
-    new SessionControllerV2(),
-    new HealthCheckControllerV1(
-        ApplicationName.UserManagement,
-        packageInfoReader.getPackageJsonInfo().version
-    )
-];
-
-const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
-
-createNodeServer(
-    ApplicationName.UserManagement,
-    CONTROLLERS,
-    [],
-    sharedCfg.get(x => x.server.port),
-    [
-        {
-            path: serverCfg.getCommon(x => x.paths.base),
-            staticPath: join(
-                __dirname,
-                frontendPath
-            )
-        },
-        {
-            path: serverCfg.getCommon(x => x.paths.wildcard),
-            staticPath: join(
-                __dirname,
-                frontendPath
-            )
-        }
-    ]
-);
+initServer({
+  enableCors: true,
+  maxPayloadSizeMB: 2
+});
+startServer(sharedReader.get(m => m.server.port));
