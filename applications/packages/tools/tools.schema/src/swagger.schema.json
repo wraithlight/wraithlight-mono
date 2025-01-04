@@ -94,6 +94,9 @@
                 "summary": {
                   "$ref": "#/components/nonEmptyString"
                 },
+                "operationId": {
+                  "$ref": "#/components/nonEmptyString"
+                },
                 "parameters": {
                   "type": "array",
                   "items": {
@@ -162,7 +165,8 @@
               "required": [
                 "tags",
                 "summary",
-                "parameters"
+                "parameters",
+                "operationId"
               ],
               "additionalProperties": false
             },
@@ -176,6 +180,9 @@
                   }
                 },
                 "summary": {
+                  "$ref": "#/components/nonEmptyString"
+                },
+                "operationId": {
                   "$ref": "#/components/nonEmptyString"
                 },
                 "parameters": {
@@ -247,7 +254,8 @@
               "required": [
                 "summary",
                 "parameters",
-                "tags"
+                "tags",
+                "operationId"
               ],
               "additionalProperties": false
             },
@@ -261,6 +269,9 @@
                   }
                 },
                 "summary": {
+                  "$ref": "#/components/nonEmptyString"
+                },
+                "operationId": {
                   "$ref": "#/components/nonEmptyString"
                 },
                 "parameters": {
@@ -332,7 +343,8 @@
               "required": [
                 "summary",
                 "parameters",
-                "tags"
+                "tags",
+                "operationId"
               ],
               "additionalProperties": false
             },
@@ -346,6 +358,9 @@
                   }
                 },
                 "summary": {
+                  "$ref": "#/components/nonEmptyString"
+                },
+                "operationId": {
                   "$ref": "#/components/nonEmptyString"
                 },
                 "parameters": {
@@ -416,7 +431,8 @@
               "required": [
                 "tags",
                 "summary",
-                "parameters"
+                "parameters",
+                "operationId"
               ],
               "additionalProperties": false
             }
