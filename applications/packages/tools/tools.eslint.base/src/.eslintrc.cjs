@@ -125,7 +125,7 @@ const eslintConfig = {
       }
     ],
     "@typescript-eslint/no-empty-interface": [
-      "error",
+      "off",
       {
         "allowSingleExtends": true
       }

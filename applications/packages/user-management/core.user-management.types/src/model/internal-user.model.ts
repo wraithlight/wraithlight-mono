@@ -33,7 +33,6 @@ export interface InternalCheckEmailRequest {
   emailAddress: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalCheckEmailResponse {
 }
 
@@ -51,7 +50,6 @@ export interface InternalUserPatchRequest {
 export interface InternalUserPatchResponse extends UserResponse {
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalUserDeleteResponse {
 }
 
@@ -59,11 +57,9 @@ export interface InternalCheckUsernameRequest {
   username: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalCheckUsernameResponse {
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalUserContextPostRequest {
 }
 
@@ -74,9 +70,9 @@ export interface InternalUserContextPostResponse {
   createdById: Guid;
   createdByUsername: string;
   createdAtUTC: string;
+  contextName: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalUserContextDeleteResponse {
 }
 
