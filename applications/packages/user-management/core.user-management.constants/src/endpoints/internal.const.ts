@@ -1,4 +1,4 @@
-const INTERNAL_BASE = (version: number): string => `internal/api/v${version}`;
+const INTERNAL_BASE = (version: number): string => `/internal/api/v${version}`;
 const RESOURCE_BASE = (resource: string): string => `${INTERNAL_BASE(1)}/${resource}`;
 
 interface VerbEndpoint {
