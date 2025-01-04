@@ -168,7 +168,6 @@ export class RequestHandler {
             );
           } catch (e: any) {
             const end = timer.stop();
-            console.log(e);
             EventBus.emitRequestFatal(
               correlation
             );
