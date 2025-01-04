@@ -36,7 +36,7 @@ export abstract class Validator<T> implements IValidator<T> {
             })
         );
         return {
-            success: errors.length > 0,
+            success: errors.length === 0,
             errorList: errors,
             ruleResults: testResults
                 .map(m => ({
