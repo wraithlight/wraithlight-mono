@@ -1,27 +1,31 @@
 {
-    "extends": "nx/presets/npm.json",
-    "affected": {
-        "defaultBase": "main"
-    },
-    "workspaceLayout": {
-        "appsDir": "apps",
-        "libsDir": "packages"
-    },
-    "generators": {
-        "@nx/js:library": {
-            "buildable": true
-        }
-    },
-    "targetDefaults": {
-        "build": {
-            "cache": true,
-            "dependsOn": ["^build"]
-        },
-        "build:prod": {
-          "dependsOn": ["^build:prod"]
-        },
-        "lint": {
-            "cache": true
-        }
+  "extends": "nx/presets/npm.json",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "packages"
+  },
+  "generators": {
+    "@nx/js:library": {
+      "buildable": true
     }
+  },
+  "targetDefaults": {
+    "build": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "build:prod": {
+      "dependsOn": [
+        "^build:prod"
+      ]
+    },
+    "lint": {
+      "cache": true
+    }
+  }
 }
