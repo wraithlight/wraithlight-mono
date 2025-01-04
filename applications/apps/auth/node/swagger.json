@@ -850,11 +850,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -1276,11 +1276,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -2061,11 +2061,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -2571,11 +2571,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -3222,7 +3222,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -3304,7 +3304,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -3520,7 +3520,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
