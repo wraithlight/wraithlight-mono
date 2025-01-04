@@ -14,5 +14,6 @@ export const SERVER_DEV_USER_MANAGEMENT_CONFIG: Readonly<
         iv: "",
         secret: "",
         key: ""
-    }
+    },
+    apiTokens: []
 };
