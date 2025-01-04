@@ -185,16 +185,6 @@ export class EventBus {
     );
   }
 
-  public static emitSigkill(): void {
-    this.messageBus.push<IServerStopEvent>(
-      SERVER_EVENTS.ON_SIGKILL,
-      {
-        dateUtc: utcNow(),
-        reason: ServerStopReason.sigkill
-      }
-    );
-  }
-
   public static onProcessFatal(
     handler: (payload: IProcessFatalEvent) => void
   ): void {
@@ -259,12 +249,6 @@ export class EventBus {
     handler: (payload: IServerStopEvent) => void
   ): void {
     this.messageBus.sub(SERVER_EVENTS.ON_SIGINT, handler);
-  }
-
-  public static onSigkill(
-    handler: (payload: IServerStopEvent) => void
-  ): void {
-    this.messageBus.sub(SERVER_EVENTS.ON_SIGKILL, handler);
   }
 
   public static onCoreControllerFatal(

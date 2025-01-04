@@ -8,7 +8,8 @@ const __dirname = dirname(__filename);
 
 const libFolders = [
   "apps",
-  "packages"
+  "packages",
+  ".swadoc"
 ];
 const ignoreFolders = [
   "node_modules",
@@ -73,6 +74,7 @@ function validate(content, schema) {
 }
 
 const result = getAllPackageJsonFiles().map(m => {
+  console.log(m.path);
   const schema = getSchemaFile(m);
   return {
     result: validate(m.content, schema),
