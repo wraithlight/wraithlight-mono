@@ -1,5 +1,5 @@
-import { Nullable, isNil } from "@wraithlight/framework.nullable";
 import { dateISOSerialize, dateNow } from "@wraithlight/core.date";
+import { Nullable, isNil } from "@wraithlight/framework.nullable";
 import { blue, red, white, yellow } from "ansi-colors";
 
 import { DEFAULT_APPLICATION_NAME } from "./logger.const";
@@ -30,6 +30,7 @@ export class Logger {
 
   public debug(payload: string): void {
     this.log(
+      // eslint-disable-next-line no-console
       console.debug,
       blue,
       LogSeverity.Debug,
@@ -39,6 +40,7 @@ export class Logger {
 
   public info(payload: string): void {
     this.log(
+      // eslint-disable-next-line no-console
       console.info,
       white,
       LogSeverity.Info,
@@ -48,6 +50,7 @@ export class Logger {
 
   public warning(payload: string): void {
     this.log(
+      // eslint-disable-next-line no-console
       console.warn,
       yellow,
       LogSeverity.Warning,
@@ -57,6 +60,7 @@ export class Logger {
 
   public error(payload: string): void {
     this.log(
+      // eslint-disable-next-line no-console
       console.error,
       red,
       LogSeverity.Error,
