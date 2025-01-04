@@ -43,7 +43,7 @@ export abstract class QueryContext<T extends object> {
       switch(typeof value) {
         case "number": return value.toString();
         case "boolean": return value.toString();
-        default: return `"${value}"`;
+        default: return value;
       }
     }
 
