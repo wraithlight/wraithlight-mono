@@ -7,5 +7,6 @@ export * from "./not-initalized.error";
 export * from "./bad-request.error";
 export * from "./unauthorized.error";
 export * from "./internal-server-error.error";
+export * from "./conflict.error";
 
 export * from "./_wraithlight.error.guard";
