@@ -3,7 +3,8 @@ import {
   HttpDecorators
 } from "@wraithlight/core.node.evo";
 import {
-  EXTERNAL_ENDPOINTS
+  EXTERNAL_ENDPOINTS,
+  USER_PASSWORD
 } from "@wraithlight/core.user-management.constants";
 import {
   ExternalCheckUsernameRequest,
@@ -160,6 +161,27 @@ export class UserController extends BaseController {
 
     await this._userManager.checkEmailAddress(model.emailAddress);
     return this.accepted();
+  }
+
+  @HttpDecorators.httpDelete(EXTERNAL_ENDPOINTS.user.userId.delete.forServer())
+  public async deleteUser(
+    @ApiToken() apiToken: Guid,
+    @SessionToken() sessionToken: Guid,
+    @HttpDecorators.fromHeader(USER_PASSWORD) password: string,
+    @HttpDecorators.fromHeader("userId") userId: Guid
+  ) {
+    const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
+    if (!apiTokenValidationResult.success) {
+      throw new UnauthorizedError();
+    }
+
+    await this._userManager.deleteUser(
+      userId,
+      sessionToken,
+      password
+    );
+    
+    return this.noContent();
   }
 
 }

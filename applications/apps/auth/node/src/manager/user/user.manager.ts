@@ -11,6 +11,7 @@ import {
   UnauthorizedError
 } from "@wraithlight/core.errors";
 import {
+  ExternalUserDeleteResponse,
   ExternalUserGetResponse,
   ExternalUserPatchResponse,
   ExternalUserPostResponse,
@@ -90,22 +91,16 @@ export class UserManager {
     oldPassword: string,
     sessionToken: string
   ): Promise<ExternalUserPatchResponse> {
-    console.log("310e603b-ddb1-46ae-8b26-f059df651660");
-    console.log(sessionToken)
     const session = await this._sessionService.findByToken(sessionToken);
     if (session.isErrorTC()) {
-      console.log("isErrorTC");
       throw new UnauthorizedError();
     }
 
-    console.log("IS DELETED", session.payload.isDeleted);
     if (session.payload.isDeleted) {
-      console.log("isDeleted");
       throw new UnauthorizedError();
     }
 
     if (session.payload.tokenValidUntilUtc.getTime() < utcNow().getTime()) {
-      console.log("tokenValidUntilUtc");
       throw new UnauthorizedError();
     }
 
@@ -144,6 +139,60 @@ export class UserManager {
     }
 
     return dbToDto(result.payload);
+  }
+
+  public async deleteUser(
+    id: Guid,
+    sessionToken: Guid,
+    password: string
+  ): Promise<ExternalUserDeleteResponse> {
+    const sessionResult = await this._sessionService.findByToken(sessionToken);
+    if (sessionResult.isErrorTC()) {
+      throw new UnauthorizedError();
+    }
+
+    if (sessionResult.payload.isDeleted) {
+      throw new UnauthorizedError();
+    }
+
+    if (sessionResult.payload.tokenValidUntilUtc.getTime() < utcNow().getTime()) {
+      throw new UnauthorizedError();
+    }
+
+    const userResult = await this._userService.findUserById(id);
+    if (userResult.isErrorTC()) {
+      throw new NotFoundError();
+    }
+
+    const isPasswordValid = this._passwordService.verifyPassword(
+      password,
+      userResult.payload.passwordHash
+    );
+
+    if (!isPasswordValid) {
+      throw new UnauthorizedError();
+    }
+
+    if (sessionResult.payload.userId !== id) {
+      throw new ForbiddenError();
+    }
+
+    const sessionDeleteResult = await this._sessionService.deleteSessionByToken(sessionToken);
+    if (sessionDeleteResult.isErrorTC()) {
+      throw new UnauthorizedError();
+    }
+
+    const anonymizeResult = await this._userService.anonymizeUser(id);
+    if(anonymizeResult.isErrorTC()) {
+      throw new NotFoundError();
+    }
+
+    const deleteResult = await this._userService.deleteUser(id);
+    if (deleteResult.isErrorTC()) {
+      throw new NotFoundError();
+    }
+
+    return dbToDto(deleteResult.payload);
   }
 
   public async checkUsername(username: string): Promise<void> {
