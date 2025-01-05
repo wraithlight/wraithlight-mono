@@ -11,15 +11,17 @@ import {
 
 export class ApiTokenValidator extends Validator<string> {
 
-  private readonly _config = ServerUserManagementConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType());
-
   public setupRules(): void {
+    const config = ServerUserManagementConfigReader
+      .getInstance(CoreEnvironment.getEnvironmentType())
+    ;
+
+    const tokens = config.get(m => m.apiTokens);
     this.addValidationRule(
       m => m,
       ValidationRule
         .toBeString()
-        .toBeInArray(this._config.get(m => m.apiTokens))
+        .toBeInArray(tokens)
     );
   }
 
