@@ -5,7 +5,8 @@ export const SERVER_STAGING_COMMON_CONFIG: Readonly<
     CommonServer> = {
     paths: {
         base: "/",
-        wildcard: "*"
+        wildcard: "*",
+        swagger: "/swagger"
     },
     files: {
         frontend: {
@@ -13,7 +14,15 @@ export const SERVER_STAGING_COMMON_CONFIG: Readonly<
         },
         packageJson: {
           path: "./_package.json"
+        },
+        swagger: {
+          path: "./swagger.json"
         }
+    },
+    features: {
+      swagger: {
+        isEnabled: true
+      }
     },
     logging: {
         enabledLogSeverities: [
