@@ -1,5 +1,12 @@
 import {
+  ApiToken,
+  SessionToken
+} from "@wraithlight/common.node.evo-utils";
+import { BadRequestError, UnauthorizedError } from "@wraithlight/core.errors";
+import { Guid } from "@wraithlight/core.guid";
+import {
   BaseController,
+  BaseControllerResult,
   HttpDecorators
 } from "@wraithlight/core.node.evo";
 import {
@@ -7,15 +14,15 @@ import {
   USER_PASSWORD
 } from "@wraithlight/core.user-management.constants";
 import {
-  ExternalCheckUsernameRequest,
   ExternalCheckEmailRequest,
+  ExternalCheckUsernameRequest,
+  ExternalUserGetResponse,
+  ExternalUserPatchRequest,
+  ExternalUserPatchResponse,
   ExternalUserPostRequest,
-  ExternalUserPatchRequest
+  ExternalUserPostResponse,
+  ExternalUsersGetResponse
 } from "@wraithlight/core.user-management.types";
-import {
-  ApiToken,
-  SessionToken
-} from "@wraithlight/common.node.evo-utils";
 
 import { UserManager } from "../../../../manager";
 
@@ -26,8 +33,7 @@ import {
   ModifyValidator,
   RegisterValidator
 } from "./validator";
-import { BadRequestError, UnauthorizedError } from "@wraithlight/core.errors";
-import { Guid } from "@wraithlight/core.guid";
+
 
 /**
  * @public Stewpid knip issue.
@@ -46,7 +52,7 @@ export class UserController extends BaseController {
   @HttpDecorators.httpGet(EXTERNAL_ENDPOINTS.user.get.forServer())
   public async listAllUsers(
     @ApiToken() apiToken: string
-  ) {
+  ): Promise<BaseControllerResult<ExternalUsersGetResponse>> {
     const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
     if (!apiTokenValidationResult.success) {
       throw new UnauthorizedError();
@@ -61,7 +67,7 @@ export class UserController extends BaseController {
   public async register(
     @ApiToken() apiToken: string,
     @HttpDecorators.fromBody() model: ExternalUserPostRequest
-  ) {
+  ): Promise<BaseControllerResult<ExternalUserPostResponse>> {
     const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
     if (!apiTokenValidationResult.success) {
       throw new UnauthorizedError();
@@ -69,7 +75,6 @@ export class UserController extends BaseController {
 
     const modelValidationResult = this._registerValidator.validate(model);
     if (!modelValidationResult.success) {
-      console.log(JSON.stringify(modelValidationResult.errorList, undefined, 2))
       throw new BadRequestError();
     }
 
@@ -90,16 +95,14 @@ export class UserController extends BaseController {
     @SessionToken() sessionToken: string,
     @HttpDecorators.fromPath("id") id: Guid,
     @HttpDecorators.fromBody() model: ExternalUserPatchRequest
-  ) {
+  ): Promise<BaseControllerResult<ExternalUserPatchResponse>> {
     const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
     if (!apiTokenValidationResult.success) {
-      console.log("apiTokenValidationResult");
       throw new UnauthorizedError();
     }
 
     const modelValidationResult = this._modifyValidator.validate(model);
     if (!modelValidationResult.success) {
-      console.log("modelValidationResult", JSON.stringify(modelValidationResult.errorList, undefined, 2));
       throw new UnauthorizedError();
     }
 
@@ -118,7 +121,7 @@ export class UserController extends BaseController {
   public async getUser(
     @ApiToken() apiToken: string,
     @HttpDecorators.fromPath("id") id: Guid
-  ) {
+  ): Promise<BaseControllerResult<ExternalUserGetResponse>> {
     const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
     if (!apiTokenValidationResult.success) {
       throw new UnauthorizedError();
@@ -132,7 +135,7 @@ export class UserController extends BaseController {
   public async checkUsername(
     @ApiToken() apiToken: string,
     @HttpDecorators.fromBody() model: ExternalCheckUsernameRequest
-  ) {
+  ): Promise<BaseControllerResult<undefined>> {
     const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
     if (!apiTokenValidationResult.success) {
       throw new UnauthorizedError();
@@ -151,7 +154,7 @@ export class UserController extends BaseController {
   public async checkEmailAddress(
     @ApiToken() apiToken: string,
     @HttpDecorators.fromBody() model: ExternalCheckEmailRequest
-  ) {
+  ): Promise<BaseControllerResult<undefined>> {
     const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
     if (!apiTokenValidationResult.success) {
       throw new UnauthorizedError();
@@ -172,7 +175,7 @@ export class UserController extends BaseController {
     @SessionToken() sessionToken: Guid,
     @HttpDecorators.fromHeader(USER_PASSWORD) password: string,
     @HttpDecorators.fromHeader("userId") userId: Guid
-  ) {
+  ): Promise<BaseControllerResult<undefined>> {
     const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
     if (!apiTokenValidationResult.success) {
       throw new UnauthorizedError();
@@ -183,7 +186,7 @@ export class UserController extends BaseController {
       sessionToken,
       password
     );
-    
+
     return this.noContent();
   }
 
