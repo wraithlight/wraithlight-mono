@@ -12,6 +12,6 @@ CREATE TABLE `Session` (
     `CreatedByUserId` VARCHAR(36) NOT NULL,
     `UpdatedAtUtc` DATETIME NULL,
     `UpdatedByUserId` VARCHAR(36) NULL,
-    `IsDeleted` BIT NOT NULL,
+    `IsDeleted` BOOLEAN NOT NULL,
     PRIMARY KEY (`Id`)
 ) ENGINE = MyISAM DEFAULT CHARSET=utf8;
