@@ -32,7 +32,9 @@ export class UserService {
       email: string,
       usename: string,
       passwordHash: string,
-      creatorId: Guid
+      passwordSalt: string,
+      creatorId: Guid,
+      language: Guid
     ): Promise<OperationResult<UserDbo>> {
       const userId = newGuid();
       const now = utcNow();
@@ -46,6 +48,8 @@ export class UserService {
         createdAtUtc: now,
         createdByUserId: creatorId,
         isDeleted: false,
+        languageId: language,
+        passwordSalt: passwordSalt
       };
 
       try {
