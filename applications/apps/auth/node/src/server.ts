@@ -20,14 +20,17 @@ import {
 } from "@wraithlight/common.user-management.dal";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import {
+  JsonObject,
   controllerBlocker,
   initServer,
+  serveSwaggerFile,
   startServer
 } from "@wraithlight/core.node.evo";
 import {
   ApplicationName,
   DEFAULT_APPLICATION_VERSION
 } from "@wraithlight/domain.application-info.constants";
+import { FileOperator } from "@wraithlight/framework.io";
 
 import "./controller";
 
@@ -65,6 +68,22 @@ setAppinfo(
 );
 setHcHealthTokens(serverReader.get(m => m.apiTokensNamed.healtcheck));
 setHcMetricsTokens(serverReader.get(m => m.apiTokensNamed.metrics));
+
+const isSwadocEnabled = serverReader
+  .getCommon(m => m.features.swagger.isEnabled)
+;
+if (isSwadocEnabled) {
+  const swadocFilePath = serverReader.getCommon(m => m.files.swagger.path);
+  const swadocPath = join(__dirname, swadocFilePath);
+  const swadocResult = FileOperator.readFileJson<JsonObject>(swadocPath);
+  if (swadocResult.isErrorTC()) {
+    throw `Cannot read swadoc file!`;
+  }
+  serveSwaggerFile(
+    serverReader.getCommon(m => m.paths.swagger),
+    swadocResult.payload
+  );
+}
 
 initServer({
   enableCors: true,

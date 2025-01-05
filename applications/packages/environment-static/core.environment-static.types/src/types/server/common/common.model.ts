@@ -4,15 +4,24 @@ export interface CommonServer {
     paths: {
         base: string;
         wildcard: string;
+        swagger: string;
     },
     files: {
         frontend: {
-            static: string
+            static: string;
         },
         packageJson: {
-          path: string
+          path: string;
+        },
+        swagger: {
+          path: string;
         }
     },
+    features: {
+      swagger: {
+        isEnabled: boolean;
+      }
+    }
     logging: {
         enabledLogSeverities: ReadonlyArray<LogSeverity>
     },
