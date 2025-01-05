@@ -1,8 +1,8 @@
 import { utcNow } from "@wraithlight/core.date";
 import { Guid, newGuid } from "@wraithlight/core.guid";
-import { Nullable, isNil } from "@wraithlight/framework.nullable";
 import { generateRandomString } from "@wraithlight/core.random-string";
 import { UserStatus } from "@wraithlight/core.user-management.types";
+import { Nullable, isNil } from "@wraithlight/framework.nullable";
 import {
   OperationResult,
   OperationResultFactory
