@@ -69,7 +69,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -205,7 +205,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -456,7 +456,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -715,6 +715,11 @@
                     "type": "string",
                     "format": "password",
                     "example": "F4HCXqdjbc"
+                  },
+                  "languageId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
                   }
                 }
               }
@@ -961,7 +966,7 @@
         "summary": "Used to update an already existing user (profile edit).",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1000,11 +1005,6 @@
                   "update": {
                     "type": "object",
                     "properties": {
-                      "emailAddress?": {
-                        "type": "string",
-                        "format": "email",
-                        "example": "user@wraithlight.ai"
-                      },
                       "password?": {
                         "type": "string",
                         "format": "password",
@@ -1107,7 +1107,7 @@
         "summary": "Used to delete an already existing user (profile delete).",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1307,7 +1307,7 @@
         "summary": "Endpoint that used to check if the user is logged in.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1553,7 +1553,7 @@
         "summary": "Used to delete a session (logout).",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1633,7 +1633,7 @@
         "summary": "Used to renew a session.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1761,7 +1761,7 @@
         "summary": "Used to list all users.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1887,7 +1887,7 @@
         "summary": "Used to create a new user.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2003,7 +2003,7 @@
         ],
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2214,7 +2214,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2233,16 +2233,6 @@
                   "update": {
                     "type": "object",
                     "properties": {
-                      "username?": {
-                        "type": "string",
-                        "format": "email",
-                        "example": "user"
-                      },
-                      "emailAddress?": {
-                        "type": "string",
-                        "format": "email",
-                        "example": "user@wraithlight.ai"
-                      },
                       "password?": {
                         "type": "string",
                         "format": "password",
@@ -2340,7 +2330,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2422,7 +2412,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2513,7 +2503,7 @@
         ],
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2622,7 +2612,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2785,7 +2775,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2906,7 +2896,7 @@
         "summary": "Used to create a new context",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3007,7 +2997,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3087,7 +3077,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3196,7 +3186,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3278,7 +3268,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3370,7 +3360,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3494,7 +3484,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
