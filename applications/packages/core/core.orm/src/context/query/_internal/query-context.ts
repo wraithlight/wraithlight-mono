@@ -40,42 +40,42 @@ export abstract class QueryContext<T extends object> {
     }
 
     protected getValueString(value: Primitive): string {
+      if (typeof (value as any).toISOString === "function") {
+        return (value as any).toISOString();
+      }
+
       switch(typeof value) {
         case "number": return value.toString();
-        case "boolean": return value.toString();
+        case "boolean": return value ? "1" : "0";
         default: return value;
       }
     }
 
-    protected getColumnValuePairs(data: T): string {
+    protected getColumnValuePairs(data: T): ReadonlyArray<ReadonlyArray<string>> {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         const keys = Object.keys(data) as Array<keyof T>;
         return keys.map(key =>
+          ([
+            this.capitalize(key.toString()),
             // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-            `${this._tableName}.${this.capitalize(key.toString())} = ${this.getValueString(data[key] as Primitive)}`
-        ).join(`,${EOL}`);
+            `${this.getValueString(data[key] as Primitive)}`
+          ])
+        )
+      ;
     }
 
-    protected getColumns(data: T): string {
+    protected getColumns(data: T): ReadonlyArray<string> {
         const keys = Object.keys(data);
-        return [
-            "(",
-            keys.map(m => this.capitalize(m)).join(", "),
-            ")"
-        ].join("");
+        return keys.map(m => this.capitalize(m));
     }
 
-    protected getColumnValues(data: T): string {
+    protected getColumnValues(data: T): ReadonlyArray<string> {
         const values = Object
             .values(data)
             // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             .map(m => this.getValueString(m as Primitive))
         ;
-        return [
-            "(",
-            values.join(", "),
-            ")"
-        ].join("");
+        return values;
     }
 
 }
