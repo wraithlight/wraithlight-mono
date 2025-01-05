@@ -23,7 +23,7 @@ export class InsertQueryContext<T extends object>
         const query = [
             `INSERT INTO ${this._tableName} (`,
             this.getColumns(this._data).join(", "),
-            `) VALUES (${values.map(_ => '?')})`
+            `) VALUES (${values.map(_ => "?")})`
         ].join(EOL);
         this.addQuery(
             query,
