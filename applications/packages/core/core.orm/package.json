@@ -23,6 +23,7 @@
         "@wraithlight/common.logger.sdk": "*",
         "@wraithlight/core.nullable": "*",
         "@wraithlight/framework.primitive": "*",
+        "@wraithlight/framework.type-utils": "*",
         "mysql2": "3.2.0"
     },
     "devDependencies": {
