@@ -12,5 +12,7 @@ export interface UserDbo {
     createdByUserId: Guid;
     updatedAtUtc?: Date;
     updatedByUserId?: Guid;
+    languageId: Guid;
     isDeleted: boolean;
+    passwordSalt: string;
 }
