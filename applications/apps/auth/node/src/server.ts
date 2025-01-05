@@ -1,4 +1,5 @@
-import "./controller";
+import { join } from "path";
+
 import {
   ServerUserManagementConfigReader
 } from "@wraithlight/common.environment-static.server";
@@ -10,13 +11,14 @@ import {
 } from "@wraithlight/common.user-management.dal";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import {
-  initServer,
   JsonObject,
+  initServer,
   serveSwaggerFile,
   startServer
 } from "@wraithlight/core.node.evo";
 import { FileOperator } from "@wraithlight/framework.io";
-import { join } from "path";
+
+import "./controller";
 
 const sharedReader = SharedUserManagementConfigReader
   .getInstance(CoreEnvironment.getEnvironmentType())
@@ -34,7 +36,9 @@ initializeDal(
   true
 );
 
-const isSwadocEnabled = serverReader.getCommon(m => m.features.swagger.isEnabled);
+const isSwadocEnabled = serverReader
+  .getCommon(m => m.features.swagger.isEnabled)
+;
 if (isSwadocEnabled) {
   const swadocFilePath = serverReader.getCommon(m => m.files.swagger.path);
   const swadocPath = join(__dirname, swadocFilePath);
