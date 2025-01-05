@@ -37,14 +37,12 @@ export interface InternalCheckEmailResponse {
 }
 
 interface UserPatch {
-  name: string;
-  emailAddress: string;
   password: string;
   passwordConfirmation: string;
 }
 
 export interface InternalUserPatchRequest {
-  update: Partial<UserPatch>;
+  update: UserPatch;
 }
 
 export interface InternalUserPatchResponse extends UserResponse {
