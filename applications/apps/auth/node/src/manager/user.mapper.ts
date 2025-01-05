@@ -1,6 +1,6 @@
 import { UserDbo } from "@wraithlight/common.user-management.dal";
-import { UserResponse } from "@wraithlight/core.user-management.types";
 import { dateISOSerialize } from "@wraithlight/core.date";
+import { UserResponse } from "@wraithlight/core.user-management.types";
 
 export function dbToDto(dbo: UserDbo): UserResponse {
   return {
@@ -18,5 +18,5 @@ export function dbToDto(dbo: UserDbo): UserResponse {
     languageId: dbo.languageId,
     failedLoginAttempts: dbo.failedLoginAttempts,
     isDeleted: dbo.isDeleted
-  }
+  };
 }

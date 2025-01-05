@@ -1,13 +1,13 @@
 import {
-  Validator,
-  ValidationRule
-} from "@wraithlight/core.validator";
-import {
   ServerUserManagementConfigReader
 } from "@wraithlight/common.environment-static.server";
 import {
   CoreEnvironment
 } from "@wraithlight/core.env.sdk";
+import {
+  ValidationRule,
+  Validator
+} from "@wraithlight/core.validator";
 
 export class ApiTokenValidator extends Validator<string> {
 

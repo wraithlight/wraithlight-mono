@@ -1,7 +1,9 @@
+import { PasswordService } from "@wraithlight/common.password";
 import {
   SessionService,
   UserService
 } from "@wraithlight/common.user-management.dal";
+import { utcNow } from "@wraithlight/core.date";
 import {
   BadRequestError,
   ConflictError,
@@ -10,6 +12,7 @@ import {
   NotFoundError,
   UnauthorizedError
 } from "@wraithlight/core.errors";
+import { Guid } from "@wraithlight/core.guid";
 import {
   ExternalUserDeleteResponse,
   ExternalUserGetResponse,
@@ -17,9 +20,6 @@ import {
   ExternalUserPostResponse,
   ExternalUsersGetResponse
 } from "@wraithlight/core.user-management.types";
-import { Guid } from "@wraithlight/core.guid";
-import { PasswordService } from "@wraithlight/common.password";
-import { utcNow } from "@wraithlight/core.date";
 
 import { dbToDto } from "../user.mapper";
 
@@ -66,7 +66,9 @@ export class UserManager {
     }
 
     const passwordSalt = this._passwordService.getSalt();
-    const passwordHash = this._passwordService.encryptPassword(password, passwordSalt);
+    const passwordHash = this._passwordService
+      .encryptPassword(password, passwordSalt)
+    ;
 
     const result = await this._userService.create(
       email,
@@ -155,6 +157,7 @@ export class UserManager {
       throw new UnauthorizedError();
     }
 
+    // eslint-disable-next-line max-len
     if (sessionResult.payload.tokenValidUntilUtc.getTime() < utcNow().getTime()) {
       throw new UnauthorizedError();
     }
@@ -177,7 +180,9 @@ export class UserManager {
       throw new ForbiddenError();
     }
 
-    const sessionDeleteResult = await this._sessionService.deleteSessionByToken(sessionToken);
+    const sessionDeleteResult = await this._sessionService
+      .deleteSessionByToken(sessionToken)
+    ;
     if (sessionDeleteResult.isErrorTC()) {
       throw new UnauthorizedError();
     }
