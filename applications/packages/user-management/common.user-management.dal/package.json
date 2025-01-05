@@ -25,7 +25,8 @@
         "@wraithlight/core.orm": "*",
         "@wraithlight/core.random-string": "*",
         "@wraithlight/core.user-management.types": "*",
-        "@wraithlight/framework.operation-result": "*"
+        "@wraithlight/framework.operation-result": "*",
+        "@wraithlight/framework.nullable": "*"
     },
     "devDependencies": {
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",
