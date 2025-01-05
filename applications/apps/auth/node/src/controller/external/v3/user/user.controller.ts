@@ -29,6 +29,9 @@ import {
 import { BadRequestError, UnauthorizedError } from "@wraithlight/core.errors";
 import { Guid } from "@wraithlight/core.guid";
 
+/**
+ * @public Stewpid knip issue.
+ */
 @HttpDecorators.httpController(EXTERNAL_ENDPOINTS.user.forServer())
 export class UserController extends BaseController {
 
