@@ -55,14 +55,14 @@ export class SessionService {
     return this.findByIdInternal(id);
   }
 
-  public async deleteSessionById(
-    id: Guid
+  public async deleteSessionByToken(
+    token: Guid
   ): Promise<OperationResult<SessionDbo>> {
     await this._context.Sessions
-      .update("id", id, { isDeleted: true })
+      .update("token", token, { isDeleted: true })
       .run()
       ;
-    return this.findByIdInternal(id);
+    return this.findByTokenInternal(token);
   }
 
   public async findByToken(
