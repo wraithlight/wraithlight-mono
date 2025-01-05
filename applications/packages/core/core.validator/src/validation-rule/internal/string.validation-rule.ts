@@ -1,3 +1,5 @@
+import { isGuid } from "@wraithlight/core.guid";
+
 import { IterableValidationRule } from "./iterable.validation-rule";
 
 export class StringValidationRule extends IterableValidationRule<string> {
@@ -30,6 +32,14 @@ export class StringValidationRule extends IterableValidationRule<string> {
     this.addRuleCase(
       (item: string) => array.includes(item),
       "E_STRING_TOBEINARRAY"
+    );
+    return this;
+  }
+
+  public toBeGuid(): StringValidationRule {
+    this.addRuleCase(
+      (item: string) => isGuid(item),
+      "E_STRING_GUID"
     );
     return this;
   }
