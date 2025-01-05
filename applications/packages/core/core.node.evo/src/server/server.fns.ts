@@ -112,3 +112,7 @@ export const startServer = (
     stopSignal: stopSignal
   };
 };
+
+export const controllerBlocker = (...args: ReadonlyArray<unknown>): void => {
+  return undefined;
+}
