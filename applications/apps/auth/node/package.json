@@ -16,24 +16,19 @@
         "test:coverage": "jest --coverage"
     },
     "dependencies": {
-        "@wraithlight/common.auth-sdk.server": "*",
         "@wraithlight/common.environment-static.server": "*",
         "@wraithlight/common.environment-static.shared": "*",
-        "@wraithlight/common.health-checker.sdk-server": "*",
-        "@wraithlight/common.notifier-sdk.server": "*",
-        "@wraithlight/common.package-info.sdk-server": "*",
         "@wraithlight/common.password": "*",
-        "@wraithlight/core.auth.constant": "*",
-        "@wraithlight/core.auth.types": "*",
-        "@wraithlight/core.content.types": "*",
         "@wraithlight/core.date": "*",
         "@wraithlight/core.env.sdk": "*",
         "@wraithlight/core.guid": "*",
-        "@wraithlight/core.jwt": "*",
-        "@wraithlight/core.node": "*",
-        "@wraithlight/core.nullable": "*",
-        "@wraithlight/core.orm": "*",
-        "@wraithlight/core.server": "*"
+        "@wraithlight/common.node.evo-utils": "*",
+        "@wraithlight/core.errors": "*",
+        "@wraithlight/core.node.evo": "*",
+        "@wraithlight/core.user-management.constants": "*",
+        "@wraithlight/core.user-management.types": "*",
+        "@wraithlight/core.validator": "*",
+        "@wraithlight/common.user-management.dal": "*"
     },
     "devDependencies": {
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",
