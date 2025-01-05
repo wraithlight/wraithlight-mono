@@ -1,7 +1,6 @@
-import { EOL } from "os";
-
 import { LoggerService } from "@wraithlight/common.logger.sdk";
 import { Primitive } from "@wraithlight/framework.primitive";
+import { cast } from "@wraithlight/framework.type-utils";
 
 import { QueryConcatResult } from "./query-context.model";
 
@@ -40,8 +39,9 @@ export abstract class QueryContext<T extends object> {
     }
 
     protected getValueString(value: Primitive): string {
-      if (typeof (value as any).toISOString === "function") {
-        return (value as any).toISOString();
+      const val = cast<{ toISOString: () => string }>(value);
+      if (typeof val.toISOString === "function") {
+        return val.toISOString();
       }
 
       switch(typeof value) {
@@ -51,7 +51,9 @@ export abstract class QueryContext<T extends object> {
       }
     }
 
-    protected getColumnValuePairs(data: T): ReadonlyArray<ReadonlyArray<string>> {
+    protected getColumnValuePairs(
+      data: T
+    ): ReadonlyArray<ReadonlyArray<string>> {
         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         const keys = Object.keys(data) as Array<keyof T>;
         return keys.map(key =>

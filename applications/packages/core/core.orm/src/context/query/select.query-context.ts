@@ -1,4 +1,5 @@
 import { Nullable } from "@wraithlight/core.nullable";
+import { cast } from "@wraithlight/framework.type-utils";
 import { RowDataPacket } from "mysql2";
 
 import { DbContext } from "../dbcontext";
@@ -7,6 +8,8 @@ import { QueryConcatResult, WhereableQueryContext } from "./_internal";
 import {
   SelectQueryContext as ISelectQueryContext,
 } from "./query-context.model";
+
+const DATETIME_FIELD_TYPE = 12;
 
 export class SelectQueryContext<T extends object>
   extends WhereableQueryContext<T>
@@ -86,19 +89,21 @@ export class SelectQueryContext<T extends object>
 
             const item: { [index: string]: any } = {};
             for (const key of keys) {
-              const field = fields?.find(o => o.name === key) ?? { type: 253, name: 'NA' };
+              // eslint-disable-next-line max-len
+              const field = fields?.find(o => o.name === key) ?? { type: 253, name: "NA" };
               const lowercaseKey = this.decapitalize(key);
 
               let value;
-              const rawValue = (m as RowDataPacket)[key];
+              const rawValue = cast<RowDataPacket>(m)[key];
               switch (field.type) {
-                case 12: value = rawValue ? new Date(rawValue) : undefined; break;
+                // eslint-disable-next-line max-len
+                case DATETIME_FIELD_TYPE: value = rawValue ? new Date(rawValue) : undefined; break;
                 default: value = rawValue; break;
               }
 
               item[lowercaseKey] = value;
             }
-            return item as T;
+            return cast<T>(item);
           });
           resolve(result);
         });
