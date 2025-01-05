@@ -18,16 +18,16 @@ export class InsertQueryContext<T extends object>
     ) {
         super(tableName);
 
+        const values = this.getColumnValues(this._data);
+
         const query = [
-            `INSERT INTO ?`,
-            `?`,
-            `VALUES ?`
+            `INSERT INTO ${this._tableName} (`,
+            this.getColumns(this._data).join(", "),
+            `) VALUES (${values.map(_ => '?')})`
         ].join(EOL);
         this.addQuery(
             query,
-            this._tableName,
-            this.getColumns(this._data),
-            this.getColumnValues(this._data)
+            ...values
         );
     }
 
