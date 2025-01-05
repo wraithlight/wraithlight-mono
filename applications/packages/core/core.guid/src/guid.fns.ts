@@ -1,5 +1,12 @@
+import { randomUUID } from "crypto";
+
 import { Guid } from "./guid.type";
 
+Object.defineProperty(globalThis, "crypto", {
+  value: {
+    randomUUID: () => randomUUID()
+  }
+});
 
 /**
  * Verifies if the given object is `Guid`.
