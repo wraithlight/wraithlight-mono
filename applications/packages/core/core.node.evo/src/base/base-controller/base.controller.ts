@@ -8,6 +8,7 @@ export abstract class BaseController {
   protected noContent<T>(payload?: T): BaseControllerResult<T> {
     return {
       code: HttpCode.NoContent,
+      payload: payload,
       __brand: RESULT_BRAND
     };
   }

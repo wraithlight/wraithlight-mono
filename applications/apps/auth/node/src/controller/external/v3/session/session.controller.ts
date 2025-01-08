@@ -1,17 +1,19 @@
+import { ApiToken, SessionToken } from "@wraithlight/common.node.evo-utils";
+import { BadRequestError, UnauthorizedError } from "@wraithlight/core.errors";
+import { Guid } from "@wraithlight/core.guid";
 import {
   BaseController,
   BaseControllerResult,
   HttpDecorators
 } from "@wraithlight/core.node.evo";
 import { EXTERNAL_ENDPOINTS } from "@wraithlight/core.user-management.constants";
-import { Guid } from "@wraithlight/core.guid";
-import { ApiToken, SessionToken } from "@wraithlight/common.node.evo-utils";
 import {
   ExternalSessionDeleteResponse,
   ExternalSessionGetResponse,
-  ExternalSessionPostRequest
+  ExternalSessionPatchResponse,
+  ExternalSessionPostRequest,
+  ExternalSessionPostResponse
 } from "@wraithlight/core.user-management.types";
-import { BadRequestError, UnauthorizedError } from "@wraithlight/core.errors";
 
 import { SessionManager } from "../../../../manager";
 
@@ -46,12 +48,16 @@ export class SessionController extends BaseController {
       throw new UnauthorizedError();
     }
 
-    const contextIdValidationResult = this._contextIdValidator.validate(contextId);
+    const contextIdValidationResult = this._contextIdValidator
+      .validate(contextId)
+    ;
     if (!contextIdValidationResult.success) {
       throw new UnauthorizedError();
     }
 
-    const sessionTokenValidationResult = this._sessionTokenValidator.validate(sessionToken);
+    const sessionTokenValidationResult = this._sessionTokenValidator
+      .validate(sessionToken)
+    ;
     if (!sessionTokenValidationResult.success) {
       throw new UnauthorizedError();
     }
@@ -64,18 +70,22 @@ export class SessionController extends BaseController {
     return this.ok(result);
   }
 
-  @HttpDecorators.httpPost(EXTERNAL_ENDPOINTS.session.contextId.post.forServer())
+  @HttpDecorators.httpPost(
+    EXTERNAL_ENDPOINTS.session.contextId.post.forServer()
+  )
   public async login(
     @HttpDecorators.fromPath("contextId") contextId: Guid,
     @ApiToken() apiToken: Guid,
     @HttpDecorators.fromBody() model: ExternalSessionPostRequest
-  ) {
+  ): Promise<BaseControllerResult<ExternalSessionPostResponse>> {
     const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
     if (!apiTokenValidationResult.success) {
       throw new UnauthorizedError();
     }
 
-    const contextIdValidationResult = this._contextIdValidator.validate(contextId);
+    const contextIdValidationResult = this._contextIdValidator
+      .validate(contextId)
+    ;
     if (!contextIdValidationResult.success) {
       throw new UnauthorizedError();
     }
@@ -94,23 +104,29 @@ export class SessionController extends BaseController {
     return this.ok(loginResult);
   }
 
-  @HttpDecorators.httpDelete(EXTERNAL_ENDPOINTS.session.contextId.delete.forServer())
+  @HttpDecorators.httpDelete(
+    EXTERNAL_ENDPOINTS.session.contextId.delete.forServer()
+  )
   public async logout(
     @HttpDecorators.fromPath("contextId") contextId: Guid,
     @SessionToken() sessionToken: string,
     @ApiToken() apiToken: Guid
-  ) {
+  ): Promise<BaseControllerResult<ExternalSessionDeleteResponse>> {
     const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
     if (!apiTokenValidationResult.success) {
       throw new UnauthorizedError();
     }
 
-    const contextIdValidationResult = this._contextIdValidator.validate(contextId);
+    const contextIdValidationResult = this._contextIdValidator
+      .validate(contextId)
+    ;
     if (!contextIdValidationResult.success) {
       throw new UnauthorizedError();
     }
 
-    const sessionTokenValidationResult = this._sessionTokenValidator.validate(sessionToken);
+    const sessionTokenValidationResult = this._sessionTokenValidator
+      .validate(sessionToken)
+    ;
     if (!sessionTokenValidationResult.success) {
       throw new UnauthorizedError();
     }
@@ -123,23 +139,29 @@ export class SessionController extends BaseController {
     return this.noContent(result);
   }
 
-  @HttpDecorators.httpPatch(EXTERNAL_ENDPOINTS.session.contextId.patch.forServer())
+  @HttpDecorators.httpPatch(
+    EXTERNAL_ENDPOINTS.session.contextId.patch.forServer()
+  )
   public async renew(
     @HttpDecorators.fromPath("contextId") contextId: Guid,
     @SessionToken() sessionToken: string,
     @ApiToken() apiToken: Guid
-  ) {
+  ): Promise<BaseControllerResult<ExternalSessionPatchResponse>> {
     const apiTokenValidationResult = this._apiTokenValidator.validate(apiToken);
     if (!apiTokenValidationResult.success) {
       throw new UnauthorizedError();
     }
 
-    const contextIdValidationResult = this._contextIdValidator.validate(contextId);
+    const contextIdValidationResult = this._contextIdValidator
+      .validate(contextId)
+    ;
     if (!contextIdValidationResult.success) {
       throw new UnauthorizedError();
     }
 
-    const sessionTokenValidationResult = this._sessionTokenValidator.validate(sessionToken);
+    const sessionTokenValidationResult = this._sessionTokenValidator
+      .validate(sessionToken)
+    ;
     if (!sessionTokenValidationResult.success) {
       throw new UnauthorizedError();
     }

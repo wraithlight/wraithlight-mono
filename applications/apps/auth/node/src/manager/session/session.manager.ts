@@ -1,18 +1,17 @@
+import { PasswordService } from "@wraithlight/common.password";
 import {
   SessionService,
   UserApplicationService,
-  UserService,
   UserDbo,
-  SessionDbo
+  UserService
 } from "@wraithlight/common.user-management.dal";
-import { PasswordService } from "@wraithlight/common.password";
-import { Guid } from "@wraithlight/core.guid";
 import {
   ForbiddenError,
   InternalServerError,
   NotFoundError,
   UnauthorizedError
 } from "@wraithlight/core.errors";
+import { Guid } from "@wraithlight/core.guid";
 import {
   ExternalSessionPatchResponse,
   ExternalSessionPostResponse,
@@ -36,7 +35,7 @@ export class SessionManager {
   public async validateSession(
     contextId: Guid,
     sessionToken: string
-  ) {
+  ): Promise<ExternalSessionResponse> {
     const sessionResult = await this._sessionService.findByToken(sessionToken);
     if (sessionResult.isErrorTC()) {
       throw new NotFoundError();
@@ -46,7 +45,8 @@ export class SessionManager {
       throw new UnauthorizedError();
     }
 
-    if (sessionResult.payload.tokenValidUntilUtc.getDate() < utcNow().getDate()) {
+    const validUntil = sessionResult.payload.tokenValidUntilUtc.getDate();
+    if (validUntil < utcNow().getDate()) {
       throw new UnauthorizedError();
     }
 
@@ -107,7 +107,9 @@ export class SessionManager {
       throw new NotFoundError();
     }
 
-    const deleteResult = await this._sessionService.deleteSessionByToken(sessionToken);
+    const deleteResult = await this._sessionService
+      .deleteSessionByToken(sessionToken)
+    ;
 
     if (deleteResult.isErrorTC()) {
       throw new NotFoundError();
