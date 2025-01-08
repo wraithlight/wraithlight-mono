@@ -29,7 +29,12 @@
         "@wraithlight/core.user-management.types": "*",
         "@wraithlight/core.validator": "*",
         "@wraithlight/common.user-management.dal": "*",
-        "@wraithlight/framework.io": "*"
+        "@wraithlight/framework.io": "*",
+        "@wraithlight/domain.application-info.constants": "*",
+        "@wraithlight/core.jwt": "*",
+        "@wraithlight/framework.operation-result": "*",
+        "@wraithlight/framework.date": "*",
+        "@wraithlight/framework.nullable": "*"
     },
     "devDependencies": {
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",
