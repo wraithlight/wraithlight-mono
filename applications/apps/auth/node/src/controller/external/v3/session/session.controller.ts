@@ -143,6 +143,13 @@ export class SessionController extends BaseController {
     if (!sessionTokenValidationResult.success) {
       throw new UnauthorizedError();
     }
+
+    await this._sessionManager.validateSession(contextId, sessionToken);
+    const renew = await this._sessionManager.renew(
+      sessionToken
+    );
+
+    return this.ok(renew);
   }
 
 }
