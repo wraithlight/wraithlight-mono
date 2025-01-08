@@ -6,13 +6,21 @@ import {
 } from "@wraithlight/common.user-management.dal";
 import { PasswordService } from "@wraithlight/common.password";
 import { Guid } from "@wraithlight/core.guid";
-import { ForbiddenError, InternalServerError, NotFoundError, UnauthorizedError } from "@wraithlight/core.errors";
-import { ExternalSessionPostResponse } from "@wraithlight/core.user-management.types";
+import {
+  ForbiddenError,
+  InternalServerError,
+  NotFoundError,
+  UnauthorizedError
+} from "@wraithlight/core.errors";
+import {
+  ExternalSessionPostResponse
+} from "@wraithlight/core.user-management.types";
 import { utcNow } from "@wraithlight/framework.date";
 import { isNil } from "@wraithlight/framework.nullable";
 
-import { dboToDto } from "./session.mapper";
 import { SessionTokenHelper } from "../../helper";
+
+import { dboToDto } from "./session.mapper";
 
 export class SessionManager {
 
@@ -120,7 +128,7 @@ export class SessionManager {
 
   public async logout(
     sessionToken: string
-  ) {
+  ): Promise<void> {
     const sessionResult = await this._sessionService.findByToken(sessionToken);
     if (sessionResult.isErrorTC()) {
       throw new NotFoundError();
