@@ -4,12 +4,12 @@ import {
 import {
   CoreEnvironment
 } from "@wraithlight/core.env.sdk";
+import { Guid } from "@wraithlight/core.guid";
 import {
   CoreJWT
 } from "@wraithlight/core.jwt";
-import { OperationResult, OperationResultFactory } from "@wraithlight/framework.operation-result";
 import { isEmptyStringOrNil, isNil } from "@wraithlight/framework/framework.nullable";
-import { Guid } from "@wraithlight/core.guid";
+import { OperationResult, OperationResultFactory } from "@wraithlight/framework.operation-result";
 
 import { DEFAULT_EXPIRY_IN_MINUTES } from "./session-token.const";
 import { SessionTokenPayload } from "./session-token.model";
