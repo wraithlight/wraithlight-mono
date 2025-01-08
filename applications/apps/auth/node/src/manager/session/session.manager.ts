@@ -60,11 +60,19 @@ export class SessionManager {
 
   }
 
-  public async tryLogout(
-    contextId: Guid,
+  public async logout(
     sessionToken: string
   ) {
+    const sessionResult = await this._sessionService.findByToken(sessionToken);
+    if (sessionResult.isErrorTC()) {
+      throw new NotFoundError();
+    }
 
+    const deleteResult = await this._sessionService.deleteSessionByToken(sessionToken);
+
+    if (deleteResult.isErrorTC()) {
+      throw new NotFoundError();
+    }
   }
 
   public async renew(

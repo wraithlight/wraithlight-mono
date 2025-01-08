@@ -7,6 +7,7 @@ import { EXTERNAL_ENDPOINTS } from "@wraithlight/core.user-management.constants"
 import { Guid } from "@wraithlight/core.guid";
 import { ApiToken, SessionToken } from "@wraithlight/common.node.evo-utils";
 import {
+  ExternalSessionDeleteResponse,
   ExternalSessionGetResponse,
   ExternalSessionPostRequest
 } from "@wraithlight/core.user-management.types";
@@ -105,6 +106,13 @@ export class SessionController extends BaseController {
     if (!sessionTokenValidationResult.success) {
       throw new UnauthorizedError();
     }
+
+    await this._sessionManager.validateSession(contextId, sessionToken);
+    await this._sessionManager.logout(sessionToken);
+
+    const result: ExternalSessionDeleteResponse = {};
+
+    return this.noContent(result);
   }
 
   @HttpDecorators.httpPatch(EXTERNAL_ENDPOINTS.session.contextId.patch.forServer())
