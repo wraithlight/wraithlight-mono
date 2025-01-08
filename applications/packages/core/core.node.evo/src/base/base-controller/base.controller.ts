@@ -5,7 +5,7 @@ import { BaseControllerResult } from "./base.model";
 
 export abstract class BaseController {
 
-  protected noContent(): BaseControllerResult<undefined> {
+  protected noContent<T>(payload?: T): BaseControllerResult<T> {
     return {
       code: HttpCode.NoContent,
       __brand: RESULT_BRAND
