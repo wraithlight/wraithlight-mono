@@ -84,6 +84,14 @@ export class SessionController extends BaseController {
     if (!modelValidationResult.success) {
       throw new BadRequestError();
     }
+
+    const loginResult = await this._sessionManager.tryLogin(
+      contextId,
+      model.identifier,
+      model.password
+    );
+
+    return this.ok(loginResult);
   }
 
   @HttpDecorators.httpDelete(EXTERNAL_ENDPOINTS.session.contextId.delete.forServer())
