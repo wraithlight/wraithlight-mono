@@ -2,7 +2,8 @@ import {
   SessionService,
   UserApplicationService,
   UserService,
-  UserDbo
+  UserDbo,
+  SessionDbo
 } from "@wraithlight/common.user-management.dal";
 import { PasswordService } from "@wraithlight/common.password";
 import { Guid } from "@wraithlight/core.guid";
@@ -13,7 +14,9 @@ import {
   UnauthorizedError
 } from "@wraithlight/core.errors";
 import {
-  ExternalSessionPostResponse
+  ExternalSessionPatchResponse,
+  ExternalSessionPostResponse,
+  ExternalSessionResponse
 } from "@wraithlight/core.user-management.types";
 import { utcNow } from "@wraithlight/framework.date";
 import { isNil } from "@wraithlight/framework.nullable";
@@ -92,38 +95,8 @@ export class SessionManager {
       throw new UnauthorizedError();
     }
 
-    const sessionToken = this._sessionHelper.encrypt(
-      user.id,
-      contextId
-    );
-
-    if (sessionToken.isErrorTC()) {
-      throw new InternalServerError();
-    }
-
-    // TODO: Now this creates a 60 minutes long session as well.
-    // see: https://github.com/wraithlight/wraithlight-mono/issues/1117
-    const refreshToken = this._sessionHelper.encrypt(
-      user.id,
-      contextId
-    );
-
-    if (refreshToken.isErrorTC()) {
-      throw new InternalServerError();
-    }
-
-    const sessionCreateResult = await this._sessionService.createSession(
-      user.id,
-      contextId,
-      sessionToken.payload,
-      refreshToken.payload
-    );
-
-    if (sessionCreateResult.isErrorTC()) {
-      throw new InternalServerError();
-    }
-
-    return dboToDto(sessionCreateResult.payload);
+    const result = await this.login(user.id, contextId);
+    return result;
   }
 
   public async logout(
@@ -142,10 +115,65 @@ export class SessionManager {
   }
 
   public async renew(
-    contextId: Guid,
     sessionToken: string
-  ) {
+  ): Promise<ExternalSessionPatchResponse> {
+    const sessionResult = await this._sessionService.findByToken(sessionToken);
+    if (sessionResult.isErrorTC()) {
+      throw new NotFoundError();
+    }
 
+    const deleteResult = await this._sessionService.deleteSessionByToken(
+      sessionToken
+    );
+    if (deleteResult.isErrorTC()) {
+      throw new InternalServerError();
+    }
+
+    const login = await this.login(
+      sessionResult.payload.userId,
+      sessionResult.payload.applicationId
+    );
+
+    return login;
+  }
+
+  private async login(
+    userId: Guid,
+    contextId: Guid
+  ): Promise<ExternalSessionResponse> {
+
+    const sessionToken = this._sessionHelper.encrypt(
+      userId,
+      contextId
+    );
+
+    if (sessionToken.isErrorTC()) {
+      throw new InternalServerError();
+    }
+
+    // TODO: Now this creates a 60 minutes long session as well.
+    // see: https://github.com/wraithlight/wraithlight-mono/issues/1117
+    const refreshToken = this._sessionHelper.encrypt(
+      userId,
+      contextId
+    );
+
+    if (refreshToken.isErrorTC()) {
+      throw new InternalServerError();
+    }
+
+    const sessionCreateResult = await this._sessionService.createSession(
+      userId,
+      contextId,
+      sessionToken.payload,
+      refreshToken.payload
+    );
+
+    if (sessionCreateResult.isErrorTC()) {
+      throw new InternalServerError();
+    }
+
+    return dboToDto(sessionCreateResult.payload);
   }
 
   private async getUserByIdentifier(identifier: string): Promise<UserDbo> {
