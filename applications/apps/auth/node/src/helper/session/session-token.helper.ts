@@ -8,7 +8,7 @@ import { Guid } from "@wraithlight/core.guid";
 import {
   CoreJWT
 } from "@wraithlight/core.jwt";
-import { isEmptyStringOrNil, isNil } from "@wraithlight/framework/framework.nullable";
+import { isEmptyStringOrNil, isNil } from "@wraithlight/framework.nullable";
 import { OperationResult, OperationResultFactory } from "@wraithlight/framework.operation-result";
 
 import { DEFAULT_EXPIRY_IN_MINUTES } from "./session-token.const";
