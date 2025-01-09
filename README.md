@@ -98,7 +98,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 The section will explain all the required steps to set up your local/dev environment. Please follow the steps propely.
 
 ### Hosts patch
-Since most of the applicaions are using valid URLs instead IP addresses/localhost we have to set up our mock DNS server on the machine itself. This is being done by modifying the `hosts` file.
+Since most of the applications are using valid URLs instead IP addresses/localhost we have to set up our mock DNS server on the machine itself. This is being done by modifying the `hosts` file.
 
 ```sh
 # Initialize local environment
