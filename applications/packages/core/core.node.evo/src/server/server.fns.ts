@@ -113,6 +113,6 @@ export const startServer = (
   };
 };
 
-export const controllerBlocker = (...args: ReadonlyArray<unknown>): void => {
+export const controllerBlocker = (..._args: ReadonlyArray<unknown>): void => {
   return undefined;
-}
+};
