@@ -14,5 +14,9 @@ export const SERVER_TEST_USER_MANAGEMENT_CONFIG: Readonly<
         secret: "",
         key: ""
     },
-    apiTokens: []
+    apiTokens: [],
+    apiTokensNamed: {
+      healtcheck: [],
+      metrics: []
+    }
 };

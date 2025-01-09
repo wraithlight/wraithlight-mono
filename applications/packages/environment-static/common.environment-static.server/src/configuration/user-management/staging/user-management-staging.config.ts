@@ -14,5 +14,9 @@ export const SERVER_STAGING_USER_MANAGEMENT_CONFIG: Readonly<
         secret: "",
         key: ""
     },
-    apiTokens: []
+    apiTokens: [],
+    apiTokensNamed: {
+      healtcheck: [],
+      metrics: []
+    }
 };
