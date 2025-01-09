@@ -1,5 +1,10 @@
 import { ExternalUserPostRequest } from "@wraithlight/core.user-management.types";
 import { ValidationRule, Validator } from "@wraithlight/core.validator";
+import {
+  EMAIL_REGEX,
+  USERNAME_REGEX,
+  PASSWORD_REGEX
+} from "@wraithlight/common.regex";
 
 import {
   EMAIL_MAX_LENGTH,
@@ -10,10 +15,6 @@ import {
   USERNAME_MAX_LENGTH,
   USERNAME_MIN_LENGTH
 } from "./validation.const";
-
-const USERNAME_REGEX = new RegExp("^[a-zA-Z0-9]+$");
-const EMAIL_REGEX = new RegExp("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-const PASSWORD_REGEX = RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
 
 export class RegisterValidator extends Validator<ExternalUserPostRequest> {
 

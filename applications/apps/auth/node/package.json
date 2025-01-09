@@ -36,7 +36,8 @@
         "@wraithlight/core.jwt": "*",
         "@wraithlight/framework.operation-result": "*",
         "@wraithlight/framework.date": "*",
-        "@wraithlight/framework.nullable": "*"
+        "@wraithlight/framework.nullable": "*",
+        "@wraithlight/common.regex": "*"
     },
     "devDependencies": {
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",
