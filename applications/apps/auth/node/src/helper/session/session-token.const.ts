@@ -1,1 +1,0 @@
-export const DEFAULT_EXPIRY_IN_MINUTES = 60;

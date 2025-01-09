@@ -17,11 +17,15 @@ import {
   ExternalSessionPostResponse,
   ExternalSessionResponse
 } from "@wraithlight/core.user-management.types";
-import { utcNow } from "@wraithlight/framework.date";
+import { hoursToMinutes, utcNow } from "@wraithlight/framework.date";
 import { isNil } from "@wraithlight/framework.nullable";
 
 import { SessionTokenHelper } from "../../helper";
 
+import {
+  REFERSH_VALIDITY_IN_HOURS,
+  SESSION_VALIDITY_IN_MINUTES
+} from "./session.const";
 import { dboToDto } from "./session.mapper";
 
 export class SessionManager {
@@ -146,18 +150,18 @@ export class SessionManager {
 
     const sessionToken = this._sessionHelper.encrypt(
       userId,
-      contextId
+      contextId,
+      SESSION_VALIDITY_IN_MINUTES
     );
 
     if (sessionToken.isErrorTC()) {
       throw new InternalServerError();
     }
 
-    // TODO: Now this creates a 60 minutes long session as well.
-    // see: https://github.com/wraithlight/wraithlight-mono/issues/1117
     const refreshToken = this._sessionHelper.encrypt(
       userId,
-      contextId
+      contextId,
+      hoursToMinutes(REFERSH_VALIDITY_IN_HOURS)
     );
 
     if (refreshToken.isErrorTC()) {
@@ -168,7 +172,9 @@ export class SessionManager {
       userId,
       contextId,
       sessionToken.payload,
-      refreshToken.payload
+      SESSION_VALIDITY_IN_MINUTES,
+      refreshToken.payload,
+      REFERSH_VALIDITY_IN_HOURS
     );
 
     if (sessionCreateResult.isErrorTC()) {
