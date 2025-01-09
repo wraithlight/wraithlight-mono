@@ -1996,6 +1996,224 @@
         }
       }
     },
+    "/internal/api/v1/user/forgot-password": {
+      "patch": {
+        "summary": "Used to start the reset password flow for a given user.",
+        "tags": [
+          "internal/user"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "identifier": {
+                    "type": "string",
+                    "example": "user@wraithlight.ai"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The operation succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "internal/user"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+              "format": "uuid"
+            }
+          }
+        ],
+        "summary": "Used to validate the user verify token.",
+        "responses": {
+          "200": {
+            "description": "The operation succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": "Precondition failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error412"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Used to end the reset password flow for a given user.",
+        "tags": [
+          "internal/user"
+        ],
+        "operationId": "putExternalUserForgotPassword",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string",
+                    "example": "F4HCXqdjbc"
+                  },
+                  "passwordConfirmation": {
+                    "type": "string",
+                    "example": "F4HCXqdjbc"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The operation succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/internal/api/v1/user/check-email": {
       "post": {
         "tags": [
@@ -3551,6 +3769,28 @@
   },
   "components": {
     "schemas": {
+      "ok200": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
       "ok202": {
         "type": "object",
         "properties": {
@@ -3688,6 +3928,29 @@
         }
       },
       "error409": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error412": {
         "type": "object",
         "properties": {
           "correlationId": {
