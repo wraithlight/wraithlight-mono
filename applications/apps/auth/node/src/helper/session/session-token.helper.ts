@@ -11,7 +11,6 @@ import {
 import { isEmptyStringOrNil, isNil } from "@wraithlight/framework.nullable";
 import { OperationResult, OperationResultFactory } from "@wraithlight/framework.operation-result";
 
-import { DEFAULT_EXPIRY_IN_MINUTES } from "./session-token.const";
 import { SessionTokenPayload } from "./session-token.model";
 
 export class SessionTokenHelper {
@@ -37,6 +36,7 @@ export class SessionTokenHelper {
   public encrypt(
     userId: Guid,
     contextId: Guid,
+    validityInMinutes: number
   ): OperationResult<string> {
     const payload: SessionTokenPayload = {
       userId: userId,
@@ -48,7 +48,7 @@ export class SessionTokenHelper {
       this._config.get(m => m.session.iv),
       this._config.get(m => m.session.key),
       this._config.get(m => m.session.secret),
-      DEFAULT_EXPIRY_IN_MINUTES
+      validityInMinutes
     );
 
     if (isEmptyStringOrNil(result)) {
