@@ -1,0 +1,823 @@
+{
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/swagger.schema.json",
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger NPS - OpenAPI 3.0",
+    "description": "Swagger file for wraithlight's NotifierProxyService.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://local.auth.wraithlight.ai:4500",
+      "description": "local"
+    },
+    {
+      "url": "http://dev.auth.wraithlight.ai:5500",
+      "description": "dev"
+    },
+    {
+      "url": "http://test.auth.wraithlight.ai",
+      "description": "test"
+    },
+    {
+      "url": "http://staging.auth.wraithlight.ai",
+      "description": "staging"
+    },
+    {
+      "url": "http://auth.wraithlight.ai",
+      "description": "prod"
+    }
+  ],
+  "tags": [
+    {
+      "name": "communication",
+      "description": "Endpoints related to send any communication."
+    }
+  ],
+  "paths": {
+    "/api/v1/communication": {
+      "post": {
+        "tags": [
+          "communication"
+        ],
+        "operationId": "postCommunicationV1",
+        "summary": "Endpoint that is being used to send a new communication.",
+        "parameters": [
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "tunnel": {
+                    "type": "string",
+                    "enum": [
+                      "NOTIFICATION_EMAIL",
+                      "NOTIFICATION_SMS",
+                      "NOTIFICATION_PUSH"
+                    ]
+                  },
+                  "additionalMessagePayload": {
+                    "type": "object",
+                    "oneOf": [
+                      {
+                        "type": "object",
+                        "description": "SmsPayload",
+                        "properties": {}
+                      },
+                      {
+                        "type": "object",
+                        "description": "PushPayload",
+                        "properties": {}
+                      },
+                      {
+                        "type": "object",
+                        "description": "EmailPayload",
+                        "properties": {
+                          "senderName": {
+                            "type": "string",
+                            "example": "Wraithlight Mailer Daemon"
+                          },
+                          "senderEmailAddress": {
+                            "type": "string",
+                            "format": "email",
+                            "example": "user@wraithlight.io"
+                          },
+                          "replyToEmailAddress": {
+                            "type": "string",
+                            "format": "email",
+                            "example": "user@wraithlight.io"
+                          }
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "The communication payload was accepted and will be sent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "communicationId": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "communication"
+        ],
+        "operationId": "getCommunicationsV1",
+        "summary": "Endpoint that is being used to retrieve a list of communications.",
+        "parameters": [
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "skip",
+            "required": true,
+            "example": 10,
+            "schema": {
+              "type": "number"
+            },
+            "in": "query"
+          },
+          {
+            "name": "take",
+            "required": true,
+            "example": 10,
+            "schema": {
+              "type": "number"
+            },
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The query was sucessful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "visibleCount": {
+                          "type": "number"
+                        },
+                        "allCount": {
+                          "type": "number"
+                        },
+                        "skip": {
+                          "type": "number"
+                        },
+                        "take": {
+                          "type": "number"
+                        },
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "format": "uuid",
+                                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                              },
+                              "senderServiceId": {
+                                "type": "string",
+                                "format": "uuid",
+                                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                              },
+                              "identifier": {
+                                "type": "string"
+                              },
+                              "content": {
+                                "type": "string"
+                              },
+                              "tunnel": {
+                                "type": "string",
+                                "enum": [
+                                  "NOTIFICATION_EMAIL",
+                                  "NOTIFICATION_SMS",
+                                  "NOTIFICATION_PUSH"
+                                ]
+                              },
+                              "receivedAtUtc": {
+                                "type": "string",
+                                "format": "datetime",
+                                "example": "2024-09-29T10:55:45.889Z"
+                              },
+                              "status": {
+                                "type": "string",
+                                "enum": [
+                                  "NOTIFICATION_IN_QUEUE",
+                                  "NOTIFICATION_SENT",
+                                  "NOTIFICATION_ERROR"
+                                ]
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/communication/{communicationId}": {
+      "get": {
+        "tags": [
+          "communication"
+        ],
+        "operationId": "getCommunicationV1",
+        "parameters": [
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "communicationId",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "path"
+          }
+        ],
+        "summary": "Endpoint used to fetch a single communication.",
+        "responses": {
+          "200": {
+            "description": "The operation was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "senderServiceId": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        },
+                        "identifier": {
+                          "type": "string"
+                        },
+                        "content": {
+                          "type": "string"
+                        },
+                        "tunnel": {
+                          "type": "string",
+                          "enum": [
+                            "NOTIFICATION_EMAIL",
+                            "NOTIFICATION_SMS",
+                            "NOTIFICATION_PUSH"
+                          ]
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "NOTIFICATION_IN_QUEUE",
+                            "NOTIFICATION_SENT",
+                            "NOTIFICATION_ERROR"
+                          ]
+                        },
+                        "receivedAtUtc": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        },
+                        "sentAtUtc?": {
+                          "type": "string",
+                          "format": "datetime",
+                          "example": "2024-09-29T10:55:45.889Z"
+                        },
+                        "errorCode?": {
+                          "type": "string"
+                        },
+                        "payload?": {
+                          "type": "object",
+                          "oneOf": [
+                            {
+                              "type": "object",
+                              "description": "SmsPayload",
+                              "properties": {}
+                            },
+                            {
+                              "type": "object",
+                              "description": "PushPayload",
+                              "properties": {}
+                            },
+                            {
+                              "type": "object",
+                              "description": "EmailPayload",
+                              "properties": {
+                                "senderName": {
+                                  "type": "string",
+                                  "example": "Wraithlight Mailer Daemon"
+                                },
+                                "senderEmailAddress": {
+                                  "type": "string",
+                                  "format": "email",
+                                  "example": "user@wraithlight.io"
+                                },
+                                "replyToEmailAddress": {
+                                  "type": "string",
+                                  "format": "email",
+                                  "example": "user@wraithlight.io"
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/communication/{communicationId}/success": {
+      "patch": {
+        "tags": [
+          "communication"
+        ],
+        "operationId": "patchCommunicationSuccessV1",
+        "parameters": [
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "communicationId",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "path"
+          }
+        ],
+        "summary": "Endpoint used to update an already existing communication.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "sentAtUtc": {
+                    "type": "string",
+                    "format": "datetime",
+                    "example": "2024-09-29T10:55:45.889Z"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The update was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/communication/{communicationId}/fail": {
+      "patch": {
+        "tags": [
+          "communication"
+        ],
+        "operationId": "patchCommunicationFailV1",
+        "parameters": [
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "communicationId",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "in": "path"
+          }
+        ],
+        "summary": "Endpoint used to update an already existing communication.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "errorCode": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The update was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "error400": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error401": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error404": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error500": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      }
+    }
+  }
+}
