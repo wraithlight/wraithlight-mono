@@ -1,0 +1,229 @@
+{
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/swagger.schema.json",
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger PSS - OpenAPI 3.0",
+    "description": "Swagger file for wraithlight's PushSenderService.",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://local.auth.wraithlight.ai:4500",
+      "description": "local"
+    },
+    {
+      "url": "http://dev.auth.wraithlight.ai:5500",
+      "description": "dev"
+    },
+    {
+      "url": "http://test.auth.wraithlight.ai",
+      "description": "test"
+    },
+    {
+      "url": "http://staging.auth.wraithlight.ai",
+      "description": "staging"
+    },
+    {
+      "url": "http://auth.wraithlight.ai",
+      "description": "prod"
+    }
+  ],
+  "tags": [
+    {
+      "name": "send",
+      "description": "Endpoints related to send a message."
+    }
+  ],
+  "paths": {
+    "/api/v1/send": {
+      "post": {
+        "operationId": "postSend",
+        "summary": "Endpoint used to schedule a new message to send.",
+        "tags": [
+          "send"
+        ],
+        "parameters": [
+          {
+            "name": "X-WL-API-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "proxyId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                  },
+                  "identifier": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string",
+                    "example": "Hello from wraithlight<br />You are awesome!"
+                  },
+                  "additionalMessagePayload": {
+                    "type": "object",
+                    "properties": {
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "The operation was successful.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "correlationId": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                    },
+                    "error": {
+                      "type": "object",
+                      "properties": {
+                        "code": {
+                          "type": "string",
+                          "example": ""
+                        }
+                      }
+                    },
+                    "payload": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "format": "uuid",
+                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "error400": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error401": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error500": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      }
+    }
+  }
+}
