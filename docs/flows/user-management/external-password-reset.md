@@ -199,7 +199,7 @@ export interface ExternalUserForgotPasswordPatchResponse {
 // TODO
 
 ### Database tables
-// TODO
+This section list the database tables that should be modified to implement this flow end-to-end.
 
 #### User Management
 * `User`
