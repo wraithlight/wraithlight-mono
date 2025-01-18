@@ -270,7 +270,50 @@ export interface ExternalUserForgotPasswordGetResponse {
 ---
 
 ##### `/api/v1/user/forgot-password` (PATCH)
-// TODO
+This endpoint is part of the server SDK. Once added to the given server it proxies the request to the user management microservice.
+
+**Response codes**:
+* 202 - The token is accepted.
+* 400 - Bad request.
+* 401 - The given proxy microservice has no valid api token.
+* 404 - User with the given identifier was not found.
+* 410 - The verification token is not alive anymore.
+* 412 - The verification token is already used.
+* 500 - Internal server error.
+
+**Response error codes**
+* `E_BAD_REQUEST`
+* `E_BAD_REQUST_PASSWORD`
+* `E_UNATUHORIZED_APITOKEN`
+* `E_NOTFOUND_USER`
+* `E_TOKEN_OUTDATED`
+* `E_TOKEN_ALREADYUSED`
+* `E_INTERNAL`
+
+**Request headers**
+* `X-WL-API-TOKEN`
+
+**Request query parameters**
+* `token`
+
+**Request path parameters**
+* `N/A`
+
+**DTOs**
+
+```ts
+
+export interface ExternalUserForgotPasswordPatchRequest {
+  password: string;
+  passwordVerification: string;
+}
+
+export interface ExternalUserForgotPasswordPatchResponse {
+}
+
+```
+
+---
 
 ### Database tables
 This section list the database tables that should be modified to implement this flow end-to-end.
