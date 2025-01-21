@@ -283,7 +283,7 @@ This endpoint is part of the server SDK. Once added to the given server it proxi
 
 **Response error codes**
 * `E_BAD_REQUEST`
-* `E_BAD_REQUST_PASSWORD`
+* `E_BAD_REQUEST_PASSWORD`
 * `E_UNATUHORIZED_APITOKEN`
 * `E_NOTFOUND_USER`
 * `E_TOKEN_OUTDATED`
