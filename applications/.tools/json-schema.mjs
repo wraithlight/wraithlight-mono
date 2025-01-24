@@ -15,7 +15,7 @@ const ignoreFolders = [
   "node_modules",
   "tools",
   "dist"
-]
+];
 
 const filesSwitch = "--files=";
 const silentModeSwitch = "--silent";
@@ -30,16 +30,16 @@ if (!hasFilesParam) {
 
 const targetFiles = filesParam.map(m => m.replace(filesSwitch, ""));
 
-function getAllPackageJsonFiles() {
+function getAllJsonFiles() {
   const result = libFolders.map(m => {
     const path = join(__dirname, "..", m);
-    const files = getPackageJsonFiles(path);
+    const files = getJsonFiles(path);
     return files;
   });
   return result.flat();
 }
 
-function getPackageJsonFiles(path) {
+function getJsonFiles(path) {
   const result = [];
   const content = readdirSync(path);
   for (const item of content) {
@@ -47,7 +47,7 @@ function getPackageJsonFiles(path) {
     const itemPath = join(path, item);
     const stat = statSync(itemPath);
     if (stat.isDirectory()) {
-      result.push(...getPackageJsonFiles(itemPath));
+      result.push(...getJsonFiles(itemPath));
     } else if (stat.isFile() && targetFiles.includes(item)) {
       const content = readFileSync(itemPath).toString();
       const jsonContent = JSON.parse(content);
@@ -74,7 +74,7 @@ function validate(content, schema) {
   }
 }
 
-const result = getAllPackageJsonFiles().map(m => {
+const result = getAllJsonFiles().map(m => {
   console.log(m.path);
   const schema = getSchemaFile(m);
   return {
