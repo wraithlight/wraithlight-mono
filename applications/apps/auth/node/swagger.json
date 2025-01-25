@@ -53,6 +53,7 @@
   "paths": {
     "/external/api/v3/session/{contextId}": {
       "get": {
+        "operationId": "getExternalSessionContextV3",
         "tags": [
           "external/session"
         ],
@@ -189,6 +190,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteExternalSessionContextV3",
         "tags": [
           "external/session"
         ],
@@ -289,6 +291,7 @@
         }
       },
       "post": {
+        "operationId": "postExternalSessionContextV3",
         "tags": [
           "external/session"
         ],
@@ -440,6 +443,7 @@
         }
       },
       "patch": {
+        "operationId": "patchExternalSessionContextV3",
         "tags": [
           "external/session"
         ],
@@ -588,6 +592,7 @@
     },
     "/external/api/v3/user": {
       "get": {
+        "operationId": "getExternalUserV3",
         "tags": [
           "external/user"
         ],
@@ -675,6 +680,7 @@
         }
       },
       "post": {
+        "operationId": "postExternalUserV3",
         "tags": [
           "external/user"
         ],
@@ -792,6 +798,7 @@
     },
     "/external/api/v3/user/check-email": {
       "post": {
+        "operationId": "postExternalUserCheckEmailV3",
         "tags": [
           "external/user"
         ],
@@ -880,6 +887,7 @@
     },
     "/external/api/v3/user/{userId}": {
       "get": {
+        "operationId": "getExternalUserUserV3",
         "tags": [
           "external/user"
         ],
@@ -960,6 +968,7 @@
         }
       },
       "patch": {
+        "operationId": "patchExternalUserUserV3",
         "tags": [
           "external/user"
         ],
@@ -1101,6 +1110,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteExternalUserUserV3",
         "tags": [
           "external/user"
         ],
@@ -1213,6 +1223,7 @@
     },
     "/external/api/v3/user/check-username": {
       "post": {
+        "operationId": "postExternalUserCheckUsernameV3",
         "tags": [
           "external/user"
         ],
@@ -1301,6 +1312,7 @@
     },
     "/internal/api/v1/session": {
       "get": {
+        "operationId": "getInternalSessionV1",
         "tags": [
           "internal/session"
         ],
@@ -1417,6 +1429,7 @@
         }
       },
       "post": {
+        "operationId": "postInternalSessionV1",
         "tags": [
           "internal/session"
         ],
@@ -1547,6 +1560,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteInternalSessionV1",
         "tags": [
           "internal/session"
         ],
@@ -1627,6 +1641,7 @@
         }
       },
       "patch": {
+        "operationId": "patchInternalSessionV1",
         "tags": [
           "internal/session"
         ],
@@ -1755,6 +1770,7 @@
     },
     "/internal/api/v1/user": {
       "get": {
+        "operationId": "getInternalUserV1",
         "tags": [
           "internal/user"
         ],
@@ -1881,6 +1897,7 @@
         }
       },
       "post": {
+        "operationId": "postInternalUserV1",
         "tags": [
           "internal/user"
         ],
@@ -1998,6 +2015,7 @@
     },
     "/internal/api/v1/user/forgot-password": {
       "patch": {
+        "operationId": "patchInternalUserForgotPasswordV1",
         "summary": "Used to start the reset password flow for a given user.",
         "tags": [
           "internal/user"
@@ -2062,6 +2080,7 @@
         }
       },
       "get": {
+        "operationId": "getInternalUserForgotPasswordV1",
         "tags": [
           "internal/user"
         ],
@@ -2133,11 +2152,11 @@
         }
       },
       "put": {
+        "operationId": "putInternalUserForgotPasswordV1",
         "summary": "Used to end the reset password flow for a given user.",
         "tags": [
           "internal/user"
         ],
-        "operationId": "putExternalUserForgotPassword",
         "parameters": [
           {
             "in": "query",
@@ -2216,6 +2235,7 @@
     },
     "/internal/api/v1/user/check-email": {
       "post": {
+        "operationId": "postInternalUserCheckEmailV3",
         "tags": [
           "internal/user"
         ],
@@ -2304,6 +2324,7 @@
     },
     "/internal/api/v1/user/{userId}": {
       "get": {
+        "operationId": "getInternalUserUser",
         "tags": [
           "internal/user"
         ],
@@ -2416,6 +2437,7 @@
         }
       },
       "patch": {
+        "operationId": "patchInternalUserUser",
         "tags": [
           "internal/user"
         ],
@@ -2532,6 +2554,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteInternalUserUser",
         "tags": [
           "internal/user"
         ],
@@ -2614,6 +2637,7 @@
     },
     "/internal/api/v1/user/{userId}/reset-login-attempts": {
       "patch": {
+        "operationId": "pathcInternalUserUserResetLoginAttempts",
         "tags": [
           "internal/user"
         ],
@@ -2716,6 +2740,7 @@
     },
     "/internal/api/v1/user/check-username": {
       "post": {
+        "operationId": "postInternalUserCheckUsername",
         "tags": [
           "internal/user"
         ],
@@ -2804,6 +2829,7 @@
     },
     "/internal/api/v1/user/{userId}/context/{contextId}": {
       "post": {
+        "operationId": "postInternalUserUserContextContext",
         "tags": [
           "internal/user"
         ],
@@ -2967,6 +2993,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteInternalUserUserContextContext",
         "tags": [
           "internal/user"
         ],
@@ -3059,6 +3086,7 @@
     },
     "/internal/api/v1/context": {
       "get": {
+        "operationId": "getInternalContext",
         "tags": [
           "internal/context"
         ],
@@ -3108,6 +3136,7 @@
         }
       },
       "post": {
+        "operationId": "postInternalContext",
         "tags": [
           "internal/context"
         ],
@@ -3199,6 +3228,7 @@
     },
     "/internal/api/v1/context/{contextId}": {
       "get": {
+        "operationId": "getInternalContextContext",
         "tags": [
           "internal/context"
         ],
@@ -3279,6 +3309,7 @@
         }
       },
       "patch": {
+        "operationId": "patchInternalContextContext",
         "tags": [
           "internal/context"
         ],
@@ -3388,6 +3419,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteInternalContextContext",
         "tags": [
           "internal/context"
         ],
@@ -3470,6 +3502,7 @@
     },
     "/internal/api/v1/context/{contextId}/user": {
       "delete": {
+        "operationId": "deleteInternalContextContextUser",
         "tags": [
           "internal/context"
         ],
@@ -3552,6 +3585,7 @@
     },
     "/internal/api/v1/context/{contextId}/user/{userId}": {
       "post": {
+        "operationId": "postInternalContextContextUserUser",
         "tags": [
           "internal/context"
         ],
@@ -3676,6 +3710,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteInternalContextContextUserUser",
         "tags": [
           "internal/context"
         ],
