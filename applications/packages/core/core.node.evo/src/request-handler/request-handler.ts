@@ -144,7 +144,7 @@ export class RequestHandler {
           }
 
           try {
-            const methodResult = await method(...params);
+            const methodResult = await method.apply(controllerInstance, params);
 
             if (isBaseControllerResult(methodResult)) {
               this.processSuccessResponse(

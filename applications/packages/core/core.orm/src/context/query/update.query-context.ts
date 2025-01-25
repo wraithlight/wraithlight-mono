@@ -22,17 +22,19 @@ export class UpdateQueryContext<T, TKey extends keyof T>
         private readonly _context: DbContext
     ) {
         super(tableName);
+
+        const colValues = this.getColumnValuePairs(data);
+        const interpolations = colValues.map(m => `${m[0]} = ?`).join(", ");
+
         const query = [
-            `UPDATE ?`,
+            `UPDATE ${this._tableName}`,
             `SET`,
-            `?`,
-            `WHERE ? = ?`
+            interpolations,
+            `WHERE ${this.capitalize(key.toString())} = ?`
         ].join(EOL);
         this.addQuery(
             query,
-            this._tableName,
-            this.getColumnValuePairs(data),
-            `${this._tableName}.${this.capitalize(key.toString())}`,
+            ...colValues.map(m => m[1]).flat(),
             // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
             this.getValueString(value as Primitive)
         );

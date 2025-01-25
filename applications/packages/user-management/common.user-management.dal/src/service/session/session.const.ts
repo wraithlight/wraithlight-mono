@@ -1,6 +1,3 @@
-export const SESSION_VALID_FOR_MINUTES = 60;
-export const REFRESH_VALID_FOR_HOURS = 24;
-
 export const ERROR_CODES = {
   CREATE: "E_CREATE",
   UPDATE_BY_ID: "E_UPDATE_BY_ID",

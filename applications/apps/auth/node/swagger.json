@@ -69,7 +69,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -205,7 +205,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -456,7 +456,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -715,6 +715,11 @@
                     "type": "string",
                     "format": "password",
                     "example": "F4HCXqdjbc"
+                  },
+                  "languageId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
                   }
                 }
               }
@@ -850,11 +855,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -961,7 +966,7 @@
         "summary": "Used to update an already existing user (profile edit).",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1000,11 +1005,6 @@
                   "update": {
                     "type": "object",
                     "properties": {
-                      "emailAddress?": {
-                        "type": "string",
-                        "format": "email",
-                        "example": "user@wraithlight.ai"
-                      },
                       "password?": {
                         "type": "string",
                         "format": "password",
@@ -1107,7 +1107,7 @@
         "summary": "Used to delete an already existing user (profile delete).",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1134,6 +1134,16 @@
             "schema": {
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-USERPASSWORD",
+            "in": "header",
+            "required": true,
+            "example": "cGFzc3dvcmQxMjM0",
+            "schema": {
+              "type": "string",
+              "format": "base64"
             }
           }
         ],
@@ -1266,11 +1276,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -1297,7 +1307,7 @@
         "summary": "Endpoint that used to check if the user is logged in.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1543,7 +1553,7 @@
         "summary": "Used to delete a session (logout).",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1623,7 +1633,7 @@
         "summary": "Used to renew a session.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1751,7 +1761,7 @@
         "summary": "Used to list all users.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1877,7 +1887,7 @@
         "summary": "Used to create a new user.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1986,6 +1996,224 @@
         }
       }
     },
+    "/internal/api/v1/user/forgot-password": {
+      "patch": {
+        "summary": "Used to start the reset password flow for a given user.",
+        "tags": [
+          "internal/user"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "identifier": {
+                    "type": "string",
+                    "example": "user@wraithlight.ai"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The operation succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "internal/user"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+              "format": "uuid"
+            }
+          }
+        ],
+        "summary": "Used to validate the user verify token.",
+        "responses": {
+          "200": {
+            "description": "The operation succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": "Precondition failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error412"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Used to end the reset password flow for a given user.",
+        "tags": [
+          "internal/user"
+        ],
+        "operationId": "putExternalUserForgotPassword",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string",
+                    "example": "F4HCXqdjbc"
+                  },
+                  "passwordConfirmation": {
+                    "type": "string",
+                    "example": "F4HCXqdjbc"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The operation succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/internal/api/v1/user/check-email": {
       "post": {
         "tags": [
@@ -1993,7 +2221,7 @@
         ],
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2051,11 +2279,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -2204,7 +2432,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2223,16 +2451,6 @@
                   "update": {
                     "type": "object",
                     "properties": {
-                      "username?": {
-                        "type": "string",
-                        "format": "email",
-                        "example": "user"
-                      },
-                      "emailAddress?": {
-                        "type": "string",
-                        "format": "email",
-                        "example": "user@wraithlight.ai"
-                      },
                       "password?": {
                         "type": "string",
                         "format": "password",
@@ -2330,7 +2548,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2394,6 +2612,108 @@
         }
       }
     },
+    "/internal/api/v1/user/{userId}/reset-login-attempts": {
+      "patch": {
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "Used to update an already existing user (profile edit).",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-SESSION-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The given email address or username is already in use.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/internal/api/v1/user/check-username": {
       "post": {
         "tags": [
@@ -2401,7 +2721,7 @@
         ],
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2459,11 +2779,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -2510,7 +2830,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2554,6 +2874,10 @@
                     "payload": {
                       "type": "object",
                       "properties": {
+                        "contextName": {
+                          "type": "string",
+                          "example": "User Management"
+                        },
                         "relationId": {
                           "type": "string",
                           "format": "uuid",
@@ -2669,7 +2993,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2790,7 +3114,7 @@
         "summary": "Used to create a new context",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2891,7 +3215,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2971,7 +3295,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3080,7 +3404,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3106,7 +3430,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -3162,7 +3486,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3188,7 +3512,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -3254,7 +3578,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3378,7 +3702,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3404,7 +3728,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -3445,6 +3769,28 @@
   },
   "components": {
     "schemas": {
+      "ok200": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
       "ok202": {
         "type": "object",
         "properties": {
@@ -3582,6 +3928,29 @@
         }
       },
       "error409": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error412": {
         "type": "object",
         "properties": {
           "correlationId": {

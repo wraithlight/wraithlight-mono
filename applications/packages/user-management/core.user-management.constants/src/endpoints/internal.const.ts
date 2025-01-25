@@ -1,4 +1,4 @@
-const INTERNAL_BASE = (version: number): string => `internal/api/v${version}`;
+const INTERNAL_BASE = (version: number): string => `/internal/api/v${version}`;
 const RESOURCE_BASE = (resource: string): string => `${INTERNAL_BASE(1)}/${resource}`;
 
 interface VerbEndpoint {
@@ -68,6 +68,14 @@ export const INTERNAL_ENDPOINTS = {
               contextId: string) => `${USER_RES}/${userId}/context/${contextId}`,
             forServer: () => `/:userId/context/:contextId`
           }
+        }
+      },
+      resetFailedLoginAttempts: {
+        patch: {
+          forClient: (
+            userId: string
+          ) => `${USER_RES}/${userId}/reset-login-attempts`,
+          forServer: () => `/:userId/reset-login-attempts`
         }
       }
     },

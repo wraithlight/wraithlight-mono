@@ -4,6 +4,15 @@ import { RESULT_BRAND } from "./base.const";
 import { BaseControllerResult } from "./base.model";
 
 export abstract class BaseController {
+
+  protected noContent<T>(payload?: T): BaseControllerResult<T> {
+    return {
+      code: HttpCode.NoContent,
+      payload: payload,
+      __brand: RESULT_BRAND
+    };
+  }
+
   protected ok<T>(payload?: T): BaseControllerResult<T> {
     return {
       code: HttpCode.Ok,

@@ -10,7 +10,7 @@
             "types": "./dist/index.d.ts"
         }
     },
-    "version": "4.2.1",
+    "version": "4.3.0",
     "license": "LGPL-3.0-only",
     "scripts": {
         "lint": "eslint .",
@@ -23,6 +23,7 @@
         "@wraithlight/common.logger.sdk": "*",
         "@wraithlight/core.nullable": "*",
         "@wraithlight/framework.primitive": "*",
+        "@wraithlight/framework.type-utils": "*",
         "mysql2": "3.2.0"
     },
     "devDependencies": {

@@ -15,7 +15,7 @@ export abstract class Validator<T> implements IValidator<T> {
     private readonly _rules: Array<ValidationRules<T, any>> = [];
 
     constructor() {
-        this.setupRules();
+      this.setupRules();
     }
 
     public abstract setupRules(): void;
@@ -36,7 +36,7 @@ export abstract class Validator<T> implements IValidator<T> {
             })
         );
         return {
-            success: errors.length > 0,
+            success: errors.length === 0,
             errorList: errors,
             ruleResults: testResults
                 .map(m => ({

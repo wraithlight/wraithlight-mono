@@ -1,68 +1,92 @@
 import { join } from "path";
 
-import { ServerAuthControllerV1 } from "@wraithlight/common.auth-sdk.server";
-import { ServerUserManagementConfigReader } from "@wraithlight/common.environment-static.server";
-import { SharedUserManagementConfigReader } from "@wraithlight/common.environment-static.shared";
-import { HealthCheckControllerV1 } from "@wraithlight/common.health-checker.sdk-server";
-import { LoggerService } from "@wraithlight/common.logger.sdk";
-import { PackageJsonReader } from "@wraithlight/common.package-info.sdk-server";
-import { ApplicationName } from "@wraithlight/core.auth.constant";
-import { LoginScope } from "@wraithlight/core.auth.types";
+import {
+  ServerUserManagementConfigReader
+} from "@wraithlight/common.environment-static.server";
+import {
+  SharedUserManagementConfigReader
+} from "@wraithlight/common.environment-static.shared";
+import {
+  HealthCheckControllerV2,
+  setAppinfo,
+  setHcHealthTokens,
+  setHcMetricsTokens
+} from "@wraithlight/common.health-checker.sdk-server";
+import {
+  PackageJsonReader
+} from "@wraithlight/common.package-info.sdk-server";
+import {
+  initializeDal
+} from "@wraithlight/common.user-management.dal";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
-import { createNodeServer } from "@wraithlight/core.server";
+import {
+  JsonObject,
+  controllerBlocker,
+  initServer,
+  serveSwaggerFile,
+  startServer
+} from "@wraithlight/core.node.evo";
+import {
+  ApplicationName,
+  DEFAULT_APPLICATION_VERSION
+} from "@wraithlight/domain.application-info.constants";
+import { FileOperator } from "@wraithlight/framework.io";
 
-import { AccountControllerV2, SessionControllerV2 } from "./controller";
+import "./controller";
 
-LoggerService.initialize({
-    applicationName: ApplicationName.UserManagement
-});
+controllerBlocker(
+  HealthCheckControllerV2
+);
 
-const serverCfg = ServerUserManagementConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType())
+const sharedReader = SharedUserManagementConfigReader
+  .getInstance(CoreEnvironment.getEnvironmentType())
+;
+const serverReader = ServerUserManagementConfigReader
+  .getInstance(CoreEnvironment.getEnvironmentType())
 ;
 
-const sharedCfg = SharedUserManagementConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType())
-;
+initializeDal(
+  serverReader.get(m => m.database.host),
+  serverReader.get(m => m.database.port),
+  serverReader.get(m => m.database.username),
+  serverReader.get(m => m.database.password),
+  serverReader.get(m => m.database.database),
+  true
+);
 
-const packageInfoReader = new PackageJsonReader(
-  join(__dirname, serverCfg.getCommon(m => m.files.packageJson.path)),
-  LoggerService.getInstance(),
+const packageJsonPath = serverReader.getCommon(m => m.files.packageJson.path);
+const packageJsonReader = new PackageJsonReader(
+  join(__dirname, packageJsonPath),
+  console, // TODO: Remove this.
   ApplicationName.UserManagement,
-  "0.0.1"   // TODO: From domain constants.
+  DEFAULT_APPLICATION_VERSION
 );
 
-const CONTROLLERS = [
-    new ServerAuthControllerV1(LoginScope.UserManagement),
-    new AccountControllerV2(),
-    new SessionControllerV2(),
-    new HealthCheckControllerV1(
-        ApplicationName.UserManagement,
-        packageInfoReader.getPackageJsonInfo().version
-    )
-];
-
-const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
-
-createNodeServer(
-    ApplicationName.UserManagement,
-    CONTROLLERS,
-    [],
-    sharedCfg.get(x => x.server.port),
-    [
-        {
-            path: serverCfg.getCommon(x => x.paths.base),
-            staticPath: join(
-                __dirname,
-                frontendPath
-            )
-        },
-        {
-            path: serverCfg.getCommon(x => x.paths.wildcard),
-            staticPath: join(
-                __dirname,
-                frontendPath
-            )
-        }
-    ]
+setAppinfo(
+  packageJsonReader.getPackageJsonInfo().name,
+  packageJsonReader.getPackageJsonInfo().version,
 );
+setHcHealthTokens(serverReader.get(m => m.apiTokensNamed.healtcheck));
+setHcMetricsTokens(serverReader.get(m => m.apiTokensNamed.metrics));
+
+const isSwadocEnabled = serverReader
+  .getCommon(m => m.features.swagger.isEnabled)
+;
+if (isSwadocEnabled) {
+  const swadocFilePath = serverReader.getCommon(m => m.files.swagger.path);
+  const swadocPath = join(__dirname, swadocFilePath);
+  const swadocResult = FileOperator.readFileJson<JsonObject>(swadocPath);
+  if (swadocResult.isErrorTC()) {
+    throw `Cannot read swadoc file!`;
+  }
+  serveSwaggerFile(
+    serverReader.getCommon(m => m.paths.swagger),
+    swadocResult.payload
+  );
+}
+
+initServer({
+  enableCors: true,
+  maxPayloadSizeMB: 2
+});
+startServer(sharedReader.get(m => m.server.port));

@@ -33,25 +33,21 @@ export interface InternalCheckEmailRequest {
   emailAddress: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalCheckEmailResponse {
 }
 
 interface UserPatch {
-  name: string;
-  emailAddress: string;
   password: string;
   passwordConfirmation: string;
 }
 
 export interface InternalUserPatchRequest {
-  update: Partial<UserPatch>;
+  update: UserPatch;
 }
 
 export interface InternalUserPatchResponse extends UserResponse {
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalUserDeleteResponse {
 }
 
@@ -59,11 +55,9 @@ export interface InternalCheckUsernameRequest {
   username: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalCheckUsernameResponse {
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalUserContextPostRequest {
 }
 
@@ -74,8 +68,14 @@ export interface InternalUserContextPostResponse {
   createdById: Guid;
   createdByUsername: string;
   createdAtUTC: string;
+  contextName: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface InternalUserContextDeleteResponse {
+}
+
+export interface InternalUserResetFailedLoginAttemptsRequest {}
+
+export interface InternalUserResetFailedLoginAttemptsResponse
+  extends UserResponse {
 }

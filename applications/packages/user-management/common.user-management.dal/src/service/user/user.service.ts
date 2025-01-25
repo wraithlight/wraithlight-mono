@@ -1,8 +1,8 @@
 import { utcNow } from "@wraithlight/core.date";
 import { Guid, newGuid } from "@wraithlight/core.guid";
-import { Nullable, isNil } from "@wraithlight/core.nullable";
 import { generateRandomString } from "@wraithlight/core.random-string";
 import { UserStatus } from "@wraithlight/core.user-management.types";
+import { Nullable, isNil } from "@wraithlight/framework.nullable";
 import {
   OperationResult,
   OperationResultFactory
@@ -32,7 +32,9 @@ export class UserService {
       email: string,
       usename: string,
       passwordHash: string,
-      creatorId: Guid
+      passwordSalt: string,
+      creatorId: Guid,
+      language: Guid
     ): Promise<OperationResult<UserDbo>> {
       const userId = newGuid();
       const now = utcNow();
@@ -46,6 +48,8 @@ export class UserService {
         createdAtUtc: now,
         createdByUserId: creatorId,
         isDeleted: false,
+        languageId: language,
+        passwordSalt: passwordSalt
       };
 
       try {
@@ -105,7 +109,7 @@ export class UserService {
             .where("emailAddress", email)
             .first()
         ;
-        if (isNil(user) || user.userStatus === UserStatus.Deleted) {
+        if (isNil(user)) {
             return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(user);
@@ -119,7 +123,7 @@ export class UserService {
             .where("username", username)
             .first()
         ;
-        if (isNil(user) || user.userStatus === UserStatus.Deleted) {
+        if (isNil(user)) {
             return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
         }
         return OperationResultFactory.success(user);

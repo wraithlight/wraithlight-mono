@@ -1,29 +1,47 @@
+import { isGuid } from "@wraithlight/core.guid";
+
 import { IterableValidationRule } from "./iterable.validation-rule";
 
 export class StringValidationRule extends IterableValidationRule<string> {
 
-    public testType(): StringValidationRule {
-        this.addRuleCase(
-            (item: string) => typeof item === "string",
-            "E_STRING_TESTTYPE"
-        );
-        return this;
-    }
+  public testType(): StringValidationRule {
+    this.addRuleCase(
+      (item: string) => typeof item === "string",
+      "E_STRING_TESTTYPE"
+    );
+    return this;
+  }
 
-    public toMatchRegex(regex: RegExp): StringValidationRule {
-        this.addRuleCase(
-            (item: string) => regex.test(item),
-            "E_STRING_TOMATCHREGEX"
-        );
-        return this;
-    }
+  public toMatchRegex(regex: RegExp): StringValidationRule {
+    this.addRuleCase(
+      (item: string) => regex.test(item),
+      "E_STRING_TOMATCHREGEX"
+    );
+    return this;
+  }
 
-    public notToMatchRegex(regex: RegExp): StringValidationRule {
-        this.addRuleCase(
-            (item: string) => !regex.test(item),
-            "E_STRING_TOMATCHREGEX"
-        );
-        return this;
-    }
+  public notToMatchRegex(regex: RegExp): StringValidationRule {
+    this.addRuleCase(
+      (item: string) => !regex.test(item),
+      "E_STRING_TOMATCHREGEX"
+    );
+    return this;
+  }
+
+  public toBeInArray(array: ReadonlyArray<string>): StringValidationRule {
+    this.addRuleCase(
+      (item: string) => array.includes(item),
+      "E_STRING_TOBEINARRAY"
+    );
+    return this;
+  }
+
+  public toBeGuid(): StringValidationRule {
+    this.addRuleCase(
+      (item: string) => isGuid(item),
+      "E_STRING_GUID"
+    );
+    return this;
+  }
 
 }

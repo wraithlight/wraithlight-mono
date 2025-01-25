@@ -1,14 +1,13 @@
-interface SessionResponse {
+export interface ExternalSessionResponse {
   sessionToken: string;
   sessionValidUntilUTC: string;
   refreshToken: string;
   refreshTokenValidUntilUTC: string;
 }
 
-export interface ExternalSessionGetResponse extends SessionResponse {
+export interface ExternalSessionGetResponse extends ExternalSessionResponse {
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExternalSessionDeleteResponse {
 }
 
@@ -18,12 +17,11 @@ export interface ExternalSessionPostRequest {
   keepSignedIn: boolean;
 }
 
-export interface ExternalSessionPostResponse extends SessionResponse {
+export interface ExternalSessionPostResponse extends ExternalSessionResponse {
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExternalSessionPatchRequest {
 }
 
-export interface ExternalSessionPatchResponse extends SessionResponse {
+export interface ExternalSessionPatchResponse extends ExternalSessionResponse {
 }

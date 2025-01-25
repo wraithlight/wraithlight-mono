@@ -6,7 +6,7 @@ export function initializeDal(
   username: string,
   password: string,
   database: string,
-  usePolling: boolean
+  usePooling: boolean
 ): void {
   UserManagementDbContextFactory.initialize(
     host,
@@ -14,6 +14,6 @@ export function initializeDal(
     username,
     password,
     database,
-    usePolling
+    usePooling
   );
 }
