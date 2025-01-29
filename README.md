@@ -91,6 +91,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 
 ### User flows
 * [User Management > Reset password (external)](./docs/flows/user-management/external-password-reset.md)
+* [Communications > Notifier Proxy](./docs/flows/communications/notifier-proxy.md)
 
 ## Getting started
 
