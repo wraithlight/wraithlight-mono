@@ -93,6 +93,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [User Management > Reset password (external)](./docs/flows/user-management/external-password-reset.md)
 * [Communications > Email Sender](./docs/flows/communications/email-sender-service.md)
 * [Communications > Notifier Proxy](./docs/flows/communications/notifier-proxy.md)
+* [Communications > Push Sender](./docs/flows/communications/push-sender-service.md)
 
 ## Getting started
 
