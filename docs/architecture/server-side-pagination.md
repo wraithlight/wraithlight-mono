@@ -28,31 +28,39 @@ public async listUsers(
 "parameters": [
   {
     "name": "skip",
-    "type": "number",
-    "description": "How many items should be skipped.",
+    "required": true,
     "example": 10,
+    "schema": {
+      "type": "number"
+    },
     "in": "query"
   },
-    {
+  {
     "name": "take",
-    "type": "number",
-    "description": "How many items should be taken.",
+    "required": true,
     "example": 10,
+    "schema": {
+      "type": "number"
+    },
     "in": "query"
   },
-    {
+  {
     "name": "order",
-    "type": "string",
-    "enum": ["ASC", "DESC"],
-    "description": "Order direction.",
+    "required": true,
     "example": "ASC",
+    "schema": {
+      "type": "string",
+      "enum": ["ASC", "DESC"],
+    },
     "in": "query"
   },
-    {
+  {
     "name": "orderBy",
-    "type": "string",
-    "description": "Order by property",
+    "required": true,
     "example": "id",
+    "schema": {
+      "type": "string",
+    },
     "in": "query"
   }
 ]
