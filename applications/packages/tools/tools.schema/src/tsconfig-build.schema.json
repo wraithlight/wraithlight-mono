@@ -8,7 +8,8 @@
     "$schema": {
       "type": "string",
       "enum": [
-        ""
+        "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig-build.schema.json",
+        "../../../../node_modules/@wraithlight/tools.schema/dist/tsconfig-build.schema.json"
       ]
     },
     "compilerOptions": {
@@ -17,11 +18,40 @@
         "outDir": {
           "type": "string",
           "enum": ["dist/esm"]
+        },
+        "declaration": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "esModuleInterop": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "experimentalDecorators": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "lib": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ES2015",
+              "DOM"
+            ]
+          }
         }
       },
       "additionalProperties": false,
       "required": [
-        "outDir"
+        "outDir",
+        "declaration"
       ]
     },
     "include": {
@@ -34,7 +64,7 @@
     "exclude": {
       "type": "array",
       "items": {
-        "type":" string",
+        "type": "string",
         "enum": ["**/*.spec.ts"]
       }
     }
