@@ -41,16 +41,16 @@ const getIgnoredFolderPaths = () => {
   return ignoredFolders.map(m => join(__dirname, "..", m));
 }
 
-function getAllTargetFiles() {
+function getAllJsonFiles() {
   const result = libFolders.map(m => {
     const path = join(__dirname, "..", m);
-    const files = getTargetFiles(path);
+    const files = getJsonFiles(path);
     return files;
   });
   return result.flat();
 }
 
-function getTargetFiles(path) {
+function getJsonFiles(path) {
   const result = [];
   if (getIgnoredFolderPaths().includes(path)) return result;
   const content = readdirSync(path);
@@ -59,7 +59,7 @@ function getTargetFiles(path) {
     const itemPath = join(path, item);
     const stat = statSync(itemPath);
     if (stat.isDirectory()) {
-      result.push(...getTargetFiles(itemPath));
+      result.push(...getJsonFiles(itemPath));
     } else if (stat.isFile() && targetFiles.includes(item)) {
       const content = readFileSync(itemPath).toString();
       const jsonContent = JSON.parse(content);
@@ -87,6 +87,7 @@ function validate(content, schema) {
 }
 
 const result = getAllTargetFiles().map(m => {
+  console.log(m.path);
   if (!m.$schema) throw `No schema path defined in '${m.path}'!`;
   const schema = getSchemaFile(m);
   return {
