@@ -9,5 +9,6 @@
   ],
   "exclude": [
     "**/*.spec.ts"
-  ]
+  ],
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig-build.schema.json"
 }
