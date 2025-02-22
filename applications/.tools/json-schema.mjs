@@ -14,7 +14,10 @@ const libFolders = [
 const ignoreFolders = [
   "node_modules",
   "tools",
-  "dist"
+  "dist",
+  ".angular",
+  "coverage",
+  "__mocks__"
 ];
 
 const ignoreFoldersSwitch = "--ignoreFolders=";
