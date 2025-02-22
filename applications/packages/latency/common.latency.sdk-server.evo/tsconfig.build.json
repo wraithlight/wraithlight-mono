@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig-build.schema.json",
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "dist/esm",
+    "experimentalDecorators": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ]
+}
