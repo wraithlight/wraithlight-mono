@@ -29,8 +29,5 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ],
-  "exclude": [
-    "**/*.spec.ts"
   ]
 }
