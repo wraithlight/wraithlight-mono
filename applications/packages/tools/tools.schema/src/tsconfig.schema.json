@@ -156,16 +156,8 @@
       "items": {
         "type": "string",
         "enum": [
-          "src"
-        ]
-      }
-    },
-    "exclude": {
-      "type": "array",
-      "items": {
-        "type": "string",
-        "enum": [
-          "**/*.spec.ts"
+          "src",
+          "__mocks__"
         ]
       }
     },
@@ -181,7 +173,6 @@
   "additionalProperties": false,
   "required": [
     "$schema",
-    "include",
-    "exclude"
+    "include"
   ]
 }

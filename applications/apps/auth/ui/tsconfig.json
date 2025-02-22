@@ -23,14 +23,12 @@
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*.svelte",
-    "src"
+    "src",
+    "__mocks__"
   ],
   "references": [
     {
       "path": "./tsconfig.node.json"
     }
-  ],
-  "exclude": [
-    "**/*.spec.ts"
   ]
 }
