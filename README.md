@@ -44,13 +44,22 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 |  [![Applications GHA - Docker Auth](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-auth.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-auth.yaml) |
 
 ### Chore
-| JSON Schema   | Knip  | Yarn Lock |
-| :-:           | :-:   | :-:       |
-| [![Applications GHA - JSON Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Knip](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml) | [![Application GHA - Yarn Lock Changes](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml) |
+| `package.json` Schema   | Swagger Schema  | `tsconfig.json` Schema  |
+| :-:                     | :-:             | :-:                     |
+| [![Applications GHA - JSON Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml) |  [![Applications GHA - SWAGGER Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml) | [![Applications GHA - TSConfig Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-tsconfigschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-tsconfigschema.yaml) |
 
-| DEPLIST | Readme Check  | Swagger Schema  |
-| :-:     | :-:           | :-:             |
-| [![Applications GHA - Deplist](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml) | [![Applications GHA - Readme Check](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml) | [![Applications GHA - SWAGGER Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml) |
+| `tsconfig.build.json` Schema  |
+| :-:                           |
+| [![Applications GHA - TSConfig Build Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-tsconfigbuildschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-tsconfigbuildschema.yaml) |
+
+
+| Knip  | Yarn Lock | Readme Check  |
+| :-:   | :-:       | :-:           |
+[![Applications GHA - Knip](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml) | [![Application GHA - Yarn Lock Changes](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml) |  [![Applications GHA - Readme Check](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml) |
+
+| DEPLIST |
+| :-:     |
+| [![Applications GHA - Deplist](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml) |
 
 
 ## Links
