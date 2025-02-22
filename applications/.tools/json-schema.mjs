@@ -89,7 +89,7 @@ function validate(content, schema) {
 }
 
 const result = getAllJsonFiles().map(m => {
-  console.log(m.path);
+  if (!m.$schema) throw `No schema path defined in '${m.path}'!`;
   const schema = getSchemaFile(m);
   return {
     result: validate(m.content, schema),
