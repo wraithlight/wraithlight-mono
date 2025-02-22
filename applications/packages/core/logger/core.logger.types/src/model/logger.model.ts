@@ -1,3 +1,6 @@
+/**
+ * @deprecated - Do not use this.
+ */
 export interface ILogger {
     debug(...data: Array<any>): void;
     info(...data: Array<any>): void;

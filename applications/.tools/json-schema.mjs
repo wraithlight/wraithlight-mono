@@ -8,12 +8,14 @@ const __dirname = dirname(__filename);
 
 const libFolders = [
   "apps",
-  "packages"
+  "packages",
+  ".swadoc"
 ];
 const ignoreFolders = [
   "node_modules",
-  "tools"
-]
+  "tools",
+  "dist"
+];
 
 const ignoreFoldersSwitch = "--ignoreFolders=";
 const filesSwitch = "--files=";

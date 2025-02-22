@@ -9,9 +9,7 @@ import {
 import { SessionDbo, UserManagementDbContextFactory } from "../../db-context";
 
 import {
-  ERROR_CODES,
-  REFRESH_VALID_FOR_HOURS,
-  SESSION_VALID_FOR_MINUTES
+  ERROR_CODES
 } from "./session.const";
 
 export class SessionService {
@@ -25,12 +23,14 @@ export class SessionService {
     userId: Guid,
     applicationId: Guid,
     token: string,
+    tokenValidityInMinutes: number,
     refreshToken: string,
+    refreshTokenValidityInHours: number
   ): Promise<OperationResult<SessionDbo>> {
     const id = newGuid();
     const now = utcNow();
-    const sessionValidUntil = addMinutes(now, SESSION_VALID_FOR_MINUTES);
-    const refreshValidHours = addHours(now, REFRESH_VALID_FOR_HOURS);
+    const sessionValidUntil = addMinutes(now, tokenValidityInMinutes);
+    const refreshValidHours = addHours(now, refreshTokenValidityInHours);
     try {
       await this._context.Sessions
         .insert({
@@ -55,14 +55,14 @@ export class SessionService {
     return this.findByIdInternal(id);
   }
 
-  public async deleteSessionById(
-    id: Guid
+  public async deleteSessionByToken(
+    token: Guid
   ): Promise<OperationResult<SessionDbo>> {
     await this._context.Sessions
-      .update("id", id, { isDeleted: true })
+      .update("token", token, { isDeleted: true })
       .run()
       ;
-    return this.findByIdInternal(id);
+    return this.findByTokenInternal(token);
   }
 
   public async findByToken(
@@ -72,15 +72,17 @@ export class SessionService {
   }
 
   public async renewToken(
-    sessionToken: string
+    sessionToken: string,
+    tokenValidityInMinutes: number,
+    refreshTokenValidityInHours: number
   ): Promise<OperationResult<SessionDbo>> {
     const session = await this.findByTokenInternal(sessionToken);
     if (!session.isSuccess) {
       return session;
     }
     const now = utcNow();
-    const sessionValidUntilUtc = addMinutes(now, SESSION_VALID_FOR_MINUTES);
-    const refreshValidUntilUtc = addHours(now, REFRESH_VALID_FOR_HOURS);
+    const sessionValidUntilUtc = addMinutes(now, tokenValidityInMinutes);
+    const refreshValidUntilUtc = addHours(now, refreshTokenValidityInHours);
 
     try {
       await this._context.Sessions

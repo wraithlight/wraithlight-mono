@@ -2,6 +2,7 @@ Dedicated to
 * Kevin V. @ Gozo - i love you
 * G @ wine events - love the thing in yourself that you loved in me
 * MDragon @ Cluster - the zone awaits
+* OE @ Past - never forget; always forgive
 
 ---
 
@@ -38,10 +39,19 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 | :-:   | :-:   | :-:   |
 | [![Applications GHA - Build](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-build.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-build.yaml) | [![Applications GHA - Lint](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-lint.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-lint.yaml) | [![Applications GHA - Test](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-test.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-test.yaml)
 
+| UM Docker |
+| :-:       |
+|  [![Applications GHA - Docker Auth](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-auth.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-auth.yaml) |
+
 ### Chore
-| JSON Schema   | Knip  | Yarn Lock | DEPLIST | Readme Check  | Swagger Schema  |
-| :-:           | :-:   | :-:       | :-:     | :-:           | :-:             |
-| [![Applications GHA - JSON Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Knip](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml) | [![Application GHA - Yarn Lock Changes](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml) | [![Applications GHA - Deplist](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml) | [![Applications GHA - Readme Check](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml) | [![Applications GHA - SWAGGER Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml) |
+| JSON Schema   | Knip  | Yarn Lock |
+| :-:           | :-:   | :-:       |
+| [![Applications GHA - JSON Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - Knip](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml) | [![Application GHA - Yarn Lock Changes](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml) |
+
+| DEPLIST | Readme Check  | Swagger Schema  |
+| :-:     | :-:           | :-:             |
+| [![Applications GHA - Deplist](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml) | [![Applications GHA - Readme Check](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml) | [![Applications GHA - SWAGGER Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml) |
+
 
 ## Links
 
@@ -57,6 +67,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [Communication methodologies](./docs/architecture/communication.md)
 * [Server-side pagination](./docs/architecture/server-side-pagination.md)
 * [Header names](./docs/architecture/header-names.md)
+* [Package layers](./docs/architecture/package-layers.md)
 
 ### Guides
 * [How to use the test-reporter](./docs/guides/test-reports.md)
@@ -78,6 +89,13 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [Credentials](./docs/credentials/README.md)
   * [Service users](./docs/credentials/service-users.md)
 
+### User flows
+* [User Management > Reset password (external)](./docs/flows/user-management/external-password-reset.md)
+* [Communications > Email Sender](./docs/flows/communications/email-sender-service.md)
+* [Communications > Notifier Proxy](./docs/flows/communications/notifier-proxy.md)
+* [Communications > Push Sender](./docs/flows/communications/push-sender-service.md)
+* [Communications > SMS Sender](./docs/flows/communications/sms-sender-service.md)
+
 ## Getting started
 
 **Requirements**
@@ -87,7 +105,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 The section will explain all the required steps to set up your local/dev environment. Please follow the steps propely.
 
 ### Hosts patch
-Since most of the applicaions are using valid URLs instead IP addresses/localhost we have to set up our mock DNS server on the machine itself. This is being done by modifying the `hosts` file.
+Since most of the applications are using valid URLs instead IP addresses/localhost we have to set up our mock DNS server on the machine itself. This is being done by modifying the `hosts` file.
 
 ```sh
 # Initialize local environment

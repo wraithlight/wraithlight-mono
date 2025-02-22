@@ -103,6 +103,11 @@ const config: KnipConfig = {
         "src/package-json-copy.js"
       ]
     },
+    "packages/tools/tools.fcopy.base": {
+      ignore: [
+        "src/fcopy.js"
+      ]
+    },
     "poc/realtime": {
       entry: [
         "src/server.ts",

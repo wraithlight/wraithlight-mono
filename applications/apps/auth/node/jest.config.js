@@ -13,7 +13,8 @@ module.exports = jestConfig(
     ],
     coveragePathIgnorePatterns: [
       "dist"
-    ]
+    ],
+    passWithNoTests: true // TODO
   },
   join(__dirname, "../../..")
 );

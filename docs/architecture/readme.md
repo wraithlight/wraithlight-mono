@@ -1,3 +1,10 @@
+## Wraithlight Platform Architecture
+
+* [Communications](./communications/readme.md)
+
+---
+**DEPRECATED**
+
 ```mermaid
 flowchart LR
     webapp[Website UI] --> webnode[Website Server]

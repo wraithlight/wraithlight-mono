@@ -79,7 +79,7 @@
     "paths": {
       "type": "object",
       "patternProperties": {
-        "^\\/(external|internal)\\/api\\/v\\d+\\/*.+": {
+        "^(\\/(external|internal))?\\/api\\/v\\d+\\/*.+": {
           "type": "object",
           "properties": {
             "get": {
@@ -92,6 +92,9 @@
                   }
                 },
                 "summary": {
+                  "$ref": "#/components/nonEmptyString"
+                },
+                "operationId": {
                   "$ref": "#/components/nonEmptyString"
                 },
                 "parameters": {
@@ -151,7 +154,7 @@
                 "responses": {
                   "type": "object",
                   "patternProperties": {
-                    "(200|400|401|403|404|409|500)": {
+                    "(200|400|401|403|404|409|412|500)": {
                       "$ref": "#/components/generalResponse"
                     },
                     "additionalProperties": false
@@ -162,7 +165,8 @@
               "required": [
                 "tags",
                 "summary",
-                "parameters"
+                "parameters",
+                "operationId"
               ],
               "additionalProperties": false
             },
@@ -178,6 +182,9 @@
                 "summary": {
                   "$ref": "#/components/nonEmptyString"
                 },
+                "operationId": {
+                  "$ref": "#/components/nonEmptyString"
+                },
                 "parameters": {
                   "type": "array",
                   "items": {
@@ -235,7 +242,7 @@
                 "responses": {
                   "type": "object",
                   "patternProperties": {
-                    "(200|201|202|400|401|403|404|409|500)": {
+                    "(200|201|202|400|401|403|404|409|412|500)": {
                       "$ref": "#/components/generalResponse"
                     },
                     "additionalProperties": false
@@ -247,7 +254,97 @@
               "required": [
                 "summary",
                 "parameters",
-                "tags"
+                "tags",
+                "operationId"
+              ],
+              "additionalProperties": false
+            },
+            "put": {
+              "type": "object",
+              "properties": {
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/nonEmptyString"
+                  }
+                },
+                "summary": {
+                  "$ref": "#/components/nonEmptyString"
+                },
+                "operationId": {
+                  "$ref": "#/components/nonEmptyString"
+                },
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "$ref": "#/components/nonEmptyString"
+                      },
+                      "in": {
+                        "type": "string",
+                        "enum": [
+                          "path",
+                          "query",
+                          "header"
+                        ]
+                      },
+                      "required": {
+                        "type": "boolean"
+                      },
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/components/nonEmptyString",
+                            "enum": [
+                              "string",
+                              "number",
+                              "boolean"
+                            ]
+                          },
+                          "example": {
+                            "$ref": "#/components/nonEmptyString"
+                          },
+                          "format": {
+                            "$ref": "#/components/nonEmptyString"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "example": {}
+                    },
+                    "required": [
+                      "name",
+                      "in",
+                      "required",
+                      "schema",
+                      "example"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "responses": {
+                  "type": "object",
+                  "patternProperties": {
+                    "(200|201|202|400|401|403|404|409|412|500)": {
+                      "$ref": "#/components/generalResponse"
+                    },
+                    "additionalProperties": false
+                  },
+                  "additionalProperties": false
+                },
+                "requestBody": {}
+              },
+              "required": [
+                "summary",
+                "parameters",
+                "tags",
+                "operationId"
               ],
               "additionalProperties": false
             },
@@ -263,89 +360,7 @@
                 "summary": {
                   "$ref": "#/components/nonEmptyString"
                 },
-                "parameters": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "name": {
-                        "$ref": "#/components/nonEmptyString"
-                      },
-                      "in": {
-                        "type": "string",
-                        "enum": [
-                          "path",
-                          "query",
-                          "header"
-                        ]
-                      },
-                      "required": {
-                        "type": "boolean"
-                      },
-                      "schema": {
-                        "type": "object",
-                        "properties": {
-                          "type": {
-                            "$ref": "#/components/nonEmptyString",
-                            "enum": [
-                              "string",
-                              "number",
-                              "boolean"
-                            ]
-                          },
-                          "example": {
-                            "$ref": "#/components/nonEmptyString"
-                          },
-                          "format": {
-                            "$ref": "#/components/nonEmptyString"
-                          }
-                        },
-                        "required": [
-                          "type"
-                        ],
-                        "additionalProperties": false
-                      },
-                      "example": {}
-                    },
-                    "required": [
-                      "name",
-                      "in",
-                      "required",
-                      "schema",
-                      "example"
-                    ],
-                    "additionalProperties": false
-                  }
-                },
-                "responses": {
-                  "type": "object",
-                  "patternProperties": {
-                    "(200|400|401|403|404|409|500)": {
-                      "$ref": "#/components/generalResponse"
-                    },
-                    "additionalProperties": false
-                  },
-                  "additionalProperties": false
-                },
-                "requestBody": {}
-              },
-              "required": [
-                "summary",
-                "parameters",
-                "tags"
-              ],
-              "additionalProperties": false
-            },
-            "delete": {
-              "type": "object",
-              "properties": {
-                "tags": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/nonEmptyString"
-                  }
-                },
-                "summary": {
+                "operationId": {
                   "$ref": "#/components/nonEmptyString"
                 },
                 "parameters": {
@@ -405,7 +420,96 @@
                 "responses": {
                   "type": "object",
                   "patternProperties": {
-                    "(204|400|401|403|404|500)": {
+                    "(200|400|401|403|404|409|412|500)": {
+                      "$ref": "#/components/generalResponse"
+                    },
+                    "additionalProperties": false
+                  },
+                  "additionalProperties": false
+                },
+                "requestBody": {}
+              },
+              "required": [
+                "summary",
+                "parameters",
+                "tags",
+                "operationId"
+              ],
+              "additionalProperties": false
+            },
+            "delete": {
+              "type": "object",
+              "properties": {
+                "tags": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/nonEmptyString"
+                  }
+                },
+                "summary": {
+                  "$ref": "#/components/nonEmptyString"
+                },
+                "operationId": {
+                  "$ref": "#/components/nonEmptyString"
+                },
+                "parameters": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "$ref": "#/components/nonEmptyString"
+                      },
+                      "in": {
+                        "type": "string",
+                        "enum": [
+                          "path",
+                          "query",
+                          "header"
+                        ]
+                      },
+                      "required": {
+                        "type": "boolean"
+                      },
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "$ref": "#/components/nonEmptyString",
+                            "enum": [
+                              "string",
+                              "number",
+                              "boolean"
+                            ]
+                          },
+                          "example": {
+                            "$ref": "#/components/nonEmptyString"
+                          },
+                          "format": {
+                            "$ref": "#/components/nonEmptyString"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "example": {}
+                    },
+                    "required": [
+                      "name",
+                      "in",
+                      "required",
+                      "schema",
+                      "example"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "responses": {
+                  "type": "object",
+                  "patternProperties": {
+                    "(204|400|401|403|404|412|500)": {
                       "$ref": "#/components/generalResponse"
                     },
                     "additionalProperties": false
@@ -416,7 +520,8 @@
               "required": [
                 "tags",
                 "summary",
-                "parameters"
+                "parameters",
+                "operationId"
               ],
               "additionalProperties": false
             }

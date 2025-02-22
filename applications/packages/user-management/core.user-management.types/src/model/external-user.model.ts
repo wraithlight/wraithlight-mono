@@ -1,16 +1,17 @@
 import { Guid } from "@wraithlight/core.guid";
+import { Nullable } from "@wraithlight/framework.nullable";
 
 import { UserStatus } from "../enum";
 
-interface UserResponse {
+export interface UserResponse {
   userId: Guid;
   username: string;
   identifier: string;
   emailAddress: string;
   createdAtUTC: string;
   createdById: Guid;
-  lastUpdatedAtUTC: string;
-  lastUpdatedById: Guid;
+  lastUpdatedAtUTC: Nullable<string>;
+  lastUpdatedById: Nullable<Guid>;
   status: UserStatus
   languageId: Guid;
   failedLoginAttempts: number;
@@ -28,6 +29,7 @@ export interface ExternalUserPostRequest {
   emailAddress: string;
   password: string;
   passwordConfirmation: string;
+  languageId: Guid;
 }
 
 export interface ExternalUserPostResponse extends UserResponse {
@@ -37,7 +39,6 @@ export interface ExternalCheckEmailRequest {
   emailAddress: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExternalCheckEmailResponse {
 }
 
@@ -45,24 +46,21 @@ export interface ExternalCheckUsernameRequest {
   username: string;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExternalCheckUsernameResponse {
 }
 
 interface UserPatch {
-  emailAddress: string;
   password: string;
   passwordConfirmation: string;
 }
 
 export interface ExternalUserPatchRequest {
-  update: Partial<UserPatch>;
+  update: UserPatch;
   confirmationPassword: string;
 }
 
 export interface ExternalUserPatchResponse extends UserResponse {
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface ExternalUserDeleteResponse {
 }

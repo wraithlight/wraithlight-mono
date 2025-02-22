@@ -53,6 +53,7 @@
   "paths": {
     "/external/api/v3/session/{contextId}": {
       "get": {
+        "operationId": "getExternalSessionContextV3",
         "tags": [
           "external/session"
         ],
@@ -69,7 +70,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -189,6 +190,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteExternalSessionContextV3",
         "tags": [
           "external/session"
         ],
@@ -205,7 +207,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -289,6 +291,7 @@
         }
       },
       "post": {
+        "operationId": "postExternalSessionContextV3",
         "tags": [
           "external/session"
         ],
@@ -440,6 +443,7 @@
         }
       },
       "patch": {
+        "operationId": "patchExternalSessionContextV3",
         "tags": [
           "external/session"
         ],
@@ -456,7 +460,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -588,6 +592,7 @@
     },
     "/external/api/v3/user": {
       "get": {
+        "operationId": "getExternalUserV3",
         "tags": [
           "external/user"
         ],
@@ -675,6 +680,7 @@
         }
       },
       "post": {
+        "operationId": "postExternalUserV3",
         "tags": [
           "external/user"
         ],
@@ -715,6 +721,11 @@
                     "type": "string",
                     "format": "password",
                     "example": "F4HCXqdjbc"
+                  },
+                  "languageId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
                   }
                 }
               }
@@ -787,6 +798,7 @@
     },
     "/external/api/v3/user/check-email": {
       "post": {
+        "operationId": "postExternalUserCheckEmailV3",
         "tags": [
           "external/user"
         ],
@@ -850,11 +862,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -875,6 +887,7 @@
     },
     "/external/api/v3/user/{userId}": {
       "get": {
+        "operationId": "getExternalUserUserV3",
         "tags": [
           "external/user"
         ],
@@ -955,13 +968,14 @@
         }
       },
       "patch": {
+        "operationId": "patchExternalUserUserV3",
         "tags": [
           "external/user"
         ],
         "summary": "Used to update an already existing user (profile edit).",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1000,11 +1014,6 @@
                   "update": {
                     "type": "object",
                     "properties": {
-                      "emailAddress?": {
-                        "type": "string",
-                        "format": "email",
-                        "example": "user@wraithlight.ai"
-                      },
                       "password?": {
                         "type": "string",
                         "format": "password",
@@ -1101,13 +1110,14 @@
         }
       },
       "delete": {
+        "operationId": "deleteExternalUserUserV3",
         "tags": [
           "external/user"
         ],
         "summary": "Used to delete an already existing user (profile delete).",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1134,6 +1144,16 @@
             "schema": {
               "type": "string",
               "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-USERPASSWORD",
+            "in": "header",
+            "required": true,
+            "example": "cGFzc3dvcmQxMjM0",
+            "schema": {
+              "type": "string",
+              "format": "base64"
             }
           }
         ],
@@ -1203,6 +1223,7 @@
     },
     "/external/api/v3/user/check-username": {
       "post": {
+        "operationId": "postExternalUserCheckUsernameV3",
         "tags": [
           "external/user"
         ],
@@ -1266,11 +1287,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -1291,13 +1312,14 @@
     },
     "/internal/api/v1/session": {
       "get": {
+        "operationId": "getInternalSessionV1",
         "tags": [
           "internal/session"
         ],
         "summary": "Endpoint that used to check if the user is logged in.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1407,6 +1429,7 @@
         }
       },
       "post": {
+        "operationId": "postInternalSessionV1",
         "tags": [
           "internal/session"
         ],
@@ -1537,13 +1560,14 @@
         }
       },
       "delete": {
+        "operationId": "deleteInternalSessionV1",
         "tags": [
           "internal/session"
         ],
         "summary": "Used to delete a session (logout).",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1617,13 +1641,14 @@
         }
       },
       "patch": {
+        "operationId": "patchInternalSessionV1",
         "tags": [
           "internal/session"
         ],
         "summary": "Used to renew a session.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1745,13 +1770,14 @@
     },
     "/internal/api/v1/user": {
       "get": {
+        "operationId": "getInternalUserV1",
         "tags": [
           "internal/user"
         ],
         "summary": "Used to list all users.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1871,13 +1897,14 @@
         }
       },
       "post": {
+        "operationId": "postInternalUserV1",
         "tags": [
           "internal/user"
         ],
         "summary": "Used to create a new user.",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -1986,14 +2013,235 @@
         }
       }
     },
-    "/internal/api/v1/user/check-email": {
-      "post": {
+    "/internal/api/v1/user/forgot-password": {
+      "patch": {
+        "operationId": "patchInternalUserForgotPasswordV1",
+        "summary": "Used to start the reset password flow for a given user.",
+        "tags": [
+          "internal/user"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "identifier": {
+                    "type": "string",
+                    "example": "user@wraithlight.ai"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The operation succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "getInternalUserForgotPasswordV1",
         "tags": [
           "internal/user"
         ],
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "in": "query",
+            "name": "token",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+              "format": "uuid"
+            }
+          }
+        ],
+        "summary": "Used to validate the user verify token.",
+        "responses": {
+          "200": {
+            "description": "The operation succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": "Precondition failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error412"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "operationId": "putInternalUserForgotPasswordV1",
+        "summary": "Used to end the reset password flow for a given user.",
+        "tags": [
+          "internal/user"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string",
+                    "example": "F4HCXqdjbc"
+                  },
+                  "passwordConfirmation": {
+                    "type": "string",
+                    "example": "F4HCXqdjbc"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The operation succeeded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ok200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/internal/api/v1/user/check-email": {
+      "post": {
+        "operationId": "postInternalUserCheckEmailV3",
+        "tags": [
+          "internal/user"
+        ],
+        "parameters": [
+          {
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2051,11 +2299,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -2076,6 +2324,7 @@
     },
     "/internal/api/v1/user/{userId}": {
       "get": {
+        "operationId": "getInternalUserUser",
         "tags": [
           "internal/user"
         ],
@@ -2188,6 +2437,7 @@
         }
       },
       "patch": {
+        "operationId": "patchInternalUserUser",
         "tags": [
           "internal/user"
         ],
@@ -2204,7 +2454,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2223,16 +2473,6 @@
                   "update": {
                     "type": "object",
                     "properties": {
-                      "username?": {
-                        "type": "string",
-                        "format": "email",
-                        "example": "user"
-                      },
-                      "emailAddress?": {
-                        "type": "string",
-                        "format": "email",
-                        "example": "user@wraithlight.ai"
-                      },
                       "password?": {
                         "type": "string",
                         "format": "password",
@@ -2314,6 +2554,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteInternalUserUser",
         "tags": [
           "internal/user"
         ],
@@ -2330,7 +2571,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2394,14 +2635,118 @@
         }
       }
     },
+    "/internal/api/v1/user/{userId}/reset-login-attempts": {
+      "patch": {
+        "operationId": "pathcInternalUserUserResetLoginAttempts",
+        "tags": [
+          "internal/user"
+        ],
+        "summary": "Used to update an already existing user (profile edit).",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-WL-SESSION-TOKEN",
+            "in": "header",
+            "required": true,
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The query was successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/user200"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error400"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The given SESSION TOKEN is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error401"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The user was not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error404"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The given email address or username is already in use.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error409"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error500"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/internal/api/v1/user/check-username": {
       "post": {
+        "operationId": "postInternalUserCheckUsername",
         "tags": [
           "internal/user"
         ],
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2459,11 +2804,11 @@
             }
           },
           "409": {
-            "description": "Unauthorized.",
+            "description": "Conflict.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error409"
                 }
               }
             }
@@ -2484,6 +2829,7 @@
     },
     "/internal/api/v1/user/{userId}/context/{contextId}": {
       "post": {
+        "operationId": "postInternalUserUserContextContext",
         "tags": [
           "internal/user"
         ],
@@ -2510,7 +2856,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2554,6 +2900,10 @@
                     "payload": {
                       "type": "object",
                       "properties": {
+                        "contextName": {
+                          "type": "string",
+                          "example": "User Management"
+                        },
                         "relationId": {
                           "type": "string",
                           "format": "uuid",
@@ -2643,6 +2993,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteInternalUserUserContextContext",
         "tags": [
           "internal/user"
         ],
@@ -2669,7 +3020,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2735,6 +3086,7 @@
     },
     "/internal/api/v1/context": {
       "get": {
+        "operationId": "getInternalContext",
         "tags": [
           "internal/context"
         ],
@@ -2784,13 +3136,14 @@
         }
       },
       "post": {
+        "operationId": "postInternalContext",
         "tags": [
           "internal/context"
         ],
         "summary": "Used to create a new context",
         "parameters": [
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2825,7 +3178,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/context"
+                  "$ref": "#/components/schemas/contextSingle"
                 }
               }
             }
@@ -2875,6 +3228,7 @@
     },
     "/internal/api/v1/context/{contextId}": {
       "get": {
+        "operationId": "getInternalContextContext",
         "tags": [
           "internal/context"
         ],
@@ -2891,7 +3245,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -2907,112 +3261,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "correlationId": {
-                      "type": "string",
-                      "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
-                      "format": "uuid"
-                    },
-                    "error": {
-                      "type": "object",
-                      "properties": {
-                        "code": {
-                          "type": "string",
-                          "example": "E_USER_NOT_FOUND"
-                        }
-                      }
-                    },
-                    "payload": {
-                      "type": "object",
-                      "properties": {
-                        "items": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "id": {
-                                "type": "string",
-                                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
-                                "format": "uuid"
-                              },
-                              "label": {
-                                "type": "string",
-                                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
-                              },
-                              "description": {
-                                "type": "string",
-                                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
-                              },
-                              "isDeleted": {
-                                "type": "boolean",
-                                "example": true
-                              },
-                              "users": {
-                                "type": "object",
-                                "properties": {
-                                  "count": {
-                                    "type": "number",
-                                    "example": 5
-                                  },
-                                  "items": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "object",
-                                      "properties": {
-                                        "id": {
-                                          "type": "string",
-                                          "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
-                                          "format": "uuid"
-                                        },
-                                        "username": {
-                                          "type": "string",
-                                          "example": "user"
-                                        },
-                                        "emailAddress": {
-                                          "type": "string",
-                                          "example": "user@wraithlight.ai",
-                                          "format": "email"
-                                        },
-                                        "relation": {
-                                          "type": "object",
-                                          "properties": {
-                                            "id": {
-                                              "type": "string",
-                                              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
-                                              "format": "uuid"
-                                            },
-                                            "createdAtUTC": {
-                                              "type": "string",
-                                              "example": "2024-09-29T10:55:45.889Z",
-                                              "format": "datetime"
-                                            },
-                                            "createdById": {
-                                              "type": "string",
-                                              "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
-                                              "format": "uuid"
-                                            },
-                                            "createdByUsername": {
-                                              "type": "string",
-                                              "example": "user"
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "count": {
-                          "type": "number",
-                          "example": 5
-                        }
-                      }
-                    }
-                  }
+                  "$ref": "#/components/schemas/contextSingle"
                 }
               }
             }
@@ -3060,6 +3309,7 @@
         }
       },
       "patch": {
+        "operationId": "patchInternalContextContext",
         "tags": [
           "internal/context"
         ],
@@ -3076,7 +3326,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3110,7 +3360,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/context"
+                  "$ref": "#/components/schemas/contextSingle"
                 }
               }
             },
@@ -3169,6 +3419,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteInternalContextContext",
         "tags": [
           "internal/context"
         ],
@@ -3185,7 +3436,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3211,7 +3462,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -3251,6 +3502,7 @@
     },
     "/internal/api/v1/context/{contextId}/user": {
       "delete": {
+        "operationId": "deleteInternalContextContextUser",
         "tags": [
           "internal/context"
         ],
@@ -3267,7 +3519,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3293,7 +3545,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -3333,6 +3585,7 @@
     },
     "/internal/api/v1/context/{contextId}/user/{userId}": {
       "post": {
+        "operationId": "postInternalContextContextUserUser",
         "tags": [
           "internal/context"
         ],
@@ -3359,7 +3612,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3457,6 +3710,7 @@
         }
       },
       "delete": {
+        "operationId": "deleteInternalContextContextUserUser",
         "tags": [
           "internal/context"
         ],
@@ -3483,7 +3737,7 @@
             }
           },
           {
-            "name": "X-WL-SESSION",
+            "name": "X-WL-SESSION-TOKEN",
             "in": "header",
             "required": true,
             "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
@@ -3509,7 +3763,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/error401"
+                  "$ref": "#/components/schemas/error400"
                 }
               }
             }
@@ -3550,6 +3804,28 @@
   },
   "components": {
     "schemas": {
+      "ok200": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
       "ok202": {
         "type": "object",
         "properties": {
@@ -3687,6 +3963,29 @@
         }
       },
       "error409": {
+        "type": "object",
+        "properties": {
+          "correlationId": {
+            "type": "string",
+            "format": "uuid",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "E_USER_NOT_FOUND"
+              }
+            }
+          },
+          "payload": {
+            "type": "object",
+            "properties": {}
+          }
+        }
+      },
+      "error412": {
         "type": "object",
         "properties": {
           "correlationId": {
@@ -3909,6 +4208,78 @@
                 }
               },
               "count": {
+                "type": "number",
+                "example": 5
+              }
+            }
+          }
+        }
+      },
+      "contextSingle": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              }
+            }
+          },
+          "correlationId": {
+            "type": "string",
+            "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3",
+            "format": "uuid"
+          },
+          "payload": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "format": "uuid",
+                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+              },
+              "label": {
+                "type": "string",
+                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+              },
+              "description": {
+                "type": "string",
+                "example": "A nama naša nije Bogom dana mnogi su za nju život svoj dali"
+              },
+              "isDeleted": {
+                "type": "boolean",
+                "example": false
+              },
+              "createdAtUTC": {
+                "type": "string",
+                "example": "2024-09-29T10:55:45.889Z",
+                "format": "datetime"
+              },
+              "createdById": {
+                "type": "string",
+                "format": "uuid",
+                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+              },
+              "createdByUsername": {
+                "type": "string",
+                "example": "user"
+              },
+              "lastUpdatedAtUTC": {
+                "type": "string",
+                "example": "2024-09-29T10:55:45.889Z",
+                "format": "datetime"
+              },
+              "lastUpdatedById": {
+                "type": "string",
+                "format": "uuid",
+                "example": "bb3a7a80-44ec-4b74-9b7b-c8cd58f777b3"
+              },
+              "lastUpdatedByUsername": {
+                "type": "string",
+                "example": "user"
+              },
+              "numberOfUsers": {
                 "type": "number",
                 "example": 5
               }

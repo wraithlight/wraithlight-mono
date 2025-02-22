@@ -20,8 +20,6 @@ import {
   DEFAULT_PAYLOAD_SIZE,
   SIGINT_CODE,
   SIGINT_NAME,
-  SIGKILL_CODE,
-  SIGKILL_NAME,
   SIGTERM_CODE,
   SIGTERM_NAME
 } from "./server.const";
@@ -45,11 +43,6 @@ process.on(SIGTERM_NAME, () => {
 process.on(SIGINT_NAME, () => {
   EventBus.emitSigint();
   process.exit(SIGINT_CODE);
-});
-
-process.on(SIGKILL_NAME, () => {
-  EventBus.emitSigkill();
-  process.exit(SIGKILL_CODE);
 });
 
 export const initServer = (
@@ -118,4 +111,8 @@ export const startServer = (
   return {
     stopSignal: stopSignal
   };
+};
+
+export const controllerBlocker = (..._args: ReadonlyArray<unknown>): void => {
+  return undefined;
 };
