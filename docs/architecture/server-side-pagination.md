@@ -71,9 +71,11 @@ public async listUsers(
 
 ### Response format
 
-When returning the items, the reponse should follow the `IServerSidePaginated<T>` interface.
+When returning the items, the reponse should follow the `IListResult<T>` interface.
 
 ```ts
+
+import { IListResult } from "@wraithlight/domain.http.types";
 
 interface IListResult<T> {
   items: ReadonlyArray<T>;
@@ -90,3 +92,33 @@ interface IListResult<T> {
 * `allCount` - Count of all items.
 * `skip` - Number of items to skip before take the visible elements.
 * `take` - Number of items to take.
+
+```json
+
+"payload": {
+  "type": "object",
+  "properties": {
+    "visibleCount": {
+    "type": "number"
+    },
+    "allCount": {
+      "type": "number"
+    },
+    "skip": {
+      "type": "number"
+    },
+    "take": {
+      "type": "number"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+        }
+      }
+    }
+  }
+}
+
+```
