@@ -9,23 +9,23 @@ const filename = args[4];
 const jestPath = args[5];
 
 const jestConfigPath = (jestPath.endsWith(`${sep}src`)
-    ? jestPath.replace(`${sep}src`, "")
-    : jestPath.split(`${sep}src${sep}`)[0]).concat(`${sep}jest.config.js`)
-;
+  ? jestPath.replace(`${sep}src`, "")
+  : jestPath.split(`${sep}src${sep}`)[0]).concat(`${sep}jest.config.js`)
+  ;
 
 const path = process.platform === "win32"
-    ? win32Path
-    : unixPath
-;
+  ? win32Path
+  : unixPath
+  ;
 
 exec(`${path} ${filename} --config ${jestConfigPath}`, (error, out, err) => {
-    if (error) {
-        console.error(error);
-    }
-    if (out) {
-        console.log(out);
-    }
-    if (err) {
-        console.error(err);
-    }
+  if (error) {
+    console.error(error);
+  }
+  if (out) {
+    console.log(out);
+  }
+  if (err) {
+    console.error(err);
+  }
 });
