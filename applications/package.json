@@ -19,7 +19,7 @@
     "test:mono": "yarn jest -c=jest-mono.config.js --coverage",
     "validate-package-json": "node .tools/json-schema.mjs --files=package.json",
     "validate-swagger-json": "node .tools/json-schema.mjs --files=swagger.json",
-    "validate-tsconfig-json": "node .tools/json-schema.mjs --files=tsconfig.json",
+    "validate-tsconfig-json": "node .tools/json-schema.mjs --files=tsconfig.json --ignoreFolders=apps/auth/ui",
     "validate-tsconfig-build-json": "node .tools/json-schema.mjs --files=tsconfig.build.json --ignoreFolders=apps/auth/ui",
     "guid": "node .tools/guidgen.mjs",
     "test-report:collect": "lerna la --json > .test-reports/data.json",
