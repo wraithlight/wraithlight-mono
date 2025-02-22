@@ -26,7 +26,8 @@
     "strictTemplates": true
   },
   "include": [
-    "src"
+    "src",
+    "__mocks__"
   ],
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig.schema.json"
 }
