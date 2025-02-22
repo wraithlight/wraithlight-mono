@@ -7,6 +7,7 @@ import { cast } from "@wraithlight/framework.type-utils";
 import { Application, IRouterMatcher, Request, Response } from "express";
 
 import { BaseController, isBaseControllerResult } from "../base";
+import { addEndpoint } from "../devkit";
 import { EventBus } from "../events";
 import { Injector } from "../injector";
 
@@ -40,6 +41,7 @@ export class RequestHandler {
     for (const controller of this.controllers) {
       for (const endpoint of controller.endpoints) {
         const handler = this.getHandler(application, endpoint.verb);
+        addEndpoint(endpoint.verb, endpoint.fullPath);
 
         handler(endpoint.fullPath, async (
           req: Request,
