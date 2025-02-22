@@ -1,19 +1,19 @@
 {
-    "version": "1.0.0",
-    "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Jest: current file",
-            "program": "${workspaceFolder}/applications/vsc/jest-runner.js",
-            "args": [
-                "${workspaceFolder}/applications/node_modules/.bin/jest",
-                "${workspaceFolder}/applications/node_modules/jest/bin/jest",
-                "${fileBasenameNoExtension}",
-                "${fileDirname}"
-            ],
-            "console": "integratedTerminal",
-            "disableOptimisticBPs": true
-        }
-    ]
+  "version": "1.0.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Jest: current file",
+      "program": "${workspaceFolder}/applications/vsc/jest-runner.js",
+      "args": [
+        "${workspaceFolder}/applications/node_modules/.bin/jest",
+        "${workspaceFolder}/applications/node_modules/jest/bin/jest",
+        "${fileBasenameNoExtension}",
+        "${fileDirname}"
+      ],
+      "console": "integratedTerminal",
+      "disableOptimisticBPs": true
+    }
+  ]
 }
