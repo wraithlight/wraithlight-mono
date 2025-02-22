@@ -1,6 +1,7 @@
 {
   "extends": "../../../tsconfig.package.json",
-  "compilerOptions": {
-    "outDir": "dist/esm"
-  }
+  "include": [
+    "src"
+  ],
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig.schema.json"
 }
