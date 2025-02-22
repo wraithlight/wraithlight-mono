@@ -23,7 +23,8 @@
     "src/**/*.ts",
     "src/**/*.js",
     "src/**/*.svelte",
-    "src"
+    "src",
+    "__mocks__"
   ],
   "references": [
     {
