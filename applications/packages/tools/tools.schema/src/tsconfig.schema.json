@@ -8,41 +8,180 @@
     "$schema": {
       "type": "string",
       "enum": [
-        ""
+        "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig.schema.json",
+        "../../../../node_modules/@wraithlight/tools.schema/dist/tsconfig.schema.json"
       ]
     },
-    "extends": {
-      "type": "string",
+    "compileOnSave": {
+      "type": "boolean",
       "enum": [
-        ""
+        false
       ]
     },
     "compilerOptions": {
       "type": "object",
       "properties": {
-        "outDir": {
+        "strict": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "noImplicitOverride": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "noPropertyAccessFromIndexSignature": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "noImplicitReturns": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "noFallthroughCasesInSwitch": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "sourceMap": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "downlevelIteration": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "importHelpers": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "useDefineForClassFields": {
+          "type": "boolean",
+          "enum": [
+            false
+          ]
+        },
+        "target": {
           "type": "string",
-          "enum": ["dist/esm"]
+          "enum": [
+            "ESNext",
+            "ES2022"
+          ]
+        },
+        "module": {
+          "type": "string",
+          "enum": [
+            "ESNext",
+            "ES2022"
+          ]
+        },
+        "moduleResolution": {
+          "type": "string",
+          "enum": [
+            "Bundler",
+            "node"
+          ]
+        },
+        "esModuleInterop": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "experimentalDecorators": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "lib": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ES2022",
+              "ES2015",
+              "DOM"
+            ]
+          }
         }
       },
-      "additionalProperties": false,
-      "required": [
-        "outDir"
-      ]
+      "additionalProperties": false
+    },
+    "angularCompilerOptions": {
+      "type": "object",
+      "properties": {
+        "enableI18nLegacyMessageIdFormat": {
+          "type": "boolean",
+          "enum": [
+            false
+          ]
+        },
+        "strictInjectionParameters": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "strictInputAccessModifiers": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "strictTemplates": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        }
+      }
     },
     "include": {
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["src"]
+        "enum": [
+          "src"
+        ]
       }
+    },
+    "exclude": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "**/*.spec.ts"
+        ]
+      }
+    },
+    "extends": {
+      "type": "string",
+      "enum": [
+        "../../../tsconfig.package.json",
+        "../../../../tsconfig.package.json",
+        "../../../tsconfig.application.json"
+      ]
     }
   },
   "additionalProperties": false,
   "required": [
     "$schema",
-    "extends",
-    "compilerOptions",
-    "include"
+    "include",
+    "exclude"
   ]
 }
