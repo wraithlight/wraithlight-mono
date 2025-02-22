@@ -1,6 +1,16 @@
 {
-    "extends": "../../../tsconfig.application.json",
-    "compilerOptions": {
-        "lib": ["DOM", "ES2015"]
-    }
+  "extends": "../../../tsconfig.application.json",
+  "compilerOptions": {
+    "lib": [
+      "DOM",
+      "ES2015"
+    ]
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig.schema.json"
 }

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "TSCONFIG BUILD JSON SCHEMA",
+  "description": "Schema for package tsconfig.build.json files in the repository.",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "enum": [
+        "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig-build.schema.json",
+        "../../../../node_modules/@wraithlight/tools.schema/dist/tsconfig-build.schema.json"
+      ]
+    },
+    "compilerOptions": {
+      "type": "object",
+      "properties": {
+        "outDir": {
+          "type": "string",
+          "enum": ["dist/esm"]
+        },
+        "declaration": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "esModuleInterop": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "experimentalDecorators": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "lib": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ES2015",
+              "DOM"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "outDir",
+        "declaration"
+      ]
+    },
+    "include": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["src"]
+      }
+    },
+    "exclude": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["**/*.spec.ts"]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "compilerOptions",
+    "include",
+    "exclude"
+  ]
+}

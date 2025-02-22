@@ -1,6 +1,14 @@
 {
-  "extends": "../../../tsconfig.application.json",
   "compilerOptions": {
-    "paths": {}
-  }
+    "declaration": true,
+    "outDir": "dist/esm",
+    "experimentalDecorators": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig-build.schema.json"
 }

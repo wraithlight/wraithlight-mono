@@ -1,7 +1,18 @@
 {
-    "extends": "../../../tsconfig.application.json",
-    "compilerOptions": {
-        "lib": ["DOM", "ES2015"],
-        "paths": {}
-    }
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "lib": [
+      "DOM",
+      "ES2015"
+    ],
+    "declaration": true,
+    "outDir": "dist/esm"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig-build.schema.json"
 }

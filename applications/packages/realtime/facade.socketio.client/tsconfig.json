@@ -4,7 +4,13 @@
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "Bundler",
-    "outDir": "dist/esm",
     "esModuleInterop": true
-  }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig.schema.json"
 }

@@ -1,3 +1,10 @@
 {
   "extends": "../../../tsconfig.application.json",
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig.schema.json"
 }

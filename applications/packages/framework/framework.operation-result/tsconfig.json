@@ -4,8 +4,13 @@
     "lib": [
       "ES2015",
       "DOM"
-    ],
-    "outDir": "dist/esm"
+    ]
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig.schema.json"
 }

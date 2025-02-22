@@ -17,18 +17,31 @@ const ignoreFolders = [
   "dist"
 ];
 
+const ignoreFoldersSwitch = "--ignoreFolders=";
 const filesSwitch = "--files=";
 const silentModeSwitch = "--silent";
 
 const filesParam = process.argv.filter(m => m.startsWith(filesSwitch));
 const hasFilesParam = filesParam.length > 0;
+
 const isSilentRun = process.argv.includes(silentModeSwitch);
+
+const ignoreFoldersParam = process.argv.filter(m => m.startsWith(ignoreFoldersSwitch));
+const hasIgnoreFoldersParam = ignoreFoldersParam.length > 0;
 
 if (!hasFilesParam) {
   throw `'--files={filename}' must be set!`;
 }
 
 const targetFiles = filesParam.map(m => m.replace(filesSwitch, ""));
+const ignoredFolders = hasIgnoreFoldersParam
+  ? ignoreFoldersParam[0].replace(ignoreFoldersSwitch, "").split(", ")
+  : []
+;
+
+const getIgnoredFolderPaths = () => {
+  return ignoredFolders.map(m => join(__dirname, "..", m));
+}
 
 function getAllJsonFiles() {
   const result = libFolders.map(m => {
@@ -41,6 +54,7 @@ function getAllJsonFiles() {
 
 function getJsonFiles(path) {
   const result = [];
+  if (getIgnoredFolderPaths().includes(path)) return result;
   const content = readdirSync(path);
   for (const item of content) {
     if (ignoreFolders.includes(item)) continue;

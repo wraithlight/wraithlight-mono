@@ -9,15 +9,7 @@
     "useDefineForClassFields": true,
     "module": "ESNext",
     "resolveJsonModule": true,
-    /**
-      Svelte Preprocess cannot figure out whether you have a value or a type, so tell TypeScript
-      to enforce using `import type` instead of `import` for Types.
-     */
     "verbatimModuleSyntax": true,
-    /**
-      To have warnings/errors of the Svelte compiler at the correct position,
-      enable source maps by default.
-     */
     "sourceMap": true,
     "strict": false,
     "skipLibCheck": true,
@@ -26,6 +18,19 @@
     "checkJs": true,
     "isolatedModules": true
   },
-  "include": ["src/**/*.d.ts", "src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.ts",
+    "src/**/*.js",
+    "src/**/*.svelte",
+    "src"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ]
 }
