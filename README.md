@@ -105,6 +105,15 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [Communications > Push Sender](./docs/flows/communications/push-sender-service.md)
 * [Communications > SMS Sender](./docs/flows/communications/sms-sender-service.md)
 
+### API documentation
+* [Common > Latency V1](./applications/.swadoc/common/latency/swagger.json)
+* [Common > Healtcheck V2](./applications/.swadoc/common/health-check-v2/swagger.json)
+* [Communications > Email Sender Service V1](./applications/.swadoc/communications/email-sender/swagger.json)
+* [Communications > Notifier Proxy Service V1](./applications/.swadoc/communications/notifier-proxy/swagger.json)
+* [Communications > Push Sender Service V1](./applications/.swadoc/communications/push-sender/swagger.json)
+* [Communications > SMS Sender Service V1](./applications/.swadoc/communications/sms-sender/swagger.json)
+* [User Management](./applications/apps/auth/node/swagger.json)
+
 ## Getting started
 
 **Requirements**
