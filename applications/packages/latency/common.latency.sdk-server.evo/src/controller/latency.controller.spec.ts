@@ -16,7 +16,6 @@ describe("LatencyControllerSpecs", () => {
   describe("given the controller is initialized", () => {
     beforeEach(() => {
       controller = new LatencyController();
-      controller.setResponseContext(MOCK_RESPONSE as any);
     });
     describe("when i call `getLatency()`", () => {
       beforeEach(() => {
