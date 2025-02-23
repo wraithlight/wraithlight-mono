@@ -2,9 +2,7 @@
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig.schema.json",
   "extends": "../../../tsconfig.package.json",
   "include": [
-    "src"
-  ],
-  "exclude": [
-    "**/*.spec.ts"
+    "src",
+    "__mocks__"
   ]
 }
