@@ -2,29 +2,29 @@
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/swagger.schema.json",
   "openapi": "3.0.3",
   "info": {
-    "title": "Swagger Auth - OpenAPI 3.0",
-    "description": "Swagger file for wraithlight's auth microservice.",
+    "title": "Swagger UM - OpenAPI 3.0",
+    "description": "Swagger file for wraithlight's UM microservice.",
     "version": "1.0.0"
   },
   "servers": [
     {
-      "url": "http://local.auth.wraithlight.ai:4500",
+      "url": "http://local.user-management.wraithlight.ai:4500",
       "description": "local"
     },
     {
-      "url": "http://dev.auth.wraithlight.ai:5500",
+      "url": "http://dev.user-management.wraithlight.ai:5500",
       "description": "dev"
     },
     {
-      "url": "http://test.auth.wraithlight.ai",
+      "url": "http://test.user-management.wraithlight.ai",
       "description": "test"
     },
     {
-      "url": "http://staging.auth.wraithlight.ai",
+      "url": "http://staging.user-management.wraithlight.ai",
       "description": "staging"
     },
     {
-      "url": "http://auth.wraithlight.ai",
+      "url": "http://user-management.wraithlight.ai",
       "description": "prod"
     }
   ],

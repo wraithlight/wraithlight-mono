@@ -1,8 +1,8 @@
 #!/bin/bash
-CONTAINER_NAME=wraithlight-app-auth
-SQL_ROOT_PASSWORD=wraithlight-auth-app-pw
-SQL_USERNAME=wraithlight-auth-app-user-1
-SQL_PASSWORD=wraithlight-auth-app-user-1-pw
+CONTAINER_NAME=wraithlight-app-um
+SQL_ROOT_PASSWORD=wraithlight-um-app-pw
+SQL_USERNAME=wraithlight-um-app-user-1
+SQL_PASSWORD=wraithlight-um-app-user-1-pw
 OUT_PORT=5500
 IN_PORT=4500
 NETWORK_NAME=WL_Internal

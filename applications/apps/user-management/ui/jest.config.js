@@ -8,7 +8,7 @@ const __dirname = dirname(__filename);
 export default jestConfig(
   {
     preset: "ts-jest",
-    displayName: "Apps/Auth/UI",
+    displayName: "Apps/User Management/UI",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],
