@@ -4,7 +4,7 @@ const { join } = require("path");
 module.exports = jestConfig(
   {
     preset: "ts-jest",
-    displayName: "Apps/Auth/Node",
+    displayName: "Apps/User Management/Node",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],
