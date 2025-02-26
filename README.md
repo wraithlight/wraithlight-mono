@@ -41,7 +41,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 
 | UM Docker |
 | :-:       |
-|  [![Applications GHA - Docker Auth](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-auth.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-auth.yaml) |
+|  [![Applications GHA - Docker UM](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-um.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-um.yaml) |
 
 ### Chore
 | `package.json` Schema   | Swagger Schema  | `tsconfig.json` Schema  |
@@ -112,7 +112,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [Communications > Notifier Proxy Service V1](./applications/.swadoc/communications/notifier-proxy/swagger.json)
 * [Communications > Push Sender Service V1](./applications/.swadoc/communications/push-sender/swagger.json)
 * [Communications > SMS Sender Service V1](./applications/.swadoc/communications/sms-sender/swagger.json)
-* [User Management](./applications/apps/auth/node/swagger.json)
+* [User Management](./applications/apps/user-management/node/swagger.json)
 
 ## Getting started
 
@@ -206,7 +206,7 @@ This section lists all the technologies that are included in this repository.
 | :recycle:           | Game rich client  | Electron      |
 | :recycle:           | Game thin client  | Knockout      |
 | :recycle:           | Logs              | Aurelia       |
-| :recycle:           | Auth              | Svelte        |
+| :recycle:           | User Management   | Svelte        |
 | :recycle:           | Notifier          | QWIK          |
 | :recycle:           | Remote Config     | Lit           |
 
@@ -221,7 +221,7 @@ Most of the backend libraries/applications are written in NodeJS with some custo
 | :recycle:           | Game rich client  | Node          |
 | :recycle:           | Game thin client  | Node          |
 | :recycle:           | Logs              | Node          |
-| :recycle:           | Auth              | Node          |
+| :recycle:           | User Management   | Node          |
 | :white_check_mark:  | Notifier          | Node          |
 | :recycle:           | Remote Config     | Node          |
 
