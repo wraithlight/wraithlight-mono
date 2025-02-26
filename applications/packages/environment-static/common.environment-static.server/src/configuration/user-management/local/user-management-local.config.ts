@@ -5,9 +5,9 @@ export const SERVER_LOCAL_USER_MANAGEMENT_CONFIG: Readonly<
     database: {
         host: "localhost",
         port: 9000,
-        username: "wraithlight-auth-user-1",
-        password: "wraithlight-auth-user-1-pw",
-        database: "WL_AUTH",
+        username: "wraithlight-um-user-1",
+        password: "wraithlight-um-user-1-pw",
+        database: "WL_UM",
     },
     session: {
         iv: "",
