@@ -1,6 +1,6 @@
 ## @wraithlight/common.user-management.dal
 
-This library is the Data Access Layer for User Management (previously auth) microservice.
+This library is the Data Access Layer for User Management microservice.
 
 **Exports:**
 * `initializeDal()`
