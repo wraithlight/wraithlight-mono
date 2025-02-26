@@ -16,7 +16,7 @@ const config: KnipConfig = {
         "jest-mono.config.js"
       ]
     },
-    "apps/auth/node": {
+    "apps/user-management/node": {
       ignoreDependencies: [
         "ts-node"
       ],
@@ -29,7 +29,7 @@ const config: KnipConfig = {
         "ts-node"
       ]
     },
-    "apps/auth/ui": {
+    "apps/user-management/ui": {
       entry: [
         // TODO: Remove this once the processor is ready.
         "src/core/index.ts",
