@@ -13,7 +13,7 @@
 ---
 
 ### X-WL-SESSION-TOKEN
-This token is used to identify the session based on a JSON Web Token. The token contains the principal's ID (used in auth microservice) and the scope of the given token (`ApplicationId`) enum.
+This token is used to identify the session based on a JSON Web Token. The token contains the principal's ID (used in user management microservice) and the scope of the given token (`ApplicationId`) enum.
 
 Usage:
 
