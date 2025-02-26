@@ -1,15 +1,15 @@
-name: "Applications GHA - Docker Auth"
-run-name: "DOCKER - AUTH"
+name: "Applications GHA - Docker UM"
+run-name: "DOCKER - UM"
 on: [push, workflow_dispatch]
 
 env:
   WORK_DIR: applications
-  DOCKER_FILE_PATH: apps/auth/node/Dockerfile
-  DOCKER_IMAGE_NAME: auth-node
+  DOCKER_FILE_PATH: apps/user-management/node/Dockerfile
+  DOCKER_IMAGE_NAME: um-node
 
 jobs:
   build_docker_image:
-    name: Build Auth Docker Image
+    name: Build User Management Docker Image
     runs-on: ubuntu-latest
 
     steps:
