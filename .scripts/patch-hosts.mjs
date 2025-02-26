@@ -11,7 +11,7 @@ const wraithlightBannerStart = "# WRAITHLIGHT";
 const wraithlightBannerEnd = "# /WRAITHLIGHT";
 
 const appUrls = [
-    "www.local.auth.wraithlight.ai",
+    "www.local.user-management.wraithlight.ai",
     "www.local.content.wraithlight.ai",
     "www.local.editor.wraithlight.ai",
     "www.local.forum.wraithlight.ai",
@@ -21,7 +21,7 @@ const appUrls = [
     "www.local.website.wraithlight.ai",
     "www.local.notifier.wraithlight.ai",
 
-    "www.dev.auth.wraithlight.ai",
+    "www.dev.user-management.wraithlight.ai",
     "www.dev.content.wraithlight.ai",
     "www.dev.editor.wraithlight.ai",
     "www.dev.forum.wraithlight.ai",
@@ -32,14 +32,14 @@ const appUrls = [
     "www.dev.notifier.wraithlight.ai"
 ];
 const dbUrls = [
-    "www.local.db-auth.wraithlight.ai:9000",
+    "www.local.db-user-management.wraithlight.ai:9000",
     "www.local.db-logs.wraithlight.ai:9001",
     "www.local.db-content.wraithlight.ai:9002",
     "www.local.db-forum.wraithlight.ai:9003",
     "www.local.db-game.wraithlight.ai:9004",
     "www.local.db-notifier.wraithlight.ai:9009",
 
-    "www.dev.db-auth.wraithlight.ai:9000",
+    "www.dev.db-user-management.wraithlight.ai:9000",
     "www.dev.db-logs.wraithlight.ai:9001",
     "www.dev.db-content.wraithlight.ai:9002",
     "www.dev.db-forum.wraithlight.ai:9003",
