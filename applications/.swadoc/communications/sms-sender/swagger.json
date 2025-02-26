@@ -8,23 +8,23 @@
   },
   "servers": [
     {
-      "url": "http://local.auth.wraithlight.ai:4500",
+      "url": "http://local.user-management.wraithlight.ai:4500",
       "description": "local"
     },
     {
-      "url": "http://dev.auth.wraithlight.ai:5500",
+      "url": "http://dev.user-management.wraithlight.ai:5500",
       "description": "dev"
     },
     {
-      "url": "http://test.auth.wraithlight.ai",
+      "url": "http://test.user-management.wraithlight.ai",
       "description": "test"
     },
     {
-      "url": "http://staging.auth.wraithlight.ai",
+      "url": "http://staging.user-management.wraithlight.ai",
       "description": "staging"
     },
     {
-      "url": "http://auth.wraithlight.ai",
+      "url": "http://user-management.wraithlight.ai",
       "description": "prod"
     }
   ],
