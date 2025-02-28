@@ -190,6 +190,7 @@ precommit                     - Runs `yarn`, `lint`, `knip`, `build` and `test` 
 apply-patches                 - Runs `node_modules` patches.
 deplist                       - Checks for duplicate 3rd party dependencies. Optional flag: --silent
 readme-check                  - Checks if the readmes are there and has proper title. Optional flag: --silent
+validate-workspaces           - Check the workspace layouts. Optional flag: --silent
 
 ```
 
