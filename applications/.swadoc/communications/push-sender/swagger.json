@@ -75,6 +75,14 @@
                   "additionalMessagePayload": {
                     "type": "object",
                     "properties": {
+                      "subject": {
+                        "type": "string",
+                        "example": "Login attempt."
+                      },
+                      "logoUrl": {
+                        "type": "string",
+                        "example": "https://cataas.com/cat"
+                      }
                     }
                   }
                 }
