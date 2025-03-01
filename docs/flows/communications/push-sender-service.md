@@ -68,7 +68,10 @@ export interface PushSenderPostRequest {
   additionalMessagePayload: PushPayload;
 }
 
-interface PushPayload { }
+interface PushPayload {
+  subject: string;
+  logoUrl: string;
+}
 
 export interface PushSenderPostResponse {
   id: string;

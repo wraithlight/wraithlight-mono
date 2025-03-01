@@ -77,6 +77,10 @@
                   "additionalMessagePayload": {
                     "type": "object",
                     "properties": {
+                      "subject": {
+                        "type": "string",
+                        "example": "Account verification request"
+                      },
                       "senderName": {
                         "type": "string",
                         "format": "email",
@@ -91,6 +95,10 @@
                         "type": "string",
                         "format": "email",
                         "example": "user@wraithlight.io"
+                      },
+                      "replyToName": {
+                        "type": "string",
+                        "example": "Wraithlight Customer Service"
                       }
                     }
                   }
