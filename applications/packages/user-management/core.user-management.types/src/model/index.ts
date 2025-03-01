@@ -1,5 +1,3 @@
-export * from "./http-response.model";
-
 export * from "./external-session.model";
 export * from "./external-user.model";
 
