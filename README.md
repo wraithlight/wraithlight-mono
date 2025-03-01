@@ -57,9 +57,9 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 | :-:   | :-:       | :-:           |
 [![Applications GHA - Knip](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml) | [![Application GHA - Yarn Lock Changes](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml) |  [![Applications GHA - Readme Check](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml) |
 
-| DEPLIST |
-| :-:     |
-| [![Applications GHA - Deplist](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml) |
+| DEPLIST | Workspace Check |
+| :-:     | :-:             |
+| [![Applications GHA - Deplist](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml) | [![Applications GHA - Workspace Check](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-workspace-check.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-workspace-check.yaml) |
 
 
 ## Links
