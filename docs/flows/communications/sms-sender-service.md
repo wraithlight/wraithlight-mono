@@ -68,7 +68,9 @@ export interface SmsSenderServicePostRequest {
   additionalMessagePayload: SmsPayload;
 }
 
-interface SmsPayload { }
+interface SmsPayload {
+  applicationLink: string;
+}
 
 export interface SmsSenderServicePostResponse {
   id: string;
