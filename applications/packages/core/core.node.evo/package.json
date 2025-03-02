@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "2.1.0",
+  "version": "3.0.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -33,6 +33,7 @@
     "@wraithlight/framework.timer": "*",
     "@wraithlight/framework.type-utils": "*",
     "@wraithlight/core.errors": "*",
+    "@wraithlight/domain.http.types": "*",
     "swagger-ui-express": "4.6.2"
   },
   "devDependencies": {

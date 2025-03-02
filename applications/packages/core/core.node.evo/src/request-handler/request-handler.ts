@@ -2,6 +2,7 @@ import { isWraithlightError } from "@wraithlight/core.errors";
 import { Guid, newGuid } from "@wraithlight/core.guid";
 import { HttpCode, HttpVerb } from "@wraithlight/core.http";
 import { HeaderName } from "@wraithlight/domain.http.constants";
+import { IHttpResponse } from "@wraithlight/domain.http.types";
 import { Timer } from "@wraithlight/framework.timer";
 import { cast } from "@wraithlight/framework.type-utils";
 import { Application, IRouterMatcher, Request, Response } from "express";
@@ -235,7 +236,7 @@ export class RequestHandler {
     errorCode: HttpCode,
     error: string
   ): void {
-    const response = {
+    const response: IHttpResponse<undefined> = {
       correlationId: correlationId,
       payload: undefined,
       error: {
@@ -256,7 +257,7 @@ export class RequestHandler {
     statusCode: HttpCode,
     payload: T
   ): void {
-    const response = {
+    const response: IHttpResponse<T> = {
       correlationId: correlationId,
       payload: payload,
       error: {
@@ -274,7 +275,7 @@ export class RequestHandler {
   private static processResponse<T>(
     res: Response,
     code: HttpCode,
-    response: T
+    response: IHttpResponse<T>
   ): void {
     res.status(code).send(response);
   }
