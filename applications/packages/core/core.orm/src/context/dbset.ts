@@ -1,11 +1,13 @@
 import { DbContext } from "./dbcontext";
 import { DeleteQueryContext } from "./query/delete.query-context";
+import { ExistQueryContext } from "./query/exist.query-context";
 import { InsertQueryContext } from "./query/insert.query-context";
 import {
   DeleteQueryContext as IDeleteQueryContext,
+  ExistQueryContext as IExistQueryContext,
   InsertQueryContext as IInsertQueryContext,
   SelectQueryContext as ISelectQueryContext,
-  UpdateQueryContext as IUpdateQueryContext
+  UpdateQueryContext as IUpdateQueryContext,
 } from "./query/query-context.model";
 import { SelectQueryContext } from "./query/select.query-context";
 import { UpdateQueryContext } from "./query/update.query-context";
@@ -19,6 +21,13 @@ export class DbSet<T extends object> {
 
   public select(): ISelectQueryContext<T> {
     return new SelectQueryContext<T>(
+      this._tableName,
+      this._context
+    );
+  }
+
+  public exist(): IExistQueryContext<T> {
+    return new ExistQueryContext<T>(
       this._tableName,
       this._context
     );
