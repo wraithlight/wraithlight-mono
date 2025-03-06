@@ -25,6 +25,19 @@ export interface SelectQueryContext<T> extends WhereableQueryContext<T> {
 
 }
 
+export interface CountQueryContext<T> extends WhereableQueryContext<T> {
+
+  where<TKey extends keyof T>(
+    key: TKey,
+    value: T[TKey]
+  ): CountQueryContext<T>;
+  orderByAsc<TKey extends keyof T>(key: TKey): CountQueryContext<T>;
+  orderByDesc<TKey extends keyof T>(key: TKey): CountQueryContext<T>;
+
+  run(): Promise<number>;
+
+}
+
 export interface UpdateQueryContext {
 
   run(): Promise<void>;
