@@ -64,7 +64,8 @@ export class RequestHandler {
             const end = timer.stop();
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              filterResult.errorCode
             );
             this.processErrorResponse(
               res,
@@ -86,7 +87,8 @@ export class RequestHandler {
             const end = timer.stop();
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              PARAM_FATAL_CODE
             );
             this.processErrorResponse(
               res,
@@ -110,7 +112,8 @@ export class RequestHandler {
             const end = timer.stop();
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              CORE_CONTROLLER_FATAL_CODE
             );
             this.processErrorResponse(
               res,
@@ -134,7 +137,8 @@ export class RequestHandler {
             const end = timer.stop();
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              CORE_METHOD_FATAL_CODE
             );
             this.processErrorResponse(
               res,
@@ -148,25 +152,30 @@ export class RequestHandler {
           try {
             const methodResult = await method.apply(controllerInstance, params);
 
+            const httpCode = isBaseControllerResult(methodResult)
+              ? methodResult.code
+              : HttpCode.Ok
+              ;
             if (isBaseControllerResult(methodResult)) {
               this.processSuccessResponse(
                 res,
                 correlation,
-                methodResult.code,
+                httpCode,
                 methodResult.payload
               );
             } else {
               this.processSuccessResponse(
                 res,
                 correlation,
-                HttpCode.Ok,
+                httpCode,
                 methodResult
               );
             }
             const end = timer.stop();
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              httpCode
             );
           } catch (e: any) {
             const end = timer.stop();
@@ -175,7 +184,8 @@ export class RequestHandler {
             );
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              e.statusCode
             );
             if (isWraithlightError(e)) {
               this.processErrorResponse(

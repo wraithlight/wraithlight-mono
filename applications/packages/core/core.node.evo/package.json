@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "2.1.0",
+  "version": "3.0.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -26,7 +26,7 @@
     "@wraithlight/framework.creatable": "*",
     "cors": "2.8.5",
     "express": "4.18.2",
-    "@wraithlight/core.date": "*",
+    "@wraithlight/framework.date": "*",
     "@wraithlight/core.messagebus": "*",
     "@wraithlight/core.counter": "*",
     "@wraithlight/domain.http.constants": "*",

@@ -1,4 +1,4 @@
-import { utcNow } from "@wraithlight/core.date";
+import { utcNow } from "@wraithlight/framework.date";
 import { Guid } from "@wraithlight/core.guid";
 import { HttpCode } from "@wraithlight/core.http";
 import { MessagebusService } from "@wraithlight/core.messagebus";
@@ -79,14 +79,16 @@ export class EventBus {
 
   public static emitRequestEnd(
     correlationId: Guid,
-    timeTaken: number
+    timeTaken: number,
+    httpCode: HttpCode
   ): void {
     this.messageBus.push<IRequestEndEvent>(
       SERVER_EVENTS.ON_REQUEST_END,
       {
         correlationId: correlationId,
         dateUtc: utcNow(),
-        timeTaken: timeTaken
+        timeTaken: timeTaken,
+        httpCode: httpCode
       }
     );
   }
