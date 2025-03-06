@@ -17,7 +17,7 @@ export class BaseSelectQueryContext<T extends object>
     super(tableName);
   }
 
-  protected async run(): Promise<ReadonlyArray<T>> {
+  protected async _run(): Promise<ReadonlyArray<T>> {
     const command = super.concatQueries();
     return this.exec(command);
   }
