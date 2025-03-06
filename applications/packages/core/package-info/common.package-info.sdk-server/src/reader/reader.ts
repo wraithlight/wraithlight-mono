@@ -18,8 +18,8 @@ export class PackageJsonReader {
         try {
             const rawContent = readFileSync(absolutePath);
             const stringContent = rawContent.toString();
-            const jsonContent = JSON.parse(stringContent);
-            this._content = jsonContent;
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            this._content = JSON.parse(stringContent);
             this._logger.info("package.json file reading finished successfully!");
         } catch (error) {
             this._content = {

@@ -88,6 +88,7 @@ export class RealtimeService {
         this._realtimeFacade.onMessage(
             topic,
             (message) => {
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 const objLike: RealtimeMessage<T> = message
                     ? JSON.parse(message)
                     : ""

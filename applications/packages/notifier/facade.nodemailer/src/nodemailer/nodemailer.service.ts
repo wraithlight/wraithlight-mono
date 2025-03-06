@@ -31,6 +31,7 @@ export class NodemailerFacadeService {
         bcc: ReadonlyArray<string> = [],
         cc: ReadonlyArray<string> = []
     ): Promise<string> {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const result: { messageId: string } = await this._transport.sendMail({
             to: toAddress,
             from: fromAddress,

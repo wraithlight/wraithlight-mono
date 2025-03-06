@@ -46,7 +46,7 @@ export class AppRef implements IAppRef {
     }
 
     public serveSwagger(route: string, staticPath: string): IAppRef {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        // eslint-disable-next-line @typescript-eslint/no-var-requires, @typescript-eslint/no-unsafe-assignment
         const document = require(staticPath);
         this._app.use(
             route,

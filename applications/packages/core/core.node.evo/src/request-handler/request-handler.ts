@@ -123,7 +123,7 @@ export class RequestHandler {
 
           let method: (...args: Array<unknown>) => unknown;
           try {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
             method = cast<any>(controllerInstance)[endpoint.methodName];
           } catch {
             EventBus.emitOnCoreMethodFatal(

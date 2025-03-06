@@ -26,6 +26,7 @@ export class CoreJWT {
         iv: string,
         key: string,
     ): JWTDecryptResult<T> {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
         const result: Nullable<T> = JwtEncrypt.decode(
             token,
             {
