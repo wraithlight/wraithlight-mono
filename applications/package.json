@@ -29,7 +29,7 @@
     "precommit": "yarn && yarn build && yarn lint && yarn knip && yarn test",
     "apply-patches": "ts-node .patches/index.ts",
     "deplist": "node deplist.mjs",
-    "readme-check": "node readme-check.mjs",
+    "readme-check": "node .tools/readme-check.mjs",
     "validate-workspaces": "node .tools/workspace-validator.mjs --silent"
   },
   "workspaces": [
