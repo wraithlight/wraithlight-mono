@@ -31,6 +31,7 @@ export interface IProcessFatalEvent extends IProcessEvent {
 export interface IRequestStartEvent extends IRequestEvent {}
 export interface IRequestEndEvent extends IRequestEvent {
   timeTaken: number;
+  httpCode: HttpCode;
 }
 export interface IRequestFatalEvent extends IRequestEvent {}
 

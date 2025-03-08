@@ -19,16 +19,16 @@ export const ParamDecorator = <T, TController extends BaseController>(
   propertyKey: string,
   parameterIndex: number
 ) => {
-  const cExtractor = (req: Request): T => paramContext(req);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const vExtractor = (context: T): any => paramExtractor(context);
+    const cExtractor = (req: Request): T => paramContext(req);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const vExtractor = (context: T): any => paramExtractor(context);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const extractor = (req: Request): any => vExtractor(cExtractor(req));
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const extractor = (req: Request): any => vExtractor(cExtractor(req));
 
-  HandlerContext.addParameter(
-    propertyKey,
-    parameterIndex,
-    extractor
-  );
-};
+    HandlerContext.addParameter(
+      propertyKey,
+      parameterIndex,
+      extractor
+    );
+  };

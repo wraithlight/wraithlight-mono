@@ -9,5 +9,5 @@ export const HeaderDecorator = (
 ): IParamDecorator<BaseController> => ParamDecorator(
   m => m.headers,
   (headers: IncomingHttpHeaders) =>
-      headers[headerName.toLocaleLowerCase()] || headers[headerName]
+    headers[headerName.toLocaleLowerCase()] || headers[headerName]
 );
