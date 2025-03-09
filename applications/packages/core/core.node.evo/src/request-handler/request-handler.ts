@@ -22,8 +22,10 @@ import {
 } from "./request-handler.const";
 import {
   HandleControllerModel,
+  HandlerController,
   HandlerControllerEndpointFilterModel
 } from "./request-handler.model";
+import { hasStatusCode } from "./request-handler.utils";
 
 export class RequestHandler {
 
@@ -81,7 +83,7 @@ export class RequestHandler {
             params = endpoint.params
               .sort((l, r) => l.propertyIndex > r.propertyIndex ? 1 : -1)
               .map(m => m.extractorFn(req))
-              ;
+            ;
           } catch {
             EventBus.emitParamFatal(correlation);
             const end = timer.stop();
@@ -126,8 +128,8 @@ export class RequestHandler {
 
           let method: (...args: Array<unknown>) => unknown;
           try {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-            method = cast<any>(controllerInstance)[endpoint.methodName];
+            const controller = cast<HandlerController>(controllerInstance);
+            method = controller[endpoint.methodName];
           } catch {
             EventBus.emitOnCoreMethodFatal(
               correlation,
@@ -177,6 +179,7 @@ export class RequestHandler {
               end,
               httpCode
             );
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           } catch (e: any) {
             const end = timer.stop();
             EventBus.emitRequestFatal(
@@ -185,7 +188,7 @@ export class RequestHandler {
             EventBus.emitRequestEnd(
               correlation,
               end,
-              e.statusCode
+              hasStatusCode(e) ? e.statusCode : HttpCode.InternalError
             );
             if (isWraithlightError(e)) {
               this.processErrorResponse(

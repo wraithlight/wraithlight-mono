@@ -32,6 +32,7 @@
     "@wraithlight/domain.http.constants": "*",
     "@wraithlight/framework.timer": "*",
     "@wraithlight/framework.type-utils": "*",
+    "@wraithlight/framework.nullable": "*",
     "@wraithlight/core.errors": "*",
     "swagger-ui-express": "4.6.2"
   },

@@ -1,4 +1,4 @@
-import { isNil } from "@wraithlight/core.nullable";
+import { isNil } from "@wraithlight/framework.nullable";
 import { cast } from "@wraithlight/framework.type-utils";
 
 export class Injector {
