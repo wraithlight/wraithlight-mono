@@ -25,7 +25,7 @@ export class CoreHttpClient extends HttpClient {
       payload: m.payload?.payload,
       isAborted: m.isAborted,
       correlationId: m.payload?.correlationId,
-      errorCodes: [m.payload?.error]
+      error: m.payload?.error
     }));
   }
 
@@ -39,7 +39,7 @@ export class CoreHttpClient extends HttpClient {
       payload: m.payload?.payload,
       isAborted: m.isAborted,
       correlationId: m.payload?.correlationId,
-      errorCodes: [m.payload?.error]
+      error: m.payload?.error
     }));
   }
 
@@ -55,7 +55,7 @@ export class CoreHttpClient extends HttpClient {
       payload: m.payload?.payload,
       isAborted: m.isAborted,
       correlationId: m.payload?.correlationId,
-      errorCodes: [m.payload?.error]
+      error: m.payload?.error
     }));
   }
 
@@ -71,7 +71,7 @@ export class CoreHttpClient extends HttpClient {
       payload: m.payload?.payload,
       isAborted: m.isAborted,
       correlationId: m.payload?.correlationId,
-      errorCodes: [m.payload?.error]
+      error: m.payload?.error
     }));
   }
 
