@@ -17,7 +17,7 @@ export class BaseSelectQueryContext<T extends object>
     super(tableName);
   }
 
-  protected async run(): Promise<ReadonlyArray<T>> {
+  protected async _run(): Promise<ReadonlyArray<T>> {
     const command = super.concatQueries();
     return this.exec(command);
   }
@@ -55,13 +55,16 @@ export class BaseSelectQueryContext<T extends object>
               const lowercaseKey = this.decapitalize(key);
 
               let value;
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               const rawValue = cast<RowDataPacket>(m)[key];
               switch (field.type) {
                 // eslint-disable-next-line max-len
                 case DATETIME_FIELD_TYPE: value = rawValue ? new Date(rawValue) : undefined; break;
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 default: value = rawValue; break;
               }
 
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
               item[lowercaseKey] = value;
             }
             return cast<T>(item);

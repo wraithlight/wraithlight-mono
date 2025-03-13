@@ -85,6 +85,7 @@ export class RealtimeProvider {
             topic,
             {
                 id: id,
+                // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 message: JSON.parse(payload)
             }
         );

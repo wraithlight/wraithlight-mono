@@ -25,6 +25,19 @@ export interface SelectQueryContext<T> extends WhereableQueryContext<T> {
 
 }
 
+export interface ExistQueryContext<T> extends WhereableQueryContext<T> {
+
+  where<TKey extends keyof T>(
+    key: TKey,
+    value: T[TKey]
+  ): ExistQueryContext<T>;
+  orderByAsc<TKey extends keyof T>(key: TKey): ExistQueryContext<T>;
+  orderByDesc<TKey extends keyof T>(key: TKey): ExistQueryContext<T>;
+
+  run(): Promise<boolean>;
+
+}
+
 export interface UpdateQueryContext {
 
   run(): Promise<void>;
