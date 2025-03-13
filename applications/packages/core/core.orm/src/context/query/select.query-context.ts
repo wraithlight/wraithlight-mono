@@ -23,11 +23,11 @@ export class SelectQueryContext<T extends object>
   }
 
   public async toList(): Promise<ReadonlyArray<T>> {
-    return this.run();
+    return this._run();
   }
 
   public async first(): Promise<Nullable<T>> {
-    return this.run().then(m => {
+    return this._run().then(m => {
       return m.length > 0
         ? m[0]
         : undefined
