@@ -127,6 +127,21 @@ export abstract class HttpClient {
     }));
   }
 
+  public async patch<TResult, TData>(
+    url: string,
+    data?: TData
+  ): Promise<HttpResponse2<TResult>> {
+    return this.fetchInternal<TResult>(
+      HttpVerb.PATCH,
+      url,
+      JSON.stringify(data)
+    ).then(m => ({
+      isAborted: m.isAborted,
+      payload: cast<TResult>(m.payload),
+      statusCode: m.statusCode
+    }));
+  }
+
   private async fetchInternal<TResult>(
     method: HttpVerb,
     url: string,
