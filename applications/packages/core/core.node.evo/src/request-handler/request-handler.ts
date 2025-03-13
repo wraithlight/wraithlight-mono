@@ -197,6 +197,7 @@ export class RequestHandler {
         });
       }
     }
+    EventBus.emitBindingsDone();
   }
 
   private static async processFilters(

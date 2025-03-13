@@ -6,6 +6,7 @@ import { MessagebusService } from "@wraithlight/core.messagebus";
 import { SERVER_EVENTS } from "./event.const";
 import { ServerStopReason } from "./event.enum";
 import {
+  IBindingsDoneEvent,
   ICoreControllerFatalEvent,
   ICoreMethodFatalEvent,
   IFilterFailEvent,
@@ -185,6 +186,15 @@ export class EventBus {
     );
   }
 
+  public static emitBindingsDone(): void {
+    this.messageBus.push<IBindingsDoneEvent>(
+      SERVER_EVENTS.ON_BINDINGS_DONE,
+      {
+        dateUtc: utcNow()
+      }
+    );
+  }
+
   public static onProcessFatal(
     handler: (payload: IProcessFatalEvent) => void
   ): void {
@@ -261,6 +271,12 @@ export class EventBus {
     handler: (payload: ICoreMethodFatalEvent) => void
   ): void {
     this.messageBus.sub(SERVER_EVENTS.ON_CORE_METHOD_FATAL, handler);
+  }
+
+  public static onBindingsDone(
+    handler: (payload: IBindingsDoneEvent) => void
+  ): void {
+    this.messageBus.sub(SERVER_EVENTS.ON_BINDINGS_DONE, handler);
   }
 
 }
