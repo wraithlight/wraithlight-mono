@@ -18,7 +18,9 @@ export interface HttpResponse2<TPayload> {
 interface BaseConsolidatedHttpResponse {
   statusCode: number;
   isAborted: boolean;
-  errorCodes: ReadonlyArray<string>;
+  error: {
+    code: string;
+  },
   correlationId: Guid;
 }
 
