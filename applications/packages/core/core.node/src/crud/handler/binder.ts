@@ -78,10 +78,11 @@ export class ControllerBinder {
           } else {
             // eslint-disable-next-line max-len
             const executor = controller[PARAM_PROPERTY_KEY]?.[methodMetadata.name].contextExecutor;
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
             const context = executor ? executor(req) : {};
-            // eslint-disable-next-line max-len, @typescript-eslint/no-unsafe-member-access
+            // eslint-disable-next-line max-len, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
             const paramExecutors = context[PARAM_PROPERTY_KEY]?.[methodMetadata.name].parameters;
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
             const params = paramExecutors.map((m: any) => m(context));
             method.apply(context, params);
           }

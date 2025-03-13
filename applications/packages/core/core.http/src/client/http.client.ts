@@ -1,10 +1,12 @@
+import { cast } from "@wraithlight/framework.type-utils";
+
 import {
   HttpCode,
   HttpVerb
 } from "../constant";
 
 import { JSON_HEADERS, SUCCESS_HTTP_CODES } from "./http.const";
-import { HttpResponse, InternalExpressResponse, InternalHttpResponse } from "./http.model";
+import { HttpResponse, HttpResponse2, InternalExpressResponse, InternalHttpResponse } from "./http.model";
 
 export abstract class HttpClient {
 
@@ -25,6 +27,9 @@ export abstract class HttpClient {
     response: T
   ): void;
 
+  /**
+   * @deprecated Use `get2` or `getConsolidated` instead.
+   */
   public async get<TResult>(url: string): Promise<HttpResponse<TResult>> {
     return this.fetchInternal(
       HttpVerb.GET,
@@ -32,6 +37,20 @@ export abstract class HttpClient {
     );
   }
 
+  public async get2<TResult>(url: string): Promise<HttpResponse2<TResult>> {
+    return this.fetchInternal<TResult>(
+      HttpVerb.GET,
+      url
+    ).then(m => ({
+      isAborted: m.isAborted,
+      payload: cast<TResult>(m.payload),
+      statusCode: m.statusCode
+    }));
+  }
+
+  /**
+   * @deprecated Use `delete2` or `deleteConsolidated` instead.
+   */
   public async delete<TResult>(url: string): Promise<HttpResponse<TResult>> {
     return this.fetchInternal(
       HttpVerb.DELETE,
@@ -39,6 +58,20 @@ export abstract class HttpClient {
     );
   }
 
+  public async delete2<TResult>(url: string): Promise<HttpResponse2<TResult>> {
+    return this.fetchInternal<TResult>(
+      HttpVerb.DELETE,
+      url
+    ).then(m => ({
+      isAborted: m.isAborted,
+      payload: cast<TResult>(m.payload),
+      statusCode: m.statusCode
+    }));
+  }
+
+  /**
+   * @deprecated Use `post2` or `postConsolidated` instead.
+   */
   public async post<TResult, TData>(
     url: string,
     data?: TData
@@ -50,6 +83,24 @@ export abstract class HttpClient {
     );
   }
 
+  public async post2<TResult, TData>(
+    url: string,
+    data?: TData
+  ): Promise<HttpResponse2<TResult>> {
+    return this.fetchInternal<TResult>(
+      HttpVerb.POST,
+      url,
+      JSON.stringify(data)
+    ).then(m => ({
+      isAborted: m.isAborted,
+      payload: cast<TResult>(m.payload),
+      statusCode: m.statusCode
+    }));
+  }
+
+  /**
+   * @deprecated Use `put2` or `putConsolidated` instead.
+   */
   public async put<TResult, TData>(
     url: string,
     data?: TData
@@ -59,6 +110,21 @@ export abstract class HttpClient {
       url,
       JSON.stringify(data)
     );
+  }
+
+  public async put2<TResult, TData>(
+    url: string,
+    data?: TData
+  ): Promise<HttpResponse2<TResult>> {
+    return this.fetchInternal<TResult>(
+      HttpVerb.PUT,
+      url,
+      JSON.stringify(data)
+    ).then(m => ({
+      isAborted: m.isAborted,
+      payload: cast<TResult>(m.payload),
+      statusCode: m.statusCode
+    }));
   }
 
   private async fetchInternal<TResult>(

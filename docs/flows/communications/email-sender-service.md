@@ -69,9 +69,11 @@ export interface EmailSenderPostRequest {
 }
 
 interface EmailPayload {
+  subject: string;
   senderName: string;
   senderEmailAddress: string;
   replyToEmailAddress: string;
+  replyToName: string;
 }
 
 export interface EmailSenderPostResponse {
