@@ -40,7 +40,6 @@ export interface CountQueryContext<T> extends WhereableQueryContext<T> {
 
 export interface ExistQueryContext<T> extends WhereableQueryContext<T> {
 
-  
   where<TKey extends keyof T>(
     key: TKey,
     value: T[TKey]
