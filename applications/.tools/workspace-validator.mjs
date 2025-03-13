@@ -4,9 +4,9 @@ import { join } from "path";
 
 const requiredFiles = [
   "README.md",
-  // ".gitignore",  // TODO: https://github.com/wraithlight/wraithlight-mono/issues/1175
-  // ".npmignore",  // TODO: https://github.com/wraithlight/wraithlight-mono/issues/1082
-  // ".npmrc",      // TODO: https://github.com/wraithlight/wraithlight-mono/issues/1178
+  ".gitignore",
+  ".npmignore",
+  ".npmrc",
   ".eslintrc.cjs",
   "jest.config.js",
   "package.json",

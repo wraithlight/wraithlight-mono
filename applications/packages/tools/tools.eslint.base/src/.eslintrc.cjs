@@ -136,7 +136,7 @@ const eslintConfig = {
     "@typescript-eslint/ban-types": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
     "@typescript-eslint/no-inferrable-types": "error",
-    "@typescript-eslint/no-unsafe-assignment": "warn",
+    "@typescript-eslint/no-unsafe-assignment": "error",
     "@typescript-eslint/promise-function-async": "error",
     "@typescript-eslint/no-unsafe-member-access": "error",
     "@typescript-eslint/unbound-method": "error",

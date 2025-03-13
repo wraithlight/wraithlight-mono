@@ -80,17 +80,34 @@
                       {
                         "type": "object",
                         "description": "SmsPayload",
-                        "properties": {}
+                        "properties": {
+                          "applicationLink": {
+                            "type": "string"
+                          }
+                        }
                       },
                       {
                         "type": "object",
                         "description": "PushPayload",
-                        "properties": {}
+                        "properties": {
+                          "subject": {
+                            "type": "string",
+                            "example": "Login attempt."
+                          },
+                          "logoUrl": {
+                            "type": "string",
+                            "example": "https://cataas.com/cat"
+                          }
+                        }
                       },
                       {
                         "type": "object",
                         "description": "EmailPayload",
                         "properties": {
+                          "subject": {
+                            "type": "string",
+                            "example": "Account verification request"
+                          },
                           "senderName": {
                             "type": "string",
                             "example": "Wraithlight Mailer Daemon"
@@ -104,6 +121,10 @@
                             "type": "string",
                             "format": "email",
                             "example": "user@wraithlight.io"
+                          },
+                          "replyToName": {
+                            "type": "string",
+                            "example": "Wraithlight Customer Service"
                           }
                         }
                       }
@@ -446,17 +467,34 @@
                             {
                               "type": "object",
                               "description": "SmsPayload",
-                              "properties": {}
+                              "properties": {
+                                "applicationLink": {
+                                  "type": "string"
+                                }
+                              }
                             },
                             {
                               "type": "object",
                               "description": "PushPayload",
-                              "properties": {}
+                              "properties": {
+                                "subject": {
+                                  "type": "string",
+                                  "example": "Login attempt."
+                                },
+                                "logoUrl": {
+                                  "type": "string",
+                                  "example": "https://cataas.com/cat"
+                                }
+                              }
                             },
                             {
                               "type": "object",
                               "description": "EmailPayload",
                               "properties": {
+                                "subject": {
+                                  "type": "string",
+                                  "example": "Account verification request"
+                                },
                                 "senderName": {
                                   "type": "string",
                                   "example": "Wraithlight Mailer Daemon"
@@ -470,6 +508,10 @@
                                   "type": "string",
                                   "format": "email",
                                   "example": "user@wraithlight.io"
+                                },
+                                "replyToName": {
+                                  "type": "string",
+                                  "example": "Wraithlight Customer Service"
                                 }
                               }
                             }

@@ -74,13 +74,21 @@ export interface NotifierProxyCommunicationPostRequest {
 }
 
 interface EmailPayload {
+  subject: string;
   senderName: string;
   senderEmailAddress: string;
   replyToEmailAddress: string;
+  replyToName: string;
 }
 
-interface SmsPayload { }
-interface PushPayload { }
+interface SmsPayload {
+  applicationLink: string;
+}
+
+interface PushPayload {
+  subject: string;
+  logoUrl: string;
+}
 
 export interface NotifierProxyCommunicationPostResponse {
   communicationId: string;
@@ -177,13 +185,21 @@ export interface NotifierProxyCommunicationGetResponse {
 }
 
 interface EmailPayload {
+  subject: string;
   senderName: string;
   senderEmailAddress: string;
   replyToEmailAddress: string;
+  replyToName: string;
 }
 
-interface SmsPayload { }
-interface PushPayload { }
+interface SmsPayload {
+  applicationLink: string;
+}
+
+interface PushPayload {
+  subject: string;
+  logoUrl: string;
+}
 
 ```
 
