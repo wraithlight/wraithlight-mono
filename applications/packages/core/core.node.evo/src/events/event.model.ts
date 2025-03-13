@@ -52,3 +52,7 @@ export interface IServerStopEvent {
   dateUtc: Date;
   reason: ServerStopReason
 }
+
+export interface IBindingsDoneEvent {
+  dateUtc: Date;
+}
