@@ -4,5 +4,5 @@
  * @returns {boolean} The boolean value.
  */
 export function coerceBoolean(booleanLike: unknown): boolean {
-    return !!booleanLike;
+  return !!booleanLike;
 }
