@@ -8,6 +8,9 @@ import { Timer } from "@wraithlight/framework.timer";
 
 import { LatencyClient } from "../client";
 
+/**
+ * @deprecated Use `LatencyService` from `@wraithlight/common.latency.sdk-client-evo`.
+ */
 export class LatencyService {
 
   private readonly _client: LatencyClient;
