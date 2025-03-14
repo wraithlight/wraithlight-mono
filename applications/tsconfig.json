@@ -39,7 +39,8 @@
         "packages/user-management/*/src/index.ts",
         "packages/request-id/*/src/index.ts",
         "packages/latency/*/src/index.ts",
-        "packages/domain/*/src/index.ts"
+        "packages/domain/*/src/index.ts",
+        "packages/communications/*/src/index.ts"
       ]
     }
   },
