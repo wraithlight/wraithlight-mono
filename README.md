@@ -200,6 +200,10 @@ This section lists all the technologies that are included in this repository.
 ### Frontend
 | Status              | Application       | Technology    |
 |:-:                  |:-:                |:-:            |
+| :recycle:           | Notifier Proxy    | N/A           |
+| :recycle:           | SMS Sender        | N/A           |
+| :recycle:           | Push Sender       | N/A           |
+| :recycle:           | Email Sender      | N/A           |
 | :recycle:           | Website           | Angular       |
 | :recycle:           | Forum             | React         |
 | :recycle:           | Content           | Mithril       |
@@ -215,6 +219,10 @@ This section lists all the technologies that are included in this repository.
 Most of the backend libraries/applications are written in NodeJS with some custom utility libraries such as `node.core`.
 | Status              | Application       | Technology    |
 |:-:                  |:-:                |:-:            |
+| :recycle:           | Notifier Proxy    | Node          |
+| :recycle:           | SMS Sender        | Node          |
+| :recycle:           | Push Sender       | Node          |
+| :recycle:           | Email Sender      | Node          |
 | :recycle:           | Website           | Node          |
 | :recycle:           | Forum             | Node          |
 | :recycle:           | Content           | Node          |

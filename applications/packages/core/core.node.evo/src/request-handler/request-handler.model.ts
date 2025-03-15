@@ -25,3 +25,9 @@ interface HandlerControllerParamModel {
   propertyIndex: number;
   extractorFn: <T>(req: Request) => T;
 }
+
+type HandlerFunction = (..._args: ReadonlyArray<unknown>) => unknown;
+
+export interface HandlerController {
+  [key: string]: HandlerFunction;
+}
