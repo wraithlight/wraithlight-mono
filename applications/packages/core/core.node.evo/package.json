@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "3.0.0",
+  "version": "3.1.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -22,16 +22,16 @@
   "dependencies": {
     "@wraithlight/core.http": "*",
     "@wraithlight/core.linq": "*",
-    "@wraithlight/core.nullable": "*",
     "@wraithlight/framework.creatable": "*",
     "cors": "2.8.5",
     "express": "4.18.2",
-    "@wraithlight/core.date": "*",
+    "@wraithlight/framework.date": "*",
     "@wraithlight/core.messagebus": "*",
     "@wraithlight/core.counter": "*",
     "@wraithlight/domain.http.constants": "*",
     "@wraithlight/framework.timer": "*",
     "@wraithlight/framework.type-utils": "*",
+    "@wraithlight/framework.nullable": "*",
     "@wraithlight/core.errors": "*",
     "@wraithlight/domain.http.types": "*",
     "swagger-ui-express": "4.6.2"

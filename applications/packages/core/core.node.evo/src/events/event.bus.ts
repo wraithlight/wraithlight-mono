@@ -1,11 +1,12 @@
-import { utcNow } from "@wraithlight/core.date";
 import { Guid } from "@wraithlight/core.guid";
 import { HttpCode } from "@wraithlight/core.http";
 import { MessagebusService } from "@wraithlight/core.messagebus";
+import { utcNow } from "@wraithlight/framework.date";
 
 import { SERVER_EVENTS } from "./event.const";
 import { ServerStopReason } from "./event.enum";
 import {
+  IBindingsDoneEvent,
   ICoreControllerFatalEvent,
   ICoreMethodFatalEvent,
   IFilterFailEvent,
@@ -79,14 +80,16 @@ export class EventBus {
 
   public static emitRequestEnd(
     correlationId: Guid,
-    timeTaken: number
+    timeTaken: number,
+    httpCode: HttpCode
   ): void {
     this.messageBus.push<IRequestEndEvent>(
       SERVER_EVENTS.ON_REQUEST_END,
       {
         correlationId: correlationId,
         dateUtc: utcNow(),
-        timeTaken: timeTaken
+        timeTaken: timeTaken,
+        httpCode: httpCode
       }
     );
   }
@@ -185,6 +188,15 @@ export class EventBus {
     );
   }
 
+  public static emitBindingsDone(): void {
+    this.messageBus.push<IBindingsDoneEvent>(
+      SERVER_EVENTS.ON_BINDINGS_DONE,
+      {
+        dateUtc: utcNow()
+      }
+    );
+  }
+
   public static onProcessFatal(
     handler: (payload: IProcessFatalEvent) => void
   ): void {
@@ -261,6 +273,12 @@ export class EventBus {
     handler: (payload: ICoreMethodFatalEvent) => void
   ): void {
     this.messageBus.sub(SERVER_EVENTS.ON_CORE_METHOD_FATAL, handler);
+  }
+
+  public static onBindingsDone(
+    handler: (payload: IBindingsDoneEvent) => void
+  ): void {
+    this.messageBus.sub(SERVER_EVENTS.ON_BINDINGS_DONE, handler);
   }
 
 }

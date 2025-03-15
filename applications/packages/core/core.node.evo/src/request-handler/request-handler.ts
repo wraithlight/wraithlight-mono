@@ -23,8 +23,10 @@ import {
 } from "./request-handler.const";
 import {
   HandleControllerModel,
+  HandlerController,
   HandlerControllerEndpointFilterModel
 } from "./request-handler.model";
+import { hasStatusCode } from "./request-handler.utils";
 
 export class RequestHandler {
 
@@ -65,7 +67,8 @@ export class RequestHandler {
             const end = timer.stop();
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              filterResult.errorCode
             );
             this.processErrorResponse(
               res,
@@ -81,13 +84,14 @@ export class RequestHandler {
             params = endpoint.params
               .sort((l, r) => l.propertyIndex > r.propertyIndex ? 1 : -1)
               .map(m => m.extractorFn(req))
-              ;
+            ;
           } catch {
             EventBus.emitParamFatal(correlation);
             const end = timer.stop();
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              PARAM_FATAL_CODE
             );
             this.processErrorResponse(
               res,
@@ -111,7 +115,8 @@ export class RequestHandler {
             const end = timer.stop();
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              CORE_CONTROLLER_FATAL_CODE
             );
             this.processErrorResponse(
               res,
@@ -124,8 +129,8 @@ export class RequestHandler {
 
           let method: (...args: Array<unknown>) => unknown;
           try {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
-            method = cast<any>(controllerInstance)[endpoint.methodName];
+            const controller = cast<HandlerController>(controllerInstance);
+            method = controller[endpoint.methodName];
           } catch {
             EventBus.emitOnCoreMethodFatal(
               correlation,
@@ -135,7 +140,8 @@ export class RequestHandler {
             const end = timer.stop();
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              CORE_METHOD_FATAL_CODE
             );
             this.processErrorResponse(
               res,
@@ -149,26 +155,32 @@ export class RequestHandler {
           try {
             const methodResult = await method.apply(controllerInstance, params);
 
+            const httpCode = isBaseControllerResult(methodResult)
+              ? methodResult.code
+              : HttpCode.Ok
+              ;
             if (isBaseControllerResult(methodResult)) {
               this.processSuccessResponse(
                 res,
                 correlation,
-                methodResult.code,
+                httpCode,
                 methodResult.payload
               );
             } else {
               this.processSuccessResponse(
                 res,
                 correlation,
-                HttpCode.Ok,
+                httpCode,
                 methodResult
               );
             }
             const end = timer.stop();
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              httpCode
             );
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           } catch (e: any) {
             const end = timer.stop();
             EventBus.emitRequestFatal(
@@ -176,7 +188,8 @@ export class RequestHandler {
             );
             EventBus.emitRequestEnd(
               correlation,
-              end
+              end,
+              hasStatusCode(e) ? e.statusCode : HttpCode.InternalError
             );
             if (isWraithlightError(e)) {
               this.processErrorResponse(
@@ -197,6 +210,7 @@ export class RequestHandler {
         });
       }
     }
+    EventBus.emitBindingsDone();
   }
 
   private static async processFilters(
