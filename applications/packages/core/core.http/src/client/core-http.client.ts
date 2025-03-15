@@ -75,6 +75,22 @@ export class CoreHttpClient extends HttpClient {
     }));
   }
 
+  public async patchConsolidated<T, U>(
+    url: string,
+    data?: U
+  ): Promise<ConsolidatedHttpResponse<T>> {
+    return super.patch<IHttpResponse<T>, U>(
+      url,
+      data
+    ).then(m => ({
+      statusCode: m.statusCode,
+      payload: m.payload?.payload,
+      isAborted: m.isAborted,
+      correlationId: m.payload?.correlationId,
+      error: m.payload?.error
+    }));
+  }
+
   protected onBeforeCall(
     _url: string,
     _method: HttpVerb,
