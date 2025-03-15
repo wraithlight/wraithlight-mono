@@ -64,6 +64,7 @@
     "packages/request-id/*",
     "packages/latency/*",
     "packages/domain/*",
+    "packages/communications/*",
     "poc/*"
   ],
   "engines" : { 
