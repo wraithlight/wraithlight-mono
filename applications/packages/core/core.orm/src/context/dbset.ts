@@ -1,8 +1,10 @@
 import { DbContext } from "./dbcontext";
+import { CountQueryContext } from "./query/count.query-context";
 import { DeleteQueryContext } from "./query/delete.query-context";
 import { ExistQueryContext } from "./query/exist.query-context";
 import { InsertQueryContext } from "./query/insert.query-context";
 import {
+  CountQueryContext as ICountQueryContext,
   DeleteQueryContext as IDeleteQueryContext,
   ExistQueryContext as IExistQueryContext,
   InsertQueryContext as IInsertQueryContext,
@@ -21,6 +23,13 @@ export class DbSet<T extends object> {
 
   public select(): ISelectQueryContext<T> {
     return new SelectQueryContext<T>(
+      this._tableName,
+      this._context
+    );
+  }
+
+  public count(): ICountQueryContext<T> {
+    return new CountQueryContext<T>(
       this._tableName,
       this._context
     );
