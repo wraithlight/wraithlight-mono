@@ -6,10 +6,10 @@ const SEND_RES = RESOURCE_BASE("send");
 export const API_ENDPOINTS = {
   v1: {
     send: {
-      forServer: () => SEND_RES,
+      forServer: (): string => SEND_RES,
       post: {
-        forServer: () => ``,
-        forClient: () => SEND_RES
+        forServer: (): string => ``,
+        forClient: (): string => SEND_RES
       }
     }
   }
