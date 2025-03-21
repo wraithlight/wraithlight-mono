@@ -22,7 +22,8 @@
   "dependencies": {
     "@wraithlight/core.auth.constant": "*",
     "@wraithlight/core.env.types": "*",
-    "@wraithlight/core.logger.types": "*"
+    "@wraithlight/core.logger.types": "*",
+    "@wraithlight/domain.application-info.constants": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
