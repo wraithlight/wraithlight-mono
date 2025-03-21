@@ -16,6 +16,9 @@ export const SERVER_DEV_USER_MANAGEMENT_CONFIG: Readonly<
     key: ""
   },
   apiTokens: [],
+  /**
+  * @deprecated Use `apiTokens` from `getCommon` instead.
+  */
   apiTokensNamed: {
     healtcheck: [],
     metrics: []
