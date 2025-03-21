@@ -34,7 +34,10 @@ const jestConfig = (project, dirname) => {
       "!**/bootstrap.ts",
       "!**/main.ts",
       "!**/*.const.ts",
-      "!**/*.model.ts"
+      "!**/*.model.ts",
+      // TODO: Remove `*.types.ts` files.
+      "!**/*.types.ts",
+      "!**/*.type.ts",
     ],
     projects: [
       {
