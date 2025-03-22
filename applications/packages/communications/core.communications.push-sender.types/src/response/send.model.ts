@@ -1,5 +1,5 @@
 import { SendResponse } from "@wraithlight/core.communications.types";
 
-export interface SendSmsResponse extends SendResponse {
+export interface SendPushResponse extends SendResponse {
 
 }
