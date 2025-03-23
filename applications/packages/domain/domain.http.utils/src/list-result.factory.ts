@@ -12,5 +12,5 @@ export function createListResult<T>(
     allCount: allCount,
     skip: skip,
     take: take,
-  }
+  };
 }

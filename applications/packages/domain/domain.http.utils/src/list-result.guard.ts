@@ -13,6 +13,6 @@ export function isHttpListResult<T>(data: unknown): data is IListResult<T> {
   const intersectionItems = intersection(
     Object.getOwnPropertyNames(data),
     KEYS
-  )
-  return intersectionItems.length === KEYS.length; 
+  );
+  return intersectionItems.length === KEYS.length;
 }
