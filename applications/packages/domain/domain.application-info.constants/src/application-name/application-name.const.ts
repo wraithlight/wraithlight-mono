@@ -8,5 +8,9 @@ export enum ApplicationName {
   Logs = "LOGS",
   Editor = "EDITOR",
   Notifier = "NOTIFIER",
-  RemoteConfig = "REMOTE_CONFIG"
+  RemoteConfig = "REMOTE_CONFIG",
+  CommsNPS = "COMMUNICATIONS_NPS",
+  CommsSSS = "COMMUNICATIONS_SSS",
+  CommsESS = "COMMUNICATIONS_ESS",
+  CommsPSS = "COMMUNICATIONS_PSS"
 }
