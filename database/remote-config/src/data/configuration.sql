@@ -78,3 +78,39 @@ INSERT INTO `Configuration` (
     "f9c2412e-3d44-4cd3-9a80-409f0d113775",
     "{}"
 );
+
+-- CommsESS
+INSERT INTO `Configuration` (
+    `ApplicationId`,
+    `Content`
+) VALUES (
+    "5531c6c6-cc8e-48f6-a3e6-a80659a0c07e",
+    "{}"
+);
+
+-- CommsNPS
+INSERT INTO `Configuration` (
+    `ApplicationId`,
+    `Content`
+) VALUES (
+    "7898ed42-4566-43fd-9c02-81b0ddaa9f61",
+    "{}"
+);
+
+-- CommsPSS
+INSERT INTO `Configuration` (
+    `ApplicationId`,
+    `Content`
+) VALUES (
+    "d2b5e8d5-ffb2-4ca8-ac09-5213b466edfa",
+    "{}"
+);
+
+-- CommsSSS
+INSERT INTO `Configuration` (
+    `ApplicationId`,
+    `Content`
+) VALUES (
+    "3451910a-6882-4fa1-81cd-0a7429332dba",
+    "{}"
+);
