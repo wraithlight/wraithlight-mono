@@ -13,4 +13,5 @@ docker run \
     -p $OUT_PORT:$IN_PORT \
     --name $CONTAINER_NAME \
     --network $NETWORK_NAME \
+    -v "$(pwd)"/$CONTAINER_NAME:/var/lib/mysql/ \
     $CONTAINER_NAME
