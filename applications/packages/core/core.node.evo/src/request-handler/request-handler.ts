@@ -9,7 +9,7 @@ import { Application, IRouterMatcher, Request, Response } from "express";
 
 import { BaseController, isBaseControllerResult } from "../base";
 import { addEndpoint } from "../devkit";
-import { EventBus } from "../events";
+import { EventBus, RequestEndReason } from "../events";
 import { Injector } from "../injector";
 
 import { isBot } from "./is-bot";
@@ -68,7 +68,8 @@ export class RequestHandler {
             EventBus.emitRequestEnd(
               correlation,
               end,
-              filterResult.errorCode
+              filterResult.errorCode,
+              RequestEndReason.filterFail
             );
             this.processErrorResponse(
               res,
@@ -91,7 +92,8 @@ export class RequestHandler {
             EventBus.emitRequestEnd(
               correlation,
               end,
-              PARAM_FATAL_CODE
+              PARAM_FATAL_CODE,
+              RequestEndReason.paramFail
             );
             this.processErrorResponse(
               res,
@@ -116,7 +118,8 @@ export class RequestHandler {
             EventBus.emitRequestEnd(
               correlation,
               end,
-              CORE_CONTROLLER_FATAL_CODE
+              CORE_CONTROLLER_FATAL_CODE,
+              RequestEndReason.controllerGetFail
             );
             this.processErrorResponse(
               res,
@@ -141,7 +144,8 @@ export class RequestHandler {
             EventBus.emitRequestEnd(
               correlation,
               end,
-              CORE_METHOD_FATAL_CODE
+              CORE_METHOD_FATAL_CODE,
+              RequestEndReason.methodGetFail
             );
             this.processErrorResponse(
               res,
@@ -158,6 +162,10 @@ export class RequestHandler {
             const httpCode = isBaseControllerResult(methodResult)
               ? methodResult.code
               : HttpCode.Ok
+              ;
+            const reason = isBaseControllerResult(methodResult)
+              ? RequestEndReason.methodResult
+              : RequestEndReason.methodResultLegacy
               ;
             if (isBaseControllerResult(methodResult)) {
               this.processSuccessResponse(
@@ -178,7 +186,8 @@ export class RequestHandler {
             EventBus.emitRequestEnd(
               correlation,
               end,
-              httpCode
+              httpCode,
+              reason
             );
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           } catch (e: any) {
@@ -189,7 +198,8 @@ export class RequestHandler {
             EventBus.emitRequestEnd(
               correlation,
               end,
-              hasStatusCode(e) ? e.statusCode : HttpCode.InternalError
+              hasStatusCode(e) ? e.statusCode : HttpCode.InternalError,
+              RequestEndReason.methodFail
             );
             if (isWraithlightError(e)) {
               this.processErrorResponse(
