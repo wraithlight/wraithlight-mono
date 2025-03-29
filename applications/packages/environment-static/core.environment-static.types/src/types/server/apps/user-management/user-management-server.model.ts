@@ -9,6 +9,9 @@ export interface UserManagementServer {
      * @deprecated Use named tokens instead.
      */
     apiTokens: ReadonlyArray<string>;
+    /**
+     * @deprecated Use `apiTokens` from `getCommon` instead.
+     */
     apiTokensNamed: {
       healtcheck: ReadonlyArray<string>;
       metrics: ReadonlyArray<string>;
