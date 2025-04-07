@@ -34,7 +34,7 @@
     "@wraithlight/framework.nullable": "*",
     "@wraithlight/core.errors": "*",
     "@wraithlight/domain.http.types": "*",
-    "swagger-ui-express": "4.6.2"
+    "swagger-ui-express": "5.0.1"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
@@ -51,6 +51,6 @@
     "rimraf": "5.0.1",
     "ts-jest": "29.1.0",
     "typescript": "5.0.4",
-    "@types/swagger-ui-express": "4.1.3"
+    "@types/swagger-ui-express": "4.1.8"
   }
 }
