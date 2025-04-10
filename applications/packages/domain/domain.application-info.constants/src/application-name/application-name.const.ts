@@ -1,3 +1,5 @@
+import { EnumToPrimitiveUnion } from "@wraithlight/framework.type-utils";
+
 export enum ApplicationName {
   Website = "WEBSITE",
   GameWebsite = "GAME_WEBSITE",
@@ -10,3 +12,5 @@ export enum ApplicationName {
   Notifier = "NOTIFIER",
   RemoteConfig = "REMOTE_CONFIG"
 }
+
+export type ApplicationNames = EnumToPrimitiveUnion<ApplicationName>;
