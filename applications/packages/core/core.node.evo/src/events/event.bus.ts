@@ -4,7 +4,7 @@ import { MessagebusService } from "@wraithlight/core.messagebus";
 import { utcNow } from "@wraithlight/framework.date";
 
 import { SERVER_EVENTS } from "./event.const";
-import { ServerStopReason } from "./event.enum";
+import { RequestEndReason, ServerStopReason } from "./event.enum";
 import {
   IBindingsDoneEvent,
   ICoreControllerFatalEvent,
@@ -81,7 +81,8 @@ export class EventBus {
   public static emitRequestEnd(
     correlationId: Guid,
     timeTaken: number,
-    httpCode: HttpCode
+    httpCode: HttpCode,
+    reason: RequestEndReason
   ): void {
     this.messageBus.push<IRequestEndEvent>(
       SERVER_EVENTS.ON_REQUEST_END,
@@ -89,7 +90,8 @@ export class EventBus {
         correlationId: correlationId,
         dateUtc: utcNow(),
         timeTaken: timeTaken,
-        httpCode: httpCode
+        httpCode: httpCode,
+        reason: reason
       }
     );
   }

@@ -1,7 +1,7 @@
 import { Guid } from "@wraithlight/core.guid";
 import { HttpCode } from "@wraithlight/core.http";
 
-import { ServerStopReason } from "./event.enum";
+import { RequestEndReason, ServerStopReason } from "./event.enum";
 
 interface IProcessEvent {
   dateUtc: Date
@@ -32,6 +32,7 @@ export interface IRequestStartEvent extends IRequestEvent {}
 export interface IRequestEndEvent extends IRequestEvent {
   timeTaken: number;
   httpCode: HttpCode;
+  reason: RequestEndReason
 }
 export interface IRequestFatalEvent extends IRequestEvent {}
 
