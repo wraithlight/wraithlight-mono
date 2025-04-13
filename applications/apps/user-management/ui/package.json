@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "prebuild": "node .tools/prebuild.mjs",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "postbuild": "node .tools/postbuild.mjs",
     "prebuild:prod": "node .tools/prebuild.mjs",
-    "build:prod": "vite build",
+    "build:prod": "vite build --emptyOutDir",
     "postbuild:prod": "node .tools/postbuild.mjs",
     "watch": "vite build --watch",
     "lint": "eslint .",
