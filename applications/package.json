@@ -79,7 +79,7 @@
     "typescript": "5.0.4",
     "lerna": "7.1.0",
     "jsonschema": "1.4.1",
-    "knip": "2.19.10",
+    "knip": "5.0.0",
     "open-cli": "7.2.0",
     "mustache": "4.2.0",
     "nx": "16.7.2",
