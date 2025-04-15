@@ -29,6 +29,13 @@ const config: KnipConfig = {
         "ts-node"
       ]
     },
+    "apps/game-website/ui": {
+      entry: [
+        "src/app/app.component.html.ts",
+        "src/app/component/body/body.component.html.ts",
+        "src/app/component/header/header.component.html.ts"
+      ]
+    },
     "apps/user-management/ui": {
       entry: [
         // TODO: Remove this once the processor is ready.
@@ -41,8 +48,7 @@ const config: KnipConfig = {
       ],
       ignoreDependencies: [
         "@tsconfig/svelte",
-        "tslib",
-        "svelte-router-spa"
+        "tslib"
       ]
     },
     "apps/content/node": {
@@ -77,7 +83,6 @@ const config: KnipConfig = {
     },
     "apps/website/ui": {
       ignoreDependencies: [
-        "@angular-devkit/build-angular",
         "@angular/compiler-cli",
         "jest-preset-angular",
         "ts-node"
