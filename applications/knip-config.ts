@@ -14,6 +14,9 @@ const config: KnipConfig = {
       ignore: [
         "webpack.config.js",
         "jest-mono.config.js"
+      ],
+      ignoreDependencies: [
+        "@types/jest" // TODO: Move to pkg layer.
       ]
     },
     "apps/user-management/node": {
