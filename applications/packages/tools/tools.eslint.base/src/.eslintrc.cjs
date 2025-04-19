@@ -1,5 +1,5 @@
 /* eslint-env node */
-const eslintConfig = {
+const eslintConfig = (dirname) =>({
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -21,6 +21,7 @@ const eslintConfig = {
       files: ["*.ts"],
       parserOptions: {
         project: ["./tsconfig.json"],
+        tsconfigRootDir: dirname
       }
     }
   ],
@@ -213,7 +214,7 @@ const eslintConfig = {
       }
     ]
   }
-};
+});
 
 module.exports = {
   eslintConfig

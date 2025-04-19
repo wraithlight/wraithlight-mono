@@ -40,7 +40,7 @@ module.exports = config;
 
 // To overwrite the config.
 module.exports = {
-    ...eslintConfig,
+    ...eslintConfig(__dirname),
     ignorePatterns: [
         "**/dist/**",
         "**/coverage/**",
