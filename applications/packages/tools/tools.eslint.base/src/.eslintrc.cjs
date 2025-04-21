@@ -15,13 +15,13 @@ const eslintConfig = (dirname) =>({
   ],
   parserOptions: {
     project: ["./tsconfig.json"],
+    tsconfigRootDir: dirname
   },
   overrides: [
     {
       files: ["*.ts"],
       parserOptions: {
-        project: ["./tsconfig.json"],
-        tsconfigRootDir: dirname
+        project: ["./tsconfig.json"]
       }
     }
   ],
