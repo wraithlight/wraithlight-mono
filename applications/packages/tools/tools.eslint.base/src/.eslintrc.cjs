@@ -1,3 +1,5 @@
+const resolve = require("path");
+
 /* eslint-env node */
 const eslintConfig = (dirname) =>({
   extends: [
@@ -21,7 +23,7 @@ const eslintConfig = (dirname) =>({
     {
       files: ["*.ts"],
       parserOptions: {
-        project: ["./tsconfig.json"]
+        project: resolve(dirname, "./tsconfig.json")
       }
     }
   ],
