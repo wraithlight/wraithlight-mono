@@ -1,4 +1,4 @@
-const resolve = require("path");
+const { resolve } = require("path");
 
 /* eslint-env node */
 const eslintConfig = (dirname) =>({
