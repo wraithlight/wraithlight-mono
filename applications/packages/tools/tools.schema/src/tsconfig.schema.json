@@ -166,7 +166,10 @@
       "enum": [
         "../../../tsconfig.package.json",
         "../../../../tsconfig.package.json",
-        "../../../tsconfig.application.json"
+        "../../../tsconfig.application.json",
+        "../../../node_modules/@wraithlight/tools.tsconfig.base/dist/tsconfig.package.json",
+        "../../../../node_modules/@wraithlight/tools.tsconfig.base/dist/tsconfig.package.json",
+        "../../../node_modules/@wraithlight/tools.tsconfig.base/dist/tsconfig.application.json"
       ]
     }
   },
