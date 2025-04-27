@@ -1,7 +1,4 @@
 {
-    "extends": "./tsconfig.json",
-    "compilerOptions": {
-        "lib": ["DOM"],
-        "declaration": true
-    }
+  // TODO: Remove this file later on (each package must consume the tools one.)
+  "extends": "@wraithlight/tools.tsconfig.base/dist/tsconfig.package.json"
 }

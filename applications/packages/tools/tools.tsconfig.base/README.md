@@ -1,0 +1,1 @@
+# @wraithlight/tools.tsconfig.base
