@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "wraithlight-mono",
   "private": true,
   "scripts": {
     "nx": "nx",
@@ -16,7 +16,6 @@
     "graph": "nx graph",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
-    "test:mono": "yarn jest -c=jest-mono.config.js --coverage",
     "validate-package-json": "node .tools/json-schema.mjs --files=package.json",
     "validate-swagger-json": "node .tools/json-schema.mjs --files=swagger.json",
     "validate-tsconfig-json": "node .tools/json-schema.mjs --files=tsconfig.json --ignoreFolders=apps/user-management/ui",
@@ -87,7 +86,6 @@
     "@wraithlight/tools.jest.base": "*",
     "@wraithlight/tools.webpack.base": "*",
     "@wraithlight/tools.tsconfig.base": "*",
-    "jest": "29.5.0",
     "@types/node": "20.11.28",
     "@types/jest": "29.5.14",
     "ts-node": "10.9.1"
