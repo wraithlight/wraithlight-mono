@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.application.json",
+  "extends": "../../node_modules/@wraithlight/tools.tsconfig.base/dist/tsconfig.application.json",
   "include": [
     "src",
     "__mocks__"
