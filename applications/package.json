@@ -86,7 +86,6 @@
     "@wraithlight/tools.jest.base": "*",
     "@wraithlight/tools.webpack.base": "*",
     "@wraithlight/tools.tsconfig.base": "*",
-    "jest": "29.5.0",
     "@types/node": "20.11.28",
     "@types/jest": "29.5.14",
     "ts-node": "10.9.1"
