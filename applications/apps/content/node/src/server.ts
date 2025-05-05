@@ -17,10 +17,10 @@ LoggerService.initialize({
 
 const serverCfg = ServerContentConfigReader
   .getInstance(CoreEnvironment.getEnvironmentType())
-;
+  ;
 const sharedCfg = SharedContentConfigReader
   .getInstance(CoreEnvironment.getEnvironmentType())
-;
+  ;
 
 const packageInfoReader = new PackageJsonReader(
   join(__dirname, serverCfg.getCommon(m => m.files.packageJson.path)),
