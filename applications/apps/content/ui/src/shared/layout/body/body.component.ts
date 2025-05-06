@@ -5,12 +5,12 @@ import { LoginComponent } from "../../../modules";
 
 export class BodyComponent implements Component {
 
-    public view(): Children {
-        return m("div.body",
-            m("div.body-content",
-                m(LoginComponent)
-            )
-        );
-    }
+  public view(): Children {
+    return m("div.body",
+      m("div.body-content",
+        m(LoginComponent)
+      )
+    );
+  }
 
 }
