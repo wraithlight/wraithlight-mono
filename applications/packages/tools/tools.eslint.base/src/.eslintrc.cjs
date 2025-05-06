@@ -1,5 +1,7 @@
+const { resolve } = require("path");
+
 /* eslint-env node */
-const eslintConfig = {
+const eslintConfig = (dirname) =>({
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -15,12 +17,13 @@ const eslintConfig = {
   ],
   parserOptions: {
     project: ["./tsconfig.json"],
+    tsconfigRootDir: dirname
   },
   overrides: [
     {
       files: ["*.ts"],
       parserOptions: {
-        project: ["./tsconfig.json"],
+        project: resolve(dirname, "./tsconfig.json")
       }
     }
   ],
@@ -213,7 +216,7 @@ const eslintConfig = {
       }
     ]
   }
-};
+});
 
 module.exports = {
   eslintConfig
