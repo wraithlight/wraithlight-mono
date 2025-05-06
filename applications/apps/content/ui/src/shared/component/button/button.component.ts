@@ -6,23 +6,23 @@ import { ButtonComponentProps } from "./button.model";
 
 export class ButtonComponent implements Component<ButtonComponentProps> {
 
-    public view(vnode: Vnode<ButtonComponentProps, object>): Children {
-        const classNameList = [
-            "button-component",
-            !vnode.attrs.isOutline
-                ? `button-component-${vnode.attrs.type}`
-                : `button-component-outline-${vnode.attrs.type}`
-        ];
-        return m(
-            "button",
-            {
-                id: vnode.attrs.elementId,
-                onclick: () => vnode.attrs.onClick(),
-                disabled: vnode.attrs.isDisabled,
-                className: classNameList.join(" ")
-            },
-            vnode.attrs.label
-        );
-    }
+  public view(vnode: Vnode<ButtonComponentProps, object>): Children {
+    const classNameList = [
+      "button-component",
+      !vnode.attrs.isOutline
+        ? `button-component-${vnode.attrs.type}`
+        : `button-component-outline-${vnode.attrs.type}`
+    ];
+    return m(
+      "button",
+      {
+        id: vnode.attrs.elementId,
+        onclick: () => vnode.attrs.onClick(),
+        disabled: vnode.attrs.isDisabled,
+        className: classNameList.join(" ")
+      },
+      vnode.attrs.label
+    );
+  }
 
 }

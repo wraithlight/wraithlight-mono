@@ -1,44 +1,44 @@
 $types: "primary", "secondary", "danger";
 
 .button-component {
-    padding: var(--padding-m) var(--padding-l);
-    font-size: 1.2rem;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: var(--border-radius);
-    border: var(--border) solid var(--not-found);
+  padding: var(--padding-m) var(--padding-l);
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: var(--border-radius);
+  border: var(--border) solid var(--not-found);
 
-    &:hover {
-        cursor: pointer;
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    text-decoration: underline;
+  }
+
+  @each $type in $types {
+    &-#{$type} {
+      color: var(--on-#{$type}-m);
+      background-color: var(--#{$type}-m);
+      border-color: var(--#{$type}-l);
+
+      &:hover,
+      &:active {
+        color: var(--on-#{$type}-l);
+        background-color: var(--#{$type}-l);
+      }
     }
 
-    &:active {
-        text-decoration: underline;
+    &-#{$type}-outline {
+      color: var(--#{$type}-m);
+      background-color: var(--on-#{$type}-m);
+      border-color: var(--#{$type}-l);
+
+      &:hover,
+      &:active {
+        color: var(--#{$type}-l);
+        background-color: var(--on-#{$type}-l);
+      }
     }
-
-    @each $type in $types {
-        &-#{$type} {
-            color: var(--on-#{$type}-m);
-            background-color: var(--#{$type}-m);
-            border-color: var(--#{$type}-l);
-
-            &:hover,
-            &:active {
-                color: var(--on-#{$type}-l);
-                background-color: var(--#{$type}-l);
-            }
-        }
-
-        &-#{$type}-outline {
-            color: var(--#{$type}-m);
-            background-color: var(--on-#{$type}-m);
-            border-color: var(--#{$type}-l);
-
-            &:hover,
-            &:active {
-                color: var(--#{$type}-l);
-                background-color: var(--on-#{$type}-l);
-            }
-        }
-    }
+  }
 
 }
