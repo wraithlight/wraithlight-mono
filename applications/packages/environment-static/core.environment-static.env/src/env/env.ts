@@ -1,24 +1,24 @@
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 
 export namespace EnvironmentStaticEnv {
-    export const userManagementDatabaseUsername = (): string => CoreEnvironment
+  export const userManagementDatabaseUsername = (): string => CoreEnvironment
     .getString(
-        "userManagementDbUsername",
-        ""
+      "userManagementDbUsername",
+      ""
     );
-    export const userManagementDatabasePassword = (): string => CoreEnvironment
+  export const userManagementDatabasePassword = (): string => CoreEnvironment
     .getString(
-        "userManagementDbPassword",
-        ""
+      "userManagementDbPassword",
+      ""
     );
-    export const userManagementDatabaseName = (): string => CoreEnvironment
+  export const userManagementDatabaseName = (): string => CoreEnvironment
     .getString(
-        "userManagementDbName",
-        ""
+      "userManagementDbName",
+      ""
     );
-    export const userManagementDatabasePort = (): number => CoreEnvironment
+  export const userManagementDatabasePort = (): number => CoreEnvironment
     .getNumber(
-        "userManagementDbPort",
-        0
+      "userManagementDbPort",
+      0
     );
 }
