@@ -1,4 +1,5 @@
 export * from "./content";
+export * from "./communications";
 export * from "./editor";
 export * from "./forum";
 export * from "./game-application";
