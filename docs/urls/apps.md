@@ -11,6 +11,8 @@
 | Website          |     http://local.website.wraithlight.ai:4508     |
 | Notifier         |    http://local.notifier.wraithlight.ai:4509     |
 | Remote Config    |  http://local.remote-config.wraithlight.ai:4510  |
+| COMMS - NPS      |    http://local.nps.comms.wraithlight.ai:4512    |
+| COMMS - PSS      |    http://local.pss.comms.wraithlight.ai:4513    |
 
 **Dev**
 | Application Name |                   Watch URL                    |
@@ -25,6 +27,8 @@
 | Website          |     http://dev.website.wraithlight.ai:5508     |
 | Notifier         |    http://dev.notifier.wraithlight.ai:5509     |
 | Remote Config    |  http://dev.remote-config.wraithlight.ai:5510  |
+| COMMS - NPS      |    http://dev.nps.comms.wraithlight.ai:5512    |
+| COMMS - PSS      |    http://dev.pss.comms.wraithlight.ai:5513    |
 
 **Test**
 | Application Name |                 Watch URL                  |
@@ -39,31 +43,37 @@
 | Website          |     http://test.website.wraithlight.ai     |
 | Notifier         |    http://test.notifier.wraithlight.ai     |
 | Remote Config    |  http://test.remote-config.wraithlight.ai  |
+| COMMS - NPS      |    http://test.nps.comms.wraithlight.ai    |
+| COMMS - PSS      |    http://test.pss.comms.wraithlight.ai    |
 
 **Staging**
-| Application Name |                    Watch URL                     |
-| ---------------- | :----------------------------------------------: |
-| User Management  |  http://staging.user-management.wraithlight.ai   |
-| Content          |      http://staging.content.wraithlight.ai       |
-| Editor           |       http://staging.editor.wraithlight.ai       |
-| Forum            |       http://staging.forum.wraithlight.ai        |
-| Game Application |      http://staging.game-app.wraithlight.ai      |
-| Game Website     |      http://staging.game-web.wraithlight.ai      |
-| Logs             |        http://staging.logs.wraithlight.ai        |
-| Website          |      http://staging.website.wraithlight.ai       |
-| Notifier         |      http://staging.notifier.wraithlight.ai      |
-| Remote Config    | http://staging.remote-config.wraithlight.ai:4510 |
+| Application Name |                   Watch URL                   |
+| ---------------- | :-------------------------------------------: |
+| User Management  | http://staging.user-management.wraithlight.ai |
+| Content          |     http://staging.content.wraithlight.ai     |
+| Editor           |     http://staging.editor.wraithlight.ai      |
+| Forum            |      http://staging.forum.wraithlight.ai      |
+| Game Application |    http://staging.game-app.wraithlight.ai     |
+| Game Website     |    http://staging.game-web.wraithlight.ai     |
+| Logs             |      http://staging.logs.wraithlight.ai       |
+| Website          |     http://staging.website.wraithlight.ai     |
+| Notifier         |    http://staging.notifier.wraithlight.ai     |
+| Remote Config    |  http://staging.remote-config.wraithlight.ai  |
+| COMMS - NPS      |    http://staging.nps.comms.wraithlight.ai    |
+| COMMS - PSS      |    http://staging.pss.comms.wraithlight.ai    |
 
 **Production**
-| Application Name |                Watch URL                 |
-| ---------------- | :--------------------------------------: |
-| User Management  |  http://user-management.wraithlight.ai   |
-| Content          |      http://content.wraithlight.ai       |
-| Editor           |       http://editor.wraithlight.ai       |
-| Forum            |       http://forum.wraithlight.ai        |
-| Game Application |      http://game-app.wraithlight.ai      |
-| Game Website     |      http://play.wraithlightgame.ai      |
-| Logs             |        http://logs.wraithlight.ai        |
-| Website          |        http://wraithlightgame.ai         |
-| Notifier         |      http://notifier.wraithlight.ai      |
-| Remote Config    | http://remote-config.wraithlight.ai:4510 |
+| Application Name |               Watch URL               |
+| ---------------- | :-----------------------------------: |
+| User Management  | http://user-management.wraithlight.ai |
+| Content          |     http://content.wraithlight.ai     |
+| Editor           |     http://editor.wraithlight.ai      |
+| Forum            |      http://forum.wraithlight.ai      |
+| Game Application |    http://game-app.wraithlight.ai     |
+| Game Website     |    http://play.wraithlightgame.ai     |
+| Logs             |      http://logs.wraithlight.ai       |
+| Website          |       http://wraithlightgame.ai       |
+| Notifier         |    http://notifier.wraithlight.ai     |
+| Remote Config    |  http://remote-config.wraithlight.ai  |
+| COMMS - NPS      |    http://nps.comms.wraithlight.ai    |
+| COMMS - PSS      |    http://pss.comms.wraithlight.ai    |
