@@ -10,4 +10,4 @@
 |     Website      | `xx08` |
 |     Notifier     | `xx09` |
 |  Remote Config   | `xx10` |
-|   Comms - NPS    | `xx12` |
+|   COMMS - NPS    | `xx12` |
