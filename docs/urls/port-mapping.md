@@ -12,3 +12,4 @@
 |  Remote Config   | `xx10` |
 |   COMMS - ESS    | `xx11` |
 |   COMMS - NPS    | `xx12` |
+|   COMMS - PSS    | `xx13` |
