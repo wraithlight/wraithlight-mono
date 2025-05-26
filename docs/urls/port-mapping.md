@@ -11,3 +11,4 @@
 |     Notifier     | `xx09` |
 |  Remote Config   | `xx10` |
 |   COMMS - NPS    | `xx12` |
+|   COMMS - PSS    | `xx13` |
