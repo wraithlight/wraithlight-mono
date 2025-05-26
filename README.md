@@ -216,6 +216,7 @@ This section lists all the technologies that are included in this repository.
 |     :recycle:      |     Notifier     |    QWIK    |
 |     :recycle:      |  Remote Config   |    Lit     |
 | :white_check_mark: |   COMMS - SSS    |    N/A     |
+| :white_check_mark: |   COMMS - PSS    |    N/A     |
 
 ## Backend
 Most of the backend libraries/applications are written in NodeJS with some custom utility libraries such as `node.core`.
@@ -235,7 +236,8 @@ Most of the backend libraries/applications are written in NodeJS with some custo
 |     :recycle:      | User Management  |    Node    |
 | :white_check_mark: |     Notifier     |    Node    |
 |     :recycle:      |  Remote Config   |    Node    |
-| :white_check_mark: |   COMMS - SSS    |    Node    |
+|     :recycle:      |   COMMS - SSS    |    Node    |
+|     :recycle:      |   COMMS - PSS    |    Node    |
 
 
 ## Database
