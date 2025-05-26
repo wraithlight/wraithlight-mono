@@ -30,35 +30,35 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 ## Status
 
 ### Database
-| Build |
-| :-:   |
+|                                                                                                 Build                                                                                                 |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [![Database GHA - Build](https://github.com/wraithlight/wraithlight-mono/actions/workflows/db-build.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/db-build.yaml) |
 
 ### Applications
-| Build | Lint  | Tests |
-| :-:   | :-:   | :-:   |
-| [![Applications GHA - Build](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-build.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-build.yaml) | [![Applications GHA - Lint](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-lint.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-lint.yaml) | [![Applications GHA - Test](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-test.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-test.yaml)
+|                                                                                                     Build                                                                                                     |                                                                                                    Lint                                                                                                    |                                                                                                   Tests                                                                                                    |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Applications GHA - Build](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-build.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-build.yaml) | [![Applications GHA - Lint](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-lint.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-lint.yaml) | [![Applications GHA - Test](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-test.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-test.yaml) |
 
-| UM Docker |
-| :-:       |
-|  [![Applications GHA - Docker UM](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-um.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-um.yaml) |
+|                                                                                                    UM Docker                                                                                                    |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Applications GHA - Docker UM](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-um.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/docker-um.yaml) |
 
 ### Chore
-| `package.json` Schema   | Swagger Schema  | `tsconfig.json` Schema  |
-| :-:                     | :-:             | :-:                     |
-| [![Applications GHA - JSON Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml) |  [![Applications GHA - SWAGGER Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml) | [![Applications GHA - TSConfig Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-tsconfigschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-tsconfigschema.yaml) |
+|                                                                                                     `package.json` Schema                                                                                                     |                                                                                                             Swagger Schema                                                                                                             |                                                                                                          `tsconfig.json` Schema                                                                                                           |
+| :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Applications GHA - JSON Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-jsonschema.yaml) | [![Applications GHA - SWAGGER Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-swaggerschema.yaml) | [![Applications GHA - TSConfig Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-tsconfigschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-tsconfigschema.yaml) |
 
-| `tsconfig.build.json` Schema  |
-| :-:                           |
+|                                                                                                               `tsconfig.build.json` Schema                                                                                                                |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [![Applications GHA - TSConfig Build Schema](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-tsconfigbuildschema.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-tsconfigbuildschema.yaml) |
 
 
-| Knip  | Yarn Lock | Readme Check  |
-| :-:   | :-:       | :-:           |
-[![Applications GHA - Knip](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml) | [![Application GHA - Yarn Lock Changes](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml) |  [![Applications GHA - Readme Check](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml) |
+|                                                                                                    Knip                                                                                                    |                                                                                                           Yarn Lock                                                                                                            |                                                                                                            Readme Check                                                                                                            |
+| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| [![Applications GHA - Knip](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-knip.yaml) | [![Application GHA - Yarn Lock Changes](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-yarnlock.yaml) | [![Applications GHA - Readme Check](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-readme-check.yaml) |
 
-| DEPLIST | Workspace Check |
-| :-:     | :-:             |
+|                                                                                                       DEPLIST                                                                                                       |                                                                                                               Workspace Check                                                                                                               |
+| :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | [![Applications GHA - Deplist](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-deplist.yaml) | [![Applications GHA - Workspace Check](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-workspace-check.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/apps-workspace-check.yaml) |
 
 
@@ -119,6 +119,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 **Requirements**
 * Docker
 * Node >= 18
+* Python 3.11
 
 The section will explain all the required steps to set up your local/dev environment. Please follow the steps propely.
 
@@ -198,41 +199,43 @@ validate-workspaces           - Check the workspace layouts. Optional flag: --si
 This section lists all the technologies that are included in this repository.
 
 ### Frontend
-| Status              | Application       | Technology    |
-|:-:                  |:-:                |:-:            |
-| :recycle:           | Notifier Proxy    | N/A           |
-| :recycle:           | SMS Sender        | N/A           |
-| :recycle:           | Push Sender       | N/A           |
-| :recycle:           | Email Sender      | N/A           |
-| :recycle:           | Website           | Angular       |
-| :recycle:           | Forum             | React         |
-| :recycle:           | Content           | Mithril       |
-| :recycle:           | Editor            | Vue           |
-| :recycle:           | Game rich client  | Electron      |
-| :recycle:           | Game thin client  | Knockout      |
-| :recycle:           | Logs              | Aurelia       |
-| :recycle:           | User Management   | Svelte        |
-| :recycle:           | Notifier          | QWIK          |
-| :recycle:           | Remote Config     | Lit           |
+|       Status       |   Application    | Technology |
+| :----------------: | :--------------: | :--------: |
+|     :recycle:      |  Notifier Proxy  |    N/A     |
+|     :recycle:      |    SMS Sender    |    N/A     |
+|     :recycle:      |   Push Sender    |    N/A     |
+|     :recycle:      |   Email Sender   |    N/A     |
+|     :recycle:      |     Website      |  Angular   |
+|     :recycle:      |      Forum       |   React    |
+|     :recycle:      |     Content      |  Mithril   |
+|     :recycle:      |      Editor      |    Vue     |
+|     :recycle:      | Game rich client |  Electron  |
+|     :recycle:      | Game thin client |  Knockout  |
+|     :recycle:      |       Logs       |  Aurelia   |
+|     :recycle:      | User Management  |   Svelte   |
+|     :recycle:      |     Notifier     |    QWIK    |
+|     :recycle:      |  Remote Config   |    Lit     |
+| :white_check_mark: |   COMMS - SSS    |    N/A     |
 
 ## Backend
 Most of the backend libraries/applications are written in NodeJS with some custom utility libraries such as `node.core`.
-| Status              | Application       | Technology    |
-|:-:                  |:-:                |:-:            |
-| :recycle:           | Notifier Proxy    | Node          |
-| :recycle:           | SMS Sender        | Node          |
-| :recycle:           | Push Sender       | Node          |
-| :recycle:           | Email Sender      | Node          |
-| :recycle:           | Website           | Node          |
-| :recycle:           | Forum             | Node          |
-| :recycle:           | Content           | Node          |
-| :recycle:           | Editor            | Node          |
-| :recycle:           | Game rich client  | Node          |
-| :recycle:           | Game thin client  | Node          |
-| :recycle:           | Logs              | Node          |
-| :recycle:           | User Management   | Node          |
-| :white_check_mark:  | Notifier          | Node          |
-| :recycle:           | Remote Config     | Node          |
+|       Status       |   Application    | Technology |
+| :----------------: | :--------------: | :--------: |
+|     :recycle:      |  Notifier Proxy  |    Node    |
+|     :recycle:      |    SMS Sender    |    Node    |
+|     :recycle:      |   Push Sender    |    Node    |
+|     :recycle:      |   Email Sender   |    Node    |
+|     :recycle:      |     Website      |    Node    |
+|     :recycle:      |      Forum       |    Node    |
+|     :recycle:      |     Content      |    Node    |
+|     :recycle:      |      Editor      |    Node    |
+|     :recycle:      | Game rich client |    Node    |
+|     :recycle:      | Game thin client |    Node    |
+|     :recycle:      |       Logs       |    Node    |
+|     :recycle:      | User Management  |    Node    |
+| :white_check_mark: |     Notifier     |    Node    |
+|     :recycle:      |  Remote Config   |    Node    |
+| :white_check_mark: |   COMMS - SSS    |    Node    |
 
 
 ## Database

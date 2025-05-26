@@ -2,6 +2,12 @@ import { ApplicationName } from "@wraithlight/core.auth.constant";
 import { EnvironmentStaticClient } from "@wraithlight/core.environment-static.types";
 
 import { CLIENT_COMMON_CONFIG } from "./common";
+import {
+  CLIENT_COMMS_ESS_CONFIG,
+  CLIENT_COMMS_NPS_CONFIG,
+  CLIENT_COMMS_PSS_CONFIG,
+  CLIENT_COMMS_SSS_CONFIG
+} from "./communications";
 import { CLIENT_CONTENT_CONFIG } from "./content";
 import { CLIENT_EDITOR_CONFIG } from "./editor";
 import { CLIENT_FORUM_CONFIG } from "./forum";
@@ -25,5 +31,9 @@ export const CLIENT_CONFIG: Readonly<
     [ApplicationName.Website]: CLIENT_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: CLIENT_NOTIFIER_CONFIG,
     [ApplicationName.RemoteConfig]: CLIENT_REMOTE_CONFIG_CONFIG,
+    [ApplicationName.CommsESS]: CLIENT_COMMS_ESS_CONFIG,
+    [ApplicationName.CommsNPS]: CLIENT_COMMS_NPS_CONFIG,
+    [ApplicationName.CommsPSS]: CLIENT_COMMS_PSS_CONFIG,
+    [ApplicationName.CommsSSS]: CLIENT_COMMS_SSS_CONFIG,
     common: CLIENT_COMMON_CONFIG
 };
