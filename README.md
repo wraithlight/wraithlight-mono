@@ -236,8 +236,8 @@ Most of the backend libraries/applications are written in NodeJS with some custo
 |     :recycle:      | User Management  |    Node    |
 | :white_check_mark: |     Notifier     |    Node    |
 |     :recycle:      |  Remote Config   |    Node    |
-| :white_check_mark: |   COMMS - SSS    |    Node    |
-| :white_check_mark: |   COMMS - PSS    |    Node    |
+|     :recycle:      |   COMMS - SSS    |    Node    |
+|     :recycle:      |   COMMS - PSS    |    Node    |
 
 
 ## Database
