@@ -1,9 +1,15 @@
 import { ApplicationName } from "@wraithlight/core.auth.constant";
 import {
-    EnvironmentStaticShared
+  EnvironmentStaticShared
 } from "@wraithlight/core.environment-static.types";
 
 import { SHARED_COMMON_CONFIG } from "./common";
+import {
+  SHARED_COMMS_ESS_CONFIG,
+  SHARED_COMMS_NPS_CONFIG,
+  SHARED_COMMS_PSS_CONFIG,
+  SHARED_COMMS_SSS_CONFIG,
+} from "./communications";
 import { SHARED_CONTENT_CONFIG } from "./content";
 import { SHARED_EDITOR_CONFIG } from "./editor";
 import { SHARED_FORUM_CONFIG } from "./forum";
@@ -27,5 +33,9 @@ export const SHARED_CONFIG: Readonly<
     [ApplicationName.Website]: SHARED_WEBSITE_CONFIG,
     [ApplicationName.Notifier]: SHARED_NOTIFIER_CONFIG,
     [ApplicationName.RemoteConfig]: SHARED_REMOTE_CONFIG_CONFIG,
+    [ApplicationName.CommsESS]: SHARED_COMMS_ESS_CONFIG,
+    [ApplicationName.CommsNPS]: SHARED_COMMS_NPS_CONFIG,
+    [ApplicationName.CommsPSS]: SHARED_COMMS_PSS_CONFIG,
+    [ApplicationName.CommsSSS]: SHARED_COMMS_SSS_CONFIG,
     common: SHARED_COMMON_CONFIG
 };
