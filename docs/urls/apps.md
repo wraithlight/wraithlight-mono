@@ -12,6 +12,7 @@
 | Notifier         |    http://local.notifier.wraithlight.ai:4509     |
 | Remote Config    |  http://local.remote-config.wraithlight.ai:4510  |
 | COMMS - NPS      |    http://local.nps.comms.wraithlight.ai:4512    |
+| COMMS - SSS      |    http://local.sss.comms.wraithlight.ai:4514    |
 
 **Dev**
 | Application Name |                   Watch URL                    |
@@ -27,6 +28,7 @@
 | Notifier         |    http://dev.notifier.wraithlight.ai:5509     |
 | Remote Config    |  http://dev.remote-config.wraithlight.ai:5510  |
 | COMMS - NPS      |    http://dev.nps.comms.wraithlight.ai:5512    |
+| COMMS - SSS      |    http://dev.sss.comms.wraithlight.ai:5514    |
 
 **Test**
 | Application Name |                 Watch URL                  |
@@ -42,6 +44,7 @@
 | Notifier         |    http://test.notifier.wraithlight.ai     |
 | Remote Config    |  http://test.remote-config.wraithlight.ai  |
 | COMMS - NPS      |    http://test.nps.comms.wraithlight.ai    |
+| COMMS - SSS      |    http://test.sss.comms.wraithlight.ai    |
 
 **Staging**
 | Application Name |                   Watch URL                   |
@@ -57,6 +60,7 @@
 | Notifier         |    http://staging.notifier.wraithlight.ai     |
 | Remote Config    |  http://staging.remote-config.wraithlight.ai  |
 | COMMS - NPS      |    http://staging.nps.comms.wraithlight.ai    |
+| COMMS - SSS      |    http://staging.sss.comms.wraithlight.ai    |
 
 **Production**
 | Application Name |               Watch URL               |
@@ -72,3 +76,4 @@
 | Notifier         |    http://notifier.wraithlight.ai     |
 | Remote Config    |  http://remote-config.wraithlight.ai  |
 | COMMS - NPS      |    http://nps.comms.wraithlight.ai    |
+| COMMS - SSS      |    http://sss.comms.wraithlight.ai    |
