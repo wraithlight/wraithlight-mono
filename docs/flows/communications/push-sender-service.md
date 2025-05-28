@@ -71,6 +71,7 @@ export interface PushSenderPostRequest {
 interface PushPayload {
   subject: string;
   logoUrl: string;
+  applicationLink: string;
 }
 
 export interface PushSenderPostResponse {
