@@ -5,7 +5,7 @@
       "type": "node",
       "request": "launch",
       "name": "Jest: current file",
-      "program": "${workspaceFolder}/applications/vsc/jest-runner.js",
+      "program": "${workspaceFolder}/applications/node_modules/@wraithlight/tools.jest-runner/dist/jest-runner.js",
       "args": [
         "${workspaceFolder}/applications/node_modules/.bin/jest",
         "${workspaceFolder}/applications/node_modules/jest/bin/jest",

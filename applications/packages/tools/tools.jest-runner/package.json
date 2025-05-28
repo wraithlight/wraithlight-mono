@@ -1,0 +1,19 @@
+{
+  "name": "@wraithlight/tools.jest-runner",
+  "module": "./dist/jest-runner.js",
+  "exports": {
+    ".": {
+      "require": "./dist/jest-runner.js",
+      "import": "./dist/jest-runner.js"
+    }
+  },
+  "version": "3.0.0",
+  "license": "LGPL-3.0-only",
+  "scripts": {
+    "build": "rm -r -f dist && cp -r ./src dist",
+    "build:prod": "rm -r -f dist && cp -r ./src dist"
+  },
+  "devDependencies": {
+    "typescript": "5.0.4"
+  }
+}
