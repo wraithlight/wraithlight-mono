@@ -14,6 +14,7 @@
 | COMMS - ESS      |    http://local.ess.comms.wraithlight.ai:4511    |
 | COMMS - NPS      |    http://local.nps.comms.wraithlight.ai:4512    |
 | COMMS - PSS      |    http://local.pss.comms.wraithlight.ai:4513    |
+| COMMS - SSS      |    http://local.sss.comms.wraithlight.ai:4514    |
 
 **Dev**
 | Application Name |                   Watch URL                    |
@@ -31,6 +32,7 @@
 | COMMS - ESS      |    http://dev.ess.comms.wraithlight.ai:5511    |
 | COMMS - NPS      |    http://dev.nps.comms.wraithlight.ai:5512    |
 | COMMS - PSS      |    http://dev.pss.comms.wraithlight.ai:5513    |
+| COMMS - SSS      |    http://dev.sss.comms.wraithlight.ai:5514    |
 
 **Test**
 | Application Name |                 Watch URL                  |
@@ -48,6 +50,7 @@
 | COMMS - ESS      |    http://test.ess.comms.wraithlight.ai    |
 | COMMS - NPS      |    http://test.nps.comms.wraithlight.ai    |
 | COMMS - PSS      |    http://test.pss.comms.wraithlight.ai    |
+| COMMS - SSS      |    http://test.sss.comms.wraithlight.ai    |
 
 **Staging**
 | Application Name |                   Watch URL                   |
@@ -65,6 +68,7 @@
 | COMMS - ESS      |    http://staging.ess.comms.wraithlight.ai    |
 | COMMS - NPS      |    http://staging.nps.comms.wraithlight.ai    |
 | COMMS - PSS      |    http://staging.pss.comms.wraithlight.ai    |
+| COMMS - SSS      |    http://staging.sss.comms.wraithlight.ai    |
 
 **Production**
 | Application Name |               Watch URL               |
@@ -82,3 +86,4 @@
 | COMMS - ESS      |    http://ess.comms.wraithlight.ai    |
 | COMMS - NPS      |    http://nps.comms.wraithlight.ai    |
 | COMMS - PSS      |    http://pss.comms.wraithlight.ai    |
+| COMMS - SSS      |    http://sss.comms.wraithlight.ai    |
