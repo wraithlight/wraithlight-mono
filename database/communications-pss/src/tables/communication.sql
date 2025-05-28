@@ -6,6 +6,7 @@ CREATE TABLE `Communication` (
     `Subject` TEXT NOT NULL,
     `LogoUrl` TEXT NOT NULL,
     `Status` TEXT NOT NULL,
+    `ApplicationLink` TEXT NOT NULL,
     `ErrorMessage` TEXT NULL,
     `ReceviedAtUtc` DATETIME NOT NULL,
     `LastUpdatedAtUtc` DATETIME NULL,
