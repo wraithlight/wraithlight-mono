@@ -116,6 +116,11 @@ const config: KnipConfig = {
         "src/fcopy.js"
       ]
     },
+    "packages/tools/tools.jest-runner": {
+      ignore: [
+        "src/jest-runner.js"
+      ]
+    },
     "poc/realtime": {
       entry: [
         "src/server.ts",

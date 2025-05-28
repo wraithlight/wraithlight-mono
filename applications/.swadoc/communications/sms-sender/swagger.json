@@ -77,9 +77,6 @@
                   "additionalMessagePayload": {
                     "type": "object",
                     "properties": {
-                      "applicationLink": {
-                        "type": "string"
-                      }
                     }
                   }
                 }
