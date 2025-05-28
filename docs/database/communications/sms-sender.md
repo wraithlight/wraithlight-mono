@@ -8,7 +8,6 @@ erDiagram
         Guid proxyId "Identifier within notifier proxy service."
         string recipientIdentifier "Phone number."
         string content "Notification content."
-        string applicationLink "Application to open when the customer clicks on the given notification."
         SmsStatus status "SMS status. Enum. ('NOTIFICATION_IN_QUEUE' | 'NOTIFICATION_SENT' | 'NOTIFICATION_ERROR')"
         string errorMessage "Nullable string. It is populated only if the 'status' is 'NOTIFICATION_ERROR'."
         Datetime receviedAtUtc "UTC timestamp, whenewer the record was received by the service."
