@@ -81,9 +81,6 @@
                         "type": "object",
                         "description": "SmsPayload",
                         "properties": {
-                          "applicationLink": {
-                            "type": "string"
-                          }
                         }
                       },
                       {
@@ -97,6 +94,9 @@
                           "logoUrl": {
                             "type": "string",
                             "example": "https://cataas.com/cat"
+                          },
+                          "applicationLink": {
+                            "type": "string"
                           }
                         }
                       },
@@ -468,9 +468,6 @@
                               "type": "object",
                               "description": "SmsPayload",
                               "properties": {
-                                "applicationLink": {
-                                  "type": "string"
-                                }
                               }
                             },
                             {
@@ -484,6 +481,9 @@
                                 "logoUrl": {
                                   "type": "string",
                                   "example": "https://cataas.com/cat"
+                                },
+                                "applicationLink": {
+                                  "type": "string"
                                 }
                               }
                             },
