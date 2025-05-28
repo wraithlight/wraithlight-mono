@@ -14,10 +14,10 @@ interface EmailPayload {
 }
 
 interface SmsPayload {
-  applicationLink: string;
 }
 
 interface PushPayload {
   subject: string;
   logoUrl: string;
+  applicationLink: string;
 }
