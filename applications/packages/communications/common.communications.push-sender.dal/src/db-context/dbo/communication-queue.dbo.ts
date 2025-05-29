@@ -3,7 +3,7 @@ import { Guid } from "@wraithlight/core.guid";
 export interface CommunicationQueueDbo {
   id: Guid;
   proxyId: Guid;
-  recipientEmailAddress: string;
+  recipientIdentifier: string;
   subject: string;
   content: string;
   logoUrl: string;

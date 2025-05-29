@@ -23,7 +23,7 @@ export class NotificationQueueService {
   public async create(
     id: Guid,
     proxyId: Guid,
-    recipientEmailAddress: string,
+    recipientIdentifier: string,
     subject: string,
     content: string,
     applicationLink: string,
@@ -34,7 +34,7 @@ export class NotificationQueueService {
     const model: CommunicationQueueDbo = {
       id: id,
       proxyId: proxyId,
-      recipientEmailAddress: recipientEmailAddress,
+      recipientIdentifier: recipientIdentifier,
       subject: subject,
       content: content,
       applicationLink: applicationLink,
