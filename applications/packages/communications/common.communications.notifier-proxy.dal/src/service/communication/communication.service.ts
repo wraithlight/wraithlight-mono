@@ -100,9 +100,10 @@ export class NotificationQueueService {
   public async list(
     skip?: number,
     take?: number
-  ): AsyncOperationResult<ReadonlyArray<CommunicationDbo>> {
+  ): Promise<OperationResult<ReadonlyArray<CommunicationDbo>>> {
     let query = this._context.Communication
       .select()
+    ;
 
     if (!isNil(take) && !isNil(skip)) {
       query = query.take(take).skip(skip);

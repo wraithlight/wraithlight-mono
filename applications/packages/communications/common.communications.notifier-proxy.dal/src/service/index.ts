@@ -1,1 +1,1 @@
-export * from "./communication-queue";
+export * from "./communication";

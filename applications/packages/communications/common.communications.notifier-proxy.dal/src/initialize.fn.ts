@@ -1,4 +1,4 @@
-import { EmailSenderDbContextFactory } from "./db-context/dbcontext.factory";
+import { NotifierProxyDbContextFactory } from "./db-context/dbcontext.factory";
 
 export function initializeDal(
   host: string,
@@ -8,7 +8,7 @@ export function initializeDal(
   database: string,
   usePooling: boolean
 ): void {
-  EmailSenderDbContextFactory.initialize(
+  NotifierProxyDbContextFactory.initialize(
     host,
     port,
     username,
