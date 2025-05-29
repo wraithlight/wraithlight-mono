@@ -1,4 +1,4 @@
 export * from "./service";
 export {
-  CommunicationQueueDbo
+  CommunicationDbo
 } from "./db-context";
