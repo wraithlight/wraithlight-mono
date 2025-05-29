@@ -15,5 +15,7 @@ const isBotHeaderName = HeaderName.IsBot;
 const isSsrEnabledHeaderName = HeaderName.IsSsrEnabled;
 const correlationIdHeaderName = HeaderName.CorrelationId;
 const realtimeTokenHeaderName = HeaderName.RealtimeToken;
+const applicationTypeHeaderName = HeaderName.ApplicationType;
+const applicationTunnelHeaderName = HeaderName.ApplicationTunnel;
 
 ```
