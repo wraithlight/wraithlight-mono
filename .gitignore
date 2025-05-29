@@ -1,8 +1,9 @@
 # MacOS
 .DS_Store
 
-# To avoid root-level yarn commands
+# To avoid root-level yarn and npm i commands
 /yarn.lock
+/package-lock.json
 
 # node env
 node_modules/
