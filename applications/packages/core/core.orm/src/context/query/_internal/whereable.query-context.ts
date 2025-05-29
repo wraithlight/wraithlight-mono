@@ -52,6 +52,22 @@ export abstract class WhereableQueryContext<T extends object>
     return this;
   }
 
+  public skip(amount: number): IWhereableQueryContext<T> {
+    this.addQuery(
+      `OFFSET ?`,
+      amount.toString()
+    );
+    return this;
+  };
+
+  public take(amount: number): IWhereableQueryContext<T> {
+    this.addQuery(
+      `LIMIT ?`,
+      amount.toString()
+    );
+    return this;
+  };
+
   private orderBy(key: string, direction: "ASC" | "DESC"): void {
     this.addQuery(
       `ORDER BY ? ?`,
