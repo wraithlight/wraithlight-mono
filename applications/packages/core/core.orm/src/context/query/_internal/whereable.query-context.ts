@@ -57,7 +57,7 @@ export abstract class WhereableQueryContext<T extends object>
       `OFFSET ?`,
       amount.toString()
     );
-    return this;
+    return this
   };
 
   public take(amount: number): IWhereableQueryContext<T> {
@@ -65,7 +65,7 @@ export abstract class WhereableQueryContext<T extends object>
       `LIMIT ?`,
       amount.toString()
     );
-    return this;
+    return this
   };
 
   private orderBy(key: string, direction: "ASC" | "DESC"): void {
