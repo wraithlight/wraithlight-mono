@@ -1,7 +1,7 @@
 const initializeSpy = jest.fn();
 jest.mock("./db-context/dbcontext.factory", () => {
   return {
-    EmailSenderDbContextFactory: {
+    SMSSenderDbContextFactory: {
       initialize: initializeSpy
     }
   }
