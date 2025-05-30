@@ -5,8 +5,7 @@ import { DbContext } from "../dbcontext";
 
 import { BaseSelectQueryContext } from "./base-select.query-context";
 import {
-  SelectQueryContext as ISelectQueryContext,
-  WhereableQueryContext,
+  SelectQueryContext as ISelectQueryContext
 } from "./query-context.model";
 
 export class SelectQueryContext<T extends object>
