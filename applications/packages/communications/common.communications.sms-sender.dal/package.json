@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/package-json.package.schema.json",
-  "name": "@wraithlight/domain.http.types",
+  "name": "@wraithlight/common.communications.sms-sender.dal",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "exports": {
@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "2.1.0",
+  "version": "1.0.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -20,11 +20,15 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@wraithlight/core.guid": "*"
+    "@wraithlight/core.orm": "*",
+    "@wraithlight/core.guid": "*",
+    "@wraithlight/framework.date": "*",
+    "@wraithlight/framework.nullable": "*",
+    "@wraithlight/framework.operation-result": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
-        "@typescript-eslint/eslint-plugin": "5.59.2",
+    "@typescript-eslint/eslint-plugin": "5.59.2",
     "@typescript-eslint/parser": "5.59.2",
     "eslint": "8.40.0",
     "eslint-import-resolver-typescript": "3.6.1",
