@@ -2,7 +2,6 @@ import { Guid } from "@wraithlight/core.guid";
 import { utcNow } from "@wraithlight/framework.date";
 import { isNil } from "@wraithlight/framework.nullable";
 import {
-  AsyncOperationResult,
   OperationResult,
   OperationResultFactory
 } from "@wraithlight/framework.operation-result";
