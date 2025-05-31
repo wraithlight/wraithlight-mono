@@ -1,3 +1,5 @@
+import { cast } from "@wraithlight/framework.type-utils";
+
 import { DbContext } from "../dbcontext";
 
 import { WhereableQueryContext } from "./_internal";
@@ -56,13 +58,19 @@ export class DeleteQueryContext<T extends object>
   }
 
   public orderByAsc<TKey extends keyof T>(key: TKey): DeleteQueryContext<T> {
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    return <DeleteQueryContext<T>>super.orderByAsc(key);
+    return cast<DeleteQueryContext<T>>(super.orderByAsc(key));
   }
 
   public orderByDesc<TKey extends keyof T>(key: TKey): DeleteQueryContext<T> {
-    // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
-    return <DeleteQueryContext<T>>super.orderByDesc(key);
+    return cast<DeleteQueryContext<T>>(super.orderByDesc(key));
+  }
+
+  public skip(amount: number): DeleteQueryContext<T> {
+    return cast<DeleteQueryContext<T>>(super.skip(amount));
+  }
+
+  public take(amount: number): DeleteQueryContext<T> {
+    return cast<DeleteQueryContext<T>>(super.take(amount));
   }
 
 }

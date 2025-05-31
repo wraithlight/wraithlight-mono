@@ -45,4 +45,12 @@ export class CountQueryContext<T extends object>
     return cast<CountQueryContext<T>>(super.orderByDesc(key));
   }
 
+  public skip(amount: number): CountQueryContext<T> {
+    return cast<CountQueryContext<T>>(super.skip(amount));
+  }
+
+  public take(amount: number): CountQueryContext<T> {
+    return cast<CountQueryContext<T>>(super.take(amount));
+  }
+
 }

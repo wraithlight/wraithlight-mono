@@ -5,7 +5,7 @@ import { DbContext } from "../dbcontext";
 
 import { BaseSelectQueryContext } from "./base-select.query-context";
 import {
-  SelectQueryContext as ISelectQueryContext,
+  SelectQueryContext as ISelectQueryContext
 } from "./query-context.model";
 
 export class SelectQueryContext<T extends object>
@@ -51,6 +51,14 @@ export class SelectQueryContext<T extends object>
 
   public orderByDesc<TKey extends keyof T>(key: TKey): SelectQueryContext<T> {
     return cast<SelectQueryContext<T>>(super.orderByDesc(key));
+  }
+
+  public skip(amount: number): SelectQueryContext<T> {
+    return cast<SelectQueryContext<T>>(super.skip(amount));
+  }
+
+  public take(amount: number): SelectQueryContext<T> {
+    return cast<SelectQueryContext<T>>(super.take(amount));
   }
 
 }

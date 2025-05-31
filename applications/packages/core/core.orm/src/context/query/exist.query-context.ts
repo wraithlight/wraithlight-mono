@@ -51,4 +51,12 @@ export class ExistQueryContext<T extends object>
     return cast<ExistQueryContext<T>>(super.orderByDesc(key));
   }
 
+  public skip(amount: number): ExistQueryContext<T> {
+    return cast<ExistQueryContext<T>>(super.skip(amount));
+  }
+
+  public take(amount: number): ExistQueryContext<T> {
+    return cast<ExistQueryContext<T>>(super.take(amount));
+  }
+
 }
