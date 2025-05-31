@@ -1,7 +1,7 @@
 {
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/package-json.app-fe.schema.json",
   "name": "@wraithlight/website.ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "LGPL-3.0-only",
   "scripts": {
     "build": "yarn ng build",
@@ -47,5 +47,8 @@
     "ts-jest": "29.1.0",
     "ts-node": "10.9.1",
     "typescript": "5.0.4"
+  },
+  "resolutions": {
+    "node-gyp": "9.3.1"
   }
 }

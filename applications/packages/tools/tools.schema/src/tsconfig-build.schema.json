@@ -17,7 +17,9 @@
       "properties": {
         "outDir": {
           "type": "string",
-          "enum": ["dist/esm"]
+          "enum": [
+            "dist/esm"
+          ]
         },
         "declaration": {
           "type": "boolean",
@@ -58,14 +60,18 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["src"]
+        "enum": [
+          "src"
+        ]
       }
     },
     "exclude": {
       "type": "array",
       "items": {
         "type": "string",
-        "enum": ["**/*.spec.ts"]
+        "enum": [
+          "**/*.spec.ts"
+        ]
       }
     }
   },
