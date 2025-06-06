@@ -14,8 +14,9 @@ import { Guid } from "@wraithlight/framework.guid";
 import { isNil } from "@wraithlight/framework.nullable";
 import { OperationResult, OperationResultFactory } from "@wraithlight/framework.operation-result";
 
-
 import { SendClient } from "../../client";
+
+import { ERROR_CODES } from "./send.const";
 
 export class SendService {
 
@@ -35,7 +36,7 @@ export class SendService {
   > {
     const result = await this._client.getCommunications(skip, take);
     if (isNil(result)) {
-      return OperationResultFactory.error("E_GET_LIST");
+      return OperationResultFactory.error(ERROR_CODES.GET_LIST);
     }
     return OperationResultFactory.success(result);
   }
@@ -45,7 +46,7 @@ export class SendService {
   ): Promise<OperationResult<NotifierProxyCommunicationGetResponse>> {
     const result = await this._client.getCommunication(id);
     if (isNil(result)) {
-      return OperationResultFactory.error("E_GET");
+      return OperationResultFactory.error(ERROR_CODES.GET);
     }
     return OperationResultFactory.success(result);
   }
@@ -116,7 +117,7 @@ export class SendService {
     };
     const result = await this._client.patchCommunicationSuccess(id, payload);
     if (isNil(result)) {
-      return OperationResultFactory.error("E_PATCH_SUCCESS");
+      return OperationResultFactory.error(ERROR_CODES.PATCH_SUCCESS);
     }
     return OperationResultFactory.success(result);
   }
@@ -130,7 +131,7 @@ export class SendService {
     };
     const result = await this._client.patchCommunicationFail(id, payload);
     if (isNil(result)) {
-      return OperationResultFactory.error("E_PATCH_FAIL");
+      return OperationResultFactory.error(ERROR_CODES.PATCH_FAIL);
     }
     return OperationResultFactory.success(result);
   }
@@ -140,7 +141,7 @@ export class SendService {
   ): Promise<OperationResult<NotifierProxyCommunicationPostResponse>> {
     const result = await this._client.postCommuncation(payload);
     if (isNil(result)) {
-      return OperationResultFactory.error("E_SEND");
+      return OperationResultFactory.error(ERROR_CODES.SEND);
     }
     return OperationResultFactory.success(result);
   }
