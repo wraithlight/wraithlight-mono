@@ -26,14 +26,14 @@ interface BaseConsolidatedHttpResponse {
   isFail: boolean;
 }
 
-interface ConsolidatedHttpResponseSuccess<TPayload>
+export interface ConsolidatedHttpResponseSuccess<TPayload>
   extends BaseConsolidatedHttpResponse {
   payload: TPayload;
   isSuccess: true;
   isFail: false;
 }
 
-interface ConsolidatedHttpResponseError extends BaseConsolidatedHttpResponse {
+export interface ConsolidatedHttpResponseError extends BaseConsolidatedHttpResponse {
   isSuccess: false;
   isFail: true;
 }
