@@ -25,7 +25,9 @@ export class CoreHttpClient extends HttpClient {
       payload: m.payload?.payload,
       isAborted: m.isAborted,
       correlationId: m.payload?.correlationId,
-      error: m.payload?.error
+      error: m.payload?.error,
+      isFail: !!m.payload.error,
+      isSuccess: !m.payload.error
     }));
   }
 
@@ -39,7 +41,9 @@ export class CoreHttpClient extends HttpClient {
       payload: m.payload?.payload,
       isAborted: m.isAborted,
       correlationId: m.payload?.correlationId,
-      error: m.payload?.error
+      error: m.payload?.error,
+      isFail: !!m.payload.error,
+      isSuccess: !m.payload.error
     }));
   }
 
@@ -55,7 +59,9 @@ export class CoreHttpClient extends HttpClient {
       payload: m.payload?.payload,
       isAborted: m.isAborted,
       correlationId: m.payload?.correlationId,
-      error: m.payload?.error
+      error: m.payload?.error,
+      isFail: !!m.payload.error,
+      isSuccess: !m.payload.error
     }));
   }
 
@@ -71,7 +77,9 @@ export class CoreHttpClient extends HttpClient {
       payload: m.payload?.payload,
       isAborted: m.isAborted,
       correlationId: m.payload?.correlationId,
-      error: m.payload?.error
+      error: m.payload?.error,
+      isFail: !!m.payload.error,
+      isSuccess: !m.payload.error
     }));
   }
 
@@ -87,7 +95,9 @@ export class CoreHttpClient extends HttpClient {
       payload: m.payload?.payload,
       isAborted: m.isAborted,
       correlationId: m.payload?.correlationId,
-      error: m.payload?.error
+      error: m.payload?.error,
+      isFail: !!m.payload.error,
+      isSuccess: !m.payload.error
     }));
   }
 

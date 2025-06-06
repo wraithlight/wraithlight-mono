@@ -22,14 +22,20 @@ interface BaseConsolidatedHttpResponse {
     code: string;
   },
   correlationId: Guid;
+  isSuccess: boolean;
+  isFail: boolean;
 }
 
 interface ConsolidatedHttpResponseSuccess<TPayload>
   extends BaseConsolidatedHttpResponse {
   payload: TPayload;
+  isSuccess: true;
+  isFail: false;
 }
 
 interface ConsolidatedHttpResponseError extends BaseConsolidatedHttpResponse {
+  isSuccess: false;
+  isFail: true;
 }
 
 export type ConsolidatedHttpResponse<TPayload> =
