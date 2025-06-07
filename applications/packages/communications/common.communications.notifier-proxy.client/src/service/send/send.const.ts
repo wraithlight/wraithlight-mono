@@ -1,0 +1,7 @@
+export const ERROR_CODES = {
+  GET_LIST: "E_GET_LIST",
+  GET: "E_GET",
+  PATCH_SUCCESS: "E_PATCH_SUCCESS",
+  PATCH_FAIL: "E_PATCH_FAIL",
+  SEND: "E_SEND",
+};
