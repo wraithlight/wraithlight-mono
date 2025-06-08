@@ -1,12 +1,11 @@
+import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 import cors from "cors";
 import
-express,
-{
-  Application,
-  json,
-  static as serveStatic
-}
-  from "express";
+  express, {
+    Application,
+    json,
+    static as serveStatic
+} from "express";
 import {
   JsonObject as SwaggerFileContent,
   serve as swaggerServe,
@@ -114,5 +113,5 @@ export const startServer = (
 };
 
 export const controllerBlocker = (..._args: ReadonlyArray<unknown>): void => {
-  return undefined;
+  return GLOBAL_UNDEFINED;
 };
