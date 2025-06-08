@@ -1,5 +1,6 @@
 export const isNil = jest
     .fn()
+    // eslint-disable-next-line no-undefined
     .mockImplementation((m) => m === undefined || m === null)
 ;
 
