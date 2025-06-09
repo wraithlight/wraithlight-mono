@@ -33,7 +33,8 @@ export interface ConsolidatedHttpResponseSuccess<TPayload>
   isFail: false;
 }
 
-export interface ConsolidatedHttpResponseError extends BaseConsolidatedHttpResponse {
+export interface ConsolidatedHttpResponseError
+  extends BaseConsolidatedHttpResponse {
   isSuccess: false;
   isFail: true;
 }
