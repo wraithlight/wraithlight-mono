@@ -21,9 +21,17 @@ export class CoreHttpClient extends HttpClient {
   ): Promise<ConsolidatedHttpResponse<T>> {
     return super.get2<IHttpResponse<T>>(
       url
-    ).then(m => !!m.payload.error
-      ? createFailMessage(m.statusCode, m.payload.correlationId, m.payload.error.code)
-      : createSuccessMessage(m.payload.payload, m.statusCode, m.payload.correlationId)
+    ).then(m => m.payload.error
+      ? createFailMessage(
+        m.statusCode,
+        m.payload.correlationId,
+        m.payload.error.code
+      )
+      : createSuccessMessage(
+        m.payload.payload,
+        m.statusCode,
+        m.payload.correlationId
+      )
     );
   }
 
@@ -32,9 +40,17 @@ export class CoreHttpClient extends HttpClient {
   ): Promise<ConsolidatedHttpResponse<T>> {
     return super.delete2<IHttpResponse<T>>(
       url
-    ).then(m => !!m.payload.error
-      ? createFailMessage(m.statusCode, m.payload.correlationId, m.payload.error.code)
-      : createSuccessMessage(m.payload.payload, m.statusCode, m.payload.correlationId)
+    ).then(m => m.payload.error
+      ? createFailMessage(
+        m.statusCode,
+        m.payload.correlationId,
+        m.payload.error.code
+      )
+      : createSuccessMessage(
+        m.payload.payload,
+        m.statusCode,
+        m.payload.correlationId
+      )
     );
   }
 
@@ -45,9 +61,17 @@ export class CoreHttpClient extends HttpClient {
     return super.post2<IHttpResponse<T>, U>(
       url,
       data
-    ).then(m => !!m.payload.error
-      ? createFailMessage(m.statusCode, m.payload.correlationId, m.payload.error.code)
-      : createSuccessMessage(m.payload.payload, m.statusCode, m.payload.correlationId)
+    ).then(m => m.payload.error
+      ? createFailMessage(
+        m.statusCode,
+        m.payload.correlationId,
+        m.payload.error.code
+      )
+      : createSuccessMessage(
+        m.payload.payload,
+        m.statusCode,
+        m.payload.correlationId
+      )
     );
   }
 
@@ -58,9 +82,17 @@ export class CoreHttpClient extends HttpClient {
     return super.put2<IHttpResponse<T>, U>(
       url,
       data
-    ).then(m => !!m.payload.error
-      ? createFailMessage(m.statusCode, m.payload.correlationId, m.payload.error.code)
-      : createSuccessMessage(m.payload.payload, m.statusCode, m.payload.correlationId)
+    ).then(m => m.payload.error
+      ? createFailMessage(
+        m.statusCode,
+        m.payload.correlationId,
+        m.payload.error.code
+      )
+      : createSuccessMessage(
+        m.payload.payload,
+        m.statusCode,
+        m.payload.correlationId
+      )
     );
   }
 
@@ -71,9 +103,17 @@ export class CoreHttpClient extends HttpClient {
     return super.patch<IHttpResponse<T>, U>(
       url,
       data
-    ).then(m => !!m.payload.error
-      ? createFailMessage(m.statusCode, m.payload.correlationId, m.payload.error.code)
-      : createSuccessMessage(m.payload.payload, m.statusCode, m.payload.correlationId)
+    ).then(m => m.payload.error
+      ? createFailMessage(
+        m.statusCode,
+        m.payload.correlationId,
+        m.payload.error.code
+      )
+      : createSuccessMessage(
+        m.payload.payload,
+        m.statusCode,
+        m.payload.correlationId
+      )
     );
   }
 

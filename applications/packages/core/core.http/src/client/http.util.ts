@@ -1,6 +1,6 @@
-import { Guid } from "@wraithlight/core.guid"
+import { Guid } from "@wraithlight/core.guid";
 
-import { ConsolidatedHttpResponseError, ConsolidatedHttpResponseSuccess } from "./http.model"
+import { ConsolidatedHttpResponseError, ConsolidatedHttpResponseSuccess } from "./http.model";
 
 
 export const createFailMessage = (
@@ -9,16 +9,16 @@ export const createFailMessage = (
   errorCode: string
 ): ConsolidatedHttpResponseError => {
   return {
-  isSuccess: false,
-  isFail: true,
-  statusCode: statusCode,
-  isAborted: false,
-  error: {
-    code: errorCode
-  },
-  correlationId: correlationId
-}
-}
+    isSuccess: false,
+    isFail: true,
+    statusCode: statusCode,
+    isAborted: false,
+    error: {
+      code: errorCode
+    },
+    correlationId: correlationId
+  };
+};
 
 export const createSuccessMessage = <T>(
   payload: T,
@@ -35,5 +35,5 @@ export const createSuccessMessage = <T>(
     error: {
       code: ""
     }
-  }
-}
+  };
+};
