@@ -19,7 +19,8 @@
   "dependencies": {
     "@wraithlight/common.auth-sdk.client": "*",
     "@wraithlight/core.dom": "*",
-    "@wraithlight/core.redux": "*"
+    "@wraithlight/core.redux": "*",
+    "@wraithlight/core.undefined": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",

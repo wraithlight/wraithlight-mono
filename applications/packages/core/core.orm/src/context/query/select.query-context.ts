@@ -1,3 +1,4 @@
+import { GLOBAL_UNDEFINED} from "@wraithlight/core.undefined";
 import { Nullable } from "@wraithlight/framework.nullable";
 import { cast } from "@wraithlight/framework.type-utils";
 
@@ -30,7 +31,7 @@ export class SelectQueryContext<T extends object>
     return this._run().then(m => {
       return m.length > 0
         ? m[0]
-        : undefined
+        : GLOBAL_UNDEFINED
         ;
     });
   }
