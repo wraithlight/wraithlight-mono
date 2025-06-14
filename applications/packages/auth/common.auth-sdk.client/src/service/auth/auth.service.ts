@@ -18,6 +18,7 @@ import {
 } from "@wraithlight/core.auth.types";
 import { UNKNOWN_ERROR } from "@wraithlight/core.errors";
 import { CoreHttpClient } from "@wraithlight/core.http";
+import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 
 import {
     KeepAliveSessionResponse,
@@ -58,14 +59,14 @@ export class ClientAuthService {
                     success: m.payload?.success || false,
                     // TODO: OperationResult
                     errors: m.payload?.success
-                    ? undefined
+                    ? GLOBAL_UNDEFINED
                         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                         : (m.payload as LoginErrorResponse).errors,
                     // TODO: OperationResult
                     payload: m.payload?.success
                         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                         ? (m.payload as LoginSuccessResponse).payload
-                        : undefined
+                        : GLOBAL_UNDEFINED
                 };
                 return result;
             })
@@ -91,14 +92,14 @@ export class ClientAuthService {
                     success: m.payload?.success || false,
                     // TODO: OperationResult
                     errors: m.payload?.success
-                    ? undefined
+                    ? GLOBAL_UNDEFINED
                         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                         : (m.payload as LogoutErrorResponse).errors,
                     // TODO: OperationResult
                     payload: m.payload?.success
                         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                         ? (m.payload as LogoutSuccessResponse).payload
-                        : undefined
+                        : GLOBAL_UNDEFINED
                 };
                 return result;
             })
@@ -122,14 +123,14 @@ export class ClientAuthService {
                     success: m.payload?.success || false,
                     // TODO: OperationResult
                     errors: m.payload?.success
-                        ? undefined
+                        ? GLOBAL_UNDEFINED
                         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                         : (m.payload as ValidateSessionErrorResponse).errors,
                     // TODO: OperationResult
                     payload: m.payload?.success
                         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                         ? (m.payload as ValidateSessionSuccessResponse).payload
-                        : undefined
+                        : GLOBAL_UNDEFINED
                 };
                 return result;
             })
@@ -153,14 +154,14 @@ export class ClientAuthService {
                     success: m.payload?.success || false,
                     // TODO: OperationResult
                     errors: m.payload?.success
-                        ? undefined
+                        ? GLOBAL_UNDEFINED
                         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                         : (m.payload as KeepAliveSessionErrorResponse).errors,
                     // TODO: OperationResult
                     payload: m.payload?.success
                         // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
                         ? (m.payload as KeepAliveSessionSuccessResponse).payload
-                        : undefined
+                        : GLOBAL_UNDEFINED
                 };
                 return result;
             })
