@@ -32,7 +32,7 @@ export class Dictionary<TValue> {
   }
 
   public has(key: string): boolean {
-    return this.findInternal(key) !== undefined;
+    return !isNil(this.findInternal(key));
   }
 
   public remove(key: string): boolean {

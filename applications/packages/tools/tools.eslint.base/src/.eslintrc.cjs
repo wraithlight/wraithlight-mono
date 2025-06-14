@@ -47,6 +47,7 @@ const eslintConfig = (dirname) =>({
   },
   rules: {
     // Native
+    "no-undefined": "error",
     "no-var": "error",
     "max-len": [
       "error",

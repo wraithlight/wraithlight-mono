@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "3.2.1",
+  "version": "4.0.1",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -34,7 +34,8 @@
     "@wraithlight/framework.nullable": "*",
     "@wraithlight/core.errors": "*",
     "@wraithlight/domain.http.types": "*",
-    "swagger-ui-express": "5.0.1"
+    "swagger-ui-express": "5.0.1",
+    "@wraithlight/core.undefined": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",

@@ -1,69 +1,70 @@
+import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 import {
-    Socket,
-    connect,
+  Socket,
+  connect,
 } from "socket.io-client";
 
 import { SocketIOClientCallback } from "./socketio.type";
 
 export class SocketIOFacade {
 
-    private readonly _socket: Socket;
+  private readonly _socket: Socket;
 
-    constructor(
-        baseUrl: string,
-        path: string,
-        autoConnect = true,
-        authHeader = "",
-        authToken = ""
-    ) {
-        const headers = authHeader === ""
-            ? undefined
-            : {
-                [authHeader]: authToken
-            }
-        ;
+  constructor(
+    baseUrl: string,
+    path: string,
+    autoConnect = true,
+    authHeader = "",
+    authToken = ""
+  ) {
+    const headers = authHeader === ""
+      ? GLOBAL_UNDEFINED
+      : {
+        [authHeader]: authToken
+      }
+      ;
 
-        this._socket = connect(
-            baseUrl,
-            {
-                autoConnect: autoConnect,
-                path: path,
-                extraHeaders: headers
-            }
-        );
-    }
+    this._socket = connect(
+      baseUrl,
+      {
+        autoConnect: autoConnect,
+        path: path,
+        extraHeaders: headers
+      }
+    );
+  }
 
-    public isConnected(): boolean {
-        return this._socket.connected;
-    }
+  public isConnected(): boolean {
+    return this._socket.connected;
+  }
 
-    public connect(): void {
-        this._socket.connect();
-    }
+  public connect(): void {
+    this._socket.connect();
+  }
 
-    public disconnect(): void {
-        this._socket?.disconnect();
-    }
+  public disconnect(): void {
+    this._socket?.disconnect();
+  }
 
-    public onMessage(
-        topic: string,
-        callback: SocketIOClientCallback
-    ): SocketIOFacade {
-        this._socket?.on(
-            topic,
-            (message) => callback(message)
-        );
-        return this;
-    }
+  public onMessage(
+    topic: string,
+    callback: SocketIOClientCallback
+  ): SocketIOFacade {
+    this._socket?.on(
+      topic,
+      (message) => callback(message)
+    );
+    return this;
+  }
 
-    public send(
-        topic: string,
-        message: string
-    ): void {
-        this._socket.emit(
-            topic,
-            message
-        );
-    }
+  public send(
+    topic: string,
+    message: string
+  ): void {
+    this._socket.emit(
+      topic,
+      message
+    );
+  }
 
 }

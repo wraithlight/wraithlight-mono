@@ -1,4 +1,5 @@
 import { IArgumentDecoratorFactory } from "@wraithlight/core.decorator.types";
+import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 import { Request } from "express";
 
 import { BaseController } from "../../controller";
@@ -8,5 +9,5 @@ import { ParamDecorator } from "./param.decorator";
 export const RawContext = <T extends BaseController>(
 ): IArgumentDecoratorFactory<T> => ParamDecorator<T>(
   (m: Request) => m,
-  undefined
+  GLOBAL_UNDEFINED
 );
