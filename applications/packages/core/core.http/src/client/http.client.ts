@@ -1,3 +1,4 @@
+import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 import { cast } from "@wraithlight/framework.type-utils";
 
 import {
@@ -182,7 +183,7 @@ export abstract class HttpClient {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const payload: TResult = await result.payload
       .then(m => JSON.parse(m))
-      .catch(undefined)
+      .catch(GLOBAL_UNDEFINED)
       ;
 
     this.onAfterCall(
