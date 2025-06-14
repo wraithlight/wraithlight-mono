@@ -4,6 +4,7 @@ import { HttpCode, HttpVerb } from "../constant";
 
 import { HttpClient } from "./http.client";
 import { ConsolidatedHttpResponse } from "./http.model";
+import { createFailMessage, createSuccessMessage } from "./http.util";
 
 export class CoreHttpClient extends HttpClient {
 
@@ -20,13 +21,18 @@ export class CoreHttpClient extends HttpClient {
   ): Promise<ConsolidatedHttpResponse<T>> {
     return super.get2<IHttpResponse<T>>(
       url
-    ).then(m => ({
-      statusCode: m.statusCode,
-      payload: m.payload?.payload,
-      isAborted: m.isAborted,
-      correlationId: m.payload?.correlationId,
-      error: m.payload?.error
-    }));
+    ).then(m => m.payload.error
+      ? createFailMessage(
+        m.statusCode,
+        m.payload.correlationId,
+        m.payload.error.code
+      )
+      : createSuccessMessage(
+        m.payload.payload,
+        m.statusCode,
+        m.payload.correlationId
+      )
+    );
   }
 
   public async deleteConsolidated<T>(
@@ -34,13 +40,18 @@ export class CoreHttpClient extends HttpClient {
   ): Promise<ConsolidatedHttpResponse<T>> {
     return super.delete2<IHttpResponse<T>>(
       url
-    ).then(m => ({
-      statusCode: m.statusCode,
-      payload: m.payload?.payload,
-      isAborted: m.isAborted,
-      correlationId: m.payload?.correlationId,
-      error: m.payload?.error
-    }));
+    ).then(m => m.payload.error
+      ? createFailMessage(
+        m.statusCode,
+        m.payload.correlationId,
+        m.payload.error.code
+      )
+      : createSuccessMessage(
+        m.payload.payload,
+        m.statusCode,
+        m.payload.correlationId
+      )
+    );
   }
 
   public async postConsolidated<T, U>(
@@ -50,13 +61,18 @@ export class CoreHttpClient extends HttpClient {
     return super.post2<IHttpResponse<T>, U>(
       url,
       data
-    ).then(m => ({
-      statusCode: m.statusCode,
-      payload: m.payload?.payload,
-      isAborted: m.isAborted,
-      correlationId: m.payload?.correlationId,
-      error: m.payload?.error
-    }));
+    ).then(m => m.payload.error
+      ? createFailMessage(
+        m.statusCode,
+        m.payload.correlationId,
+        m.payload.error.code
+      )
+      : createSuccessMessage(
+        m.payload.payload,
+        m.statusCode,
+        m.payload.correlationId
+      )
+    );
   }
 
   public async putConsolidated<T, U>(
@@ -66,13 +82,18 @@ export class CoreHttpClient extends HttpClient {
     return super.put2<IHttpResponse<T>, U>(
       url,
       data
-    ).then(m => ({
-      statusCode: m.statusCode,
-      payload: m.payload?.payload,
-      isAborted: m.isAborted,
-      correlationId: m.payload?.correlationId,
-      error: m.payload?.error
-    }));
+    ).then(m => m.payload.error
+      ? createFailMessage(
+        m.statusCode,
+        m.payload.correlationId,
+        m.payload.error.code
+      )
+      : createSuccessMessage(
+        m.payload.payload,
+        m.statusCode,
+        m.payload.correlationId
+      )
+    );
   }
 
   public async patchConsolidated<T, U>(
@@ -82,13 +103,18 @@ export class CoreHttpClient extends HttpClient {
     return super.patch<IHttpResponse<T>, U>(
       url,
       data
-    ).then(m => ({
-      statusCode: m.statusCode,
-      payload: m.payload?.payload,
-      isAborted: m.isAborted,
-      correlationId: m.payload?.correlationId,
-      error: m.payload?.error
-    }));
+    ).then(m => m.payload.error
+      ? createFailMessage(
+        m.statusCode,
+        m.payload.correlationId,
+        m.payload.error.code
+      )
+      : createSuccessMessage(
+        m.payload.payload,
+        m.statusCode,
+        m.payload.correlationId
+      )
+    );
   }
 
   protected onBeforeCall(
