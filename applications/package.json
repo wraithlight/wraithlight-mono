@@ -89,9 +89,5 @@
     "@types/node": "20.11.28",
     "@types/jest": "29.5.14",
     "ts-node": "10.9.1"
-  },
-  "resolutions": {
-    "**/node-gyp": "9.3.1",
-    "**/@types/express": "4.17.17"
   }
 }

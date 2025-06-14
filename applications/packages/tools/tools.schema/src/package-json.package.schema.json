@@ -1,108 +1,126 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://example.com/product.schema.json",
-    "title": "PACKAGE JSON SCHEMA",
-    "description": "Schema for package package.json files in the repository.",
-    "type": "object",
-    "properties": {
-        "name": {
-            "type": "string"
-        },
-        "version": {
-            "type": "string"
-        },
-        "license": {
-            "type": "string",
-            "enum": ["LGPL-3.0-only"]
-        },
-        "module": {
-            "type": "string",
-            "enum": ["./dist/esm/index.js"]
-        },
-        "types": {
-            "type": "string",
-            "enum": ["./dist/esm/index.d.ts"]
-        },
-        "scripts": {
-            "type": "object",
-            "properties": {
-                "build": {
-                    "type": "string"
-                },
-                "build:prod": {
-                    "type": "string"
-                },
-                "lint": {
-                    "type": "string"
-                },
-                "test": {
-                    "type": "string"
-                },
-                "test:coverage": {
-                    "type": "string"
-                }
-            },
-            "additionalProperties": false,
-            "required": [
-                "build",
-                "build:prod",
-                "lint",
-                "test",
-                "test:coverage"
-            ]
-        },
-        "$schema": {
-            "type": "string"
-        },
-        "dependencies": {
-            "type": "object"
-        },
-        "devDependencies": {
-            "type": "object",
-            "properties": {
-                "rimraf": {
-                    "type": "string",
-                    "enum": ["5.0.1"]
-                }
-            },
-            "required": [
-                "rimraf"
-            ]
-        },
-        "exports": {
-            "type": "object",
-            "properties": {
-                ".": {
-                    "type": "object",
-                    "properties": {
-                        "require": {
-                            "type": "string",
-                            "enum": ["./dist/esm/index.js"]
-                        },
-                        "import": {
-                            "type": "string",
-                            "enum": ["./dist/esm/index.js"]
-                        },
-                        "types": {
-                            "type": "string",
-                            "enum": ["./dist/index.d.ts"]
-                        }
-                    }
-                }
-            }
-        },
-        "browser": {
-            "type": "object",
-            "description": "TODO: Remove this once the crypto issue is resolved #19"
-        }
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "PACKAGE JSON SCHEMA",
+  "description": "Schema for package package.json files in the repository.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
     },
-    "additionalProperties": false,
-    "required": [
-        "name",
-        "version",
-        "license",
-        "scripts",
-        "$schema",
-        "devDependencies"
-    ]
+    "version": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string",
+      "enum": [
+        "LGPL-3.0-only"
+      ]
+    },
+    "module": {
+      "type": "string",
+      "enum": [
+        "./dist/esm/index.js"
+      ]
+    },
+    "types": {
+      "type": "string",
+      "enum": [
+        "./dist/esm/index.d.ts"
+      ]
+    },
+    "scripts": {
+      "type": "object",
+      "properties": {
+        "build": {
+          "type": "string"
+        },
+        "build:prod": {
+          "type": "string"
+        },
+        "lint": {
+          "type": "string"
+        },
+        "test": {
+          "type": "string"
+        },
+        "test:coverage": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "build",
+        "build:prod",
+        "lint",
+        "test",
+        "test:coverage"
+      ]
+    },
+    "$schema": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "object"
+    },
+    "devDependencies": {
+      "type": "object",
+      "properties": {
+        "rimraf": {
+          "type": "string",
+          "enum": [
+            "5.0.1"
+          ]
+        }
+      },
+      "required": [
+        "rimraf"
+      ]
+    },
+    "exports": {
+      "type": "object",
+      "properties": {
+        ".": {
+          "type": "object",
+          "properties": {
+            "require": {
+              "type": "string",
+              "enum": [
+                "./dist/esm/index.js"
+              ]
+            },
+            "import": {
+              "type": "string",
+              "enum": [
+                "./dist/esm/index.js"
+              ]
+            },
+            "types": {
+              "type": "string",
+              "enum": [
+                "./dist/index.d.ts"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "browser": {
+      "type": "object",
+      "description": "TODO: Remove this once the crypto issue is resolved #19"
+    },
+    "resolutions": {
+      "type": "object",
+      "description": "TODO: Review on each package bump."
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "version",
+    "license",
+    "scripts",
+    "$schema",
+    "devDependencies"
+  ]
 }
