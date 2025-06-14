@@ -1,6 +1,7 @@
 import { isWraithlightError } from "@wraithlight/core.errors";
 import { Guid, newGuid } from "@wraithlight/core.guid";
 import { HttpCode, HttpVerb } from "@wraithlight/core.http";
+import { GLOBAL_UNDEFINED, T_GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 import { HeaderName } from "@wraithlight/domain.http.constants";
 import { IHttpResponse } from "@wraithlight/domain.http.types";
 import { Timer } from "@wraithlight/framework.timer";
@@ -227,7 +228,10 @@ export class RequestHandler {
     correlation: Guid,
     filters: Array<HandlerControllerEndpointFilterModel>,
     req: Request
-  ): Promise<{ errorCode: HttpCode, message: string } | undefined> {
+  ): Promise<
+    { errorCode: HttpCode, message: string } |
+    T_GLOBAL_UNDEFINED
+  > {
     for (const filter of filters) {
       try {
         const result = await filter.guardFn(req);
@@ -260,9 +264,9 @@ export class RequestHandler {
     errorCode: HttpCode,
     error: string
   ): void {
-    const response: IHttpResponse<undefined> = {
+    const response: IHttpResponse<T_GLOBAL_UNDEFINED> = {
       correlationId: correlationId,
-      payload: undefined,
+      payload: GLOBAL_UNDEFINED,
       error: {
         code: error
       }
