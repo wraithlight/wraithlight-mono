@@ -1,6 +1,6 @@
 import {
-  SendSmsResponse,
-  SendSmsNotificationRequest
+  SendSmsNotificationRequest,
+  SendSmsResponse
 } from "@wraithlight/core.communications.sms-sender.types";
 import { Guid } from "@wraithlight/framework.guid";
 import { isNil } from "@wraithlight/framework.nullable";
