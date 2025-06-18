@@ -1,6 +1,6 @@
 import {
-  SendPushResponse,
-  SendPushNotificationRequest
+  SendPushNotificationRequest,
+  SendPushResponse
 } from "@wraithlight/core.communications.push-sender.types";
 import { Guid } from "@wraithlight/framework.guid";
 import { isNil } from "@wraithlight/framework.nullable";
