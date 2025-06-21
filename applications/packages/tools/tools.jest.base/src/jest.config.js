@@ -76,6 +76,7 @@ const jestConfig = (project, dirname) => {
             `${dirname}/packages/domain/$1/src`,
             `${dirname}/packages/framework/deepmerge/$1/src`,
             `${dirname}/packages/communications/$1/src`,
+            `${dirname}/packages/kernel/$1/src`,
             // END TODO
           ]
         }
