@@ -1,3 +1,4 @@
+import { GLOBAL_UNDEFINED} from "@wraithlight/core.undefined";
 import { cast } from "@wraithlight/framework.type-utils";
 import { RowDataPacket } from "mysql2";
 
@@ -59,7 +60,7 @@ export class BaseSelectQueryContext<T extends object>
               const rawValue = cast<RowDataPacket>(m)[key];
               switch (field.type) {
                 // eslint-disable-next-line max-len
-                case DATETIME_FIELD_TYPE: value = rawValue ? new Date(rawValue) : undefined; break;
+                case DATETIME_FIELD_TYPE: value = rawValue ? new Date(rawValue) : GLOBAL_UNDEFINED; break;
                 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                 default: value = rawValue; break;
               }
