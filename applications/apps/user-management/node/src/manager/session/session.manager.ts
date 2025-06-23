@@ -12,6 +12,7 @@ import {
   UnauthorizedError
 } from "@wraithlight/core.errors";
 import { Guid } from "@wraithlight/core.guid";
+import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 import {
   ExternalSessionPatchResponse,
   ExternalSessionPostResponse,
@@ -190,12 +191,12 @@ export class SessionManager {
 
     const byEmail = byEmailResult.isSuccessTC()
       ? byEmailResult.payload
-      : undefined
+      : GLOBAL_UNDEFINED
     ;
 
     const byName = byNameResult.isSuccessTC()
       ? byNameResult.payload
-      : undefined
+      : GLOBAL_UNDEFINED
     ;
 
     const dbo = isNil(byEmail)

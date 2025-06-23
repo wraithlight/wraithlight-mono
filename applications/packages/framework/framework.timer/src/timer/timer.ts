@@ -1,5 +1,7 @@
+import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
+
 export class Timer {
-  private _startTime: number | undefined = undefined;
+  private _startTime: number | undefined = GLOBAL_UNDEFINED;
 
   public start(): void {
     this._startTime = performance.now();
@@ -10,7 +12,7 @@ export class Timer {
   }
 
   public stop(): number {
-    this._startTime = undefined;
+    this._startTime = GLOBAL_UNDEFINED;
     return this.currentCore();
   }
 

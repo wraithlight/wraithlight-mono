@@ -1,6 +1,7 @@
 import { utcNow } from "@wraithlight/core.date";
 import { Guid, newGuid } from "@wraithlight/core.guid";
 import { isNil } from "@wraithlight/core.nullable";
+import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 import {
   OperationResult,
   OperationResultFactory
@@ -66,7 +67,7 @@ export class UserApplicationService {
     for (const context of contexts.payload) {
       await this.removeContextFromUserInternal(userId, context.applicationId);
     }
-    return OperationResultFactory.success(undefined);
+    return OperationResultFactory.success(GLOBAL_UNDEFINED);
   }
 
   // TODO: Return ReadonlyArray<Application> once https://github.com/wraithlight/wraithlight-mono/issues/766 is done.
@@ -171,7 +172,7 @@ export class UserApplicationService {
       .run()
     ;
 
-    return OperationResultFactory.success(undefined);
+    return OperationResultFactory.success(GLOBAL_UNDEFINED);
   }
 
 }

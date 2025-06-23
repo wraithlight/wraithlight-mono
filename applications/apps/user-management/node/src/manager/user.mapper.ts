@@ -1,5 +1,6 @@
 import { UserDbo } from "@wraithlight/common.user-management.dal";
 import { dateISOSerialize } from "@wraithlight/core.date";
+import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 import { UserResponse } from "@wraithlight/core.user-management.types";
 
 export function dbToDto(dbo: UserDbo): UserResponse {
@@ -12,7 +13,7 @@ export function dbToDto(dbo: UserDbo): UserResponse {
     createdById: dbo.createdByUserId,
     lastUpdatedAtUTC: dbo.updatedAtUtc
       ? dateISOSerialize(dbo.updatedAtUtc)
-      : undefined,
+      : GLOBAL_UNDEFINED,
     lastUpdatedById: dbo.createdByUserId,
     status: dbo.userStatus,
     languageId: dbo.languageId,
