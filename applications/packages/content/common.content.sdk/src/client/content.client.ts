@@ -6,7 +6,8 @@ import {
 import {
     CoreHttpClient
 } from "@wraithlight/core.http";
-import { Nullable } from "@wraithlight/core.nullable";
+import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
+import { Nullable } from "@wraithlight/framework.nullable";
 
 export class ContentClient extends CoreHttpClient {
 
@@ -31,7 +32,7 @@ export class ContentClient extends CoreHttpClient {
         const url = `${this._contentApiBaseUrl}${path}`;
         return this.get<ContentSingleKeyResponseModel>(url)
             .then(m => m.payload)
-            .catch(undefined)
+            .catch(GLOBAL_UNDEFINED)
         ;
     }
 
@@ -41,7 +42,7 @@ export class ContentClient extends CoreHttpClient {
         const url = `${this._contentApiBaseUrl}${path}`;
         return this.get<ContentAppLocalizationResponseModel>(url)
             .then(m => m.payload)
-            .catch(undefined)
+            .catch(GLOBAL_UNDEFINED)
         ;
     }
 
