@@ -93,10 +93,10 @@ const config: KnipConfig = {
         "**/*.ios.ts{,x}"
       ],
       project: [
-        "app/**/*.tsx",
-        "components/**/*.tsx",
-        "constants/**/*.ts",
-        "hooks/**/*.ts",
+        "app/**/*.ts{,x}",
+        "components/**/*.ts{,x}",
+        "constants/**/*.ts{,x}",
+        "hooks/**/*.ts{,x}",
       ],
       ignoreDependencies: [
         "expo-splash-screen",
