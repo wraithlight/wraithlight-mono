@@ -37,6 +37,7 @@ function isNilCore(valueLike: unknown): valueLike is undefined | null {
   if (valueLike === null) {
     return true;
   }
+  // eslint-disable-next-line no-undefined
   if (valueLike === undefined) {
     return true;
   }

@@ -8,4 +8,6 @@ export namespace HeaderName {
   export const IsSsrEnabled = "X-WL-SSR-ENABLED";
   export const CorrelationId = "X-WL-CORRELATION-ID";
   export const RealtimeToken = "X-WL-RT-TOKEN";
+  export const ApplicationType = "X-WL-APPLICATION-TYPE";
+  export const ApplicationTunnel = "X-WL-APPLICATION-TUNNEL";
 }
