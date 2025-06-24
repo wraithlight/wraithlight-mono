@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/product.schema.json",
+  "title": "PACKAGE JSON SCHEMA",
+  "description": "Schema for FE app package.json files in the repository.",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "license": {
+      "type": "string",
+      "enum": [
+        "LGPL-3.0-only"
+      ]
+    },
+    "main": {
+      "type": "string",
+      "enum": [
+        "expo-router/entry"
+      ]
+    },
+    "types": {
+      "type": "string",
+      "enum": [
+        "dist/index.d.ts"
+      ]
+    },
+    "scripts": {
+      "type": "object",
+      "properties": {
+        "run:android": {
+          "type": "string"
+        },
+        "run:ios": {
+          "type": "string"
+        },
+        "run:web": {
+          "type": "string"
+        },
+        "lint": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "run:android",
+        "run:ios",
+        "run:web",
+        "lint"
+      ]
+    },
+    "$schema": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "object"
+    },
+    "devDependencies": {
+      "type": "object"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "module"
+      ],
+      "description": "This is because of the dumb vite config in um.ui (and even in all svelte projects). Remove it ASAP."
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "version",
+    "license",
+    "scripts",
+    "$schema",
+    "devDependencies"
+  ]
+}
