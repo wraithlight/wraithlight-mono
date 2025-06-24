@@ -84,6 +84,27 @@ const config: KnipConfig = {
         "ts-node"
       ]
     },
+    "apps/hub/mobile-app": {
+      entry: [
+        "app/\\(tabs\\)/*.tsx",
+        "app/_layout.tsx",
+        "app/+not-found.tsx",
+        "**/*.web.ts{,x}",
+        "**/*.ios.ts{,x}"
+      ],
+      project: [
+        "app/**/*.tsx",
+        "components/**/*.tsx",
+        "constants/**/*.ts",
+        "hooks/**/*.ts",
+      ],
+      ignoreDependencies: [
+        "expo-splash-screen",
+        "expo-system-ui",
+        "react-dom",
+        "react-native-gesture-handler"
+      ]
+    },
     "apps/website/ui": {
       ignoreDependencies: [
         "@angular/compiler-cli",
