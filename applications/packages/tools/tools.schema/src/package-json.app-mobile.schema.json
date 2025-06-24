@@ -61,13 +61,6 @@
     },
     "devDependencies": {
       "type": "object"
-    },
-    "type": {
-      "type": "string",
-      "enum": [
-        "module"
-      ],
-      "description": "This is because of the dumb vite config in um.ui (and even in all svelte projects). Remove it ASAP."
     }
   },
   "additionalProperties": false,
