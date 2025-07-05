@@ -2,7 +2,7 @@
 
 # ✅ SSOT: Required versions
 declare -A required_versions=(
-  ["Node"]="18.13.0"
+  ["Node"]="18.18.0"
   ["Python"]="3.11"
   ["Git"]="2.40.1"
   ["Docker"]="20.10.22"
