@@ -5,19 +5,19 @@ import { createUrl } from "@wraithlight/core.url";
 
 export class NotifierServiceConfig {
 
-    private readonly _notifierSharedReader = SharedNotifierConfigReader
-        .getInstance(CoreEnvironment.getEnvironmentType());
+  private readonly _notifierSharedReader = SharedNotifierConfigReader
+    .getInstance(CoreEnvironment.getEnvironmentType());
 
-    public getSendMailV1Url(): string {
-        const baseUrl = this._notifierSharedReader.get(m => m.server.baseUrl);
-        const port = this._notifierSharedReader.get(m => m.server.port);
-        const pathRoot = NOTIFIER_ENDPOINT_CONST.v1.send.root;
-        const path = NOTIFIER_ENDPOINT_CONST.v1.send.mail;
-        const url = createUrl(
-            baseUrl,
-            port
-        );
-        return `${url}${pathRoot}${path}`;
-    }
+  public getSendMailV1Url(): string {
+    const baseUrl = this._notifierSharedReader.get(m => m.server.baseUrl);
+    const port = this._notifierSharedReader.get(m => m.server.port);
+    const pathRoot = NOTIFIER_ENDPOINT_CONST.v1.send.root;
+    const path = NOTIFIER_ENDPOINT_CONST.v1.send.mail;
+    const url = createUrl(
+      baseUrl,
+      port
+    );
+    return `${url}${pathRoot}${path}`;
+  }
 
 }
