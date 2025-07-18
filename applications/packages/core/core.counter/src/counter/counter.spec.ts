@@ -11,8 +11,6 @@ describe("CounterSpecs", () => {
   const MOCK_STEP = 1;
   const MOCK_INITIAL_VALUE = 0;
 
-  // const getSpy = jest.spyOn(Dictionary.prototype, "get");
-  // const setSpy = jest.spyOn(Dictionary.prototype, "set");
   const hasSpy = jest.spyOn(Dictionary.prototype, "has");
 
   describe("given the counter is initialized", () => {
