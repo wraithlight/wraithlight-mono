@@ -118,7 +118,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 
 **Requirements**
 * Docker
-* Node >= 18
+* Node >= 18.20.8
 * Python 3.11
 
 The section will explain all the required steps to set up your local/dev environment. Please follow the steps propely.
