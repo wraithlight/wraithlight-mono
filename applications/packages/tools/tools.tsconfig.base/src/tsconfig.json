@@ -40,7 +40,8 @@
         "packages/request-id/*/src/index.ts",
         "packages/latency/*/src/index.ts",
         "packages/domain/*/src/index.ts",
-        "packages/communications/*/src/index.ts"
+        "packages/communications/*/src/index.ts",
+        "packages/kernel/*/src/index.ts"
       ]
     }
   },
