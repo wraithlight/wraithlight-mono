@@ -5,5 +5,5 @@ import { randomNumberBetween } from "@wraithlight/core.random-number";
  * @returns {boolean} A random boolean.
  */
 export function randomBoolean(): boolean {
-    return randomNumberBetween() === 1;
+  return randomNumberBetween() === 1;
 }
