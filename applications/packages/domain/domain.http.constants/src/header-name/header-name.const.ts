@@ -10,4 +10,5 @@ export namespace HeaderName {
   export const RealtimeToken = "X-WL-RT-TOKEN";
   export const ApplicationType = "X-WL-APPLICATION-TYPE";
   export const ApplicationTunnel = "X-WL-APPLICATION-TUNNEL";
+  export const RequestId = "X-WL-REQUEST-ID";
 }
