@@ -1,9 +1,9 @@
 export interface BaseRegisterResponse {
-    success: boolean;
+  success: boolean;
 }
 
 export interface ErrorRegisterResponse extends BaseRegisterResponse {
-    errors: Array<string>;
+  errors: Array<string>;
 }
 
 export interface SuccessRegisterResponse extends BaseRegisterResponse {
