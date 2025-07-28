@@ -18,6 +18,6 @@ const realtimeTokenHeaderName = HeaderName.RealtimeToken;
 const applicationTypeHeaderName = HeaderName.ApplicationType;
 const applicationTunnelHeaderName = HeaderName.ApplicationTunnel;
 const requestIdHeaderName = HeaderName.RequestId
-const sessionId = HeaderName.SessionIdentifier;
+const sessionIdHeaderName = HeaderName.SessionIdentifier;
 
 ```
