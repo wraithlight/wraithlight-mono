@@ -169,9 +169,9 @@ export abstract class HttpClient {
       [HeaderName.RequestId]: requestId
     };
     const init: RequestInit = {
-        method,
-        body: data,
-        headers: requestHeaders
+      method,
+      body: data,
+      headers: requestHeaders
     };
     const result: InternalHttpResponse = await fetch(
       url,
