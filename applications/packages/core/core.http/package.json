@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@wraithlight/core.dom": "*",
-    "@wraithlight/core.undefined": "*",
+    "@wraithlight/kernel.undefined": "*",
     "@wraithlight/domain.http.types": "*",
     "@wraithlight/framework.type-utils": "*",
     "@wraithlight/domain.http.constants": "*"
