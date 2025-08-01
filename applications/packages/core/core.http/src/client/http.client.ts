@@ -1,7 +1,7 @@
 import { Guid, newGuid } from "@wraithlight/core.guid";
-import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 import { HeaderName } from "@wraithlight/domain.http.constants";
 import { cast } from "@wraithlight/framework.type-utils";
+import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 
 import {
   HttpCode,
