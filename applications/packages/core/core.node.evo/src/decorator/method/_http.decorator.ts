@@ -3,6 +3,8 @@ import { HttpVerb } from "@wraithlight/core.http";
 import { BaseController } from "../../base";
 import { HandlerContext } from "../../handler-context";
 
+import { requestIdGuard } from "./_http.utils";
+
 export type IHttpDecorator<T> = (
   target: T,
   property: string,
@@ -21,6 +23,10 @@ export const HttpDecorator = <T extends BaseController>(
       propertyKey,
       path,
       verb
+    );
+    HandlerContext.addFilter(
+      propertyKey,
+      requestIdGuard
     );
     return descriptorValue;
   }
