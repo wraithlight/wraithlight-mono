@@ -1,3 +1,3 @@
 export interface LogoutRequest {
-    sessionToken: string;
+  sessionToken: string;
 }
