@@ -1,11 +1,11 @@
 import { newGuid } from "@wraithlight/core.guid";
 import {
-    REQUEST_ID_HEADER_NAME
+  REQUEST_ID_HEADER_NAME
 } from "@wraithlight/core.request-id.constants";
 import {
-    NextFunction,
-    Request,
-    Response
+  NextFunction,
+  Request,
+  Response
 } from "express";
 
 export function addRequestId(
