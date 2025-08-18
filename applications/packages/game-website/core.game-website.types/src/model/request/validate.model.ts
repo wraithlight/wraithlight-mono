@@ -1,3 +1,3 @@
 export interface ValidateRequest {
-    sessionToken: string;
+  sessionToken: string;
 }
