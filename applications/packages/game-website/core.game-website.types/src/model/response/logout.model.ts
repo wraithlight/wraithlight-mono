@@ -1,3 +1,3 @@
 export interface LogoutResponse {
-    success: boolean;
+  success: boolean;
 }
