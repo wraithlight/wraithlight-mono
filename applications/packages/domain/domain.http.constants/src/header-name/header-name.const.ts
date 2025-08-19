@@ -11,4 +11,5 @@ export namespace HeaderName {
   export const ApplicationType = "X-WL-APPLICATION-TYPE";
   export const ApplicationTunnel = "X-WL-APPLICATION-TUNNEL";
   export const RequestId = "X-WL-REQUEST-ID";
+  export const SessionIdentifier = "X-WL-SESSION-ID";
 }
