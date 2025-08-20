@@ -9,6 +9,6 @@ const __dirname = dirname(__filename);
 const databaseName = process.argv[3];
 
 build(
-    join(__dirname, "src"),
-    databaseName
+  join(__dirname, "src"),
+  databaseName
 );
