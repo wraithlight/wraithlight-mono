@@ -1,9 +1,11 @@
 const addMethodSpy = jest.fn();
+const addFilterSpy = jest.fn();
 
 jest.mock("../../handler-context", () => {
   return {
     HandlerContext: {
-      addMethod: addMethodSpy
+      addMethod: addMethodSpy,
+      addFilter: addFilterSpy
     }
   }
 });
@@ -13,6 +15,7 @@ import { HttpVerb } from "@wraithlight/core.http";
 import { HttpDecorator } from "./_http.decorator";
 
 import { BaseController } from "../../base";
+import { requestIdGuard } from "./_http.utils";
 
 class MockController extends BaseController { }
 
@@ -25,7 +28,7 @@ describe("HttpDecoratorSpecs", () => {
 
   describe("given the function is callable", () => {
     describe("when i call it", () => {
-      beforeEach(() => {
+      beforeAll(() => {
         const decoratorFactory = HttpDecorator(
           MOCK_PATH,
           MOCK_VERB
@@ -36,10 +39,15 @@ describe("HttpDecoratorSpecs", () => {
           MOCK_DESCRIPTOR_VALUE
         );
       });
-      it("should call `HandlerContext`", () => {
+      it("should call `HandlerContext.addMethod`", () => {
         expect(addMethodSpy).toHaveBeenCalled();
         expect(addMethodSpy).toHaveBeenCalledTimes(1);
         expect(addMethodSpy).toHaveBeenCalledWith(MOCK_PROPERTY_KEY, MOCK_PATH, MOCK_VERB);
+      });
+      it("should call `HandlerContext.addFilter`", () => {
+        expect(addFilterSpy).toHaveBeenCalled();
+        expect(addFilterSpy).toHaveBeenCalledTimes(1);
+        expect(addFilterSpy).toHaveBeenCalledWith(MOCK_PROPERTY_KEY, requestIdGuard);
       });
     });
   });
