@@ -23,6 +23,11 @@ module.exports = (env) => {
         filename: isProduction ? "bundle.min.css" : "bundle.css"
       })
     ],
+    resolve: {
+      fallback: {
+        crypto: require.resolve("crypto-browserify")
+      }
+    },
     module: {
       rules: [
         {

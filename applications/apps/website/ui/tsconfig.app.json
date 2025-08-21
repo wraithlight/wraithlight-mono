@@ -3,7 +3,9 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": ["node"],
-    "paths": {}
+    "paths": {
+      "crypto": ["./node_modules/crypto-browserify"]
+    }
   },
   "files": [
     "src/main.ts"

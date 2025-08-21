@@ -27,7 +27,8 @@
     "@wraithlight/core.redux": "*",
     "rxjs": "7.8.0",
     "tslib": "2.5.0",
-    "zone.js": "0.13.0"
+    "zone.js": "0.13.0",
+    "crypto-browserify": "3.12.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "16.0.0",
