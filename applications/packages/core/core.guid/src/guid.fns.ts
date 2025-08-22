@@ -1,3 +1,13 @@
+import {
+  HEX_MAX_VALUE,
+  HEX_PRECISION,
+  SEGMENT_1_LENGTH,
+  SEGMENT_2_LENGTH,
+  SEGMENT_5_LENGTH,
+  VARIANT_LENGTH,
+  VERSION_LENGTH,
+  VERSION_MAX_NUMBER
+} from "./guid.const";
 import { Guid } from "./guid.type";
 
 /**
@@ -15,12 +25,17 @@ export function isGuid(guidLike: string): guidLike is Guid {
  * @returns {Guid} The new GUID.
  */
 export function newGuid(): Guid {
-  const hex = (length: number) =>
-    Array.from({ length }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-  const version = (Math.floor(Math.random() * 9) + 1).toString() + hex(3);
+  // eslint-disable-next-line max-len
+  const hex = (length: number): string => Array.from({ length }, () => Math.floor(Math.random() * HEX_MAX_VALUE).toString(HEX_PRECISION)).join("");
+  // eslint-disable-next-line max-len
+  const randomIn = (length: number): number => Math.floor(Math.random() * length);
 
-  const variantChars = 'aAbB89';
-  const variant = variantChars[Math.floor(Math.random() * variantChars.length)] + hex(3);
+  // eslint-disable-next-line max-len
+  const version = (Math.floor(Math.random() * VERSION_MAX_NUMBER) + 1).toString() + hex(VERSION_LENGTH);
 
-  return `${hex(8)}-${hex(4)}-${version}-${variant}-${hex(12)}`;
+  const variantChars = "aAbB89";
+  // eslint-disable-next-line max-len
+  const variant = variantChars[randomIn(variantChars.length)] + hex(VARIANT_LENGTH);
+
+  return `${hex(SEGMENT_1_LENGTH)}-${hex(SEGMENT_2_LENGTH)}-${version}-${variant}-${hex(SEGMENT_5_LENGTH)}`;
 }
