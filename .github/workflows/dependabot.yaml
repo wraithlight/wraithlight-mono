@@ -44,7 +44,7 @@ jobs:
       - name: Configure Node.js
         uses: actions/setup-node@v2.1.5
         with:
-          node-version: 18.x
+          node-version: 18.20.8
 
       - name: Restore cache
         uses: actions/cache@v2.1.4
