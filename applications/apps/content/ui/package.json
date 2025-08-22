@@ -15,8 +15,7 @@
     "@wraithlight/common.auth-sdk.client": "*",
     "@wraithlight/core.dom": "*",
     "@wraithlight/core.redux": "*",
-    "mithril": "2.2.2",
-    "crypto-browserify": "3.12.1"
+    "mithril": "2.2.2"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
