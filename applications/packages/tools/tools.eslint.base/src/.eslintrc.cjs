@@ -84,9 +84,18 @@ const eslintConfig = (dirname) =>({
     ],
     "no-restricted-globals": [
       "error",
-      "document",
-      "window",
-      "navigator",
+      {
+        name: "document",
+        message: "Import `getDocumentRef()` from `@wraithlight/core.dom` instead."
+      },
+      {
+        name: "window",
+        message: "Import `getWindowRef()` from `@wraithlight/core.dom` instead."
+      },
+      {
+        name: "navigator",
+        message: "Import `getNavigatorRef()` from `@wraithlight/core.dom` instead."
+      },
       {
         name: "atob",
         message: "Import `fromBase64String() from `core.base64` instead."
