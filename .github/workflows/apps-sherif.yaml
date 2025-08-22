@@ -1,0 +1,21 @@
+name: "Applications GHA - Sherif"
+run-name: "APPS SHERIF"
+on: [push, workflow_dispatch]
+jobs:
+  appsSherif:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.20.8
+        cache: "yarn"
+        cache-dependency-path: applications/yarn.lock
+    - name: Install packages
+      run: yarn
+      working-directory: ./applications
+    - name: Run sherif
+      run: yarn sherif
+      working-directory: ./applications

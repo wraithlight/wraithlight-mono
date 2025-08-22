@@ -25,8 +25,8 @@
     "@wraithlight/core.http": "*",
     "@wraithlight/core.undefined": "*",
     "@wraithlight/domain.http.constants": "*",
-    "@wraithlight/framework.nullable": "*",
     "@wraithlight/framework.guid": "*",
+    "@wraithlight/framework.nullable": "*",
     "@wraithlight/framework.operation-result": "*"
   },
   "devDependencies": {
