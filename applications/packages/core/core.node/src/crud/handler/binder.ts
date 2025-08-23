@@ -17,6 +17,8 @@ import {
   MethodMetadata
 } from "../internal";
 
+import { requestIdFilter } from "./binder.utils";
+
 export class ControllerBinder {
 
   public static bindControllers(
@@ -102,15 +104,17 @@ export class ControllerBinder {
     controller: BaseController,
     methodName: string
   ): ReadonlyArray<Invoker> {
+
     if (!controller[FILTER_METADATA_KEY]) {
-      return [];
+      return [requestIdFilter];
     }
 
     if (!controller[FILTER_METADATA_KEY][methodName]) {
-      return [];
+      return [requestIdFilter];
     }
 
-    return controller[FILTER_METADATA_KEY][methodName];
+    const filters = controller[FILTER_METADATA_KEY][methodName];
+    return [requestIdFilter, ...filters];
   }
 
   private static getMethod(
