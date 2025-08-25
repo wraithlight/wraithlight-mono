@@ -11429,6 +11429,48 @@ shell-quote@^1.8.1:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.8.2.tgz#d2d83e057959d53ec261311e9e9b8f51dcb2934a"
   integrity sha512-AzqKpGKjrj7EM6rKVQEPpB288oCfnrEIuyoT9cyF4nmGa7V8Zk6f7RRqYisX8X9m+Q7bd632aZW4ky7EhbQztA==
 
+sherif-darwin-arm64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/sherif-darwin-arm64/-/sherif-darwin-arm64-1.6.1.tgz#3d9fd1b86e0551c26c27e8d68984fd161d453fa4"
+  integrity sha512-J15oBJcrnCAZ0rQE8WbMShYw3204A18akCH6C/uZrILTwX/vZyJIqi7lAt5L00LzsadA3HcyQqVjLNNCvuihoQ==
+
+sherif-darwin-x64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/sherif-darwin-x64/-/sherif-darwin-x64-1.6.1.tgz#26881e4ef8c0a7cbba1c3fc490ea0fa70bf7d7c4"
+  integrity sha512-oLA/GtvUasi+qCl35LczOhQ4g/xY2mxE5/eiTYQGT3Ow7FKLscnkE6v5l28bgkFeR/uke0AgZ/CgHhozAf0ulg==
+
+sherif-linux-arm64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/sherif-linux-arm64/-/sherif-linux-arm64-1.6.1.tgz#7b5e015914d0b02ca312bf9079a122c2f2e3a41d"
+  integrity sha512-OoltlucT7v9BZdkYZRbs1QU0DYMCQ5qgpMqQdMW1Rq3w3amr7+oEiV9NHntD83udOo8xRxKq0uPXfNYu+VptJw==
+
+sherif-linux-x64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/sherif-linux-x64/-/sherif-linux-x64-1.6.1.tgz#d310a76e5f9bda4e35db7fb55a4cdebd2ea087dd"
+  integrity sha512-qyDyYqpi3ABGkRuCnjnxN3OMT8DxMiiLzhS9p9xC05Y9nr5hjkxvqP4DdJ4e5opm4E7vzRAS7VQoZ6m7h6tsgQ==
+
+sherif-windows-arm64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/sherif-windows-arm64/-/sherif-windows-arm64-1.6.1.tgz#a86329b33debf945414f1cf4d10ab3505b50fa82"
+  integrity sha512-wAbCiqP//lo7bZUlHmZUV3/sGjnJxo6QB5/fqhz5/GUeWh4CTyvlSacJKZxLnXnzpiUSeFnWutquWnHkRov5Ug==
+
+sherif-windows-x64@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/sherif-windows-x64/-/sherif-windows-x64-1.6.1.tgz#10686c92eefd7d670971aa14a873eea037e2c6bd"
+  integrity sha512-2r0qMxZGCMO2aq8Hlq7npxtAsUFVDsEFtUM/6dFo1npa/jHe2mbU7ii/Ymy0bloSa/qw/azrSfRV6GLU7Gjtxg==
+
+sherif@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/sherif/-/sherif-1.6.1.tgz#b0b8e49b954013cb50c2e652273927de5faaeeee"
+  integrity sha512-ZnwyTnmXoUOPClkOA37JWIyFxCoozMGHmhk/p7XbTREI554XXCnBAn3BMX8UsqkhSzQ9eNQsq4U+jnImEIppsQ==
+  optionalDependencies:
+    sherif-darwin-arm64 "1.6.1"
+    sherif-darwin-x64 "1.6.1"
+    sherif-linux-arm64 "1.6.1"
+    sherif-linux-x64 "1.6.1"
+    sherif-windows-arm64 "1.6.1"
+    sherif-windows-x64 "1.6.1"
+
 side-channel-list@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/side-channel-list/-/side-channel-list-1.0.0.tgz#10cb5984263115d3b7a0e336591e290a830af8ad"

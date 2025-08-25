@@ -22,11 +22,11 @@
   "dependencies": {
     "@wraithlight/common.logger.sdk": "*",
     "@wraithlight/core.nullable": "*",
+    "@wraithlight/core.undefined": "*",
+    "@wraithlight/framework.nullable": "*",
     "@wraithlight/framework.primitive": "*",
     "@wraithlight/framework.type-utils": "*",
-    "mysql2": "3.2.0",
-    "@wraithlight/framework.nullable": "*",
-    "@wraithlight/core.undefined": "*"
+    "mysql2": "3.2.0"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",

@@ -7,8 +7,8 @@
   },
   "dependencies": {
     "@wraithlight/common.health-checker.sdk-server": "*",
-    "@wraithlight/core.node.evo": "*",
     "@wraithlight/core.http": "*",
+    "@wraithlight/core.node.evo": "*",
     "express": "4.18.2"
   },
   "devDependencies": {

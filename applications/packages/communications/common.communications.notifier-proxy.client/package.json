@@ -26,8 +26,8 @@
     "@wraithlight/core.undefined": "*",
     "@wraithlight/domain.http.constants": "*",
     "@wraithlight/domain.http.types": "*",
-    "@wraithlight/framework.guid": "*",
     "@wraithlight/framework.date": "*",
+    "@wraithlight/framework.guid": "*",
     "@wraithlight/framework.nullable": "*",
     "@wraithlight/framework.operation-result": "*"
   },

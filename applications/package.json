@@ -1,6 +1,7 @@
 {
   "name": "wraithlight-mono",
   "private": true,
+  "packageManager": "yarn@1.22.19",
   "scripts": {
     "nx": "nx",
     "knip": "knip --config knip-config.ts",
@@ -29,7 +30,8 @@
     "apply-patches": "ts-node .patches/index.ts",
     "readme-check": "node .tools/readme-check.mjs",
     "deplist": "node .tools/deplist.mjs",
-    "validate-workspaces": "node .tools/workspace-validator.mjs --silent"
+    "validate-workspaces": "node .tools/workspace-validator.mjs --silent",
+    "sherif": "sherif"
   },
   "workspaces": [
     "apps/**/*",
@@ -54,7 +56,6 @@
     "packages/framework/*",
     "packages/framework/deepmerge/*",
     "packages/health-checker/*",
-    "packages/facade/*",
     "packages/game-website/*",
     "packages/content/*",
     "packages/tools/*",
@@ -67,8 +68,8 @@
     "packages/kernel/*",
     "poc/*"
   ],
-  "engines" : { 
-    "node" : ">=18.0.0 <19.0.0",
+  "engines": {
+    "node": ">=18.0.0 <19.0.0",
     "yarn": ">=1.22.0 <1.23.0"
   },
   "dependencies": {
@@ -76,19 +77,20 @@
     "@wraithlight/common.logger.sdk": "*"
   },
   "devDependencies": {
-    "typescript": "5.0.4",
-    "lerna": "7.1.0",
-    "jsonschema": "1.4.1",
-    "knip": "5.0.0",
-    "open-cli": "7.2.0",
-    "mustache": "4.2.0",
-    "nx": "16.7.2",
+    "@types/jest": "29.5.14",
+    "@types/node": "20.11.28",
     "@wraithlight/tools.eslint.base": "*",
     "@wraithlight/tools.jest.base": "*",
-    "@wraithlight/tools.webpack.base": "*",
     "@wraithlight/tools.tsconfig.base": "*",
-    "@types/node": "20.11.28",
-    "@types/jest": "29.5.14",
-    "ts-node": "10.9.1"
+    "@wraithlight/tools.webpack.base": "*",
+    "jsonschema": "1.4.1",
+    "knip": "5.0.0",
+    "lerna": "7.1.0",
+    "mustache": "4.2.0",
+    "nx": "16.7.2",
+    "open-cli": "7.2.0",
+    "sherif": "1.6.1",
+    "ts-node": "10.9.1",
+    "typescript": "5.0.4"
   }
 }
