@@ -10,7 +10,7 @@ COPY ${SRC_NAME}/ /temp/${SRC_NAME}/
 USER root
 RUN bash /temp/${SRC_NAME}/build.sh
 
-FROM mysql:8.0.32 as runner
+FROM mysql:8.0.32 AS runner
 ARG SRC_NAME
 WORKDIR /usr/src/app
 
