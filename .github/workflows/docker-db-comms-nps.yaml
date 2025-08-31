@@ -1,0 +1,35 @@
+name: "Database GHA - Comms NPS Build"
+run-name: "DB CNPS BUILD"
+on: [push, workflow_dispatch]
+
+env:
+  WORK_DIR: database/communications-nps
+  DOCKER_FILE_PATH: ../Dockerfile.db
+  DOCKER_IMAGE_NAME: db-comms-nps
+
+jobs:
+  dbCNPSBuild:
+    name: Build COMMS NPS Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+
+    # TODO: Remove once the image build contains the SQL build too.
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.x
+
+    # TODO: Remove once the image build contains the SQL build too.
+    - name: Run build
+      working-directory: ${{ env.WORK_DIR }}
+      run: bash build.sh
+
+    - name: Build the Docker image
+      working-directory: ${{ env.WORK_DIR }}
+      run: docker build . -f ${{ env.DOCKER_FILE_PATH }} -t $DOCKER_IMAGE_NAME
+
+    - name: Remove the local image
+      run: docker rmi $DOCKER_IMAGE_NAME
