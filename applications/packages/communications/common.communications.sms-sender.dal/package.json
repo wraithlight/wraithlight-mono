@@ -20,8 +20,8 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@wraithlight/core.orm": "*",
     "@wraithlight/core.guid": "*",
+    "@wraithlight/core.orm": "*",
     "@wraithlight/framework.date": "*",
     "@wraithlight/framework.nullable": "*",
     "@wraithlight/framework.operation-result": "*"
