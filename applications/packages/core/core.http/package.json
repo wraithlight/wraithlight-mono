@@ -21,10 +21,10 @@
   },
   "dependencies": {
     "@wraithlight/core.dom": "*",
-    "@wraithlight/kernel.undefined": "*",
+    "@wraithlight/domain.http.constants": "*",
     "@wraithlight/domain.http.types": "*",
     "@wraithlight/framework.type-utils": "*",
-    "@wraithlight/domain.http.constants": "*"
+    "@wraithlight/kernel.undefined": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
