@@ -1,5 +1,7 @@
-import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
+import { Guid, newGuid } from "@wraithlight/core.guid";
+import { HeaderName } from "@wraithlight/domain.http.constants";
 import { cast } from "@wraithlight/framework.type-utils";
+import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 
 import {
   HttpCode,
@@ -20,12 +22,14 @@ export abstract class HttpClient {
   protected abstract onBeforeCall(
     url: string,
     method: HttpVerb,
+    requestId: Guid,
     bodyJson?: string
   ): boolean;
   protected abstract onAfterCall<T>(
     url: string,
     responseCode: HttpCode,
-    response: T
+    response: T,
+    requestId: Guid
   ): void;
 
   /**
@@ -148,9 +152,11 @@ export abstract class HttpClient {
     url: string,
     data?: string
   ): Promise<HttpResponse<TResult>> {
+    const requestId = newGuid();
     if (!this.onBeforeCall(
       url,
       method,
+      requestId,
       data
     )) {
       return {
@@ -158,13 +164,18 @@ export abstract class HttpClient {
         isAborted: true
       };
     }
+    const requestHeaders: HeadersInit = {
+      ...this.getHeaders(),
+      [HeaderName.RequestId]: requestId
+    };
+    const init: RequestInit = {
+      method,
+      body: data,
+      headers: requestHeaders
+    };
     const result: InternalHttpResponse = await fetch(
       url,
-      {
-        method,
-        body: data,
-        headers: this.getHeaders()
-      }
+      init
     )
       .then((m: InternalExpressResponse) => {
         if (!this.getNotFailHttpCodes().includes(m.status)) {
@@ -189,7 +200,8 @@ export abstract class HttpClient {
     this.onAfterCall(
       url,
       result.statusCode,
-      payload
+      payload,
+      requestId
     );
 
     return {
