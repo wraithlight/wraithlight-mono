@@ -4,6 +4,7 @@ on: [push, workflow_dispatch]
 
 env:
   WORK_DIR: database
+  SRC_NAME: communications-ess
   DOCKER_FILE_PATH: Dockerfile
   DOCKER_IMAGE_NAME: db-comms-ess
 
@@ -18,7 +19,7 @@ jobs:
 
     - name: Build the Docker image
       working-directory: ${{ env.WORK_DIR }}
-      run: docker build . -f ${{ env.DOCKER_FILE_PATH }} -t $DOCKER_IMAGE_NAME
+      run: docker build . -f ${{ env.DOCKER_FILE_PATH }} --build-arg SRC_NAME=$SRC_NAME -t $DOCKER_IMAGE_NAME
 
     - name: Remove the local image
       run: docker rmi $DOCKER_IMAGE_NAME
