@@ -1,4 +1,4 @@
-import { OperationResultFactory, OperationResult } from "@wraithlight/framework.operation-result";
+import { OperationResult, OperationResultFactory } from "@wraithlight/framework.operation-result";
 
 import { ERROR_CODES } from "./sms-sender.const";
 
