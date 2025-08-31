@@ -1,11 +1,11 @@
 import { EOL } from "os";
 
 export function useDatabase(
-    databaseName
+  databaseName
 ) {
-    const commands = [
-        `USE \`${databaseName}\`;`
-      ];
-    
-      return commands.join(EOL);
+  const commands = [
+    `USE \`${databaseName}\`;`
+  ];
+
+  return commands.join(EOL);
 }
