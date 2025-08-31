@@ -24,10 +24,10 @@
     "@wraithlight/core.nullable": "*",
     "@wraithlight/core.orm": "*",
     "@wraithlight/core.random-string": "*",
+    "@wraithlight/core.undefined": "*",
     "@wraithlight/core.user-management.types": "*",
-    "@wraithlight/framework.operation-result": "*",
     "@wraithlight/framework.nullable": "*",
-    "@wraithlight/core.undefined": "*"
+    "@wraithlight/framework.operation-result": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
