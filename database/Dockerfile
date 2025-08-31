@@ -1,4 +1,4 @@
-ARG SRC_NAME=communications-ess
+ARG SRC_NAME
 
 FROM node:18.13.0 AS builder
 ARG SRC_NAME
