@@ -3,8 +3,8 @@ run-name: "DB CESS BUILD"
 on: [push, workflow_dispatch]
 
 env:
-  WORK_DIR: database/communications-ess
-  DOCKER_FILE_PATH: ../Dockerfile.db
+  WORK_DIR: database
+  DOCKER_FILE_PATH: Dockerfile
   DOCKER_IMAGE_NAME: db-comms-ess
 
 jobs:
@@ -15,17 +15,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-
-    # TODO: Remove once the image build contains the SQL build too.
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.x
-
-    # TODO: Remove once the image build contains the SQL build too.
-    - name: Run build
-      working-directory: ${{ env.WORK_DIR }}
-      run: bash build.sh
 
     - name: Build the Docker image
       working-directory: ${{ env.WORK_DIR }}
