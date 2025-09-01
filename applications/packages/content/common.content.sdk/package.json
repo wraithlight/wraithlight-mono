@@ -26,9 +26,9 @@
     "@wraithlight/core.guid": "*",
     "@wraithlight/core.http": "*",
     "@wraithlight/core.nullable": "*",
-    "@wraithlight/framework.operation-result": "*",
     "@wraithlight/core.undefined": "*",
-    "@wraithlight/framework.nullable": "*"
+    "@wraithlight/framework.nullable": "*",
+    "@wraithlight/framework.operation-result": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",

@@ -20,8 +20,8 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "socket.io-client": "4.7.2",
-    "@wraithlight/core.undefined": "*"
+    "@wraithlight/core.undefined": "*",
+    "socket.io-client": "4.7.2"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
