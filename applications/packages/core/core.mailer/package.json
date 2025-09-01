@@ -33,7 +33,7 @@
     "typescript": "5.0.4"
   },
   "dependencies": {
-    "@wraithlight/facade.nodemailer": "*",
-    "@wraithlight/core.undefined": "*"
+    "@wraithlight/core.undefined": "*",
+    "@wraithlight/facade.nodemailer": "*"
   }
 }

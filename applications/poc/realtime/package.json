@@ -12,12 +12,12 @@
     "@wraithlight/common.realtime.sdk-client": "*",
     "@wraithlight/common.realtime.sdk-server": "*",
     "@wraithlight/core.auth.constant": "*",
-    "@wraithlight/core.server": "*",
-    "@wraithlight/core.realtime.types": "*"
+    "@wraithlight/core.realtime.types": "*",
+    "@wraithlight/core.server": "*"
   },
   "devDependencies": {
+    "multiview": "3.0.1",
     "ts-node": "10.9.1",
-    "typescript": "5.0.4",
-    "multiview": "3.0.1"
+    "typescript": "5.0.4"
   }
 }
