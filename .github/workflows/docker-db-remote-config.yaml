@@ -1,16 +1,16 @@
-name: "Database GHA - Content Build"
-run-name: "DB CONTENT BUILD"
+name: "Database GHA - RC Build"
+run-name: "DB RC BUILD"
 on: [push, workflow_dispatch]
 
 env:
   WORK_DIR: database
-  SRC_NAME: content
+  SRC_NAME: remote-config
   DOCKER_FILE_PATH: Dockerfile
-  DOCKER_IMAGE_NAME: db-content
+  DOCKER_IMAGE_NAME: db-remote-config
 
 jobs:
-  dbContentBuild:
-    name: Build CONTENT Docker Image
+  dbRemoteConfigBuild:
+    name: Build RC Docker Image
     runs-on: ubuntu-latest
 
     steps:
