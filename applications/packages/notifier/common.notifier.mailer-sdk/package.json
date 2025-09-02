@@ -22,8 +22,8 @@
   "dependencies": {
     "@wraithlight/core.errors": "*",
     "@wraithlight/core.notifier.types": "*",
-    "@wraithlight/facade.nodemailer": "*",
-    "@wraithlight/core.undefined": "*"
+    "@wraithlight/core.undefined": "*",
+    "@wraithlight/facade.nodemailer": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
