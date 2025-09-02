@@ -25,11 +25,11 @@
     "@wraithlight/core.http": "*",
     "@wraithlight/core.linq": "*",
     "@wraithlight/core.nullable": "*",
+    "@wraithlight/core.undefined": "*",
+    "@wraithlight/domain.http.constants": "*",
     "cors": "2.8.5",
     "express": "4.18.2",
-    "swagger-ui-express": "5.0.1",
-    "@wraithlight/core.undefined": "*",
-    "@wraithlight/domain.http.constants": "*"
+    "swagger-ui-express": "5.0.1"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",

@@ -19,7 +19,6 @@
     "build": "rimraf dist/esm && tsc -p tsconfig.build.json",
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
-  "dependencies": {},
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
     "@typescript-eslint/eslint-plugin": "5.59.2",
