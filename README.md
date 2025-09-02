@@ -32,7 +32,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 ### Database
 |                                                                                                 Build                                                                                                 |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [![Database GHA - Build](https://github.com/wraithlight/wraithlight-mono/actions/workflows/db-build.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/db-build.yaml) |
+| N/A |
 
 ### Applications
 |                                                                                                     Build                                                                                                     |                                                                                                    Lint                                                                                                    |                                                                                                   Tests                                                                                                    |
@@ -193,6 +193,7 @@ apply-patches                 - Runs `node_modules` patches.
 deplist                       - Checks for duplicate 3rd party dependencies. Optional flag: --silent
 readme-check                  - Checks if the readmes are there and has proper title. Optional flag: --silent
 validate-workspaces           - Check the workspace layouts. Optional flag: --silent
+sherif                        - Runs sherif that check package.json files.
 
 ```
 
