@@ -32,7 +32,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 ### Database
 |                                                                                                 Build                                                                                                 |
 | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| [![Database GHA - Build](https://github.com/wraithlight/wraithlight-mono/actions/workflows/db-build.yaml/badge.svg)](https://github.com/wraithlight/wraithlight-mono/actions/workflows/db-build.yaml) |
+| N/A |
 
 ### Applications
 |                                                                                                     Build                                                                                                     |                                                                                                    Lint                                                                                                    |                                                                                                   Tests                                                                                                    |
