@@ -3,4 +3,5 @@ export * from "./array";
 export * from "./cast";
 export * from "./empty-array";
 export * from "./empty-readonly-array";
+export * from "./non-empty-array";
 export * from "./unknown-or-t";
