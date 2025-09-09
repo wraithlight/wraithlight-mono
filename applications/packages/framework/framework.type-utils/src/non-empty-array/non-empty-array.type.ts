@@ -1,1 +1,1 @@
-export type NonEmptyArray<T> = Array<T> & [T, ...T[]];
+export type NonEmptyArray<T> = Array<T> & [T, ...Array<T>];
