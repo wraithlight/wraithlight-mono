@@ -8,7 +8,7 @@ CREATE TABLE `Communication` (
     `SenderName` VARCHAR(100) NOT NULL,
     `ReplyToEmailAddress` VARCHAR(100) NOT NULL,
     `ReplyToName` VARCHAR(100) NOT NULL,
-    `ProviderId` VARCHAR(256) NULL,
+    `ProviderId` VARCHAR(36) NOT NULL,
     `Status` TEXT NOT NULL,
     `ErrorMessage` TEXT NULL,
     `ReceviedAtUtc` DATETIME NOT NULL,
