@@ -30,6 +30,7 @@ export class NotificationQueueService {
     senderName: string,
     replyToEmailAddress: string,
     replyToName: string,
+    providerId: Guid,
     receviedAtUtc: Date,
     lastUpdatedAtUtc: Date
   ): Promise<OperationResult<CommunicationQueueDbo>> {
@@ -43,6 +44,7 @@ export class NotificationQueueService {
       senderName: senderName,
       replyToEmailAddress: replyToEmailAddress,
       replyToName: replyToName,
+      providerId: providerId,
       status: "NOTIFICATION_IN_QUEUE",
       receviedAtUtc: receviedAtUtc,
       lastUpdatedAtUtc: lastUpdatedAtUtc
