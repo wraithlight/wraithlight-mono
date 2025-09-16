@@ -25,6 +25,7 @@ export class NotificationQueueService {
     proxyId: Guid,
     content: string,
     recipientIdentifier: string,
+    providerId: Guid,
     receviedAtUtc: Date,
     lastUpdatedAtUtc: Date
   ): Promise<OperationResult<CommunicationQueueDbo>> {
@@ -33,6 +34,7 @@ export class NotificationQueueService {
       proxyId: proxyId,
       content: content,
       recipientIdentifier: recipientIdentifier,
+      providerId: providerId,
       status: "NOTIFICATION_IN_QUEUE",
       receviedAtUtc: receviedAtUtc,
       lastUpdatedAtUtc: lastUpdatedAtUtc
