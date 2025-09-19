@@ -54,6 +54,7 @@
     "packages/common/*",
     "packages/common/password/*",
     "packages/framework/*",
+    "packages/framework/brand/*",
     "packages/framework/deepmerge/*",
     "packages/health-checker/*",
     "packages/game-website/*",
