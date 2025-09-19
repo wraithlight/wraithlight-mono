@@ -28,6 +28,7 @@ export class NotificationQueueService {
     content: string,
     applicationLink: string,
     logoUrl: string,
+    providerId: Guid,
     receviedAtUtc: Date,
     lastUpdatedAtUtc: Date
   ): Promise<OperationResult<CommunicationQueueDbo>> {
@@ -39,6 +40,7 @@ export class NotificationQueueService {
       content: content,
       applicationLink: applicationLink,
       logoUrl: logoUrl,
+      providerId: providerId,
       status: "NOTIFICATION_IN_QUEUE",
       receviedAtUtc: receviedAtUtc,
       lastUpdatedAtUtc: lastUpdatedAtUtc
