@@ -49,7 +49,6 @@ const jestConfig = (project, dirname) => {
             // TODO: create mocks for these libs. (#571)
             `${dirname}/packages/$1/src`,
             `${dirname}/packages/realtime/$1/src`,
-            `${dirname}/packages/framework/$1/src`,
             `${dirname}/packages/core/$1/src`,
             `${dirname}/packages/core/env/$1/src`,
             `${dirname}/packages/common/$1/src`,
@@ -74,6 +73,8 @@ const jestConfig = (project, dirname) => {
             `${dirname}/packages/request-id/$1/src`,
             `${dirname}/packages/latency/$1/src`,
             `${dirname}/packages/domain/$1/src`,
+            `${dirname}/packages/framework/$1/src`,
+            `${dirname}/packages/framework/brand/$1/src`,
             `${dirname}/packages/framework/deepmerge/$1/src`,
             `${dirname}/packages/communications/$1/src`,
             `${dirname}/packages/kernel/$1/src`,
