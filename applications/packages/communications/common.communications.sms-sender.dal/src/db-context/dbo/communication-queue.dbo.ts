@@ -5,6 +5,7 @@ export interface CommunicationQueueDbo {
   proxyId: Guid;
   recipientIdentifier: string;
   content: string;
+  providerId: string;
   status: "NOTIFICATION_IN_QUEUE" | "NOTIFICATION_SENT" | "NOTIFICATION_ERROR"; // TODO: Consolidation between services.
   errorMessage?: string;
   receviedAtUtc: Date;

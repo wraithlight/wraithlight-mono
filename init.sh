@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # ✅ SSOT: Required versions
 declare -A required_versions=(
-  ["Node"]="18.13.0"
+  ["Node"]="18.20.8"
   ["Python"]="3.11"
   ["Git"]="2.40.1"
   ["Docker"]="20.10.22"
@@ -10,7 +10,7 @@ declare -A required_versions=(
 
 # 🧠 Define apps using SSOT
 apps=(
-  "Node;node -v;brew install node@18;${required_versions[Node]}"
+  "Node;node -v;brew install node@18.20.8;${required_versions[Node]}"
   "Python;python3 --version;brew install python@3.11;${required_versions[Python]}"
   "Git;git --version;brew install git@2.40.1;${required_versions[Git]}"
   "Docker;docker --version;brew install --cask docker;${required_versions[Docker]}"
@@ -43,30 +43,36 @@ for app in "${apps[@]}"; do
     continue
   fi
 
-  # Extract version
+  # Extract version per app
   case "$name" in
-    Node|Git|Docker) version=$(echo "$version_output" | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+') ;;
+    Node) version=$(echo "$version_output" | sed 's/^v//') ;;  # Remove leading v
     Python) version=$(echo "$version_output" | grep -Eo '3\.[0-9]+(\.[0-9]+)?') ;;
+    Git|Docker) version=$(echo "$version_output" | grep -Eo '[0-9]+\.[0-9]+\.[0-9]+') ;;
     *) version="unknown" ;;
   esac
+  version=$(echo "$version" | xargs)  # Trim whitespace
 
   installed_versions["$name"]=$version
 
-  if [[ -n "$required_version" && "$(printf '%s\n' "$required_version" "$version" | sort -V | head -n1)" != "$required_version" ]]; then
-    echo "  ${YELLOW}⚠️  $name version $version is outdated (required: $required_version).${NC}"
-    outdated_apps+=("$name")
-  else
-    echo "  ${GREEN}✅ $name is installed with correct version ($version).${NC}"
-    good_apps+=("$name")
+  # Compare versions
+  if [[ -n "$required_version" ]]; then
+    smallest=$(printf '%s\n' "$version" "$required_version" | sort -V | head -n1)
+    if [[ "$smallest" == "$required_version" && "$version" != "$required_version" ]]; then
+      echo "  ${YELLOW}⚠️  $name version $version is outdated (required: $required_version).${NC}"
+      outdated_apps+=("$name")
+    else
+      echo "  ${GREEN}✅ $name is installed with correct version ($version).${NC}"
+      good_apps+=("$name")
+    fi
   fi
 done
 
 # 🔧 Prompt to install missing apps
 if [ ${#missing_apps[@]} -gt 0 ]; then
-  echo -e "\n${RED}❌ Missing Applications:${NC}"
+  echo "\n${RED}❌ Missing Applications:${NC}"
   for app in "${missing_apps[@]}"; do
     echo "  - $app"
-    echo -e "${BLUE}❓ Would you like to install $app now? (y/n): ${NC}"
+    echo "${BLUE}❓ Would you like to install $app now? (y/n): ${NC}"
     read -r answer
     if [[ "$answer" =~ ^[Yy]$ ]]; then
       echo "  ➡️ Installing $app..."
