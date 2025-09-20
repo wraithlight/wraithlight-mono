@@ -1,8 +1,8 @@
+import { SendRequest } from "@wraithlight/core.communications.types";
 import {
   ValidationRule,
   Validator
 } from "@wraithlight/core.validator";
-import { SendRequest } from "@wraithlight/core.communications.types";
 
 export class SendRequestValidator<T extends object>
   extends Validator<SendRequest<T>> {
