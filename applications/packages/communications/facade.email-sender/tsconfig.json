@@ -1,8 +1,0 @@
-{
-  "extends": "../../../node_modules/@wraithlight/tools.tsconfig.base/dist/tsconfig.package.json",
-  "include": [
-    "src",
-    "__mocks__"
-  ],
-  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/tsconfig.schema.json"
-}
