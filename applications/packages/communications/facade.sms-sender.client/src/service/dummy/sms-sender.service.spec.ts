@@ -1,10 +1,10 @@
-import { SmsSenderFacadeService } from "./sms-sender.service";
+import { DummySmsSenderFacadeService } from "./sms-sender.service";
 
-describe("EmailSenderFacadeServiceSpecs", () => {
-  let service: SmsSenderFacadeService;
+describe("DummySmsSenderFacadeServiceSpecs", () => {
   describe("given the service is initialized", () => {
+    let service: DummySmsSenderFacadeService;
     beforeAll(() => {
-      service = new SmsSenderFacadeService();
+      service = new DummySmsSenderFacadeService();
     });
     it("should not be nil", () => {
       expect(service).not.toBeNull();

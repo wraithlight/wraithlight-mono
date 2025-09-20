@@ -1,3 +1,0 @@
-export const ERROR_CODES = {
-  GENERAL_ERROR: "E_GENERAL_ERROR"
-};

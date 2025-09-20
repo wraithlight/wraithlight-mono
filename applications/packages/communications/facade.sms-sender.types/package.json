@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/package-json.package.schema.json",
-  "name": "@wraithlight/facade.sms-sender",
+  "name": "@wraithlight/facade.sms-sender.types",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "exports": {
