@@ -1,5 +1,5 @@
 import { newGuid } from "@wraithlight/core.guid";
-import { IEmailSenderFacadeService, EmailSenderResponse } from "@wraithlight/facade.email-sender.types";
+import { EmailSenderResponse, IEmailSenderFacadeService } from "@wraithlight/facade.email-sender.types";
 import { utcNow } from "@wraithlight/framework.date";
 import { OperationResult, OperationResultFactory } from "@wraithlight/framework.operation-result";
 import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
