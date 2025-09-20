@@ -58,6 +58,18 @@ export class NotificationQueueService {
     return this.getByIdCore(id);
   }
 
+  public async addProviderIdentifier(
+    id: Guid,
+    providerIdentifier: string
+  ): Promise<OperationResult<CommunicationQueueDbo>> {
+    return this.updateCore(
+      id,
+      {
+        providerIdentifier: providerIdentifier
+      }
+    );
+  }
+
   public async markAsSucceed(
     id: Guid,
     sentAtUtc: Date
