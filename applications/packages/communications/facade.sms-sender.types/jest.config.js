@@ -4,7 +4,7 @@ const { join } = require("path");
 module.exports = jestConfig(
   {
     preset: "ts-jest",
-    displayName: "Packages/Communications/Facade/SMS Sender",
+    displayName: "Packages/Communications/Facade/SMS Sender/Types",
     testMatch: [
       "<rootDir>/src/**/*.spec.ts"
     ],
