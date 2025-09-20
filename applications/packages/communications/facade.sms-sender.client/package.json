@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/package-json.package.schema.json",
-  "name": "@wraithlight/facade.sms-sender",
+  "name": "@wraithlight/facade.sms-sender.client",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "exports": {
@@ -20,7 +20,10 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@wraithlight/framework.operation-result": "*"
+    "@wraithlight/facade.sms-sender.types": "*",
+    "@wraithlight/framework.date": "*",
+    "@wraithlight/framework.operation-result": "*",
+    "@wraithlight/kernel.undefined": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
