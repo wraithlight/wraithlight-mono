@@ -20,6 +20,8 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
+    "@wraithlight/framework.date": "*",
+    "@wraithlight/kernel.undefined": "*",
     "@wraithlight/facade.sms-sender.types": "*",
     "@wraithlight/framework.operation-result": "*"
   },
