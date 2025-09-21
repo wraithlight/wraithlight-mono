@@ -1,3 +1,4 @@
+import { HttpCode } from "@wraithlight/core.http";
 import {
   createFailResponse,
   createFilterAttribute,
@@ -14,7 +15,7 @@ import { Request } from "express";
 export const WithApiToken = createFilterAttribute((req: Request) => {
   const header = req.headers[HeaderName.ApiToken];
   if (typeof header !== "string") {
-    return createFailResponse(400, "E_SESSION_TOKEN");
+    return createFailResponse(HttpCode.BadRequest, "E_SESSION_TOKEN");
   }
   return createSuccessResponse();
 });
