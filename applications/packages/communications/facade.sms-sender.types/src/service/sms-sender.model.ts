@@ -1,5 +1,5 @@
 export interface SmsSenderResponse {
-  providerIdentifier: string;
+  providerIdentifier?: string;
   providerSentToAtUtc: Date;
   providerRespondedAtUtc: Date;
   providerIsSuccess: boolean;
