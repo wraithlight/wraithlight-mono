@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "@wraithlight/core.node.evo": "*",
-    "@wraithlight/domain.http.constants": "*"
+    "@wraithlight/domain.http.constants": "*",
+    "express": "4.18.2"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
