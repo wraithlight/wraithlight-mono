@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "outDir": "dist/esm"
+    "outDir": "dist/esm",
+    "experimentalDecorators": true
   },
   "include": [
     "src"
