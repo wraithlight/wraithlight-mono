@@ -7,5 +7,8 @@ export const SERVER_STAGING_COMMS_SSS_CONFIG: Readonly<CommsSSSServer> = {
     username: "",
     password: "",
     database: ""
+  },
+  apiTokens: {
+    npsTokens: []
   }
 };

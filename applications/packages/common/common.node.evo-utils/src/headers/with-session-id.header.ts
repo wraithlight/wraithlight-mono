@@ -9,9 +9,6 @@ import {
 } from "@wraithlight/domain.http.constants";
 import { Request } from "express";
 
-/**
- * @deprecated Import from "`common.node.evo-utils`" instead.
- */
 export const WithSessionId = createFilterAttribute((req: Request) => {
   const header = req.headers[HeaderName.SessionToken];
   if (typeof header !== "string") {

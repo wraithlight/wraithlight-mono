@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/package-json.package.schema.json",
-  "name": "@wraithlight/common.environment-static.server",
+  "name": "@wraithlight/app.communications.sms-sender.controller",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "exports": {
@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "3.3.0",
+  "version": "1.0.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -20,14 +20,16 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@wraithlight/core.auth.constant": "*",
-    "@wraithlight/core.env.types": "*",
-    "@wraithlight/core.environment-static.env": "*",
-    "@wraithlight/core.environment-static.sdk": "*",
-    "@wraithlight/core.environment-static.types": "*",
-    "@wraithlight/core.logger.types": "*",
-    "@wraithlight/core.nullable": "*",
-    "@wraithlight/framework.nullable": "*"
+    "@wraithlight/common.communications.sms-sender.business-logic": "*",
+    "@wraithlight/common.communications.validators": "*",
+    "@wraithlight/common.environment-static.server": "*",
+    "@wraithlight/common.node.evo-utils": "*",
+    "@wraithlight/core.communications.sms-sender.constants": "*",
+    "@wraithlight/core.communications.sms-sender.types": "*",
+    "@wraithlight/core.env.sdk": "*",
+    "@wraithlight/core.errors": "*",
+    "@wraithlight/core.node.evo": "*",
+    "@wraithlight/core.validator": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
