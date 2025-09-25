@@ -20,7 +20,7 @@ export class SendService {
 
   public async send(
     proxyId: Guid,
-    deviceId: string,
+    emailAddress: string,
     content: string,
     subject: string,
     senderName: string,
@@ -30,7 +30,7 @@ export class SendService {
   ): Promise<OperationResult<SendEmailResponse>> {
     const payload: SendEmailNotificationRequest = {
       proxyId: proxyId,
-      identifier: deviceId,
+      identifier: emailAddress,
       content: content,
       additionalMessagePayload: {
         subject: subject,
