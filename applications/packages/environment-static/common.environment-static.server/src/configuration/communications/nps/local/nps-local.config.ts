@@ -7,5 +7,10 @@ export const SERVER_LOCAL_COMMS_NPS_CONFIG: Readonly<CommsNPSServer> = {
     username: "",
     password: "",
     database: ""
+  },
+  apiTokens: {
+    smsSender: "",
+    pushSender: "",
+    emailSender: "",
   }
 };
