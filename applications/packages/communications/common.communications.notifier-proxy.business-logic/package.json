@@ -20,14 +20,19 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@wraithlight/common.communications.sms-sender.dal": "*",
+    "@wraithlight/common.communications.email-sender.client": "*",
+    "@wraithlight/common.communications.notifier-proxy.dal": "*",
+    "@wraithlight/common.communications.push-sender.client": "*",
+    "@wraithlight/common.communications.sms-sender.client": "*",
+    "@wraithlight/common.environment-static.server": "*",
+    "@wraithlight/core.communications.email-sender.types": "*",
+    "@wraithlight/core.communications.notifier-proxy.types": "*",
+    "@wraithlight/core.communications.push-sender.types": "*",
     "@wraithlight/core.communications.sms-sender.types": "*",
+    "@wraithlight/core.env.sdk": "*",
     "@wraithlight/core.errors": "*",
-    "@wraithlight/core.guid": "*",
-    "@wraithlight/facade.sms-sender.client": "*",
-    "@wraithlight/facade.sms-sender.types": "*",
     "@wraithlight/framework.date": "*",
-    "@wraithlight/framework.nullable": "*"
+    "@wraithlight/framework.guid": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",

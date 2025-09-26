@@ -1,1 +1,1 @@
-export * from "./send-sms.manager";
+export * from "./communication.manager";

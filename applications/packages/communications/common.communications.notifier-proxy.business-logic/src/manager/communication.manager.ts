@@ -1,20 +1,21 @@
-import {
-  NotifierProxyCommunicationPostResponse,
-  NotifierProxyCommunicationPatchSuccessResponse,
-  NotifierProxyCommunicationPatchFailedResponse
-} from "@wraithlight/core.communications.notifier-proxy.types";
 import { SendService as EmailSendService } from "@wraithlight/common.communications.email-sender.client";
+import { CommunicationDbo, NotificationQueueService } from "@wraithlight/common.communications.notifier-proxy.dal";
 import { SendService as PushSendService } from "@wraithlight/common.communications.push-sender.client";
 import { SendService as SMSSendService } from "@wraithlight/common.communications.sms-sender.client";
-import { CommunicationDbo, NotificationQueueService } from "@wraithlight/common.communications.notifier-proxy.dal";
-import { Guid, newGuid } from "@wraithlight/framework.guid";
-import { utcNow } from "@wraithlight/framework.date";
-import { SendEmailNotificationAddtionalPayloadRequest } from "@wraithlight/core.communications.email-sender.types";
-import { InternalServerError } from "@wraithlight/core.errors";
-import { SendSmsNotificationAddtionalPayloadRequest } from "@wraithlight/core.communications.sms-sender.types";
-import { SendPushNotificationAddtionalPayloadRequest } from "@wraithlight/core.communications.push-sender.types";
 import { ServerCommsNPSConfigReader } from "@wraithlight/common.environment-static.server";
+import { SendEmailNotificationAddtionalPayloadRequest } from "@wraithlight/core.communications.email-sender.types";
+import {
+  NotifierProxyCommunicationPatchFailedResponse,
+  NotifierProxyCommunicationPatchSuccessResponse,
+  NotifierProxyCommunicationPostResponse
+} from "@wraithlight/core.communications.notifier-proxy.types";
+import { SendPushNotificationAddtionalPayloadRequest } from "@wraithlight/core.communications.push-sender.types";
+import { SendSmsNotificationAddtionalPayloadRequest } from "@wraithlight/core.communications.sms-sender.types";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
+import { InternalServerError } from "@wraithlight/core.errors";
+import { utcNow } from "@wraithlight/framework.date";
+import { Guid, newGuid } from "@wraithlight/framework.guid";
+
 
 export class CommunicationManager {
 
@@ -26,8 +27,11 @@ export class CommunicationManager {
   private readonly _serverConfigReader = ServerCommsNPSConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
 
   constructor() {
+    // eslint-disable-next-line max-len
     const smsSendApiToken = this._serverConfigReader.get(m => m.apiTokens.smsSender);
+    // eslint-disable-next-line max-len
     const pushSendApiToken = this._serverConfigReader.get(m => m.apiTokens.pushSender);
+    // eslint-disable-next-line max-len
     const emailSendApiToken = this._serverConfigReader.get(m => m.apiTokens.emailSender);
 
     this._smsSendService = new SMSSendService(smsSendApiToken);
@@ -72,7 +76,7 @@ export class CommunicationManager {
     recipientPhoneNumber: string,
     content: string,
     additionalMessagePayload: SendSmsNotificationAddtionalPayloadRequest
-  ): Promise<NotifierProxyCommunicationPostResponse> { 
+  ): Promise<NotifierProxyCommunicationPostResponse> {
     const entry = await this.createEntryCore(
       recipientPhoneNumber,
       content,
@@ -131,6 +135,7 @@ export class CommunicationManager {
     serviceId: Guid,
     sentAtUtc: Date
   ): Promise<NotifierProxyCommunicationPatchSuccessResponse> {
+    // eslint-disable-next-line max-len
     const updateResult = await this._notificationQueueService.markAsSucceedByServiceId(serviceId, sentAtUtc);
 
     if (updateResult.isError) {
@@ -144,6 +149,7 @@ export class CommunicationManager {
     serviceId: Guid,
     errorMessage: string
   ): Promise<NotifierProxyCommunicationPatchFailedResponse> {
+    // eslint-disable-next-line max-len
     const updateResult = await this._notificationQueueService.markAsFailByServiceId(serviceId, errorMessage);
 
     if (updateResult.isError) {
