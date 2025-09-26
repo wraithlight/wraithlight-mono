@@ -176,7 +176,7 @@ export class CommunicationManager {
       now
     );
 
-    if (createResult.isError) {
+    if (createResult.isErrorTC()) {
       throw new InternalServerError();
     }
 
