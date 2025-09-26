@@ -7,7 +7,10 @@ import {
 import { HeaderName } from "@wraithlight/domain.http.constants";
 import { Request } from "express";
 
-export const WithValidApiToken = (tokens: ReadonlyArray<string>) => createFilterAttribute(
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export const WithValidApiToken = (
+  tokens: ReadonlyArray<string>
+) => createFilterAttribute(
   (req: Request) => {
     const token = req.headers[HeaderName.ApiToken];
     if (typeof token !== "string") {
