@@ -4,3 +4,4 @@ export * from "./is-bot.header";
 export * from "./session-token.header";
 export * from "./with-api-token.header";
 export * from "./with-session-id.header";
+export * from "./with-valid-api-token.header";
