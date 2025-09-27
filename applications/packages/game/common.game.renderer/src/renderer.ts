@@ -1,6 +1,7 @@
 import { Color } from "@wraithlight/core.game.types";
 import { Position, Sprite } from "@wraithlight/core.game.types";
 import { Nullable } from "@wraithlight/core.nullable";
+import { noop } from "@wraithlight/framework.noop";
 
 import { CanvasService } from "./service";
 
@@ -26,9 +27,8 @@ export class Renderer {
     public renderSprite(
         _sprite: Sprite,
         _position: Position
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
     ): void {
-
+      noop();
     }
 
     public fillColor(
