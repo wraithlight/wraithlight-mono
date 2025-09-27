@@ -5,6 +5,7 @@ export interface CommunicationDbo {
   serviceId?: Guid;
   recipientIdentifier: string;
   content: string;
+  tunnel: string;
   additionalMessagePayload: string;
   status: "NOTIFICATION_IN_QUEUE" | "NOTIFICATION_SENT" | "NOTIFICATION_ERROR"; // TODO: Consolidation between services.
   errorMessage?: string;
