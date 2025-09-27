@@ -7,5 +7,8 @@ export const SERVER_LOCAL_COMMS_ESS_CONFIG: Readonly<CommsESSServer> = {
     username: "",
     password: "",
     database: ""
+  },
+  apiTokens: {
+    notifierProxy: ""
   }
 };
