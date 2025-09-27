@@ -1,7 +1,7 @@
 import { Request } from "express";
 import { getRequestId } from "./request-id.fn";
 import { REQUEST_ID_HEADER_NAME } from "@wraithlight/core.request-id.constants";
-import { Nullable } from "@wraithlight/core.nullable";
+import { Nullable } from "@wraithlight/framework.nullable";
 
 describe("RequestIdFnSpecs", () => {
 

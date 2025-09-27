@@ -1,6 +1,6 @@
-import { Nullable } from "@wraithlight/core.nullable";
 import { REQUEST_ID_HEADER_NAME } from "@wraithlight/core.request-id.constants";
-import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
+import { Nullable } from "@wraithlight/framework.nullable";
+import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 import { Request } from "express";
 
 export function getRequestId(request: Request): Nullable<string> {
