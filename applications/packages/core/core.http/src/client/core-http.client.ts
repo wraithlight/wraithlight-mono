@@ -1,4 +1,5 @@
 import { IHttpResponse } from "@wraithlight/domain.http.types";
+import { noop } from "@wraithlight/framework.noop";
 
 import { HttpCode, HttpVerb } from "../constant";
 
@@ -129,8 +130,8 @@ export class CoreHttpClient extends HttpClient {
     _url: string,
     _responseCode: HttpCode,
     _responseText: T
-    // eslint-disable-next-line @typescript-eslint/no-empty-function
   ): void {
+    noop();
   }
 
 }
