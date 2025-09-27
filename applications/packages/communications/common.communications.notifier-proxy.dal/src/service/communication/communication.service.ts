@@ -25,6 +25,7 @@ export class NotificationQueueService {
     recipientIdentifier: string,
     content: string,
     additionalMessagePayload: string,
+    tunnel: string,
     receviedAtUtc: Date,
     lastUpdatedAtUtc: Date
   ): Promise<OperationResult<CommunicationDbo>> {
@@ -33,6 +34,7 @@ export class NotificationQueueService {
       recipientIdentifier: recipientIdentifier,
       content: content,
       additionalMessagePayload: additionalMessagePayload,
+      tunnel: tunnel,
       status: "NOTIFICATION_IN_QUEUE",
       receivedAtUtc: receviedAtUtc,
       lastUpdatedAtUtc: lastUpdatedAtUtc,
