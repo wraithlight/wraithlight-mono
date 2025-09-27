@@ -47,6 +47,7 @@ export class CommunicationManager {
     const entry = await this.createEntryCore(
       recipientEmailAddress,
       content,
+      "COMMS_EMAIL",
       additionalMessagePayload
     );
 
@@ -80,6 +81,7 @@ export class CommunicationManager {
     const entry = await this.createEntryCore(
       recipientPhoneNumber,
       content,
+      "COMMS_SMS",
       additionalMessagePayload
     );
 
@@ -108,6 +110,7 @@ export class CommunicationManager {
     const entry = await this.createEntryCore(
       recipientDeviceId,
       content,
+      "COMMS_PUSH",
       additionalMessagePayload
     );
 
@@ -163,6 +166,7 @@ export class CommunicationManager {
   private async createEntryCore<T>(
     recipiientIdentifier: string,
     content: string,
+    tunnel: string,
     additionalMessagePayload: T
   ): Promise<CommunicationDbo> {
     const id = newGuid();
@@ -172,6 +176,7 @@ export class CommunicationManager {
       recipiientIdentifier,
       content,
       JSON.stringify(additionalMessagePayload),
+      tunnel,
       now,
       now
     );
