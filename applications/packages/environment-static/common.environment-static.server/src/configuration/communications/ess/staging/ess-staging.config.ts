@@ -7,5 +7,8 @@ export const SERVER_STAGING_COMMS_ESS_CONFIG: Readonly<CommsESSServer> = {
     username: "",
     password: "",
     database: ""
+  },
+  apiTokens: {
+    notifierProxy: ""
   }
 };
