@@ -3,6 +3,7 @@ CREATE TABLE `Communication` (
     `ServiceId` VARCHAR(36) NULL,
     `RecipientIdentifier` VARCHAR(100) NOT NULL,
     `AdditionalMessagePayload` TEXT NOT NULL,
+    `Tunnel` TEXT NOT NULL,
     `Content` TEXT NOT NULL,
     `Status` TEXT NOT NULL,
     `ErrorMessage` TEXT NULL,
