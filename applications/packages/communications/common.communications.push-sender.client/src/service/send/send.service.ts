@@ -23,7 +23,7 @@ export class SendService {
     deviceId: string,
     content: string,
     subject: string,
-    logoUlr: string,
+    logoUrl: string,
     applicationLink: string
   ): Promise<OperationResult<SendPushResponse>> {
     const payload: SendPushNotificationRequest = {
@@ -32,7 +32,7 @@ export class SendService {
       content: content,
       additionalMessagePayload: {
         subject: subject,
-        logoUrl: logoUlr,
+        logoUrl: logoUrl,
         applicationLink: applicationLink
       }
     };
