@@ -40,7 +40,7 @@ export class ValidationRule {
         );
     }
 
-    public static toBeEnum<T extends object>(): EnumValidationRule<T> {
+    public static toBeEnum<T>(): EnumValidationRule<T> {
         return this.toRule<T, EnumValidationRule<T>>(
             new EnumValidationRule()
         );
