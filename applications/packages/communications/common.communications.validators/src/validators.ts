@@ -1,4 +1,5 @@
 import { SendRequestValidator } from "./common";
+import { CreateCommunicationValidator, PatchFailValidator, PatchSuccessValidator } from "./nps";
 import { SmsAdditionalPayloadSendRequestValidator } from "./sss";
 
 export namespace CommonValidators {
@@ -9,4 +10,11 @@ export namespace CommonValidators {
 export namespace SSSValidators {
   // eslint-disable-next-line max-len
   export const SMSAdditionalPayloadValidator = new SmsAdditionalPayloadSendRequestValidator();
+}
+
+export namespace NPSValidators {
+  // eslint-disable-next-line max-len
+  export const NPSCreateCommunicationValidator = new CreateCommunicationValidator();
+  export const NPSPatchFailValidator = new PatchFailValidator();
+  export const NPSPatchSuccessValidator = new PatchSuccessValidator();
 }
