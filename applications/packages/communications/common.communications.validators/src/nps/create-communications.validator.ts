@@ -5,6 +5,7 @@ import {
   ValidationRule,
   Validator
 } from "@wraithlight/core.validator";
+import { IDENTIFIER_MAX_LENGTH, IDENTIFIER_MIN_LENGTH } from "./nps-validator.constants";
 
 export class CreateCommunicationValidator
   extends Validator<NotifierProxyCommunicationPostRequest> {
@@ -21,8 +22,8 @@ export class CreateCommunicationValidator
       m => m.identifier,
       ValidationRule
         .toBeString()
-        .toHaveMinLength(1)
-        .toHaveMaxLength(100)
+        .toHaveMinLength(IDENTIFIER_MIN_LENGTH)
+        .toHaveMaxLength(IDENTIFIER_MAX_LENGTH)
         .notToBeNil()
     );
 
