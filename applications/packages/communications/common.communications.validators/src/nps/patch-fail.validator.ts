@@ -6,6 +6,8 @@ import {
   Validator
 } from "@wraithlight/core.validator";
 
+import { PATCH_FAIL_PAYLOAD_NUMBER_OF_PROPERTIES } from "./nps-validator.constants";
+
 export class PatchFailValidator
   extends Validator<NotifierProxyCommunicationPatchFailedRequest> {
 
@@ -14,7 +16,7 @@ export class PatchFailValidator
       m => m,
       ValidationRule
         .toBeObject()
-        .toHaveNProperties(4)
+        .toHaveNProperties(PATCH_FAIL_PAYLOAD_NUMBER_OF_PROPERTIES)
     );
 
     this.addValidationRule(
