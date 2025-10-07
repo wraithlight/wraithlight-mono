@@ -6,13 +6,13 @@ import { initializeEffects } from "./account.effect";
 import { initializeReducers } from "./account.reducer";
 
 export function accountInitialize(
-    store: Store<IAuthContainerStore>,
-    apiBaseUrl: string
+  store: Store<IAuthContainerStore>,
+  apiBaseUrl: string
 ): Store<IAuthContainerStore> {
-    initializeReducers(store);
-    initializeEffects(
-        store,
-        apiBaseUrl
-    );
-    return store;
+  initializeReducers(store);
+  initializeEffects(
+    store,
+    apiBaseUrl
+  );
+  return store;
 }
