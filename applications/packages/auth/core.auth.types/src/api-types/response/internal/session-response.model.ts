@@ -1,4 +1,4 @@
 export interface ApiSessionPayload {
-    sessionToken: string;
-    validTo: Date;
+  sessionToken: string;
+  validTo: Date;
 }
