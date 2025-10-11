@@ -1,11 +1,11 @@
 export interface ApiBaseResponse {
-    success: boolean;
+  success: boolean;
 }
 
 export interface ApiBaseSuccessResponse<TPayload> extends ApiBaseResponse {
-    payload: TPayload;
+  payload: TPayload;
 }
 
 export interface ApiBaseErrorResponse extends ApiBaseResponse {
-    errors: Array<string>;
+  errors: Array<string>;
 }
