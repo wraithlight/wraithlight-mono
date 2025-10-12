@@ -12,6 +12,7 @@ export class AuthService {
   private readonly _authService: ClientAuthService;
 
   constructor(
+    // eslint-disable-next-line @typescript-eslint/parameter-properties, @typescript-eslint/explicit-member-accessibility
     readonly _apiBaseUrl: string
   ) {
     this._authService = new ClientAuthService(_apiBaseUrl);
