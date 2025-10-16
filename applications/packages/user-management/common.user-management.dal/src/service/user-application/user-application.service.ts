@@ -1,7 +1,7 @@
 import { utcNow } from "@wraithlight/core.date";
 import { Guid, newGuid } from "@wraithlight/core.guid";
-import { isNil } from "@wraithlight/framework.nullable";
 import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
+import { isNil } from "@wraithlight/framework.nullable";
 import {
   OperationResult,
   OperationResultFactory
