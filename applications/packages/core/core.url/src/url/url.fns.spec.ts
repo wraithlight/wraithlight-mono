@@ -1,6 +1,6 @@
-jest.mock("@wraithlight/core.nullable");
+jest.mock("@wraithlight/framework.nullable");
 
-import { isNil } from "@wraithlight/core.nullable";
+import { isNil } from "@wraithlight/framework.nullable";
 
 import { createUrl } from "./url.fns"
 

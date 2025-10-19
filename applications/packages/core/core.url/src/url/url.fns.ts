@@ -1,4 +1,4 @@
-import { isNil } from "@wraithlight/core.nullable";
+import { isNil } from "@wraithlight/framework.nullable";
 
 /**
  * @deprecated Use the new ager api constants instead.
