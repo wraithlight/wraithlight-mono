@@ -12,7 +12,7 @@ import {
 import {
   ApiToken
 } from "@wraithlight/core.node.evo-utils";
-import { isEmptyStringOrNil } from "@wraithlight/core.nullable";
+import { isEmptyStringOrNil } from "@wraithlight/framework.nullable";
 
 import { HealthCheckV1Service } from "../service";
 import {
