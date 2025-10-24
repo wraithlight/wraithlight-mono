@@ -1,4 +1,4 @@
 export interface SessionPayload {
-    sessionToken: string;
-    validTo: Date;
+  sessionToken: string;
+  validTo: Date;
 }

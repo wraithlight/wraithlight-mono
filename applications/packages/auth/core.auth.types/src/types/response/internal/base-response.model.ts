@@ -1,11 +1,11 @@
 export interface BaseResponse {
-    success: boolean;
+  success: boolean;
 }
 
 export interface BaseSuccessResponse<TPayload> extends BaseResponse {
-    payload: TPayload;
+  payload: TPayload;
 }
 
 export interface BaseErrorResponse extends BaseResponse {
-    errors: Array<string>;
+  errors: Array<string>;
 }
