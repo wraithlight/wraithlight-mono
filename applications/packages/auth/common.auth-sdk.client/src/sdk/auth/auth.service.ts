@@ -9,11 +9,14 @@ import {
 
 export class AuthService {
 
-  private readonly _authService = new ClientAuthService(this._apiBaseUrl);
+  private readonly _authService: ClientAuthService;
 
   constructor(
-    private readonly _apiBaseUrl: string
-  ) { }
+    // eslint-disable-next-line @typescript-eslint/parameter-properties, @typescript-eslint/explicit-member-accessibility
+    readonly _apiBaseUrl: string
+  ) {
+    this._authService = new ClientAuthService(_apiBaseUrl);
+  }
 
   public async login(
     username: string,

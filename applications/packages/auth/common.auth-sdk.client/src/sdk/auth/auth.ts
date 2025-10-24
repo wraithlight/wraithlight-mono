@@ -6,13 +6,13 @@ import { initializeEffects } from "./auth.effect";
 import { initializeReducers } from "./auth.reducer";
 
 export function authInitialize(
-    store: Store<IAuthContainerStore>,
-    apiBaseUrl: string
+  store: Store<IAuthContainerStore>,
+  apiBaseUrl: string
 ): Store<IAuthContainerStore> {
-    initializeReducers(store);
-    initializeEffects(
-        store,
-        apiBaseUrl
-    );
-    return store;
+  initializeReducers(store);
+  initializeEffects(
+    store,
+    apiBaseUrl
+  );
+  return store;
 }
