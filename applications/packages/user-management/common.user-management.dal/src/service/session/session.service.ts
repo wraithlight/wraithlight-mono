@@ -1,6 +1,6 @@
 import { addHours, addMinutes, utcNow } from "@wraithlight/core.date";
 import { Guid, newGuid } from "@wraithlight/core.guid";
-import { isNil } from "@wraithlight/core.nullable";
+import { isNil } from "@wraithlight/framework.nullable";
 import {
   OperationResult,
   OperationResultFactory

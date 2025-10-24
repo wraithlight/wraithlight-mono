@@ -1,4 +1,4 @@
-import { isNil } from "@wraithlight/core.nullable";
+import { isNil } from "@wraithlight/framework.nullable";
 import {
   OperationResult,
   OperationResultFactory
