@@ -1,4 +1,4 @@
-import { Nullable } from "@wraithlight/core.nullable";
+import { Nullable } from "@wraithlight/framework.nullable";
 
 import { Selector } from "./selector";
 

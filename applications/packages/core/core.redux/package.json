@@ -22,7 +22,7 @@
     "dependencies": {
         "@wraithlight/core.counter": "*",
         "@wraithlight/core.linq": "*",
-        "@wraithlight/core.nullable": "*"
+        "@wraithlight/framework.nullable": "*"
     },
     "devDependencies": {
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",
