@@ -5,7 +5,7 @@ import { CqrsService } from "@wraithlight/core.cqrs";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { Guid } from "@wraithlight/core.guid";
 import { IMailSender } from "@wraithlight/core.notifier.types";
-import { Nullable } from "@wraithlight/core.nullable";
+import { Nullable } from "@wraithlight/framework.nullable";
 
 import { WebhookService } from "../webhook";
 
