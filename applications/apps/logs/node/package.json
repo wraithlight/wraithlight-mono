@@ -29,7 +29,7 @@
         "@wraithlight/core.node": "*",
         "@wraithlight/core.orm": "*",
         "@wraithlight/core.server": "*",
-        "@wraithlight/frameworknullable": "*"
+        "@wraithlight/framework.nullable": "*"
     },
     "devDependencies": {
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",
