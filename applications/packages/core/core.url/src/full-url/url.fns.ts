@@ -1,4 +1,4 @@
-import { isEmptyString } from "@wraithlight/core.nullable";
+import { isEmptyString } from "@wraithlight/framework.nullable";
 
 export function createFullUrl(
     baseUrl: string,
