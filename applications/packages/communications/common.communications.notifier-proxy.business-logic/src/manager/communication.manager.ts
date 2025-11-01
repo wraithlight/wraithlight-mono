@@ -5,17 +5,20 @@ import { SendService as SMSSendService } from "@wraithlight/common.communication
 import { ServerCommsNPSConfigReader } from "@wraithlight/common.environment-static.server";
 import { SendEmailNotificationAddtionalPayloadRequest } from "@wraithlight/core.communications.email-sender.types";
 import {
+  NotifierProxyCommunicationGetResponse,
   NotifierProxyCommunicationPatchFailedResponse,
   NotifierProxyCommunicationPatchSuccessResponse,
-  NotifierProxyCommunicationPostResponse
+  NotifierProxyCommunicationPostResponse,
+  NotifierProxyCommunicationsGetResponse
 } from "@wraithlight/core.communications.notifier-proxy.types";
 import { SendPushNotificationAddtionalPayloadRequest } from "@wraithlight/core.communications.push-sender.types";
 import { SendSmsNotificationAddtionalPayloadRequest } from "@wraithlight/core.communications.sms-sender.types";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
-import { InternalServerError } from "@wraithlight/core.errors";
-import { utcNow } from "@wraithlight/framework.date";
+import { InternalServerError, NotFoundError } from "@wraithlight/core.errors";
+import { dateISOSerialize, utcNow } from "@wraithlight/framework.date";
 import { Guid, newGuid } from "@wraithlight/framework.guid";
-
+import { isNil } from "@wraithlight/framework.nullable";
+import { IListResult } from "@wraithlight/domain.http.types";
 
 export class CommunicationManager {
 
@@ -37,6 +40,68 @@ export class CommunicationManager {
     this._smsSendService = new SMSSendService(smsSendApiToken);
     this._pushSendService = new PushSendService(pushSendApiToken);
     this._emailSendService = new EmailSendService(emailSendApiToken);
+  }
+
+  public async getList(
+    skip: number,
+    take: number
+  ): Promise<IListResult<NotifierProxyCommunicationsGetResponse>> {
+    const listResult = await this._notificationQueueService.list(
+      skip,
+      take
+    );
+
+    if (listResult.isErrorTC()) {
+      throw new InternalServerError();
+    }
+
+    if (isNil(listResult.payload)) {
+      throw new InternalServerError();
+    }
+
+    const result: IListResult<NotifierProxyCommunicationsGetResponse> = {
+      items: listResult.payload.map(m => ({
+        id: m.id,
+        senderServiceId: m.serviceId ?? '', // TODO: Mark it as optional.,
+        identifier: m.recipientIdentifier,
+        content: m.content,
+        tunnel: m.tunnel as "NOTIFICATION_EMAIL" | "NOTIFICATION_SMS" | "NOTIFICATION_PUSH", // TODO: Consolidation.,
+        receivedAtUtc: dateISOSerialize(m.receivedAtUtc),
+        status: m.status
+      })),
+      visibleCount: listResult.payload.length,
+      allCount: 0,    // TODO: Align DAL to return this.
+      skip: skip,
+      take: take
+    };
+
+    return result;
+  }
+
+  public async getById(
+    id: Guid
+  ): Promise<NotifierProxyCommunicationGetResponse> {
+    const entryResult = await this._notificationQueueService.getById(id);
+    if (entryResult.isErrorTC()) {
+      throw new NotFoundError();
+    }
+
+    if (isNil(entryResult.payload)) {
+      throw new NotFoundError();
+    }
+
+    const result: NotifierProxyCommunicationGetResponse = {
+      id: entryResult.payload.id,
+      senderServiceId: entryResult.payload.serviceId ?? '', // TODO: Mark it as optional.
+      identifier: entryResult.payload.recipientIdentifier,
+      content: entryResult.payload.content,
+      tunnel: entryResult.payload.tunnel as "NOTIFICATION_EMAIL" | "NOTIFICATION_SMS" | "NOTIFICATION_PUSH", // TODO: Consolidation.
+      receivedAtUtc: dateISOSerialize(entryResult.payload.receivedAtUtc),
+      status: entryResult.payload.status,
+      payload: JSON.parse(entryResult.payload.additionalMessagePayload)
+    };
+
+    return result;
   }
 
   public async sendEmail(
