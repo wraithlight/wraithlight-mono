@@ -15,10 +15,10 @@ export const HttpDecorator = <T extends BaseController>(
   path: string,
   verb: HttpVerb
 ): IHttpDecorator<T> => (
-  _target: T,
-  propertyKey: string,
-  descriptorValue: PropertyDescriptor
-) => {
+    _target: T,
+    propertyKey: string,
+    descriptorValue: PropertyDescriptor
+  ) => {
     HandlerContext.addMethod(
       propertyKey,
       path,
