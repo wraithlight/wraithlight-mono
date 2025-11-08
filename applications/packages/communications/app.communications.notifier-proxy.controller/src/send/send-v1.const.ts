@@ -1,5 +1,5 @@
-import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { ServerCommsNPSConfigReader } from "@wraithlight/common.environment-static.server";
+import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 
 const reader = ServerCommsNPSConfigReader
   .getInstance(CoreEnvironment.getEnvironmentType())
