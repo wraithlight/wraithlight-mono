@@ -13,3 +13,8 @@ export const isNan = jest
   .fn()
   .mockImplementation(Number.isNaN)
 ;
+
+export const isEmptyStringOrNil = jest
+  .fn()
+  .mockImplementation(m => m === "" || m === undefined || m === null)
+;
