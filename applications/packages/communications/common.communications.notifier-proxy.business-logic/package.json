@@ -31,8 +31,10 @@
     "@wraithlight/core.communications.sms-sender.types": "*",
     "@wraithlight/core.env.sdk": "*",
     "@wraithlight/core.errors": "*",
+    "@wraithlight/domain.http.types": "*",
     "@wraithlight/framework.date": "*",
-    "@wraithlight/framework.guid": "*"
+    "@wraithlight/framework.guid": "*",
+    "@wraithlight/framework.nullable": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
