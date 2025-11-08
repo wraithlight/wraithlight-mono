@@ -17,6 +17,7 @@ export {
 } from "./events";
 export * from "./decorator";
 export {
-  getEndpoints
+  DevkitDecorators,
+  DevkitUtils
 } from "./devkit";
 export * from "./server";
