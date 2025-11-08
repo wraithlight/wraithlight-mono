@@ -12,3 +12,4 @@ export const isEmptyString = jest
 export const isNan = jest
   .fn()
   .mockImplementation(Number.isNaN)
+;
