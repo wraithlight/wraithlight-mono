@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/package-json.package.schema.json",
-  "name": "@wraithlight/core.communications.notifier-proxy.constants",
+  "name": "@wraithlight/app.communications.notifier-proxy.controller",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "exports": {
@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "2.0.1",
+  "version": "1.0.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -18,6 +18,24 @@
     "test:coverage": "jest --coverage",
     "build": "rimraf dist/esm && tsc -p tsconfig.build.json",
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
+  },
+  "dependencies": {
+    "@wraithlight/common.communications.notifier-proxy.business-logic": "*",
+    "@wraithlight/common.communications.validators": "*",
+    "@wraithlight/common.environment-static.server": "*",
+    "@wraithlight/common.node.evo-utils": "*",
+    "@wraithlight/core.communications.email-sender.types": "*",
+    "@wraithlight/core.communications.notifier-proxy.constants": "*",
+    "@wraithlight/core.communications.notifier-proxy.types": "*",
+    "@wraithlight/core.communications.push-sender.types": "*",
+    "@wraithlight/core.communications.sms-sender.types": "*",
+    "@wraithlight/core.env.sdk": "*",
+    "@wraithlight/core.errors": "*",
+    "@wraithlight/core.node.evo": "*",
+    "@wraithlight/domain.http.types": "*",
+    "@wraithlight/framework.date": "*",
+    "@wraithlight/framework.guid": "*",
+    "@wraithlight/framework.type-utils": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
