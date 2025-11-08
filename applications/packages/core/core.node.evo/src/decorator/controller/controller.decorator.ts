@@ -11,8 +11,8 @@ export const HttpController = <T extends Creatable<BaseController>>(
   path = "",
   injectionScope = InjectionScope.Multiton
 ): IControllerDecorator<T> => (
-  target: T
-) => {
+    target: T
+  ) => {
     HandlerContext.addClass(
       path,
       injectionScope,
