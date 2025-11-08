@@ -3,7 +3,7 @@ import { IValidator, ValidationResult } from "@wraithlight/core.validator";
 
 export class GuidValidator implements IValidator<Guid> {
 
-  validate(object: unknown): ValidationResult {
+  public validate(object: unknown): ValidationResult {
     if (typeof object !== "string") {
       return {
         success: false,
@@ -17,7 +17,7 @@ export class GuidValidator implements IValidator<Guid> {
           success: false,
           propertyName: "object"
         }]
-      }
+      };
     }
     const result = isGuid(object);
     if (!result) {
@@ -33,14 +33,14 @@ export class GuidValidator implements IValidator<Guid> {
           success: false,
           propertyName: "object"
         }]
-      }
+      };
     }
 
     return {
       success: true,
       errorList: [],
       ruleResults: []
-    }
+    };
   }
 
 }
