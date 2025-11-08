@@ -15,6 +15,9 @@ const config: KnipConfig = {
         "webpack.config.js",
         "jest-mono.config.js"
       ],
+      ignoreBinaries: [
+        "wc"
+      ],
       ignoreDependencies: [
         "@types/jest" // TODO: Move to pkg layer.
       ]

@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "2.2.0",
+  "version": "2.3.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -31,8 +31,10 @@
     "@wraithlight/core.communications.sms-sender.types": "*",
     "@wraithlight/core.env.sdk": "*",
     "@wraithlight/core.errors": "*",
+    "@wraithlight/domain.http.types": "*",
     "@wraithlight/framework.date": "*",
-    "@wraithlight/framework.guid": "*"
+    "@wraithlight/framework.guid": "*",
+    "@wraithlight/framework.nullable": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
