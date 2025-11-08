@@ -1,10 +1,10 @@
-import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
+import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 import cors from "cors";
 import
-  express, {
-    Application,
-    json,
-    static as serveStatic
+express, {
+  Application,
+  json,
+  static as serveStatic
 } from "express";
 import {
   JsonObject as SwaggerFileContent,

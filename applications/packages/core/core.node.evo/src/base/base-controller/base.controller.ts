@@ -21,6 +21,14 @@ export abstract class BaseController {
     };
   }
 
+  protected created<T>(payload?: T): BaseControllerResult<T> {
+    return {
+      code: HttpCode.Created,
+      payload: payload,
+      __brand: RESULT_BRAND
+    };
+  }
+
   protected accepted(): BaseControllerResult<undefined> {
     return {
       code: HttpCode.Accepted,

@@ -31,7 +31,8 @@
     "readme-check": "node .tools/readme-check.mjs",
     "deplist": "node .tools/deplist.mjs",
     "validate-workspaces": "node .tools/workspace-validator.mjs --silent",
-    "sherif": "sherif"
+    "sherif": "sherif",
+    "list:project-number": "nx show projects | wc -l"
   },
   "workspaces": [
     "apps/**/*",

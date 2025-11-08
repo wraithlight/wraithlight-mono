@@ -127,3 +127,16 @@ INSERT INTO `Scope` (
     "Remote Config application login scope",
     0
 );
+
+-- NPS
+INSERT INTO `Scope` (
+    `Id`,
+    `Label`,
+    `Description`,
+    `IsDeleted`
+) VALUES (
+    "7898ed42-4566-43fd-9c02-81b0ddaa9f61",
+    "NOTIFIER_PROXY",
+    "Notifier Proxy application login scope",
+    0
+);
