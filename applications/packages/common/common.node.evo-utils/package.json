@@ -22,6 +22,7 @@
   "dependencies": {
     "@wraithlight/core.http": "*",
     "@wraithlight/core.node.evo": "*",
+    "@wraithlight/core.validator": "*",
     "@wraithlight/domain.http.constants": "*",
     "express": "4.18.2"
   },
