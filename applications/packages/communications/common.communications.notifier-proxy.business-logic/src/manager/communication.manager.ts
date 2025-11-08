@@ -15,10 +15,10 @@ import { SendPushNotificationAddtionalPayloadRequest } from "@wraithlight/core.c
 import { SendSmsNotificationAddtionalPayloadRequest } from "@wraithlight/core.communications.sms-sender.types";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { InternalServerError, NotFoundError } from "@wraithlight/core.errors";
+import { IListResult } from "@wraithlight/domain.http.types";
 import { dateISOSerialize, utcNow } from "@wraithlight/framework.date";
 import { Guid, newGuid } from "@wraithlight/framework.guid";
 import { isNil } from "@wraithlight/framework.nullable";
-import { IListResult } from "@wraithlight/domain.http.types";
 
 export class CommunicationManager {
 
@@ -62,9 +62,10 @@ export class CommunicationManager {
     const result: IListResult<NotifierProxyCommunicationsGetResponse> = {
       items: listResult.payload.map(m => ({
         id: m.id,
-        senderServiceId: m.serviceId ?? '', // TODO: Mark it as optional.,
+        senderServiceId: m.serviceId ?? "", // TODO: Mark it as optional.,
         identifier: m.recipientIdentifier,
         content: m.content,
+        // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
         tunnel: m.tunnel as "NOTIFICATION_EMAIL" | "NOTIFICATION_SMS" | "NOTIFICATION_PUSH", // TODO: Consolidation.,
         receivedAtUtc: dateISOSerialize(m.receivedAtUtc),
         status: m.status
@@ -92,12 +93,14 @@ export class CommunicationManager {
 
     const result: NotifierProxyCommunicationGetResponse = {
       id: entryResult.payload.id,
-      senderServiceId: entryResult.payload.serviceId ?? '', // TODO: Mark it as optional.
+      senderServiceId: entryResult.payload.serviceId ?? "", // TODO: Mark it as optional.
       identifier: entryResult.payload.recipientIdentifier,
       content: entryResult.payload.content,
+      // eslint-disable-next-line @typescript-eslint/consistent-type-assertions
       tunnel: entryResult.payload.tunnel as "NOTIFICATION_EMAIL" | "NOTIFICATION_SMS" | "NOTIFICATION_PUSH", // TODO: Consolidation.
       receivedAtUtc: dateISOSerialize(entryResult.payload.receivedAtUtc),
       status: entryResult.payload.status,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       payload: JSON.parse(entryResult.payload.additionalMessagePayload)
     };
 
