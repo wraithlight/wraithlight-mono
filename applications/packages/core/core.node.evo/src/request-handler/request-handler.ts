@@ -1,15 +1,15 @@
 import { isWraithlightError } from "@wraithlight/core.errors";
 import { Guid, newGuid } from "@wraithlight/core.guid";
 import { HttpCode, HttpVerb } from "@wraithlight/core.http";
-import { GLOBAL_UNDEFINED, T_GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 import { HeaderName } from "@wraithlight/domain.http.constants";
 import { IHttpResponse } from "@wraithlight/domain.http.types";
 import { Timer } from "@wraithlight/framework.timer";
 import { cast } from "@wraithlight/framework.type-utils";
+import { GLOBAL_UNDEFINED, T_GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 import { Application, IRouterMatcher, Request, Response } from "express";
 
 import { BaseController, isBaseControllerResult } from "../base";
-import { addEndpoint } from "../devkit";
+import { DevkitUtils } from "../devkit";
 import { EventBus, RequestEndReason } from "../events";
 import { Injector } from "../injector";
 
@@ -45,7 +45,11 @@ export class RequestHandler {
     for (const controller of this.controllers) {
       for (const endpoint of controller.endpoints) {
         const handler = this.getHandler(application, endpoint.verb);
-        addEndpoint(endpoint.verb, endpoint.fullPath);
+        DevkitUtils.addEndpoint(
+          endpoint.verb,
+          endpoint.fullPath,
+          endpoint.methodName
+        );
 
         handler(endpoint.fullPath, async (
           req: Request,
