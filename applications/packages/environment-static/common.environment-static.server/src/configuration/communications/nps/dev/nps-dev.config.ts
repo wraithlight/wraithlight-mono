@@ -12,5 +12,6 @@ export const SERVER_DEV_COMMS_NPS_CONFIG: Readonly<CommsNPSServer> = {
     smsSender: "",
     pushSender: "",
     emailSender: "",
-  }
+  },
+  allowedApiTokens: []
 };
