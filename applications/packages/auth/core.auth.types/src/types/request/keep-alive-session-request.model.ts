@@ -1,3 +1,3 @@
 export interface KeepAliveSessionRequest {
-    sessionToken: string;
+  sessionToken: string;
 }

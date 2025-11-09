@@ -10,12 +10,14 @@ export function getEndpoints(): ReadonlyArray<Endpoint> {
 
 export function addEndpoint(
   verb: HttpVerb,
-  path: string
+  path: string,
+  methodName: string
 ): void {
   _endpoints.push(
     {
       verb,
-      path
+      path,
+      methodName
     }
   );
 }

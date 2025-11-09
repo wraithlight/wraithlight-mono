@@ -1,14 +1,14 @@
 import {
-    ApiBaseErrorResponse,
-    ApiBaseResponse,
-    ApiBaseSuccessResponse,
-    ApiSessionPayload
+  ApiBaseErrorResponse,
+  ApiBaseResponse,
+  ApiBaseSuccessResponse,
+  ApiSessionPayload
 } from "./internal";
 
 export interface ApiLoginResponse extends ApiBaseResponse { }
 
 export interface ApiLoginSuccessResponse
-    extends ApiLoginResponse, ApiBaseSuccessResponse<ApiSessionPayload> { }
+  extends ApiLoginResponse, ApiBaseSuccessResponse<ApiSessionPayload> { }
 
 export interface ApiLoginErrorResponse
-    extends ApiLoginResponse, ApiBaseErrorResponse { }
+  extends ApiLoginResponse, ApiBaseErrorResponse { }
