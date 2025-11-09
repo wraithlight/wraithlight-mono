@@ -56,4 +56,12 @@ export class NumberValidationRule extends BaseValidationRule<number> {
         return this;
     }
 
+    public toBeInteger(): NumberValidationRule {
+      this.addRuleCase(
+        (item: number) => Number.isInteger(item),
+        "E_NUMBER_NOTINTEGER"
+      );
+      return this;
+    }
+
 }

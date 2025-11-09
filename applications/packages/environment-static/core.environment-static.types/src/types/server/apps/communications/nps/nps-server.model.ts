@@ -6,5 +6,6 @@ export interface CommsNPSServer {
     emailSender: string,
     pushSender: string,
     smsSender: string
-  }
+  },
+  allowedApiTokens: ReadonlyArray<string>
 }

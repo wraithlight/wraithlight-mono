@@ -33,6 +33,6 @@
     "typescript": "5.0.4"
   },
   "dependencies": {
-    "@wraithlight/core.nullable": "*"
+    "@wraithlight/framework.nullable": "*"
   }
 }

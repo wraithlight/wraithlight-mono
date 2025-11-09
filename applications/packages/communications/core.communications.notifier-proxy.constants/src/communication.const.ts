@@ -12,7 +12,7 @@ export const API_ENDPOINTS = {
         forClient: (
           skip: number,
           take: number
-        ): string => `COMMUNICATION_RES?skip=${skip}&take=${take}`
+        ): string => `${COMMUNICATION_RES}?skip=${skip}&take=${take}`
       },
       post: {
         forServer: (): string => ``,
