@@ -10,20 +10,20 @@ export const GLOBAL_STORE = (
 ): Store<IAuthContainerStore> => Store.getInstance<IAuthContainerStore>();
 
 export function initializeAuthSdk(
-    apiBaseUrl: string,
-    storeRef: Store<IAuthContainerStore>
+  apiBaseUrl: string,
+  storeRef: Store<IAuthContainerStore>
 ): void {
-    Store.initializePartial<IAuthContainerStore, Nullable<IAuthStore>>(
-        (m => m.auth),
-        INITIAL_AUTH_STATE,
-        true
-    );
-    authInitialize(
-        storeRef,
-        apiBaseUrl
-    );
-    accountInitialize(
-        storeRef,
-        apiBaseUrl
-    );
+  Store.initializePartial<IAuthContainerStore, Nullable<IAuthStore>>(
+    (m => m.auth),
+    INITIAL_AUTH_STATE,
+    true
+  );
+  authInitialize(
+    storeRef,
+    apiBaseUrl
+  );
+  accountInitialize(
+    storeRef,
+    apiBaseUrl
+  );
 }
