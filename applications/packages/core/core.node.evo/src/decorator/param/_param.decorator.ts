@@ -15,10 +15,10 @@ export const ParamDecorator = <T, TController extends BaseController>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   paramExtractor: Predicate<T, any>
 ): IParamDecorator<TController> => (
-  _target: TController,
-  propertyKey: string,
-  parameterIndex: number
-) => {
+    _target: TController,
+    propertyKey: string,
+    parameterIndex: number
+  ) => {
     const cExtractor = (req: Request): T => paramContext(req);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const vExtractor = (context: T): any => paramExtractor(context);
