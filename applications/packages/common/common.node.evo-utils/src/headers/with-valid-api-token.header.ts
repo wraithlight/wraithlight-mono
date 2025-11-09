@@ -21,4 +21,4 @@ export const WithValidApiToken = (
     }
     return createSuccessResponse();
   }
-);
+)();
