@@ -13,7 +13,8 @@ const eslintConfig = (dirname) =>({
     "deprecation",
     "@typescript-eslint",
     "import",
-    "@regru/prefer-early-return"
+    "@regru/prefer-early-return",
+    "no-null"
   ],
   parserOptions: {
     project: ["./tsconfig.json"],
@@ -49,6 +50,7 @@ const eslintConfig = (dirname) =>({
     // Native
     "no-undefined": "error",
     "no-var": "error",
+    "no-eq-null": "error",
     "max-len": [
       "error",
       {
@@ -224,7 +226,8 @@ const eslintConfig = (dirname) =>({
           caseInsensitive: true
         }
       }
-    ]
+    ],
+    "no-null/no-null": "warn" // TODO
   }
 });
 
