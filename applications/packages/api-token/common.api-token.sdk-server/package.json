@@ -30,6 +30,7 @@
         "@regru/eslint-plugin-prefer-early-return": "1.0.0",
         "@typescript-eslint/eslint-plugin": "5.59.2",
         "@typescript-eslint/parser": "5.59.2",
+        "@wraithlight/eslint-plugin-wraithlight-eslint": "*",
         "eslint": "8.57.0",
         "eslint-import-resolver-typescript": "3.6.1",
         "eslint-plugin-deprecation": "1.4.1",
