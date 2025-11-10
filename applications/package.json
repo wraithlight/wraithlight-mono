@@ -68,6 +68,7 @@
     "packages/domain/*",
     "packages/communications/*",
     "packages/kernel/*",
+    "packages/plugins/*",
     "poc/*"
   ],
   "engines": {
