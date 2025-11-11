@@ -12,16 +12,16 @@ import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { createNodeServer } from "@wraithlight/core.server";
 
 LoggerService.initialize({
-    applicationName: ApplicationName.Editor
+  applicationName: ApplicationName.Editor
 });
 
 const serverCfg = ServerEditorConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType())
-;
+  .getInstance(CoreEnvironment.getEnvironmentType())
+  ;
 
 const sharedCfg = SharedEditorConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType())
-;
+  .getInstance(CoreEnvironment.getEnvironmentType())
+  ;
 
 const packageInfoReader = new PackageJsonReader(
   join(__dirname, serverCfg.getCommon(m => m.files.packageJson.path)),
@@ -31,16 +31,16 @@ const packageInfoReader = new PackageJsonReader(
 );
 
 const CONTROLLERS = [
-    new ServerAuthControllerV1(LoginScope.Editor),
-    new HealthCheckControllerV1(
-        ApplicationName.Editor,
-        packageInfoReader.getPackageJsonInfo().version
-    )
+  new ServerAuthControllerV1(LoginScope.Editor),
+  new HealthCheckControllerV1(
+    ApplicationName.Editor,
+    packageInfoReader.getPackageJsonInfo().version
+  )
 ];
 
 createNodeServer(
-    ApplicationName.Editor,
-    CONTROLLERS,
-    [],
-    sharedCfg.get(x => x.server.port),
+  ApplicationName.Editor,
+  CONTROLLERS,
+  [],
+  sharedCfg.get(x => x.server.port),
 );
