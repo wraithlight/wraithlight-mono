@@ -15,9 +15,9 @@
   "scripts": {
     "build": "rimraf dist/esm && tsc -p tsconfig.build.json",
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json",
-    "lint": "",
-    "test": "",
-    "test:coverage": ""
+    "lint": "echo TODO",
+    "test": "echo TODO",
+    "test:coverage": "echo TODO"
   },
   "dependencies": {
     "eslint": "8.57.0"
