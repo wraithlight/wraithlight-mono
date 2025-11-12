@@ -1,6 +1,6 @@
 export const isNil = jest
     .fn()
-    // eslint-disable-next-line no-undefined
+    // eslint-disable-next-line no-undefined, @wraithlight/wraithlight-eslint/no-null
     .mockImplementation((m) => m === undefined || m === null)
 ;
 
@@ -16,6 +16,6 @@ export const isNan = jest
 
 export const isEmptyStringOrNil = jest
   .fn()
-  // eslint-disable-next-line no-undefined
+  // eslint-disable-next-line no-undefined, @wraithlight/wraithlight-eslint/no-null
   .mockImplementation(m => m === "" || m === undefined || m === null)
 ;
