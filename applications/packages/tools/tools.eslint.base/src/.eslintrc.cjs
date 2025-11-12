@@ -14,7 +14,7 @@ const eslintConfig = (dirname) =>({
     "@typescript-eslint",
     "import",
     "@regru/prefer-early-return",
-    "no-null"
+    "@wraithlight/wraithlight-eslint"
   ],
   parserOptions: {
     project: ["./tsconfig.json"],
@@ -201,6 +201,8 @@ const eslintConfig = (dirname) =>({
         }
       }
     ],
+    // Wraithlight Plugins
+    "@wraithlight/wraithlight-eslint/no-null": "error",
     // Typescript Plugins
     "deprecation/deprecation": "warn",
     "@regru/prefer-early-return/prefer-early-return": [
@@ -226,8 +228,7 @@ const eslintConfig = (dirname) =>({
           caseInsensitive: true
         }
       }
-    ],
-    "no-null/no-null": "warn" // TODO
+    ]
   }
 });
 
