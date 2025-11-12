@@ -1,4 +1,5 @@
 {
+  "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/package-json.package.schema.json",
   "name": "@wraithlight/eslint-plugin-wraithlight-eslint",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
@@ -13,7 +14,10 @@
   "license": "LGPL-3.0-only",
   "scripts": {
     "build": "rimraf dist/esm && tsc -p tsconfig.build.json",
-    "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
+    "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json",
+    "lint": "",
+    "test": "",
+    "test:coverage": ""
   },
   "dependencies": {
     "eslint": "8.57.0"
