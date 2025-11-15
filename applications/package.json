@@ -69,6 +69,7 @@
     "packages/communications/*",
     "packages/kernel/*",
     "packages/plugins/*",
+    "packages/ui/*",
     "poc/*"
   ],
   "engines": {
