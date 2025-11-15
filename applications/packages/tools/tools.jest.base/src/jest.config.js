@@ -6,17 +6,17 @@ const ignoreTests = [
    * TODO: Align package names
    * All of the const packages should end with `constants`
   **/
- "constant",
- "const",
- /**
-  * TODO: Align package names
-  * It should be `assets`
-  */
- "asset",
+  "constant",
+  "const",
+  /**
+   * TODO: Align package names
+   * It should be `assets`
+   */
+  "asset",
 ]
 
 const jestConfig = (project, dirname) => {
-  if(!project.displayName) {
+  if (!project.displayName) {
     throw "Project should contain `displayName`!";
   }
   return {
@@ -79,6 +79,7 @@ const jestConfig = (project, dirname) => {
             `${dirname}/packages/framework/deepmerge/$1/src`,
             `${dirname}/packages/communications/$1/src`,
             `${dirname}/packages/kernel/$1/src`,
+            `${dirname}/packages/ui/$1/src`,
             // END TODO
           ]
         }

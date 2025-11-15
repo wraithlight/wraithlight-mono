@@ -7,7 +7,7 @@
       "import": "./dist/jest.config.js"
     }
   },
-  "version": "2.0.2",
+  "version": "2.1.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "build": "rm -r -f dist && cp -r ./src dist",

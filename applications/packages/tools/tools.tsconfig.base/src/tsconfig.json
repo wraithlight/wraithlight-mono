@@ -42,7 +42,8 @@
         "packages/latency/*/src/index.ts",
         "packages/domain/*/src/index.ts",
         "packages/communications/*/src/index.ts",
-        "packages/kernel/*/src/index.ts"
+        "packages/kernel/*/src/index.ts",
+        "packages/ui/*/src/index.ts"
       ]
     }
   },
