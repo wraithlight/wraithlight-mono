@@ -13,6 +13,7 @@ const ignoreTests = [
    * It should be `assets`
    */
   "asset",
+  "theme",
 ]
 
 const jestConfig = (project, dirname) => {
