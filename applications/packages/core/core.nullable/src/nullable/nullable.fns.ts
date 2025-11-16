@@ -52,6 +52,7 @@ function isNanCore(valueLike: number): valueLike is number {
 }
 
 function isNilCore(valueLike: unknown): valueLike is undefined | null {
+  // eslint-disable-next-line @wraithlight/wraithlight-eslint/no-null
   if (valueLike === null) {
     return true;
   }
