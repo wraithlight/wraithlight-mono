@@ -1,6 +1,7 @@
 import { TenantTheme } from "@wraithlight/core.ui.types";
 import { ApplicationName } from "@wraithlight/domain.application-info.constants";
 
+import { EntryData } from "./entry.model";
 import {
   contentTheme,
   gameWebsiteTheme,
@@ -9,7 +10,6 @@ import {
   userManagementTheme,
   websiteTheme,
 } from "./tenants";
-import { EntryData } from "./entry.model";
 
 export type T_UI_TENANTS =  ApplicationName.CommsNPS
   | ApplicationName.Content
