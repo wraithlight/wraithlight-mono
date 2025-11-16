@@ -10,7 +10,7 @@ import {
   websiteTheme,
 } from "./tenants";
 
-type T_UI_TENANTS =  ApplicationName.CommsNPS
+export type T_UI_TENANTS =  ApplicationName.CommsNPS
   | ApplicationName.Content
   | ApplicationName.GameWebsite
   | ApplicationName.Notifier
