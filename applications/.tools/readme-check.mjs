@@ -18,7 +18,7 @@ const ignoredFolders = [
   "coverage"
 ]
 
-const throwError = (process.argv[2] || "") === "--silent"
+const isSilent = (process.argv[2] || "") === "--silent"
 
 const _missingReadmes = [];
 const _wrongReadmes = [];
@@ -77,16 +77,18 @@ function getReadmeTitle(
 
 entries.forEach(m => checkPackageDocs(join(__dirname, "..", m)))
 
-if (!throwError) {
-  const errors = [];
-  if (_missingReadmes.length > 0) {
-    const packages = _missingReadmes.map(m => `\x1b[31m${m}\x1b[0m`).join(", ");
-    errors.push(`The following packages are missing the readme file: ${packages}`);
-  }
+const errors = [];
+if (_missingReadmes.length > 0) {
+  const packages = _missingReadmes.map(m => `\x1b[31m${m}\x1b[0m`).join(", ");
+  errors.push(`The following packages are missing the readme file: ${packages}`);
+}
 
-  if (_wrongReadmes.length > 0) {
-    const packages = _wrongReadmes.map(m => `\x1b[31m${m}\x1b[0m`).join(", ");
-    errors.push(`The following packages are having wrong readme file: ${packages}`);
-  }
+if (_wrongReadmes.length > 0) {
+  const packages = _wrongReadmes.map(m => `\x1b[31m${m}\x1b[0m`).join(", ");
+  errors.push(`The following packages are having wrong readme file: ${packages}`);
+}
+if (!isSilent) {
   throw errors.join(EOL);
+} else {
+  console.warn(errors);
 }
