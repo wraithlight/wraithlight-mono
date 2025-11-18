@@ -33,13 +33,13 @@
     "validate-workspaces": "node .tools/workspace-validator.mjs --silent",
     "sherif": "sherif",
     "list:project-number": "nx show projects | wc -l",
-    "theme:generate:all": "yarn generate:all --scope=@wraithlight/tools.ui.theme-generator",
-    "theme:generate:content": "yarn generate:content --scope=@wraithlight/tools.ui.theme-generator",
-    "theme:generate:game-website": "yarn generate:game-website --scope=@wraithlight/tools.ui.theme-generator",
-    "theme:generate:notifier": "yarn generate:notifier --scope=@wraithlight/tools.ui.theme-generator",
-    "theme:generate:nps": "yarn generate:nps --scope=@wraithlight/tools.ui.theme-generator",
-    "theme:generate:user-management": "yarn generate:user-management --scope=@wraithlight/tools.ui.theme-generator",
-    "theme:generate:website": "yarn generate:website --scope=@wraithlight/tools.ui.theme-generator"
+    "theme:generate:all": "lerna run generate:all --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:content": "lerna run generate:content --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:game-website": "lerna run generate:game-website --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:notifier": "lerna run generate:notifier --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:nps": "lerna run generate:nps --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:user-management": "lerna run generate:user-management --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:website": "lerna run generate:website --scope=@wraithlight/tools.ui.theme-generator"
   },
   "workspaces": [
     "apps/**/*",
