@@ -1,5 +1,6 @@
-import { Theme } from "@wraithlight/core.ui.types";
 import { EOL } from "os";
+
+import { Theme } from "@wraithlight/core.ui.types";
 
 import { tokenizeTheme } from "./tokenize-theme.mapper";
 
@@ -19,4 +20,4 @@ export const tenantThemeGenerator = (
   ].join(EOL);
 
   return css;
-}
+};
