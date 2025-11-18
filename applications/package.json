@@ -13,7 +13,7 @@
     "build:tools": "lerna run build --scope=@wraithlight/tools*",
     "build:prod": "lerna run build:prod",
     "build:guid": "lerna run build --scope @wraithlight/core.guid",
-    "postinstall": "yarn build:tools && yarn build:guid && yarn apply-patches && yarn build --scope=@wraithlight/common.logger.sdk",
+    "postinstall": "yarn build:tools && yarn build:guid && yarn apply-patches && yarn build --scope=@wraithlight/common.logger.sdk && yarn theme:generate:all",
     "graph": "nx graph",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
@@ -32,7 +32,14 @@
     "deplist": "node .tools/deplist.mjs",
     "validate-workspaces": "node .tools/workspace-validator.mjs --silent",
     "sherif": "sherif",
-    "list:project-number": "nx show projects | wc -l"
+    "list:project-number": "nx show projects | wc -l",
+    "theme:generate:all": "yarn generate:all --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:content": "yarn generate:content --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:game-website": "yarn generate:game-website --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:notifier": "yarn generate:notifier --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:nps": "yarn generate:nps --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:user-management": "yarn generate:user-management --scope=@wraithlight/tools.ui.theme-generator",
+    "theme:generate:website": "yarn generate:website --scope=@wraithlight/tools.ui.theme-generator"
   },
   "workspaces": [
     "apps/**/*",
