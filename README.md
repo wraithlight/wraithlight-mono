@@ -164,37 +164,44 @@ yarn
 
 ```sh
 
-nx                            - Utility script to add `nx` to the cli.
-knip                          - Runs KNIP on the project.
-lerna                         - Utility script to add `lerna` to the cli.
-lint                          - Runs ESLint on the project.
-lint:quiet                    - Runs ESLint on the project. Prints errors only.
-build                         - Build everything.
-build:changes                 - Build the changes since the local main only.
-build:tools                   - Build the `tools.*` packages only.
-build:prod                    - DEPRECATED - Production build.
-build:guid                    - Build `core.guid` only.
-postinstall                   - Utility script to build some packages after yarn install.
-graph                         - Draw NX graph.
-test                          - Runs jest on the project.
-test:coverage                 - Runs jest on the project. Collect coverage per package.
-test:mono                     - Runs jest on the monorepo.
-validate-package-json         - Validates `package.json` files.
-validate-swagger-json         - Validates `swagger.json` files.
-validate-tsconfig-json        - Validates `tsconfig.json` files.
-validate-tsconfig-build-json  - Validates `tsconfig.build.json` files.
-guid                          - Generates a new guid.
-test-report:collect           - Utility script for test-reporting. Runs jest.
-test-report:generate          - Utility script for test-reporting. Runs custom parsing.
-test-report:open              - Utility script for test-reporting. Opens the default browser.
-test-report                   - Collects test-coverage, then opens the result in your browser.
-precommit                     - Runs `yarn`, `lint`, `knip`, `build` and `test` on the repo.
-apply-patches                 - Runs `node_modules` patches.
-deplist                       - Checks for duplicate 3rd party dependencies. Optional flag: --silent
-readme-check                  - Checks if the readmes are there and has proper title. Optional flag: --silent
-validate-workspaces           - Check the workspace layouts. Optional flag: --silent
-sherif                        - Runs sherif that check package.json files.
-list:project-number           - Returns the number of projects within the nx monorepo.
+nx                              - Utility script to add `nx` to the cli.
+knip                            - Runs KNIP on the project.
+lerna                           - Utility script to add `lerna` to the cli.
+lint                            - Runs ESLint on the project.
+lint:quiet                      - Runs ESLint on the project. Prints errors only.
+build                           - Build everything.
+build:changes                   - Build the changes since the local main only.
+build:tools                     - Build the `tools.*` packages only.
+build:prod                      - DEPRECATED - Production build.
+build:guid                      - Build `core.guid` only.
+postinstall                     - Utility script to build some packages after yarn install.
+graph                           - Draw NX graph.
+test                            - Runs jest on the project.
+test:coverage                   - Runs jest on the project. Collect coverage per package.
+test:mono                       - Runs jest on the monorepo.
+validate-package-json           - Validates `package.json` files.
+validate-swagger-json           - Validates `swagger.json` files.
+validate-tsconfig-json          - Validates `tsconfig.json` files.
+validate-tsconfig-build-json    - Validates `tsconfig.build.json` files.
+guid                            - Generates a new guid.
+test-report:collect             - Utility script for test-reporting. Runs jest.
+test-report:generate            - Utility script for test-reporting. Runs custom parsing.
+test-report:open                - Utility script for test-reporting. Opens the default browser.
+test-report                     - Collects test-coverage, then opens the result in your browser.
+precommit                       - Runs `yarn`, `lint`, `knip`, `build` and `test` on the repo.
+apply-patches                   - Runs `node_modules` patches.
+deplist                         - Checks for duplicate 3rd party dependencies. Optional flag: --silent
+readme-check                    - Checks if the readmes are there and has proper title. Optional flag: --silent
+validate-workspaces             - Check the workspace layouts. Optional flag: --silent
+sherif                          - Runs sherif that check package.json files.
+list:project-number             - Returns the number of projects within the nx monorepo.
+theme:generate:all              - Generates all the themes.
+theme:generate:content          - Generates the theme files for Content UI.
+theme:generate:game-website     - Generates the theme files for Game Website UI.
+theme:generate:notifier         - Generates the theme files for Notifier UI.
+theme:generate:nps              - Generates the theme files for NPS UI.
+theme:generate:user-management  - Generates the theme files for User Management UI.
+theme:generate:website          - Generates the theme files for Website UI.
 
 ```
 
