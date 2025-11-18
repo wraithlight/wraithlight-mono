@@ -1,6 +1,6 @@
-import { Theme } from "@wraithlight/core.ui.types"
+import { Theme } from "@wraithlight/core.ui.types";
 
-import { TokenizedTheme } from "./tokenized-theme.type"
+import { TokenizedTheme } from "./tokenized-theme.type";
 
 export const tokenizeTheme = (theme: Theme): TokenizedTheme => {
   return {
@@ -14,5 +14,5 @@ export const tokenizeTheme = (theme: Theme): TokenizedTheme => {
         token: "wl-colors-on-primary"
       }
     }
-  }
-}
+  };
+};
