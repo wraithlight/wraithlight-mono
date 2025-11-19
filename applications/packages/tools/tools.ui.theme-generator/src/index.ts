@@ -11,7 +11,7 @@ const libLocation = (libName: string): string => join(__dirname, `../../../../ui
 const target = process.argv[2];
 
 // eslint-disable-next-line max-len
-const shouldGenerate = (libName: string): boolean => !isEmptyStringOrNil(target) && target.includes(libName);
+const shouldGenerate = (libName: string): boolean => isEmptyStringOrNil(target) || (!isEmptyStringOrNil(target) && target.includes(libName));
 
 Object.entries(TENANT_CONFIG).forEach(m => {
   if (!shouldGenerate(m[0])) return;
