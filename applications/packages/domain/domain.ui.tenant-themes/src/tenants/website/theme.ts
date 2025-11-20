@@ -6,14 +6,30 @@ import {
 const lightMode: Theme = {
   colors: {
     primary: "",
-    onPrimary: ""
+    onPrimary: "",
+    success: "",
+    onSuccess: "",
+    warning: "",
+    onWarning: "",
+    danger: "",
+    onDanger: "",
+    info: "",
+    onInfo: ""
   }
 };
 
 const darkMode: Theme = {
   colors: {
     primary: "",
-    onPrimary: ""
+    onPrimary: "",
+    success: "",
+    onSuccess: "",
+    warning: "",
+    onWarning: "",
+    danger: "",
+    onDanger: "",
+    info: "",
+    onInfo: ""
   }
 };
 
