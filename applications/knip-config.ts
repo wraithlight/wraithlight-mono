@@ -124,6 +124,11 @@ const config: KnipConfig = {
         "src/jest-runner.js"
       ]
     },
+    "packages/ui/core.ui.base-components": {
+      ignoreDependencies: [
+        "rimraf"  // TODO: ui lib package.json schema
+      ]
+    },
     "poc/realtime": {
       entry: [
         "src/server.ts",

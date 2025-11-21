@@ -1,0 +1,5 @@
+@use "mixin";
+
+.wl-c-button-primary {
+  @include mixin.wl-m-button-primary;
+}

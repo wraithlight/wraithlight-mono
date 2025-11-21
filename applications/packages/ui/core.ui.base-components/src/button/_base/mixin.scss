@@ -1,0 +1,17 @@
+@mixin wl-m-button-base(
+  $background-color,
+  $foreground-color
+) {
+  background-color: $background-color;
+  color: $foreground-color;
+  cursor: pointer;
+  outline: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 0;
+
+  &:hover {
+    filter: brightness(85%);
+    text-decoration: underline;
+  }
+}
