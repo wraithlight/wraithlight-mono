@@ -1,5 +1,9 @@
 ## @wraithlight/core.ui.base-components
 
+Classes:
+* `wl-c-button-primary`
+* `wl-c-button-secondary`
+
 ```js
 
 // webpack.config.js
@@ -16,6 +20,7 @@
 
 ```scss
 
+// styles.scss
 @import "@wraithlight/core.ui.base-components/button-primary.css";
 @import "@wraithlight/core.ui.{{appName}}.theme/theme-light.css";
 @import "@wraithlight/core.ui.{{appName}}.theme/theme-dark.css";
