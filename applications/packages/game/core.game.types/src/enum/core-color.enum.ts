@@ -1,3 +1,6 @@
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorRed {
   _010 = "#330000",
   _020 = "#660000",
@@ -10,6 +13,9 @@ export const enum CoreColorRed {
   _090 = "#FFCCCC"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorOrange {
   _010 = "#331900",
   _020 = "#663300",
@@ -22,6 +28,9 @@ export const enum CoreColorOrange {
   _090 = "#FFE5CC"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorYellow {
   _010 = "#333300",
   _020 = "#666600",
@@ -34,6 +43,9 @@ export const enum CoreColorYellow {
   _090 = "#FFFFCC"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorLime {
   _010 = "#193300",
   _020 = "#336600",
@@ -46,6 +58,9 @@ export const enum CoreColorLime {
   _090 = "#E5FFCC"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorGreen {
   _010 = "#003300",
   _020 = "#006600",
@@ -58,6 +73,9 @@ export const enum CoreColorGreen {
   _090 = "#CCFFCC"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorAcid {
   _010 = "#003319",
   _020 = "#006613",
@@ -70,6 +88,9 @@ export const enum CoreColorAcid {
   _090 = "#CCFFE5"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorTeal {
   _010 = "#003333",
   _020 = "#006666",
@@ -82,6 +103,9 @@ export const enum CoreColorTeal {
   _090 = "#CCFFFF"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorNavy {
   _010 = "#001933",
   _020 = "#003366",
@@ -94,6 +118,9 @@ export const enum CoreColorNavy {
   _090 = "#CCE5FF"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorBlue {
   _010 = "#000033",
   _020 = "#000066",
@@ -106,6 +133,9 @@ export const enum CoreColorBlue {
   _090 = "#CCCCFF"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorPurple {
   _010 = "#190033",
   _020 = "#330066",
@@ -118,6 +148,9 @@ export const enum CoreColorPurple {
   _090 = "#E5CCFF"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorPink {
   _010 = "#330033",
   _020 = "#660066",
@@ -129,6 +162,10 @@ export const enum CoreColorPink {
   _080 = "#FF99FF",
   _090 = "#FFCCFF"
 }
+
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorMagenta {
   _010 = "#330019",
   _020 = "#660033",
@@ -141,6 +178,9 @@ export const enum CoreColorMagenta {
   _090 = "#FFCCE5"
 }
 
+/**
+ * @deprecated Use the colors from @wraithlight/kernel.color.constant
+ */
 export const enum CoreColorGray {
   _010 = "#000000",
   _020 = "#202020",
