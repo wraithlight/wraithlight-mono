@@ -2,6 +2,7 @@
 
 Classes:
 * `wl-c-button-primary`
+* `wl-c-button-secondary`
 * `wl-c-button-tertiary`
 
 ```js
