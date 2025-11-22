@@ -1,0 +1,5 @@
+@use "mixin";
+
+.wl-c-button-tertiary {
+  @include mixin.wl-m-button-tertiary;
+}
