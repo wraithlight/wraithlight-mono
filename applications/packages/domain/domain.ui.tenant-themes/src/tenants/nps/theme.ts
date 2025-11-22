@@ -14,7 +14,17 @@ const lightMode: Theme = {
     danger: "",
     onDanger: "",
     info: "",
-    onInfo: ""
+    onInfo: "",
+    surface1: "",
+    onSurface1: "",
+    surface2: "",
+    onSurface2: "",
+    surface3: "",
+    onSurface3: "",
+    surface4: "",
+    onSurface4: "",
+    surface5: "",
+    onSurface5: ""
   }
 };
 
@@ -29,7 +39,17 @@ const darkMode: Theme = {
     danger: "",
     onDanger: "",
     info: "",
-    onInfo: ""
+    onInfo: "",
+    surface1: "",
+    onSurface1: "",
+    surface2: "",
+    onSurface2: "",
+    surface3: "",
+    onSurface3: "",
+    surface4: "",
+    onSurface4: "",
+    surface5: "",
+    onSurface5: ""
   }
 };
 
