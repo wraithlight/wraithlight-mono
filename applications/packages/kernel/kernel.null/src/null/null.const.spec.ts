@@ -1,6 +1,6 @@
 import { GLOBAL_NULL } from "./null.const";
 
-describe("GLOBAL_NULLSPecs", () => {
+describe("GLOBAL_NULLSpecs", () => {
   describe("given the const is initialized", () => {
     it("should be null", () => {
       expect(GLOBAL_NULL).toBeFalsy();

@@ -1,6 +1,6 @@
 import { GLOBAL_UNDEFINED } from "./undefined.const";
 
-describe("GLOBAL_UNDEFINEDSPecs", () => {
+describe("GLOBAL_UNDEFINEDSpecs", () => {
     describe("given the const is initialized", () => {
         it("should be undefined", () => {
             expect(GLOBAL_UNDEFINED).toBeFalsy();

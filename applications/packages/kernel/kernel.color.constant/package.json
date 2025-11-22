@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/package-json.package.schema.json",
-  "name": "@wraithlight/core.undefined",
+  "name": "@wraithlight/kernel.color.constant",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "exports": {
@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "2.0.2",
+  "version": "1.0.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
