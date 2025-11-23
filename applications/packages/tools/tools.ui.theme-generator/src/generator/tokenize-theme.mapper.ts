@@ -44,6 +44,46 @@ export const tokenizeTheme = (theme: Theme): TokenizedTheme => {
       onInfo: {
         value: theme.colors.onInfo,
         token: "wl-colors-on-info"
+      },
+      surface1: {
+        value: theme.colors.surface1,
+        token: "wl-colors-surface-1"
+      },
+      onSurface1: {
+        value: theme.colors.onSurface1,
+        token: "wl-colors-on-surface-1"
+      },
+      surface2: {
+        value: theme.colors.surface2,
+        token: "wl-colors-surface-2"
+      },
+      onSurface2: {
+        value: theme.colors.onSurface2,
+        token: "wl-colors-on-surface-2"
+      },
+      surface3: {
+        value: theme.colors.surface3,
+        token: "wl-colors-surface-3"
+      },
+      onSurface3: {
+        value: theme.colors.onSurface3,
+        token: "wl-colors-on-surface-3"
+      },
+      surface4: {
+        value: theme.colors.surface4,
+        token: "wl-colors-surface-4"
+      },
+      onSurface4: {
+        value: theme.colors.onSurface4,
+        token: "wl-colors-on-surface-4"
+      },
+      surface5: {
+        value: theme.colors.surface5,
+        token: "wl-colors-surface-5"
+      },
+      onSurface5: {
+        value: theme.colors.onSurface5,
+        token: "wl-colors-on-surface-5"
       }
     }
   };
