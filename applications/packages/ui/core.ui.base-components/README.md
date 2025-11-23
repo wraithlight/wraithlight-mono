@@ -6,6 +6,7 @@ Classes:
 * `wl-c-button-tertiary`
 * `wl-c-button-outline-primary`
 * `wl-c-button-outline-secondary`
+* `wl-c-button-outline-tertiary`
 
 ```js
 
