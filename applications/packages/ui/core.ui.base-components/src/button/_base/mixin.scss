@@ -15,3 +15,16 @@
     text-decoration: underline;
   }
 }
+
+@mixin wl-m-button-outline-base(
+  $foreground-color
+) {
+  @include wl-m-button-base(
+    var(--wl-colors-surface-1),
+    $foreground-color
+  );
+  border: 1px solid $foreground-color;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
