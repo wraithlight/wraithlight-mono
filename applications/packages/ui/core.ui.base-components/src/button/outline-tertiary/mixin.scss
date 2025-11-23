@@ -1,0 +1,7 @@
+@use "../_base/mixin";
+
+@mixin wl-m-button-outline-tertiary {
+  @include mixin.wl-m-button-outline-base(
+    var(--wl-colors-tertiary)
+  );
+}
