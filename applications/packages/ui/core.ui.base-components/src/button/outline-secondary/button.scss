@@ -1,0 +1,5 @@
+@use "mixin";
+
+.wl-c-button-outline-secondary {
+  @include mixin.wl-m-button-outline-secondary;
+}

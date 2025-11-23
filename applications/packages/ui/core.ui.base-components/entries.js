@@ -4,7 +4,8 @@ const ENTRIES = Object.fromEntries([
   createEntry("button", "primary"),
   createEntry("button", "secondary"),
   createEntry("button", "tertiary"),
-  createEntry("button", "outline-primary")
+  createEntry("button", "outline-primary"),
+  createEntry("button", "outline-secondary")
 ]);
 
 module.exports = { ENTRIES };
