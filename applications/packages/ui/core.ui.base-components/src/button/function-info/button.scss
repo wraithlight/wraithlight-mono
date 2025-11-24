@@ -1,0 +1,5 @@
+@use "mixin";
+
+.wl-c-button-function-info {
+  @include mixin.wl-m-button-function-info;
+}
