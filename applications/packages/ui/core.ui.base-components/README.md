@@ -8,6 +8,7 @@ Classes:
 * `wl-c-button-outline-secondary`
 * `wl-c-button-outline-tertiary`
 * `wl-c-button-function-success`
+* `wl-c-button-function-warning`
 
 ```js
 

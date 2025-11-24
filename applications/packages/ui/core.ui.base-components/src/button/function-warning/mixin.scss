@@ -1,0 +1,8 @@
+@use "../_base/mixin";
+
+@mixin wl-m-button-function-warning {
+  @include mixin.wl-m-button-base(
+    var(--wl-colors-warning),
+    var(--wl-colors-on-warning)
+  );
+}
