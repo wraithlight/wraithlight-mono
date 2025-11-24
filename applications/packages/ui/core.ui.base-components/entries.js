@@ -10,6 +10,7 @@ const ENTRIES = Object.fromEntries([
   createEntry("button", "function-success"),
   createEntry("button", "function-warning"),
   createEntry("button", "function-info"),
+  createEntry("button", "function-danger")
 ]);
 
 module.exports = { ENTRIES };
