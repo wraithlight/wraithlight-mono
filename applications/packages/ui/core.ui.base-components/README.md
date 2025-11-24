@@ -7,6 +7,7 @@ Classes:
 * `wl-c-button-outline-primary`
 * `wl-c-button-outline-secondary`
 * `wl-c-button-outline-tertiary`
+* `wl-c-button-function-success`
 
 ```js
 
