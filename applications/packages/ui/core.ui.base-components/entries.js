@@ -9,6 +9,7 @@ const ENTRIES = Object.fromEntries([
   createEntry("button", "outline-tertiary"),
   createEntry("button", "function-success"),
   createEntry("button", "function-warning"),
+  createEntry("button", "function-info"),
   createEntry("button", "function-danger")
 ]);
 
