@@ -11,6 +11,7 @@ Classes:
 * `wl-c-button-function-warning`
 * `wl-c-button-function-info`
 * `wl-c-button-function-danger`
+* `wl-c-input-standard`
 
 ```js
 
