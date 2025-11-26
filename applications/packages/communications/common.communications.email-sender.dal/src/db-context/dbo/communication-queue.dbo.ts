@@ -12,6 +12,7 @@ export interface CommunicationQueueDbo {
   replyToName: string;
   providerId: string,
   providerIdentifier?: string;
+  providerSentAt?: Date;
   status: "NOTIFICATION_IN_QUEUE" | "NOTIFICATION_SENT" | "NOTIFICATION_ERROR"; // TODO: Consolidation between services.
   errorMessage?: string;
   receviedAtUtc: Date;

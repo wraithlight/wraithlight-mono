@@ -10,6 +10,7 @@ CREATE TABLE `Communication` (
     `ReplyToName` VARCHAR(100) NOT NULL,
     `ProviderId` VARCHAR(36) NOT NULL,
     `ProviderIdentifier` TEXT NULL,
+    `ProviderSentAt` DATETIME NULL,
     `Status` TEXT NOT NULL,
     `ErrorMessage` TEXT NULL,
     `ReceviedAtUtc` DATETIME NOT NULL,
