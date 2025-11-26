@@ -6,6 +6,7 @@ CREATE TABLE `Communication` (
     `Subject` TEXT NOT NULL,
     `LogoUrl` TEXT NOT NULL,
     `ProviderId` VARCHAR(36) NOT NULL,
+    `ProviderStatus` VARCHAR(64) NOT NULL,
     `ProviderIdentifier` TEXT NULL,
     `Status` TEXT NOT NULL,
     `ApplicationLink` TEXT NOT NULL,
