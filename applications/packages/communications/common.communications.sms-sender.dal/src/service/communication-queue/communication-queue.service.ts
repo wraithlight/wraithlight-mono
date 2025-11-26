@@ -76,7 +76,8 @@ export class NotificationQueueService {
         status: "NOTIFICATION_SENT",
         providerStatus: "SUCCEEDED",
         sentAtUtc: sentAtUtc,
-        lastUpdatedAtUtc: utcNow()
+        lastUpdatedAtUtc: utcNow(),
+        providerSentAt: sentAtUtc
       }
     );
   }
