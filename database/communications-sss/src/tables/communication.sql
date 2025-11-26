@@ -4,6 +4,7 @@ CREATE TABLE `Communication` (
     `RecipientIdentifier` VARCHAR(100) NOT NULL,
     `Content` TEXT NOT NULL,
     `ProviderId` VARCHAR(36) NOT NULL,
+    `ProviderStatus` VARCHAR(64) NOT NULL,
     `ProviderIdentifier` TEXT NULL,
     `Status` TEXT NOT NULL,
     `ErrorMessage` TEXT NULL,
