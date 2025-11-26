@@ -7,6 +7,7 @@ CREATE TABLE `Communication` (
     `LogoUrl` TEXT NOT NULL,
     `ProviderId` VARCHAR(36) NOT NULL,
     `ProviderIdentifier` TEXT NULL,
+    `ProviderSentAt` DATETIME NULL,
     `Status` TEXT NOT NULL,
     `ApplicationLink` TEXT NOT NULL,
     `ErrorMessage` TEXT NULL,
