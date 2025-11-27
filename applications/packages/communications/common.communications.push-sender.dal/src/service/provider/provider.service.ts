@@ -6,8 +6,8 @@ import {
 } from "@wraithlight/framework.operation-result";
 
 import {
-  PushSenderDbContextFactory,
-  ProviderDbo
+  ProviderDbo,
+  PushSenderDbContextFactory
 } from "../../db-context";
 
 import { ERROR_CODES } from "./provider.const";
