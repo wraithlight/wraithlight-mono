@@ -12,6 +12,7 @@ Classes:
 * `wl-c-button-function-info`
 * `wl-c-button-function-danger`
 * `wl-c-input-standard`
+* `wl-c-input-password`
 
 ```js
 
