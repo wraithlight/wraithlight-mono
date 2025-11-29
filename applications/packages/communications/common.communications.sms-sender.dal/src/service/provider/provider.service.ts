@@ -17,7 +17,7 @@ export class ProviderService {
   private readonly _context = SMSSenderDbContextFactory
     .getInstance()
     .getDbContext()
-  ;
+    ;
 
   public async create(
     id: Guid,
@@ -34,7 +34,29 @@ export class ProviderService {
     await this._context.Providers
       .insert(model)
       .run()
-    ;
+      ;
+    return this.getByIdCore(id);
+  }
+
+  public async update(
+    id: Guid,
+    label: string,
+    config: string,
+    isActive: boolean
+  ): Promise<OperationResult<ProviderDbo>> {
+    const model = {
+      label: label,
+      config: config,
+      isActive: isActive
+    };
+    await this._context.Providers
+      .update(
+        "id",
+        id,
+        model
+      )
+      .run()
+      ;
     return this.getByIdCore(id);
   }
 
@@ -45,7 +67,7 @@ export class ProviderService {
       .select()
       .where("id", id)
       .first()
-    ;
+      ;
 
     if (isNil(result)) {
       return OperationResultFactory.error(ERROR_CODES.NOT_FOUND);
