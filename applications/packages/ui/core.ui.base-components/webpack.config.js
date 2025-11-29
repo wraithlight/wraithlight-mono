@@ -6,6 +6,7 @@ const { ENTRIES } = require("./entries");
 
 module.exports = {
   entry: ENTRIES,
+  mode: "production",
   output: {
     path: resolve(__dirname, "dist"),
     filename: "[name].js",
