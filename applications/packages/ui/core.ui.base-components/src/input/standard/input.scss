@@ -1,0 +1,9 @@
+@use "mixin";
+
+.wl-c-input-standard {
+  @include mixin.wl-m-input-standard;
+
+  &-invalid {
+    border-color: var(--wl-colors-danger);
+  }
+}
