@@ -6,6 +6,7 @@ CREATE TABLE `Communication` (
     `ProviderId` VARCHAR(36) NOT NULL,
     `ProviderStatus` VARCHAR(64) NOT NULL,
     `ProviderIdentifier` TEXT NULL,
+    `ProviderSentAt` DATETIME NULL,
     `Status` TEXT NOT NULL,
     `ErrorMessage` TEXT NULL,
     `ReceviedAtUtc` DATETIME NOT NULL,
