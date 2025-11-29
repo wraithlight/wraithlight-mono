@@ -38,6 +38,28 @@ export class ProviderService {
     return this.getByIdCore(id);
   }
 
+  public async update(
+    id: Guid,
+    label: string,
+    config: string,
+    isActive: boolean
+  ): Promise<OperationResult<ProviderDbo>> {
+    const model = {
+      label: label,
+      config: config,
+      isActive: isActive
+    };
+    await this._context.Providers
+      .update(
+        "id",
+        id,
+        model
+      )
+      .run()
+    ;
+    return this.getByIdCore(id);
+  }
+
   private async getByIdCore(
     id: Guid
   ): Promise<OperationResult<ProviderDbo>> {
