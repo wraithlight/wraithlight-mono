@@ -1,0 +1,9 @@
+@mixin wl-m-input-base {
+  background-color: var(--wl-colors-surface-1);
+  color: var(--wl-colors-on-surface-1);
+  cursor: text;
+  outline: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--wl-colors-surface-2);
+}

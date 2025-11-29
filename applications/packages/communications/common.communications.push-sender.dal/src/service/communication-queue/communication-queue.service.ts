@@ -41,6 +41,7 @@ export class NotificationQueueService {
       applicationLink: applicationLink,
       logoUrl: logoUrl,
       providerId: providerId,
+      providerStatus: "NEW",
       status: "NOTIFICATION_IN_QUEUE",
       receviedAtUtc: receviedAtUtc,
       lastUpdatedAtUtc: lastUpdatedAtUtc
@@ -65,7 +66,8 @@ export class NotificationQueueService {
     return this.updateCore(
       id,
       {
-        providerIdentifier: providerIdentifier
+        providerIdentifier: providerIdentifier,
+        providerStatus: "IDENTIFIED"
       }
     );
   }
@@ -78,8 +80,10 @@ export class NotificationQueueService {
       id,
       {
         status: "NOTIFICATION_SENT",
+        providerStatus: "SUCCEEDED",
         sentAtUtc: sentAtUtc,
-        lastUpdatedAtUtc: utcNow()
+        lastUpdatedAtUtc: utcNow(),
+        providerSentAt: sentAtUtc
       }
     );
   }
@@ -92,6 +96,7 @@ export class NotificationQueueService {
       id,
       {
         status: "NOTIFICATION_ERROR",
+        providerStatus: "FAILED",
         errorMessage: errorMessage,
         lastUpdatedAtUtc: utcNow()
       }
