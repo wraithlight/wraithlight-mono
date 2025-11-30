@@ -24,7 +24,8 @@
     "@wraithlight/core.orm": "*",
     "@wraithlight/framework.date": "*",
     "@wraithlight/framework.nullable": "*",
-    "@wraithlight/framework.operation-result": "*"
+    "@wraithlight/framework.operation-result": "*",
+    "@wraithlight/kernel.undefined": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
