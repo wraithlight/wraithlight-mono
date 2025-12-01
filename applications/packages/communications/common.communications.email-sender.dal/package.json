@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "2.4.0",
+  "version": "2.6.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -24,7 +24,8 @@
     "@wraithlight/core.orm": "*",
     "@wraithlight/framework.date": "*",
     "@wraithlight/framework.nullable": "*",
-    "@wraithlight/framework.operation-result": "*"
+    "@wraithlight/framework.operation-result": "*",
+    "@wraithlight/kernel.undefined": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
