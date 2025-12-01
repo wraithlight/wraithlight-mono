@@ -1,0 +1,5 @@
+@use "../_base/mixin";
+
+@mixin wl-m-input-password {
+  @include mixin.wl-m-input-base;
+}
