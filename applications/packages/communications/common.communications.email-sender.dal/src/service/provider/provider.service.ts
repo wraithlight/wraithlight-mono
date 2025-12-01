@@ -4,6 +4,7 @@ import {
   OperationResult,
   OperationResultFactory
 } from "@wraithlight/framework.operation-result";
+import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 
 import {
   EmailSenderDbContextFactory,
@@ -36,6 +37,43 @@ export class ProviderService {
       .run()
     ;
     return this.getByIdCore(id);
+  }
+
+  public async update(
+    id: Guid,
+    label: string,
+    config: string,
+    isActive: boolean
+  ): Promise<OperationResult<ProviderDbo>> {
+    const model = {
+      label: label,
+      config: config,
+      isActive: isActive
+    };
+    await this._context.Providers
+      .update(
+        "id",
+        id,
+        model
+      )
+      .run()
+    ;
+    return this.getByIdCore(id);
+  }
+
+  public async list(
+  ): Promise<OperationResult<ReadonlyArray<ProviderDbo>>> {
+    const result = await this._context.Providers
+      .select()
+      .toList()
+      .catch(_ => GLOBAL_UNDEFINED)
+    ;
+
+    if(isNil(result)) {
+      return OperationResultFactory.error(ERROR_CODES.LIST);
+    }
+
+    return OperationResultFactory.success(result);
   }
 
   private async getByIdCore(
