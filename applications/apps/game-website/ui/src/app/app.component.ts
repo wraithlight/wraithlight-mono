@@ -9,7 +9,7 @@ class AppComponent {
 }
 
 addComponent(
-    "game-website",
-    template,
-    () => new AppComponent()
+  "game-website",
+  template,
+  () => new AppComponent()
 );
