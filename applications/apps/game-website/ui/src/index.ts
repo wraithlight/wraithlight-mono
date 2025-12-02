@@ -6,12 +6,12 @@ import { applyBindings } from "knockout";
 const _document = getDocumentRef();
 
 _document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-        bootstrap();
-    }
+  "DOMContentLoaded",
+  () => {
+    bootstrap();
+  }
 );
 
 function bootstrap(): void {
-    applyBindings(_document.body);
+  applyBindings(_document.body);
 }
