@@ -1,9 +1,9 @@
-import { writeFileSync } from "fs";
 import { EOL } from "os";
 import { join } from "path";
 
 import { TenantTheme } from "@wraithlight/core.ui.types";
 import { dateISOSerialize, utcNow } from "@wraithlight/framework.date";
+import { FileOperator } from "@wraithlight/framework.io";
 
 import { tenantThemeGenerator } from "./generator";
 
@@ -27,8 +27,8 @@ export const tenantThemeGeneratorFactory = (
 
   // TODO: Use mustache templates instead of this
   const darkCss = ["@media (prefers-color-scheme: dark) {",
-  darkCss_.split(EOL).map(m => `  ${m}`).join(EOL),
-  "}"
+    darkCss_.split(EOL).map(m => `  ${m}`).join(EOL),
+    "}"
   ].join(EOL);
 
   const lightCss = tenantThemeGenerator(theme.lightMode);
@@ -36,7 +36,6 @@ export const tenantThemeGeneratorFactory = (
   const darkOutputFilePath = join(outputDirectory, "theme-dark.css");
   const lightOutputFilePath = join(outputDirectory, "theme-light.css");
 
-  // TODO: https://github.com/wraithlight/wraithlight-mono/issues/1585
-  writeFileSync(darkOutputFilePath, addHeader(darkCss));
-  writeFileSync(lightOutputFilePath, addHeader(lightCss));
+  FileOperator.writeFileJson(darkOutputFilePath, addHeader(darkCss), false);
+  FileOperator.writeFileJson(lightOutputFilePath, addHeader(lightCss), false);
 };
