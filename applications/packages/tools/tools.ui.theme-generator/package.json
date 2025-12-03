@@ -27,6 +27,7 @@
     "@wraithlight/core.ui.types": "*",
     "@wraithlight/domain.ui.tenant-themes": "*",
     "@wraithlight/framework.date": "*",
+    "@wraithlight/framework.io": "*",
     "@wraithlight/framework.nullable": "*"
   },
   "devDependencies": {
