@@ -1,6 +1,6 @@
 import { Predicate } from "@wraithlight/core.linq";
-import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
 import { Nullable, isNil } from "@wraithlight/framework.nullable";
+import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 
 export class FifoStackService<T> {
 
