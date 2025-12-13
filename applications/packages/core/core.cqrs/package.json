@@ -21,8 +21,8 @@
   },
   "dependencies": {
     "@wraithlight/core.guid": "*",
-    "@wraithlight/core.nullable": "*",
-    "@wraithlight/core.stack": "*"
+    "@wraithlight/core.stack": "*",
+    "@wraithlight/framework.nullable": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
