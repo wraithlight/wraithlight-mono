@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -20,7 +20,7 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@wraithlight/core.date": "*",
+    "@wraithlight/framework.date": "*",
     "@wraithlight/framework.nullable": "*",
     "ansi-colors": "4.1.3"
   },
