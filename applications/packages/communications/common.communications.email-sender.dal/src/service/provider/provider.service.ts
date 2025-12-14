@@ -20,6 +20,12 @@ export class ProviderService {
     .getDbContext()
   ;
 
+  public async findById(
+    id: Guid
+  ): Promise<OperationResult<ProviderDbo>> {
+    return this.getByIdCore(id);
+  }
+
   public async create(
     id: Guid,
     label: string,

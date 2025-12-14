@@ -1,4 +1,4 @@
-import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
+import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 
 export class Timer {
   private _startTime: number | undefined = GLOBAL_UNDEFINED;
