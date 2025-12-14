@@ -11,7 +11,9 @@ const ENTRIES = Object.fromEntries([
   createEntry("button", "function-warning"),
   createEntry("button", "function-info"),
   createEntry("button", "function-danger"),
-  createEntry("input", "standard")
+  createEntry("input", "standard"),
+  createEntry("input", "password"),
+  createEntry("checkbox", "primary"),
 ]);
 
 module.exports = { ENTRIES };
