@@ -12,7 +12,7 @@ export class LatencyClient extends CoreHttpClient {
     path: string
   ): Promise<boolean> {
     const url = `${this._baseUrl}${path}`;
-    const result = await this.get(url);
+    const result = await this.get2(url);
     return result.statusCode === HttpCode.Ok;
   }
 
