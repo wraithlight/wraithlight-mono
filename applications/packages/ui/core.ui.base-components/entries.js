@@ -12,6 +12,7 @@ const ENTRIES = Object.fromEntries([
   createEntry("button", "function-info"),
   createEntry("button", "function-danger"),
   createEntry("input", "standard"),
+  createEntry("input", "password"),
   createEntry("checkbox", "primary"),
 ]);
 
