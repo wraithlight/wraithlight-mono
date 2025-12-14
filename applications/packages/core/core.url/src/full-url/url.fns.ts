@@ -1,8 +1,8 @@
 import { isEmptyString } from "@wraithlight/framework.nullable";
 
 export function createFullUrl(
-    baseUrl: string,
-    ...path: Array<string>
+  baseUrl: string,
+  ...path: Array<string>
 ): string {
   const paths = path.map(m => (isEmptyString(m) || m.startsWith("/"))
     ? m
