@@ -1,0 +1,7 @@
+@use "../_base/mixin";
+
+@mixin wl-m-checkbox-primary {
+  @include mixin.wl-m-checkbox-base(
+    var(--wl-colors-primary)
+  );
+}

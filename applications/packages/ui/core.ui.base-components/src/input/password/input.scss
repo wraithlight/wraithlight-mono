@@ -1,0 +1,9 @@
+@use "mixin";
+
+.wl-c-input-password {
+  @include mixin.wl-m-input-password;
+
+  &-invalid {
+    border-color: var(--wl-colors-danger);
+  }
+}

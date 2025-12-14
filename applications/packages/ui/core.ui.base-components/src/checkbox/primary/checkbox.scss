@@ -1,0 +1,5 @@
+@use "mixin";
+
+.wl-c-checkbox-primary {
+  @include mixin.wl-m-checkbox-primary;
+}
