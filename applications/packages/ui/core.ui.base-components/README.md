@@ -1,6 +1,6 @@
 ## @wraithlight/core.ui.base-components
 
-Classes:
+### Classes:
 * `wl-c-button-primary`
 * `wl-c-button-secondary`
 * `wl-c-button-tertiary`
@@ -13,6 +13,9 @@ Classes:
 * `wl-c-button-function-danger`
 * `wl-c-input-standard`
 * `wl-c-input-password`
+* `wl-c-checkbox-primary`
+
+### Usage
 
 ```js
 
@@ -34,5 +37,20 @@ Classes:
 @import "@wraithlight/core.ui.base-components/button-primary.css";
 @import "@wraithlight/core.ui.{{appName}}.theme/theme-light.css";
 @import "@wraithlight/core.ui.{{appName}}.theme/theme-dark.css";
+
+```
+
+### Components
+
+#### Checkbox
+
+```html
+
+<label class="wl-c-checkbox-primary">
+  <input type="checkbox" />
+  <span></span>
+  Click me to check!
+</label>
+
 
 ```
