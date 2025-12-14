@@ -11,16 +11,16 @@ import { BaseController } from "@wraithlight/core.node";
 import { createNodeServer } from "@wraithlight/core.server";
 
 LoggerService.initialize({
-    applicationName: ApplicationName.GameWebsite
+  applicationName: ApplicationName.GameWebsite
 });
 
 const serverCfg = ServerGameWebsiteConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType())
-;
+  .getInstance(CoreEnvironment.getEnvironmentType())
+  ;
 
 const sharedCfg = SharedGameWebsiteConfigReader
-    .getInstance(CoreEnvironment.getEnvironmentType())
-;
+  .getInstance(CoreEnvironment.getEnvironmentType())
+  ;
 
 const packageInfoReader = new PackageJsonReader(
   join(__dirname, serverCfg.getCommon(m => m.files.packageJson.path)),
@@ -30,33 +30,33 @@ const packageInfoReader = new PackageJsonReader(
 );
 
 const CONTROLLERS: Array<BaseController> = [
-    new HealthCheckControllerV1(
-        ApplicationName.GameWebsite,
-        packageInfoReader.getPackageJsonInfo().version
-    )
+  new HealthCheckControllerV1(
+    ApplicationName.GameWebsite,
+    packageInfoReader.getPackageJsonInfo().version
+  )
 ];
 
 const frontendPath = serverCfg.getCommon(x => x.files.frontend.static);
 
 createNodeServer(
-    ApplicationName.GameWebsite,
-    CONTROLLERS,
-    [],
-    sharedCfg.get(x => x.server.port),
-    [
-        {
-            path: serverCfg.getCommon(x => x.paths.base),
-            staticPath: join(
-                __dirname,
-                frontendPath
-            )
-        },
-        {
-            path: serverCfg.getCommon(x => x.paths.wildcard),
-            staticPath: join(
-                __dirname,
-                frontendPath
-            )
-        }
-    ]
+  ApplicationName.GameWebsite,
+  CONTROLLERS,
+  [],
+  sharedCfg.get(x => x.server.port),
+  [
+    {
+      path: serverCfg.getCommon(x => x.paths.base),
+      staticPath: join(
+        __dirname,
+        frontendPath
+      )
+    },
+    {
+      path: serverCfg.getCommon(x => x.paths.wildcard),
+      staticPath: join(
+        __dirname,
+        frontendPath
+      )
+    }
+  ]
 );
