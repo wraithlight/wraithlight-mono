@@ -1,4 +1,4 @@
-import { dateISOSerialize, dateNow } from "@wraithlight/core.date";
+import { dateISOSerialize, dateNow } from "@wraithlight/framework.date";
 import { Nullable, isNil } from "@wraithlight/framework.nullable";
 import { blue, red, white, yellow } from "ansi-colors";
 
