@@ -1,14 +1,14 @@
 .header-container {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--header);
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--header);
 
-    .header-title,
-    .header-options {
-        padding: 2rem;
-        display: flex;
-        align-items: center;
-        color: var(--on-header);
-    }
+  .header-title,
+  .header-options {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    color: var(--on-header);
+  }
 }
