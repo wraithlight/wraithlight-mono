@@ -9,7 +9,7 @@ class HeaderComponent {
 }
 
 addComponent(
-    "game-website-header",
-    template,
-    () => new HeaderComponent()
+  "game-website-header",
+  template,
+  () => new HeaderComponent()
 );
