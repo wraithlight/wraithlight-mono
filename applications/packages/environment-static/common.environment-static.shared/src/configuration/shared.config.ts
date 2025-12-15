@@ -22,20 +22,20 @@ import { SHARED_USER_MANAGEMENT_CONFIG } from "./user-management";
 import { SHARED_WEBSITE_CONFIG } from "./website";
 
 export const SHARED_CONFIG: Readonly<
-    EnvironmentStaticShared> = {
-    [ApplicationName.Content]: SHARED_CONTENT_CONFIG,
-    [ApplicationName.Editor]: SHARED_EDITOR_CONFIG,
-    [ApplicationName.Forum]: SHARED_FORUM_CONFIG,
-    [ApplicationName.GameApplication]: SHARED_GAME_APPLICATION_CONFIG,
-    [ApplicationName.GameWebsite]: SHARED_GAME_WEBSITE_CONFIG,
-    [ApplicationName.Logs]: SHARED_LOGS_CONFIG,
-    [ApplicationName.UserManagement]: SHARED_USER_MANAGEMENT_CONFIG,
-    [ApplicationName.Website]: SHARED_WEBSITE_CONFIG,
-    [ApplicationName.Notifier]: SHARED_NOTIFIER_CONFIG,
-    [ApplicationName.RemoteConfig]: SHARED_REMOTE_CONFIG_CONFIG,
-    [ApplicationName.CommsESS]: SHARED_COMMS_ESS_CONFIG,
-    [ApplicationName.CommsNPS]: SHARED_COMMS_NPS_CONFIG,
-    [ApplicationName.CommsPSS]: SHARED_COMMS_PSS_CONFIG,
-    [ApplicationName.CommsSSS]: SHARED_COMMS_SSS_CONFIG,
-    common: SHARED_COMMON_CONFIG
+  EnvironmentStaticShared> = {
+  [ApplicationName.Content]: SHARED_CONTENT_CONFIG,
+  [ApplicationName.Editor]: SHARED_EDITOR_CONFIG,
+  [ApplicationName.Forum]: SHARED_FORUM_CONFIG,
+  [ApplicationName.GameApplication]: SHARED_GAME_APPLICATION_CONFIG,
+  [ApplicationName.GameWebsite]: SHARED_GAME_WEBSITE_CONFIG,
+  [ApplicationName.Logs]: SHARED_LOGS_CONFIG,
+  [ApplicationName.UserManagement]: SHARED_USER_MANAGEMENT_CONFIG,
+  [ApplicationName.Website]: SHARED_WEBSITE_CONFIG,
+  [ApplicationName.Notifier]: SHARED_NOTIFIER_CONFIG,
+  [ApplicationName.RemoteConfig]: SHARED_REMOTE_CONFIG_CONFIG,
+  [ApplicationName.CommsESS]: SHARED_COMMS_ESS_CONFIG,
+  [ApplicationName.CommsNPS]: SHARED_COMMS_NPS_CONFIG,
+  [ApplicationName.CommsPSS]: SHARED_COMMS_PSS_CONFIG,
+  [ApplicationName.CommsSSS]: SHARED_COMMS_SSS_CONFIG,
+  common: SHARED_COMMON_CONFIG
 };
