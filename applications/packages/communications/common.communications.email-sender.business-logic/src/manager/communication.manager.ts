@@ -1,4 +1,4 @@
-import { CommunicationQueueDbo, NotificationQueueService } from "@wraithlight/common.communications.email-sender.dal";
+import { CommunicationQueueDbo, NotificationQueueService, ProviderService } from "@wraithlight/common.communications.email-sender.dal";
 import { SendService } from "@wraithlight/common.communications.notifier-proxy.client";
 import { ServerCommsESSConfigReader } from "@wraithlight/common.environment-static.server";
 import { CqrsService } from "@wraithlight/core.cqrs";
@@ -21,6 +21,7 @@ export class CommunicationManager {
   // eslint-disable-next-line max-len
   private readonly _serverConfigReader = ServerCommsESSConfigReader.getInstance(CoreEnvironment.getEnvironmentType());
   private readonly _npsSendService: SendService;
+  private readonly _providerService: ProviderService;
 
   constructor() {
     // eslint-disable-next-line max-len
@@ -29,6 +30,29 @@ export class CommunicationManager {
     this._emailSenderFacade = this.getFacadeService();
     const senderConfig = this.getSenderConfig();
     this._emailSenderFacade.initialize(senderConfig);
+    this._providerService = new ProviderService();
+  }
+
+  public async addProvider<T extends IEmailSenderConfig>(
+    label: string,
+    config: T
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ): Promise<any> {
+    const id = newGuid();
+    const createResult = await this._providerService
+      .create(
+        id,
+        label,
+        JSON.stringify(config),
+        false
+      );
+
+    if (createResult.isErrorTC()) {
+      throw new InternalServerError();
+    }
+
+    // TODO: https://github.com/wraithlight/wraithlight-mono/issues/1702 and align the return type
+    return createResult.payload;
   }
 
   public async sendEmail(
