@@ -6,21 +6,21 @@ import { Nullable } from "@wraithlight/core.nullable";
 import { SharedConfigurationReader } from "../../config-reader";
 
 export class SharedEditorConfigReader
-    extends SharedConfigurationReader<EditorShared> {
+  extends SharedConfigurationReader<EditorShared> {
 
-    private static _instance: Nullable<
-        SharedConfigurationReader<EditorShared>>;
+  private static _instance: Nullable<
+    SharedConfigurationReader<EditorShared>>;
 
-    public static getInstance(
-        environment: EnvironmentType
-    ):SharedEditorConfigReader {
-        if (!this._instance) {
-            this._instance = new SharedConfigurationReader<EditorShared>(
-                ApplicationName.Editor,
-                environment
-            );
-        }
-        return this._instance;
+  public static getInstance(
+    environment: EnvironmentType
+  ): SharedEditorConfigReader {
+    if (!this._instance) {
+      this._instance = new SharedConfigurationReader<EditorShared>(
+        ApplicationName.Editor,
+        environment
+      );
     }
+    return this._instance;
+  }
 
 }
