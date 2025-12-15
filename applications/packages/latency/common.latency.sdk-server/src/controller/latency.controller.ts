@@ -1,4 +1,3 @@
-import { dateISOSerialize, utcNow } from "@wraithlight/core.date";
 import { LATENCY_API_ENDPOINTS } from "@wraithlight/core.latency.constants";
 import { LatencyResponseModel } from "@wraithlight/core.latency.types";
 import {
@@ -6,6 +5,7 @@ import {
   HttpController,
   HttpGet
 } from "@wraithlight/core.node";
+import { dateISOSerialize, utcNow } from "@wraithlight/framework.date";
 
 @HttpController(LATENCY_API_ENDPOINTS.v1.controller)
 export class LatencyController extends BaseController {
