@@ -22,5 +22,14 @@
     "lint": {
       "cache": true
     }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "build:prod", "lint", "test"],
+        "parallel": 8
+      }
+    }
   }
 }
