@@ -8,6 +8,7 @@ import { ONE_SEC } from "./sms-sender.const";
 import { DummySmsSenderConfig } from "./sms-sender.model";
 
 export class DummySmsSenderFacadeService
+  // eslint-disable-next-line indent
   implements ISmsSenderFacadeService<DummySmsSenderConfig> {
 
   public initialize(_config: DummySmsSenderConfig): OperationResult<void> {
