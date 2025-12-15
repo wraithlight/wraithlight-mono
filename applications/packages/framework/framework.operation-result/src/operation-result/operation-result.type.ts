@@ -13,16 +13,16 @@ export abstract class OperationResultBase {
 
 export class OperationResultSuccess<T = undefined>
   extends OperationResultBase {
-    public readonly isError = false;
-    public readonly isSuccess = true;
-    public readonly payload: T;
+  public readonly isError = false;
+  public readonly isSuccess = true;
+  public readonly payload: T;
 
-    constructor(
-      _payload: T
-    ) {
-      super();
-      this.payload = _payload;
-    }
+  constructor(
+    _payload: T
+  ) {
+    super();
+    this.payload = _payload;
+  }
 }
 
 export class OperationResultError extends OperationResultBase {
