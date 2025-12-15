@@ -6,22 +6,22 @@ import { Nullable } from "@wraithlight/core.nullable";
 import { SharedConfigurationReader } from "../../config-reader";
 
 export class SharedWebsiteConfigReader
-    extends SharedConfigurationReader<WebsiteShared> {
+  extends SharedConfigurationReader<WebsiteShared> {
 
-    private static _instance: Nullable<
-        SharedConfigurationReader<WebsiteShared>
-    >;
+  private static _instance: Nullable<
+    SharedConfigurationReader<WebsiteShared>
+  >;
 
-    public static getInstance(
-        environment: EnvironmentType
-    ): SharedWebsiteConfigReader {
-        if (!this._instance) {
-            this._instance = new SharedConfigurationReader<WebsiteShared>(
-                ApplicationName.Website,
-                environment
-            );
-        }
-        return this._instance;
+  public static getInstance(
+    environment: EnvironmentType
+  ): SharedWebsiteConfigReader {
+    if (!this._instance) {
+      this._instance = new SharedConfigurationReader<WebsiteShared>(
+        ApplicationName.Website,
+        environment
+      );
     }
+    return this._instance;
+  }
 
 }
