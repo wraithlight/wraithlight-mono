@@ -20,6 +20,12 @@ export class ProviderService {
     .getDbContext()
     ;
 
+  public async findById(
+    id: Guid
+  ): Promise<OperationResult<ProviderDbo>> {
+    return this.getByIdCore(id);
+  }
+
   public async create(
     id: Guid,
     label: string,
@@ -67,9 +73,9 @@ export class ProviderService {
       .select()
       .toList()
       .catch(_ => GLOBAL_UNDEFINED)
-    ;
+      ;
 
-    if(isNil(result)) {
+    if (isNil(result)) {
       return OperationResultFactory.error(ERROR_CODES.LIST);
     }
 
