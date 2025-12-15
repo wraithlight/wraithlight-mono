@@ -16,6 +16,11 @@ jobs:
     - name: Install packages
       run: yarn
       working-directory: ./applications
+
+    - name: WL Postinstall
+      run: yarn wl:postinstall
+      working-directory: ./applications
+
     - name: Run lint
       run: yarn lint -- -- --quiet
       working-directory: ./applications

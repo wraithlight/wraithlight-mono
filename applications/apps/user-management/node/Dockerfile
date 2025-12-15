@@ -4,6 +4,7 @@ WORKDIR /temp
 COPY . /temp
 USER root
 RUN yarn
+RUN wl:postinstall
 RUN yarn build:prod --scope=@wraithlight/um.node --scope=@wraithlight/um.ui
 
 FROM node:18.13.0 AS runner
