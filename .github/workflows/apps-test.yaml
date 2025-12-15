@@ -19,9 +19,9 @@ jobs:
       uses: actions/cache@v4
       with:
         path: applications/node_modules/.cache/nx
-        key: nx-apps-${{ runner.os }}-${{ hashFiles('applications/yarn.lock', 'applications/lerna.json', 'applications/nx.json') }}
+        key: nx-apps-test-${{ runner.os }}-${{ hashFiles('applications/yarn.lock', 'applications/lerna.json', 'applications/nx.json') }}
         restore-keys: |
-          nx-apps-${{ runner.os }}-
+          nx-apps-test-${{ runner.os }}-
 
     - name: Install packages
       run: yarn
