@@ -20,7 +20,7 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@wraithlight/core.nullable": "*",
+    "@wraithlight/framework.nullable": "*",
     "express": "4.18.2"
   },
   "devDependencies": {
