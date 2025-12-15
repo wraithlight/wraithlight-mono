@@ -6,16 +6,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
+
     - name: Setup Node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: 18.20.8
         cache: "yarn"
         cache-dependency-path: applications/yarn.lock
+
+    - name: Cache Nx
+      uses: actions/cache@v4
+      with:
+        path: applications/node_modules/.cache/nx
+        key: nx-apps-lint-${{ runner.os }}-${{ hashFiles('applications/yarn.lock', 'applications/lerna.json', 'applications/nx.json') }}
+        restore-keys: |
+          nx-apps-lint-${{ runner.os }}-
+
     - name: Install packages
       run: yarn
       working-directory: ./applications
+
+    - name: WL Postinstall
+      run: yarn wl:postinstall
+      working-directory: ./applications
+
     - name: Run lint
       run: yarn lint -- -- --quiet
       working-directory: ./applications

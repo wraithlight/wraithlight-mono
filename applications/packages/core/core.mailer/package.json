@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "3.0.0",
+  "version": "3.0.1",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -34,7 +34,7 @@
     "typescript": "5.0.4"
   },
   "dependencies": {
-    "@wraithlight/core.undefined": "*",
-    "@wraithlight/facade.nodemailer": "*"
+    "@wraithlight/facade.nodemailer": "*",
+    "@wraithlight/kernel.undefined": "*"
   }
 }

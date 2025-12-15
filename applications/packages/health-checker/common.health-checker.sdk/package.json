@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -24,7 +24,7 @@
     "@wraithlight/core.health-checker.constants": "*",
     "@wraithlight/core.health-checker.types": "*",
     "@wraithlight/core.http": "*",
-    "@wraithlight/core.nullable": "*",
+    "@wraithlight/framework.nullable": "*",
     "@wraithlight/framework.operation-result": "*"
   },
   "devDependencies": {
