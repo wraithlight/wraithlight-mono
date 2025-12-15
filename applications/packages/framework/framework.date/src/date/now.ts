@@ -1,3 +1,3 @@
 export function dateNow(): Date {
-    return new Date();
+  return new Date();
 }
