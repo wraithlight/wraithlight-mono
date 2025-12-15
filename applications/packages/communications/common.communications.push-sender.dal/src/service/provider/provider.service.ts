@@ -26,6 +26,25 @@ export class ProviderService {
     return this.getByIdCore(id);
   }
 
+  public async findActive(): Promise<OperationResult<ProviderDbo>> {
+    const result = await this._context.Providers
+      .select()
+      .where("isActive", true)
+      .toList()
+    ;
+
+    if (result.length === 0) {
+      return OperationResultFactory.error(ERROR_CODES.NO_ACTIVE);
+    }
+
+    if (result.length > 1) {
+      return OperationResultFactory.error(ERROR_CODES.MULTIPLE_ACTIVE);
+    }
+
+    return OperationResultFactory.success(result[0]);
+  }
+
+
   public async create(
     id: Guid,
     label: string,
