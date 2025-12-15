@@ -3,7 +3,7 @@ import {
   HCHealthResultV1Model,
   HCMetricsResultV1Model
 } from "@wraithlight/core.health-checker.types";
-import { isNil } from "@wraithlight/core.nullable";
+import { isNil } from "@wraithlight/framework.nullable";
 import { OperationResult, OperationResultFactory } from "@wraithlight/framework.operation-result";
 
 import { HealthCheckClient } from "../client";
