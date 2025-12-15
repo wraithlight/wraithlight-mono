@@ -1,4 +1,4 @@
-import { Nullable, isNil } from "@wraithlight/core.nullable";
+import { Nullable, isNil } from "@wraithlight/framework.nullable";
 import { NextFunction, Request, Response } from "express";
 
 import { isBot } from "./_internal";

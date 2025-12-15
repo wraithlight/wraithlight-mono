@@ -1,5 +1,5 @@
 import { Character, CharacterTitlePosition } from "@wraithlight/core.game.types";
-import { isEmptyString } from "@wraithlight/core.nullable";
+import { isEmptyString } from "@wraithlight/framework.nullable";
 
 import { SPACE } from "./display-name.const";
 
