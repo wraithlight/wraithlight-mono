@@ -1,7 +1,7 @@
 import { API_TOKEN_HEADER_NAME } from "@wraithlight/core.api-token.constants";
 import { HCHealthResultV1Model, HCMetricsResultV1Model } from "@wraithlight/core.health-checker.types";
 import { CoreHttpClient } from "@wraithlight/core.http";
-import { Nullable } from "@wraithlight/core.nullable";
+import { Nullable } from "@wraithlight/framework.nullable";
 
 export class HealthCheckClient extends CoreHttpClient {
 
@@ -23,7 +23,7 @@ export class HealthCheckClient extends CoreHttpClient {
     path: string
   ): Promise<Nullable<HCHealthResultV1Model>> {
     const url = `${this._baseUrl}${path}`;
-    const result = await this.get<HCHealthResultV1Model>(url);
+    const result = await this.get2<HCHealthResultV1Model>(url);
     return result.payload;
   }
 
@@ -31,7 +31,7 @@ export class HealthCheckClient extends CoreHttpClient {
     path: string
   ): Promise<Nullable<HCMetricsResultV1Model>> {
     const url = `${this._baseUrl}${path}`;
-    const result = await this.get<HCMetricsResultV1Model>(url);
+    const result = await this.get2<HCMetricsResultV1Model>(url);
     return result.payload;
   }
 

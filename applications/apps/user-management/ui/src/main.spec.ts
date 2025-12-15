@@ -1,5 +1,5 @@
 import { Store } from "@wraithlight/core.redux";
-import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
+import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 
 const getDocumentRefSpy = jest.fn();
 const initializeAuthSdkSpy = jest.fn();
