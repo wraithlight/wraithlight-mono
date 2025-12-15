@@ -13,7 +13,7 @@
     "build:tools": "lerna run build --scope=@wraithlight/tools*",
     "build:prod": "lerna run build:prod",
     "build:guid": "lerna run build --scope @wraithlight/core.guid",
-    "postinstall": "yarn build:tools && yarn build:guid && yarn apply-patches && yarn build --scope=@wraithlight/common.logger.sdk && yarn theme:generate:all",
+    "_postinstall": "yarn build:tools && yarn build:guid && yarn apply-patches && yarn build --scope=@wraithlight/common.logger.sdk && yarn theme:generate:all",
     "graph": "nx graph",
     "test": "lerna run test",
     "test:coverage": "lerna run test:coverage",
