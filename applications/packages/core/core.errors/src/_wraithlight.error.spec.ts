@@ -7,15 +7,15 @@ class TestError extends WraithlightError {
 }
 
 describe("WraithlightErrorSpecs", () => {
-    const MOCK_TYPE = "error type";
-    const MOCK_MESSAGE = "error message";
+  const MOCK_TYPE = "error type";
+  const MOCK_MESSAGE = "error message";
 
-    describe("given the error is initialized", () => {
-        const error = new TestError(MOCK_TYPE, MOCK_MESSAGE)
-        describe("when i throw it", () => {
-            it("should be thrown", () => {
-                expect(() => { throw error }).toThrowError(error);
-            });
-        })
+  describe("given the error is initialized", () => {
+    const error = new TestError(MOCK_TYPE, MOCK_MESSAGE)
+    describe("when i throw it", () => {
+      it("should be thrown", () => {
+        expect(() => { throw error }).toThrowError(error);
+      });
     })
+  })
 })

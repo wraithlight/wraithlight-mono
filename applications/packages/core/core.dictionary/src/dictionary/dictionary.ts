@@ -1,4 +1,4 @@
-import { Nullable, isNil } from "@wraithlight/core.nullable";
+import { Nullable, isNil } from "@wraithlight/framework.nullable";
 
 /**
  * @deprecated Use `Dictionary` from `"@wraithlight/framework.nullable"` instead.
