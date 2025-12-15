@@ -1,4 +1,4 @@
-import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
+import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 import { NodemailerFacadeService } from "@wraithlight/facade.nodemailer";
 
 export class MailerService {
