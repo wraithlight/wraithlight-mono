@@ -1,4 +1,4 @@
 export interface JWTDecryptResult<T> {
-    success: boolean;
-    payload?: T
+  success: boolean;
+  payload?: T
 }
