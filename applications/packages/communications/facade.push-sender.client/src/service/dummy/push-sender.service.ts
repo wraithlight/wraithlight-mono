@@ -8,6 +8,7 @@ import { ONE_SEC } from "./push-sender.const";
 import { DummyPushSenderConfig } from "./push-sender.model";
 
 export class DummyPushSenderFacadeService
+  // eslint-disable-next-line indent
   implements IPushSenderFacadeService<DummyPushSenderConfig> {
 
   public initialize(_config: DummyPushSenderConfig): OperationResult<void> {

@@ -2,7 +2,7 @@ const hasSpy = jest.fn();
 const getSpy = jest.fn();
 const resetSpy = jest.fn();
 
-jest.mock("@wraithlight/core.dictionary", () => {
+jest.mock("@wraithlight/framework.dictionary", () => {
   return {
     Dictionary: jest.fn().mockImplementation(() => {
       return {

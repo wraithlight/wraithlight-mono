@@ -1,4 +1,4 @@
-import { Dictionary } from "@wraithlight/core.dictionary";
+import { Dictionary } from "@wraithlight/framework.dictionary";
 
 export class MemoizeDictionaryFactory {
 
