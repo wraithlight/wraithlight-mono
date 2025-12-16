@@ -20,7 +20,8 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@wraithlight/core.guid": "*"
+    "@wraithlight/core.guid": "*",
+    "@wraithlight/domain.http.types": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
