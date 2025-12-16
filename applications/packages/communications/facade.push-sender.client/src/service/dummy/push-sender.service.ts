@@ -17,7 +17,6 @@ export class DummyPushSenderFacadeService
 
   public async sendPush(
     _recipientAddress: string,
-    _senderAddress: string,
     _subject: string,
     _content: string,
     _applicationLink: string,
@@ -29,7 +28,7 @@ export class DummyPushSenderFacadeService
     );
     const received = utcNow();
     const result: PushSenderResponse = {
-      providerId: newGuid(),
+      providerIdentifier: newGuid(),
       providerName: "DUMMY",
       providerSentToAtUtc: start,
       providerRespondedAtUtc: received,

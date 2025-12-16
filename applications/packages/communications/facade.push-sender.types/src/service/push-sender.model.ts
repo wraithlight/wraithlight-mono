@@ -1,7 +1,7 @@
 import { ProviderName } from "./push-sender.type";
 
 export interface PushSenderResponse {
-  providerId: string;
+  providerIdentifier: string;
   providerName: ProviderName;
   providerSentToAtUtc: Date;
   providerRespondedAtUtc: Date;

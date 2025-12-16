@@ -1,6 +1,6 @@
 {
   "$schema": "../../../node_modules/@wraithlight/tools.schema/dist/package-json.package.schema.json",
-  "name": "@wraithlight/facade.push-sender.types",
+  "name": "@wraithlight/common.communications.push-sender.business-logic",
   "module": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "exports": {
@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "2.0.0",
+  "version": "2.1.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -20,7 +20,14 @@
     "build:prod": "rimraf dist/esm && tsc -p tsconfig.build.json"
   },
   "dependencies": {
-    "@wraithlight/framework.operation-result": "*"
+    "@wraithlight/common.communications.push-sender.dal": "*",
+    "@wraithlight/core.communications.push-sender.types": "*",
+    "@wraithlight/core.errors": "*",
+    "@wraithlight/core.guid": "*",
+    "@wraithlight/facade.push-sender.client": "*",
+    "@wraithlight/facade.push-sender.types": "*",
+    "@wraithlight/framework.date": "*",
+    "@wraithlight/framework.nullable": "*"
   },
   "devDependencies": {
     "@regru/eslint-plugin-prefer-early-return": "1.0.0",
