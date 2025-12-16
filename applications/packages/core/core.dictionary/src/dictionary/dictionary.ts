@@ -1,7 +1,7 @@
 import { Nullable, isNil } from "@wraithlight/framework.nullable";
 
 /**
- * @deprecated Use `Dictionary` from `"@wraithlight/framework.nullable"` instead.
+ * @deprecated Use `Dictionary` from `"@wraithlight/framework.dictionary"` instead.
  */
 export class Dictionary<TValue> {
 
