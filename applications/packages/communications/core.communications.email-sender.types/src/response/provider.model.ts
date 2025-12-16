@@ -1,8 +1,8 @@
 import {
   ProviderCreateResponseModel,
-  ProviderUpdateResponseModel,
   ProviderGetResponseModel,
   ProviderListResponseModel,
+  ProviderUpdateResponseModel,
 } from "@wraithlight/core.communications.types";
 
 // eslint-disable-next-line max-len
