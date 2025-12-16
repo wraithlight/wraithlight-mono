@@ -1,15 +1,15 @@
 import { CommunicationQueueDbo, NotificationQueueService, ProviderService } from "@wraithlight/common.communications.email-sender.dal";
 import { SendService } from "@wraithlight/common.communications.notifier-proxy.client";
 import { ServerCommsESSConfigReader } from "@wraithlight/common.environment-static.server";
-import { ESSProviderCreateResponseModel } from "@wraithlight/core.communications.email-sender.types";
+import { ESSProviderCreateResponseModel, ESSProviderUpdateResponseModel } from "@wraithlight/core.communications.email-sender.types";
 import { CqrsService } from "@wraithlight/core.cqrs";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
-import { InternalServerError, NotFoundError } from "@wraithlight/core.errors";
+import { ConflictError, InternalServerError, NotFoundError } from "@wraithlight/core.errors";
 import { Guid, newGuid } from "@wraithlight/core.guid";
 import { DummyEmailSenderFacadeService } from "@wraithlight/facade.email-sender.client";
 import { EmailSenderResponse, IEmailSenderConfig, IEmailSenderFacadeService } from "@wraithlight/facade.email-sender.types";
 import { utcNow } from "@wraithlight/framework.date";
-import { isEmptyStringOrNil } from "@wraithlight/framework.nullable";
+import { isEmptyStringOrNil, isNil } from "@wraithlight/framework.nullable";
 import { OperationResult } from "@wraithlight/framework.operation-result";
 
 export class CommunicationManager {
@@ -57,6 +57,71 @@ export class CommunicationManager {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       config: JSON.parse(createResult.payload.config)
     };
+    return result;
+  }
+
+  public async updateProvider<T extends IEmailSenderConfig>(
+    id: Guid,
+    label?: string,
+    config?: T,
+    isActive?: boolean
+  ): Promise<ESSProviderUpdateResponseModel> {
+    const entryResult = await this._providerService.findById(id);
+
+    if (entryResult.isErrorTC()) {
+      throw new NotFoundError();
+    }
+    // eslint-disable-next-line max-len
+    const newLabel = isEmptyStringOrNil(label) ? entryResult.payload.label : label;
+    // eslint-disable-next-line max-len
+    const newConfig = isNil(config) ? entryResult.payload.config : JSON.stringify(config);
+    // eslint-disable-next-line max-len
+    const newIsActive = isNil(isActive) ? entryResult.payload.isActive : isActive;
+
+    if (!entryResult.payload.isActive && newIsActive) {
+      const activeProviderResult = await this._providerService.findActive();
+      if (activeProviderResult.isErrorTC()) {
+        throw new NotFoundError();
+      }
+
+      const deactivateResult = await this._providerService.update(
+        activeProviderResult.payload.id,
+        activeProviderResult.payload.label,
+        activeProviderResult.payload.config,
+        false
+      );
+
+      if (deactivateResult.isErrorTC()) {
+        throw new InternalServerError();
+      }
+
+    }
+
+    if (entryResult.payload.isActive && !newIsActive) {
+      throw new ConflictError();
+    }
+
+    const updateResult = await this._providerService
+      .update(
+        id,
+        newLabel,
+        newConfig,
+        newIsActive
+      )
+      ;
+
+    if (updateResult.isErrorTC()) {
+      throw new InternalServerError();
+    }
+
+    const result: ESSProviderUpdateResponseModel = {
+      id: updateResult.payload.id,
+      label: updateResult.payload.label,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      config: JSON.parse(updateResult.payload.config),
+      isActive: updateResult.payload.isActive
+    };
+
     return result;
   }
 
