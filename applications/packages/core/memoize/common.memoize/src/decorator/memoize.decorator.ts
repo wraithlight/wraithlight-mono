@@ -1,5 +1,5 @@
 import { toBase64String } from "@wraithlight/core.base64";
-import { Dictionary } from "@wraithlight/core.dictionary";
+import { Dictionary } from "@wraithlight/framework.dictionary";
 
 import { MemoizeDictionaryFactory } from "../dictionary";
 
