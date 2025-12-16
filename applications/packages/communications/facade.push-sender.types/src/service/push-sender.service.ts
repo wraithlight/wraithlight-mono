@@ -1,14 +1,15 @@
 import { OperationResult } from "@wraithlight/framework.operation-result";
 
+import { IPushSenderConfig } from "../config";
+
 import { PushSenderResponse } from "./push-sender.model";
 
-export interface IPushSenderFacadeService<T> {
+export interface IPushSenderFacadeService<T extends IPushSenderConfig> {
 
   initialize(config: T): OperationResult<void>;
 
   sendPush(
     recipientAddress: string,
-    senderAddress: string,
     subject: string,
     content: string,
     applicationLink: string,
