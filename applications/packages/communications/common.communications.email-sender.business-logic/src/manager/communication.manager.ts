@@ -1,6 +1,7 @@
 import { CommunicationQueueDbo, NotificationQueueService, ProviderService } from "@wraithlight/common.communications.email-sender.dal";
 import { SendService } from "@wraithlight/common.communications.notifier-proxy.client";
 import { ServerCommsESSConfigReader } from "@wraithlight/common.environment-static.server";
+import { ESSProviderCreateResponseModel } from "@wraithlight/core.communications.email-sender.types";
 import { CqrsService } from "@wraithlight/core.cqrs";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { InternalServerError, NotFoundError } from "@wraithlight/core.errors";
@@ -36,8 +37,7 @@ export class CommunicationManager {
   public async addProvider<T extends IEmailSenderConfig>(
     label: string,
     config: T
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ): Promise<any> {
+  ): Promise<ESSProviderCreateResponseModel> {
     const id = newGuid();
     const createResult = await this._providerService
       .create(
@@ -51,8 +51,13 @@ export class CommunicationManager {
       throw new InternalServerError();
     }
 
-    // TODO: https://github.com/wraithlight/wraithlight-mono/issues/1702 and align the return type
-    return createResult.payload;
+    const result: ESSProviderCreateResponseModel = {
+      id: id,
+      label: createResult.payload.label,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      config: JSON.parse(createResult.payload.config)
+    };
+    return result;
   }
 
   public async sendEmail(
