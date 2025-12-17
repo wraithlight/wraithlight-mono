@@ -1,7 +1,7 @@
 import { CommunicationQueueDbo, NotificationQueueService, ProviderService } from "@wraithlight/common.communications.email-sender.dal";
 import { SendService } from "@wraithlight/common.communications.notifier-proxy.client";
 import { ServerCommsESSConfigReader } from "@wraithlight/common.environment-static.server";
-import { ESSProviderCreateResponseModel, ESSProviderUpdateResponseModel } from "@wraithlight/core.communications.email-sender.types";
+import { ESSProviderCreateResponseModel, ESSProviderListResponseModel, ESSProviderUpdateResponseModel } from "@wraithlight/core.communications.email-sender.types";
 import { CqrsService } from "@wraithlight/core.cqrs";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { ConflictError, InternalServerError, NotFoundError } from "@wraithlight/core.errors";
@@ -120,6 +120,31 @@ export class CommunicationManager {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       config: JSON.parse(updateResult.payload.config),
       isActive: updateResult.payload.isActive
+    };
+
+    return result;
+  }
+
+  public async listProviders(
+  ): Promise<ESSProviderListResponseModel> {
+    const listResult = await this._providerService.list();
+
+    if (listResult.isErrorTC()) {
+      throw new InternalServerError();
+    }
+
+    const result: ESSProviderListResponseModel = {
+      items: listResult.payload.map(m => ({
+        id: m.id,
+        label: m.label,
+        isActive: m.isActive,
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        config: JSON.parse(m.config)
+      })),
+      visibleCount: listResult.payload.length,
+      allCount: listResult.payload.length,
+      skip: 0,
+      take: listResult.payload.length
     };
 
     return result;
