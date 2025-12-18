@@ -4,9 +4,6 @@ on: [push, workflow_dispatch]
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:
-      NX_SKIP_NX_CACHE_VALIDATION: true
-      NX_DAEMON: false
     steps:
     - name: Checkout
       uses: actions/checkout@v4
