@@ -71,6 +71,7 @@ This repository is the 8th generatorion of the previous platform larvas (`raptyl
 * [Port Mapping](./docs/urls/port-mapping.md)
 * [Environment variables](./docs/env-vars.md)
 * [Colors > Game](./docs/colors/game.md)
+* [API Token Handling](./docs/architecture/api-token-handling.md)
 
 ### Architecture
 * [Communication methodologies](./docs/architecture/communication.md)
