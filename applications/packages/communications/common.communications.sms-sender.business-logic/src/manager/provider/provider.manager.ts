@@ -23,7 +23,7 @@ export class ProviderManager {
       JSON.stringify(config),
       false
     );
-    
+
     if (createResult.isErrorTC()) {
       throw new InternalServerError();
     }
