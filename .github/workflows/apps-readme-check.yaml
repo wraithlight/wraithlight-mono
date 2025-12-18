@@ -11,8 +11,6 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: 18.20.8
-        cache: "yarn"
-        cache-dependency-path: applications/yarn.lock
     - name: Install packages
       run: yarn
       working-directory: ./applications
