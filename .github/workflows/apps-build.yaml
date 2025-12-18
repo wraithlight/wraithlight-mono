@@ -14,8 +14,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18.20.8
-          cache: "yarn"
-          cache-dependency-path: applications/yarn.lock
 
       - name: Cache Nx
         uses: actions/cache@v4
