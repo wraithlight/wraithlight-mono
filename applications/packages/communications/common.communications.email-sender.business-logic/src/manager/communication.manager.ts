@@ -1,7 +1,7 @@
 import { CommunicationQueueDbo, NotificationQueueService, ProviderService } from "@wraithlight/common.communications.email-sender.dal";
 import { SendService } from "@wraithlight/common.communications.notifier-proxy.client";
 import { ServerCommsESSConfigReader } from "@wraithlight/common.environment-static.server";
-import { ESSProviderCreateResponseModel, ESSProviderListResponseModel, ESSProviderUpdateResponseModel } from "@wraithlight/core.communications.email-sender.types";
+import { ESSProviderCreateResponseModel, ESSProviderGetResponseModel, ESSProviderListResponseModel, ESSProviderUpdateResponseModel } from "@wraithlight/core.communications.email-sender.types";
 import { CqrsService } from "@wraithlight/core.cqrs";
 import { CoreEnvironment } from "@wraithlight/core.env.sdk";
 import { ConflictError, InternalServerError, NotFoundError } from "@wraithlight/core.errors";
@@ -32,6 +32,29 @@ export class CommunicationManager {
     const senderConfig = this.getSenderConfig();
     this._emailSenderFacade.initialize(senderConfig);
     this._providerService = new ProviderService();
+  }
+
+  public async getProviderById(
+    id: Guid
+  ): Promise<ESSProviderGetResponseModel> {
+    const findResult = await this._providerService.findById(id);
+    if (findResult.isErrorTC()) {
+      throw new NotFoundError();
+    }
+
+    if (isNil(findResult.payload)) {
+      throw new InternalServerError();
+    }
+
+    const result: ESSProviderGetResponseModel = {
+      id: findResult.payload.id,
+      label: findResult.payload.label,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      config: JSON.parse(findResult.payload.config),
+      isActive: findResult.payload.isActive
+    };
+
+    return result;
   }
 
   public async addProvider<T extends IEmailSenderConfig>(
