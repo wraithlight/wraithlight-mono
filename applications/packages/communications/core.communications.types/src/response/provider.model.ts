@@ -22,6 +22,6 @@ export interface ProviderGetResponseModel {
 }
 
 export interface ProviderListResponseModel
-  // eslint-disable-next-line indent 
+  // eslint-disable-next-line indent
   extends IListResult<ProviderGetResponseModel> {
 }
