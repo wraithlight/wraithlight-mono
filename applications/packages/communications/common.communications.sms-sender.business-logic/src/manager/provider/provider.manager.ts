@@ -1,14 +1,8 @@
 import { ProviderService } from "@wraithlight/common.communications.sms-sender.dal";
-import { SSSPro } from "@wraithlight/core.communications.sms-sender.types";
+import { SSSProviderCreateResponseModel } from "@wraithlight/core.communications.sms-sender.types";
 import { InternalServerError } from "@wraithlight/core.errors";
-import { Guid, newGuid } from "@wraithlight/core.guid";
-import { DummySmsSenderFacadeService } from "@wraithlight/facade.sms-sender.client";
-import {
-  ISMSSenderConfig,
-  ISmsSenderFacadeService
-} from "@wraithlight/facade.sms-sender.types";
-import { utcNow } from "@wraithlight/framework.date";
-import { isEmptyStringOrNil } from "@wraithlight/framework.nullable";
+import { newGuid } from "@wraithlight/core.guid";
+import { ISMSSenderConfig } from "@wraithlight/facade.sms-sender.types";
 
 export class ProviderManager {
 
@@ -17,6 +11,30 @@ export class ProviderManager {
   constructor() {
     this._providerService = new ProviderService();
   }
-nc addProvider(): Promise<SSSProvi
+
+  public async addProvider<T extends ISMSSenderConfig>(
+    label: string,
+    config: T
+  ): Promise<SSSProviderCreateResponseModel> {
+    const id = newGuid();
+    const createResult = await this._providerService.create(
+      id,
+      label,
+      JSON.stringify(config),
+      false
+    );
+    
+    if (createResult.isErrorTC()) {
+      throw new InternalServerError();
+    }
+
+    const result: SSSProviderCreateResponseModel = {
+      id: id,
+      label: createResult.payload.label,
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      config: JSON.parse(createResult.payload.config)
+    };
+    return result;
+  }
 
 }
