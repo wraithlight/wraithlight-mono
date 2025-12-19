@@ -20,7 +20,7 @@ export class MessagebusService {
     this._listeners
       .filter(m => m.token === token)
       .forEach(m => m.callback(data))
-      ;
+    ;
   }
 
   public sub<T>(token: string, callback: MessagebusCallbackFn<T>): Guid {
