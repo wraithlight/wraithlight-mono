@@ -1,7 +1,7 @@
 import { isGuid } from "@wraithlight/core.guid";
 import { HttpCode } from "@wraithlight/core.http";
-import { isEmptyStringOrNil } from "@wraithlight/core.nullable";
 import { HeaderName } from "@wraithlight/domain.http.constants";
+import { isEmptyStringOrNil } from "@wraithlight/framework.nullable";
 import { Request } from "express";
 
 import { FilterResult } from "../internal";

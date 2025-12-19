@@ -1,5 +1,6 @@
 import { HttpCode } from "@wraithlight/core.http";
-import { isNil } from "@wraithlight/core.nullable";
+import { isNil } from "@wraithlight/framework.nullable";
+import { T_ANY } from "@wraithlight/kernel.any";
 import {
   Application,
   IRouterMatcher,
@@ -85,7 +86,7 @@ export class ControllerBinder {
             // eslint-disable-next-line max-len, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
             const paramExecutors = context[PARAM_PROPERTY_KEY]?.[methodMetadata.name].parameters;
             // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
-            const params = paramExecutors.map((m: any) => m(context));
+            const params = paramExecutors.map((m: T_ANY) => m(context));
             method.apply(context, params);
           }
         }

@@ -1,6 +1,7 @@
 import { IArgumentDecoratorFactory } from "@wraithlight/core.decorator.types";
 import { Predicate } from "@wraithlight/core.linq";
-import { isNil } from "@wraithlight/core.nullable";
+import { isNil } from "@wraithlight/framework.nullable";
+import { T_ANY } from "@wraithlight/kernel.any";
 import { Request } from "express";
 
 import { BaseController } from "../../controller";
@@ -29,13 +30,12 @@ export const FromBody = <T extends BaseController>(
 };
 
 export const FromBodyV2 = <TBody>(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  selector?: Predicate<TBody, any>
+  selector?: Predicate<TBody, T_ANY>
 ): IArgumentDecoratorFactory<BaseController> => {
   if (isNil(selector)) {
     return ParamDecorator(m => m.body);
   }
-  const extractor = (m: Request): any => {
+  const extractor = (m: Request): T_ANY => {
     return selector(m.body);
   };
   return ParamDecorator(extractor);
