@@ -10,7 +10,7 @@
       "types": "./dist/index.d.ts"
     }
   },
-  "version": "4.0.0",
+  "version": "4.1.0",
   "license": "LGPL-3.0-only",
   "scripts": {
     "lint": "eslint .",
@@ -24,9 +24,10 @@
     "@wraithlight/core.decorator.types": "*",
     "@wraithlight/core.http": "*",
     "@wraithlight/core.linq": "*",
-    "@wraithlight/core.nullable": "*",
-    "@wraithlight/core.undefined": "*",
     "@wraithlight/domain.http.constants": "*",
+    "@wraithlight/framework.nullable": "*",
+    "@wraithlight/kernel.any": "*",
+    "@wraithlight/kernel.undefined": "*",
     "cors": "2.8.5",
     "express": "4.18.2",
     "swagger-ui-express": "5.0.1"

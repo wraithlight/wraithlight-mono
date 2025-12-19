@@ -1,5 +1,5 @@
 import { IArgumentDecoratorFactory } from "@wraithlight/core.decorator.types";
-import { GLOBAL_UNDEFINED } from "@wraithlight/core.undefined";
+import { GLOBAL_UNDEFINED } from "@wraithlight/kernel.undefined";
 import { Request } from "express";
 
 import { BaseController } from "../../controller";
