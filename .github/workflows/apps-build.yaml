@@ -1,6 +1,8 @@
 name: "Applications GHA - Build"
 run-name: "APPS BUILD"
 on: [push, workflow_dispatch]
+env:
+  NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
 jobs:
   appsBuild:
     runs-on: ubuntu-latest
