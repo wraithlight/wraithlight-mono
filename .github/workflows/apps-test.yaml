@@ -1,6 +1,8 @@
 name: "Applications GHA - Test"
 run-name: "APPS TEST"
 on: [push, workflow_dispatch]
+env:
+  NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
 jobs:
   test:
     runs-on: ubuntu-latest
