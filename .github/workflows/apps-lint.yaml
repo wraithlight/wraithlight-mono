@@ -1,6 +1,8 @@
 name: "Applications GHA - Lint"
 run-name: "APPS LINT"
 on: [push, workflow_dispatch]
+env:
+  NX_REJECT_UNKNOWN_LOCAL_CACHE: 0
 jobs:
   lint:
     runs-on: ubuntu-latest
